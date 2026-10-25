@@ -12,6 +12,15 @@ The first [consolidated architecture overview](docs/design/28-architecture-overv
 and [independent final review](docs/reviews/29-final-review.txt) remain preserved
 evidence. Their documentary consistency does not settle the best fresh design.
 
+## Slice 01 implementation design
+
+The first slice follows one board through browser and CLI reads, creation, edits,
+comments, conflicts, reload/restart recovery, one attachment and export/restore.
+Its [scope and acceptance contract](docs/slice01/01-scope-acceptance.txt) and
+[fresh independent scope review](docs/slice01/02-scope-review.txt) are proposed
+inputs for Terry's review. Acceptance of that review gates the deeper design
+cards. These notes provide no implementation or runtime qualification evidence.
+
 ## Free and open source
 
 localswim is and will remain free and open-source software. All localswim project repositories are public and use the MIT license.

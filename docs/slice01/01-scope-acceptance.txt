@@ -1,0 +1,96 @@
+SLICE01 - ONE-BOARD PRODUCT SCOPE AND ACCEPTANCE
+2026-10-25 | #0001 | Proposed acceptance packet for independent review
+
+Status and authority
+Latest approved defaults below control over older candidate architecture. This
+packet defines observable outcomes; it selects no API, schema, storage mode,
+security mechanism or numeric policy. Independent review #0002 and Terry's
+acceptance gate deeper design. This packet does not execute #0003-#0007.
+
+Approved defaults
+- Browser and CLI, Windows first, incremental delivery. Preserve useful outcomes;
+  commands, layouts and formats may change for a concrete benefit.
+- Transactional authority; SQLite leads the comparison. Readable JSON exports are
+  supported; directly editing canonical live JSON is not a future workflow.
+- Separate human and automation permissions under cooperative automation on a
+  trusted desktop account. No hostile same-account isolation or proof of review.
+- Recover earlier card text and unsent drafts after reload. Recovery is private,
+  with explicit clearing and retention controls; numeric policies remain open.
+- Preserve assigned priority. Show dependency pressure and readiness separately;
+  relationships must not silently rewrite assigned priority.
+
+Retained outcomes and capabilities
+One synthetic board supports attributable open/read/create/edit/comment through
+browser and CLI. A human can review work and exercise explicitly granted approval
+rights; automation can perform granted board operations and submit a review
+handoff, without acquiring human approval authority through assignment or client
+choice. Both clients respect the same effective permissions and current board
+state. Attribution identifies the granted actor; it does not certify human review.
+
+Keep references usable across edits and show which board is being changed. Browser
+users can complete the journey with keyboard controls and explicit save outcomes.
+CLI users receive concise human output and machine-distinguishable confirmed,
+refused/conflicting and unknown outcomes. Exact syntax, JSON shape and exit numbers
+are downstream choices. Saved changes, exports and restored copies have distinct
+outcomes; export failure does not turn a confirmed save into failure.
+
+Acceptance examples (synthetic fixtures, not executed tests)
+1. Open/read: open board Demo in the browser and explicitly select Demo in CLI.
+   Both identify Demo and show card Alpha's same confirmed title, description and
+   comments. An unavailable read is visible as unavailable/stale, never an empty
+   board presented as current. No other board is changed.
+2. Create/edit/comment: browser creates Alpha with description "First draft";
+   CLI reads it, edits to "Reviewed draft" and adds comment "CLI check". Reverse
+   the clients for card Beta and comment "Browser check". Each confirmed action
+   appears once with attributable actor and stable reference in subsequent reads.
+   A denied automation action changes nothing; switching clients cannot grant it.
+3. Conflict: browser and CLI both read "Reviewed draft". CLI saves "CLI revision";
+   browser then attempts "Browser revision" against its older view. Browser shows
+   the conflict, preserves its input and exposes current text for deliberate
+   reconciliation. It cannot silently overwrite CLI text or retry as fresh intent.
+4. Three recovery classes: after a confirmed edit replaces "First draft", recover
+   that earlier committed text as history. Separately reload an unsent "Next draft"
+   and recover editable input with its original context/base. Separately retain
+   immutable evidence of an unresolved submitted "Check once" comment, including
+   original identity, actor/board, content and preconditions. Editing a newer draft
+   cannot rewrite that evidence; history or similar prose cannot prove its outcome.
+5. Restart/lost response: submit "Check once", lose the response, restart, reload
+   and reauthenticate. Reconcile using the original submission evidence. Confirmed
+   commit closes uncertainty without adding a second comment. Definitive noncommit
+   permits deliberate new submission. Missing, expired or inaccessible evidence
+   remains unknown: reload, cancellation and restart never silently replay or mint
+   replacement intent. If recovery storage fails or is known lost, disclose the
+   limitation, preserve available input and require deliberate investigation/action;
+   never claim noncommit. Warn before discarding unresolved evidence.
+6. Priority: Alpha is assigned P3; an urgent dependent is added and later removed.
+   Alpha remains P3 throughout. Show the relationship's pressure/readiness separately.
+   A dependent awaiting prerequisite acceptance does not become executable merely
+   because the prerequisite is handed off for review.
+7. Attachment/export/restore: associate one synthetic note.txt containing "Evidence
+   A" with Alpha. Export a declared consistent board revision with readable JSON
+   and the bytes required by its declared recovery scope. Restore into a separate
+   synthetic destination: Alpha/Beta, comments, references and attachment content
+   agree with that export. Report incomplete bytes or unsupported recovery scope;
+   never label a partial restore complete or silently replace live authority.
+
+Boundaries and open design
+No multi-board workspace, monitor/publisher, Git automation, migration, cutover,
+feature parity, offline mutation queue or general workflow engine is required here.
+Export/restore does not promise remote backup or unlimited historical reconstruction.
+
+Downstream work must settle retained history fields, duration/clearing consequences,
+submission-evidence protection and availability (including pre-submit refusal),
+conflict granularity, attachment placement/protection, export recovery inventory,
+restore authority and identity rules, transport, grants and approval boundaries.
+Those decisions require explicit acceptance examples, not inherited guarantees.
+
+Public evidence and verification limits
+Read README.md; docs/decisions/fresh-choice-reassessment-2026-10-25.txt;
+docs/reconsideration/34-product.txt, 36-storage.txt, 37-security.txt,
+38-interfaces.txt, 39-domain.txt, 40-operations.txt, 44-decision-agenda.txt,
+46-clarifications.txt and 47-review-clarifications.txt, under v2-architecture/.
+Older decisions are preserved history; recommendations remain candidates except
+where latest approved defaults select them. Documentary scope/fidelity checks
+only: no implementation, build, durability, restore or security qualification.
+Prior source exposure is disclosed; no isolated clean-room certification.
+Public MIT FOSS; no real board data, credentials or private operational records.

@@ -1,0 +1,66 @@
+SLICE01 - INDEPENDENT PRODUCT SCOPE REVIEW
+2026-10-25 | #0002 | Sol / Medium | Documentary review
+
+Verdict: PASS
+No material correction is required before Terry reviews #0001. This review
+accepts the scope contract's fidelity and boundedness, not an implementation.
+The reviewer did not author the reviewed packet.
+
+Basis and fidelity
+Reviewed 01-scope-acceptance.txt against the current approved input brief and its
+r2 execution addendum. All five approved defaults survive explicitly at lines
+10-20: both clients and Windows first; transactional authority with SQLite only
+the leading candidate; cooperative separate grants; private earlier-text/draft
+recovery with clearing/retention controls; assigned priority independent of
+dependency pressure. These supersede older recommendations where they differ.
+
+The public README, fresh-choice reassessment direction and notes 34/36/37/38/39/
+40/44/46/47 cited at lines 88-91 were considered as candidate evidence. In
+particular, metadata-only history and memory-only drafts cannot substitute for
+the approved recovery outcomes. Conversely, 46's proposed pre-submit refusal is
+not silently made an immutable product mechanism: its availability/privacy trade
+must be settled explicitly downstream (lines 81-85).
+
+Acceptance coverage
+- Lines 23-50 give a narrow, executable future synthetic journey: one board,
+  browser/CLI round trips in both directions, attributable changes, stable
+  references, unavailable reads and stale-edit refusal with preserved input.
+  Keyboard completion and distinct CLI outcomes are observable requirements;
+  no exact syntax, transport or compatibility guarantee is invented.
+- Lines 24-28 and 46 preserve shared authorization: automation cannot gain human
+  approval through assignment or client choice. Granted-actor attribution is
+  expressly weaker than proof of human review, matching cooperative assurance.
+- Lines 51-64 separate earlier committed text, editable unsent drafts and immutable
+  unresolved submissions. Original identity/content/preconditions survive newer
+  drafting. Missing, expired or inaccessible evidence remains unknown; reload,
+  restart and cancellation authorize neither replay nor replacement intent.
+  Known recovery loss requires disclosure/investigation, never false noncommit.
+- Lines 65-68 keep P3 stable when an urgent dependency appears/disappears and
+  distinguish review handoff from prerequisite acceptance and execution readiness.
+- Lines 69-79 require a declared consistent export with attachment bytes and a
+  separate restore destination. Incompleteness cannot be reported as success;
+  export failure remains separate from save success (lines 34-35). Remote backup,
+  unlimited reconstruction and live-authority replacement are not promised.
+
+Material findings
+ID | Severity | Location | Finding / required correction
+None | None | 01-scope-acceptance.txt:5-96 | No material defect; no correction required.
+
+Downstream obligations and owner gate
+The open policies at lines 81-85 are legitimate scoped design work for #0003-
+#0007, rather than omissions requiring this product contract to prescribe APIs,
+schemas, numeric retention, byte placement or security mechanisms. Those designs
+must specify acceptance examples for refusal before submission, evidence loss,
+retention/clearing, grants/approval, identity and export recovery inventory. The
+present pass supplies no defaults or guarantees for those unresolved choices.
+
+Terry must accept the reviewed scope before gated deeper design proceeds. Review
+handoff alone does not satisfy that gate, mark a prerequisite Completed or approve
+implementation. Only Terry controls Completed.
+
+Verification limits
+Documentary consistency/fidelity and local reference/format checks only. No code,
+tests, builds, runtime, durability, recovery, restore or security qualification.
+No v1 sources/tests/internal designs or real board data were consulted for this
+review. Prior source exposure remains disclosed; no isolated clean-room
+certification. Public MIT FOSS; no credentials or private operational records.
