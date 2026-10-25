@@ -1,0 +1,119 @@
+LOCALSWIM REBOOT: CANDIDATE PRODUCT SCOPE
+Card #0001 | 2026-10-25 | Author: sol_medium_0001_product_scope
+Status: proposal for independent #0004 review and Terry's acceptance.
+
+Proposed boundary
+A local-first board product for human and automation collaboration, with configurable
+workflow, concurrent browser/CLI use, durable attributable changes, and multiple
+independent boards. Evaluate Go for core/service/CLI/background tools and TypeScript
+7.x for the browser. This is a product boundary, not an approved storage, protocol,
+process, security, migration, or toolchain design.
+
+Evidence and provenance
+The r2 input brief and explicit user directions are primary evidence [B]. The narrow
+public README sections below document current behavior; they do not approve its
+retention or establish implementation guarantees. Earlier source exposure is known;
+this note claims no isolated clean-room certification. No source, tests, internal
+architecture, private board contents, or peer outputs were consulted for this note.
+
+Capability matrix (candidate baseline)
+Retain means preserve the user outcome; Redesign means retain an outcome while
+requiring an explicit replacement contract. Defer means outside the initial proposed
+baseline; Exclude means outside this reboot's authorized design scope.
+
+Group                         | Disposition | Proposed boundary / evidence
+------------------------------|-------------|--------------------------------------------
+Board/workflow configuration  | Retain      | Stable identities, users/classes, lanes,
+                              |             | priorities, allow-listed rights; no fixed
+                              |             | seven-lane template requirement. [R1,R7]
+Cards/comments/archive        | Retain      | CRUD-style editing without hard deletion;
+                              |             | reversible archive preserves identity,
+                              |             | contents, links and history. [R2,R3]
+Human acceptance              | Retain      | Human-only review acceptance; automation
+                              |             | cannot approve its own work. [R1]
+Relationships/hierarchy       | Retain      | Typed directional links and parent/child
+                              |             | structure; atomic relationship edits. [R2]
+Triage/priority inheritance    | Retain      | Deterministic ordering and documented
+                              |             | direction of urgency propagation; cycles,
+                              |             | completion and archive treated explicitly.
+                              |             | Formula preservation needs approval. [R2,R6]
+Audit/validation/conflicts    | Redesign    | Attributable metadata, validation, rejected
+                              |             | stale writes, explicit unknown outcomes;
+                              |             | never silently replay mutations. [R2,R8]
+Attachments                   | Retain      | Upload/download, image previews/covers,
+                              |             | integrity and retained detached bytes;
+                              |             | coordinated metadata/byte safety. [R4]
+Browser experience            | Redesign    | Search, drawers, keyboard/pointer access,
+                              |             | focus, drafts and recoverable errors;
+                              |             | no pixel-identical UI requirement. [R2,R5]
+CLI                           | Redesign    | Focused human/JSON reads, live writes,
+                              |             | initialization, verification and controlled
+                              |             | stopped-board maintenance. [R1,R2,R8]
+Workspace                     | Retain      | Discovery, bookmarks, attention, shared
+                              |             | pins and window-local context; a bad board
+                              |             | must not disable healthy boards. [R5]
+Git publishing/backups        | Redesign    | Opt-in, off by default; scoped publication,
+                              |             | independent save/commit/push status and
+                              |             | recoverable failures. [R4,R5,R8]
+Activity monitoring           | Redesign    | One owner per board; sanitized activity,
+                              |             | suppress only proven nonempty bot-only
+                              |             | bursts; uncertainty alerts. [R9]
+Legacy migrations/protocols    | Defer       | Existing schema upgrades and wire/CLI
+                              |             | compatibility await explicit decisions. [B]
+Unimplemented roadmap         | Exclude     | Private schema-5/restore preparations
+                              |             | require separate authorization. [B]
+
+Compatibility versus new requirements
+Propose continuity of stable card references, workflow meanings, attribution,
+non-destructive archive, privacy-conscious reports and mutation outcome semantics.
+Exact CLI syntax/JSON shapes, routes, storage schema, bookmark format, limits,
+timings, retention duration and historical quirks are undecided compatibility
+contracts. No importer, exporter or cutover is authorized here.
+
+The mandated new direction is Go plus TypeScript 7.x evaluation. Do not quietly
+substitute a TypeScript major; #0022 must verify availability/channel. Broader
+identity models, remote collaboration and stronger durability are possible new
+requirements, not demonstrated approvals.
+
+Assumptions and material limits
+- Assume local browser plus trusted automation is the initial audience, pending
+  owner confirmation of platforms, users, exposure and workloads.
+- Audit metadata is not necessarily replayable content history: README description
+  and rename events omit old/new prose [R2]; full reconstruction needs a decision.
+- README crash-safety statements do not promise acknowledged writes survive power
+  loss [R4]. Do not turn them into an unqualified durability guarantee.
+- JSON/Git-friendly storage is a candidate requirement; mechanisms remain open.
+
+Alternatives and recommended owner decisions
+1. Prefer the capability baseline above over a minimal cards-only first release;
+   it preserves the documented collaboration workflow but increases delivery scope.
+   Terry may stage attachments, workspace, publishing or monitoring explicitly.
+2. Approve behavioral continuity first; exact legacy compatibility increases
+   migration convenience and constrains replacement design. Select what must match.
+3. Confirm attachment retention/limits, triage formula, audit reconstruction needs,
+   supported platforms/workloads and durability budgets before dependent design.
+4. Accept evidence/reuse rules through #0002/#0004 before downstream work.
+
+Non-goals
+No implementation, installs, repository scaffolding, live changes, migration,
+release or cutover. No inherited Python module layout, exact routes, process
+count, polling cadence or source-reload mechanism. No cloud hosting, mobile app,
+multi-tenant SaaS or new notification destination commitment.
+
+Evidence index
+[B] architecture-input-brief-r2.txt, sections Purpose and authority; Candidate
+product capabilities; Provisional evidence rules; Open owner decisions.
+[R1] C:/Projects/localswim/README.md, Board configuration.
+[R2] Same path, Daily use.
+[R3] Same path, Archiving cards.
+[R4] Same path, Card attachments and cover photos.
+[R5] Same path, Multiple boards in one workspace.
+[R6] Same path, Dependency priority inheritance.
+[R7] Same path, Transition permissions.
+[R8] Same path, Data safety and Git.
+[R9] Same path, Shared board-write monitor.
+
+Author verification
+Checked all 14 capability groups against the permitted brief/README sections;
+separated compatibility, assumptions and decisions. Independent review and owner
+acceptance remain outstanding. This artifact alone authorizes no downstream work.

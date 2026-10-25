@@ -1,0 +1,69 @@
+LOCALSWIM REBOOT — INDEPENDENT FOUNDATION REVIEW (#0004)
+2026-10-25 | Reviewer: sol_medium_0004_review_baseline
+
+Recommendation: PASS WITH NON-BLOCKING OBSERVATIONS.
+The three proposals are suitable for Terry's foundation decision. They do not yet
+establish an accepted product or implementation baseline. No blocking defect was
+found. The observations below should inform acceptance and downstream contracts;
+none licenses implementation or changes Terry's decisions.
+
+Review basis and limits
+Reviewed architecture-input-brief-r2.txt and design/01-product-scope.txt,
+02-clean-room-method.txt and 03-quality-attributes.txt. Cross-checked the permitted
+public README sections for the principal capability, archive, permission, persistence
+and monitor claims. No legacy source, tests, internal architecture or private boards
+were inspected. README evidence is local, without a release-pinned revision; this
+review establishes documentary support, not runtime verification or legal provenance.
+
+Assessment
+The capability matrix covers the brief's candidate groups and separates outcome
+continuity from wire, storage and migration compatibility. Its retained outcomes are
+recommendations, not proof of owner approval. Replayable audit reconstruction is
+correctly left unresolved rather than inferred from metadata history. Unimplemented
+roadmap work remains excluded. Public documentation supports the principal behavior
+claims; proposed platforms, limits and stronger guarantees are visibly unverified.
+
+The evidence method honestly discloses earlier source exposure and avoids an
+unsupported isolation claim. Synthetic examples, exposure records and traceable
+requirement packets are practical safeguards. Permission policy should be approved
+at useful category/packet granularity: routine engineering selection should not
+acquire a separate owner gate for every library or individual requirement.
+
+The quality note contains useful measurable conflict, corruption, crash, latency,
+workspace and monitoring scenarios. Mechanisms remain open. Authentication and
+request-origin protection need a future negative scenario; numeric performance
+acceptance needs a reproducible measurement profile. These are refinements, not
+reasons to select storage or process topology prematurely.
+
+Finite owner-decision register (proposed grouping; no decisions made here)
+D1. Accept the capability matrix or name staged/deferred groups; decide audit
+    reconstruction, attachment retention and triage behavior within retained groups.
+D2. Select behavioral continuity versus exact data/CLI/protocol compatibility;
+    decide whether migration design belongs in later scope.
+D3. Accept disclosed-provenance development and a bounded evidence/reuse policy:
+    source-derived requirements, black-box fixtures, assets and dependency categories.
+D4. Choose platforms, browsers, local exposure/trust boundary and supported storage
+    environments; confirm whether JSON/Git-friendly storage is a requirement.
+D5. Accept or revise workload/latency/memory/accessibility targets and failure budgets,
+    including hardware-loss tolerance, backup retention and recovery objectives.
+D6. Decide TypeScript 7.x release/channel policy after #0022 verification. Go plus
+    TypeScript 7.x remains the selected direction throughout this evaluation.
+D7. Accept later storage/topology recommendations when their design cards provide
+    alternatives and evidence; no mechanism choice is required from this packet.
+
+Decisions may be accepted together. Gate only work materially dependent on an
+unresolved choice; deferred optional features need not block unrelated design.
+
+Material findings / observations
+ID | Type / severity | Source and section | Impact | Concrete correction
+O1 | Wording / Low | 01, Proposed boundary; Compatibility versus new requirements; 03, Authority and evidence | Go/TS7 “evaluation” versus “hard user constraints” can suggest the selected languages are optional. | State the selected language direction consistently; evaluate feasibility/channel without silently substituting.
+O2 | Coverage / Medium, non-blocking | 03, Recommended operating envelope; Proposed quality scenarios | Authorization and request-origin protection lack an explicit negative acceptance scenario. | Add synthetic unauthorized actor/origin attempts: zero state/audit mutation, safe refusal and sanitized diagnostic; select scope with D4.
+O3 | Measurability / Low | 03, Proposed reference workload; scenarios 6–7 | Warm-up, first-view timing boundary, request mix and repeated-burst sampling are unspecified. | Define cold/warm conditions, timing boundaries, mutation/attachment mix and repetitions yielding the stated sample counts before benchmarking.
+O4 | Workflow recommendation / Low | 02, evidence matrix; Practical worker workflow; Owner decisions and tradeoffs | Individual requirement/dependency approvals and blanket downstream gates can create avoidable owner work. | Permit batch requirement acceptance and approved dependency categories; identify only decision-specific prerequisite gates. Preserve explicit asset/black-box restrictions.
+O5 | Traceability / Low | 01, Evidence index; 03, Authority and evidence | README section citations can drift before acceptance checks are authored. | Capture the reviewed documentation revision/digest in the proposed ledger before implementation packets; retain the stated verification limits.
+
+Boundary verification
+This packet contains architecture recommendations and review evidence only. No
+implementation, installation, scaffolding, live changes, migration or cutover was
+performed. Independent review is complete; primary verification and Terry's
+acceptance remain separate. Terry alone controls Completed.

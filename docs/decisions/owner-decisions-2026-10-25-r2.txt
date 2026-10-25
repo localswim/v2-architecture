@@ -1,0 +1,18 @@
+BINDING OWNER DECISIONS - 2026-10-25 (r2)
+
+Current update
+- Terry explicitly stated: "0004 is approved and can be moved to RFR".
+- Review gate 0004 is accepted in this conversation. Move its card to Ready for Review exactly as requested; no Completed transition is authorized or performed.
+- This explicit acceptance releases architecture cards 0005-0008 even while the review card remains RFR. A lane label does not negate the recorded owner decision.
+- Use the reviewed foundation proposals and five non-blocking observations as inputs. Keep unselected alternatives and unverified numerical budgets labeled; later storage/topology/channel choices remain with their designated cards.
+- Approval authorizes this architecture wave, not implementation, installation, migration, release or cutover.
+- Source/reuse rules remain disclosed-provenance behavior inputs; no legacy implementation/tests/internal design or private board data as worker input.
+
+Standing project decisions
+- Go core/service/CLI/background tools and TypeScript 7.x browser are the selected direction.
+- localswim and every localswim project repository are public, MIT-licensed FOSS; preserve third-party notices and private handling of actual board/runtime data.
+- https://github.com/localswim/v2-architecture is public, main, MIT; organization owned by TerryOtt.
+
+History
+- r1 remains preserved as prior evidence; its pending-foundation-acceptance statement is superseded by this explicit 0004 approval.
+- The original GitHub setup/email/Terms approval was separate; the current architecture approval is the quote above.

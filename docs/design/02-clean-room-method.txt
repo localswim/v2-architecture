@@ -1,0 +1,45 @@
+LOCALSWIM REBOOT — PROPOSED EVIDENCE AND REUSE METHOD
+Card #0002 | 2026-10-25 | Candidate for #0004 independent review and Terry acceptance
+
+Recommendation and honest provenance
+Use a fresh implementation with controlled, recorded behavior inputs. Do not describe this conversation or its outputs as independently isolated clean-room work: the earlier language assessment read implementation source, and the supplied capability inventory derives from that assessment. A new language, repository, or fresh agent context does not erase that history. This note sets an engineering evidence policy, not a legal opinion or certification.
+
+Assumptions
+- The existing service and boards remain independent; this card authorizes no implementation, migration, inspection of real board contents, or live experiments.
+- Candidate capabilities are prompts for owner decisions, not accepted requirements or compatibility commitments.
+- Until #0004 is accepted, the brief's narrow provisional rules remain binding. Proposed later permissions below are conditional, not authorization today.
+
+Proposed allowed / prohibited / owner-decision matrix
+
+Evidence or asset | Proposed treatment | Boundary
+User requirements and accepted new decisions | Allowed | Record authority, version and acceptance; distinguish requirements from recommendations.
+Public behavior documentation | Allowed narrowly | Today only README sections listed in the input brief; cite the section and extract observable behavior, not architecture.
+Legacy implementation, tests and internal design | Prohibited worker input | No copying, translation, structural imitation or tests used as hidden specifications; record any accidental exposure.
+Source-derived capability inventory | Owner decision | Keep its disclosed lineage. Terry must accept rewritten behavior requirements individually before they enter implementation packets.
+Black-box observations | Owner decision | Later use only an approved isolated fixture environment and scripted inputs; capture externally visible outcomes, never private boards or production mutation.
+New contracts and generated outputs | Allowed after approval | Author schemas/protocols from accepted requirements; retain generator/version/input lineage. No generation from legacy source or schemas by default.
+Third-party dependencies | Owner decision, then allowed | Inventory origin, version, license metadata and purpose; independently select against new requirements. Do not inherit the legacy dependency list automatically.
+Legacy non-code assets and data | Owner decision | Default deny icons, prose, screenshots, fixtures, schemas and datasets. Approve specific assets with ownership/permission and privacy records; prefer newly authored synthetic fixtures.
+
+Practical worker workflow
+1. A requirements editor converts selected evidence into a small behavior packet: user-visible outcome, inputs/outputs, error semantics, acceptance examples, unresolved choices, provenance IDs and explicit exclusions. Do not include old filenames, classes, control flow, algorithms or implementation-specific failure workarounds unless Terry separately accepts a necessary observable requirement.
+2. A separate reviewer checks traceability and leakage against approved evidence. Label the packet proposed until Terry accepts its scope and unresolved required choices. Acceptance establishes a requirements baseline; it does not transform source-derived evidence into isolated provenance.
+3. Give implementation workers only the accepted packet, new design decisions, approved third-party documentation and permitted assets. Log the packet revision and worker exposure declaration. A fresh context helps enforce input boundaries but cannot substantiate isolation if its packet carries prior source-derived knowledge.
+4. Derive new acceptance checks from the packet and synthetic examples. Record ambiguities for owner resolution rather than consulting legacy tests or source. Keep implementation choices attributable to new design reasoning.
+5. On disallowed exposure, stop the affected work, record the material viewed and impacted outputs without redistributing it, and ask the primary to scope disposition. Preserve evidence; do not silently relabel or claim independence. Resume only within an approved disposition.
+
+Evidence ledger / provenance record template
+Record ID; title; date; recorder; source type and exact reference/section; source revision or digest where available; access scope; source-derived/exposure flag; observed fact versus inference; proposed behavior requirement IDs; exclusions and uncertainty; permission/owner decision reference; reviewer and review result; accepted packet revision; downstream artifact IDs; generator/dependency lineage when relevant; supersedes record ID.
+
+Maintain append-only decision history. Corrections supersede records; missing revision data is explicit. Store concise evidence extracts separately from worker packets. Do not place credentials, real card prose or private data in the ledger. Trace each accepted requirement and generated artifact back through this chain.
+
+Owner decisions and tradeoffs
+- Recommended: accept “fresh implementation with disclosed provenance” as the target. An independently isolated alternative requires a separately chartered team, input/exposure controls and a decision on whether this source-derived inventory is admissible; no such claim is supportable here.
+- Decide which candidate capabilities become requirements and whether public behavior compatibility is required. Broad compatibility increases observation/specification effort; selective redesign permits simpler contracts.
+- Approve any future black-box environment, evidence categories, specific reusable assets and dependency policy before use. Default deny minimizes ambiguous reuse but costs new documentation, fixtures and assets.
+- Resolve these choices through #0004 and Terry acceptance before dependent design proceeds. Missing decisions remain explicit gates, not implied permissions.
+
+Sources and verification limits
+- cards-r2/0002-arch-clean-room-method.txt: scope, output limit and acceptance criteria.
+- architecture-input-brief-r2.txt: authority, candidate inventory, prior source exposure, provisional evidence exclusions and acceptance process.
+- No README, implementation, legacy tests, private boards or peer drafts were read for this note. No behavioral claims were independently verified; this is a proposed workflow requiring independent review.

@@ -1,0 +1,39 @@
+LOCALSWIM GO + TYPESCRIPT 7.x - ARCHITECTURE BACKLOG INPUT BRIEF (r2)
+
+Purpose and authority
+- Terry selected a new Go + TypeScript 7.x clean-room localswim reboot on 2026-10-25.
+- Terry requested all high-level architecture tasks in Ready for Work, each sized for one subagent execution turn.
+- This brief records task inputs and candidate behavior evidence. It is not an authored architecture deliverable or an owner-accepted scope/design baseline.
+- Target split for evaluation: Go application core/service/CLI/background tools; TypeScript 7.x browser. Verify the actual TS7.x toolchain at #0022; do not silently substitute another major version.
+
+Candidate product capabilities identified in the earlier source-based assessment
+- Configurable boards, users/roles, workflow permissions, lanes, priorities, stable card identities, and human review acceptance.
+- Card creation/editing, comments, archive/unarchive, relationships/hierarchy, dependency urgency and deterministic triage.
+- Replayable audit evidence, validation of saved state, concurrent browser/CLI editing, revision conflicts, and meaningful failure diagnostics.
+- Attachment upload/integrity, previews/downloads, cover selection, detach/retention behavior, and coordinated state/byte persistence.
+- Local browser UI with navigation, drawers/editing, search, keyboard/pointer interactions, accessible controls, drafts, and recovery state.
+- CLI reads, live commands, machine-readable output, initialization, verification, and stopped-board maintenance.
+- Multi-board workspace discovery, bookmarks, attention counts, pins/preferences, per-window state, and independent board health.
+- Opt-in Git publishing/backups, repository coordination, retry/shutdown behavior, and truthful save/commit/push status.
+- Privacy-conscious board activity monitoring, automation-only suppression, conservative uncertain cases, and cooperative watcher ownership.
+- These are candidates for explicit keep/redesign/defer/exclude decisions, not an instruction to copy every current feature, module, protocol, or failure workaround.
+
+Provisional evidence rules for foundation tasks #0001-#0003
+- Use this bounded brief and explicit user directions as primary inputs.
+- Public-facing behavior documentation may be consulted narrowly: C:/Projects/localswim/README.md sections Multiple boards in one workspace; Board configuration; Daily use; Archiving cards; Card attachments and cover photos; Dependency priority inheritance; Transition permissions; Data safety and Git; Shared board-write monitor.
+- Do not read/copy implementation source, internal architecture, legacy tests, or private real board contents for these foundation tasks. Mark unverified behavior assumptions instead of inferring source structure.
+- #0002 proposes the continuing evidence/reuse method; owner acceptance of #0004 establishes the rules for later tasks. The previous language-assessment readers already saw source; do not claim isolated clean-room provenance.
+- Exclude unimplemented old roadmap preparations (including private schema-5/restore work) unless Terry separately includes their behavior in the new scope.
+
+Open owner decisions to prepare, not guess
+- Exact retained feature scope, permitted clean-room evidence and asset reuse, compatibility, platforms/workloads/quality budgets, storage constraints, process topology, and TS7.x release/channel policy.
+- Storage and topology mechanisms are recommendations subject to approved requirements. JSON/Git-friendly storage is candidate evidence from the old product, not silently replaceable or automatically the new design.
+- The running Python localswim and all existing boards remain independent. No implementation, repository scaffolding, install, data migration, release, or cutover is included in this architecture backlog.
+
+Execution and acceptance
+- One bounded named-worker artifact per card/turn; output limits are ceilings, not targets.
+- Fresh independent review is separately carded; author handoff releases review inputs before Terry marks author work Completed.
+- Review cards use references to source cards, not completion blockers. Downstream design cards wait for accepted review gates and resolved required decisions.
+- Primary checks eligibility, moves cards In Progress before work/delegation, verifies handoffs, and refreshes rolling turns 1-3. Terry alone controls Completed.
+- Eight direct active workers is a ceiling, not a quota; depth one. Use explicit model/effort and fresh reviewers; no Astra authorization exists.
+- Findings/corrections must be independently scoped as new bounded work if needed; the plan does not promise that unknown findings can be fixed within an already spent worker turn.
