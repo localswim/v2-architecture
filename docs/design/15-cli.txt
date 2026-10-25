@@ -1,0 +1,110 @@
+LOCALSWIM REBOOT - GO CLI ARCHITECTURE (#0015)
+2026-10-25 | Author: sol_medium_0015_cli
+Recommendation for fresh independent #0019 review; architecture only.
+
+Authority and boundary
+Owner decisions r6 accepts runtime14/32/33; read unchanged designs10-13 with32
+and review33. Accepted structure05-08 with30 supplies domain/ownership context.
+Go owns the CLI, service and shared application/domain/storage implementation;
+TypeScript7.x owns the browser. Public repositories remain MIT FOSS; actual board,
+credential and recovery data stay private. Assume the accepted trusted desktop
+account, authenticated loopback host and directly attached storage envelope.
+This proposal authorizes no implementation, deployment or issuer installation.
+
+Command families and authority
+Family (illustrative names) | Execution owner / boundary
+inspect: boards, cards, graph, triage, activity, health | Authenticated host reads; explicitly selected stopped-board inspect uses shared Go validation/core under aggregate exclusion, with provenance/health labels.
+change: create, edit, comment, transition, accept, relate, archive, attachment manifest | Online only through authoritative host admission; actor, board/policy/card revisions and operation identity required as applicable.
+operation: reconcile, outcome | Authenticated board authority; disclose only authorized retained evidence and its horizon, never infer noncommit from absence.
+workspace: register, list, preferences | Explicit workspace authority and separate preference revision; registration grants neither board access nor cross-board atomicity.
+board: initialize, verify, maintenance | Explicit stopped-board mode, identical physical aggregate exclusion and shared Go core/adapters; never a transport-error fallback.
+runtime: discover, status, cooperative stop; publish/monitor status/control | Trusted control plane or scoped service/worker adapters; publication, monitor progress and local save remain separate.
+
+One binary with thin command adapters prevents divergent CLI policy and persistence.
+No Python/TypeScript CLI or direct online JSON writer is proposed. Acceptance needs
+the authenticated human capability and reviewed card revision; selecting an actor
+label or invoking a command named accept confers no authority.
+
+Selection, discovery and credentials
+Require an explicit stable board target for mutation, either directly selected or
+resolved from an explicitly chosen workspace alias. Human inspection may use a
+configured default but prints resolved identity. JSON always includes resolved
+aggregate identity and revisions. Ambiguous aliases, duplicate IDs, unavailable
+members and identity changes refuse selection; never choose the first match.
+Current directory, title and listener port are hints, not authority.
+
+Descriptors contain bounded nonsecret hints. Validate protected ownership/access,
+configured root, generation and syntax, then use the trusted control plane's
+captured association to prove the intended host. For TLS use32's chain, exact
+instance name and expected-key checks before credential disclosure. Refuse wrong
+root/key/name, stale instance or unqualified trust; never bypass validation or
+silently try another endpoint. CLI credentials remain distinct from browser grants,
+loaded through protected storage/private inherited channels, never command arguments,
+URLs, descriptors or logs. Current principal/scope/policy governs each request.
+Host replacement requires new credentials; it never triggers mutation replay.
+
+Inputs and output
+Accept bounded UTF-8 inert JSON/text files and explicit standard input for prose,
+structured mutations and attachment operands. Require valid encoding/schema and
+reject unknown mutation fields before submission. Never evaluate input as shell or
+configuration code. Use argument vectors and explicit operand boundaries for paths;
+validate containment and unsafe indirection at access. Credentials have a separate
+private channel. Examples below are conceptual, not a final flag specification:
+
+- Inspect: select board B; request cards at one committed revision as JSON.
+- Mutate: select B; submit edit.json with expected revisions and a new operation Q.
+- Maintain: explicitly select stopped B; verify, then separately request an
+  authorized repair using a preserved source and recorded preconditions.
+
+Human output identifies board, health, revisions and next safe action. Machine mode
+writes one versioned JSON envelope to stdout, including success/failure, stable
+category, operation identity where applicable, outcome and separate publication
+status. Requested read content may contain prose; diagnostic fields/stderr remain
+sanitized. No progress banners, ANSI or prompts contaminate JSON. Diagnostics use
+safe field references, not credentials, payloads or arbitrary paths. Redirected
+execution never prompts for missing scope or grants; refuse with actionable codes.
+
+Exit convention | Meaning / automation rule
+0 | Requested read/control completed or mutation proven committed; optional Git failure remains separately visible.
+2 | Invalid syntax/input/unsupported contract; no submission accepted.
+3 | Authentication, authorization or intended-instance verification refused.
+4 | Revision/policy conflict or operation identity-conflict; preserve intent and refresh deliberately.
+5 | Unavailable, ownership conflict or definite noncommit; response states which, with safe remediation.
+6 | Indeterminate mutation outcome, cancellation race or uncertain shutdown; reconcile, never replay.
+7 | Verification/integrity failure or quarantined storage; preserve evidence and stop unsafe writes.
+
+Structured categories are authoritative detail; unknown server outcomes map to
+indeterminate for submitted mutations. Transport failure after possible admission
+cannot become a definite-noncommit exit. Local read/parse failures remain distinct.
+
+Outcome and offline safety
+Persist a private operation receipt before submission with principal/aggregate,
+fingerprint inputs and identity; protect any retained draft. Fingerprints cover
+command/version, target, content/byte digests and all preconditions per32.
+Reconciliation never admits a first submission. Retained committed matches return
+the historical result without re-execution; absent/expired/damaged evidence stays
+indeterminate. No automatic identity replacement, merge or replay. Deliberate new
+intent exposes possible duplicate effects. Cancellation does not prove rollback.
+
+Stopped-board commands acquire the same stable physical anchor as the host, recover
+first and authenticate maintenance authority; absent listeners/PIDs prove no exclusion.
+Initialization refuses an existing aggregate, never invents replacement for corrupt
+state. Verification is nonrepairing; maintenance explicitly admits validated changes,
+co-commits attribution/audit and preserves recovery/attachment evidence. No implicit
+migration, stale-lock theft, worker overlap or uncontrolled attachment deletion.
+
+Choices, checks and evidence
+Recommend explicit targets and structured failures over convenient implicit writes;
+one binary/shared core reduces drift but requires transport/core boundary discipline.
+Separate offline tooling is an alternative with duplication risk. Receipt format,
+CLI schema/version policy, limits, credential APIs and retention budgets need later
+specification/qualification, not a missing owner decision for this handoff. Trust
+provisioning remains separately qualified/authorized. No additional owner input
+blocks review; #0019 and Terry acceptance are separate, Terry alone Completed.
+
+Inputs: card0015; brief r2; owner decisions r6; parallel-author-inputs-r7;
+design02/05-08/10-13/30/32; reviews14/33; v2-architecture/AGENTS.md.
+Checked scope, outcome/selection/core consistency and text limits; UTF-8/LF/final
+newline. Disclosed-provenance design; no legacy code/tests/internal documents,
+private boards, peer drafts, installs, repository operations or live changes.
+Documentary checks only; no runtime guarantees established.

@@ -1,0 +1,77 @@
+LOCALSWIM REBOOT - INDEPENDENT OPERATIONS REVIEW (#0024)
+2026-10-25 | Reviewer: sol_high_0024_review_operations
+
+Recommendation: PASS WITH NON-BLOCKING OBSERVATIONS.
+No material contradiction or mandatory correction found in20-23 against accepted
+runtime10-13/32/33 and the handed-off interface review19. This validates architecture
+consistency, not qualified builds, platform behavior or operational guarantees.
+
+Basis and assumptions
+Read card0024-r7, owner decisions r6, parallel-author-inputs r7, all20-23, runtime
+10-13/32 and review33. Narrow interface inspection covered only18 Delivery and
+publisher boundary and16 Recommendation and alternatives, below1,000 words combined;
+no full interface re-review. Retain trusted account, directly attached storage,
+qualified authenticated loopback and cooperating-writer assumptions. Go+TypeScript7.x,
+public MIT, private runtime data and UTF-8/LF remain binding.
+
+Integration checks
+- Snapshot/publication:20 Recommended ownership and snapshot boundary agrees with
+  18's complete committed snapshot, exact verified inventory and retention pins.
+  Capture binds state/audit/outcome evidence and bytes without successive live reads;
+  missing bytes fail the whole export. Repository exclusion, isolated index/staging,
+  explicit inventory and verified base preserve staged/unrelated work. Manual ref
+  changes conflict; uncontrolled external writers stop publication. Board commit
+  coordination never spans Git/network waits. Save, commit, push and restore readiness
+  remain separate; uncertain external effects require reconciliation under11.
+- Monitor:21 Observation, Attribution and Ownership bind complete paginated cursor
+  intervals to board/history/filter identity. Only verified nonempty bot-only evidence
+  suppresses; empty/gapped/unknown evidence alerts without card inspection. Durable
+  pending precedes delivery; acceptance is adapter-scoped, duplicates remain possible.
+  Restart/reload preserves targets/checkpoints, requires quiescence and carries pending
+  captured targets. Retargeting, revocation and generation never erase started effects
+  or confer authority. This supports conservative coverage without promising delivery
+  during indefinite adapter failure or unresolved ownership.
+- Health:23 Required first-release health and Consistent evidence vocabulary separate
+  responsiveness, authorized operation readiness, current disk validation, retained
+  stale state and independent worker progress. Revision/generation/time-bound evidence,
+  sanitized protected channels and unknown outcomes agree with10-13/32. Heartbeats,
+  cached success, parsed JSON and push acknowledgement establish no broader health.
+- Build/interface:22 Contract ownership and Build contract preserve13's OpenAPI3.1,
+  explicit validation and unsupported-construct refusal.16's local semantic modules
+  impose no conflicting framework selection. TS5 generator isolation is disclosed;
+  generated declarations still require TS7 checking. Asset embedding, controlled
+  dependencies, notices/provenance, explicit draining updates and compatible rollback
+  preserve runtime trust and storage boundaries.
+
+Non-blocking observations
+ID | Severity / source section | Impact / bounded downstream treatment
+O1 | Non-blocking /21 Decisions and Ownership | At-least-once progress depends on recoverable pending state, eventual adapter acceptance and explicit unknown-retry policy. Qualify crash windows, gaps, exhaustion and reload/retarget races; retain possible duplicates and unavailable delivery honestly.
+O2 | Non-blocking /22 Tool/version decisions; Contract ownership | Metadata and declared minima establish availability only. Qualify the isolated TS5 generator, TS7 declarations/assets and Go dependency graph together; fixture the supported OpenAPI3.1 subset and explicit validators. Partial generator support is not schema equivalence.
+O3 | Non-blocking /20 Choices;23 Decisions and Consistent evidence vocabulary | Recovery, retention, capacity and numeric freshness remain unqualified. Specify objectives, pin release/pruning and validity/invalidation rules before reliance; preserve unknown/stale evidence and fresh trust provisioning requirements.
+
+Current primary-source checks (2026-10-25)
+Confirmed22's Go1.27.3, typescript latest7.0.2/tsc/native target metadata, Node24 LTS/
+26 Current, openapi-typescript7.13.0's TS5 peer and oapi-codegen2.8.1's Go1.25 minimum/
+documented3.1 support. No build or compatibility success follows. Sources:
+https://go.dev/doc/devel/release
+https://registry.npmjs.org/typescript/latest
+https://nodejs.org/en/about/previous-releases
+https://raw.githubusercontent.com/openapi-ts/openapi-typescript/openapi-typescript@7.13.0/packages/openapi-typescript/package.json
+https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/v2.8.1/go.mod
+https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/v2.8.1/README.md
+https://raw.githubusercontent.com/microsoft/typescript-go/main/README.md
+https://pkg.go.dev/embed
+Preview npm page was unavailable; Microsoft's staging README corroborates the
+separate preview package/command history, not current qualified preview behavior.
+
+Decisions and handoff
+Recommend the proposed boundaries. Dedicated export repositories, filesystem-only
+monitoring and installers have documented isolation/coverage/maintenance tradeoffs.
+Terry retains retention/recovery/privacy and platform acceptance; no specific missing
+input prevents handoff. Owner acceptance of both19 and24 remains prerequisite to25/26;
+only the captured14/32/33 set was preapproved.
+
+Only this report written, UTF-8/LF with final newline. Documentary/source checks only;
+no fixes, implementation, tests, installs, legacy source/internal documents, private
+boards, repository/board/live operations or subagents. Primary verification is
+separate; review-only handoff is RFR. Terry alone controls Completed.

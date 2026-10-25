@@ -1,0 +1,122 @@
+LOCALSWIM REBOOT - ATTACHMENTS (#0018)
+2026-10-25 | Author: sol_high_0018_attachments
+Recommendation for fresh independent #0019 review; architecture only.
+
+Authority and assumptions
+Owner decisions r6 accepts runtime14/33 and designs10-13/32. Accepted structure
+05-08/30 and product01 govern. Go owns attachment admission/storage/delivery;
+TypeScript 7.x presents authorized results. Repositories are public MIT FOSS;
+actual bytes, board state and recovery evidence remain private. Assume11's
+exclusive aggregate owner and qualified directly attached storage.
+
+Identity and mutability
+Recommend immutable board-local byte objects, identified by opaque object identity
+plus algorithm-tagged SHA-256 digest and exact byte length. Attachment identity is
+distinct: each committed attachment associates a card with one verified object.
+Equal bytes need not merge attachment identities. No cross-board deduplication or
+existence disclosure. Never overwrite an object with changed content; replacement
+requires new bytes and an explicit manifest mutation. Verify an existing object's
+length/digest before reuse; mismatch quarantines it.
+
+This independently selected option simplifies10's forbidden incomplete references:
+bytes become complete first; one JSON replacement commits references and audit.
+It does not inherit a source layout. Mutable files are an alternative requiring
+versioned replacement and preservation of every referenced revision; in-place
+overwrite cannot satisfy retained-snapshot integrity. Immutable storage costs
+retained capacity and requires explicit retention policy.
+
+Metadata, names and covers
+The canonical board manifest owns attachment/card/object association, original
+display name, declared versus verified media classification, size/digest and cover
+selection. Go authorizes metadata edits and atomically co-commits attributable
+audit/operation outcomes. Audit records attachment identities and action/revision,
+not payloads or full filename prose. Refusals and staging failures produce sanitized
+diagnostics, not successful-change history.
+
+Original names are bounded untrusted display text: escape controls/markup and
+provide a safe download-name fallback. They never select storage paths or commands.
+Use opaque generated storage names beneath the owned aggregate. Reject traversal,
+absolute/drive/UNC paths, unsafe links/reparse points and races; qualify containment
+at opening/use, not string-prefix comparison. Covers reference a current authorized,
+preview-eligible attachment on that card. Removing that attachment atomically clears
+its cover; no unrelated replacement is chosen.
+
+Lifecycle diagram
+
+ authorized transfer -> bounded private staging -> complete, verified immutable bytes
+                               |                          |
+                         interrupted/invalid       revision/rights fence
+                               |                          |
+                         retain/classify          manifest + audit + outcome
+                                                          |
+                                                     committed reference
+                                                          |
+                                                reference removal commits
+                                                          |
+                                               retained detached bytes
+                                                          |
+                                        explicit retention/reconciliation decision
+ Unknown replacement outcome -> fence writes; preserve bytes + intent; reconcile10/32
+
+Upload and outcome contract
+Authenticate transfer initiation, byte access and finalization separately; board
+ownership is not workspace-wide authority. Enforce advertised per-file/request,
+aggregate capacity, concurrent-transfer, streaming/decode, filename and deadline
+bounds before and during receipt. Reserve capacity, reject dishonest length and
+incomplete/excess streams, compute digest while receiving, then verify complete
+stored bytes. Numerical budgets remain unqualified specification work.
+
+Session-bound browser headers/cookies/origin checks follow32; sessions never define
+operation identity. The manifest command identity is scoped to stable principal
+and aggregate, independent of session/host generation. Its fingerprint includes
+command/version, board/card target, object digest/length, metadata and all expected
+revision/evidence preconditions. Transfer handles are opaque, principal/board/
+operation-scoped staging locators, not bearer authority or commit evidence.
+Switching boards must not redirect late responses; clients retain target and
+operation correlation plus separate diagnostic request identity.
+
+Stage, close/flush and make complete verified objects available before the manifest
+replacement. Reauthorize and recheck board/policy/card fences immediately before
+commit. Serialize matching operations and follow32's recognition rules; a retained
+match returns its historical outcome, mismatch conflicts, absent retry evidence
+is indeterminate. A lost response cannot authorize upload restart or new mutation.
+
+Failure / outcome | Bytes and references | Required action
+Precommit rejection or proven staging failure | No committed reference; partial/complete staging may remain | Report proven noncommit only with evidence; retain/classify, no automatic upload replay.
+Candidate verified after replacement | References, audit and outcome committed together; bytes complete | Publish revision; failed notification/cleanup cannot undo it.
+Replacement/sync/read-back uncertain | Candidate/base/orphan bytes and intent may matter | Fence writes;10 verifies base or candidate; unresolved remains indeterminate. Preserve all evidence.
+Reference removal committed | Current manifest/cover detached; retained revisions may reference bytes | Retain bytes; no unlink on detach or guessed expiry.
+External missing/corrupt referenced bytes | Integrity fails despite valid JSON | Quarantine affected state; explicit recovery, never substitute bytes.
+
+Delivery and publisher boundary
+Authorize every preview/download against explicit board/attachment and current
+rights. Deliver originals as inert downloads with safe headers/names; never render
+uploaded HTML/SVG/scripts in the trusted application origin. Generate bounded raster
+previews with an allowlisted decoder and verified source digest; previews are
+disposable derivatives, never authoritative replacement bytes.
+
+For0020, Go supplies an authorized, pinned complete committed snapshot and exact
+inventory, independent of physical layout:
+
+Output | Contract
+Snapshot | Aggregate/revision, canonical snapshot bytes/digest, authorization/publication scope and retention pin; no staging or uncommitted state.
+Inventory | Exact attachment/object identities referenced by that snapshot, verified digest/length, opaque read handles and safe logical publication names; completeness verified against snapshot. Explicitly authorized recovery objects, if any, are separately enumerated.
+
+Publisher verifies copies before publishing referencing metadata; missing bytes
+fail the whole publication attempt. Pins prevent disposal during consumption;
+release acknowledges completion/failure, never deletion authority. No directory
+glob, private-runtime inclusion or assumption about0020's repository paths.
+Local commitment and Git progress remain separate.
+
+Retention, decisions and checks
+Current, retained, pinned and unresolved references protect bytes. No garbage
+collector, automatic uncertain-upload retry or new byte-collection feature is
+authorized. Terry's retention/privacy/capacity choices and numeric limits precede
+disposal policy; missing choices do not prevent this reviewable recommendation.
+Hash verification detects inconsistency, not authorship or hostile-account tampering.
+
+Evidence: card0018; owner-decisions r6; parallel-author-inputs r7; designs01,02,
+06,08,10-13,30,32; reviews14/33; v2-architecture/AGENTS.md. Disclosed provenance;
+no legacy code/tests/internal documents, private boards or peer drafts consulted.
+Checked ordering, outcomes, scope and UTF-8/LF/final newline; no runtime tests.
+Fresh19 review, primary verification and Terry's Completed remain separate.

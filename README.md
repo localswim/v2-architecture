@@ -16,16 +16,16 @@ Text files use UTF-8 and end with a newline; binary files retain their bytes.
 
 ## Status
 
-Architecture work is in progress. Terry accepted the foundation and structure
-packets, including the structure clarification addendum, on 2026-10-25. Unselected
-alternatives and unverified numerical targets remain explicit recommendations.
-Runtime architecture is the next reviewed packet; this repository does not contain
+Architecture work is in progress. Terry accepted the foundation, structure, and
+corrected runtime packets on 2026-10-25. Unselected alternatives and unverified
+numerical targets remain explicit recommendations. Interface and operations
+architecture are the current reviewed packets; this repository does not contain
 the v2 implementation.
 
 ## Architecture documents
 
 The preserved notes retain their original candidate wording. Read the current
-[owner decisions](docs/decisions/owner-decisions-2026-10-25-r5.txt) for subsequent
+[owner decisions](docs/decisions/owner-decisions-2026-10-25-r6.txt) for subsequent
 acceptance and standing public/MIT/LF and board-lane policy. The working lane rules
 are also recorded in [AGENTS.md](AGENTS.md).
 
@@ -47,9 +47,9 @@ is preserved as evidence rather than silently rewritten after acceptance.
 - [Structure clarification addendum](docs/design/30-structure-addendum.txt)
 - [Independent addendum review](docs/reviews/31-structure-addendum-review.txt)
 
-The runtime packet below is ready for review and approval. Its original independent
-review identified two issues; the companion addendum and fresh review close them
-under stated preconditions. Read the original notes with the addendum.
+The accepted runtime packet below includes its original findings, companion addendum
+and fresh review closing those findings under stated preconditions. Read the original
+notes with the addendum.
 
 - [Persistence and recovery](docs/design/10-persistence-recovery.txt)
 - [Ownership and lifecycle](docs/design/11-ownership-lifecycle.txt)
@@ -59,10 +59,30 @@ under stated preconditions. Read the original notes with the addendum.
 - [Runtime contract addendum](docs/design/32-runtime-addendum.txt)
 - [Independent runtime addendum review](docs/reviews/33-runtime-addendum-review.txt)
 
-The bootstrap recommendation proposes local certificate-issuer trust. It is not an
-approved installation or a qualified browser/platform guarantee. Review the trust
-scope, cookie scope, and human-issuance capability assumptions before adoption.
+The accepted bootstrap recommendation proposes local certificate-issuer trust. It
+is not an approved installation or a qualified browser/platform guarantee. Qualify
+the trust scope, cookie scope, and human-issuance capability assumptions before use.
 No trust store or live service was changed by this architecture work.
+
+The interface and operations notes below were authored in parallel from the accepted
+runtime. Fresh review 19 checks the interfaces; review 24 checks operations and their
+cross-packet consistency. Both passed with non-blocking observations and await owner
+review and approval.
+
+- [CLI](docs/design/15-cli.txt)
+- [Browser](docs/design/16-browser.txt)
+- [Workspace](docs/design/17-workspace.txt)
+- [Attachments and publisher inventory](docs/design/18-attachments.txt)
+- [Independent interface review](docs/reviews/19-interface-review.txt)
+- [Publishing and recovery](docs/design/20-publishing-recovery.txt)
+- [Activity monitor](docs/design/21-monitor.txt)
+- [Delivery and toolchain](docs/design/22-delivery-toolchain.txt)
+- [Operational health and diagnostics](docs/design/23-observability.txt)
+- [Independent operations and integration review](docs/reviews/24-operations-review.txt)
+
+Tool availability is distinct from compatibility qualification. The delivery note
+records stable TS7 availability and the generator's separate TS5 dependency; it does
+not claim a successful combined build, schema equivalence, or platform qualification.
 
 The development method is a fresh implementation with disclosed source-derived
 provenance, not a claim of independently isolated clean-room certification.

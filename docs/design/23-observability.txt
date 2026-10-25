@@ -1,0 +1,109 @@
+LOCALSWIM REBOOT - OBSERVABILITY AND SUPPORTABILITY (#0023)
+2026-10-25 | Author: sol_medium_0023_observability
+Recommendation for fresh independent #0024 review; architecture only.
+
+Authority and assumptions
+Owner decisions r6 accepts runtime14/33 and designs10-13/32. Go owns service,
+CLI and workers; TypeScript 7.x owns browser presentation. Public MIT repositories
+exclude actual board data and private diagnostics. Assume authenticated loopback,
+trusted account and directly attached storage. This contract defines semantics,
+not parallel16/17 layout, endpoint names or telemetry implementation.
+
+Required first-release health contract
+Report dimensions separately, with scope, observed time, current host generation,
+evidence revision/cursor where applicable, and stable reason code. Liveness means
+a process responds; readiness means the owning authority can presently admit a
+specified operation for an authorized target. Neither listener response nor a
+workspace-wide green indicator proves board health or permission.
+
+Health/evidence matrix
+Component | Required evidence | Interpretation
+Go service/board | Lifecycle; owner generation; ownership/recovery result; last admitted revision; canonical validation result; write fence/reason | Serving plus valid owned storage permits admission checks. Retained memory can support labeled stale reads while writes stay disabled. Cold invalid state is quarantined.
+CLI | Intended-instance/authentication result; query observation time; target revision/health; command outcome and evidence horizon | A working CLI or transport cannot prove readiness. Transport loss leaves outcome indeterminate until authoritative reconciliation.
+Workspace/browser | Per-board authorized health/revision and reachability; independent preference revision/health; last refresh | Aggregate summary preserves inaccessible/unknown members without unauthorized disclosure; no cross-board or preferences/board atomic health claim.
+Publisher | Owned repository scope; active/reconciling/disabled state; source board revision/snapshot; local Git commit identity; push evidence and observation time | Local board save, Git commit and push are distinct. Unknown external effect disables competing scope until reconciled; safe local work may continue.
+Monitor | Per-board owner/scope; active/reconciling/disabled state; activity cursor; last successful query; pending delivery outcome/uncertain interval | Alive does not prove activity coverage or delivery. Preserve target/cursor; uncertain intervals stay visible and alert-eligible.
+
+Admitted state and disk evidence must both be visible: a previously admitted
+revision does not certify current canonical bytes or referenced attachments.
+Report failed validation, unavailable inspection, or unresolved replacement
+separately; never turn free-space estimates or a successful parse into a health
+guarantee. Show affected board fences without making other boards unhealthy.
+Background progress has its own scope and last successful completion; idle with
+no pending work is healthy, while heartbeat alone proves no completed work.
+
+Consistent evidence vocabulary
+Label | Meaning and guidance
+Current / stale | Current is a successful observation within the documented validity policy, bound to its revision/generation; stale retains an older result visibly. Refresh before relying on it; wall-clock age alone proves no ownership or validity.
+Unavailable / failed / unknown | Unavailable means evidence cannot presently be obtained; failed means a specific check/action has evidence of failure; unknown means its result is not provable. Preserve reason, scope and observation time; none implies uncommitted.
+Saved / committed / pushed | Saved means verified local board commitment, with revision and qualified persistence limits. Git-committed means identified repository commit. Pushed means a successful publication observation for that commit/remote scope, not permanent remote availability. Otherwise show pending, failed or unknown per stage.
+
+Channels and bounded diagnostics
+Require authenticated structured status queries, matching CLI human-readable and
+machine-readable output, browser status/error models, and private local structured
+diagnostics. Anonymous health exposes only bounded generic process/build/protocol
+metadata, never board identities, existence, revisions, worker scopes or outcomes.
+Protected streams follow32 authentication and invalidation; notifications request
+fresh status rather than asserting authoritative outcome. Disconnection marks
+cached evidence stale; refresh and reconcile on reconnect without mutation replay.
+
+Expose component release/build identifier, API major/capabilities and schema
+version independently; report missing build provenance as unknown. Compare client
+and host versions without assuming matching labels establish compatibility.
+
+Use allowlisted event version, category/severity, component, safe reason code,
+observation time, opaque authorized scope, generation, request ID and remediation
+code. Operation correlation remains32's stable principal/aggregate-scoped identity;
+request ID is transport diagnostic correlation, never duplicate-recognition authority.
+Bind revision/cursor and worker attempt IDs where relevant. Correlation grants no
+access; authorize disclosure and bound identifier lengths/cardinality.
+
+Exclude prose, credentials, payloads, filenames, arbitrary paths, remote URLs,
+command arguments and raw subprocess errors. Map failures to safe categories.
+Bound event size/rate, queues, rotation and retention; surface dropped-event counts
+and evidence gaps. Diagnostic loss cannot undo a commit or change its outcome.
+Do not substitute lossy logs for canonical audit or outcome lookup. Support export
+is explicit, previewable and sanitized again, with no automatic external upload.
+
+Failure-to-operator-recovery flow
+
+ failure / lost response -> capture safe reason + scope + correlation
+              |
+     query authorized status and retained outcome evidence
+              |
+    +---------+------------------+---------------------+
+    |                            |                     |
+ committed                  proven noncommit       indeterminate
+ retain revision;           preserve draft;         preserve draft;
+ show Git separately        deliberate new intent  fence affected scope
+    |                            |                     |
+    +----------------------------+          reconcile ownership/storage/
+                                             external effect; preserve bytes
+                                                       |
+                                      validate authoritative result or require
+                                      explicit operator restore/intervention
+                                                       |
+                                      refresh evidence before readiness resumes
+
+Decisions, alternatives and limits
+Recommend local pull/status plus bounded diagnostic events for release one.
+Optional future aggregate counters, traces and profiling require separate scope;
+no external analytics or metrics service is selected. Rich content logs ease
+debugging but expose private material; reject them. Pull-only status is simpler
+but loses incident sequence, hence bounded private events remain required.
+
+Numeric freshness/retention budgets, support-export packaging and fault qualification
+remain specification work. Terry retains recovery/retention acceptance; no new
+input prevents this design handoff. Review24 reconciles consumers with handed-off
+review19; parallel UI proposals are not accepted here. No measured reliability,
+latency, power-loss survival or delivery guarantee is claimed.
+
+Evidence and checks
+Inputs: cards-r7/0023-arch-observability.txt; owner-decisions-r6;
+parallel-author-inputs-r7; design08,
+10-13/32; reviews14/33; repository AGENTS.md. Documentary checks: semantic
+dimensions, failure outcomes, privacy, required/optional split and scope/cap.
+UTF-8/LF with final newline. No legacy code/tests/internal docs, private boards,
+peer drafts, implementation, installs or live/repository changes consulted/performed.
+Fresh independent24, primary verification and Terry acceptance remain separate;
+Terry alone controls Completed. Future RFR is not preapproved.

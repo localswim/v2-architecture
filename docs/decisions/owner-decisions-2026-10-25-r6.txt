@@ -1,0 +1,29 @@
+CURRENT OWNER DECISIONS - 2026-10-25 (r6)
+
+Binding direction
+- Go owns the core, service, CLI and background tools; TypeScript7.x owns browser presentation.
+- All localswim project repositories are public, MIT-licensed FOSS. Text is UTF-8 with Unix-style LF and final newlines; binary bytes are preserved.
+- Real board contents, runtime credentials and private operational records remain outside public source repositories.
+
+Accepted architecture
+- Terry accepted the foundation and structure packets, including the separately reviewed structure clarification.
+- Terry subsequently approved the then-current runtime review/addendum set0014,0032,0033. The board's human review action recorded that explicit approval on his behalf.
+- Runtime designs10-13 are read with companion32 and independent review33. Original artifacts/reviews remain preserved as evidence.
+- Local certificate trust is an accepted architecture recommendation, not an executed installation or a qualified browser/platform guarantee. No trust store was changed; numerical budgets and other stated qualifications remain unverified.
+- The captured approval covers that reviewed packet only, not future unreviewed work.
+
+Parallel authoring and review
+- Interface authors15-18 and operations authors20-23 share the accepted runtime as their required baseline.
+- Operations notes use explicit UI/layout-neutral inventory, status, activity and build boundaries. They do not select a parallel peer proposal as accepted fact.
+- Independent review19 validates the interface packet. Review24 validates operations with the handed-off19 report and narrowly cited interface boundaries.
+- Both interface and operations packets require owner acceptance before qualification/adoption25-26. This preserves integration and acceptance while permitting author-first parallel work.
+
+Lane guidance
+- RFR: only Terry review and approval remain.
+- Needs Terry: unfinished work requires a specific input or action only Terry can provide.
+- Blocked: neither Terry nor Bot can advance until an external condition changes, such as ordered test hardware arriving.
+- Ordinary dependencies stay Ready for Work. RFR alone does not approve a prerequisite; Terry controls Completed.
+
+History
+- Prior owner-decision revisions remain published as evidence. Later explicit acceptance supersedes their pending-review statements.
+- No implementation, package installation, migration, release or live cutover was performed by these architecture tasks.

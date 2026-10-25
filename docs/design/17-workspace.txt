@@ -1,0 +1,106 @@
+LOCALSWIM REBOOT - MULTI-BOARD WORKSPACE (#0017)
+2026-10-25 | Author: sol_medium_0017_workspace
+Recommendation for independent #0019 review; architecture only.
+
+Authority and assumptions
+Owner decisions r6 accepts runtime14/32/33, not future reviews. Accepted
+structure05-08/30 and runtime10-13/32 govern. Go host/core/tools, TypeScript7.x
+browser, public MIT repositories and UTF-8/LF remain fixed. Assume configured
+local roots, trusted account and directly attached storage. Workspace navigation
+projects independent boards; it grants no additional authority.
+
+Responsibilities and data flow
+
+ Configured roots + inert registrations
+                 |
+       Go registry: containment/identity checks
+                 |
+       Go host lifecycle owner -------------------------------+
+       +-> board A engine/ownership/store -> authorized reads --+
+       +-> board B engine/ownership/store -> authorized reads --+
+       +-> workspace preferences aggregate --------------------+
+                                                               |
+                  authenticated projection adapter <-----------+
+                               |
+                 TS7 catalog/routes/window recovery state
+
+Hosting and discovery
+Reuse one Go host per configured hosting root. Registry membership requests board
+activation through that host's lifecycle owner; it never opens a second writable
+engine or proxies arbitrary upstream endpoints. Live CLI uses the same owner.
+Offline maintenance requires identical exclusive ownership. Unregistering a board
+neither deletes storage nor stops unrelated processes; closing a window leaves
+host lifetime unchanged.
+
+Discover only explicitly configured roots/registrations with bounded work and
+platform-aware containment. Candidate descriptors are inert, untrusted data:
+never execute them or follow arbitrary URLs. Reject traversal, unsupported
+links/reparse escapes, malformed/unsupported descriptors and ambiguous aliases.
+Use11's qualified physical ownership identity, not string-prefix checks.
+Revalidate containment/identity at use; enumeration and handle primitives remain
+implementation contracts, not inherited scan algorithms.
+
+Give the workspace a stable identity independent of labels/paths. Member routes
+and pins reference stable board identity, never titles or scan positions. Renames
+preserve references. Physical aliases converge on one ownership anchor; duplicate
+board IDs at distinct storage require explicit resolution, never first-match routing.
+Relocation needs exclusive maintenance; copying does not transfer ownership.
+
+Isolate each candidate failure. Where discovery disclosure is authorized, report
+sanitized invalid, unavailable or ownership-conflict status without inventing an
+empty board or blocking healthy members. Bound activation/projection work for
+fairness. Canonical state admission requires board ownership and10/11 recovery.
+A shared host crash remains a common failure domain.
+
+Catalog and authority
+Authenticate workspace reads; authorize membership disclosure and each board
+projection independently. Workspace access, pins and known keys grant no board
+rights. Hide unauthorized identities/counts/activity; use an opaque unavailable
+destination when distinguishing missing from forbidden would leak. Authorized
+entries include stable key, committed board/policy revision, freshness, health
+and separate local-save/publication status. Refresh can be partial: entries have
+independent revisions, never a cross-board snapshot or atomic transaction.
+
+Go derives attention counts from committed board state and identified workflow
+policy. Recommend configured semantic categories such as review/action-needed,
+without hardcoding Terry's lane labels. Overlapping categories cannot be summed
+as unique cards; filtered pages never redefine counts. Unavailable/stale data is
+unknown/labeled, never zero. Recommend pinned group first, then recent authorized
+committed activity, then bytewise stable board identity. Board-local cursors give
+local order only; timestamps provide display order, not cross-board causality.
+Missing activity sorts last. Notifications invalidate projections; reconnect
+refreshes authorized revisions instead of assuming complete event delivery.
+
+Preference ownership
+State | Owner / persistence boundary
+Membership, roots, policy/rights | Authorized Go configuration; current scope/revision required; never browser preference authority.
+Pins, manual pin order, saved catalog sort/filter defaults | Recommend principal-plus-workspace shared preferences; Go validates stable references and commits a separate revision/audit unit.
+Current route, temporary filters, focus, scroll | Per-window history/session context keyed by workspace/board/card; never board state.
+Drafts, expected revisions, pending operation identity/fingerprint | Per-window private recovery context; memory default; durable storage needs a privacy/retention contract.
+Session/request tokens |32's protected cookie/in-memory token boundary; never preference storage or URLs.
+
+Navigation and recovery
+Deep links contain stable resource keys and safe view state, never paths or
+credentials. Resolve through the authenticated host and reauthorize the target.
+Back/Forward restores route/filter/scroll context while refreshing authority and
+revision; it performs no command. Preserve drafts across navigation; warn before
+discard. Missing/removed boards retain an unavailable route with explicit retry
+or catalog return, never silently selecting another board.
+
+Read retries are bounded independently per board. For uncertain mutations preserve
+draft and32's principal/aggregate operation identity: reconcile before deliberate
+new intent; absent evidence stays indeterminate. Navigation, reauthentication and
+host replacement never replay commands.32 governs exact-origin bootstrap,
+TLS/session binding, request headers, expiry/revocation and stream closure.
+Workspace health, board readiness and publisher/monitor health remain distinct.
+
+Choices, evidence and checks
+Recommend contained explicit discovery over unrestricted scanning and shared
+principal pins over device-only pins; these bound exposure but add configuration
+and preference-conflict handling. Attention taxonomy, limits and durable draft
+retention remain specification choices; no missing owner input prevents review.
+Inputs: card0017; owner decisions r6; parallel-author-inputs r7; designs05-08/30,
+10-13/32; v2-architecture/AGENTS.md. Documentary consistency/scope checks only;
+no runtime qualification, legacy implementation/tests/internal docs, private
+boards or peer drafts used. No code, installs or live changes. Independent19
+review, primary verification and Terry's Completed decision remain separate.

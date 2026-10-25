@@ -1,0 +1,65 @@
+LOCALSWIM REBOOT - INDEPENDENT INTERFACE REVIEW (#0019)
+2026-10-25 | Reviewer: sol_high_0019_review_interfaces
+
+Recommendation: PASS WITH NON-BLOCKING OBSERVATIONS.
+No material contradiction or mandatory design correction found in15-18 against
+accepted05-08/30 and10-13/32, with33 resolving14's findings. This is documentary
+architecture validation, not implementation or platform qualification.
+
+Basis and assumptions
+Read card0019, brief r2, owner decisions r6, parallel-author-inputs r7,
+designs01/02/05-08/10-13/15-18/30/32 and reviews14/33. Assume the accepted trusted
+desktop account, qualified authenticated loopback transport, directly attached
+storage and exclusive aggregate ownership. Go core/service/CLI/tools, TypeScript7.x,
+public MIT and private board/runtime data remain fixed. Mobile approval covered
+only the captured14/32/33 set; it does not accept this packet.
+
+Cross-interface traces
+- Pending edit/upload then workspace or card switch:16 State and concurrency
+  separates immutable mutation targets/journals from navigation epochs and dirty
+  drafts; late reads require matching epoch/resource.17 Navigation and recovery
+  preserves unavailable routes and principal/aggregate operation identity rather
+  than substituting a board.18 Upload and outcome contract scopes staging handles
+  to principal/board/operation and retains target correlation. A late completion
+  updates its original resource; cancellation, navigation and reauthentication
+  authorize neither rollback claims nor replay. Fingerprints, historical duplicate
+  results and absent-evidence uncertainty follow32 F1.
+- Offline CLI refusal:15 Command families and Outcome and offline safety require
+  explicit stopped-board selection, identical physical exclusion, recovery and
+  maintenance authority. Failed transport, missing listeners/PIDs or stale records
+  cannot bypass11's owner/quiescence contract. All writers share Go admission;
+  invalid/stale/unauthorized work produces no successful-change history.
+- Review approval:15 Command families and16 Interaction/recovery matrix bind
+  acceptance to authenticated human capability and reviewed card/policy revisions;
+  stale review requires renewed inspection.32 F2 supplies launcher-only human grant
+  issuance, verified instance selection, cookie/header/context binding and current
+  authority checks. Actor labels, browser presence and CLI command names confer no
+  acceptance authority; same-account hostile isolation remains expressly excluded.
+- Presentation:16 provides keyboard equivalents, labels, announcements and stable
+  focus restoration;17 distinguishes window context, shared preferences and board
+  state. Server-derived order/counts, archive visibility and independently authorized
+  workspace projections retain06/07/30 semantics without cross-board atomicity.
+- Bytes/publication:18 requires complete verified immutable objects before the
+  state/audit/outcome commit, atomic cover clearing on detach, inert delivery and
+  authorized pinned snapshots with exact verified inventories. Missing bytes fail
+  publication; retained/pinned/unresolved references prevent disposal. This agrees
+  with10, independently of physical paths and separate Git progress.
+
+Non-blocking observations
+ID | Severity / source section | Impact / bounded downstream direction
+O1 | Non-blocking /16 State and concurrency;17 Preference ownership | Memory-only journals/drafts cannot guarantee reload/crash recovery. Preserve that disclosure; specify confidentiality, retention and deliberate authenticated rebinding before enabling private durable recovery.
+O2 | Non-blocking /16 Recommendation and alternatives; Interaction/recovery matrix | Semantic HTML is a coherent recommendation, not demonstrated accessibility or TS7 compatibility. Qualify keyboard/focus, drawer/search/move and navigation-during-upload scenarios; no framework correction is required.
+O3 | Non-blocking /18 Retention, decisions and checks;32 F1/F2 | Numerical horizons, capacity, disposal and trust provisioning remain unqualified. Specify/qualify them before dependent implementation; no guessed expiry, automatic collection or issuer installation follows from acceptance.
+
+Decisions and handoff
+Recommend the explicit-target CLI, semantic HTML/controllers, scoped shared pins
+and immutable byte objects. Separate offline tooling, reactive/custom-element UI,
+device-only pins and versioned mutable storage are documented alternatives with
+tradeoffs, not contradictions. Terry retains proposal acceptance and later explicit
+retention/privacy/capacity choices; no specific missing input prevents this handoff.
+
+Only this report written as UTF-8/LF with final newline. No20-23 review, fixes,
+code, installs, legacy implementation/tests/internal documents, private boards,
+repository/board/live changes or subagents. Cross-packet integration belongs to24.
+Primary verification remains separate; review-only handoff is RFR, Terry alone
+controls Completed. No runtime guarantees or new scope are authorized.

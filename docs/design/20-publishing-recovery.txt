@@ -1,0 +1,103 @@
+LOCALSWIM REBOOT - PUBLISHING AND RECOVERY (#0020)
+2026-10-25 | Author: sol_high_0020_publishing_recovery
+Architecture recommendation; fresh independent review belongs to #0024.
+
+Authority and assumptions
+Owner decisions r6 accepts runtime10-13 with32/33; cards-r7/0020 and parallel
+author inputs r7 permit this UI/layout-neutral contract before review19. Go owns
+publishing; TypeScript7.x presents its status. Public MIT code repositories do not
+authorize publishing board content. Actual board/recovery data remains private.
+Assume trusted desktop account, directly attached storage and cooperating writers.
+
+Recommended ownership and snapshot boundary
+Publishing defaults off. Explicit configuration binds authorized board scopes,
+repository identity, branch, named remote, destination visibility and publisher
+principal. Recheck grants before each new effect; workspace membership grants
+nothing. Revocation stops new effects; reconcile already-started effects truthfully.
+
+One supervised Go coordinator owns each physical repository across all participating
+hosts/boards; aliases converge on the same exclusion anchor. Board ownership remains
+separate. Never hold board commit coordination across Git/network waits. Uncertain
+old-worker effects disable that repository scope until #0011 quiescence/reconciliation.
+
+An authorized export handoff binds board identity, committed revision, schema,
+complete canonical state/audit/operation evidence digest and exact attachment
+inventory: byte identity, size, digest and authorized export mapping. Obtain this
+as one verified immutable snapshot with pinned bytes, never successive live reads.
+Validate completeness and containment before export. Missing/corrupt bytes fail the
+whole board export. No directory glob, mixed revisions or guessed physical layout.
+Pin queued/in-flight inventories against deletion until reconciliation/retention
+permits release. #0018/#0019 supply mapping and retention interfaces; #0024 reconciles
+them without treating concurrent drafts as accepted.
+
+Repository serialization covers inventory materialization, base/ref verification,
+commit construction and ref update. Use isolated staging/index state; preserve the
+user's staged entries and unrelated worktree files. Build only explicit authorized
+inventory changes against a verified base; other boards retain their existing
+committed content. Multiple selected boards retain separate revision identities;
+one Git commit creates no cross-board save transaction. Concurrent manual Git/ref
+changes cause a visible conflict/revalidation, never stash/reset, broad staging,
+automatic merge or force-push. External writers must cooperate or publication stops.
+
+Run fixed trusted executables with argument vectors, bounded operands/time/resources,
+canonical repository containment and controlled configuration/environment. Reject
+path escapes and unapproved hooks, filters/helpers or destinations. Credentials use
+protected runtime channels; never arguments, URLs, public configuration or diagnostics.
+Allowlisted status contains identities, revisions, hashes, categories and safe next
+actions; exclude card prose, attachment payload/names, raw Git output and private paths.
+
+Responsibility and evidence table
+Stage | Owner / required evidence | Limit
+Local save | Board engine/#0010 validates committed state, audit and outcome | Git failure never reverses save; power-loss survival unqualified
+Local Git commit | Repository coordinator verifies exact snapshot/blob inventory and records revision-to-commit mapping | Not remote delivery or a new board commit
+Remote push | Publisher records destination/ref and verified commit reachability | Timeout/error can be indeterminate; no exactly-once delivery
+Recovery readiness | Recovery validator checks retained snapshot, all bytes, format and explicit recovery objectives | Push alone proves neither usable restore nor hardware-loss protection
+
+Scheduling, restart and final flush
+Persist bounded publication intent/progress privately, separately from canonical
+board state. Debounce bursts with a maximum wait; newer complete snapshots may
+supersede queued work under explicit retention policy. Never alter in-flight content.
+Use bounded exponential backoff/jitter for transient failures; authorization,
+inventory and divergence failures need correction. After uncertain commit/push,
+inspect recorded commit/ref evidence before retrying; missing evidence stays unknown.
+Do not replay board commands or invent a new operation identity (#0032).
+
+Expose independent saved revision, queued/exported revision, local commit and remote
+acknowledged revision, each with pending/running/succeeded/failed/indeterminate state.
+Disabled and stale observations are explicit; never collapse these into "saved".
+Shutdown closes new publication admission, captures latest admitted revisions,
+attempts bounded final flush, persists remaining intent and reports incomplete work.
+Release scope only after child effects quiesce; deadline expiry never promises flush.
+
+Disconnected-remote recovery sequence
+1. Save B@r9 locally; capture its exact inventory; create local commit C9.
+2. Remote disconnects during push: retain C9/inventory; report saved/local-committed,
+   remote pending or indeterminate according to evidence. Local board work continues.
+3. Restart acquires ownership, validates canonical storage and reconciles old workers;
+   recover the pinned C9 mapping. Unprovable inventory becomes unavailable, never a
+   reconstruction from today's mixed files.
+4. Reconnect with current authority; inspect intended remote/ref. C9 already reachable
+   resolves delivery; otherwise retry only on a compatible verified base. Divergence
+   pauses publication for explicit resolution, preserving both histories.
+5. Validate retained recovery inventory separately. Remote loss cannot turn missing
+   bytes into a recoverable backup or authorize overwriting canonical board state.
+
+Choices, recovery responsibilities and checks
+Recommend exact snapshots plus isolated staging over whole-worktree publishing;
+extra copying/coordination buys bounded disclosure and reproducibility. A dedicated
+export repository further isolates user work but adds repository lifecycle cost.
+Git history is optional publication, not a complete backup: recovery planning must
+cover attachment bytes, configuration, schema/tool availability, access and independent
+copies. Exclude credentials; provision fresh authority separately.
+
+Terry retains retention, recovery-point/time and hardware-loss objectives, destination
+visibility and any future restore/import feature scope. This recommendation authorizes
+no restore execution, migration or new feature. Qualification must later fault
+disconnects, concurrent refs, staged-file isolation, missing bytes and interrupted
+flush; no runtime checks occurred here.
+
+Evidence: card0020-r7; owner-decisions-r6; parallel-author-inputs-r7; designs
+02/05/08/10-13/30/32; reviews14/33; v2-architecture/AGENTS.md. Documentary scope,
+outcome and encoding checks only. No legacy implementation/tests/internal documents,
+private boards or peer drafts consulted. Primary verification and Terry's acceptance
+remain separate; Terry alone controls Completed.

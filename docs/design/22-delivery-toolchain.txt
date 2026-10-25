@@ -1,0 +1,106 @@
+LOCALSWIM REBOOT - DELIVERY AND TOOLCHAIN (#0022)
+2026-10-25 | Author: sol_medium_0022_delivery_toolchain
+Architecture recommendation; fresh independent #0024 review remains separate.
+
+Authority and assumptions
+Owner decisions r6 records accepted runtime gates14/33 and the parallel-author
+boundary. Inputs: approved05,10-13/32, cards-r7/0022, parallel-author-inputs-r7,
+and v2-architecture/AGENTS.md. Go and TypeScript7.x, public MIT first-party
+repositories, UTF-8/LF and private runtime data are binding. Windows11 x64 and
+Linux x64 are qualification candidates, not proven supported distributions.
+
+Repository and dependency direction
+Recommend one future product repository with one root Go module and independently
+locked web/ and tools/contracts/ Node packages. Keep the architecture repository
+as decision history. cmd/ contains thin host, CLI, monitor and publisher entry
+points; internal/core/ owns domain/application policy and ports. Storage, HTTP,
+OS lifecycle and worker adapters depend inward. Live CLI writes reach the host;
+exclusive maintenance reuses the same core/storage adapter. Project launchers
+delegate to this shared product; no project forks of board or monitor logic.
+No framework is selected here; #0016's proposal and #0019 handoff meet #0024 later.
+
+Module/build diagram (arrows mean dependency or derived output)
+
+ api/OpenAPI3.1 + local schemas
+       | pinned generators/config/digests
+       +--> internal/wiregen/ --> HTTP adapter --> internal/core/ports
+       +--> web/generated/ --> typed/validated browser adapter --> UI adapter
+                                                                  |
+                                          TS7 check + qualified asset builder
+                                                                  v
+ cmd/{host,cli,monitor,publisher} --> adapters --> core    internal/assets/dist
+       |                                                        |
+       +---------------- Go build + go:embed <-------------------+
+                         platform executables + release manifest
+
+Contract ownership
+Service contract maintainers own api/, API evolution and validation fixtures.
+Commit generated wire declarations with schema digest, exact generator/config
+and lineage; never hand-edit them. Domain models stay independent. Generate Go
+wire types only initially; handwritten transport maps them to core commands.
+Boundary validators remain explicit, including responses and browser JSON:
+types are not validators. Qualify nullable unions, unknown mutation fields,
+outcome/fingerprint/horizon semantics and attachment digest references against13/32.
+Reject unsupported schema constructs; never silently downconvert OpenAPI3.1.
+
+Tool/version decisions (official evidence checked 2026-10-25)
+Tool | Verified fact | Recommendation / qualification
+Go | 1.27.3 release listed [S1]; embed is standard [S6] | Pin1.27.3 and checksums; dependency graph and platform qualification still required.
+Browser compiler | typescript latest metadata=7.0.2, tsc; native platform packages include win32-x64/linux-x64 [S2] | Pin7.0.2 stable. native-preview is separate experimental lineage [S3], not required or substituted.
+Node/package manager | Node24 LTS;26 Current [S4] | Pin an exact supported24 patch and bundled npm at qualification; locked npm ci, no floating latest.
+TS declarations | tagged openapi-typescript7.13.0 supports OpenAPI3.0/3.1 but declares typescript ^5.x peer [S5] | Isolate generator package and its explicitly disclosed TS5 peer from web TS7; pin peer only after qualification. Generator7 is not compiler7.
+Go wire generator | oapi-codegen v2.8.1 requires Go1.25; tagged docs describe3.1 support [S7] | Candidate pin;1.27.3 meets declared minimum, not tested compatibility. Validate supported schema subset and transitive Go requirements.
+Asset builder/UI | Parallel interface choice unapproved | Select adapter only after TS7 declaration, JSX/framework/plugin, browser-target and deterministic-output qualification; no TS6/5 browser fallback.
+
+Build and development contract
+Propose cross-platform command names generate, check, build, dev and package,
+implemented later through one thin orchestration entry point. generate consumes
+only repository-local schemas and pinned tools; check rejects regeneration drift,
+invalid UTF-8/LF, dependency changes and contract mismatch. build requires explicit
+TS7 checking before asset compilation, then stages only allowlisted production
+assets beneath internal/assets/dist for go:embed [S6]. No credentials, board files,
+development server, absolute paths or unreviewed remote assets enter the bundle.
+
+dev uses synthetic data, the same authenticated Go origin and an explicit local
+asset override; browser refresh is sufficient initially. A later development proxy
+must preserve32's TLS, exact authority/origin and session binding; hot reload cannot
+bypass them. Trust provisioning remains a qualified deployment step requiring
+separate installation authorization, never an automatic developer/build action.
+
+Reproducibility and local distribution flow
+Pinned source -> verified dependency restore -> generate/drift check -> TS7 check
+-> qualified assets -> Go platform build -> deterministic unsigned archive ->
+checksums/SBOM/notices/provenance -> separately signed release manifest.
+Record source/schema/assets/toolchain digests and target settings. Pin go.mod/go.sum
+and both Node lockfiles; reject implicit toolchain downloads, remote schema refs
+and unreviewed install scripts. Normalize archive order/timestamps/permissions,
+use Go trimpath and fixed version metadata; compare two clean builds before claiming
+byte reproducibility. Signing/notarization outputs are checked separately.
+
+Offer portable per-platform archives first: explicit install location, platform
+binary, embedded browser, licenses and trust/setup instructions; no Node/Go runtime
+needed by users. Qualify CGO/native dependencies before claiming single-binary
+portability. Signed installers are an alternative with platform maintenance cost.
+Updates are explicit: verify provenance, drain host/workers under11, preserve board
+and runtime roots, recover under10, then report readiness. Rollback requires format
+compatibility; never overwrite private data or auto-downgrade it.
+
+Decision and evidence
+Recommend these boundaries; Terry reviews the generator isolation tradeoff and
+later qualified platform matrix. Dependency inventory preserves upstream licenses
+and notices; first-party MIT does not relicense dependencies. Enforce text UTF-8/LF
+and final newline through .gitattributes/.editorconfig plus checks; preserve binaries.
+No installs, builds, tests, repository initialization or compatibility success is
+claimed. Source checks and scope review only; #0024 integrates #0019 before handoff.
+
+[S1] https://go.dev/doc/devel/release
+[S2] https://registry.npmjs.org/typescript/latest (7.0.2 metadata)
+[S3] https://www.npmjs.com/package/@typescript/native-preview
+[S4] https://nodejs.org/en/about/previous-releases
+[S5] https://raw.githubusercontent.com/openapi-ts/openapi-typescript/openapi-typescript@7.13.0/packages/openapi-typescript/package.json
+[S6] https://pkg.go.dev/embed ; https://go.dev/ref/mod
+[S7] https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/v2.8.1/go.mod
+     https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/v2.8.1/README.md
+Mutable sources are dated observations, not dependency locks. No legacy source,
+tests/internal docs, private boards or parallel peer drafts consulted. Parent
+verification and independent review remain separate; Terry alone controls Completed.

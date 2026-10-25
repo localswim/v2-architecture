@@ -1,0 +1,116 @@
+LOCALSWIM REBOOT - ACTIVITY MONITOR AND DELIVERY (#0021)
+2026-10-25 | Author: sol_high_0021_monitor
+Architecture recommendation; independent integration review belongs to #0024.
+
+Authority and assumptions
+Owner decisions r6 accepts runtime14/33 and permits parallel, UI-neutral authors.
+Go owns monitor/core/adapters; TypeScript 7.x may consume authorized status.
+Public MIT FOSS repositories contain no actual board/runtime data. This is fresh
+reasoning with disclosed provenance, not proof of isolated clean-room provenance.
+Assume accepted local-storage/host trust boundaries; numerical budgets and adapter
+delivery guarantees remain unqualified. No implementation or live change follows.
+
+Observation, evidence and batching
+Committed-revision signals, periodic reconciliation and optional filesystem watches
+are wake-up hints. A write, rename or notification is not an attributable event:
+atomic replacement, coalescing and metadata writes defeat write/event count equality.
+Never inspect card prose to classify a wake-up or already queued alert.
+
+Recommend an authorized activity reader over committed audit metadata: stable
+board/storage identity, history epoch, opaque ordered cursor, revision, verified
+principal/actor class, action category and operation correlation. Exclude content,
+credentials, attachment names/bytes and arbitrary paths. Submitted actor labels do
+not establish attribution. Imported/unverified actors remain unknown.
+
+Capture an upper cursor after the quiet window; query all pages in (saved, upper]
+with explicit complete/gap/expired status. Cursors survive host generations and
+bind board identity, history epoch and filter semantics; timestamps are insufficient.
+Validate envelopes and continuity before suppression. New activity beyond upper
+starts the next batch. Never prefilter human/unknown events from suppression evidence.
+A healthy poll with unchanged upper and no outstanding hint has no batch; empty
+evidence for an observed or queued interval still alerts. Debounce restarts on hints,
+with a bounded maximum batch age
+to prevent starvation. Overflow, epoch change, missing history, watcher loss or
+invalid cursors or missing checkpoints create an uncertainty interval, never an
+empty-success shortcut.
+
+Persist observation watermark, activity checkpoint, unresolved gaps and pending
+alert separately. Close a covered interval only after a durable suppression decision
+or confirmed adapter acceptance. Acceptance proves the adapter's stated boundary,
+not human receipt. A delivered gap warning does not prove missing history consumed;
+retain its unresolved marker and resume from an authoritative new baseline explicitly
+reported as discontinuous. Persist pending intent before sending; crash recovery can
+repeat a window and must not silently discard it.
+
+Lifecycle / data flow
+
+ Exclusive monitor scope -> Recover checkpoint/target/pending -> Observe
+          ^                                                   |
+          |                                        Quiet/max-age boundary
+          |                                                   v
+      Release <- Quiescent <- Drain                  Query bounded interval
+                               ^                    /          |          \
+                               |              proven bot    human/mixed   uncertain
+                  stop/reload/retarget                |          |          |
+                               |                record skip     +----+-----+
+                               |                                  v
+                               +-------------------------- Persist pending
+                                                                  |
+                                                        Configured adapter
+                                                       /         |         \
+                                                 accepted    not accepted  unknown
+                                                    |          retry       reconcile
+                                               checkpoint        |         |
+                                                    +---------- Observe ---+
+
+Attribution / delivery outcomes
+Evidence or result | Required disposition
+Complete nonempty interval; every event verified as configured automation principal | Suppress; persist bounded skip/checkpoint; no card inspection, work resumption or alert.
+Human, mixed or unknown actor | Queue sanitized change notice to captured target; preserve Terry's changes.
+Empty, malformed, failed, partial, expired or discontinuous activity query | Queue uncertainty notice; no suppression or invented attribution.
+Adapter confirms acceptance | Record receipt/disposition and covered checkpoint; never claim read or task completion.
+Adapter proves not accepted | Retain pending; bounded backoff/retry with same delivery identity.
+Timeout, crash or ambiguous adapter result | Retain unknown; reconcile if supported. No exactly-once claim; possible duplicates remain explicit.
+
+Ownership and continuity
+One host-owned monitor scope per physical board aggregate uses verified exclusion,
+captured child identity and fresh generation under #0011. Its private lock, status,
+target and pending/checkpoint records are distinct from every other board. Monitor
+scope never acquires board writer ownership or edits canonical state. A heartbeat,
+PID or generation alone cannot authorize takeover. After host loss, prevent new
+effects; successor must prove predecessor quiescence and reconcile started delivery
+before activating that scope. Otherwise show unavailable delivery, preserving pending.
+
+Keep the originally configured conversation target across restart/upgrades. Reload
+validates configuration, persists progress, quiesces old effects and acknowledges
+replacement; unsupported reload uses cooperative stop/start. Explicit authorized
+retarget changes future batches only; pending batches retain captured target unless
+explicitly migrated after in-flight reconciliation. Stop persists pending/checkpoints,
+acknowledges quiescence, then releases scope. Deadline expiry reports incomplete
+shutdown; no PID-based forced cleanup or optimistic release.
+
+Abstract contracts for #0024 reconciliation after #0019
+Contract / consumer | Boundary
+Activity reader / monitor | Authenticated read-only committed metadata, stable cursor/upper bound, pagination completeness and retention/epoch evidence; no card-detail dependency.
+Delivery adapter / monitor | Configured existing conversation integration; board-scoped private target reference, stable delivery identity, sanitized notice, accepted/not-accepted/unknown and optional outcome lookup. No new notification platform.
+Monitor status / CLI, observability, optional browser | Authorized versioned projection: generation, lifecycle, observation/query/acceptance times, cursor continuity, pending age/count, delivery health and safe reason codes. No layout assumptions or secrets.
+
+Decisions, tradeoffs and limits
+Recommend durable pending plus conservative alerts over memory-only simplicity;
+this costs private runtime storage and can duplicate crash windows. Prefer committed
+signals plus polling to filesystem-only monitoring, which misses attribution. Bound
+queues, retries and diagnostics; exhaustion remains visible, never silently drops
+pending work. An adapter lacking reconciliation cannot promise duplicate-free delivery;
+any duplicate-tolerant unknown retry needs explicit configured policy and disclosure.
+Liveness checks distinguish responsive owner, progressing activity reader and delivery
+health; quiet boards need not send alerts. Exact budgets, cursor retention and adapter
+qualification remain specification choices. Terry's review decides this proposal;
+no missing owner input prevents handoff, and future RFR work is not preapproved.
+
+Evidence and author checks
+Inputs: cards-r7/0021; owner decisions r6; parallel-author-inputs-r7; design02,
+08,10-13,30,32; review33; v2-architecture/AGENTS.md; Terry's supplied monitor rules.
+Checked scope, failure/continuity coverage, diagram/two tables, word cap and UTF-8/LF
+with final newline. No legacy implementation/tests/internal docs, private boards,
+peer drafts, code, installs, repository or live operations. Documentary checks only;
+fresh #0024 review and primary verification remain separate. Terry alone Completed.

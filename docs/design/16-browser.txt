@@ -1,0 +1,102 @@
+LOCALSWIM REBOOT - BROWSER COMPOSITION (#0016)
+2026-10-25 | Author: sol_medium_0016_browser
+Recommendation for fresh #0019 review; architecture only.
+
+Authority and assumptions
+Owner decisions r6 accepts runtime14/33 with addendum32; accepted structure05-08/30
+and scope01 supply retained outcomes. Go owns policy, derived ordering and committed
+state; TypeScript 7.x owns presentation. Public MIT, private board/runtime data and
+UTF-8/LF remain fixed. Assume qualified authenticated loopback browsers under32;
+no browser/platform or TS7 dependency compatibility is established here.
+
+Recommendation and alternatives
+Approach | Accessibility/focus and drafts | Local assets/testability/tradeoff
+Semantic HTML with small TS view modules (recommend) | Explicit labels, landmarks, focus controller and draft store | Package all assets; isolated controllers and synthetic DOM scenarios; manual rendering/lifecycle discipline.
+Small reactive component framework | Same explicit focus/draft responsibilities | Package pinned dependencies; component harness; dependency and TS7 qualification overhead.
+Custom-element composition | Explicit semantics and cross-boundary focus design | Local modules; element harness; additional lifecycle/style boundaries.
+
+Choose semantic HTML plus narrowly owned controllers, avoiding a second domain
+model. These are design alternatives, not verified library claims or a dependency
+selection for22. Reconsider after representative drawer/search/move accessibility
+qualification; package size and responsiveness remain unmeasured. No CDN/fonts or
+remote assets are required. Local assets permit rendering the shell during transport
+failure; they confer neither offline mutation authority nor guaranteed reload access.
+
+Composition/state ownership diagram
+
+ Router: board/card IDs, view/filter/archive selection, navigation epoch
+    |
+ Shell + focus/status controller ----> board lanes/search + card drawer/forms
+    |                                      |              |
+    |                              committed read cache   draft store
+    |                              board/revision/health  editor/base revision
+    |                                      |              |
+    +----------------> request coordinator + operation journal
+                                      |
+                   generated declarations + validated service adapter
+                                      |
+                       authenticated Go contract13 + addendum32
+
+Routes identify resources, never credentials or card prose; use per-window local
+search text where URL disclosure would expose content. Browser history restores
+selection/filter context and focus, not mutations. A drawer route opens directly
+when authorized; unknown/inaccessible identities show a bounded unavailable state.
+Workspace discovery/navigation is a consumer boundary; it grants no board access.
+
+State and concurrency
+Cache only validated projections keyed by instance, principal scope, board, query
+and committed revision. Go supplies rights, order, triage explanations and archive
+semantics; filtered results never redefine global counts. Drafts are separate,
+keyed by board/card or creation identity and editor kind, retaining base board/policy/
+card revisions. Never replace dirty fields during refresh. Comments and relationship
+forms have independent drafts; changing a reference or precondition changes intent.
+
+Keep drafts and unresolved operation identities/fingerprints in tab memory across
+navigation. Recommend explicit opt-in private draft recovery storage with retention
+and clear controls, excluding sessions/request tokens/grants; qualify confidentiality
+and reload behavior before enabling it. In-memory-only mode cannot promise crash
+recovery. Host replacement uses a new origin: preserve the old tab's drafts, offer
+user-directed private recovery transfer, then rebind only after authentication and
+explicit resource/revision reconciliation. Never automatically trust imported drafts.
+
+Each read carries a navigation epoch and query/resource key; discard a late response
+unless both still match. Abort superseded reads and debounce search, but guard late
+responses even after cancellation. Notifications invalidate cache entries; reconnect
+refreshes health/revisions and reconciles operations before offering new submissions.
+
+A mutation journal captures immutable target, principal, operation identity,
+fingerprint and preconditions before submission, separate from transport request IDs.
+Navigation cannot retarget it. Cancellation/timeouts do not prove rollback. Use32's
+reconciliation mode; missing/expired evidence remains indeterminate. Committed results
+update only their original resource and preserve subsequent draft edits. Deliberate
+resubmission uses new intent/identity after review; expose possible duplication while
+an older effect remains unresolved. Never silently replay, merge or regenerate IDs.
+
+Interaction/recovery matrix
+Interaction | Presentation and recovery obligation
+Cards/drawers/create/edit/comments | Explicit save; retain drafts on refusal/conflict; compare refreshed revisions and request deliberate resolution. Closing restores trigger focus or a stable board heading if absent.
+Search/archive/relationships | Revision-bound results; archived links remain navigable/labeled; show server explanations and atomic relationship effects, including hidden cards. Preserve form/search context.
+Pointer/keyboard moves | Equivalent labeled move action and keyboard destination chooser; announce result and restore focus by stable ID. Show pending intent without claiming committed lane/order; conflict restores authoritative placement.
+Attachments | Explicit selection/upload/staging status; bounded byte controls; manifest success only after server commitment. Preserve uncertain upload outcome; inert download/preview treatment and reference removal follow12/13, with physical retention server-owned.
+Review acceptance | Present reviewed revision and server capability; explicit acceptance command binds card/policy revisions. Stale review requires renewed inspection; browser presence/actor labels never confer human authority.
+Status/recovery | Distinguish loading, retained stale reads, write-disabled/quarantine, auth loss, conflict and indeterminate outcome. Show local commit independently from Git publication; accessible live announcements avoid stealing focus.
+
+Session and adapter boundary
+Use13's pinned generated declarations plus a thin adapter validating responses,
+errors and event envelopes at runtime; generated types confer no authority. Keep32's
+session-bound token only in memory and attach its custom header to every protected
+read/command/fetch-stream request, with cookie and required same-origin context.
+No native credentialless event fallback. Public bootstrap assets grant no protected
+access. Revocation/replacement stops streams and admissions; reauthentication follows
+the trusted launcher exchange and never replays commands. Do not move credentials
+or requests to a discovered alternate origin.
+
+Choices, evidence and checks
+Recommend the first approach and explicit opt-in recovery policy for owner review;
+retention limits, browser qualification and accessibility scenarios remain downstream
+engineering decisions, not missing owner input. Inputs: card0016; brief r2; owner r6;
+parallel-author-inputs-r7; designs01/02/05-08/10-13/30/32; reviews14/33; repository
+AGENTS.md. Documentary scope/outcome checks only; no library/runtime guarantees,
+legacy code/tests/internal docs, private boards, peer drafts, installs or live changes.
+Only this artifact written; fresh19 and primary verification remain separate.
+Terry alone controls Completed.
