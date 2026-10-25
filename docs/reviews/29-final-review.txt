@@ -1,0 +1,66 @@
+LOCALSWIM REBOOT - INDEPENDENT FINAL ARCHITECTURE REVIEW (#0029)
+2026-10-25 | Reviewer: sol_high_0029_review_final
+
+Recommendation: PASS WITH NON-BLOCKING OBSERVATIONS.
+No material architecture defect or mandatory correction found in the consolidated
+[overview28](../design/28-architecture-overview.txt). Recommend handoff for primary
+verification and Terry's final architecture decision. This validates documentary
+consistency, not implementation, qualified builds, operational safety or adoption.
+
+Basis and authority
+Read card0029, owner-decisions r8, artifact-index r9 TXT/JSON and full overview28;
+accepted reviews[04](04-baseline-review.txt),[09](09-structure-review.txt),
+[14](14-runtime-review.txt),[31](31-structure-addendum-review.txt),
+[33](33-runtime-addendum-review.txt),[19](19-interface-review.txt),
+[24](24-operations-review.txt),[27](27-qualification-review.txt);
+scope01, companions30/32, interface13 and qualification/adoption25/26. Targeted
+sections in07/10/11/18/20/21 checked graph, state, ownership, bytes and worker seams.
+The primary's source-integrity/publication verification remains separate. No external
+version or protocol fact was independently requalified in this review.
+
+R8 supersedes historical pending wording:01-27/30-33 are owner-accepted;28/29 are
+not preapproved.30 corrects09 O1-O3 alongside05-08;32/33 close14 F1-F2 alongside
+10-13. The overview accurately preserves this precedence without rewriting originals.
+Assume trusted desktop account, cooperating writers, directly attached storage and
+separately qualified authenticated loopback. Go core/service/CLI/workers, TypeScript
+7.x browser, public MIT FOSS, private operational data and UTF-8/LF remain fixed.
+
+Coverage and consistency
+- All twelve retained/redesigned capability groups in01 have component owners and
+  validation directions in28's index: configuration, cards/archive, acceptance,
+  relationships, triage, audit/conflicts, attachments, browser, CLI, workspace,
+  publishing/backups and monitoring. Deferred compatibility and excluded roadmap
+  scope remain explicit.25 maps eleven quality scenarios through nine journeys.
+- Go admission owns rights, reviewed revisions and atomic effects; workspace/client
+  state grants no board authority. API/schema evolution, generated declarations
+  and runtime validators retain distinct responsibilities.30's priority/tie-break
+  clarification and13's identity comparison agree with authoritative server order.
+- Complete verified bytes precede state/audit/outcome references.32's bounded
+  recognition preserves historical matches, fingerprint conflicts and absent-evidence
+  uncertainty. Physical exclusion, cold quarantine, stale warm reads and proven
+  child quiescence align. Snapshot pins, isolated repository work and complete
+  sanitized monitor intervals preserve independent worker/recovery boundaries.
+- All31 overview links are relative public documentation references. No new design
+  selection, unapproved compatibility or isolated clean-room claim was introduced.
+  Disclosed provenance, synthetic fixtures and future evidence limits remain honest.
+
+Non-blocking observations: existing future gates, not architecture defects
+ID | Severity / source section | Impact | Concrete downstream direction
+O1 | Non-blocking /28 Trust and residual decisions;32 F2;33 O1-O3;27 O1 | Issuer trust, cookie/name isolation and human issuance remain unqualified. | Qualify actual issuer/profile scope, never-reused names, exact origins and launcher capability access; obtain separate trust-installation authorization.
+O2 | Non-blocking /28 index22-24 and Qualification;25 Evidence and exit gates | Compiler availability and generator metadata establish no compatible build. | Qualify pinned Go, isolated TS5 generator, TS7 checks/assets, explicit validators and supported OpenAPI3.1 subset together.
+O3 | Non-blocking /28 Trust and residual decisions;19 O1/O3;24 O3;25 Evidence and exit gates | Memory-only drafts and numerical horizons/budgets remain limited. | Specify privacy/retention and authenticated rebinding before durable drafts; qualify outcome/cursor/freshness, capacity, pin release, shutdown and durability objectives before reliance.
+O4 | Non-blocking /28 Qualification and adoption;26 Gate table/Rollback;27 O2 | Copies, identity matches and old backups prove no authority transfer or reversible cutover. | Separately authorize private rehearsals and cutover; include duplicate IDs, stale destinations, post-cutover writes, complete restore proof and explicit loss/recovery decisions.
+
+Owner handoff and limits
+Recommend retaining layered qualification and selective adoption. Database/export,
+separate services, alternate UI architecture and full compatibility retain documented
+cost/isolation/coverage tradeoffs; continued Python operation remains valid. Terry
+retains platform/browser, privacy/history, retention/recovery, compatibility and
+loss-tolerance choices before dependent execution. No specific missing input blocks
+this review handoff; observations require no synthesis correction.
+
+Only this report written, UTF-8/LF with final newline. No fixes, implementation,
+tests, legacy source/internal documents, private boards, installs, repository/board
+or live changes, or subagents. Review-only handoff is RFR after primary verification;
+Terry alone controls Completed. Architecture acceptance authorizes no execution,
+trust provisioning, migration, release or cutover.

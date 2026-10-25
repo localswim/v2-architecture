@@ -2,6 +2,11 @@
 
 High-level architecture and decision records for the Go + TypeScript 7.x clean-room reboot of localswim.
 
+Start with the [consolidated architecture overview](docs/design/28-architecture-overview.txt).
+It links all 31 accepted inputs and separates architecture decisions from remaining
+qualification and execution gates. The [fresh independent final review](docs/reviews/29-final-review.txt)
+passed with non-blocking observations and no mandatory architecture correction.
+
 ## Free and open source
 
 localswim is and will remain free and open-source software. All localswim project repositories are public and use the MIT license.
@@ -16,16 +21,16 @@ Text files use UTF-8 and end with a newline; binary files retain their bytes.
 
 ## Status
 
-Architecture work is in progress. Terry accepted the foundation, structure,
-corrected runtime, interface, and operations packets on 2026-10-25. Unselected
-alternatives and unverified numerical targets remain explicit recommendations.
-Qualification/adoption is the current reviewed packet; final synthesis follows its
-acceptance. This repository does not contain the v2 implementation.
+Terry accepted the foundation, structure, corrected runtime, interface, operations,
+and qualification/adoption packets on 2026-10-25. Final synthesis and fresh independent
+validation are finished and ready for Terry's final review and approval. Unselected
+alternatives and unverified numerical targets remain explicit recommendations. This
+is a high-level architecture handoff, not an implementation or qualified release.
 
 ## Architecture documents
 
 The preserved notes retain their original candidate wording. Read the current
-[owner decisions](docs/decisions/owner-decisions-2026-10-25-r7.txt) for subsequent
+[owner decisions](docs/decisions/owner-decisions-2026-10-25-r8.txt) for subsequent
 acceptance and standing public/MIT/LF and board-lane policy. The working lane rules
 are also recorded in [AGENTS.md](AGENTS.md).
 
@@ -84,9 +89,9 @@ Tool availability is distinct from compatibility qualification. The delivery not
 records stable TS7 availability and the generator's separate TS5 dependency; it does
 not claim a successful combined build, schema equivalence, or platform qualification.
 
-The qualification/adoption packet below has passed fresh independent review with
-non-blocking observations and awaits owner review and approval. It defines required
-evidence and execution gates; no tests, migration, trust setup, or cutover were run.
+The accepted qualification/adoption packet below passed fresh independent review
+with non-blocking observations. It defines required evidence and execution gates;
+no tests, migration, trust setup, or cutover were run.
 
 - [Qualification and acceptance strategy](docs/design/25-validation-strategy.txt)
 - [Compatibility, coexistence, and adoption](docs/design/26-adoption.txt)

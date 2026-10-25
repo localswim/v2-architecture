@@ -1,0 +1,157 @@
+LOCALSWIM GO + TYPESCRIPT 7 ARCHITECTURE OVERVIEW (#0028)
+2026-10-25 | Architecture synthesis | Public MIT FOSS
+
+Disposition and reading order
+This overview consolidates 31 owner-accepted architecture inputs. It is ready for
+fresh independent review29, then primary verification and Terry's decision; neither
+28 nor29 is preapproved. Acceptance of a recommendation establishes design direction,
+not implementation qualification or permission to install, migrate, release or cut over.
+No new subsystem contract or design choice is introduced here.
+
+Read foundation01-03 with review04; structure05-08 with authoritative companion30
+and reviews09/31; runtime10-13 with authoritative companion32 and review33. Review14's
+two findings are closed by32/33, rather than ignored. Interface15-18/review19 and
+operations20-23/review24 feed qualification25/adoption26 and accepted review27.
+Historical pending language in those inputs is superseded by later owner acceptance.
+The table links every input using repository-relative public documentation paths.
+
+The selected stack is Go for core, service, CLI and workers; TypeScript7.x for the
+browser. All first-party repositories are public MIT FOSS; real board contents,
+credentials and recovery records remain private. Method02 is fresh implementation
+with disclosed source-derived provenance, not independently isolated clean-room
+certification. Accepted behavior packets, fresh synthetic fixtures, exposure records
+and dependency/generator lineage remain required. Legacy implementation, tests and
+internal designs are prohibited worker inputs; black-box work or legacy assets need
+separate approved scope. Architecture acceptance does not approve exact legacy
+storage, command, route or wire compatibility. Migration remains deferred and
+unimplemented roadmap work excluded.
+
+Consolidated system diagram (arrows show authority/data flow, not endpoint syntax)
+
+ Trusted control plane / launcher: intended-instance proof, issuance, lifecycle
+       | protected human bootstrap                 | distinct CLI/worker grants
+       v                                           v
+ TS7 browser: routes, focus, drafts ----+---- Go CLI: explicit board target
+ validated read cache, immutable intent|     online commands; reconcile outcomes
+       | TLS/session/header/context    |                   |
+       +-------------------------------v-------------------+
+ + Go host per configured hosting root ------------------------------+
+ | HTTP/JSON adapters + OpenAPI3.1 validation + authenticated events   |
+ | Workspace registry: authorized partial catalog; preferences owner |
+ | Independent board engines A/B/...: shared Go domain/application    |
+ | policy, workflow, graphs, triage, revision-fenced admission         |
+ | per-board persistence: state + audit + operation outcome co-commit |
+ +----------+--------------------------+------------------------------+
+            |                          | authorized pinned snapshot /
+ private canonical JSON + immutable    | sanitized complete activity
+ verified bytes; physical exclusion    v
+            ^                 supervised Go workers (separate scopes)
+ stopped-board Go maintenance  publisher: one owner/repository -> opt-in Git
+ same core/adapters, exclusive monitor: one owner/board -> configured adapter
+ ownership; never live fallback        private progress/checkpoints/targets
+
+Responsibilities and invariants
+One host serves independent board engines with bounded resources; a host crash is a
+shared failure domain. Workspace discovery provides navigation, never board rights or
+cross-board atomicity. Go alone owns domain policy, authoritative order/counts and
+commit outcomes. Browser and CLI validate envelopes and preserve intent; neither can
+make actor labels authoritative. All writers, including maintenance, share admission.
+
+Stable identities survive renames/archive. Archive preserves content, comments,
+relationships and history. Human acceptance binds authenticated capability plus the
+reviewed card and policy revisions, atomically with transition/evidence; subsequent
+substantive edits cannot inherit acceptance. Assignment grants no authority.
+
+Blocking, nonblocking associations and hierarchy have separate semantics. Blocking
+cycles are exposed; completion stops reachability/urgency, while archived unfinished
+cards still participate. Adopted graph recommendations include acyclic single-parent
+hierarchy, self-link refusal, distinct downstream counts and forward urgency promotion.
+One persisted priority changes through explicit edits or atomic promotions; removing
+constraints never automatically demotes it. Floors/scores/order are derived from one
+committed revision.13 supplies opaque ASCII identities and bytewise final tie-breaking,
+clarifying30's previously deferred representation; clients use server order.
+
+Canonical deterministic JSON co-commits state, attributable metadata audit and operation
+recognition. Bytes are complete and verified before references commit. Candidate,
+intent, replacement, synchronization and read-back distinguish committed, proven
+noncommit and indeterminate outcomes. Unknown storage outcomes fence writes; invalid
+cold starts quarantine, while warm retained reads are visibly stale. Evidence is
+preserved; no empty replacement or automatic backup promotion. Audit metadata cannot
+reconstruct edited prose or establish tamper-proof authorship. Logical read-back and
+process-crash recovery do not establish power-loss or hardware-loss survival.
+
+Operation identity equals correlation within stable principal/aggregate scope.
+Authorized retained fingerprint matches return historical outcomes without execution;
+changed content conflicts. Missing, expired or damaged retry evidence stays
+indeterminate. Navigation, cancellation, timeout, reauthentication and restart never
+justify replay or automatic identity replacement. This is bounded recognition, not
+global exactly-once execution.
+
+Physical aggregate exclusion covers aliases and bytes through a stable anchor;
+logical board IDs alone cannot establish ownership. Startup recovers before serving.
+Drain closes admission and proves storage/child quiescence before ownership release;
+deadlines, PIDs, listeners and generations cannot justify takeover. Unknown worker
+effects disable affected scopes until reconciled; demonstrably safe local work may
+continue. Closing a browser does not stop the host.
+
+Trust and residual decisions
+32's accepted bootstrap recommendation assigns issuer/control plane, launcher, Go
+adapter and browser explicit roles: verify captured instance chain/name/expected key
+before disclosing a single-use grant; exchange at the selected TLS origin; bind
+protected reads, commands and streams to session cookie, memory token and browser
+context. CLI/workers have distinct grants. Revocation/lease expiry and quiescence
+precede replacement; login never replays intent.
+
+Local-issuer provisioning expands account trust and remains separately authorized
+and unqualified. Actual issuer restrictions, browser-profile trust and localhost
+resolution must be tested. Host-only cookies are not port-isolated; never-reused
+instance names, keys and exact origins carry isolation. Human issuance assumes trusted
+launcher access unavailable to automation; TLS, Origin and browser presence prove no
+person and exclude no account-controlling process. Trusted desktop account,
+cooperating writers, directly attached storage and qualified loopback remain the
+envelope; remote hosting and hostile-account isolation are outside it.
+
+Browser memory retains drafts/journals across navigation, not reload/crash. Durable
+private recovery needs explicit confidentiality, retention and authenticated rebinding.
+Numerical performance/capacity, freshness, shutdown/lease, outcome/cursor horizons,
+pin release, attachment/audit retention and recovery objectives remain unverified.
+Terry retains platform/browser scope, privacy, full content-history needs, hardware-loss
+tolerance and compatibility choices before dependent execution. These future gates do
+not prevent architecture handoff. Material contradictions found in29 would require
+bounded correction before final acceptance.
+
+Capability, decision and evidence index
+Input links | Accountable component / accepted direction | Validation and residual decision
+[01](01-product-scope.txt),[02](02-clean-room-method.txt),[03](03-quality-attributes.txt),[04](../reviews/04-baseline-review.txt) | Primary/requirements owner: retained outcomes, provenance and quality ledger | Synthetic requirement/result traceability; accepted packet revisions; provisional workload/budgets require measured evidence.
+[05](05-system-topology.txt),[30](30-structure-addendum.txt),[09](../reviews/09-structure-review.txt),[31](../reviews/31-structure-addendum-review.txt) | Go host: independent boards and supervised workers | Fairness, healthy-board isolation and restart campaigns; separate services remain costlier stronger-isolation alternative.
+[06](06-domain-policy.txt),[07](07-relationships-triage.txt) | Go core: configuration/rights, cards/comments/archive, acceptance, links/hierarchy, promotion and deterministic triage | Synthetic invariants, cycles/diamonds/completion/archive, stale policy/review and unauthorized negative controls; exact compatibility and policy details need specified contracts.
+[08](08-state-audit.txt),[10](10-persistence-recovery.txt) | Go persistence: canonical state/audit/outcome and schema admission | Fault every commit boundary, corruption/disk-full/reopen; JSON is accepted recommendation, database/export a contract-changing alternative; retention/content reconstruction and hardware-loss objectives remain explicit.
+[11](11-ownership-lifecycle.txt) | Go lifecycle: physical ownership and stopped-board exclusion | Native alias/competing-owner/child/drain campaigns per target; Windows11/Linux x64 remain qualification candidates.
+[12](12-trust-security.txt),[32](32-runtime-addendum.txt),[14](../reviews/14-runtime-review.txt),[33](../reviews/33-runtime-addendum-review.txt) | Trusted issuer/launcher + Go adapters: authentication, bootstrap, operation recognition | Wrong root/key/name/origin, grant reuse/revocation, cookie/issuance isolation and missing outcome evidence; qualification and trust installation still gated.
+[13](13-interface-contracts.txt),[15](15-cli.txt) | Go service/CLI: versioned HTTP/JSON, explicit targets, human/JSON output, controlled maintenance | Runtime schema/outcome equivalence, unknown mutation-field refusal, clean exits, inert operands and no offline fallback; command compatibility intentionally separately specified.
+[16](16-browser.txt),[17](17-workspace.txt),[19](../reviews/19-interface-review.txt) | TS7 controllers: search/drawers/moves/focus/drafts; Go workspace: contained discovery, authorized attention/catalog and separate shared preferences | Real browser/keyboard/screen-reader journeys, late-response epochs, unavailable routes and preference conflicts; semantic HTML recommendation versus reactive/custom-element alternatives; durable draft privacy remains open.
+[18](18-attachments.txt) | Go bytes/admission/delivery: immutable objects, covers and inert downloads/previews | Interrupted/oversize/corrupt uploads, permission races, atomic cover detach, safe containment and exact inventories; no guessed garbage collection or cross-board deduplication.
+[20](20-publishing-recovery.txt) | Go repository coordinator/recovery owner: off-by-default exact pinned export, isolated index, separate save/commit/push | Missing-byte refusal, staged-work/ref races, disconnected/uncertain push and restore drill; Git alone is no backup; dedicated export repository is isolation alternative.
+[21](21-monitor.txt) | Go monitor: one owner/board, complete sanitized cursor intervals, durable pending and preserved targets | Suppress only complete nonempty verified bot-only activity; human/mixed/unknown/empty/failed/gapped intervals alert without card inspection or write/event equality; crash/reload/retarget tests retain uncertainty/possible duplicates.
+[22](22-delivery-toolchain.txt),[23](23-observability.txt),[24](../reviews/24-operations-review.txt) | Build/release owners: inward Go adapters, shared product, bundled assets; health owners: scoped readiness/evidence | Pinned Go graph, isolated TS5 generator, TS7 checks/assets, explicit validators and OpenAPI3.1 subset fixtures qualify together; metadata is no compatibility proof. Clean-build/regeneration/notices checks; sanitized fault/status campaigns distinguish stale/unknown and worker progress.
+[25](25-validation-strategy.txt),[26](26-adoption.txt),[27](../reviews/27-qualification-review.txt) | Qualification/recovery owners + Terry: layered evidence and selective adoption | Simulation, native faults and real-browser/assistive evidence remain separate; fresh independent validation and Terry acceptance gate release. Browser-only testing/full compatibility are cost/coverage alternatives; continued Python operation remains valid.
+
+Qualification and adoption handoff
+25 covers all eleven quality scenarios through nine representative journeys. Record
+requirement/decision revision, fixture digest, exact tools/target, expected/observed
+result and limitations; unqualified cells stay visible. Process termination cannot
+substitute for power-loss evidence; compiler metadata cannot substitute for a build.
+
+26 requires isolated storage, ownership, origins, credentials, repositories and monitor
+paths/targets. Approved private copy rehearsal, named mapping/loss report, complete
+independent backup/restore proof and separately authorized freeze/cutover precede one
+new authority. Include duplicate logical IDs, stale destinations and post-cutover
+writes. Rollback requires compatible release/storage/trust, drained writers/workers,
+reconciled external effects and fresh credentials. Restoring an older copy can lose
+later writes; preserve both histories/bytes and obtain an explicit loss/recovery
+decision. Copying, successful parsing and push acknowledgement transfer no authority.
+
+Author checks: documentary capability/owner/validation coverage, companion precedence,
+public relative links, scope and text encoding only. No implementation, runtime tests,
+installs or operational changes. Fresh29 and primary verification remain separate;
+Terry alone controls Completed.

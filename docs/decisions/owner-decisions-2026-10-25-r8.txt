@@ -1,0 +1,25 @@
+CURRENT OWNER DECISIONS - 2026-10-25 (r8)
+
+Binding direction
+- Go core/service/CLI/background tools; TypeScript7.x browser.
+- All localswim project repositories are public, MIT-licensed FOSS. Text is UTF-8 with Unix-style LF and final newlines; binary bytes are preserved.
+- Real board data, credentials and private operational records remain private.
+
+Accepted architecture inputs
+- Terry accepted the foundation, structure and corrected runtime packets, then the interface and operations packets.
+- Terry subsequently approved qualification/adoption25-26 and independent review27. All31 earlier author/review artifacts are accepted inputs to the final synthesis.
+- Read original designs05-08 with clarification30, and runtime10-13 with companion32 and validation33. Prior artifacts and review findings remain preserved rather than rewritten after acceptance.
+- Unverified budgets, platform behavior, local issuer trust scope, cookie/name isolation, human-issuance capability and compiler/generator/schema equivalence remain explicit qualification obligations. Acceptance provides no runtime evidence or installation authority.
+
+Final handoff boundary
+- Overview28 and fresh independent final review29 are the final reviewable outputs. They are not preapproved by acceptance of their inputs.
+- Synthesis consolidates accepted recommendations and residual decisions; it selects no new design, executes no tests, and authorizes no implementation, migration, trust setup, release or cutover.
+- Implementation planning and execution require their own explicit scope and qualification evidence.
+
+Workflow
+- RFR: only Terry review and approval remain. Needs Terry: unfinished work requires a specific intervention only Terry can provide. Blocked: neither Terry nor Bot can advance until an external condition changes, such as ordered test hardware arriving.
+- Ordinary dependencies remain Ready for Work; RFR alone is not acceptance. Terry controls Completed.
+- Eligible authors run first within the eight-slot task ceiling; fresh independent reviewers use freed slots after source handoffs. No reserved reviewer slots or grandchildren.
+
+History
+- This revision supersedes earlier pending-qualification language. Previous decisions, original author artifacts and independent review reports remain evidence.
