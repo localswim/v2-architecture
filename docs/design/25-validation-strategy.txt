@@ -1,0 +1,96 @@
+LOCALSWIM REBOOT - VALIDATION STRATEGY (#0025)
+2026-10-25 | Author: sol_medium_0025_validation_strategy
+Architecture recommendation; fresh independent #0027 review remains separate.
+
+Authority and assumptions
+Owner decisions r7 accepts interfaces15-19 and operations20-24. Accepted structure
+05-08/30 and runtime10-13/32/33 govern. Go owns core/service/CLI/workers; TypeScript7.x
+owns browser presentation. Public MIT repositories exclude private board/runtime
+data. Use fresh synthetic fixtures and disclosed-provenance behavior packets under02;
+legacy implementation/tests/internal design are neither inputs nor the oracle.
+Assume trusted desktop account, cooperating writers, directly attached storage and
+qualified authenticated loopback. Local-issuer provisioning remains a deployment
+precondition requiring qualification and separate installation authorization.
+
+Recommendation and traceability
+Adopt layered evidence with explicit owner, requirement/decision revision, fixture
+digest, target/tool versions, method, expected/observed outcome and evidence limits.
+Maintain a requirement-to-result ledger including negative cases and unqualified
+cells. A passing layer never substitutes for another. Implementation teams author
+checks; fresh reviewers validate their evidence; Terry accepts release scope.
+
+Traceability / qualification matrix
+Accepted source and quality scenarios03 | Layer / accountable implementation owner | Required evidence
+06-08/30;03.1 | Domain / Go core | Workflow/acceptance fences, graph cycles, persisted promotion without automatic demotion, derived counts/order, archive links, atomic audit; synthetic invariants.
+13/32;03.1-2,10 | Contract / service and client adapters | Version/feature refusal, unknown mutation fields, runtime request/response/event validation, outcome/fingerprint/horizon equivalence; generated types alone insufficient.
+10/18/32;03.3-4 | Storage/fault / persistence and bytes | Every write/flush/intent/replace/sync/read-back boundary; disk-full/corruption/reopen; complete objects before references, quarantine and evidence preservation.
+11/12/32;03.1-4 | Native processes / lifecycle and trust | Competing hosts/maintenance, physical aliases, captured children, crash/drain/quiescence and credential replacement on each target.
+15/17;03.2,8,10 | CLI/workspace / Go adapters | Explicit targets, inert operands, clean JSON/exit/outcome mapping, separate preferences, authorized partial catalog, no offline fallback.
+16-18/32;03.2,6,8-9 | Real browser/accessibility / TS adapter | Bootstrap/session/event refusal, navigation epochs, draft/focus retention, keyboard equivalents, screen-reader walkthrough and inert bytes.
+20-23;03.5,7,10-11 | Workers/delivery / publisher, monitor, release owners | Snapshot/index isolation, cursor continuity, delivery ambiguity, sanitized health; native targets plus qualified browser/toolchain matrix.
+
+Representative acceptance journeys (maximum nine)
+1. Race two authorized edits and stale human acceptance; verify one conflicting
+   commit, coherent state/audit/outcome and retained losing intent. Spoofed human
+   labels, unknown/underprivileged principals and cross-board access refuse without
+   domain mutation or successful-change history; valid human controls succeed.
+2. Lose response/cancel across admission and replacement; reconcile retained matches
+   across restart, reject changed fingerprints, and keep absent/expired/damaged retry
+   evidence indeterminate. No automatic first submission, new identity or replay.
+3. Compete alias-path hosts and explicitly stopped-board CLI; then crash/drain with
+   surviving children. Native exclusion and proven quiescence precede successor
+   readiness; stale PIDs/listeners/generations cannot authorize takeover.
+4. Inject invalid references/format, disk-full and each persistence fault; verify
+   proven base/candidate or fenced unknown, unchanged preserved evidence, stale warm
+   reads versus cold quarantine, and independent healthy-board availability.
+5. Exercise wrong root/key/name, untrusted issuer, hostile/null/missing Origin,
+   foreign authority, missing header/cookie/context, expired/consumed grants and
+   revoked sessions/streams. Test anonymous bootstrap's narrow exception separately;
+   protected reads/events require32 binding, fresh login never replays intent.
+6. Interrupt/oversize upload, alter digest, race permissions and unsafe paths, then
+   remove a covered attachment. Verify complete-byte admission, atomic cover clearing,
+   inert download/preview and retained current/pinned/unresolved bytes; no guessed GC.
+7. Navigate cards/boards/Back/Forward during search, edit and upload; late responses
+   cannot retarget intent or overwrite dirty drafts. Verify unavailable routes,
+   independent preferences, keyboard move/search/drawer focus and screen-reader
+   announcements. Memory-only mode promises no crash/reload draft recovery.
+8. Disconnect Git, race manual refs/staged work, lose push acknowledgement and interrupt
+   flush. Local saves continue; exact pinned inventories preserve unrelated files;
+   commit/push/restore-readiness remain distinct, uncertain effects reconcile first.
+9. Query bot-only/human/mixed/unknown/empty/malformed/failed/gapped paginated activity;
+   suppress only complete nonempty verified bot-only intervals without card inspection
+   or write/event-count equality. Crash/reload/retarget retains checkpoint, pending
+   target and delivery uncertainty; adapter acceptance proves neither receipt nor
+   exactly-once delivery. Inspect sanitized diagnostics and visible exhaustion.
+
+Evidence and exit gates
+Simulation validates decisions and fault classification, not OS exclusion/durability.
+Native process/filesystem campaigns establish only named OS/filesystem combinations;
+process termination does not qualify power-loss survival. Real-browser evidence
+records selected stable Edge/Chrome/Firefox versions, assistive technology and actual
+trust setup; synthetic DOM/automated scans cannot replace interaction walkthroughs.
+Windows11 x64/Linux x64 remain candidates until individually qualified.
+
+Before implementation reliance, specify retention/outcome/cursor horizons, pin release,
+draft confidentiality, capacity, freshness/invalidation, leases and shutdown budgets.
+Measure03's provisional workload/latency/accessibility targets with synthetic datasets,
+sample counts and failures; negotiate changed budgets explicitly, never imply success.
+Terry retains retention/privacy, recovery-point/time, hardware-loss and platform scope.
+
+Qualify22's pinned Go dependency graph, isolated TS5 generator package, TS7 browser
+checking and asset builder together. Metadata availability is not compatibility.
+Fixture the supported OpenAPI3.1 subset across Go/browser validators, generated wire
+types and serialization; unsupported constructs fail explicitly. Verify regeneration,
+clean-build comparison, packaged assets, notices and provenance before release claims.
+
+Recommend layered gates over browser-only end-to-end checks: broader evidence costs
+more but exposes native/trust blind spots. Legacy differential testing is excluded.
+Exit requires traceable results, resolved material findings, fresh independent review
+and Terry's acceptance of limitations; architecture approval authorizes no execution,
+install, migration or release. No missing input prevents this proposal's handoff.
+
+Sources and author checks
+cards-r7/0025; owner decisions r7; designs02/03/10-13/15-18/20-23/30/32;
+reviews19/24/33. Documentary coverage and UTF-8/LF/final-newline checks only; no test
+code/execution, repository operations, installs or live changes. Primary verification
+and27 remain separate. Future RFR is not preapproved; Terry alone controls Completed.

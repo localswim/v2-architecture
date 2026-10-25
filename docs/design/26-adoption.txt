@@ -1,0 +1,99 @@
+LOCALSWIM REBOOT - ADOPTION AND COMPATIBILITY (#0026)
+2026-10-25 | Author: sol_medium_0026_adoption
+Architecture recommendation; fresh independent validation belongs to #0027.
+
+Authority and recommendation
+Owner decisions r7 accepts interface15-19 and operations20-24; accepted runtime
+10-13/32/33 governs recovery, ownership and trust. Recommend selective behavioral
+continuity and independent development, followed by isolated qualification and
+separately owner-approved migration/cutover. Go core/service/CLI/workers,
+TypeScript7.x browser, public MIT and private operational data remain binding.
+No legacy compatibility contract, implementation, importer, installation or live
+change is authorized. The original Python system remains its owner's production
+system until Terry explicitly transfers a specified scope.
+
+Compatibility decision matrix (recommendations, not compatibility promises)
+Surface | Preserve outcome / explicit decision boundary
+Snapshots/history | Preserve source bytes, stable references, meaningful state/history and provenance in any approved conversion. Treat old schema as unsupported until an approved mapping, validation and loss report exists; no direct open, automatic upgrade or downgrade.
+Workflow/policy | Preserve accepted workflow meanings and configured rights through a reviewed semantic mapping. Unknown lanes, priorities, relationships or triage rules require explicit disposition; never silently substitute defaults or infer equivalence from labels.
+Actors/acceptance | Preserve historical labels as disclosed provenance, not verified principals or new grants. New identities/capabilities require deliberate mapping; automation never acquires human acceptance. Historical acceptance evidence needs an approved interpretation, not fabricated authentication.
+Attachments | Preserve exact authorized inventory, byte length/digest, associations, covers and retained references. Missing/corrupt bytes stop qualification; no directory glob, guessed file layout or automatic disposal.
+CLI/automation | Preserve required human/JSON outcomes through newly specified contracts. Intentionally version command syntax, envelopes, exits, credentials and operation semantics; scripts require explicit adaptation/qualification, never a transparent Python replacement.
+Bookmarks/workspace | Preserve selected stable destinations only through an approved board/card identity map. Intentionally replace origins/routes/discovery and credential material; stale links fail visibly, never redirect to a first matching board.
+
+Coexistence and staged adoption/rollback diagram
+
+ Existing Python + private production boards --------------------> retained owner
+          |                                                         ^
+          | separately authorized, frozen copy; never shared writer |
+          v                                                         |
+ New Go/TS7 development -> isolated synthetic qualification          |
+          |                       | failure: preserve evidence       |
+          +-> authorized copy rehearsal -> owner readiness decision  |
+                                              |                     |
+                                     approved freeze/cutover          |
+                                              v                     |
+                                      new scope authoritative        |
+                                              |                     |
+                                  fence/drain + reconcile outcomes    |
+                                              v                     |
+                         version/storage/trust rollback gate --------+
+                                  | incompatible/new writes
+                                  v
+                         preserve both; explicit recovery decision
+
+Coexistence and qualification
+Use distinct storage roots/ownership anchors, runtime records, listeners/origins,
+credentials, publication repositories/scopes and monitor lock/status/target paths.
+Never point both implementations at one writable aggregate, share pending commands,
+dual-write, auto-synchronize or infer safe handoff from an absent listener. Existing
+Python operations continue through their shared implementation and original targets;
+new tooling must not adopt them implicitly. Reserve synthetic identities to avoid
+accidental cross-routing. Copying a board does not transfer physical ownership.
+
+Qualification first uses newly authored synthetic fixtures and accepted behavior
+packets under02's disclosed-provenance method. An approved source-copy rehearsal
+would be a later private operation with explicit asset/evidence permission, isolated
+paths and disabled external effects. Pin source revision/inventory and mapping
+revision; compare counts, references, policy meaning, actor provenance and bytes.
+Retain rejected evidence and a loss/unsupported-field report. A successful parse,
+Git push or published compiler metadata is insufficient evidence of readiness.
+
+Gate / accountable responsibility / required evidence
+Implementation planning | Terry approves compatibility scope, intentional breaks and behavior/mapping contracts; primary records accepted requirements and independent review. This architecture creates no implementation tickets.
+Qualified candidate | Release/qualification owners prove pinned Go/TS7 build, isolated TS5 generator boundary, validators/schema subset, supported platform/browser/storage and trust behavior, fault recovery, access controls and interface scenarios. Metadata availability is not a qualified build; budgets remain unverified.
+Backup readiness | Data owner selects RPO/RTO, retention/capacity and independent private copies; recovery owner rehearses restoration of state/audit/outcome evidence, exact current/retained/pinned/unresolved bytes, configuration and compatible tools. Git alone is insufficient; credentials are excluded and freshly provisioned.
+Migration/cutover | Terry authorizes named source/destination scope and freeze window after independent evidence review. Operator drains both affected writers/workers, reconciles uncertain operations/publication/delivery, captures final complete backup, verifies mapping and establishes exactly one authority before redirecting clients/targets.
+Rollback/recovery | Operator fences/drains new scope and reconciles external effects; recovery owner proves retained release/storage reader compatibility, complete backup and valid separately provisioned trust. Terry authorizes reactivation/restoration and accepts any acknowledged data-loss or forward-recovery choice.
+
+Rollback conditions and residual risk
+Keep the prior executable/toolchain manifest and supported API/storage/feature matrix
+with each rehearsal. Binary replacement alone is rollback only when that release
+can validate the current storage, policy and required features. Forward-only schema
+changes require a tested restore or separately approved reverse mapping; never
+point Python at new-format files. Restoring a pre-cutover copy loses subsequent
+new-system changes unless explicitly reconciled. Preserve both histories and bytes;
+audit metadata cannot reconstruct missing prose or reverse committed external effects.
+
+Rollback must also prove a usable intended-instance trust path: authorized issuer
+setup, protected keys, fresh hostname/key/grants/sessions and current scopes under32.
+Never restore reusable credentials or bypass warnings. Controlled trust provisioning
+and any trust removal remain separately authorized future actions; architecture
+acceptance installed nothing. If any version, storage, ownership, backup or trust
+condition is unproven, keep the affected scope fenced and require an explicit
+recovery decision rather than claim rollback readiness.
+
+Owner choices, tradeoffs and checks
+Terry selects required legacy contracts, migration assets/history interpretation,
+platforms, backup objectives, retention/privacy, cutover scope and loss tolerance.
+These are future execution gates; no missing input prevents this reviewable proposal.
+Selective adoption costs script/link adaptation but avoids promising unverified
+legacy equivalence. A full compatibility layer adds contract and qualification cost;
+continued Python use remains valid while readiness is unproven.
+
+Evidence: card0026-r7; owner decisions r7; design01/02,10-13/32,15-18,20-23;
+reviews19/24/33; v2-architecture/AGENTS.md. Documentary consistency/scope checks only;
+no runtime qualification, legacy code/tests/internal documents, private boards,
+peer drafts, installs, repository or live changes. Only this artifact written as
+UTF-8/LF with final newline. Fresh27 and primary verification remain separate;
+Terry alone controls Completed. Current approval does not accept future cards.

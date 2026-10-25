@@ -1,0 +1,61 @@
+LOCALSWIM REBOOT - INDEPENDENT QUALIFICATION REVIEW (#0027)
+2026-10-25 | Reviewer: sol_high_0027_review_qualification
+
+Recommendation: PASS WITH NON-BLOCKING OBSERVATIONS.
+No material contradiction or mandatory correction found in25/26 against the
+accepted interface, operations and runtime boundaries. This is documentary
+architecture validation, not evidence that builds, recovery or adoption qualify.
+
+Basis and assumptions
+Read card0027, owner decisions r7, full designs25/26, accepted reviews19/24/33,
+runtime10-13/32, operations20-23 and evidence/quality02/03. Later r7 acceptance
+supersedes historical pending-review language in19/24. Assume a trusted desktop
+account, cooperating writers, directly attached storage and separately qualified
+authenticated loopback. Go+TypeScript7.x, public MIT, private operational data and
+UTF-8/LF remain binding. No external tool-version facts were independently rechecked;
+accepted metadata observations are not promoted to compatibility evidence.
+
+Traceability and evidence checks
+- 25 Traceability matrix covers03's eleven scenarios through domain, wire,
+  storage/fault, native lifecycle/trust, CLI/workspace, real-browser/accessibility
+  and worker/delivery layers. Its nine journeys include positive controls and
+  invalid/stale/unauthorized cases, revision races, missing retry evidence,
+  quiescence, corrupt storage, incomplete bytes, navigation epochs and conservative
+  monitor suppression. Rejections preserve the no-successful-change-history rule.
+- 25 Evidence and exit gates distinguishes simulation, named native OS/filesystem
+  campaigns, real-browser/assistive-technology walkthroughs and Terry's acceptance.
+  Process termination proves no power-loss survival. Native exclusion and storage
+  recovery cannot be inferred from browser success; provisional budgets remain
+  unverified and require measured samples and explicit renegotiation.
+- Toolchain/schema coverage carries24 O2 forward: isolated TS5 generator, TS7
+  browser checking/assets, pinned Go graph, explicit runtime validators, OpenAPI3.1
+  subset fixtures, regeneration and clean builds qualify together. Unsupported
+  constructs fail rather than acquire equivalence from generated declarations.
+- 26 Coexistence separates storage, ownership, credentials, origins, repositories
+  and monitor paths/targets. Production Python retains its owner and shared
+  implementation. Approved private copy rehearsal is a later permission gate;
+  neither source parsing nor copying transfers authority or authorizes migration.
+- 26 Gate table and Rollback conditions require complete independent backup and
+  restore evidence, frozen inventory/mapping, drained writers/workers, reconciled
+  uncertain effects, one authority and compatible release/storage/trust. Restoring
+  an older copy can lose later writes; both histories/bytes remain preserved.
+  Audit cannot reconstruct prose or reverse external effects. Credentials are
+  freshly provisioned; installer/trust changes remain separately authorized.
+
+Non-blocking observations
+ID | Severity / source section | Impact / bounded downstream direction
+O1 | Non-blocking /25 Evidence and exit gates;32 F2;33 O1-O3 | Actual issuer scope, cookie/name isolation and launcher human-grant access remain unqualified. Future native/browser campaigns should explicitly exercise these assumptions per supported profile/browser, including refusal controls; successful login alone proves no confined issuer trust or human identity.
+O2 | Non-blocking /26 Compatibility matrix, Coexistence and Rollback conditions;11 Ownership and identity | Future copy/cutover rehearsals must include duplicate logical board IDs at distinct physical aggregates, stale destinations and post-cutover writes. Record explicit mapping/conflict disposition and loss accounting; do not infer safe routing or reversible conversion from an inventory match.
+
+Decisions and handoff
+Recommend layered qualification and selective adoption. Browser-only testing and
+full compatibility carry the documented coverage/cost tradeoffs; continued Python
+operation remains valid. Terry retains platform, compatibility, asset/history,
+privacy/retention, recovery objectives and loss-tolerance decisions before future
+execution. These are future gates; no missing input prevents proposal handoff.
+
+Only this report written, UTF-8/LF with final newline. No fixes, tests, code, source
+audit, legacy implementation/internal documents, private boards, installs, repository,
+board or live operations, or subagents. Originals remain unchanged. Primary verifies
+this report; handoff is RFR, with Terry alone controlling Completed. Acceptance of
+15-24 does not preapprove25-27 or authorize implementation tickets/importers.

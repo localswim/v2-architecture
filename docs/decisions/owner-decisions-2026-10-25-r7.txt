@@ -1,0 +1,24 @@
+CURRENT OWNER DECISIONS - 2026-10-25 (r7)
+
+Binding project direction
+- Go owns core/service/CLI/background tools; TypeScript7.x owns browser presentation.
+- All localswim project repositories are public, MIT-licensed FOSS. Text is UTF-8, Unix-style LF, final newline; preserve binary bytes.
+- Real board contents, credentials and private operational records remain private.
+
+Accepted architecture
+- Foundation, structure and corrected runtime packets were accepted by Terry.
+- Terry then explicitly requested browser approval of all then-current RFR tickets. The captured set0015-0024 was approved through the visible human review action on his behalf and recorded Completed.
+- Interface and operations notes, independent reviews19/24 and their disclosed limitations are accepted inputs to qualification/adoption work.
+- Unselected alternatives, numeric budgets, platform/issuer trust and compiler/generator/schema compatibility remain stated qualification obligations. Architecture acceptance performs no installation, migration, live cutover or runtime verification.
+
+Current review boundary
+- Qualification/adoption25-26 and independent review27 are the next reviewable packet; they are not included in the prior captured approval.
+- Once accepted, final synthesis28 and fresh validation29 complete the finite high-level architecture backlog. Implementation planning or code is separate authorized scope.
+
+Workflow
+- RFR means only review and approval remain. Needs Terry means unfinished work requires a specific intervention only Terry can provide. Blocked means neither Terry nor Bot can advance until an external condition changes, such as ordered test hardware arriving.
+- Dependencies remain recorded on Ready for Work cards; RFR alone is not approval. Terry controls Completed, including explicitly delegated browser approval actions.
+- Parent fills eligible authors first within eight direct slots, then fresh independent reviewers use freed slots; no reserved reviewer pairs or grandchildren.
+
+History
+- Prior decision revisions and original author/review artifacts remain preserved. Later explicit owner acceptance supersedes their earlier pending-review wording.

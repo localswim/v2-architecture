@@ -16,16 +16,16 @@ Text files use UTF-8 and end with a newline; binary files retain their bytes.
 
 ## Status
 
-Architecture work is in progress. Terry accepted the foundation, structure, and
-corrected runtime packets on 2026-10-25. Unselected alternatives and unverified
-numerical targets remain explicit recommendations. Interface and operations
-architecture are the current reviewed packets; this repository does not contain
-the v2 implementation.
+Architecture work is in progress. Terry accepted the foundation, structure,
+corrected runtime, interface, and operations packets on 2026-10-25. Unselected
+alternatives and unverified numerical targets remain explicit recommendations.
+Qualification/adoption is the current reviewed packet; final synthesis follows its
+acceptance. This repository does not contain the v2 implementation.
 
 ## Architecture documents
 
 The preserved notes retain their original candidate wording. Read the current
-[owner decisions](docs/decisions/owner-decisions-2026-10-25-r6.txt) for subsequent
+[owner decisions](docs/decisions/owner-decisions-2026-10-25-r7.txt) for subsequent
 acceptance and standing public/MIT/LF and board-lane policy. The working lane rules
 are also recorded in [AGENTS.md](AGENTS.md).
 
@@ -64,10 +64,10 @@ is not an approved installation or a qualified browser/platform guarantee. Quali
 the trust scope, cookie scope, and human-issuance capability assumptions before use.
 No trust store or live service was changed by this architecture work.
 
-The interface and operations notes below were authored in parallel from the accepted
-runtime. Fresh review 19 checks the interfaces; review 24 checks operations and their
-cross-packet consistency. Both passed with non-blocking observations and await owner
-review and approval.
+The accepted interface and operations notes below were authored in parallel from
+the accepted runtime. Fresh review 19 checks the interfaces; review 24 checks
+operations and their cross-packet consistency. Both passed with non-blocking
+observations and were accepted through Terry's explicit browser-approval request.
 
 - [CLI](docs/design/15-cli.txt)
 - [Browser](docs/design/16-browser.txt)
@@ -83,6 +83,14 @@ review and approval.
 Tool availability is distinct from compatibility qualification. The delivery note
 records stable TS7 availability and the generator's separate TS5 dependency; it does
 not claim a successful combined build, schema equivalence, or platform qualification.
+
+The qualification/adoption packet below has passed fresh independent review with
+non-blocking observations and awaits owner review and approval. It defines required
+evidence and execution gates; no tests, migration, trust setup, or cutover were run.
+
+- [Qualification and acceptance strategy](docs/design/25-validation-strategy.txt)
+- [Compatibility, coexistence, and adoption](docs/design/26-adoption.txt)
+- [Independent qualification/adoption review](docs/reviews/27-qualification-review.txt)
 
 The development method is a fresh implementation with disclosed source-derived
 provenance, not a claim of independently isolated clean-room certification.
