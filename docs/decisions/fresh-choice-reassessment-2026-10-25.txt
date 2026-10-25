@@ -1,0 +1,23 @@
+CURRENT OWNER DIRECTION - FRESH-CHOICE REASSESSMENT
+2026-10-25
+
+Terry clarified that working v1 demonstrates useful behavior, but the reboot need
+not inherit poor decisions or reproduce every detail. Every earlier technical and
+product choice is open, including choices in the first v2 architecture packet.
+Retaining or changing a choice requires a concrete case: benefit, losses,
+complexity, transition cost and evidence that would distinguish alternatives.
+
+This supersedes treatment of the Go/TypeScript split and earlier v2 mechanisms
+as fixed inputs when evaluating architecture alternatives. The board/repository
+names still identify this project; they do not settle the comparison.
+
+Public MIT FOSS, private operational data and UTF-8/LF remain standing commitments.
+Current board operating instructions still govern the work. Prior acceptance,
+artifacts and review findings remain historical evidence; no Completed card is
+reopened and no alternative is silently adopted.
+
+The fresh-choice notes are recommendations and a decision agenda. They do not
+authorize implementation, experiments, trust installation, migration or cutover.
+The first packet's documentary completion does not establish optimality or full
+implementation requirements. Read the new agenda with its independent reviews
+and correction companion before selecting a replacement design.

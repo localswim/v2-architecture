@@ -1,0 +1,98 @@
+LOCAL TRUST REASSESSMENT (#0037)
+2026-10-25 | Proposal; no adoption or implementation authority.
+
+Recommendation
+Retain centralized authorization and distinct automation grants. Change the claim
+that a trusted launcher alone establishes human-only approval: its exclusion of
+automation is an unqualified assumption. Keep the certificate issuer and unique
+origins as candidates, not mandatory foundations. Transport selection remains
+unresolved pending a small comparison against explicit threats and recovery cost.
+
+Need versus assumption
+Terry requires control of Completed and prevents automation approving its own work.
+Public candidate notes 01/06/12/15/16/32 describe concurrent browser/CLI operation,
+private data, revision-bound acceptance and a trusted desktop account. These are
+useful requirements/proposals, not evidence that hostile processes are isolated.
+
+Retain hostile websites, unauthenticated local callers, malicious imports and
+accidental cross-board actions in scope. Distinguish another OS account from a
+process running as Terry. Exclude administrator/OS compromise explicitly. If an
+agent can read human secrets, replace executable/state bytes or invoke issuance
+with Terry's account rights, capabilities cannot establish an independent human
+boundary. Calling automation trusted does not explain which powers it lacks.
+
+Human approval
+Retain server-enforced acceptance rights, reviewed card/policy revisions and atomic
+acceptance evidence; they prevent relabeling and stale acceptance. Audit proves
+which granted principal acted, not who read the work or understood it.
+
+Change the proposed launcher assertion into a documented assurance choice:
+- Cooperative automation: separate grants and a human confirmation step prevent
+  ordinary agent self-approval, conditional on agents honoring issuance restrictions.
+  This offers low friction but no adversarial human proof.
+- Stronger exclusion: isolate issuance/approval credentials from automation and
+  require fresh user verification for acceptance, bound to the intended revision.
+  A separate OS principal or protected approval broker is a candidate, not a
+  proven solution. Stronger exclusion also needs authoritative state/policy
+  protected from automation rewriting it directly. It adds enrollment, recovery,
+  prompts and platform integration.
+
+WebAuthn can require authenticator user verification, but does not identify a
+particular natural person when credentials/authenticators are shared [S1]. It
+also cannot prove meaningful review. Terry must choose the required assurance;
+stronger approval must not silently collapse to bearer-session possession during
+recovery. This question is independent of HTTP versus HTTPS.
+
+Serious delivery alternatives
+Option | Benefit and retained obligations | Loss/cost
+A. Existing HTTPS issuer/launcher, unique instance hostname | Authenticated TLS service identity [S2]; retains exact authority/origin, authenticated reads/events, scoped grants and revocation | Browser-profile trust setup, issuer/key protection, renewal/removal, leases and restart/draft transfer; expanded trust footprint.
+B. Loopback HTTP browser plus protected launcher/bootstrap | Avoids certificate installation; retains authentication, host/origin checks, CSRF protection, bounded one-use exchange, instance binding, revocation and private CLI channel | No TLS service identity/confidentiality; endpoint impersonation/interception and cookie behavior need explicit qualification. Launch capture does not authenticate HTML to a normal browser.
+C. Packaged desktop UI plus protected local IPC | Can avoid browser listener and CA; retain central policy, scoped grants and hostile-content checks | Installer/runtime updates, OS-specific IPC authentication and UI lifecycle; loses ordinary-browser access. Webview/native bridge increases privilege exposure [S3].
+
+Do not equate localhost's potentially trustworthy secure-context classification
+with authentication [S4]. RFC8252 permits HTTP for loopback OAuth redirects, not
+an entire authenticated board application [S5]; it supplies no blanket safety case
+for B. Likewise a named pipe is not automatically private: Windows default pipe
+ACLs include read access for Everyone/anonymous; explicit access restrictions and
+peer/instance verification are necessary [S6]. None of A-C isolates same-account
+malware merely by selecting its transport.
+
+Retain/change/unresolved inventory
+Retain board/operation-scoped, revocable grants; distinct browser/CLI/worker
+credentials; no secret URLs/logs/discovery; authenticated reads and streams;
+server-side policy; inert attachments, bounded parsing and path containment.
+These address concrete disclosure, confused-authority and injection risks across
+all options, with implementation/credential-lifecycle cost.
+
+Change universal use of never-reused origins into a comparison with a stable
+application origin plus explicit host-generation/session fencing. Unique origins
+separate browser state across instances but impose new login, bookmarks and draft
+recovery burdens noted in16. Stable origins reduce those burdens while requiring
+stale-page/session/cache defenses. Neither is a human identity mechanism. Keep
+A's launcher-to-host authentication while comparing its issuer scope and lease
+machinery against simpler service ownership; do not remove protections piecemeal.
+
+Unresolved: required human assurance, supported browsers/OS accounts, acceptable
+service-impersonation risk, and whether normal-browser access outweighs packaging.
+
+Transition and smallest useful evidence
+Architecture changes require no current migration. Future cutover would revoke
+old grants, re-enroll affected browser/CLI identities and reconcile drafts; removal
+of an issuer needs explicit trust-store cleanup, not merely deleting certificates.
+Preserve historical attribution without converting imported actor labels into proof.
+
+Later, compare synthetic launch/restart, port takeover, hostile-site read/write,
+revocation and lost-credential recovery scenarios across A-C. Demonstrate whether
+an automation process can mint/use acceptance authority; measure setup steps,
+recovery steps and draft loss. No prototype or security guarantee is claimed here.
+
+Sources (official; consulted 2026-10-25)
+[S1] https://www.w3.org/TR/webauthn-3/#user-verification
+[S2] https://www.rfc-editor.org/rfc/rfc9525.html
+[S3] https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/security
+[S4] https://www.w3.org/TR/secure-contexts/#is-origin-trustworthy
+[S5] https://www.rfc-editor.org/rfc/rfc8252.html#section-8.3
+[S6] https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipe-security-and-access-rights
+
+Inputs: charter/card0037; public v2 notes01/06/11/12/15/16/22/32. Disclosed
+provenance; no legacy source/tests/internal notes, real boards or live changes.

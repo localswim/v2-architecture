@@ -1,0 +1,47 @@
+FRESH INDEPENDENT REVIEW - EXPERIENCE AND OPERATIONS (#0043)
+2026-10-25 | sol_high_0043_review_experience | Recommendation only
+
+Verdict
+Useful decision evidence, with three mandatory corrections before synthesis treats
+the recommendations as coherent or counts their claimed simplifications. Preserve
+38-41 unchanged as evidence; use separately bounded corrections. The other two
+findings are unresolved product decisions, not requirements to reproduce v1.
+No architecture, migration, platform or intentional loss is adopted by this review.
+
+The strongest cases are explicit priority intent (39), recovery rather than silent
+draft loss (38/41), export as a portable boundary (40), and outcome-led experiments
+before broad qualification (41). These identify real benefits, losses and ways to
+choose. Component composition, independent priorities, dedicated Git repositories
+and staged delivery remain hypotheses; none has comparative implementation or
+operational evidence. Retaining v1 during experiments remains a serious alternative.
+
+Material findings
+ID / class | Exact reference | Impact and required action
+F1 / mandatory continuity clarification | 38 sections3 and6; 41 "One concrete regression" and experiment2 | Reload recovery is recommended for drafts, but survival or loss of submitted operation identity/receipt is unspecified. Recovering comment prose after commit-and-lost-response can invite duplicate submission when its original reconciliation handle disappeared. Distinguish unsent drafts from unresolved submitted intent. State the chosen recovery/loss behavior and add commit, disconnect, reload, reconcile to the smallest experiment; do not mandate a storage technology.
+F2 / mandatory comparison correction | 40 "Activity" and "Deployment, delivery and lifecycle" versus design21 "Observation, evidence and batching" and "Ownership and continuity" | Design21 already proposes committed signals plus periodic reconciliation and a host-owned monitor scope. Labeling those a change overstates savings. Separate the v1-to-candidate change from the actual reconsideration delta: optional filesystem hints and any proposed process placement. Compare removed obligations and shared-failure costs explicitly; host ownership alone does not demonstrate elimination of worker coordination.
+F3 / mandatory comparison correction | 39 inventory "Acceptance" versus design06 "Atomic human acceptance and invariants" / "Assumptions, tradeoffs and open choices" | Candidate06 already limits subsequent invalidation to substantive edits and leaves which edits invalidate review open. Its conflict when content changes during acceptance is a different fence. Distinguish those two cases; do not sell a reviewed-content boundary as replacing a settled blanket subsequent-invalidation rule. Keep attachment/link/criteria examples to decide the unresolved boundary.
+F4 / unresolved coverage | 38 sections2-3; 41 "Missing requirements" first bullet; design17 "Catalog and authority" / "Preference ownership"; public README "Multiple boards in one workspace" | Multi-board attention, unknown-versus-zero health, shared pins and per-window context have no explicit retain/change/loss case. A minimal board chooser could be simpler but lose an established daily attention workflow. Carry this choice into the outcome ledger and compare finding the next human-action board during partial outage; no exact columns, sorting or pin mechanism is prescribed.
+F5 / unresolved coverage | 38 section4; design15 "Command families and authority" / "Outcome and offline safety"; public README "Daily use" | Focused CLI queries are retained without reconsidering service-independent inspection. Candidate15 preserves explicit stopped-board reads; v1 documents inspection while stopped. Retain that capability only with its maintenance/ownership cost stated, or propose its loss and outage alternative. Test service unavailable plus inspect/verify without implying online mutation fallback.
+
+Synthesis and evidence burden
+Draft recovery versus privacy, component tooling versus manual lifecycle code, and
+in-host workers versus independent uptime are legitimate conflicts for Terry's
+decision agenda. No universal winner follows. Combine experiments where journeys
+overlap; 41's proposed ledger should prevent each note's "smallest" exercise from
+quietly accumulating into the full candidate baseline. Record a bounded effort
+ceiling and stopping question before later authorized work.
+
+Official-source checks (2026-10-25)
+Microsoft confirms notification overflow can discard buffered changes; that supports
+reconciliation, not selection of one monitor deployment:
+https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-readdirectorychangesw
+Git documents bundle transport of objects/refs, supporting 40's recovery limitation:
+https://git-scm.com/docs/git-bundle
+WAI supports modal focus containment/restoration with workflow-dependent fallback,
+consistent with 38's distinction between modal and persistent detail:
+https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+
+Method/limits
+Reviewed charter00, card0043, notes38-41, cited public designs06/07/15-17/20-22/
+25/28/32 and public v1 README behavior. No runtime experiments, source/tests,
+private boards, board changes, Git actions, installs or peer-artifact edits.

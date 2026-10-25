@@ -1,0 +1,82 @@
+STACK, TOPOLOGY AND DELIVERY REASSESSMENT - #0035
+2026-10-25 | Sol / Medium | Recommendation, not adoption
+
+Outcome
+Provisionally retain Go service/CLI plus TypeScript browser and a local web UI.
+Change the presumption that every background responsibility needs its own process.
+Keep the all-TypeScript alternative live until a small packaging/maintenance
+comparison resolves the principal tradeoff. No language wins by prior approval.
+
+Evidence boundary
+Read public candidate designs01,05,16,22,30,32 and their repository overview.
+These describe needs: concurrent human/automation access, independent boards,
+durable attributable changes, automation continuing after UI closure, optional
+publication and private runtime data. They are proposals, not measured workloads.
+The public v1 README fetch failed; no new direct v1 behavior claim is made.
+No legacy implementation/tests/internal documents or private board data consulted.
+Prior source exposure remains disclosed; no isolated clean-room claim follows.
+Unknowns include maintainer language expertise, installation frequency, board scale
+and whether browser trust setup is acceptable. These can change the winner.
+
+Serious system alternatives
+Approach | Benefit | Loss, complexity and transition
+Go core/CLI + TS local web | Embedded assets are supported [1]; shared native-side policy and headless lifecycle fit the stated needs | Two languages/build graphs; transport declarations and validation remain work. New implementation, import and launch migration still required.
+TS core/CLI/browser on Node | One implementation language; share pure declarations and selected validation helpers | Sharing must not move authority into UI. Runtime/dependency updates and executable packaging need ownership. Node SEA supports runtime-free installation but is active development [2]; changing the candidate adds backend redesign, not historical-data compatibility automatically.
+Rust core/CLI + TS Tauri desktop | Dedicated app entry point and native UI transport could avoid the browser certificate-installation path | Core/WebView processes and IPC still exist [3]; headless service/CLI lifetime must be designed separately. New shell, installers and platform WebView qualification add work; ordinary browser access would require another adapter.
+
+This shortlist spans compiled local web, one-language local web and native-shell
+systems. Electron is a credible all-TS desktop variant with main/renderer/utility
+processes [4], but needs a concrete desktop benefit to justify shell maintenance.
+C# Native AOT + TS is also credible: .NET documents self-contained deployment and
+AOT restrictions [5]. Neither deserves rejection for lacking native distribution;
+neither currently supplies a demonstrated user advantage over the shortlist.
+
+Decision inventory
+- RETAIN provisionally: Go backend/CLI and TS browser. Embedded local assets and
+  one authoritative core are concrete benefits; universal Go superiority is not
+  established. All-TS could win if packaging and ongoing maintenance prove simpler.
+  TS7 availability is documented by current npm metadata (7.0.2) [6], but does not
+  establish framework/generator compatibility. Keep compiler version independently
+  revisitable; reject a second compiler dependency justified only by an early pin.
+- RETAIN provisionally: local web over mandatory desktop. It serves the stated
+  browser/headless needs without a new application shell. Loss: browser/profile
+  variability and the candidate's substantial trust/bootstrap burden. Desktop is
+  preferable if actual installation/authentication tasks are materially simpler;
+  it does not by itself establish human identity or remove CLI authentication.
+- RETAIN: one host per configured root, logical board ownership and bounded work;
+  UI closure must not stop automation. Host failure interrupts all hosted boards.
+  Separate per-board processes buy crash isolation but add discovery, shutdown and
+  upgrades. Revisit only against observed interference or stronger trust boundaries.
+- CHANGE: isolate failure-prone external publication work, not every background
+  task by category. Keep lightweight monitor scheduling in-host as the simpler
+  candidate; preserve per-board cursors, destinations and ownership. Use a separate
+  monitor when independent lifetime/restart is required. Loss: in-host faults share
+  availability. Migration must preserve existing targets and graceful handover.
+  Same-account child processes are failure boundaries, not credential sandboxes.
+- RETAIN: one public MIT product repository, shared policy implementation, thin
+  project launchers, private board/runtime roots, UTF-8/LF. Prefer one Go module
+  and one web package initially; add isolated generator packages only for a proven
+  need. Loss: coordinated releases; benefit: fewer version-skew combinations.
+- RETAIN: bundled assets and explicit platform archives first; no remote asset,
+  identity or update dependency for local work. Distinguish offline use from an
+  offline source build, which needs tool/dependency provisioning. Optional Git work
+  waits without invalidating local saves. Explicit updates preserve private data;
+  rollback requires compatible formats. Installers remain unresolved pending actual
+  setup friction, signing and platform-maintenance evidence.
+
+Smallest discriminating evidence
+A later authorized exercise should package the same synthetic board read/write,
+CLI call and browser view in Go/TS and all-TS; record clean-install steps, dependency
+inventory, upgrade/offline behavior and maintainer change effort. Test a stalled
+publisher, host restart and busy board alongside a healthy board. Compare desktop
+only on the problematic launch/authentication task. No benchmark, compatibility
+success, installation or prototype was executed here; no new gate bureaucracy.
+
+Official sources checked 2026-10-25
+[1] https://pkg.go.dev/embed
+[2] https://nodejs.org/api/single-executable-applications.html
+[3] https://v2.tauri.app/concept/process-model/
+    https://v2.tauri.app/concept/architecture/
+[4] https://www.electronjs.org/docs/latest/tutorial/process-model
+[5] https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/
+[6] https://registry.npmjs.org/typescript/latest

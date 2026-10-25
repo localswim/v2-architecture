@@ -1,0 +1,106 @@
+LOCALSWIM REASSESSMENT - QUALITY, EVIDENCE AND ADOPTION (#0041)
+2026-10-25 | Recommendation only | Author: sol_medium_0041_qualification
+
+Outcome
+Change the qualification sequence: establish essential outcomes and acceptable
+loss first, run a few distinguishing experiments, then qualify the chosen slice.
+Retain independent review and controlled adoption. Neither functioning v1 nor
+prior v2 acceptance demonstrates that the proposed architecture is necessary,
+affordable or qualified. Language, persistence, topology and trust choices remain
+open under the reassessment charter.
+
+Evidence and decision inventory
+Public v1 README behavior describes concurrent browser/CLI work, multiple boards,
+recoverable errors, focused reads, archive, attachments, opt-in publishing and
+sanitized monitoring. This supports real collaboration needs; it supplies no
+measured workload distribution, support cost or performance baseline. Working v1
+is additional owner evidence of usefulness, not proof that every behavior matters.
+
+Public v2 candidates 01/03/25/26/28 propose a broad capability baseline,
+Windows11/Linux x64, selected desktop browsers, directly attached storage,
+provisional capacity/latency budgets, layered testing, separated coexistence and
+controlled migration. Their assumptions and numerical targets remain unverified.
+The proposed Go/TS7 split, issuer provisioning, generator boundary and recovery
+machinery add qualification obligations; they are choices to justify, not fixed
+entry requirements for comparing alternatives.
+
+Missing requirements with greatest decision impact:
+- Which daily jobs must the first deliverable complete, including existing
+  automation scripts, multi-board attention and attachment work?
+- Who uses it, on which actual machines/browsers/storage, with how many concurrent
+  actors and what representative board/attachment sizes?
+- What acknowledged loss, recovery time, draft loss and operator interruption are
+  acceptable? Is metadata history sufficient or must prior prose be recoverable?
+- What delivery date, maintenance capacity and installation/support effort can
+  Terry fund? Current candidates specify resource ceilings without a development
+  or operational cost budget.
+- Which privacy/access threats must be resisted beyond cooperating processes
+  under a trusted desktop account? This determines whether trust complexity buys
+  a required outcome.
+
+Approaches
+Approach | Benefit | Loss / transition cost
+Full v2 baseline before adoption | Broad replacement at one boundary | Long evidence path; migration waits for every subsystem
+Staged outcome slices (prefer) | Earlier learning and bounded support | Temporary feature gaps, parallel operation and later expansion
+Retain v1 while testing alternatives | Lowest immediate disruption | Continued incumbent maintenance; replacement benefits delayed
+
+Retain / change / unresolved
+Retain: prevent silent lost updates, preserve refused/uncertain user intent,
+protect private content, make save/publish/recovery states honest, keep healthy
+boards usable, and preserve human approval boundaries. These are useful acceptance
+outcomes independent of language, protocol and storage. Retain synthetic fault
+fixtures, real interaction evidence where needed and fresh independent review.
+
+Change: replace blanket behavioral parity with a short outcome ledger. For each
+important journey record required continuity, proposed improvement, intentional
+loss, rationale and smallest acceptance demonstration. Exact commands, routes,
+layouts and numerical formulas merit preservation only where users or automation
+depend on them. A changed triage algorithm needs understandable examples and
+owner agreement, not a legacy implementation oracle.
+
+One concrete regression needs disposition: v1 documents session-storage drafts
+surviving reload; v2 28 offers memory-only navigation retention. Memory-only
+drafts may reduce retained private data and complexity, but lose reload recovery.
+Treat that as an explicit tradeoff; test a restart during an unsent comment and
+obtain a retention/privacy decision before calling the new browser acceptable.
+
+Unresolved: numerical budgets and platform scope. Keep 03's numbers as hypotheses.
+Select an initial target from actual usage evidence; do not require Linux and
+three browsers merely because they appear in a candidate. Narrowing loses reach
+and requires an explicit unsupported-target statement.
+
+Smallest distinguishing evidence, in order
+1. Owner-ranked journey examples and synthetic small/typical/stress fixtures:
+   establish required outcomes, loss limits and an effort ceiling. No private
+   board inspection is necessary for this proposal.
+2. A later authorized disposable vertical slice: open, edit, conflict, restart
+   and reconcile one board through CLI/browser. Compare the preferred design
+   against the simplest credible alternative for the disputed boundary; measure
+   install steps, latency, memory, recovery and implementation effort.
+3. Targeted spikes only where they could change a decision: commit-interruption
+   recovery, concurrent ownership and actual browser bootstrap. Test on the
+   initial real target; record failures and operator burden. Do not build a
+   universal harness or full migration tool to choose an architecture.
+4. Expand platform, accessibility, scale and worker qualification as each slice
+   enters release scope. Safety claims require their relevant evidence before use.
+
+Adoption and proportional review
+Prefer one explicit new-board or synthetic pilot before conversion. Defer costly
+compatibility machinery until its required destinations and scripts are known.
+For later authorized migration, retain separate writable scopes, source backup,
+semantic mapping/loss report, isolated rehearsal and one named authority at cutover.
+Avoid dual writing. Rollback before new writes can restore the old authority;
+after new writes it requires reconciliation or an explicit accepted loss, not
+merely swapping executables.
+
+Use one concise decision/evidence record per disputed boundary and one fresh
+review per bounded slice. Review safety-critical recovery/concurrency deeply;
+batch low-risk documentary checks. This reduces handoff overhead while retaining
+independence. Terry approves scope and intentional losses; no recommendation here
+authorizes execution, installation, migration or adoption.
+
+Sources/checks
+Public v2 design01/03/25/26/28 and public C:/Projects/localswim/README.md behavior
+sections; charter00 and card0041. Documentary analysis only; no runtime claims,
+legacy source/tests/internal designs, private boards or new external claims.
+

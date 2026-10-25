@@ -1,0 +1,41 @@
+FRESH-CHOICE REASSESSMENT CHARTER - 2026-10-25
+
+Authority and decision rule
+Terry clarified that a functioning v1 is evidence of needs and useful behavior,
+not an exact-copy mandate. Every product/technical choice may be reconsidered,
+including prior v2 recommendations and the language split. A change needs a
+concrete case: user problem, benefit, losses, complexity, migration cost and
+evidence that would distinguish alternatives. Retention needs a case too.
+Prior approval preserves history; it gives no candidate immunity from challenge.
+
+Scope and evidence
+- Architecture recommendations only. No implementation, installs, live changes,
+  trust provisioning, data migration, releases or operational reconfiguration.
+- Preserve the public/MIT FOSS commitment, private operational data, and UTF-8/LF.
+  Board operating instructions remain in force while working on this proposal.
+- Examine public v2 architecture documents as candidate designs, not constraints.
+  Public v1 README behavior documentation may identify actual user needs; no
+  legacy source/tests/internal design or real board data. Do not claim isolated
+  clean-room certification; prior source exposure remains disclosed.
+- No requirement to preserve exact syntax, layout, storage, quirks or formulas.
+  Do not silently add roadmap features or claim Terry adopted a proposed break.
+- Browse primary official sources for new technical/version/ecosystem claims.
+  Cite direct URLs; no manufactured benchmarks or unexecuted prototype claims.
+
+Output rule
+Each author writes one <=900-word note plus at most two small tables. Inventory
+the important decisions in the assigned scope, distinguish observed need from
+assumption, compare 2-3 serious approaches where meaningful, and give retain /
+change / unresolved recommendations. Record losses, transition burden and the
+smallest useful validation. A gap in evidence is a result; do not force a choice.
+Keep high-level, avoid protocol/package/schema design and new gate bureaucracy.
+Question accumulated complexity as well as legacy constraints. No agent edits
+another author's artifact, board, repo, README or operating instructions.
+
+Independence and handoff
+One card = one worker turn. No grandchildren. Fresh review agents author none of
+their inputs. Review checks the case for recommendations, cross-scope effects,
+coverage and unsupported facts; it is not another consistency-only acceptance.
+Synthesis produces a decision agenda, not adoption of unapproved alternatives.
+Only Terry controls Completed. Finished worker artifacts go RFR. Material fixes
+need separately bounded correction cards; preserve original evidence.

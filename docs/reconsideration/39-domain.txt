@@ -1,0 +1,70 @@
+DOMAIN REASSESSMENT (#0039)
+2026-10-25 | Sol / Medium | Recommendation only; no adoption or implementation.
+
+Outcome
+Change the proposed priority model: preserve explicit human/automation priority
+choices rather than permanently rewriting them when relationships change. Retain
+stable references, shared enforcement and reversible archive. Reconsider hierarchy,
+cycle policy and acceptance granularity instead of importing their candidate rules.
+
+Evidence and limits
+Observed means documented capability, not proof that its current mechanism is best.
+Sources: public v2 design/01-product-scope.txt, 06-domain-policy.txt and
+07-relationships-triage.txt; C:/Projects/localswim/README.md, Board configuration,
+Daily use, Archiving cards and Dependency priority inheritance. Latest standing
+lane instructions override the README's older Needs Terry wording. No legacy code,
+tests, internal designs or real board data were consulted. No isolated clean-room
+claim. User studies and migration trials below are proposed, not executed.
+
+Decision inventory
+Decision | Disposition and concrete case
+Identity | Retain stable board/card references plus board-local tickets: renaming #12 must not break links. Opaque IDs are a useful candidate, not demonstrated user preference; never-reused tickets avoid ambiguous history. Cross-board moves remain unresolved.
+Authority/workflow | Retain one authoritative policy across clients, explicit actor grants and owner-controlled acceptance. Assignment must not grant approval rights. Change the initial ambition to a small declarative template: named lanes, completion meaning and permitted transitions; a general programmable workflow engine lacks demonstrated need.
+Acceptance | Retain evidence of what a human accepted. Change blanket revision invalidation: a typo fix versus replacement acceptance criteria should not necessarily require identical re-review. Compare whole-card revision safety with an explicit reviewed-content boundary; attachments, links and criteria can change meaning too. Boundary remains unresolved pending examples; default conservatively when classification is ambiguous.
+Hierarchy/links | Retain typed blocking versus informational links. Unresolved whether a separate single-parent tree earns its cost: README proves hierarchy exists, not that one-parent ownership fits. Compare links-only grouping, one-parent tree and multi-parent grouping. Tree simplifies breadcrumbs; links-only loses canonical ancestry; multiple parents complicate rollups. No automatic completion or priority rollup without a demonstrated need.
+Archive/completion | Retain archive as visibility, references resolvable, and completion as an explicit semantic fact independent of label. Archived unfinished prerequisites still matter; otherwise hiding work releases dependents. Retain completed prerequisites as satisfied, but revalidate on reopen. Do not infer completion from archiving or child completion.
+Cycles | Unresolved: permitting cycles preserves dependency capture but admits unschedulable work; rejecting new blocking cycles makes readiness clearer but forces users to resolve ambiguous scope earlier. Informational cycles remain harmless. For A blocks B and B blocks A, explain the circular prerequisite; never choose a next executable card from it. Preserve imported links and expose conflicts rather than silently delete them.
+
+Priority: three serious choices
+1. Persist downstream promotions (current candidate): A=P1 blocks B=P3 rewrites B
+   to P1, even after the link disappears. This preserves sticky urgency and current
+   behavior, but loses B's original intent and creates hidden board-wide writes.
+   It is reversible only through further edits; original priority cannot reliably
+   be reconstructed from the resulting value alone.
+2. Store explicit priority; derive effective downstream urgency: the same link
+   temporarily displays B as P1 with "explicit P3; constrained by A P1". Removal
+   returns B to P3. This preserves direction continuity and explains changing
+   urgency, but adds two concepts and may cause surprising ordering shifts.
+3. Keep explicit priority independent; derive readiness and dependency influence
+   separately. An urgent prerequisite need not make every eventual dependent
+   urgent. Conversely, P0 delivery B blocked by P5 A makes the prerequisite problem
+   visible without rewriting either priority. This is simplest for intent, but
+   changes inherited urgency and requires clear reasons in the next-work view.
+
+Recommend option 3 as the initial hypothesis; option 2 if users demonstrate value
+in downstream inheritance. Reject automatic persisted promotion as the default
+without evidence that sticky urgency is desired. Any deliberate reprioritization
+can remain an explicit attributable action. Neither dependency count nor a long
+chain alone justifies raising the user's priority.
+
+Triage explanation and distinguishing examples
+Prefer deterministic priority-first ordering with dependency influence within a
+priority, then stable ticket ties; show readiness separately. Candidate weighted
+score lets P1 blocking 101 cards outrank P0 blocking none (99 versus 100), which
+needs a user benefit beyond formula continuity. Explain "P3; blocks 3 distinct
+unfinished cards; cannot start until A is accepted", including hidden participants.
+A diamond counts its shared dependent once. For A -> completed B -> C, B is
+finished; do not invent an A -> C prerequisite. Show direct unsatisfied
+prerequisites and separately label any transitive influence measure.
+
+Losses, transition and smallest useful evidence
+Changing promotion/order loses familiar ranks and scripts' assumptions. Migration
+must preserve existing explicit-looking priorities as imported values: historical
+intent is unknown; never automatically demote them. Preserve IDs, tickets and links;
+report unresolved cycles and acceptance evidence rather than fabricate it.
+
+Use six synthetic scenarios with Terry: removed link, reversed urgency, diamond,
+cycle, archived prerequisite and substantive post-approval edit. Ask which card
+should appear next, why, and whether its saved priority should change. Add one
+hierarchy example requiring either two parents or canonical ancestry. These answers
+can select among the alternatives before schema or algorithm investment.

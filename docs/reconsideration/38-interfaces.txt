@@ -1,0 +1,97 @@
+FRESH-CHOICE REASSESSMENT - INTERFACES (#0038)
+2026-10-25 | sol_medium_0038_interfaces | Recommendation, not adoption
+
+Outcome
+Retain recoverable intent and clear command outcomes. Reopen the custom-controller
+preference, memory-only draft default, seven-code CLI taxonomy and extensive API
+negotiation. Semantic HTML and component composition are compatible choices.
+
+Evidence boundary
+Observed/documented need (O): public v1 README Daily use, workspace and Data safety
+sections describe focused human/JSON queries, concurrent edits, keyboard focus,
+per-tab drafts surviving navigation/reload, and no automatic mutation replay.
+These document behavior, not measured user satisfaction or reliability. [R]
+Assumption (A): initial delivery has a small, jointly shipped browser/service/CLI
+set; independently upgraded third-party clients and offline editing are unproven.
+Candidates read: public designs01,13,15-17,22,32 and review19. Their earlier
+acceptance is evidence, not a constraint. Prior source exposure remains disclosed;
+no legacy source/tests/internal documents or real board data read this turn.
+
+Decision inventory
+
+1. UI composition - CHANGE preference; concrete framework UNRESOLVED (A).
+Compare semantic HTML with custom controllers, semantic HTML in reactive
+components, and server-rendered pages with enhanced forms. Candidate16 already
+needs routing, focus, cache, drafts, journals and request coordination: fewer
+packages alone does not establish less lifecycle code. Prefer bounded component
+composition provisionally; ordinary semantic elements remain the foundation.
+Components add dependency/build and upgrade costs; custom controllers add manual
+render/lifecycle coordination; server pages simplify rendering but complicate
+retaining simultaneous drafts across navigation. React's guidance discourages
+duplicate state [S1]; it does not prove React best here. Smallest distinguishing
+evidence: later compare one edit/search/navigation slice under delayed responses,
+including maintainable state ownership, focus defects and total integration work.
+No prototype or compiler/framework compatibility has been demonstrated.
+
+2. Navigation/editing/accessibility - RETAIN outcomes, CHANGE incidental UX (O).
+Use addressable card detail plus Back/Forward and explicit save; choose drawer
+versus full-page detail through keyboard/narrow-window tasks, not legacy layout.
+Keep labeled move controls as an alternative to dragging, stable focus after
+reordering, composition-safe input and announced save/refusal status. Modal focus
+containment/restoration follows WAI guidance [S2]; a persistent detail pane need
+not be modal. Loss: familiar layout/shortcuts may change; transition needs a short
+user guide. Validate open/edit/move/close using keyboard and assistive technology,
+including removal of the triggering card. No framework supplies this qualification.
+
+3. Drafts/offline - CHANGE memory-only default; retention UNRESOLVED (O/A).
+Retain per-tab drafts across board switches, conflicts and service failures.
+Candidate16's memory default loses documented reload recovery. Prefer bounded,
+visible per-tab recovery where available, with clear/discard controls and explicit
+notice when storage fails. Compare memory-only privacy against session recovery
+and longer-lived opt-in recovery; storage is not a confidentiality guarantee.
+Keep stale reads labeled and online submission explicit; offline mutation queues
+would add conflict/replay machinery without demonstrated need. Cost: recovery
+storage and retention policy; loss: no general offline editing promise. Validate
+reload/storage denial plus service restart without overwriting newer draft text.
+
+4. CLI ergonomics/JSON/exits - RETAIN semantics, CHANGE detail (O/A).
+Keep focused queries, contextual help, ordinary concise operands and file/stdin
+input for complex prose. Resolve an explicitly selected board once; print its
+identity for human mutations. Retain clean versioned JSON stdout, stable outcome
+categories and noninteractive refusal. Compare candidate15's seven numeric exits
+against fewer broad exits with authoritative JSON categories; defer exact numbers
+until real shell consumers show a distinction they need. Indeterminate submissions
+must remain machine-distinguishable and never appear successful. Exact v1 syntax
+and JSON compatibility are not presumed; script inventory and a migration guide
+are transition costs. Minimum evidence: representative human tasks and shell
+branches for invalid input, conflict, confirmed commit and lost response.
+
+5. API/contracts - RETAIN one contract; generation UNRESOLVED (A).
+Compare OpenAPI-first generated declarations with Go-first contract generation
+and handwritten paired models. Prefer generation if it removes drift without
+requiring a second compiler environment and parallel validator definitions.
+OpenAPI describes language-neutral HTTP interfaces [S3]; openapi-typescript emits
+runtime-free types [S4], so it cannot replace runtime validation. Keep authoritative
+server input/domain checks and browser boundary validation; browser form feedback
+need not duplicate every server rule. Loss: generation adds tooling/subset checks;
+handwriting adds drift risk. Validate one representative command/error/read round
+trip and malformed/unknown fields. Reconsider broad capability negotiation for
+joint releases: a supported API version may suffice, losing independent feature
+mixing while reducing states. This depends on the distribution decision.
+
+6. Reconciliation - RETAIN uncertainty, simplify ownership (O/A).
+Keep one immutable submitted intent distinct from editable drafts and navigation.
+Missing responses, cancellation or missing receipts cannot prove noncommit.
+Compare candidate32's retained outcome lookup with manual inspection; lookup costs
+server retention and client receipts but gives stronger evidence for non-idempotent
+comments. Prefer bounded lookup shared by CLI/browser; no automatic replay or
+client domain mirror. Validate commit-then-disconnect, expired evidence and late
+success after navigating elsewhere. Numeric retention remains unresolved.
+
+Sources (official web sources checked 2026-10-25; no runtime checks)
+[R] Public C:/Projects/localswim/README.md; published location:
+https://github.com/TerryOtt/localswim/blob/main/README.md
+[S1] https://react.dev/learn/choosing-the-state-structure
+[S2] https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+[S3] https://spec.openapis.org/oas/v3.1.1.html
+[S4] https://openapi-ts.dev/introduction

@@ -1,0 +1,98 @@
+LOCALSWIM: FRESH-CHOICE ARCHITECTURE DECISION AGENDA (#0044)
+2026-10-25 | Primary synthesis | Recommendations, not a replacement baseline
+
+Outcome
+Use working v1 to identify valuable jobs and observable behavior. Require a case
+for every retained mechanism and every departure. Earlier v2 approval gives a
+candidate no immunity. This reassessment supports significant simplification,
+but neither an exact clone nor a universal "perfect" stack has been established.
+Public MIT FOSS, private operational data and UTF-8/LF remain standing commitments.
+
+The strongest provisional system is a compact local application: one authoritative
+domain core, browser and CLI adapters, transactional board storage with readable
+exports, explicit user priority, and optional publishing/delivery outside saves.
+Go plus TypeScript remains a credible implementation; language, UI composition,
+transport and process placement stay conditional on combined evidence below.
+This is a proposed direction, not approval to replace the earlier architecture.
+
+Evidence and reading order
+Eight authors challenged product, stack/topology, storage, security, interfaces,
+domain, operations and qualification. Fresh reviews42/43 found useful evidence;
+43 required three corrections and identified two coverage gaps, while42 required
+a coupled packaging/storage comparison. Companion46 corrects those comparisons
+and supplies missing choices; fresh47 passes all six closure points. Read38-41
+with46, not in isolation. Original notes and findings remain unchanged evidence.
+No prototype, runtime/security qualification, migration or isolated clean-room
+certification is claimed. Public v1 documentation establishes documented behavior,
+not measured demand; prior source exposure remains disclosed.
+
+Decision map: leading proposals and unresolved alternatives
+Choice | Case and tradeoff | Distinguishing evidence / source
+Product and compatibility | Prefer a focused collaboration product and selective continuity. Preserve useful jobs, stable references and attribution; change syntax/layout/quirks only for a benefit. Staging loses temporary features and adds coexistence cost. | Owner-ranked synthetic daily workflow and affected script/bookmark inventory; [34](34-product.txt), [41](41-qualification.txt).
+Languages and application shell | Provisionally keep Go core/service/CLI plus TS local web. All-TS local web remains serious; Rust/TS desktop trades normal-browser access for a packaged shell and new platform obligations. No winner from language familiarity or old approval. | Matched packaging/change-effort exercise including storage/bytes, not bare shells; [35](35-stack-topology.txt), [42](42-review-foundations.txt), [46](46-clarifications.txt).
+Host and background processes | Prefer one bounded host with independent board engines. Compare lightweight in-process monitoring with managed children; isolate external work when faults/lifetime justify it. Fewer processes share failures and retain ownership/recovery obligations. | Busy/invalid board, stalled publisher, restart and adapter-fault journey;35/40/46.
+Canonical storage | Lead with per-board transactional authority, SQLite candidate, plus deterministic revision-labeled JSON exports. This targets bespoke JSON replacement/recovery complexity; it loses live textual authority and adds database/binding/export ownership. Retain canonical JSON if direct inspection/editing/diffs prove essential. | Same conflict/crash/lost-response workload and actual export-review task; [36](36-storage.txt).
+Audit, history and retention | Keep attributable metadata. Decide accidental prose recovery separately; content revisions may meet it without event-derived authority. Metadata cannot reconstruct prose; indefinite content/byte retention has privacy/capacity cost. | Recover an earlier description; choose retained scope/duration before promising recovery;34/36.
+Attachment placement and backup | Keep complete verified bytes and consistent references; compare database-contained bytes with separate immutable objects. Placement changes transaction, streaming, orphan and backup work. Git is not complete recovery evidence. | Same protected board-plus-byte restore in each candidate;36/46.
+Trust and approval assurance | Keep scoped authorization and revision-bound approval. Choose cooperative automation restrictions versus stronger exclusion first. Issuer HTTPS, authenticated loopback HTTP and desktop IPC each retain threats and setup/recovery costs; none proves meaningful human review. | Hostile website, wrong instance, revocation/recovery and automation issuance attempts; [37](37-security.txt),42.
+Browser composition and interaction | Prefer bounded component composition as a hypothesis over assuming fewer dependencies means less code. Semantic HTML, focus, keyboard moves and clear outcomes remain valuable; framework and detail-pane layout are unresolved. | One delayed-response edit/search/navigation task, keyboard/assistive walkthrough and maintenance comparison; [38](38-interfaces.txt).
+Draft and submitted-intent recovery | Prefer bounded visible per-window reload recovery. Unsent drafts and immutable submitted operation records need different handling;46 proposes preserving the latter before submission, refusing if unavailable. This adds private storage and an availability cost; duration/protection remain open. | Commit-disconnect-reload-reconcile, storage denial/loss, newer draft preservation;38/41/46/47.
+CLI and API | Preserve focused human/JSON operations and explicit outcomes. Reconsider numeric exit proliferation, broad negotiation and generator complexity for jointly shipped clients. Stopped-board inspect/verify buys outage access at ownership/tooling cost; host/export-only alternatives lose current inspection. | Real shell branches, malformed round trip and service-unavailable inspection;38/46.
+Workflow and acceptance | Prefer small declarative configuration over fixed personal lanes or programmable policy. Retain atomic reviewed-content/policy fencing. Later substantive invalidation was already in candidate06; define its boundary rather than claim a new blanket-rule fix. | Criteria/attachment/link versus typo edits and racing acceptance; [39](39-domain.txt),46.
+Graphs, priority and triage | Prefer explicit priority with readiness/dependency influence shown separately; reversible derived urgency is an alternative. Persisted automatic promotion loses original intent and creates lasting changes. Priority-first ordering may be clearer than weighted cross-priority scores. | Removed link, reversed urgency, diamond, cycle, archived prerequisite and hierarchy examples;39.
+Workspace and preferences | Provisionally preserve compact authorized attention, unknown/stale distinct from zero, and window-local context. Shared pins/defaults buy continuity at conflict/state cost; a chooser or device-only preferences can be simpler with explicit attention/curation loss. | Find next human-action board during partial outage in two windows;46.
+Monitoring and delivery | Keep conservative complete-activity filtering, captured targets and durable pending. Candidate21 already proposes committed signals/catch-up; actual new delta is process placement, not invented native-activity savings. Optional watcher omission loses prompt notice of unadmitted edits. | Delivery interruption, retarget and uncertain external replacement; [40](40-operations.txt),43/46.
+Publication, adoption and quality | Prefer complete portable export, optional dedicated Git and staged outcome slices. Direct project-repo history remains an alternative with containment cost. Keep private source copies, loss reporting and one authority at later cutover; qualify actual targets, not invented platform/latency promises. | Export/restore plus unrelated staging, owner-selected loss limits and initial target;40/41/46.
+
+What genuinely changes the design
+Storage is the clearest mechanism challenge: JSON was buying readable authority
+and Git diffs while requiring a custom transaction/recovery protocol. A database
+is attractive if that trade removes more correctness machinery than it adds.
+It still leaves authorization, uncertain responses and external-byte safety to us.
+
+Priority is the clearest domain challenge: a user's chosen urgency, whether work
+can start, and influence on other work are different facts. Permanently changing
+one because another changed needs demonstrated value. Imported priorities cannot
+be demoted automatically: their original intent is unknown.
+
+Security is the largest requirement-dependent decision. Calling a launcher human
+does not exclude automation with the same account powers. Stronger exclusion must
+also protect authoritative state/policy. Extra certificates, origins or processes
+cannot substitute for choosing and testing that assurance boundary. Stable versus
+new-per-instance origins also trade browser continuity against fencing obligations.
+
+Recovery is a product choice as well as storage engineering. Restoring unsent
+prose must not turn an unresolved submitted comment into a fresh submission. Lost
+or expired operation evidence remains unknown; reauthentication and reload never
+authorize automatic replay.46's proposed private record has a real cost that must
+be judged alongside privacy and browser availability.
+
+Smallest useful next decision cycle
+First select essential daily journeys, initial real platform, history/draft loss
+tolerance and approval assurance. Record continuity, improvement, intentional loss,
+cost and acceptance example for each disputed boundary. This is one concise ledger,
+not a new approval layer for ordinary engineering details.
+
+Then consider a separately authorized, disposable comparison.46 proposes a
+two-maintainer-day ceiling across candidates; that is an effort hypothesis, not
+permission or a promise to finish. Couple language packaging with representative
+SQLite bindings, equivalent engine/features, the same attachment placement and
+protected backup scope. If placement is disputed, compare it symmetrically.
+Combine conflict/restart/reconciliation, reload, partial workspace outage, stopped
+inspection and delivery interruption where practical. Stop at the effort cap and
+record partial evidence rather than build the entire proposed baseline.
+
+Decide from observed user losses, operating steps, implementation mechanisms and
+maintainer effort. Broader qualification follows the selected release slice.
+Migration, trust installation and cutover require their own scope; v1 can continue
+serving real work throughout. New recommendations remain RFR for Terry's choice;
+no prior card is reopened or quietly superseded as an adopted design.
+
+Index and limits
+Charter: [00](00-reassessment-charter.txt). Independent reviews:
+[42](42-review-foundations.txt), [43](43-review-experience.txt),
+[47](47-review-clarifications.txt). Mandatory comparison/continuity corrections:
+[46](46-clarifications.txt). Source35-43 claims retain their cited official evidence
+and documentary limits. Fresh final45 reviews this synthesis independently.
+This covers major architecture decisions; it is not an exhaustive field-level
+specification, proof of optimality or completion of implementation requirements.

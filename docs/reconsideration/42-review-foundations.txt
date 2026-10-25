@@ -1,0 +1,68 @@
+FOUNDATION REASSESSMENT INDEPENDENT REVIEW - #0042
+2026-10-25 | Sol / High | Recommendations only
+
+Verdict
+Useful decision agenda, with one medium integration-evidence finding below.
+The notes reopen prior v2 choices substantively: staged product scope, database
+rather than JSON authority, fewer worker processes, alternative languages/shells,
+and reconsidered browser trust all receive concrete benefit/loss arguments.
+They do not establish an approved replacement architecture or migration readiness.
+No high-severity safety defect or verified technical falsehood was found.
+
+Material finding
+ID | Severity / exact source sections | Impact | Required correction
+F1 | Medium; 35-stack-topology.txt, "Smallest discriminating evidence"; 36-storage.txt, "Change recommendation: transactional authority" and "Bytes, retention and recovery" | The proposed language-packaging comparison can select a winner using a read/write shell that omits the newly preferred database, its binding/build dependencies, and the unresolved byte placement. Packaging simplicity established by that shell need not survive the combined recommendation. Both notes acknowledge dependencies, but their distinguishing exercises are separate. | In synthesis, couple the comparisons: include a representative SQLite binding and the same minimal attachment/backup path in both language candidates, or label packaging/maintenance conclusions conditional on storage qualification. No driver selection or implementation is required now.
+
+What stands up to challenge
+34 "Major choices" and "Compatibility and adoption" avoid exact-copy parity and
+novelty-driven breaks. CLI, dependencies, archive, stable references and attribution
+have recognizable collaboration outcomes. Configurable identities/grants are a
+proposal rather than proof of multi-user demand; arbitrary policy scripting and
+advanced administration are appropriately deferred. A reduced launch remains a
+choice, with v1 continuation and adoption costs visible.
+
+36 makes a defensible complexity argument for transactional authority without
+inventing throughput results. It preserves conflict checks, attributable admission,
+unknown outcomes and external-byte obligations; a database is not presented as
+solving identity, arbitrary retention or complete recovery. Keeping JSON as the
+winner if direct canonical inspection/editing proves essential is a serious
+alternative. Event-derived authority has no demonstrated necessity here.
+
+37 correctly exposes the old launcher assertion's assurance limit. Cooperative
+agent restrictions and adversarial exclusion are different promises. Its stronger
+option explicitly includes protection of authoritative state/policy, not just a
+human credential. HTTPS, HTTP and desktop IPC are compared without claiming any
+transport proves a human reviewed the work. This is a material improvement over
+retaining issuer/origin machinery by inheritance.
+
+Choices that must remain explicit, not correction findings
+- 34 "Archive, evidence and recovery" and 36 "History" leave accidental prose
+  recovery unresolved. Their metadata minimum must not be read as acceptance of
+  that loss. Obtain the recovery example/retention choice before dropping content
+  revisions; full event replay does not follow automatically.
+- 35 "Decision inventory" retains a shared host provisionally, while 37 "Human
+  approval" leaves stronger exclusion open. Choose assurance before fixing host,
+  issuer and storage ownership. Same-account process splitting alone cannot
+  satisfy the stronger option; the notes already disclose that limitation.
+- 34's feature candidates are not simultaneous launch requirements. Attachment,
+  workspace, publication and monitoring scope should follow the proposed Terry
+  walkthrough. Synthetic completeness is not measured demand.
+
+Evidence checks and limits
+Official checks on 2026-10-25 confirmed the narrow material claims: TypeScript
+latest metadata reports 7.0.2 [1]; Node SEA installs without a separately installed
+Node and remains active development [2]; Go embeds files [3]. SQLite's atomic
+commit assumptions, WAL same-host/checkpoint constraints and backup API support
+36's qualified claims [4-6]. Microsoft's default named-pipe ACL documentation
+supports 37's warning [7]. No runtime, compatibility or security test ran.
+The public GitHub README fetch failed; no independent v1 behavior verification
+is claimed. Reviewed permitted candidate designs01/05/12/22/32 and notes34-37;
+no legacy source/tests, private boards or operational changes.
+
+[1] https://registry.npmjs.org/typescript/latest
+[2] https://nodejs.org/api/single-executable-applications.html
+[3] https://pkg.go.dev/embed
+[4] https://www.sqlite.org/atomiccommit.html
+[5] https://www.sqlite.org/wal.html
+[6] https://www.sqlite.org/backup.html
+[7] https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipe-security-and-access-rights

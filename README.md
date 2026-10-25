@@ -2,10 +2,15 @@
 
 High-level architecture and decision records for the Go + TypeScript 7.x clean-room reboot of localswim.
 
-Start with the [consolidated architecture overview](docs/design/28-architecture-overview.txt).
-It links all 31 accepted inputs and separates architecture decisions from remaining
-qualification and execution gates. The [fresh independent final review](docs/reviews/29-final-review.txt)
-passed with non-blocking observations and no mandatory architecture correction.
+Start with the [fresh-choice decision agenda](docs/reconsideration/44-decision-agenda.txt)
+and [current owner direction](docs/decisions/fresh-choice-reassessment-2026-10-25.txt).
+Terry reopened every earlier product and technical choice, including the candidate
+language split. Working v1 is evidence of useful behavior; exact copying is optional,
+and retention or departure needs a concrete case.
+
+The first [consolidated architecture overview](docs/design/28-architecture-overview.txt)
+and [independent final review](docs/reviews/29-final-review.txt) remain preserved
+evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Free and open source
 
@@ -21,11 +26,24 @@ Text files use UTF-8 and end with a newline; binary files retain their bytes.
 
 ## Status
 
+The fresh-choice reassessment challenged product, stack/topology, storage, security,
+interfaces, domain, operations and qualification. Independent reviews
+[42](docs/reconsideration/42-review-foundations.txt) and
+[43](docs/reconsideration/43-review-experience.txt) produced six correction/coverage
+points addressed in [companion 46](docs/reconsideration/46-clarifications.txt);
+[fresh review 47](docs/reconsideration/47-review-clarifications.txt) passed the closure.
+The agenda contains recommendations, explicit unknowns and proposed distinguishing
+evidence. Its [fresh independent final review](docs/reconsideration/45-review-agenda.txt)
+passed with one nonblocking observation and no mandatory correction. Hierarchy shape
+and blocking-cycle admission remain explicit unresolved choices in the next ledger.
+No changed design, implementation or experiment is adopted by these notes.
+
 Terry accepted the foundation, structure, corrected runtime, interface, operations,
 and qualification/adoption packets on 2026-10-25. Final synthesis and fresh independent
-validation are finished and ready for Terry's final review and approval. Unselected
-alternatives and unverified numerical targets remain explicit recommendations. This
-is a high-level architecture handoff, not an implementation or qualified release.
+validation of that first packet are finished and were handed off for Terry's final
+review and approval. Its original decision records describe that historical scope;
+the newer owner direction reopens its selections for comparison. This is architecture
+evidence, not an implementation or qualified release.
 
 ## Architecture documents
 

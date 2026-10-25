@@ -1,0 +1,37 @@
+FRESH INDEPENDENT CLARIFICATION REVIEW - #0047
+2026-10-25 | Sol / High | Recommendations only
+
+Verdict: PASS
+46 closes the mandatory comparison/continuity corrections in43F1-F3 and the
+integration-evidence correction in42F1. It supplies the missing alternatives,
+losses and proposed evidence for43F4-F5 without deciding those product choices.
+No additional mandatory correction found. Original35-43 remain evidence;
+this verdict does not adopt46 or qualify an implementation.
+
+Finding closure map
+Reference | Exact companion section | Review disposition
+43F1 | 46 "43F1 - reload preserves submitted uncertainty separately from drafts"; "42F1 - coupled evidence and bounded next work" | Closed as a recommendation. Immutable submitted identity/principal/board, fingerprint inputs/preconditions and explanatory content survive separately from editable drafts; inability to preserve refuses submission. Reauthentication permits authorized original-identity lookup only. Unknown/expired/inaccessible evidence never proves noncommit or triggers replay/replacement. Commit-disconnect-reload-reconcile is explicitly proposed.
+43F2 | 46 "43F2 - count only the actual monitor delta" | Closed. Accurately distinguishes documented v1 filesystem triggering from21's existing committed signals, reconciliation and host-owned scope. In-process versus captured-child placement is the actual comparison; retained ownership/pending/target/quiescence obligations and shared host/adapter failure costs remain visible.
+43F3 | 46 "43F3 - acceptance concurrency and later invalidation are different" | Closed. Corrects39's blanket-rule implication against06. Atomic content/policy acceptance checks and renewed review on races remain; subsequent invalidation is a separate unresolved classification, including criteria, attachments and links.
+43F4 | 46 "43F4 - workspace attention and preferences"; combined journey | Coverage closed; owner choice remains. Attention view versus minimal chooser includes partial-outage loss/cost; shared principal/workspace preferences versus device/window preferences includes continuity/conflict costs. Per-window routes, drafts and submissions remain distinct from shared pins and authorization. Two-window, healthy/unavailable-board evidence is proposed.
+43F5 | 46 "43F5 - inspection when the service is stopped"; combined journey | Coverage closed; owner choice remains. Shared-core stopped inspection, host-only reads and labeled export inspection expose outage utility, stale-export limits and ownership/tooling costs. Physical exclusion and recovery qualification remain necessary; listener absence grants nothing. Checks are separated from recovery writes and online mutation fallback.
+42F1 | 46 "42F1 - coupled evidence and bounded next work" | Closed. Packaging ranking is conditional on36's storage/byte qualification. Both stacks use representative SQLite bindings, matched engine/features, attachment placement and protected backup/restore scope; disputed placement is compared symmetrically. Build/install/upgrade/offline and maintainer effort count.
+
+Limits and decisions still open
+- Reload recovery is a proposal with an availability/privacy price, not durable
+  storage or confidentiality proof. Unresolved records require resolution or warned
+  discard; device/storage loss may be undetectable. Retained prose is not commit
+  evidence. Duration, numeric limits, deletion and protection need later decisions
+  and qualification. Credentials remain separate; current rights govern lookup.
+- The two-maintainer-day ceiling and combined synthetic journey bound proposed
+  learning, not a new launch baseline or authorization. Partial evidence is allowed;
+  no universal topology, language, attention view or stopped-read winner follows.
+- Acceptance-boundary examples and intentional product losses still need Terry's
+  choice. Review closure supplies a coherent agenda, not acceptance of those losses.
+
+Method and provenance
+Reviewed charter00, card0047,46,42/43,35/36/38-41 and public candidates06/15/17/
+21/32. Documentary review only; no new external technical claims required checking.
+No runtime, security, recovery, benchmark or migration qualification is asserted.
+Prior source exposure remains disclosed under charter00; no isolated clean-room
+claim. No legacy source/tests, private boards, implementation or operational changes.

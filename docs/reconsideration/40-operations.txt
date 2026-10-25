@@ -1,0 +1,92 @@
+LOCALSWIM FRESH-CHOICE REASSESSMENT - #0040 OPERATIONS
+2026-10-25 | Recommendation only; no adoption or implementation
+
+Evidence and assumptions
+Observed: v1 README documents optional bot-filtered board alerts, persistent targets,
+restart recovery, opt-in Git publishing, attachment-inclusive copies and separate
+save/push outcomes (README: shared monitor; Data safety and Git; attachments).
+These establish useful behavior, not demand for identical processes or flags.
+Candidate designs20/21/23/11/22 add substantial worker coordination. Assumed: most
+users run one trusted local host; independent monitor uptime and live-repository
+publishing are not yet demonstrated necessities. Prior exposure is disclosed;
+this is not isolated clean-room certification.
+
+Activity: CHANGE mechanism, RETAIN conservative meaning
+Prefer product-native committed activity plus periodic catch-up. Signals shorten
+latency; retained activity determines attribution and coverage. On admitted external
+replacement/import, record attributable activity or an explicit uncertainty interval.
+Otherwise native-only signals could miss a workflow the v1 README supports.
+
+Approach | Benefit / loss / complexity
+Native activity in host | Avoids translating file noise; couples alerts to host uptime and needs restart catch-up.
+External metadata polling | Independent restart/deployment; extra owner, credentials and target lifecycle; bounded polling delay.
+Filesystem wakeups plus metadata | Notices out-of-process writes; adds platform/watch recovery machinery without supplying attribution.
+
+Reject filesystem observation as the default future trigger. Windows explicitly
+permits notification-buffer overflow with discarded changes [1]; this supports
+reconciliation, not an inference that every watcher fails. Retain it only if a
+measured external-write requirement beats native admission plus polling. Removing
+watchers loses immediate detection of unadmitted disk edits; storage health must
+still expose those. Migration must preserve old pending intervals, checkpoints and
+targets, or report discontinuity rather than silently starting fresh.
+
+RETAIN suppression only for complete, nonempty, verified automation-only evidence.
+Human, mixed, unknown, empty-for-observed-work, failed or incomplete evidence alerts;
+ordinary idle polling creates no synthetic alert. Never compare writes with event
+counts or fetch card prose to decide suppression. This preserves Terry's attention
+and privacy at the cost of occasional conservative warnings.
+
+Deployment, delivery and lifecycle: CHANGE default, keep escape hatch
+Prefer an optional worker owned inside the board host, with one active delivery
+owner per board and private durable pending state. This removes standalone launches,
+ports and PID/reload choreography. Loss: host failure also stops observation and a
+bad adapter can affect the host. Retain a separate worker only if isolation or
+independent uptime justifies its ownership, upgrade and recovery burden; packaging
+must not create a second implementation of filtering.
+
+Retain captured per-board targets across upgrades; an explicit retarget affects
+future batches, with existing pending destinations visible. Deliver sanitized notices
+through a replaceable adapter to an existing conversation integration; no core
+vendor dependency or new notification platform. Persist before delivery, distinguish
+accepted/failed/unknown and disclose possible duplicates after ambiguous outcomes.
+Avoid general adapter frameworks until a second real integration exists. Credentials,
+card content and target secrets stay out of status/logs. Migration needs compatible
+pending recovery or an explicit unavailable interval, not forced process cleanup.
+
+Publishing and recovery: CHANGE to export-first
+Recommend a complete, deterministic board-and-attachment export as the basic portable
+boundary; Git remains optional. Deterministic means repeated exports of the same
+revision have identical content, not that this has been demonstrated. Export alone
+loses automatic remote history and adds a user copying step. An optional scheduled
+publisher can consume exactly that boundary without participating in board saves.
+
+Choice | Case for retention / cost and transition
+Direct live repository | Familiar current branch/history, fewer locations; shares user refs/index/config and demands careful containment/concurrency. Preserve existing histories during migration; never reset/stash/broad-stage.
+Dedicated export repository | Isolates user staging and ref activity; adds destination, retention, credentials and revision mapping. Initial snapshot/history linkage must be explicit.
+Export without Git | Simplest core, usable by other backup tools; loses automatic commits/pushes. Requires chosen copy destination and restore validation.
+
+Prefer dedicated repositories if automatic Git is selected; leave direct publishing
+unresolved pending a concrete need to retain interleaved project history. Dedicated
+storage reduces conflicts, not disclosure risk: explicit content/destination approval,
+exact inventory and safe subprocess configuration still matter. Keep public MIT
+source separate from private operational exports. Git bundles cover referenced
+committed history, excluding working-tree and repository configuration state [2];
+Git therefore cannot alone establish complete board recovery. Retain independent
+copies, attachment completeness and tested restoration with fresh credentials;
+recovery-point/time and retention needs remain unmeasured.
+
+Health and smallest distinguishing evidence
+RETAIN separate local-save, export, Git-commit, push and delivery outcomes with scope,
+last success, pending age and actionable safe reason. CHANGE dense lifecycle machinery
+to the minimum needed for chosen deployment: cooperative drain, durable pending and
+visible incomplete shutdown; never promise remote success merely because stop returns.
+No external telemetry service is justified.
+
+Before choosing, use one synthetic board: mixed/bot bursts, external replacement,
+host restart mid-delivery, retarget with pending work; compare operator steps and
+missed/duplicate notices across native and external polling. Export twice, interrupt
+copy/push, restore attachments, and introduce unrelated staged changes. Record actual
+support steps and failures; no benchmark, fault test or restore was performed here.
+
+[1] https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-readdirectorychangesw
+[2] https://git-scm.com/docs/git-bundle

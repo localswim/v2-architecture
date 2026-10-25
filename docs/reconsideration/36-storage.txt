@@ -1,0 +1,104 @@
+STORAGE, HISTORY AND RECOVERY REASSESSMENT (#0036)
+2026-10-25 | Sol / High | Recommendation, not adoption
+
+Observed need versus assumption
+The public v1 README documents attributable changes, stale-write refusal,
+retained detached attachments, optional scoped Git publication and separate local
+save/push behavior. Its rename/description activity omits content, so it cannot
+reconstruct every historical board. These are behavior observations, not measured
+guarantees or obligations to preserve implementation. Public v2 designs08/10/18/20/32
+propose JSON state/audit/outcome co-commit, external immutable bytes and elaborate
+replacement recovery. Direct canonical Git diffs, unlimited history and proposed
+workload ceilings are assumptions requiring a case.
+
+Decision inventory and alternatives
+Canonical authority, transaction boundary, writer admission, content history,
+operation recognition, byte placement, publication and recovery are separate
+choices. Event derivation can itself use a transactional database; this comparison
+concerns which representation is authoritative.
+
+Approach | Concrete benefit | Loss and accumulated complexity
+Canonical deterministic JSON | Ordinary tools inspect authoritative state; Git diffs show exported fields directly | Whole-state/history rewrite; application owns intent/replacement/flush/recovery protocol and byte coordination
+Transactional database plus deterministic export | State, audit and outcomes share an engine transaction; structured updates need not rewrite the entire board | Binary authority; driver/build/migration dependency; exports can lag and require status/reconciliation
+Content events plus derived state | Rebuild historical/current views when events are complete | Event evolution, replay, ordering, snapshotting and correction semantics; metadata-only events cannot supply missing prose
+
+Change recommendation: transactional authority
+Prefer one local transactional database per board, with SQLite the concrete
+candidate, and deterministic revision-labeled JSON export for inspection/Git.
+The case is reducing bespoke storage correctness work, rather than an unmeasured
+speed claim. Design10 already requires a private intent, candidate/base
+classification, retained recovery state and ambiguous-replacement fencing. SQLite
+documents transactional atomic commit and its filesystem/hardware assumptions [S1].
+The inference is that delegating database recovery reduces application mechanisms;
+it does not remove policy validation, lost-response reconciliation or byte safety.
+
+The cost is losing direct textual diffs of live authority and ordinary text-editor
+repair. Export failure must remain visible with the last exported revision;
+it cannot undo a save. Exported files are proposals on import, never a second live
+authority. If Terry demonstrates that directly reviewing/editing the canonical
+file is essential, retain JSON instead and accept its recovery cost explicitly.
+Do not retain both authorities to avoid that decision.
+
+Retain logical admission and outcome safety
+Keep revision checks, attributable audit and committed operation outcomes together.
+One application admission path still protects rights and multi-card invariants.
+SQLite WAL permits concurrent readers but only one writer, requires same-host
+coordination and adds checkpoint management [S2]; it supplies no automatic
+multiwriter product contract. Select journal/durability mode after qualification,
+including current engine fixes, rather than assuming WAL is mandatory.
+
+Keep bounded operation recognition across restart: matching retained outcomes
+resolve lost responses; missing/expired evidence remains unknown. Retry lookup
+must not silently become a new submission. A database transaction does not provide
+unbounded exactly-once behavior or prove human attribution.
+
+History: retain metadata; full reconstruction unresolved
+Attributable activity supports coordination without duplicating all prose. Full
+history has a different benefit: recovering earlier content after a mistaken edit.
+Neither current metadata nor coalesced Git snapshots can promise that benefit.
+Ask which recovery examples and retention duration matter. If required, compare
+retained content revisions within transactional storage before adopting event-derived
+authority. Microsoft documents event sourcing's replay/versioning and migration
+costs [S4]; nothing observed requires that additional architecture. Preserve genuine
+imported history; never fabricate earlier content or causal ordering.
+
+Bytes, retention and recovery
+Retain immutable verified byte identity: replacement creates new content, protecting
+retained revisions. Placement remains unresolved. Database-contained bytes could
+co-commit with metadata and simplify consistent backup, but enlarge the database
+and its copies. Separate objects preserve independent streaming/copying, but keep
+the staged-bytes-before-reference protocol and orphan reconciliation. Measure this
+tradeoff before retaining all of design18's machinery.
+
+Retain protection for current, retained, pinned and unresolved references. Detach
+is not disposal authority. Specify metadata/content/outcome/byte retention separately;
+indefinite retention increases capacity and privacy costs. No collector is authorized.
+
+Backup must capture a consistent board revision plus every protected byte needed
+by its declared recovery scope, with independent copies and tested restore.
+SQLite offers a consistent online database backup API [S3]; it does not capture
+external objects. Copying only a live main database may omit committed WAL state
+[S2]. Git publication is useful history/transport, not proof of complete recovery.
+Hardware-loss tolerance and recovery-point/time objectives remain unresolved.
+
+Smallest distinguishing evidence and transition burden
+No prototype ran. Later compare synthetic JSON/database implementations for one
+conflicting edit, lost response, crash, disk-full, growing history and attachment
+backup/restore. Report latency, bytes rewritten, recovery behavior and application
+mechanisms required; use the same workload. Have Terry inspect equivalent Git
+diffs and recover an earlier description. This distinguishes user value from format
+familiarity. Any approved transition needs validated import/export, identity/history
+preservation, untouched source evidence, byte completeness and rollback rehearsal;
+there is no authorization to migrate here.
+
+Sources (official, consulted 2026-10-25)
+[S1] https://www.sqlite.org/atomiccommit.html
+[S2] https://www.sqlite.org/wal.html
+[S3] https://www.sqlite.org/backup.html
+[S4] https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing
+
+Evidence boundary: charter/card0036; public v2 notes named above and01/03/30;
+C:/Projects/localswim/README.md, Daily use, Attachments, Data safety and Git.
+No legacy source/tests/internal design or private board data consulted. Prior source
+exposure remains disclosed; no clean-room certification claimed. Documentary checks
+only. Fresh independent review and Terry's decision remain outstanding.

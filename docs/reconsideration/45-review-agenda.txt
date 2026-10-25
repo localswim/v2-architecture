@@ -1,0 +1,64 @@
+FRESH INDEPENDENT FINAL AGENDA REVIEW - #0045
+2026-10-25 | Sol / High | Documentary recommendations only
+
+Verdict: PASS WITH OBSERVATIONS
+44 is a defensible architecture decision agenda, not adoption or qualification of
+a replacement baseline. No mandatory correction found. It challenges earlier v2
+choices as well as v1 continuity, preserves serious alternatives, and requires a
+case for retention and change. The graph subchoices below merit clearer visibility
+when the decision ledger is prepared; they do not block this architecture handoff.
+
+Coverage and comparative reasoning
+The map covers the principal product, language/shell, process, authority/storage,
+history/bytes, trust, browser, CLI/API, domain, workspace, monitoring, publication
+and adoption choices. It gives concrete benefits and losses rather than equating
+novelty, fewer dependencies or prior acceptance with improvement. JSON authority,
+all-TS delivery, desktop packaging, cooperative versus stronger approval assurance,
+manual/derived priority and continued v1 use remain credible alternatives.
+
+Storage's provisional database preference is an application-complexity inference,
+not a measured performance result. It preserves external-byte, policy and uncertain-
+outcome obligations. The security choice precedes fixing host/issuer ownership;
+transport, process count and a launcher never prove meaningful human review. Draft
+privacy/availability, prose history, byte placement, platform scope and acceptance
+classification remain unresolved rather than being concealed by a leading proposal.
+
+Six-point closure check
+- 43F1: submitted immutable intent survives separately from editable drafts; failure
+  to preserve it refuses submission. Original-identity lookup reconciles uncertainty;
+  missing evidence never authorizes replay. Duration/protection remain open.
+- 43F2: committed signals/catch-up are correctly attributed to existing candidate21;
+  the new comparison concerns process placement and optional watcher omission.
+- 43F3: concurrent acceptance fencing remains distinct from subsequent substantive
+  invalidation. Candidate06 already leaves classification open.
+- 43F4: authorized attention, unknown/stale status and shared/window preferences now
+  have alternatives, losses and a two-window partial-outage comparison.
+- 43F5: stopped inspection is compared with host/export-only access, with outage
+  benefit and tooling/ownership cost; no mutation fallback is implied.
+- 42F1: packaging comparisons include matched SQLite engine/features, representative
+  bindings, attachment placement and protected backup scope; disputed placement is
+  symmetric. Language rankings remain conditional.
+
+The combined synthetic journey and proposed two-maintainer-day cap constrain later
+learning without requiring the full candidate baseline. They authorize no work.
+Partial evidence and stopping at the cap remain valid outcomes. Later migration,
+trust installation and cutover retain separate scope; Terry controls acceptance.
+
+Public presentation and evidence limits
+README and the fresh-choice owner-direction record accurately distinguish historical
+acceptance from current reconsideration. They reopen the language split, reject exact
+copying as a mandate, and do not claim implementation readiness, optimality or an
+isolated clean-room guarantee. README's historical project description is qualified
+by its immediately following direction and explicit provenance statement.
+
+All 14 current public reconsideration files are byte-identical to their private
+counterparts. Reviewed charter00, card0045,34-44,46/47, public README and current
+direction; checked relevant candidate06/15/17/21 passages for corrected baselines.
+Prior independent official-source checks suffice for the agenda's unchanged narrow
+claims; no new factual concern required another web check. No runtime, benchmark,
+security, recovery or migration qualification was performed or inferred. No legacy
+source/tests, private boards, Git actions, installs or operational changes.
+
+Findings table
+ID / disposition | Exact source | Impact | Action
+O1 / low, nonblocking | 44 "Decision map", "Graphs, priority and triage";39 "Hierarchy/links" and "Cycles" | Priority has an explicit proposed disposition, while hierarchy shape and permitting/rejecting blocking cycles are visible only through referenced39 and validation examples. A skim can overlook that these are still open architectural choices. | In the next decision ledger, explicitly retain hierarchy breadth/parent model and blocking-cycle admission as unresolved, with39's alternatives and losses. No new implementation requirement or exact-parity default follows.

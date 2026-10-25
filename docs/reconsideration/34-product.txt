@@ -1,0 +1,88 @@
+PRODUCT REASSESSMENT - #0034
+2026-10-25 | sol_medium_0034_product | Recommendation for fresh review
+
+Decision
+Prefer a focused collaboration product with selective behavioral continuity.
+Neither feature parity nor a cards-only rewrite has earned selection. Functioning
+v1 establishes feasibility and documented behaviors; it does not establish how
+often every feature helps or whether its accumulated rules are desirable.
+Everything below is proposed, including departures from prior v2 recommendations.
+
+Evidence boundary
+Observed requirement: Terry's instructions demonstrate scoped work, dependency
+ordering, attributable automation, human-controlled acceptance and several boards.
+README evidence [R] documents behavior, not measured usage, demand or correctness.
+Prior v2 notes [V] are candidate designs with disclosed source-derived provenance.
+No legacy source/tests/internal design or real boards were consulted. This work
+does not establish isolated clean-room certification or approve asset reuse.
+There are no new external technical/version claims or executed experiments here.
+
+Major choices: need, alternatives and disposition
+Choice | Evidence versus assumption | Recommendation and cost
+Core cards, comments, search, stable references, browser/CLI | Documented [R]; human/automation collaboration explicit | RETAIN outcomes: create, find, edit, discuss and hand off; redesign syntax/layout. Removing CLI adds manual automation work; preserving every command adds qualification burden.
+Workflow and actors | Configurable lanes/rights documented; exactly two actors and universal human/bot classes are legacy constraints | CHANGE to configurable identities, named lanes/priorities and grants, with a simple supplied template. Keep acceptance authority explicit; defer a general role/rule language. More configuration requires understandable defaults.
+Relationships, hierarchy, triage | Documented [R]; particular formula and automatic priority rewriting lack fresh demand evidence | RETAIN navigable dependencies; UNRESOLVED hierarchy breadth and ranking. Compare manual priority plus dependency display, suggested ordering, and persisted automatic promotion. Simpler options lose automatic ordering; promotion changes user intent and requires explanation.
+Archive and history | Reversible hiding and attribution documented; complete prose replay unproven | RETAIN archive/restore and resolvable references. UNRESOLVED full content history, retention and deletion; see below.
+Attachments, covers, publishing, monitor, workspace | Documented [R]; equal launch importance assumed in v2 | RETAIN as candidates with staged scope decisions, not mandatory simultaneous parity. Omitting attachments loses evidence sharing; workspace omission fragments attention; monitor omission loses automation wakeups; publishing omission changes backup habits. Covers/pin refinements have a weaker demonstrated case than these outcomes.
+
+Configurability without building a workflow platform
+Compare fixed Terry lanes (lowest setup, poor reuse), declarative configuration
+(recommended middle), and arbitrary scripted policy (broad flexibility, added authoring
+and support burden). Terry's P3 default, In Progress gate, RFR/Needs Terry/Blocked
+meanings and Completed authority remain binding operating instructions today.
+Future product defaults should not require those labels or encode Terry as a
+special principal. A template can teach the distinctions; software cannot prove
+that off-board work obeyed the start gate. Configurable permissions must still
+prevent a prohibited acceptance, rather than merely hide its button.
+Multiple humans/bots should not be excluded just because v1 documents two; nor
+should advanced group administration become a first-release requirement.
+
+Archive, evidence and recovery
+Compare current state plus attributable metadata, revisioned content history, and
+complete event replay. Prefer the first as the minimum proposal, with explicit
+limits: it cannot recover previous prose. Before accepting that loss, ask whether
+correcting an accidental description edit is a required daily recovery task.
+Revisioned content could meet that need without making event replay a product goal.
+
+Archive is visibility, not completion or approval. Preserving an archived unfinished
+dependency can explain outstanding work but surprise users who hide it; require an
+explanation of hidden prerequisites. Whether archive should affect urgency remains
+open alongside triage. Permanent retention prevents accidental erasure but adds
+privacy/capacity burden. A deliberate later purge/export policy deserves evaluation;
+this reassessment authorizes no deletion. Existing restore-roadmap code stays
+excluded as input; the user need for restore deserves consideration independently.
+Git publication, backup and user-visible history are separate outcomes; selecting
+one should not silently promise the other two.
+
+Compatibility and adoption
+Prefer selective semantic mapping over exact legacy compatibility or a wholly fresh
+start. Preserve accepted references, meaning and provenance when adoption includes
+existing work; do not promise schema, URL, CLI, JSON, sorting, file-layout or visual
+identity. A new syntax needs a concrete usability/maintenance benefit, not novelty.
+Conversely, deliberate small compatibility shims may cost less than rewriting every
+launcher and bookmarked link. Scope those from a synthetic representative workflow,
+not an inventory of old internals.
+
+A reduced launch may serve new boards while existing users retain v1; that does not
+prove migration readiness. Any later conversion must report losses, preserve source
+evidence and offer a reviewed fallback. Continuing v1 remains a valid outcome while
+benefits do not repay adoption effort. No automatic migration or dual authority is
+proposed.
+
+Smallest distinguishing evidence
+Use one newly written synthetic walkthrough: create/relate/prioritize work, bot
+handoff, human acceptance, archive/reopen, accidental text edit, attachment evidence,
+and cross-board attention. Compare the three triage approaches and two history
+depths using outcome predictability, steps and unexplained changes. Record which
+optional features prevent a real task, rather than whether they existed before.
+Obtain Terry's launch-critical subset and compatibility needs from that walkthrough;
+no new standing gate process or implementation is authorized.
+
+References
+[R] https://github.com/TerryOtt/localswim/blob/main/README.md
+Sections: Board configuration; Daily use; Archiving cards; Card attachments and
+cover photos; Dependency priority inheritance; Transition permissions; Multiple
+boards in one workspace; Data safety and Git; Shared board-write monitor.
+[V] v2-architecture/docs/design/01-product-scope.txt, 02-clean-room-method.txt,
+06-domain-policy.txt, 07-relationships-triage.txt, 08-state-audit.txt,
+17-workspace.txt, 26-adoption.txt; reassessment charter and card-0034.txt.

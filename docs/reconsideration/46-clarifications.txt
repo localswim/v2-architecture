@@ -1,0 +1,115 @@
+REASSESSMENT CLARIFICATIONS - #0046
+2026-10-25 | Sol / High | Companion recommendations only
+
+Outcome and closure map
+43F1-F3 receive corrected continuity/comparison wording below. 43F4-F5 receive
+explicit alternatives and proposed dispositions, not owner acceptance of losses.
+42F1 is addressed by conditional ranking plus a coupled comparison. Notes35-43
+remain unchanged. No baseline, language, driver or migration is adopted.
+
+43F1 - reload preserves submitted uncertainty separately from drafts
+Recommend two recovery classes. An unsent draft remains editable: recover it across
+navigation/reload where permitted, label its base revision, and disclose persistence
+failure. Memory-only loses reload recovery; longer retention increases private
+content exposure and cleanup cost. Bounded per-window recovery is preferred;
+retention duration and deletion policy remain decisions, not claimed guarantees.
+
+Before any submission, preserve a private reload-recoverable record of the immutable
+submitted intent: operation identity, principal/board, command, exact fingerprint
+inputs/preconditions, and sufficient original content to explain the action. Keep
+this separate from the subsequently editable draft and from credentials. If that
+record cannot be preserved, refuse submission with input intact; disclose this
+availability/privacy cost. No particular browser storage technology is mandated.
+
+On reload, recovered unresolved submissions remain pending/unknown. Reauthenticate,
+then perform authorized lookup using the original identity; never submit, replay,
+or generate a replacement identity during recovery. Committed evidence can close
+the record without applying the action again; definitive noncommit allows an
+explicit new submission. Missing, expired or inaccessible evidence stays unknown.
+Keep unresolved records until resolution or deliberate, warned discard; no automatic
+expiry that silently turns submitted prose into a fresh draft. Device/storage loss
+can destroy the handle and may be undetectable. When known, disclose recovery loss,
+require manual investigation and warn that deliberate new intent could duplicate
+the effect. Neither retained
+prose nor visual similarity proves noncommit. Numeric limits remain unresolved.
+
+43F2 - count only the actual monitor delta
+40's native committed activity plus catch-up is a change from documented v1
+filesystem-triggered monitoring, not a new simplification over candidate21.
+21 already has committed signals, periodic reconciliation, optional filesystem hints
+and a host-owned monitor scope. Its captured-child continuity makes process placement
+a distinct question: host ownership alone removes no coordination obligations.
+
+Recommend evaluating an in-process scheduler against that managed-child candidate.
+It could remove separate child launch/discovery, child identity and child handover
+mechanisms. It retains per-board exclusive delivery ownership, durable pending and
+checkpoints, captured targets, conservative attribution, unknown delivery handling,
+quiescent shutdown and adapter reconciliation. Host crash then stops monitoring;
+a faulty/stalled adapter can harm host availability. Managed/separate workers retain
+lifecycle and upgrade cost but can provide a useful isolation boundary; independent
+monitor uptime additionally needs an independent usable activity reader. Optional
+filesystem hints are already optional in21: omitting them saves watcher machinery,
+losing prompt notice of unadmitted disk edits. Preserve storage-health detection
+and honest uncertainty. No process savings or uptime advantage was measured here.
+
+43F3 - acceptance concurrency and later invalidation are different
+06 already rejects concurrent content/policy change while committing acceptance
+and already limits later invalidation to substantive edits, leaving classification
+open. Retract39's implication of an established blanket subsequent-invalidation rule.
+Retain the atomic acceptance fence: accepted evidence identifies reviewed content
+and policy; a race requires renewed review, never blind replay. Separately decide
+which later changes invalidate current acceptance while preserving its history.
+Compare whole-card invalidation (simple, extra review) with a reviewed-content
+boundary (fewer nuisance reviews, classification/maintenance cost). Criteria
+replacement, attachment replacement and a link changing scope can alter meaning;
+a typo might not. Ambiguity should require review pending an agreed boundary.
+
+43F4 - workspace attention and preferences
+Recommend retaining a compact multi-board attention view, independently refreshed
+and authorized, with unknown/stale distinct from zero; keep healthy boards usable
+during a member outage. Compare a minimal chooser: less aggregation work, but
+finding the next human-action board requires opening boards and can hide unavailable
+work. This loss needs owner choice; no exact columns or ordering are prescribed.
+
+Retain candidate17's separation provisionally: principal/workspace shared pins and
+saved defaults provide continuity across windows but add preference persistence,
+conflicts and stale-reference handling. Device/window-only preferences reduce shared
+state but lose shared curation. Current route, temporary filters, focus/scroll and
+private draft/submission context stay per-window, so one window cannot redirect
+another's work. Pins grant no rights. Shared pin order is optional; authorizing
+membership and board reads remains separate from either preference choice.
+
+43F5 - inspection when the service is stopped
+Prefer explicit shared-core stopped-board inspect/verify provisionally: useful
+outage diagnosis without running the host. This retains tooling, format compatibility,
+physical exclusion and recovery/authority qualification costs from15; listener
+absence proves no ownership. Verification must distinguish evidence-preserving
+checks from any required recovery writes; neither silently repairs nor becomes
+an online mutation fallback.
+
+Host-only reads simplify ownership and tooling but lose inspection during host
+failure; alternative is restart/repair or inspect a labeled consistent export.
+Export-only inspection avoids opening live authority but may be stale and cannot
+verify its current integrity or unresolved operations. Keep these losses visible;
+no stopped-board mutation capability is justified by this read/verify recommendation.
+
+42F1 - coupled evidence and bounded next work
+35's Go/TS versus all-TS packaging ranking remains conditional on36's storage/byte
+qualification. Compare the same SQLite engine/features through representative
+bindings in each stack, without selecting drivers here, using the same attachment
+placement and protected
+backup/restore scope. If byte placement remains disputed, repeat that boundary
+symmetrically; do not compare a bare shell against a complete database application.
+Include build dependencies, install/upgrade/offline steps and maintainer effort.
+
+Combine proposed checks into one synthetic journey: commit comment, disconnect,
+reload/reconcile; find human-action work across healthy/unavailable boards in two
+windows; stop the service and inspect/verify; interrupt monitor delivery; restore
+board plus attachment. Propose a two-maintainer-day ceiling across both stacks for
+later authorization; stop at the cap. The stopping question is which observed loss
+or support burden changes the choice. Record partial evidence; do not require the entire candidate baseline. No experiment ran here.
+
+Evidence boundary
+Read charter00, card0046, reviews42/43, notes35/36/38-41 and public candidates06/
+15/17/21/32. Documentary reasoning only; no new external factual claims, legacy
+source, private boards, implementation, installs or operational changes.
