@@ -1,0 +1,94 @@
+SLICE01 - BOUNDED TASK OWNERSHIP CLARIFICATIONS
+2026-10-25 | #0020 | Proposed correction pending fresh #0021 and Terry acceptance
+
+Precedence and readiness
+This companion changes only the ownership, dependency and publication omissions
+identified by original 10-readiness-review.txt R1-R3. It and the corrected 09 pair
+supersede those narrow parts of the pre-correction synthesis. Accepted 01-08/18/19
+and all behavior contracts remain unchanged. Original 10 stays CHANGES REQUIRED;
+its historical findings are preserved, not rewritten into a new verdict.
+
+Fresh non-author #0021 reviews the complete corrected 09 pair, this note and the
+private assignment companion against accepted sources. Gate G0 requires its pass,
+Terry acceptance of #0009/#0010 and #0020/#0021 closure before materialization,
+Backlog promotion or promotion of existing implementation placeholders. Execution
+still requires authorized scoped cards, accepted prerequisites and In Progress
+before work. Terry retains Completed. No logical ID below is a live ticket number.
+
+Finding | Bounded correction and public evidence
+R1 | H01/H02 explicitly own missing HTTP adapters; P01 owns server mounting; corrected K03/W03 dependencies and H01-E/H02-E evidence.
+R2 | P02 owns serialized package/scripts; V02 owns actual browser runner; V04 owns exact root native dispatch; Q04/R01 dependency and evidence changes.
+R3 | All public task author/reviewer objects contain generic roles/competencies and independence only; private companion retains operational assignments.
+
+R1: HTTP adapter ownership
+Sources: 04 Routes and commands / Attachment-export-restore; 05 Grants and
+sessions; 06 Exact export boundary; accepted 18 target identity; original 10 R1.
+
+H01 owns internal/transport/grantapi/{routes.go,handlers.go,routes_test.go}.
+POST /api/v1/grants selects grant.create with target=null and validated board scope;
+DELETE /api/v1/grants/{id} selects grant.revoke with target.grantId equal to route
+and board scope resolved from storage. G01/S02 retain transactional admission,
+current rights, credential-derived actor, exact board revision, null card revision
+and ledgered terminal identity. Route tests cover target/scope mismatch, denial,
+stale revision, forbidden automation rights, revocation races and lost responses.
+Explicit human terminal enrollment/consent remains K03's CLI obligation.
+
+H02 owns internal/transport/exportapi/{routes.go,handlers.go,routes_test.go} after
+A02 and T01. POST /api/v1/boards/{boardId}/exports validates the accepted envelope,
+rights/incarnation/revision before streaming A02's pinned snapshot as stored ZIP.
+Route tests cover pre-stream refusals, inventory/COMPLETE and interrupted delivery.
+It grants no mutation receipt, server path or claim of verified browser local save.
+A02 owns archive generation; H02 owns its HTTP consumption. K01 owns board/card,
+lookup and recovery administration; K03 owns CLI delegation. No adapter is inferred
+from those unrelated scopes. P01's executable route composition and route tests
+mount H01/H02 with T01/K01/A01. K03 waits for H01/H02; W03 waits for H02.
+
+R2: command wiring and complete dispatch
+Sources: accepted 07 Minimal boundaries / Frozen future command interface / Evidence
+and stop-pass criteria; original 10 R2. Commands and dependency pins stay unchanged.
+
+Q01 owns candidate dependency fields/locks. P01 owns executable/assets/config;
+P02 follows both and owns web/package.json scripts plus web/scripts/ launchers.
+Shared package ownership is ordered Q01 -> P01 -> P02; dependency versions and
+web/package-lock.json remain frozen. check/build use locked local tsc with
+-p tsconfig.json; check adds --noEmit; strict/noEmitOnError build emits only declared
+staging. Q04 follows P02 and executes the actual build sequence, not just an
+isolated compiler harness. Q02/Q03 remain earlier isolated qualification gates.
+
+P02 wires qualification:browser to web/scripts/qualification-browser.mjs, dispatching
+V02-owned qualification/browser/run.mjs. V02 runs the real pinned Windows profile
+through npm --prefix web run qualification:browser; absent suites/environment,
+zero tests or skipped mandatory cases cannot pass. P02 checks wiring, not browser
+qualification, so later real-suite creation cannot create a build dependency cycle.
+
+V01/V03 first provide staged native transaction/archive suites in their owned
+subpackages. V04 then owns qualification/native/nativequalification_test.go and runs
+exactly go test -tags=nativequalification ./qualification/native from root. Its
+root dispatcher executes both native subpackages with the tag, propagates failures
+and records required suite/test coverage. Missing, zero or skipped mandatory cases
+fail; root recursion is forbidden. V04 also reconciles real browser dispatch with
+V02. R01 waits for V04; complete frozen-command/native qualification cannot be
+claimed from earlier subpackage runs. Mocks cannot replace native/browser evidence.
+
+R3: public requirements and private staffing
+Source: original 10 R3. Public author/reviewer fields now describe bounded component
+competency, fresh non-author independence and applicable authentication/SQL/recovery/
+concurrency expertise. Actual author/reviewer names, full model/effort settings,
+capacity and conditional next-three-turn assignments remain solely in the private
+companion. Every added/changed task is mirrored there with scope, files, dependencies,
+readiness and evidence identity; authors and reviewers are distinct. Future roster
+waves do not reserve slots or authorize execution.
+
+Verification limits
+The corrected index contains 34 unique logical tasks, seven area mappings and one
+future evidence entry per task. D01/D02 still require accepted contract freezes;
+Q01-Q03 still require exact candidates and isolated qualification before affected
+product work. Repository/name/hosting preparation remains primary-resolvable using
+existing authority unless a concrete missing owner intervention is encountered.
+Trust enrollment/removal and explicit human bootstrap remain later owner actions.
+
+Documentary JSON/ownership/dependency/evidence/format checks only. No implementation,
+runtime probes, product tests/builds, installs, trust actions, board access, v1
+sources/tests/internal designs or real data were used. No runtime/security/durability
+qualification is claimed; process termination cannot prove power-loss durability.
+Public MIT FOSS, UTF-8/LF/final newline; private roster details stay private.

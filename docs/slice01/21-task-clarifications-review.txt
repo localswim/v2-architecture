@@ -1,0 +1,83 @@
+SLICE01 - FRESH INDEPENDENT TASK CLARIFICATION REVIEW
+2026-10-25 | #0021 | Documentary review
+
+Verdict: PASS
+The corrected 09 pair and companion 20 close original 10 R1-R3. No material
+correction is required before Terry reviews the staged implementation proposal.
+This reviewer authored none of the reviewed inputs or proposed assignments.
+References below are document numbers/sections and logical task IDs, not tickets.
+
+Basis and closure map
+Reviewed README, accepted 01-08/18/19, original 10, complete corrected
+09-implementation-packet.txt and 09-task-proposals.json, 20, and the private
+assignment companion. Private staffing details are not reproduced here.
+
+Finding | Status | Precise correction evidence
+10 R1 | CLOSED | 20 R1; JSON H01/H02 tests/acceptance, P01 tests, K03/W03 dependencies; H01-E/H02-E.
+10 R2 | CLOSED | 20 R2; JSON Q01/P01/P02/Q04 and V01-V04 tests/acceptance/dependencies; R01 dependencies.
+10 R3 | CLOSED | 20 R3; all 34 public author/reviewer objects; matching private workers and conditional waves.
+
+Material findings
+ID | Severity | Location | Required correction
+None | None | Corrected 09 pair and 20 | None.
+
+R1: complete executable integration
+H01 owns grantapi routes.go/handlers.go/routes_test.go for POST /api/v1/grants
+and DELETE /api/v1/grants/{id}. Exact target/scope, board revision, null card
+revision and credential actor delegate to G01/S02 admission. Tests require
+target mismatch, denial, forbidden automation rights, revocation races and lost
+responses. K03 retains explicit human terminal consent.
+
+H02 owns corresponding exportapi files and POST /api/v1/boards/{boardId}/exports
+after A02/T01: authorized read, pre-stream incarnation/revision refusal, pinned
+stored ZIP/COMPLETE and interrupted delivery. It creates no mutation receipt or
+verified local-save claim. P01 explicitly tests mounting these adapters alongside
+T01/K01/A01; K03 waits for H01/H02, W03 for H02. Integration has an executable
+owner rather than an inferred remainder.
+
+R2: command ownership and ordering
+Q01 freezes manifest dependency fields/locks; P01 supplies executable, assets and
+configuration; P02 follows both and owns package scripts/launchers. The only
+shared owned path, web/package.json, is serialized. Q04 waits for P02 and executes
+07's actual build sequence through go build with two clean hash comparisons.
+Earlier Q02/Q03 are isolated harnesses, not distribution qualification.
+
+P02's qualification:browser launcher names web/scripts/qualification-browser.mjs
+and dispatches V02's qualification/browser/run.mjs. V02 executes 07's exact npm
+command against real pinned Windows browser coverage. Wiring checks do not
+require the later real suite to pass, avoiding a hidden prerequisite cycle.
+
+V01/V03 stage transaction/archive native subpackages; V04 later dispatches both
+with the tag through exactly go test -tags=nativequalification ./qualification/native.
+Failure propagation, suite/test coverage and missing/zero/skipped mandatory-case
+failure are explicit; recursive root invocation is forbidden. V04 reconciles the
+browser command too; R01 waits for V04. Partial suites cannot claim full acceptance.
+
+Completeness and publication
+The 34 unique tasks form an acyclic, resolved DAG with seven area mappings and
+one matching future evidence entry each. Ownership is relative to the future
+repository. Examples 1-7 remain traced through C01/S01-S03/G01/B01-B02, client
+K/W tasks, A01-A04 and V01-V04/R01: both directions, conflicts, three recovery
+classes, original uncertainty, P3/readiness and separate export/restore survive.
+Accepted 18 target binding, recovery administration and attachment deferral remain.
+
+Public staffing requirements are generic. Private scope/files/dependencies/readiness/
+sources/evidence match all tasks, with explicit settings, distinct author/fresh
+review identities and conditional three-turn waves within four direct workers,
+depth one. Released author slots become fresh review slots; none are reserved.
+One-worker/one-turn estimates retain stop/rescope and material-fix re-review.
+
+Gates and limits
+D01/D02 remain owner-accepted contract freezes; Q gates remain future qualification.
+Repository preparation is primary-resolvable absent concrete missing authority;
+trust enrollment/removal and human bootstrap remain later owner actions.
+G0 preserves original 10 CHANGES REQUIRED and requires this fresh pass plus Terry
+acceptance of the corrected packet before materialization/Backlog promotion.
+Separate authorization, accepted prerequisites and In Progress precede execution;
+Terry controls Completed. No immediate coding or qualified toolchain is claimed.
+
+Documentary reference/JSON/DAG/ownership/evidence/assignment and UTF-8/LF/final-newline
+checks only. No board access, real data, v1 sources/tests/internal designs, runtime
+probes, product tests/builds, installs or trust changes. Mocks cannot replace native/
+browser evidence; process termination cannot prove power-loss durability.
+Public MIT FOSS; no private roster details or credentials published.

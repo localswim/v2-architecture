@@ -1,0 +1,2611 @@
+{
+  "schema_version": 1,
+  "status": "proposal_only",
+  "ownership_root": "Future owner-approved public MIT implementation repository; paths are relative; not this architecture repository",
+  "authority": {
+    "accepted_sources": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S18",
+      "S19"
+    ],
+    "precedence": "S18 overrides only S08 R1-R3 omissions/conflicts; S19 closes; originals preserved",
+    "source_handoff": "Original #0010 CHANGES REQUIRED preserved; #0020 corrects R1-R3; fresh non-author #0021 validates complete corrected packet",
+    "owner_acceptance": "Terry accepts #0009/#0010 with #0020/#0021 correction closure before materialization or existing implementation-placeholder promotion; scoped execution remains separate",
+    "correction_sources": [
+      "S10",
+      "S20"
+    ]
+  },
+  "gates": {
+    "G0": "Original #0010 remains CHANGES REQUIRED evidence; fresh #0021 passes corrected #0009/#0020, Terry accepts #0009/#0010 and #0020/#0021 closure before materialization or existing implementation-placeholder promotion; no original-report rewrite",
+    "G1": "Primary resolves future repository/name/hosting from existing authority or records needed owner decision; scoped work authorized and materialized card In Progress before any work",
+    "G2": "All dependencies have fresh non-author pass and required owner acceptance; review handoff alone is insufficient",
+    "G3": "Q01 pins and Q02/Q03 qualifying evidence accepted before dependent product work"
+  },
+  "sources": {
+    "S01": {
+      "path": "docs/slice01/01-scope-acceptance.txt",
+      "sections": [
+        "Acceptance examples 1-7",
+        "Boundaries and open design"
+      ]
+    },
+    "S02": {
+      "path": "docs/slice01/02-scope-review.txt",
+      "sections": [
+        "Acceptance coverage",
+        "Downstream obligations and owner gate"
+      ]
+    },
+    "S03": {
+      "path": "docs/slice01/03-data-transactions.txt",
+      "sections": [
+        "Identity and minimal schema",
+        "Atomic admission and outcomes",
+        "Retention, clearing and faults"
+      ]
+    },
+    "S04": {
+      "path": "docs/slice01/04-commands-api-cli.txt",
+      "sections": [
+        "Routes and commands",
+        "Preconditions, fingerprint and validation",
+        "Errors and reconciliation"
+      ]
+    },
+    "S05": {
+      "path": "docs/slice01/05-sessions-browser-recovery.txt",
+      "sections": [
+        "Authority and transport",
+        "Grants and sessions",
+        "Private recovery and limits",
+        "Interaction and reconciliation"
+      ]
+    },
+    "S06": {
+      "path": "docs/slice01/06-attachments-export-restore.txt",
+      "sections": [
+        "Choice and byte lifecycle",
+        "Exact export boundary",
+        "Restore contract"
+      ]
+    },
+    "S07": {
+      "path": "docs/slice01/07-build-acceptance-evidence.txt",
+      "sections": [
+        "Minimal boundaries",
+        "Frozen future command interface",
+        "Evidence and stop/pass criteria"
+      ]
+    },
+    "S08": {
+      "path": "docs/slice01/08-design-seams-review.txt",
+      "sections": [
+        "Material findings R1-R3",
+        "Handoff and verification limits"
+      ]
+    },
+    "S18": {
+      "path": "docs/slice01/18-seam-clarifications.txt",
+      "sections": [
+        "R1: target identity",
+        "R2: server recovery administration",
+        "R3: bounded attachment scope",
+        "Future qualification vectors"
+      ]
+    },
+    "S19": {
+      "path": "docs/slice01/19-clarifications-review.txt",
+      "sections": [
+        "Closure map",
+        "Integration, owner gate and limits"
+      ]
+    },
+    "SREADME": {
+      "path": "README.md",
+      "sections": [
+        "Slice 01 implementation design",
+        "Free and open source",
+        "Text file conventions"
+      ]
+    },
+    "S10": {
+      "path": "docs/slice01/10-readiness-review.txt",
+      "sections": [
+        "Material findings R1-R3",
+        "Gates and limits"
+      ]
+    },
+    "S20": {
+      "path": "docs/slice01/20-task-clarifications.txt",
+      "sections": [
+        "R1: HTTP adapter ownership",
+        "R2: command wiring and complete dispatch",
+        "R3: public requirements and private staffing",
+        "Precedence and readiness"
+      ]
+    }
+  },
+  "placeholder_area_mapping": {
+    "storage_history_outcomes": [
+      "S01",
+      "S02",
+      "S03"
+    ],
+    "go_service_cli": [
+      "C01",
+      "G01",
+      "B01",
+      "B02",
+      "K01",
+      "K02",
+      "K03",
+      "H01",
+      "H02"
+    ],
+    "browser_session_reload": [
+      "D01",
+      "N01",
+      "T01",
+      "W01",
+      "W02",
+      "W03"
+    ],
+    "attachment_archive": [
+      "D02",
+      "A01",
+      "A02",
+      "A03",
+      "A04"
+    ],
+    "build_distribution": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "P01",
+      "Q04",
+      "P02"
+    ],
+    "integration_native_browser_qualification": [
+      "V01",
+      "V02",
+      "V03",
+      "V04"
+    ],
+    "independent_implementation_review": [
+      "R01"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "D01",
+      "area": "browser_session_reload",
+      "scope": "Freeze native setup/status and issuer/port lifecycle only",
+      "owner_files": [
+        "docs/contracts/setup.txt"
+      ],
+      "dependencies": [],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S05",
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2"
+        ]
+      },
+      "tests": [
+        "Documented initial/repeated/failed setup and renewal/removal scenarios"
+      ],
+      "acceptance": [
+        "Owner-accepted callable setup contract; explicit trust/bootstrap actions; no installation"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Primary resolves future repository/name/hosting from existing authority; no concrete owner-only missing input identified at synthesis"
+      ],
+      "evidence_ids": [
+        "D01-E"
+      ]
+    },
+    {
+      "id": "D02",
+      "area": "attachment_archive",
+      "scope": "Freeze exact v1 archive/receipt and recovery-preview wire encodings only",
+      "owner_files": [
+        "docs/contracts/archive-recovery-schema.txt",
+        "fixtures/contracts/archive-recovery/"
+      ],
+      "dependencies": [],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S04",
+        "S06",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2"
+        ]
+      },
+      "tests": [
+        "Exact field/type/order/hash vectors; null/optional/timestamp and provenance cases"
+      ],
+      "acceptance": [
+        "Owner-accepted schemas within existing behavior; no new recovery promise"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "D02-E"
+      ]
+    },
+    {
+      "id": "Q01",
+      "area": "build_distribution",
+      "scope": "Inventory and freeze candidate versions/locks/environment only; package dependency fields, not script wiring",
+      "owner_files": [
+        "go.mod",
+        "go.sum",
+        "web/package.json",
+        "web/package-lock.json",
+        "qualification/environment.json"
+      ],
+      "dependencies": [],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2"
+        ]
+      },
+      "tests": [
+        "Candidate availability/license/checksum inventory; exact Go/Node/npm/TS7/SQLite/libc/browser/runner pins"
+      ],
+      "acceptance": [
+        "Recorded candidates and locks; explicitly unqualified until Q02/Q03; unsupported candidate stops",
+        "P02 is the only later web/package.json script writer; dependency pins and web/package-lock.json remain unchanged after Q01 unless separately rescoped/requalified"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Repository preparation authority/context resolved by primary",
+        "Scoped qualification/download authorization",
+        "Native Windows/NTFS and browser availability"
+      ],
+      "evidence_ids": [
+        "Q01-E"
+      ]
+    },
+    {
+      "id": "Q02",
+      "area": "build_distribution",
+      "scope": "Qualify isolated SQLite binding/connection harness only",
+      "owner_files": [
+        "qualification/driver/"
+      ],
+      "dependencies": [
+        "Q01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S06",
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2"
+        ]
+      },
+      "tests": [
+        "Native Windows FK/DELETE/FULL per connection; bounded writers and pinned snapshot; CGo-free build"
+      ],
+      "acceptance": [
+        "Recorded SQLite version/options/pins pass; no product recovery qualification"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Native Windows/NTFS test access"
+      ],
+      "evidence_ids": [
+        "Q02-E"
+      ]
+    },
+    {
+      "id": "Q03",
+      "area": "build_distribution",
+      "scope": "Qualify isolated Go generator/TS7/embed compiler harness only",
+      "owner_files": [
+        "qualification/compiler/"
+      ],
+      "dependencies": [
+        "Q01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S04",
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2"
+        ]
+      },
+      "tests": [
+        "Deterministic sample schema/declaration output; strict noEmitOnError; local compiler and embed checks"
+      ],
+      "acceptance": [
+        "Recorded matching sample outputs and exact qualified compiler pins; no product equivalence claim"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "Q03-E"
+      ]
+    },
+    {
+      "id": "C01",
+      "area": "go_service_cli",
+      "scope": "Implement typed envelopes/validation/canonical encoding and generator only",
+      "owner_files": [
+        "internal/contract/",
+        "cmd/contractgen/",
+        "schemas/",
+        "web/generated/"
+      ],
+      "dependencies": [
+        "D02",
+        "Q02",
+        "Q03"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S04",
+        "S18",
+        "S19"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Go/TS canonical byte/hash vectors; C/D/reversed links/grants; null/Unicode/duplicate/overflow rejection"
+      ],
+      "acceptance": [
+        "Generated declarations/schema agree; complete target frozen and authoritative mapping defined"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "C01-E"
+      ]
+    },
+    {
+      "id": "S01",
+      "area": "storage_history_outcomes",
+      "scope": "Implement schema/open/connection ownership only",
+      "owner_files": [
+        "internal/store/schema/",
+        "internal/store/open/"
+      ],
+      "dependencies": [
+        "Q02",
+        "Q03"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "FK/unique/check/overflow/incarnation constraints; connection settings readback"
+      ],
+      "acceptance": [
+        "Private synthetic DB opens fail closed; no domain admission yet"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "S01-E"
+      ]
+    },
+    {
+      "id": "N01",
+      "area": "browser_session_reload",
+      "scope": "Implement native setup/issuer/grant-admin credential lifecycle only",
+      "owner_files": [
+        "internal/transport/setup/"
+      ],
+      "dependencies": [
+        "D01",
+        "Q02",
+        "Q03"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S05",
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Fresh/repeated/failing setup; secret ACL and issuer scope fixtures"
+      ],
+      "acceptance": [
+        "Accepted setup contract implemented; trust action documented and never automated implicitly"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Owner-consented trust enrollment/removal remains later manual action"
+      ],
+      "evidence_ids": [
+        "N01-E"
+      ]
+    },
+    {
+      "id": "S02",
+      "area": "storage_history_outcomes",
+      "scope": "Implement shared writer/outcome ledger and uncertainty fence only",
+      "owner_files": [
+        "internal/store/writer/",
+        "internal/store/outcome/"
+      ],
+      "dependencies": [
+        "S01",
+        "C01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S04",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Terminal match/mismatch; refusal fence; transaction/commit/rollback injected failures"
+      ],
+      "acceptance": [
+        "Atomic terminal/state interface; missing evidence unknown; no automatic retry"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "S02-E"
+      ]
+    },
+    {
+      "id": "G01",
+      "area": "go_service_cli",
+      "scope": "Implement current grant/session admission primitives only",
+      "owner_files": [
+        "internal/board/grants/"
+      ],
+      "dependencies": [
+        "S02",
+        "N01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S05",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Human/automation rights; exact grant targets; revoke/admit race"
+      ],
+      "acceptance": [
+        "No cached authority; automation never approve/history-admin/grant-admin"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "G01-E"
+      ]
+    },
+    {
+      "id": "B01",
+      "area": "go_service_cli",
+      "scope": "Implement create/edit/comment and fixed transition admission only",
+      "owner_files": [
+        "internal/board/cards/"
+      ],
+      "dependencies": [
+        "G01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S01",
+        "S03",
+        "S04"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Examples 1-3; snapshots/comments; P3; Completed refusal; approval invalidation"
+      ],
+      "acceptance": [
+        "Exact board/card revisions and atomic snapshots/activity/outcomes; no silent overwrite"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "B01-E"
+      ]
+    },
+    {
+      "id": "B02",
+      "area": "go_service_cli",
+      "scope": "Implement link/handoff/approval admission only",
+      "owner_files": [
+        "internal/board/workflow/"
+      ],
+      "dependencies": [
+        "B01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S01",
+        "S03",
+        "S04",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Cycles/self links; owner/peer; P3; blocked start; human approval/revocation races"
+      ],
+      "acceptance": [
+        "Prerequisite acceptance gates start; review handoff grants no approve"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "B02-E"
+      ]
+    },
+    {
+      "id": "S03",
+      "area": "storage_history_outcomes",
+      "scope": "Implement recovery preview/confirm/retention and pin accounting only",
+      "owner_files": [
+        "internal/store/recovery/"
+      ],
+      "dependencies": [
+        "B02",
+        "D02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S06",
+        "S18",
+        "S19"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Expired/stale/revoked preview; lost confirm; shrink/clear Completed history; compact receipts; last pin/export race"
+      ],
+      "acceptance": [
+        "One board revision; current approval/card/lane unchanged; gaps/tombstones preserved"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "S03-E"
+      ]
+    },
+    {
+      "id": "T01",
+      "area": "browser_session_reload",
+      "scope": "Implement HTTPS/session exchange/request-origin boundary only",
+      "owner_files": [
+        "internal/transport/session/",
+        "internal/transport/https/"
+      ],
+      "dependencies": [
+        "G01",
+        "N01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S05",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Single-use/expiry/restart; Host/Origin/Fetch metadata; bearer/hash/redaction; no downgrade"
+      ],
+      "acceptance": [
+        "Memory-only browser bearer contract; current grant enforcement; wrong-origin denial"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "T01-E"
+      ]
+    },
+    {
+      "id": "A01",
+      "area": "attachment_archive",
+      "scope": "Implement attach/download BLOB adapter only",
+      "owner_files": [
+        "internal/board/attachments/",
+        "internal/transport/attachments/"
+      ],
+      "dependencies": [
+        "B02",
+        "S03",
+        "T01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S04",
+        "S06",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Digest/length/collision/zero-byte/caps; lost response; co-commit and authorized forced download"
+      ],
+      "acceptance": [
+        "Current immutable association and bytes atomic; no detach/replacement"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "A01-E"
+      ]
+    },
+    {
+      "id": "A02",
+      "area": "attachment_archive",
+      "scope": "Implement export snapshot/manifest/stored ZIP writer only",
+      "owner_files": [
+        "internal/archive/export/"
+      ],
+      "dependencies": [
+        "A01",
+        "D02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S04",
+        "S06",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Concurrent clear/export; exact inventory/hash/COMPLETE; package/JSON/count/nesting caps"
+      ],
+      "acceptance": [
+        "One pinned revision; all protected bytes; incomplete never complete"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "A02-E"
+      ]
+    },
+    {
+      "id": "A03",
+      "area": "attachment_archive",
+      "scope": "Implement offline package validator only",
+      "owner_files": [
+        "internal/archive/validate/"
+      ],
+      "dependencies": [
+        "A02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S06"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Tamper/missing/extra/version/symlink/traversal/local-central disagreements and bounds"
+      ],
+      "acceptance": [
+        "Reject whole invalid package before destination publication; no trusted-origin claim"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "A03-E"
+      ]
+    },
+    {
+      "id": "A04",
+      "area": "attachment_archive",
+      "scope": "Implement separate restore/receipt/status and native publication only",
+      "owner_files": [
+        "internal/archive/restore/",
+        "internal/archive/publication/"
+      ],
+      "dependencies": [
+        "A03",
+        "N01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S04",
+        "S06"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Exclusive/no-overwrite/overlap/junction; interruption/status; fresh incarnation/FK remap/source ledger isolation"
+      ],
+      "acceptance": [
+        "Source untouched; complete inventory receipt confirms; ambiguous absent receipt unknown; fresh bootstrap required"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Native filesystem access; explicit fresh human destination bootstrap"
+      ],
+      "evidence_ids": [
+        "A04-E"
+      ]
+    },
+    {
+      "id": "K01",
+      "area": "go_service_cli",
+      "scope": "Implement board/read/lookup/card-mutation and recovery-preview/confirm HTTP adapter only; grants/exports belong to H01/H02",
+      "owner_files": [
+        "internal/transport/boardapi/"
+      ],
+      "dependencies": [
+        "B02",
+        "S03",
+        "T01",
+        "A01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S04",
+        "S05",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Same validation/rights as shared admission; malformed/unauthorized/stale outcomes; route-target mismatch"
+      ],
+      "acceptance": [
+        "No second admission model; lookup never executes; original mismatch stays unknown",
+        "H01 owns /api/v1/grants create/revoke; H02 owns POST BOARD/exports; neither is an implicit K01 integration remainder"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "K01-E"
+      ]
+    },
+    {
+      "id": "K02",
+      "area": "go_service_cli",
+      "scope": "Implement core board CLI/output and private immutable evidence adapter only",
+      "owner_files": [
+        "internal/transport/cli/core/",
+        "internal/transport/cli/evidence/"
+      ],
+      "dependencies": [
+        "K01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S04",
+        "S05",
+        "S06",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Mandatory board; stdin/files; flush/readback refusal; exit0/1/2/3/4; JSON one envelope; export/save separation"
+      ],
+      "acceptance": [
+        "Explicit board/read/create/edit/comment/link/handoff/approve/lookup commands; evidence before dispatch; original uncertainty never replayed"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "K02-E"
+      ]
+    },
+    {
+      "id": "K03",
+      "area": "go_service_cli",
+      "scope": "Implement CLI setup/grants/recovery administration/attachment/archive commands only",
+      "owner_files": [
+        "internal/transport/cli/admin/",
+        "internal/transport/cli/archive/"
+      ],
+      "dependencies": [
+        "K02",
+        "A04",
+        "H01",
+        "H02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S04",
+        "S05",
+        "S06",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Grant and history-admin rights; deliberate preview confirmation; evidence persistence; attach/download; export verification and offline restore/status outcomes"
+      ],
+      "acceptance": [
+        "Commands delegate shared admission/archive; no overwrite/replay; setup follows D01; save and delivery outcomes separate"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "K03-E"
+      ]
+    },
+    {
+      "id": "W01",
+      "area": "browser_session_reload",
+      "scope": "Implement private IndexedDB draft/submission store only",
+      "owner_files": [
+        "web/src/recovery/"
+      ],
+      "dependencies": [
+        "C01",
+        "T01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S05",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "CAS forks; strict completion/readback; caps/denial; immutable target; unresolved discard warning"
+      ],
+      "acceptance": [
+        "Unavailable/unqualified storage refuses dispatch; credentials excluded"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "W01-E"
+      ]
+    },
+    {
+      "id": "W02",
+      "area": "browser_session_reload",
+      "scope": "Implement board views/forms/keyboard and request outcomes only",
+      "owner_files": [
+        "web/src/board/",
+        "web/src/api/"
+      ],
+      "dependencies": [
+        "K01",
+        "W01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S01",
+        "S04",
+        "S05",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Both-direction create/edit/comment; conflict/current text; Tab/IME/focus; original outcome/late response"
+      ],
+      "acceptance": [
+        "Explicit save and stale/unavailable labels; no executable prose or replay"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "W02-E"
+      ]
+    },
+    {
+      "id": "W03",
+      "area": "browser_session_reload",
+      "scope": "Implement reload/logout/recovery-admin/attachment-export controls only",
+      "owner_files": [
+        "web/src/recovery-ui/",
+        "web/src/session-ui/",
+        "web/src/archive-ui/"
+      ],
+      "dependencies": [
+        "W02",
+        "A02",
+        "H02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S04",
+        "S05",
+        "S06",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Reauth original lookup; newer drafts survive; clear/retention previews; attach; offered download only"
+      ],
+      "acceptance": [
+        "Client/server clearing distinct; unknown retained; human-only admin; no browser restore"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "W03-E"
+      ]
+    },
+    {
+      "id": "P01",
+      "area": "build_distribution",
+      "scope": "Integrate thin executable, route registration and deterministic assets only",
+      "owner_files": [
+        "cmd/localswim/",
+        "cmd/assetstage/",
+        "internal/assets/",
+        "web/tsconfig.json",
+        "web/index.html",
+        "web/styles/"
+      ],
+      "dependencies": [
+        "W03",
+        "Q03",
+        "K03",
+        "H01",
+        "H02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "cmd/localswim/routes_test.go mounts H01 grant, H02 export, T01 session, K01 board/recovery and A01 attachment routes through their owned registration functions; no missing route",
+        "cmd/assetstage checks missing/stale generated assets; deterministic declared staging; no private inputs/CDN"
+      ],
+      "acceptance": [
+        "One executable/module/package; route dispatch uses accepted adapters and shared admission; asset generation/config ready for P02 script wiring",
+        "P02 owns package scripts; Q04 later executes actual generated build/check sequence"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "P01-E"
+      ]
+    },
+    {
+      "id": "Q04",
+      "area": "build_distribution",
+      "scope": "Execute actual two-clean-build distribution verification only",
+      "owner_files": [
+        "qualification/build/"
+      ],
+      "dependencies": [
+        "P02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Two clean generated/schema/assets/executable hash comparisons with environment and commands",
+        "Execute 07 frozen build sequence through go build, including npm --prefix web run check and build; native/browser qualification remains V01-V04"
+      ],
+      "acceptance": [
+        "Exact release inputs archived; unexplained mismatch stops distribution claim"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "Q04-E"
+      ]
+    },
+    {
+      "id": "V01",
+      "area": "integration_native_browser_qualification",
+      "scope": "Qualify native transactional/fault/recovery batch only",
+      "owner_files": [
+        "qualification/native/transaction/"
+      ],
+      "dependencies": [
+        "Q04"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S01",
+        "S03",
+        "S05",
+        "S07",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Real concurrent writers/revocation; restart/process termination; write/commit/flush failures; refusal/unknown fence",
+        "Real account-private ACL/readback and redacted logs; CLI flush failure and lost-response original lookup",
+        "Stage native suite with go test -tags=nativequalification ./qualification/native/transaction; V04 later proves dispatch through 07 root native command"
+      ],
+      "acceptance": [
+        "No partial state/history/outcomes/BLOBs; real process/filesystem evidence; power-loss limit explicit"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Native Windows/NTFS fault-capable environment"
+      ],
+      "evidence_ids": [
+        "V01-E"
+      ]
+    },
+    {
+      "id": "V02",
+      "area": "integration_native_browser_qualification",
+      "scope": "Qualify real browser/session/private recovery batch only",
+      "owner_files": [
+        "qualification/browser/"
+      ],
+      "dependencies": [
+        "V01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S01",
+        "S05",
+        "S07",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Trusted HTTPS; origin/revocation/automation; IDB denial/quota/tabs; logout/clear; keyboard/IME/late/reload/reauth",
+        "qualification/browser/run.mjs runs all mandatory pinned-browser cases via npm --prefix web run qualification:browser; missing browser/profile or zero/skipped required tests fail"
+      ],
+      "acceptance": [
+        "Pinned Windows browser/profile journey passes; no replay; private ACL/log audit recorded",
+        "Own qualification/browser/run.mjs and browser suite inventory; P02 owns the launcher/package scripts; no package edits or mock-only qualification"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Owner trust enrollment/removal and human grant bootstrap",
+        "Pinned browser/profile and native ACL access"
+      ],
+      "evidence_ids": [
+        "V02-E"
+      ]
+    },
+    {
+      "id": "V03",
+      "area": "integration_native_browser_qualification",
+      "scope": "Qualify native archive/retention/publication batch only",
+      "owner_files": [
+        "qualification/native/archive/"
+      ],
+      "dependencies": [
+        "V01",
+        "V02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S01",
+        "S06",
+        "S07",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Note.txt/zero-byte/full scope; unsafe ZIP; retention last pins/export races; interrupted no-overwrite restore/status",
+        "Stage native suite with go test -tags=nativequalification ./qualification/native/archive; V04 later proves dispatch through 07 root native command"
+      ],
+      "acceptance": [
+        "Fresh incarnation/source uncertainty preserved; actual native publication evidence; save/delivery distinct"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [
+        "Native Windows junction/publication and fresh bootstrap access"
+      ],
+      "evidence_ids": [
+        "V03-E"
+      ]
+    },
+    {
+      "id": "R01",
+      "area": "independent_implementation_review",
+      "scope": "Fresh independent integrated source/evidence review only",
+      "owner_files": [
+        "qualification/review/"
+      ],
+      "dependencies": [
+        "V03",
+        "Q04",
+        "V04"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise",
+        "must_not_have_authored": "Any implementation or qualification artifact under review"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S18",
+        "S19"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "Trace every evidence ID and examples1-7; review auth/SQL/recovery/concurrency and native limits"
+      ],
+      "acceptance": [
+        "Non-author pass or scoped findings; primary verifies integration; Terry acceptance remains separate"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "R01-E"
+      ]
+    },
+    {
+      "id": "H01",
+      "area": "go_service_cli",
+      "scope": "Implement HTTP grant create/revoke adapter and route tests only",
+      "owner_files": [
+        "internal/transport/grantapi/"
+      ],
+      "dependencies": [
+        "G01",
+        "T01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S03",
+        "S05",
+        "S18"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "internal/transport/grantapi/routes_test.go: POST /api/v1/grants and DELETE /api/v1/grants/{id}; create target=null and exact board scope; revoke target.grantId equals route and stored board scope",
+        "Route-level wrong grant/board target, stale board revision, revoked actor, automation forbidden rights, lost-response lookup and revoke/admission race"
+      ],
+      "acceptance": [
+        "routes.go registers exactly the accepted POST/DELETE routes; handlers.go delegates ledgered grant.create/grant.revoke to G01/S02 with credential-derived actor, exact revision and null card revision",
+        "Human enrollment remains explicit CLI consent; no grant-admin/approve/history-admin for automation; refusal/unknown preserves original identity; P01 owns executable registration"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "H01-E"
+      ]
+    },
+    {
+      "id": "H02",
+      "area": "attachment_archive",
+      "scope": "Implement HTTP export adapter and route tests only",
+      "owner_files": [
+        "internal/transport/exportapi/"
+      ],
+      "dependencies": [
+        "A02",
+        "T01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "internal/transport/exportapi/routes_test.go: POST /api/v1/boards/{boardId}/exports with incarnation,expectedRevision,input:{}; wrong board/incarnation/revision and missing export right refuse before streaming",
+        "Route-level stored ZIP COMPLETE/inventory checks and delivery interruption using A02 synthetic fixtures; confirmed save unaffected"
+      ],
+      "acceptance": [
+        "routes.go registers the accepted POST export route; handlers.go authorizes a read and delegates pinned snapshot/ZIP generation to A02; no mutation receipt or server destination path",
+        "application/zip stored stream obeys accepted caps and exact inventory; incomplete delivery never claims verified local save; P01 owns executable registration"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "H02-E"
+      ]
+    },
+    {
+      "id": "P02",
+      "area": "build_distribution",
+      "scope": "Wire web package scripts and bounded launchers only; preserve Q01 dependency pins",
+      "owner_files": [
+        "web/package.json",
+        "web/scripts/"
+      ],
+      "dependencies": [
+        "Q01",
+        "P01"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Go/TypeScript component and evidence implementation expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "web/scripts/scripts.test.mjs checks actual script targets, locked local tsc resolution, -p tsconfig.json, check --noEmit, build declared staging/noEmitOnError and failure propagation",
+        "Browser launcher dispatches qualification/browser/run.mjs using Q01 pinned runner; absent runner/suites, zero tests, skipped mandatory coverage or nonzero exit fail; V02 later executes the real browser journey"
+      ],
+      "acceptance": [
+        "package.json owns check, build and qualification:browser; Q01 precedes all script edits; dependency/devDependency versions and package-lock bytes remain frozen",
+        "web/scripts/qualification-browser.mjs invokes the V02-owned qualification/browser/run.mjs; P02 proves wiring only, V02 proves actual browser coverage through npm --prefix web run qualification:browser; Q04 proves actual build/check execution"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "P02-E"
+      ]
+    },
+    {
+      "id": "V04",
+      "area": "integration_native_browser_qualification",
+      "scope": "Implement root native qualification dispatch and verify complete frozen entry points only",
+      "owner_files": [
+        "qualification/native/nativequalification_test.go"
+      ],
+      "dependencies": [
+        "V01",
+        "V02",
+        "V03",
+        "P02"
+      ],
+      "author": {
+        "role": "bounded task author",
+        "competency": "Authentication, transaction, recovery or concurrency expertise"
+      },
+      "reviewer": {
+        "role": "fresh independent non-author reviewer",
+        "fresh_non_author": true,
+        "competency": "Authentication, SQL transaction, recovery and concurrency specialist review where those boundaries apply; verify bounded source/evidence coverage"
+      },
+      "source_refs": [
+        "S07"
+      ],
+      "readiness": {
+        "state": "conditional_proposal",
+        "required_gates": [
+          "G0",
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "tests": [
+        "From repository root: go test -tags=nativequalification ./qualification/native executes both ./qualification/native/transaction and ./qualification/native/archive with the same nativequalification tag",
+        "Root runner records required suite/test IDs and expected/actual coverage, propagates subprocess failure, and fails missing/zero/skipped mandatory native cases; exercise failure dispatch without claiming fault qualification from mocks",
+        "Re-run npm --prefix web run qualification:browser and compare mandatory browser suite coverage with V02 evidence; pin/environment/source revision recorded"
+      ],
+      "acceptance": [
+        "Exact 07 native command reaches both real subpackages; no recursive root invocation, silent subpackage omission, skip-based pass or missing-native-environment success",
+        "Accepted V01/V03 native and V02 browser evidence matches command dispatch; only complete required coverage permits integrated qualification; process-kill/power-loss limits preserved"
+      ],
+      "stop_criteria": [
+        "Unaccepted consequential choice",
+        "Missing mandatory evidence",
+        "One-worker/one-turn bound exceeded: record remainder; re-scope before continuation"
+      ],
+      "missing_inputs": [],
+      "evidence_ids": [
+        "V04-E"
+      ]
+    }
+  ],
+  "evidence_index": [
+    {
+      "id": "D01-E",
+      "task": "D01",
+      "planned_location": "qualification/evidence/D01/",
+      "sources": [
+        "S05",
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "D02-E",
+      "task": "D02",
+      "planned_location": "qualification/evidence/D02/",
+      "sources": [
+        "S03",
+        "S04",
+        "S06",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "Q01-E",
+      "task": "Q01",
+      "planned_location": "qualification/evidence/Q01/",
+      "sources": [
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "Q02-E",
+      "task": "Q02",
+      "planned_location": "qualification/evidence/Q02/",
+      "sources": [
+        "S03",
+        "S06",
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "Q03-E",
+      "task": "Q03",
+      "planned_location": "qualification/evidence/Q03/",
+      "sources": [
+        "S04",
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "C01-E",
+      "task": "C01",
+      "planned_location": "qualification/evidence/C01/",
+      "sources": [
+        "S04",
+        "S18",
+        "S19"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "S01-E",
+      "task": "S01",
+      "planned_location": "qualification/evidence/S01/",
+      "sources": [
+        "S03",
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "N01-E",
+      "task": "N01",
+      "planned_location": "qualification/evidence/N01/",
+      "sources": [
+        "S05",
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "S02-E",
+      "task": "S02",
+      "planned_location": "qualification/evidence/S02/",
+      "sources": [
+        "S03",
+        "S04",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "G01-E",
+      "task": "G01",
+      "planned_location": "qualification/evidence/G01/",
+      "sources": [
+        "S03",
+        "S05",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "B01-E",
+      "task": "B01",
+      "planned_location": "qualification/evidence/B01/",
+      "sources": [
+        "S01",
+        "S03",
+        "S04"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "B02-E",
+      "task": "B02",
+      "planned_location": "qualification/evidence/B02/",
+      "sources": [
+        "S01",
+        "S03",
+        "S04",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "S03-E",
+      "task": "S03",
+      "planned_location": "qualification/evidence/S03/",
+      "sources": [
+        "S03",
+        "S06",
+        "S18",
+        "S19"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "T01-E",
+      "task": "T01",
+      "planned_location": "qualification/evidence/T01/",
+      "sources": [
+        "S05",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "A01-E",
+      "task": "A01",
+      "planned_location": "qualification/evidence/A01/",
+      "sources": [
+        "S03",
+        "S04",
+        "S06",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "A02-E",
+      "task": "A02",
+      "planned_location": "qualification/evidence/A02/",
+      "sources": [
+        "S03",
+        "S04",
+        "S06",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "A03-E",
+      "task": "A03",
+      "planned_location": "qualification/evidence/A03/",
+      "sources": [
+        "S06"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "A04-E",
+      "task": "A04",
+      "planned_location": "qualification/evidence/A04/",
+      "sources": [
+        "S03",
+        "S04",
+        "S06"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "K01-E",
+      "task": "K01",
+      "planned_location": "qualification/evidence/K01/",
+      "sources": [
+        "S04",
+        "S05",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "K02-E",
+      "task": "K02",
+      "planned_location": "qualification/evidence/K02/",
+      "sources": [
+        "S04",
+        "S05",
+        "S06",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "W01-E",
+      "task": "W01",
+      "planned_location": "qualification/evidence/W01/",
+      "sources": [
+        "S05",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "W02-E",
+      "task": "W02",
+      "planned_location": "qualification/evidence/W02/",
+      "sources": [
+        "S01",
+        "S04",
+        "S05",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "W03-E",
+      "task": "W03",
+      "planned_location": "qualification/evidence/W03/",
+      "sources": [
+        "S04",
+        "S05",
+        "S06",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "P01-E",
+      "task": "P01",
+      "planned_location": "qualification/evidence/P01/",
+      "sources": [
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "Q04-E",
+      "task": "Q04",
+      "planned_location": "qualification/evidence/Q04/",
+      "sources": [
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "V01-E",
+      "task": "V01",
+      "planned_location": "qualification/evidence/V01/",
+      "sources": [
+        "S01",
+        "S03",
+        "S05",
+        "S07",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "V02-E",
+      "task": "V02",
+      "planned_location": "qualification/evidence/V02/",
+      "sources": [
+        "S01",
+        "S05",
+        "S07",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "V03-E",
+      "task": "V03",
+      "planned_location": "qualification/evidence/V03/",
+      "sources": [
+        "S01",
+        "S06",
+        "S07",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "R01-E",
+      "task": "R01",
+      "planned_location": "qualification/evidence/R01/",
+      "sources": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S18",
+        "S19"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "K03-E",
+      "task": "K03",
+      "planned_location": "qualification/evidence/K03/",
+      "sources": [
+        "S04",
+        "S05",
+        "S06",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "H01-E",
+      "task": "H01",
+      "planned_location": "qualification/evidence/H01/",
+      "sources": [
+        "S03",
+        "S05",
+        "S18"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "H02-E",
+      "task": "H02",
+      "planned_location": "qualification/evidence/H02/",
+      "sources": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "P02-E",
+      "task": "P02",
+      "planned_location": "qualification/evidence/P02/",
+      "sources": [
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    },
+    {
+      "id": "V04-E",
+      "task": "V04",
+      "planned_location": "qualification/evidence/V04/",
+      "sources": [
+        "S07"
+      ],
+      "required_fields": [
+        "synthetic fixture IDs",
+        "expected and actual results",
+        "commands/config/source revision",
+        "environment/pins/hashes",
+        "limitations",
+        "fresh non-author review reference"
+      ],
+      "status": "future_not_executed"
+    }
+  ],
+  "global_stop_conditions": [
+    "Missing owner-only access/action: affected work cannot advance",
+    "Native/browser/fault/archive evidence absent: affected qualification claim stops",
+    "Candidate unavailable or unsafe fallback: stop rather than change contract",
+    "New consequential design ambiguity: scoped decision and owner acceptance before code"
+  ],
+  "verification_limits": [
+    "Documentary synthesis only",
+    "No tests/builds/probes/installs/trust changes performed",
+    "No real data or v1 sources used; no private operational plans published",
+    "No qualified versions or implementation claimed"
+  ],
+  "execution_policy": {
+    "review_protocol": "Bounded author work followed by fresh independent non-author review; material fixes receive re-review; actual staffing and rolling assignments remain private",
+    "task_bound": "One worker/one turn per task; stop/re-scope remainder; no automatic turn decrement",
+    "planned_tasks_authorize_execution": false
+  }
+}

@@ -1,0 +1,106 @@
+SLICE01 - IMPLEMENTATION PACKET
+2026-10-25 | #0009 corrected by #0020 | Documentary proposal only
+
+Authority and gates
+Terry accepted 01-08,18,19. Read 18 only as the correction of 08 R1-R3;
+19 closes those findings, including attachment lifecycle deferral. Originals
+remain evidence. This packet proposes logical tasks, not live ticket numbers.
+Original #0010 remains CHANGES REQUIRED evidence. Companion 20 maps its R1-R3
+corrections; fresh non-author #0021 validates the complete corrected packet. Gate G0
+requires that pass, Terry acceptance of #0009/#0010 and #0020/#0021 closure before
+materialization or existing implementation-placeholder promotion. Scoped execution
+requires separate authorization. RFR/review alone cannot satisfy owner acceptance.
+No implementation is authorized or qualified here. Primary retains board operations, integration, verification,
+commits and pushes; Terry retains Completed.
+
+Implementation contract
+One public MIT FOSS implementation repository, one Go module, one web package,
+one executable serving embedded assets and CLI/offline restore. Primary resolves its name, hosting
+and creation from existing authority or records a needed owner decision. Proposed paths in the companion refer to that
+future repository, never this architecture repository. UTF-8/LF/final newline;
+exclude private records, credentials and client recovery stores from public source.
+
+Trace one synthetic board through both clients: explicit board selection, reads,
+create/edit/comment in each direction, stable references, unavailable/stale reads,
+conflict with preserved input, fixed transitions and human approval. Every mutation
+uses current transaction-resolved rights and exact board/card preconditions.
+Keep assigned P3 independent of blocking readiness; handoff does not approve a
+prerequisite. Completed domain cards reject mutation.
+
+Use 04's canonical encoding with 18's complete semantic target: existing-card
+route owner, link peer/linkId in payload, grant target/scope, null create/recovery
+target. Freeze identical immutable evidence before dispatch; server independently
+resolves route, command and credential actor. Cross-client discriminating vectors
+must cover C/D, reversed link endpoints, distinct link IDs and grant IDs.
+Mismatch cannot classify the original outcome. Only retained COMMITTED or
+NOT_COMMITTED evidence resolves it; absence, expiry, denial and wrong incarnation
+remain UNKNOWN. Never replay, silently rebase or substitute new intent.
+
+SQLite immediate admission co-commits state, full snapshots, attribution, outcomes
+and verified BLOBs. Refusals fence identity without domain revision changes;
+uncertain recovery fences writes. Serialize revocation and approval races. Keep
+history, editable drafts and immutable submitted evidence distinct. Browser bearer
+stays in memory; private recovery persists with CAS, strict completion/readback,
+caps and explicit clearing. Pre-submit persistence failure refuses dispatch.
+Reload/restart/reauthentication performs original lookup, preserving newer drafts.
+
+Human history-admin is absent by default and separate from approve. Implement
+18's whole-board preview/hash/expiry/confirm and retention.set, exact revision,
+compact receipts, floors/gaps and byte-pin rules; preserve current content,
+card revisions/approvals/lanes, including Completed history administration.
+Client clearing remains separate. Attach/add and authorized download only;
+detach/replacement are deferred. Enforce 10/64 MiB bounds and protected-byte pins.
+
+Export one pinned SQLite revision as bounded stored ZIP, readable JSON, exact
+inventory/hashes and final COMPLETE. Delivery uncertainty never changes save
+status. Offline restore validates before exclusive separate publication, preserves
+logical references and source evidence, creates fresh incarnation, reconciles
+receipt/status and requires fresh human grant bootstrap. Source outcomes cannot
+resolve original submission uncertainty. No live import or credential transfer.
+
+Readiness and bounded work
+09-task-proposals.json is the task/evidence index. Each task owns one bounded
+component or qualification batch; dependent tasks start only after accepted
+prerequisites and fresh non-author review. Overlapping paths require dependency
+serialization. A task that exceeds one worker/turn stops with explicit remainder;
+no broad area is promised complete in one turn. Fixes return to the author and
+material fixes receive fresh review before handoff.
+
+Two contract freezes precede affected code: D01 specifies native setup/status,
+issuer/port lifecycle, bootstrap failure/recovery and required owner steps; D02
+freezes exact archive/receipt and recovery-preview wire schemas and test vectors.
+Accepted notes select their behavior but do not supply complete encodings or
+callable setup lifecycle. They are scoped follow-up decisions, not invented
+implementation defaults; Terry must accept any consequential choice.
+
+Q01 freezes exact candidates/locks; Q02/Q03 qualify isolated driver/compiler
+harnesses before dependent product work. Go/Node/npm patches, released TS7,
+modernc SQLite/libc/compile options and Windows browser/runner/profile have no
+qualified pins today. Missing supported candidates stops qualification; never
+substitute an older major or claim availability proves compatibility. Q04 later
+checks actual generated assets and two clean executable builds.
+
+Corrected integration ownership
+H01 owns HTTP grant create/revoke; H02 owns POST BOARD/exports after A02.
+Their route files/tests are explicit in the index; P01 mounts those adapters with
+existing board/session/attachment routes. K03 and W03 wait for their HTTP consumers.
+P02 follows Q01 and P01, owns package scripts/launchers and preserves frozen pins;
+Q04 waits for its actual check/build wiring. V02 supplies the real browser runner.
+V04 follows native/browser suites and owns the root native dispatcher matching 07.
+It fails omitted/empty/skipped required coverage; R01 waits for V04. Staged suite
+evidence cannot claim the complete frozen-command qualification before V04.
+
+Execution/evidence limits
+Public tasks specify generic component competencies and fresh non-author review,
+including specialist review of authentication, SQL, recovery and concurrency. Actual
+names, models, efforts, capacity and conditional rolling assignments remain private.
+Planned assignments grant no execution authority.
+
+Evidence IDs map to accepted source sections and synthetic future fixtures. Real
+Windows/NTFS ACL, issuer trust, native faults/concurrency, browser storage/origin
+and archive publication checks remain mandatory. Mocks cannot replace these;
+process kill cannot prove power-loss durability. Missing access, unsafe fallback,
+integrity mismatch or unqualified storage stops the affected claim. Documented
+owner trust enrollment/removal and human bootstrap remain actual owner actions.
+Only documentary synthesis/format/index checks occurred here; no runtime probes,
+product tests/builds/installs/trust changes, real data or v1 sources were used.

@@ -27,8 +27,16 @@ The [independent seam review](docs/slice01/08-design-seams-review.txt) records t
 required corrections. Read it with the
 [companion clarification](docs/slice01/18-seam-clarifications.txt) and
 [fresh correction review](docs/slice01/19-clarifications-review.txt).
-Terry's acceptance of the complete packet gates the implementation-readiness
-synthesis. These notes provide no implementation or runtime qualification evidence.
+Terry accepted that complete design/correction packet on 2026-10-25.
+The proposed [implementation packet](docs/slice01/09-implementation-packet.txt),
+[logical task breakdown](docs/slice01/09-task-proposals.json), and
+[fresh readiness review](docs/slice01/10-readiness-review.txt) distinguish staged
+contract freezes and qualification from product implementation. Read that review's
+three ownership/publication findings with the
+[task-map correction](docs/slice01/20-task-clarifications.txt) and
+[fresh correction validation](docs/slice01/21-task-clarifications-review.txt).
+Terry's acceptance gates task materialization and separately scoped execution.
+These notes provide no implementation or runtime qualification evidence.
 
 ## Free and open source
 

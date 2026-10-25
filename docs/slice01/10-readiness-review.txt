@@ -1,0 +1,69 @@
+SLICE01 - FRESH INDEPENDENT READINESS REVIEW
+2026-10-25 | #0010 | Documentary review
+
+Verdict: CHANGES REQUIRED
+The synthesis faithfully preserves the accepted behavior and supports a staged
+preparation/design/qualification proposal. Three bounded ownership/publication
+corrections below are required before accepting the decomposition as complete.
+This reviewer authored none of 01-09,18,19 or the proposed assignments.
+
+Basis and coverage
+Reviewed README, accepted 01-08/18/19, 09-implementation-packet.txt, the complete
+09-task-proposals.json and its private assignment companion. References below
+are document numbers or logical task IDs, never live ticket numbers.
+
+09:21-57 preserves both-client journeys, explicit board selection, stable
+references, unavailable reads, conflict/input preservation, P3, fixed transitions
+and human approval. C01/S02/G01/B01/B02/K01-K03/W01-W03 trace those obligations.
+Corrected full-target fingerprints include route owner, link peer/linkId and
+grant scope/identity; authoritative mapping, immutable evidence and mismatch
+UNKNOWN behavior survive. S03 and client controls retain human-only server
+clearing/retention, exact preview/hash/expiry, compact receipts, gaps and pins,
+separately from private client clearing and credential logout.
+
+N01/G01/T01/W01-W03 retain setup, grants, origin/session rules, pre-dispatch
+persistence refusal, draft CAS and original-identity recovery without replay.
+A01-A04 preserve co-committed bounded BLOBs, add/download-only scope, pinned
+stored ZIP inventories, offline separate publication/receipt reconciliation,
+fresh incarnation/bootstrap and source outcomes remaining provenance.
+
+Staged readiness
+The 30-task dependency graph is acyclic, with unique IDs and one planned evidence
+entry per task. Dependencies resolve. D01's callable setup lifecycle and D02's
+exact archive/receipt/preview schemas are legitimate scoped contract freezes;
+their affected consumers wait for acceptance. They are unresolved future work,
+not implementation defaults. Q01 candidate selection precedes isolated Q02/Q03
+driver/compiler qualification; affected product tasks depend on those results.
+Q04 and V01-V03 still require actual build/native/browser/archive evidence.
+
+Declared ownership paths do not overlap. Components have tests, acceptance and
+stop/rescope rules; no documentary check proves a one-turn completion estimate.
+R1/R2 identify integration work currently outside those explicit boundaries.
+Adding shared-file ownership must also serialize its writers. The private
+companion specifies exact model/effort pairs, distinct author/reviewer names and
+conditional waves within four direct workers/depth one. Authors release slots
+before fresh reviewers; no idle pair or actual slot is reserved.
+
+Material findings
+ID | Severity | Location | Required bounded correction
+R1 | Medium | JSON G01/T01/A02/K01/K03; 04:27; 05:19-20 | Explicitly assign HTTP grant create/revoke and POST exports adapters, their files, route-level tests and acceptance. G01 owns primitives, A02 only the writer, K03 only CLI; K01 omits A02. Add the export-owner dependency before its HTTP consumer and mirror the private proposal.
+R2 | Medium | JSON Q01/P01/V01/V03; 07:54-55 | Assign serialized ownership of web/package.json build/check/browser-qualification script wiring, plus the root qualification/native runner that the frozen command invokes. Present ownership covers scripts and native subpackages only; qualification must execute the intended suites, not silently miss them.
+R3 | Medium | JSON tasks[*].author/reviewer | Remove full model/effort operational settings from the public task file; retain generic author/non-author and specialist-review requirements. Keep actual settings/names/turn assignments in the private companion.
+
+Gates and limits
+Repository/name/hosting resolution and candidate preparation belong to the primary
+using existing authority; a generic preference/access placeholder does not prove
+an owner-only blocker. Identify any concrete missing intervention when encountered.
+Actual owner-consented trust enrollment/removal and explicit human bootstrap
+remain required later actions. Consequential D01/D02 choices need acceptance.
+
+Correct findings and obtain fresh independent validation, then Terry acceptance
+before materialization or Backlog promotion. Scoped authorization, accepted
+prerequisites and In Progress still precede execution; Terry controls Completed.
+
+Documentary JSON/DAG/assignment/reference and UTF-8/LF/final-newline checks only.
+No runtime guarantee, native/power-loss durability or security qualification is
+established. Mocks cannot replace native/browser evidence; process kill cannot
+prove power-loss durability. No probes, builds, product tests, installs, trust
+changes, board access, real data or v1 sources/tests/internal designs were used.
+Public MIT FOSS; no private roster details or credentials are reproduced here.
