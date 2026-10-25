@@ -1,0 +1,102 @@
+SLICE01 - ATTACHMENTS, EXPORT AND SEPARATE RESTORE
+2026-10-25 | #0006 | Proposal pending independent review and Terry acceptance
+
+Choice and byte lifecycle
+Use immutable SHA-256-addressed SQLite BLOBs. Co-committing bytes, reference,
+revision, history, activity and outcome removes external-file staging/orphan
+machinery. Cost: larger databases/copies; large-file streaming remains future scope.
+Propose 10 MiB/file and 64 MiB total unique protected bytes (MiB = 1,048,576).
+
+One attachment request carries multipart metadata and raw bytes: original operation
+identity/incarnation, card/precondition revisions, display name, media label,
+length and SHA-256. Authority generates attachmentId. Fingerprints cover metadata
+and byte digest/length, not transport framing. Metadata <=16 KiB, name <=255 UTF-8
+bytes, media label <=127 ASCII bytes. Buffer at most file limit plus metadata; verify
+complete length/digest before opening the mutation transaction. Recheck rights,
+revisions, quota and duplicate identity inside it. Existing digest reuse also
+requires matching length/bytes; disagreement is integrity failure. Publish no
+reference before bytes commit. Replacement allocates a new attachment ID/reference.
+
+Before submission, private immutable evidence stores exact metadata/digest/length;
+it need not duplicate file bytes. Partial transport, timeout or lost commit response
+uses original-identity lookup under #3/#5; missing evidence stays unknown. Never
+infer noncommit from a missing attachment or silently upload again after reload.
+Complete rejection recorded by the authority is definitive; input remains available.
+
+Detach removes the current reference, preserving attribution/history. Current
+references, retained full snapshots and full committed-operation references protect
+bytes. Refused intent/compact outcome digests are non-pinning facts. Expiry
+or explicit clearing follows #3's previewed human control; the same transaction
+may delete a BLOB only after its last protected reference disappears. No background
+collector is needed. A failed transaction exposes neither dangling reference nor
+committed orphan. Known integrity damage fences affected reads/export; never erase
+it to manufacture success. Clearing does not erase previous exports or guarantee
+physical erasure of database pages.
+
+Exact export boundary
+Authorize export as a read, distinct from board mutation; POST exports returns
+an application/zip stream with stored/uncompressed entries only, no server path.
+Pin one SQLite read transaction on a separate connection, validate requested
+incarnation/revision first, and read every inventory row/BLOB through that snapshot.
+Disable dirty reads. Expiry/clearing after the snapshot cannot change its inventory.
+This avoids copying a live main database or coordinating external byte files.
+
+File | Exact scope
+manifest.json | Format/schema v1, SHA-256; board ID/incarnation/revision; source lineage; retention/clearing floors; payload paths/lengths/hashes, excluding itself/COMPLETE.
+board.json | Current board/cards/comments/relationships, stable references, attachment metadata, assigned priorities and historical actor labels; no active grants.
+history.json | Every retained full earlier card snapshot, including text and attachment references, with original revision/incarnation/time labels.
+activity.json | Every retained activity row, including clearing/retention discontinuities; no invented missing history.
+outcomes.json | Every retained full intent/result and compact terminal outcome, including refusals; restored source archives remain separately labeled provenance.
+blobs/sha256-<hex> | Exactly one raw file per distinct digest protected by current/history/full-operation references; zero-byte attachments included.
+
+Readable JSON uses UTF-8/LF, sorted keys/stable row ordering and a final newline.
+Schema versions define field/order encodings; hashes cover exact emitted bytes.
+Excluded: credentials, grants/sessions, client drafts/unresolved submission stores,
+machine paths/locks/journals, caches, private recovery handles and Git configuration.
+Exports contain private board content; the public source repository is excluded.
+
+Emit COMPLETE containing the manifest hash only after all entries validate.
+CLI writes a sibling .partial file outside live/source trees, validates it, then
+publishes by no-overwrite rename and verifies the result. Reject existing targets,
+overlap and symlink/junction traversal. Browser reports download offered, not a
+verified local save. Interrupted delivery/publication stays incomplete/unknown until
+native verification; previous exports and confirmed saves retain their outcomes.
+Marker/inventory defines package completion, not remote-copy or crash durability.
+
+Restore contract
+Offline CLI-only restore accepts COMPLETE plus matching manifest, supported exact
+schema/hash versions, unique safe relative paths, exact inventory with no extras,
+valid JSON/references, stored ZIP entries without symlinks/traversal/local-central disagreement,
+matching hashes/lengths, and #3 limits. Export/restore ceilings: 144 MiB package,
+16,384 entries; each JSON <=32 MiB, aggregate JSON <=64 MiB; BLOB ceilings above.
+Limit JSON nesting to 32. Check declared/actual lengths/counts before allocation; overflow refuses the
+whole package as unsupported scope, including during export.
+Unknown versions, missing bytes and unsupported recovery coverage refuse restore;
+never silently omit them. Hashes detect inconsistency, not trusted origin.
+
+Preserve the source unchanged. Build/validate a fresh offline destination under
+exclusive creation, outside live/source/export trees; atomically publish its prepared
+directory without overwriting anything. Preserve logical board/card IDs, revisions,
+history and source-labeled evidence; allocate a fresh incarnation and remap internal
+FKs. External source links remain source-qualified. Record a restore
+receipt containing request ID, source manifest hash/identity/revision, destination
+identity/incarnation and phase/result in NEWDIR.partial-REQUESTID, then published
+NEWDIR. Native restore status checks both locations and validates before confirming;
+absence/ambiguity stays unknown. Never repeat restore automatically. Prepared
+restore success is separate from later activation/fresh authority bootstrap.
+
+Source operation rows are historical evidence only, never destination ledger
+entries. Original-incarnation lookup at the new destination returns unknown/source
+authority unavailable, never committed or noncommitted. Preserve original private
+submission records independently; only authorized original-authority lookup may
+resolve them. No live import, credential transfer or automatic replay is provided.
+
+Documentary checks only
+Acceptance example7 maps note.txt bytes, references and declared history to the
+same export revision; omitted/tampered bytes must refuse completion. Examples4-5
+require restored source outcomes never to settle original uncertainty. No runtime,
+restore, durability or security qualification occurred. Basis: accepted01/02,
+fresh-choice36/40/46/47; SQLite transaction/isolation documentation consulted:
+https://www.sqlite.org/lang_transaction.html
+https://www.sqlite.org/isolation.html
+Public MIT FOSS; no v1 source/tests/internal design or real board data consulted.

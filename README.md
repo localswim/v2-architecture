@@ -16,10 +16,19 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 The first slice follows one board through browser and CLI reads, creation, edits,
 comments, conflicts, reload/restart recovery, one attachment and export/restore.
-Its [scope and acceptance contract](docs/slice01/01-scope-acceptance.txt) and
-[fresh independent scope review](docs/slice01/02-scope-review.txt) are proposed
-inputs for Terry's review. Acceptance of that review gates the deeper design
-cards. These notes provide no implementation or runtime qualification evidence.
+Terry accepted its [scope contract](docs/slice01/01-scope-acceptance.txt) and
+[independent scope review](docs/slice01/02-scope-review.txt) on 2026-10-25.
+The detailed proposals cover [data and transactions](docs/slice01/03-data-transactions.txt),
+[commands and API](docs/slice01/04-commands-api-cli.txt),
+[sessions and browser recovery](docs/slice01/05-sessions-browser-recovery.txt),
+[attachments and export/restore](docs/slice01/06-attachments-export-restore.txt), and
+[build and acceptance evidence](docs/slice01/07-build-acceptance-evidence.txt).
+The [independent seam review](docs/slice01/08-design-seams-review.txt) records three
+required corrections. Read it with the
+[companion clarification](docs/slice01/18-seam-clarifications.txt) and
+[fresh correction review](docs/slice01/19-clarifications-review.txt).
+Terry's acceptance of the complete packet gates the implementation-readiness
+synthesis. These notes provide no implementation or runtime qualification evidence.
 
 ## Free and open source
 

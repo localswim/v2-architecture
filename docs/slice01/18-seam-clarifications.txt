@@ -1,0 +1,116 @@
+SLICE01 - BOUNDED SEAM CLARIFICATIONS
+2026-10-25 | #0018 | Proposal pending independent review and Terry acceptance
+
+Authority and closure
+Accepted 01/02 controls. This companion overrides only 03-07's omissions or
+conflicting promises identified by 08 R1-R3; originals remain historical evidence.
+These are proposed contracts, not implementation authorization or runtime/security
+guarantees. No implemented clients or qualified format require migration; retain
+apiVersion/fingerprintVersion=1 without negotiation. Other contracts remain intact.
+
+Finding | Limited correction
+R1 High | Complete semantic target binding; replaces 04's fingerprint envelope.
+R2 Medium | Callable server clearing/retention; fills 03/04/05/07's control seam.
+R3 Medium | Defer 06's detach/replacement promises; retain attachment association.
+
+R1: target identity
+Add required canonical field target={cardId:C} for every existing-card mutation;
+card.create and recovery administration use target=null. The remaining complete
+envelope is exactly 04's fingerprintVersion,boardId,incarnation,opId,actorId,
+command,payload,expectedRevision,expectedCardRevision. All canonical rules survive.
+Browser freezes the selected route card; CLI freezes its positional ID. Both store
+target in immutable pre-dispatch evidence and send target in JSON/multipart metadata.
+Server independently resolves boardId/cardId from route, actor from credential,
+and command from method/action; it requires exact equality with submitted target
+before hashing. No alternative target inference or client actor authority exists.
+Create has no route card and expectedCardRevision=null. For link.add the route
+card is owner/dependent; payload.targetCardId is prerequisite/peer. link.remove
+retains payload.linkId, which must belong to that owner. Other resource identities
+remain typed payload fields; no route-selected mutation identity is omitted.
+Ledgered grant.create uses target=null,payload={granteeActorId,kind,rights};
+grant.revoke uses target={grantId:G},payload={}. POST/DELETE on 05's grant routes
+select these commands; server resolves boardId from validated create scope or
+stored revoke scope. Their wire envelopes carry boardId; kind=human|automation;
+rights are sorted unique known names. Both use exact board revision, null card revision and 05's
+bootstrap/consent. Grant route G must equal target.grantId.
+Unsupported command/target variants refuse; no implicit mapping.
+
+Example: PATCH BOARD/cards/C sends
+{opId:O,incarnation:I,target:{cardId:C},expectedRevision:9,
+ expectedCardRevision:2,input:{description:"Draft"}} (schematic JSON).
+CLI: card edit C --input FILE. Canonical command=card.edit; payload=input.
+Lookup remains GET BOARD/operations/O with original incarnation/version/hash from
+immutable evidence; never substitute the currently viewed card. Matching original
+identity resolves only under current rights. Target/actor/hash mismatch cannot
+classify the original outcome: OPERATION_MISMATCH/exit4; missing, inaccessible,
+expired, corrupt or wrong-incarnation evidence stays unknown. Never replay.
+
+R2: server recovery administration
+Add board-scoped history-admin, human-only, absent by default; automation cannot
+receive it. Existing grant-admin bootstrap explicitly grants it (05). Preview and
+confirm require read+history-admin; outcome lookup also requires read-own-outcome.
+No approve authority follows from this right.
+
+Use BOARD/recovery/preview (POST, read-only) and BOARD/recovery/confirm (POST,
+mutation). Typed command is history.clear or retention.set. Clear payload selects
+the whole board's historical snapshots and full terminal intent/result payloads
+with stored committedAt/terminalAt <= throughTime, an inclusive UTC timestamp no
+later than preview server time. terminalAt means 03's operation timestamp;
+source-provenance history is included. No per-card/current-content clearing exists.
+Retention payload supplies all three integer day limits, each 1..3650:
+historyDays=90,activityDays=365,outcomeDays=180 initially. Current content and
+board-lifetime compact receipts never expire. Separate retentionVersion starts at
+1 and increments on retention.set; it never changes workflow policyVersion.
+A lower limit requires this preview/confirmation before pruning eligible rows
+in that transaction; future expiry uses the confirmed policy and pruning rules.
+Expiry uses record timestamp+days*86400 seconds <=serverTime.
+
+Preview request: {incarnation:I,expectedRevision:R,command:"history.clear",
+input:{throughTime:"2026-10-01T00:00:00Z"}}. It returns exact selected record IDs,
+counts, byte consequences, coverage gaps and expiresAt=serverTime+5 minutes;
+retention preview additionally returns proposed policy and immediately eligible
+records. No content is returned. previewHash is SHA256 of the canonical preview
+response excluding previewHash, including identity/revision/command/input/inventory.
+Server retains that immutable preview until expiry; confirm resolves it by hash.
+Confirm sends {opId:O,incarnation:I,target:null,expectedRevision:R,
+expectedCardRevision:null,command,input,previewHash}; canonical payload contains
+input and previewHash. Browser exposes Recovery, Preview, Confirm; CLI exposes
+recovery preview --input FILE and recovery confirm --input FILE. Both display
+losses and require deliberate confirmation, then persist immutable submission
+evidence before dispatch. There is no automatic confirm or fresh-identity retry.
+
+Under 03's writer admission, recompute inventory/hash, check expiry/current rights
+and exact board revision. Matching prior terminal identity resolves first. Stale,
+expired or mismatching preview refuses atomically with terminal NOT_COMMITTED;
+success records COMMITTED, actor/activity and resulting policy/coverage revision.
+Unknown dispatch/commit uses 04's lookup/exit4. Clear, policy change or expiry
+increments board revision once, never card revision, currentApproval or lane;
+administrative recovery removal may include Completed history without mutating
+that card or granting approval/reopening it.
+
+Pruning atomically records per-class expiry floors and explicit cleared intervals;
+reads/exports label gaps unavailable, never imply complete recovery across them.
+Preserve current prose/references, historical attribution/approval facts and compact
+terminal identities/fingerprints/preconditions/classes/result IDs. Removed full
+records retain metadata/tombstones needed by surviving references and cease pinning
+bytes; current/full retained history/full COMMITTED outcomes
+and active export snapshots still protect bytes. Never dangle surviving references.
+Logical clearing cannot erase previous exports or database pages. Client draft/
+submission clear controls (05) are separate and cannot change server retention.
+
+R3: bounded attachment scope
+Defer detach and replacement, including routes/CLI/UI controls; 06's corresponding
+sentences promise no Slice01 action. Keep attach/add, authorized download and
+consistent export/separate restore. Existing references remain immutable/current;
+10/64 MiB bounds, byte protection and fresh restored incarnation remain unchanged.
+
+Future qualification vectors
+Hold all other fields equal: C versus D must differ in canonical bytes/hash;
+owner C/peer D versus owner D/peer C and distinct linkIds must differ. Wrong
+route/target refuses; wrong-target lookup stays unknown. Exercise preview expiry,
+revocation, stale revision, lost confirm response, retention shrink, Completed
+history clearing and last-pin/export races. Verify unchanged current approvals,
+compact receipts and unavailable gaps; never claim qualification from this note.
+
+Public MIT FOSS; documentary checks only. No real data, v1 sources, experiments,
+tests, installs or trust changes. References: 03-08 in this directory.

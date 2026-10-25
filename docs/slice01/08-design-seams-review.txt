@@ -1,0 +1,60 @@
+SLICE01 - FRESH INDEPENDENT DESIGN SEAM REVIEW
+2026-10-25 | #0008 | Sol / High | Documentary review
+
+Verdict: CHANGES REQUIRED
+Three bounded contract corrections are needed before claiming implementation
+readiness. This completed finding report is reviewable evidence, not Terry's
+acceptance, implementation authorization or runtime proof. The reviewer authored
+none of 01-07. Source proposals remain candidates except approved defaults.
+
+Basis and journey trace
+Reviewed accepted 01/02, the current approved execution/input direction, README
+and complete proposed 03-07. File references below are within docs/slice01/.
+
+03 supplies stable logical references/fresh restore incarnation, exact board/card
+revisions, fixed transitions, separate assigned priority and blocking readiness.
+Its immediate writer transaction serializes current grants, admission, snapshots,
+activity, BLOBs and terminal outcomes. Revocation races cannot use cached rights;
+terminal refusals fence delayed same-ID writes. Missing/failed/inaccessible evidence
+stays unknown. These are coherent proposals, subject to future fault evidence.
+
+04 traces browser/CLI reads, create/edit/comment, conflicts and outcome lookup,
+with explicit exits and conservative post-dispatch uncertainty. Its canonical
+encoding rules need the target correction below: identical content alone does
+not identify the same mutation.
+
+05 separates native owner bootstrap from cooperative human/automation grants;
+HTTPS authority, Origin checks, memory-only browser credentials and current rights
+bound admission. Separate earlier committed text, editable drafts and insert-only
+submission evidence preserve the three recovery classes. Pre-dispatch persistence
+failure refuses sending; reload/reauthentication performs lookup without replay.
+Profile privacy and requested durability are qualified claims, not same-account
+isolation or proven power-loss protection.
+
+06 co-commits verified bytes, counts protected references, pins one export snapshot
+and inventories retained current/history/full-operation bytes. Stored ZIP bounds,
+exact inventories, safe paths and hashes constrain offline restore. Fresh destination
+incarnation, source-only outcome provenance and receipt/status reconciliation keep
+restore completion separate from source submission outcomes and later activation.
+Callable attachment lifecycle controls remain incomplete below.
+
+Material findings / newly scoped follow-up work
+ID | Severity | Precise source locations | Required bounded correction
+R1 | High | 04:39-44,74-83; 03:52-58,68-72; 05:64-68 | Bind targeted cardId (and any other route-selected semantic target) into canonical fingerprint inputs and immutable evidence. Currently card.edit payload contains only supplied fields; two cards with equal card revisions can share opId/board revision/content and hash. Identity lookup/reuse can therefore classify the wrong target as the original command. Specify client/server mapping and discriminating vectors.
+R2 | Medium | 01:17-18,81-85; 03:78-85; 04:15-28,56-63; 05:27-29,78-84; 07:74-78 | Define callable human-only server-history clearing: preview, selection, permission, revision/operation identity, outcome and coverage-floor consequences; expose browser/CLI controls. Distinguish client-store clearing. State how the selected retention policy is controlled. 07 correctly flags this accepted capability as unfinished.
+R3 | Medium | 06:18,26-34; 04:26,56-63,111-114 | Either define callable detach/replacement with rights, preconditions, identity and byte/history consequences, or explicitly defer these extra lifecycle promises. Attachment add/download alone cannot execute the stated removal/replacement behavior. Preserve accepted attachment association/export/restore coverage.
+
+Handoff and verification limits
+Create explicit correction cards; do not silently resume source authors or treat
+this review as approval. Independently review corrected seams before synthesis.
+No broader feature expansion is required.
+
+07's build boundaries, canonical vectors and native/browser/archive evidence are
+appropriately future obligations. Exact driver/toolchain/browser pins may be
+settled during explicitly gated qualification; their absence is not a design
+defect here. No unsupported qualification claim was found.
+
+Documentary consistency and reference/UTF-8/LF/final-newline checks only. No probes,
+tests, builds, installs, board access, v1 sources/tests/internal designs, real data
+or private operational records were used. Public MIT FOSS; prior source exposure
+is disclosed, with no isolated clean-room certification.

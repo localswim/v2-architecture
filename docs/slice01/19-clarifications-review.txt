@@ -1,0 +1,68 @@
+SLICE01 - FRESH INDEPENDENT CLARIFICATION REVIEW
+2026-10-25 | #0019 | Sol / High | Documentary review
+
+Verdict: PASS
+18-seam-clarifications.txt closes 08's three bounded findings. No material
+correction is required before Terry reviews this companion with the original
+packet. The reviewer authored none of 01-08 or 18. References below use document
+numbers within docs/slice01/.
+
+Closure map
+Finding | Verdict | Evidence and consequence
+R1 High | CLOSED | 18:16-46,107-110 binds canonical targets, persisted evidence, authoritative mappings and mismatch behavior.
+R2 Medium | CLOSED | 18:48-99,110-113 defines callable human recovery administration, exact admission/outcomes and preservation rules.
+R3 Medium | CLOSED BY DEFERRAL | 18:101-105 explicitly supersedes 06's detach/replacement promises while preserving accepted attachment outcomes.
+
+R1: complete original identity
+18:17-25 adds target to the complete fingerprint envelope and freezes it in both
+clients' immutable pre-dispatch evidence. Server route/method and credential
+resolution independently checks target/command/principal; clients cannot choose
+attribution. 18:26-36 distinguishes link owner from prerequisite/peer, validates
+linkId ownership and covers grant create/revoke resource and board selection.
+Grant payload identities remain distinct from the authenticated acting principal.
+Create/recovery targets and inapplicable card revisions are explicit nulls.
+18:38-46 supplies route/CLI/payload mapping and preserves original lookup identity;
+target/actor/hash mismatch cannot classify the original submission. Together with
+04:74-83 and 07:69, the C/D, reversed owner/peer and distinct-link vectors require
+deterministic cross-client bytes/hashes; they do not claim executed qualification.
+
+R2: callable clearing and retention
+18:49-80 specifies an absent-by-default human right, preview/confirm routes,
+browser/CLI controls, full input selection, timestamp boundary, policy limits,
+hash-bound inventory and five-minute expiry. Confirmation binds command/input/
+previewHash in persisted intent; recomputing the retained preview under exact
+revision/current rights prevents substituted selection or stale confirmation.
+18:82-89 preserves prior-terminal lookup first, atomic NOT_COMMITTED refusal,
+COMMITTED success and unknown-dispatch reconciliation. Successful administration
+or expiry changes board revision once, preserving card revision, current approval
+and lane, including Completed cards. RetentionVersion is separate from workflow
+policyVersion; this does not confer approve or reopen authority.
+
+18:91-99 preserves current content/references, historical attribution/approval and
+compact terminal facts while recording expiry floors, explicit clearing intervals
+and unavailable gaps. Tombstones prevent surviving references from dangling.
+Removed full records cease byte pinning; current/full-history/full-COMMITTED and
+active-export references remain protected, consistent with 03:78-92 and 06:26-50.
+Clear evidence never frees operation identity for replay or proves noncommit.
+The new server controls remain separate from 05:73-87's private client clearing.
+
+R3: accepted attachment journey survives
+18:102-105 expressly removes Slice01 detach/replacement actions promised by
+06:18,26-34. Add/download, immutable current associations, byte limits and consistent
+export/separate restore remain. This narrow deferral preserves 01 example 7;
+that accepted example did not require detach or replacement.
+
+Integration, owner gate and limits
+18:5-9 gives limited precedence; originals 03-08 remain evidence, not silently
+rewritten contracts. Retaining version 1 claims no implemented format migration.
+README still identifies this as proposed architecture with an acceptance gate.
+No further finding is required; precise native/browser/driver/archive qualification
+remains future evidence under 07, rather than an implemented guarantee.
+
+Terry's acceptance remains required before gated synthesis proceeds; this pass
+does not authorize implementation or mark any card Completed.
+Documentary consistency, reference and UTF-8/LF/final-newline checks only. No
+probes, tests, builds, installs, runtime experiments, board access, v1 sources/
+tests/internal designs, real data or private operational records were used.
+Prior source exposure remains disclosed; no isolated clean-room certification.
+Public MIT FOSS; no credentials.

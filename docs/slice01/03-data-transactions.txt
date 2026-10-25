@@ -1,0 +1,100 @@
+SLICE01 - DATA AND TRANSACTION CONTRACT
+2026-10-25 | #0003 | Proposal requiring Terry acceptance
+
+Decision and limits
+Propose one private SQLite database/board for current state, full snapshots,
+attributable activity and retained outcomes.
+Propose foreign_keys=ON, journal_mode=DELETE and synchronous=FULL on every writer
+connection. Accepted scope01/02 controls; public reconsideration36/39/46/47 supplies
+candidate evidence. No implementation or migration is adopted.
+
+Identity and minimal schema
+Board UUID survives renaming/export; a separate restored destination retains logical
+boardId but receives a fresh incarnation.
+Card IDs and never-reused positive ticket numbers remain stable. All rows and FKs include
+incarnation; external references identify boardId/incarnation/cardId or ticket.
+Restore remaps internal FKs to the new incarnation, retaining source provenance.
+Integers use 0..2^53-1; overflow refuses the mutation before changing state.
+
+Relation | Key and required data
+board | singleton: boardId, incarnation, revision, nextTicket, schemaVersion, retention/clearing floors
+actor/grant/policy | actorId with human/automation kind; grantId, actorId, rights, enabled; singleton policyVersion=1 and fixed transitions
+card/card_revision | cardId, unique ticket, revision, title, description, assignedPriority, lane, archived, currentApproval; immutable snapshots keyed(cardId,revision), committedAt, full fields plus comment/link/attachment IDs
+comment/link/approval | immutable commentId, cardId, actorId, text; immutable linkId/endpoints, active flag, unique active typed pair; approvalId, actorId, reviewedCardRevision, reviewedBoardRevision, policyVersion, timestamp
+blob/attachment | SHA256 digest PK, length, BLOB; immutable attachmentId, cardId, label, digest FK
+activity | increasing eventId, actorId, operationId, type, boardRevision, affected IDs, timestamp; no duplicated prose
+operation | PK(incarnation,opId), actorId, fingerprintVersion/hash, exact preconditions, terminal class, code, committedRevision/result IDs, timestamp; optional retained canonical intent/result payload
+
+Enforce PK/unique/FK/not-null/check constraints; application admission additionally
+checks rights, valid transitions and relationship invariants. Historical revision/result
+tokens need not FK prunable snapshots; live references cannot dangle. Slice links are
+blocking or informational: reject self-links and new blocking cycles; archive never
+satisfies a prerequisite. No hierarchy or automatic priority rewrite. Creation uses
+P3 unless explicitly assigned. Only full COMMITTED operation recovery references pin bytes; refused digests never do.
+
+Revisions and reviewed content
+Every successful domain/grant/policy mutation increments board.revision exactly once;
+refusals change neither board nor card revision. Each affected card increments once,
+including comments, links, attachments and approval. Require exact expectedRevision
+for every mutation and exact expectedCardRevision for the targeted existing card;
+create requires only the board precondition. Reads return both. No wildcard or
+implicit rebasing. Approval checks the pre-approval card revision and policy inside
+the same transaction; later card mutations clear currentApproval but retain historical
+approval. This conservative boundary can cause extra review.
+Create starts Ready for Work. Fixed transitions: Ready for Work -> In Progress
+(edit; direct blocking prerequisites Completed with valid approval), In Progress ->
+Ready for Review (handoff), Ready for Review -> Completed (human approve).
+Completed cards reject further mutation in this slice. Links belong to the route
+card as dependent; target is prerequisite/related peer. Add/remove increments owner
+card and board; informational links never gate execution. #0004 defines commands.
+
+Atomic admission and outcomes
+The shared writer begins an immediate write transaction, finds any operation key,
+then reads current grants/policy and checks incarnation, fingerprint, all revisions,
+rights and invariants. Grant revocation and approval races serialize here; cached
+rights, assignment and actor fields from clients confer no authority. A matching
+terminal key returns its result only with current read-own-outcome rights; mismatched actor,
+fingerprint or preconditions refuses identity reuse and leaves the original outcome
+unclassified. No outcome overwrite or automatic retry is permitted.
+
+On admission, atomically write current state, full snapshots, attachment bytes and
+references, activity and COMMITTED operation; only successful COMMIT confirms save.
+On validation refusal, commit a NOT_COMMITTED operation plus attributable refusal
+metadata, without domain changes. That terminal record fences delayed same-ID writes.
+A fault before/during commit yields UNKNOWN unless retained terminal evidence resolves
+it. Roll back partial work; if rollback/recovery cannot be established, fence further
+writes pending recovery. Failed commit, restart or absence never establishes noncommit.
+
+Fingerprint and lookup
+Use #0004's version-1 canonical JSON encoding and SHA256 of the complete semantic
+envelope: boardId/incarnation/opId, credential-derived actorId, command/payload,
+exact preconditions and attachment digest/length. Credentials and transport fields
+are excluded. Clients persist immutable submitted evidence before sending (#0005).
+Current authorization governs original-identity lookup; it never executes a command.
+COMMITTED proves the recorded effect; NOT_COMMITTED proves that identity was refused.
+Missing, expired, inaccessible, corrupt or wrong-incarnation evidence remains UNKNOWN.
+A restored copy's archived source outcomes cannot resolve source-incarnation lookup.
+
+Retention, clearing and faults
+Propose prior full card snapshots for 90 days, activity for 365 days and full terminal
+operation payload/results for 180 days; current content does not expire. Keep compact
+terminal identity, actor, fingerprint, preconditions, class/code and result references
+for the board lifetime. Human-only explicit clearing previews lost recovery content;
+clear selected historical prose and operation payloads together when requested,
+retaining compact terminal facts. Pruning atomically records coverage floors;
+cleared history is labeled unavailable. Deletion is logical, not forensic erasure.
+
+Compact digest/length/result identifiers are non-pinning historical facts. Clearing
+never frees operation identity for reexecution. Protect current/full-history/full-
+COMMITTED-operation byte references and active export snapshots. Limits: 10 MiB/object, 64 MiB aggregate distinct protected bytes;
+quota refusal is atomic. Collect only unreferenced blobs. #0006 owns consistent export,
+restored incarnation/bootstrap and complete byte inventory. New destination grants
+require explicit bootstrap; restored source grants/outcomes remain provenance only.
+
+Required future evidence
+Synthetic checks must show stale edit/refusal unchanged; concurrent grant revoke
+cannot admit stale authority; lost-response lookup adds no second comment; injected
+write/commit faults expose no partial state/history/outcome/bytes; earlier description
+survives restart; clearing/expiry never means noncommit; restore preserves references
+without inheriting active outcomes. Documentary design only;
+runtime/security/driver/filesystem/recovery remain unqualified.

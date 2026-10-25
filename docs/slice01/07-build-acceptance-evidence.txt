@@ -1,0 +1,95 @@
+SLICE01 - BUILD BOUNDARIES AND QUALIFICATION EVIDENCE
+2026-10-25 | #0007 | Proposal pending Terry acceptance
+
+Authority and status
+Accepted 01/02 controls outcomes; proposed 03-06 supplies contracts. Go plus
+TypeScript 7.x remains the working direction. This document selects candidates
+and future evidence, not qualified versions or coding authorization. No probes,
+builds, tests, installs, trust changes or runtime experiments were performed.
+Tool availability, package metadata and documentation never qualify a build.
+
+Minimal boundaries
+Keep one public MIT FOSS repository, one Go module and one web package. One
+localswim executable hosts serve/CLI/offline restore; no separate browser server,
+ORM, plugin system or project-local board service. Project launchers delegate.
+
+Boundary | Responsibility
+cmd/localswim | Thin process/CLI entry; calls shared packages.
+internal/contract + cmd/contractgen | Typed envelope/validation descriptors; deterministic Go-owned generator emits JSON schemas and web declarations; canonical encoding is explicit, not default JSON serialization.
+internal/board + internal/store | Domain admission/rights/revisions; SQLite transactions/history/outcomes/BLOBs; neither HTTP nor browser owns admission.
+internal/transport + internal/archive | HTTPS/session/CLI adapters; shared bounded export/restore and receipt verification.
+web + internal/assets | Framework-free TS DOM/ES modules, private recovery and accessibility; static HTML/CSS/emitted JS embedded with go:embed.
+
+Choose database/sql with modernc.org/sqlite as the first binding candidate: its
+documentation lists Windows/amd64 and a CGo-free SQLite port [S1]. Qualification
+must pin its exact matching modernc.org/libc dependency, bundled SQLite version,
+compile options and Go patch. Start with native Windows/amd64 on local NTFS;
+other architectures, filesystems and operating systems remain unqualified. Verify
+foreign_keys, DELETE journal and FULL synchronization on every relevant connection,
+bounded connection ownership and export snapshot behavior; no silent WAL switch.
+
+Use TypeScript 7.x's command-line compiler through local npm scripts; no compiler
+API dependency. Microsoft's native-port documentation names tsc for 7.0 RC onward
+[S2]; select an exact released 7.x package during qualification, never silently
+substitute an older major/preview. Emit ES modules with strict checking and
+noEmitOnError; no bundler is required. Stage only declared static assets; embed
+them [S3], reject missing/stale outputs and record their hashes. Render board prose
+as text; attachments are downloads. No CDN, inline executable prose, credentials,
+recovery records or source maps containing private inputs enter the bundle.
+The check/build scripts resolve locked local tsc with -p tsconfig.json; check
+adds --noEmit, build emits only to the declared staging tree.
+
+Frozen future command interface
+Run from repository root, in order, only after separately scoped implementation
+and qualification authorization. These paths/scripts are proposed interfaces,
+not existing or executed tools:
+  go mod download
+  npm --prefix web ci
+  go run ./cmd/contractgen -check
+  npm --prefix web run check
+  npm --prefix web run build
+  go run ./cmd/assetstage -check
+  go test ./...
+  go build -trimpath -buildvcs=false -o dist/localswim.exe ./cmd/localswim
+  go test -tags=nativequalification ./qualification/native
+  npm --prefix web run qualification:browser
+
+Future automation fixes CGO_ENABLED=0, GOOS=windows, GOARCH=amd64,
+GOTOOLCHAIN=local and -mod=readonly. Check mode regenerates into temporary output
+and compares checked-in schema/declarations/assets; changes fail. Qualification
+must freeze Go/Node/npm patches, TypeScript/browser/runner versions, go.mod/go.sum,
+package-lock, generator/config revision, dependency licenses/checksums and clean
+source commit. Commands alone are not reproducibility. Two clean builds must
+agree on generated files, asset hashes and executable hash under the recorded
+environment; explain any mismatch before passing. No exact qualified pins exist.
+
+Evidence and stop/pass criteria
+Area | Required future evidence
+Contract / 01 examples 1-3,6 | Both clients share validation/outcomes; stale exact board/card revisions refuse without effects; grants, transitions, handoff, human approval and blocking links preserve P3 and execution gates. Generated schema/Go/TS agree on accepted/rejected envelopes.
+Canonical vectors | Shared expected canonical UTF-8 bytes and SHA-256: absent/null, reordered ASCII keys, quotes/controls/backslashes, non-ASCII/combining characters, CRLF, arrays, zero/max integer, overflow/fraction/duplicate-key/invalid-Unicode rejection, authenticated actor and attachment digest/length; no credential/framing influence.
+Native Windows / 01 examples 3-5,7 | Real concurrent writers/revocation, locking/ownership/exclusion, restart, process termination and write/commit/flush failures; no partial state/history/outcome/BLOBs. COMMITTED/NOT_COMMITTED resolve; absent/inaccessible evidence stays UNKNOWN. Verify private ACLs, redacted logs and recovery fencing.
+Real browser / 01 examples 1-5,7 | Pinned Windows browser/profile: trusted HTTPS/bootstrap, denied origin/revoked session/automation approval; strict IndexedDB completion/readback, denial/quota, duplicate tabs, logout/clear, keyboard/IME/focus, late responses, disconnect/reload/reauthentication without replay.
+Archive / 01 example 7 | Exact snapshot/inventory/caps, zero-byte and note.txt bytes, missing/tampered/unsafe ZIP refusal, no overwrite/path traversal, interrupted publication/receipt reconciliation, fresh incarnation/grants and source outcomes unable to settle original uncertainty; delivery uncertainty separate from save.
+
+Retention evidence must exercise expiry/clear previews, protected byte accounting
+and compact terminal facts surviving prose removal. Readiness seam: 03 proposes
+human server-history clearing, but 04/05 presently lacks its callable operation
+and permission surface. Resolve this in packet review/acceptance before coding
+or claiming full journey coverage; this document does not invent that contract.
+
+Pass requires archived synthetic fixtures, expected/actual results, native environment,
+commands, hashes and independent non-author review for every row. Mocks and injected
+faults aid coverage; they cannot replace native filesystem/process evidence or real
+browser journeys. Process kill does not prove power-loss durability; label such
+limits. Any missing evidence, unsafe fallback or unresolved mismatch stops the
+relevant qualification and its downstream claim.
+
+Owner actions and sources
+Later tasks must identify missing installation/access prerequisites; documented
+owner-consented issuer trust enrollment/removal and explicit human grant bootstrap
+remain gates. This adds no blanket approval requirement for ordinary authorized
+work. Terry acceptance of proposals is distinct from implementation authorization.
+Public UTF-8/LF; no private records or v1 sources/tests/internal designs consulted.
+[S1] https://pkg.go.dev/modernc.org/sqlite
+[S2] https://github.com/microsoft/typescript-go
+[S3] https://go.dev/pkg/embed/

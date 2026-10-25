@@ -1,0 +1,107 @@
+SLICE01 - SESSIONS, BROWSER AND PRIVATE RECOVERY
+2026-10-25 | #0005 | Proposal; Terry acceptance gates implementation
+
+Authority and transport
+Accepted 01/02 and the approved defaults control; public reconsideration 37/38/
+46/47 are candidate evidence. Choose HTTPS on loopback only, one stable random
+installation hostname (<random>.localhost) and fixed port. A local issuer signs only
+that hostname;
+owner-consented trust enrollment/removal is a later gated action. CLI pins the
+installation issuer; browsers validate its chain/name. Retain service identity
+and confidentiality over HTTP's simpler installation. Cost: issuer/key protection,
+broad issuer trust footprint, renewal/removal and hostname/browser qualification. No
+trust
+installation is authorized here; unsupported or untrusted TLS refuses connection,
+with no HTTP downgrade or certificate-warning bypass.
+
+Grants and sessions
+Setup generates a separate account-ACL-protected owner grant-admin bearer and
+issuer pin; native CLI uses it for POST /api/v1/grants and DELETE
+/api/v1/grants/{id} to create/revoke board-scoped grants. Human enrollment requires
+explicit terminal
+confirmation of actor, board and rights. Automation grants cannot hold grant-admin or
+approve. Cooperative agents must honor that restriction: same-account
+secret theft, code replacement and meaningful-human-review proof are excluded.
+Server-resolved actor attribution records the granted principal, not a human claim.
+
+Rights are read, read-own-outcome, create, edit, comment, attach, export, restore,
+review-handoff, approve and grant-admin; deny absent rights. Human grants may
+include approve; automation cannot receive it. Approve is an explicit command
+bound to reviewed card/policy revisions (03), not assignment, lane movement or
+handoff. Both clients use identical current grant/policy checks inside mutations.
+Revocation takes effect at transaction admission; historical attribution survives.
+
+Browser login: authenticated owner CLI calls POST /api/v1/session/codes (grant-admin)
+to obtain a 128-bit, 60-second, single-use code bound to a
+preexisting grant, installation and origin; enter it into the HTTPS form, never a
+URL. POST /api/v1/session/exchange consumes it and returns a random 256-bit bearer.
+Browser keeps bearer in memory only; CLI keeps its separately issued credential
+in an account-private file, never recovery records. Store token hashes server-side.
+Sessions expire after 30 minutes idle or eight hours absolute; CLI credentials
+expire after 30 days. Restart invalidates sessions/codes; DELETE /api/v1/session
+revokes the presented credential. GET /api/v1/session returns actorId and grant
+scope/rights, never secrets;
+reenrollment never upgrades the original grant.
+
+Board API reads/lookups/writes authenticate Authorization: Bearer. Host must always
+match configured HTTPS authority. Present Origin must match; null is refused.
+Browser writes/exchange require exact Origin; safe GET without Origin requires
+Sec-Fetch-Site: same-origin. CLI grants permit absent Origin. Reject cross-origin
+preflight; no CORS or authentication cookies. Writes require JSON, except 06's
+bounded attachment request. Exchange also requires exact Origin and JSON. Serve
+inert escaped prose, no executable attachments, no third-party scripts; CSP restricts
+script/connect sources to self and denies framing. No secrets/prose in URLs, logs or
+discovery. These
+are implementation obligations, not hostile-site or platform qualification claims.
+
+Private recovery and limits
+Recovery is account/profile-private plaintext, not same-account confidentiality.
+Browser IndexedDB separates editable drafts from insert-only submitted-intent
+records; terminal status is appended separately. Keys include installation,
+boardId, incarnation, actorId and draft/opId.
+Persist each editing change; show pending/saved/failed recovery state. Revision-CAS
+prevents duplicated tabs overwriting newer drafts; collisions fork a draft.
+Before board mutation dispatch, freeze exact command/content, original identity,
+fingerprint
+inputs/preconditions and attachment metadata/digest/length (03/06), independently
+of future draft edits. Commit a strict-durability transaction, await completion
+and read back; CLI must equivalently flush and verify private evidence (04).
+Unavailable, denied, full or unqualified storage refuses dispatch, preserving input.
+Browser durability is a requested policy, not proven power-loss/eviction immunity
+[S1]; supporting profiles and Windows storage behavior need qualification.
+
+Limits apply per installation/profile (CLI equivalently per-user), across boards.
+Data | Proposed default/control | Consequence
+Drafts | Seven days since edit; 20 records/2 MiB total; oldest expired first | Never silently evict unexpired input; refuse persistence at cap.
+Submitted evidence | 100 unresolved/8 MiB; no automatic expiry; resolved seven days | At cap refuse new submissions; warned explicit discard only for unresolved.
+
+Show recovery inventory and clear-one/clear-all controls. Warn separately before
+discarding unresolved evidence: later duplicate effects may become unknowable.
+Logout/revocation clears credentials and visible board content, preserving recovery
+records for deliberate reauthentication; clearing credentials is not clearing
+private prose. Browser/site/device clearing may lose evidence undetectably. Known
+loss is labeled recovery unavailable, never noncommit. Server history/outcome
+retention follows 03; client records cannot extend server evidence availability.
+Public/export packages exclude all client recovery/credentials. Restore's fresh
+incarnation (06)
+cannot resolve/rekey old submissions; deliberate draft copying needs fresh context.
+
+Interaction and reconciliation
+Label board, actor, stale reads and original base. Semantic controls support Tab,
+Enter/Space and explicit Save; composition input never submits. Conflict preserves
+input and offers current text for deliberate reconciliation. Reload recovers drafts
+as editable and submissions as unknown, then reauthenticates for original-identity
+lookup only. Committed closes uncertainty; definitive not_committed permits an
+explicit new submission. Missing/expired/inaccessible evidence and 401/403 remain
+unknown. Cancel stops waiting, never cancels a possible commit. Late responses
+append only the matching outcome, never overwrite newer drafts or steal
+focus; announce status. Navigation restores logical focus, with heading fallback
+when its control disappeared. No automatic replay, replacement opId or offline queue.
+
+Acceptance obligations
+Trace 01 examples 1-5/7 through wrong-origin/revoked grant, automation approval,
+storage denial/cap, duplicate tab, commit-disconnect-reload, expired lookup,
+late response, logout/clear and restored-incarnation scenarios. Demonstrate keyboard
+completion and private-data/log exclusion. Documentary design only; no runtime,
+security, durability or recovery guarantees demonstrated; no workflow engine.
+[S1] https://www.w3.org/TR/IndexedDB/#dom-idbtransaction-durability

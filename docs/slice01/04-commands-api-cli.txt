@@ -1,0 +1,128 @@
+SLICE01 - SHARED COMMAND, API AND CLI CONTRACT
+2026-10-25 | #0004 | Proposal pending Terry acceptance
+
+Authority
+01-scope-acceptance.txt controls outcomes; 03-data-transactions.txt owns transaction
+semantics, 05-sessions-browser-recovery.txt sessions/evidence, and
+06-attachments-export-restore.txt bytes/packages. Public MIT FOSS. Documentary
+proposal; no implementation/runtime/toolchain qualification.
+
+One Go contract owns typed envelopes, validation and outcomes; generate TypeScript
+boundary declarations, subject to later generation qualification. Browser feedback
+is advisory. No second domain model or negotiation. Use /api/v1 JSON
+and #0005 bearer authentication. Unknown fields/versions are refused.
+
+Routes and commands
+Prefix BOARD=/api/v1/boards/{boardId}; SESSION=/api/v1/session.
+HTTP | CLI after localswim --board ID | Result/purpose
+GET BOARD | board read | Identity, incarnation, revision, cards
+GET BOARD/cards/{cardId} | card read ID | Complete card/comments/history references
+GET BOARD/cards/{cardId}/history | card history ID | Earlier committed text
+POST BOARD/cards | card create --input FILE | Created card reference
+PATCH BOARD/cards/{cardId} | card edit ID --input FILE | Replace supplied fields
+POST BOARD/cards/{cardId}/comments | comment add ID --input FILE | Comment reference
+POST BOARD/cards/{cardId}/{action} | card ACTION ID --input FILE | Actions below
+GET BOARD/operations/{opId} | operation read ID --evidence FILE | Original outcome
+POST BOARD/cards/{cardId}/attachments | attachment add ID --input FILE --file PATH | Co-commit bytes/reference
+POST BOARD/exports | export create --destination NEW.zip | Snapshot ZIP stream
+No HTTP | restore create --source ZIP --destination NEWDIR | Offline restore receipt
+
+--board is mandatory except offline restore/status; never infer a board from directory/environment.
+--input - reads UTF-8 JSON stdin. Browser labels board identity; keyboard Save sends identical commands. Unavailable reads are unavailable,
+never empty/current. GET SESSION supplies the credential-bound actorId; requests
+cannot select an actor. Grant checks apply equally across clients.
+
+Wire examples (UUIDs abbreviated)
+POST BOARD/cards:
+{"opId":"O1","incarnation":"I1","expectedRevision":7,
+ "input":{"title":"Alpha","description":"First draft","priority":"P3"}}
+PATCH BOARD/cards/C:
+{"opId":"O2","incarnation":"I1","expectedRevision":8,
+ "expectedCardRevision":1,"input":{"description":"Reviewed draft"}}
+POST BOARD/cards/C/comments:
+{"opId":"O3","incarnation":"I1","expectedRevision":9,
+ "expectedCardRevision":2,"input":{"text":"CLI check"}}
+Commit:
+{"apiVersion":1,"outcome":"committed","boardId":"B","incarnation":"I1",
+ "opId":"O3","actorId":"A","fingerprintVersion":1,"fingerprint":"H","revision":10,"cardRevision":3,
+ "result":{"cardId":"C","commentId":"M"}}
+H abbreviates a 64-character hex fingerprint. Unknown example:
+{"apiVersion":1,"outcome":"unknown","boardId":"B","incarnation":"I1",
+ "opId":"O3","actorId":"A","fingerprintVersion":1,"fingerprint":"H",
+ "error":{"code":"OUTCOME_UNKNOWN","message":"Original outcome unavailable"}}
+Terminal/lookup responses bind actorId/fingerprint and revisions/IDs.
+Read result: cardId,title,description,priority,comments[{commentId,text,actorId}],attachment/history references.
+
+Actions
+link-add input={kind,targetCardId}; kind=blocking/informational. link-remove input={linkId}.
+review-handoff input={}; approve input={policyVersion}. These use common op/preconditions.
+Edit accepts title/description/priority/lane only; omitted fields stay unchanged.
+Create starts "Ready for Work"; edit lane may only start "In Progress" after prerequisites.
+review-handoff moves In Progress->Ready for Review; human-only approve moves Ready
+for Review->Completed. Completed refuses edits; no reopen. #0003 defines links,
+approval invalidation and admission invariants. Native grant bootstrap: #0005.
+
+Preconditions, fingerprint and validation
+Every board mutation carries exact expectedRevision; targeted card mutations also
+carry expectedCardRevision. Incarnation, stale revisions or denied grants refuse
+all mutation effects. Never derive priority or execution approval from dependencies.
+Titles contain 1..200 Unicode scalars; description/comment <=65536 UTF-8 bytes.
+Empty description is valid; whitespace-only title/comment is invalid. Preserve text
+without trimming. Priorities P0..P5 default P3. Reject duplicate/unknown keys,
+invalid Unicode, wrong types, missing identities and unsupported fields/values.
+
+Immutable evidence includes fingerprintVersion=1 and SHA256 lowercase hex over:
+{fingerprintVersion,boardId,incarnation,opId,actorId,command,payload,
+expectedRevision,expectedCardRevision}. command is card.create/card.edit/comment.add/
+attachment.add/link.add/link.remove/review-handoff/approve; payload equals typed input. Missing schema-optional fields and
+inapplicable card revision become null. Canonical JSON recursively sorts ASCII keys,
+uses no whitespace/BOM, preserves Unicode/codepoints/line endings and array order,
+encodes UTF-8, integer decimal 0..2^53-1 only; escape quote/backslash
+as \" and \\; controls use lowercase \u00xx. Server recomputes with authenticated actor, never trusts client
+actorId. Attachment payload binds name/mediaLabel/byteLength/sha256; exclude raw
+bytes and multipart boundaries. Later cross-client vectors must qualify this rule.
+
+Errors and reconciliation
+Error envelope: {apiVersion:1,outcome:"refused",opId:optional,
+error:{code,message,field:optional}}. Conflicts include current incarnation/revisions
+and card read reference; retain input, expose current text, require deliberate
+reconciliation. No automatic merge/retry. A retained terminal refusal instead uses
+outcome="not_committed" with original identity/fingerprint. HTTP status alone never
+proves noncommit: without terminal evidence after dispatch use exit 4; read/local
+refusals or provably unsent commands can use exit 2.
+HTTP | code/category | CLI exit
+200/201 | read/committed | 0 confirmed
+400/401/403/404/409/413 | INVALID_INPUT/UNAUTHENTICATED/FORBIDDEN/NOT_FOUND/REVISION_CONFLICT or INCARNATION_CONFLICT/INPUT_TOO_LARGE | 2 refused
+200 | not_committed | 2 definitive noncommit
+503 | UNAVAILABLE before submission/read | 3 unavailable
+inconclusive | OUTCOME_UNKNOWN | 4 unknown
+local failure | INVOCATION_OR_IO before dispatch | 1 local
+
+Lookup query supplies original incarnation,fingerprintVersion,fingerprint; authorized
+read-own-outcome returns committed/not_committed/unknown. Missing/expired evidence,
+lookup denial/error or OPERATION_MISMATCH (409) leaves original outcome unknown,
+exit 4. A refusal concerning lookup never proves original noncommit. Only definitive
+noncommit permits deliberate fresh intent. Never resend uncertain IDs or infer
+success from similar text. Lost response/cancellation after possible transmission
+uses 4; use 1/3 only when provably unsent. Preserve immutable evidence before
+network dispatch; CLI uses private per-user files with flush, atomic replacement
+and readback; refuse storage errors. #0005 supplies bounds/clearing and browser rules.
+
+Attachment/export/restore and output
+Attachment uses multipart metadata JSON (normal command envelope) plus raw file;
+#0006 defines byte checks; GET BOARD/attachments/{attachmentId} returns authorized
+bytes as a forced download. Export POST sends {incarnation,expectedRevision,input:{}}; mismatch refuses before streaming. It returns application/zip,
+stored-only entries, source-bound manifest and COMPLETE per #0006, not a mutation
+receipt. CLI verifies and publishes NEW.zip without overwrite; browser reports
+"download offered", never verified local delivery. Delivery failed/unknown remains
+separate from saved board state. Offline restore/status use the same Go package,
+#0006's receipt/request ID and NEWDIR; no server destination paths or browser restore.
+restore status --destination NEWDIR --request-id ID reconciles receipt and complete
+inventory. Missing receipt remains unknown. Restored source outcomes never authorize
+destination lookup. Human action must bootstrap fresh destination grants.
+Export/restore JSON uses {apiVersion:1,scope:"export"|"restore",outcome:
+"confirmed"|"failed"|"unknown",result:{sourceIdentity,sourceRevision,destination}};
+exit 0/1/4 respectively; browser export uses outcome="offered". No save implication.
+Human stdout states outcome, board identity and references; diagnostics use stderr.
+--json emits exactly one versioned envelope, including local errors, without prose.
+Confirmed saves survive later export failure. Never report partial restore complete.
