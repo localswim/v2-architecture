@@ -25,8 +25,9 @@ implementation.
 ## Architecture documents
 
 The preserved notes retain their original candidate wording. Read the current
-[owner decisions](docs/decisions/owner-decisions-2026-10-25-r3.txt) for subsequent
-acceptance and standing public/MIT/LF policy.
+[owner decisions](docs/decisions/owner-decisions-2026-10-25-r4.txt) for subsequent
+acceptance and standing public/MIT/LF and board-lane policy. The working lane rules
+are also recorded in [AGENTS.md](AGENTS.md).
 
 - [Bounded input brief and evidence rules](docs/inputs/architecture-input-brief-r2.txt)
 - [Product scope](docs/design/01-product-scope.txt)
