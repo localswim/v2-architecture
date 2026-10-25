@@ -1,0 +1,64 @@
+LOCALSWIM REBOOT - STRUCTURE CLARIFICATION ADDENDUM (#0030)
+2026-10-25 | Author: sol_medium_0030_structure_addendum
+Proposed companion wording for independent #0031 review.
+
+Purpose and authority
+Use this addendum alongside unchanged designs #0005-#0008 to resolve O1-O3
+in reviews/09-structure-review.txt. The wording below is a coherent recommendation,
+not Terry's acceptance of the structure packet or selection of deferred mechanisms.
+Owner-decisions-2026-10-25-r2.txt records foundation #0004 acceptance. Go core,
+service, CLI and background tools plus TypeScript 7.x browser are selected;
+repositories are public MIT FOSS. No new feature or schema field is proposed.
+
+Correction / ownership map
+Observation | Affected source sections | Clarified responsibility / remaining choice
+O1 | 05: Responsibility and trust table; Decisions, validation and evidence. 07: Ownership and atomicity. | #0005: topology and process/storage ownership; #0006: domain/workflow policy; #0008: canonical-state and storage-format recommendation; #0010: detailed persistence contract. Mechanism acceptance remains deferred.
+O2 | 06: Conceptual responsibilities; Stable identity and mutable presentation. 07: Urgency and ordering recommendation; Ownership and atomicity. | Recommend #0007's single persisted priority. Floors, counts, score and ordering are derived. Formula/graph recommendations remain proposed; a base/effective model would require an explicit alternative contract.
+O3 | 06: Stable identity and mutable presentation. 07: Urgency and ordering recommendation. | Require a deterministic unique board-local final tie-break. Identifier encoding and its total comparison rule remain contract choices; numeric encoding is not assumed.
+
+O1 - responsibility wording
+Read #0005's persistence-adapter row as: "Commit/revision/integrity boundary
+informed by #0008's canonical-state recommendation and specified by #0010's
+detailed persistence contract; no cross-board transaction implied."
+Read its later persistence-selection sentence as: "#0008 recommends canonical
+state/storage format; #0010 specifies detailed persistence mechanisms."
+Read #0007's physical-persistence sentence as: "#0005 defines process/storage
+ownership; #0008 recommends the canonical boundary and format; #0010 defines
+the detailed persistence contract." These references allocate design responsibility,
+not approval or verified durability guarantees.
+
+O2 - priority wording
+Read #0006's "explicit priority" and "user's explicit priority" as one persisted
+priority that authorized explicit edits and automatic promotions may change.
+Explicit describes the requested edit, not a separately retained base value.
+The Go domain evaluates the request against applicable upstream floors, reports
+requested and resulting priority, and atomically persists actual priority changes
+with attributable audit effects as proposed in #0007.
+
+Floors express current graph constraints; counts, score and ordering are derived
+from one committed board revision and identified policy. They are not additional
+stored priorities. Removing links, completing cards or lowering a blocker may
+relax a floor but never automatically lowers an already persisted priority.
+An explicit permitted reprioritization can lower it subject to remaining floors.
+For example, after A=P1 blocks B=P3, B persists P1; removing that link leaves
+B=P1 until an explicit permitted change. A retained base/effective pair is an
+alternative requiring a revised contract and explicit demotion semantics; it is
+not implied by #0006 or selected here. Multi-card reprioritization remains proposed.
+
+O3 - ordering wording
+Read #0007's ordering sentence as: "Order ascending score, then priority rank,
+then a deterministic unique board-local tie-break key under the selected contract."
+The contract must define a total comparison for the selected stable unique ticket
+representation or identity, producing the same final order for the same committed
+state across clients and restarts. This requirement does not introduce a persisted
+key field. Numeric tickets with numeric comparison are one possible proposal;
+non-numeric representations need an explicit comparison rule. No representation
+or encoding is selected by this addendum.
+
+Author checks and handoff
+Checked O1-O3 coverage, source-section references, recommendation/acceptance
+distinctions and the prose limit. Only named architecture inputs were consulted;
+original artifacts are unchanged. No legacy source/tests/internal documents,
+private boards, implementation, installs or live changes were used. Documentary
+consistency only; no runtime guarantee was tested. Fresh independent #0031 review
+and primary verification remain separate; Terry alone controls Completed.

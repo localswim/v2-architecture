@@ -1,0 +1,38 @@
+LOCALSWIM REBOOT - INDEPENDENT STRUCTURE ADDENDUM REVIEW (#0031)
+2026-10-25 | Reviewer: sol_high_0031_review_addendum
+
+Recommendation: PASS.
+The companion wording resolves review #0009 observations O1-O3. No blocking
+contradiction, new feature, schema-field requirement or implementation authority
+was found. Read #0030 alongside the original designs; it does not accept the
+structure packet or replace Terry's gate #0009 decision.
+
+Basis and authority
+Read cards-r4/0031-arch-review-structure-addendum.txt, reviews/09-structure-review.txt
+and design/30-structure-addendum.txt fully; checked designs/05-system-topology.txt,
+06-domain-policy.txt, 07-relationships-triage.txt and 08-state-audit.txt, owner
+decisions r2, foundation scope #0001 and baseline review #0004. Owner decisions r2
+supersedes the foundation's pending-acceptance/language-evaluation wording.
+Go core/service/CLI/background tools, TypeScript 7.x browser and public MIT FOSS
+remain binding. The local deployment envelope and unverified budgets remain
+assumptions, not newly accepted guarantees.
+
+Observation dispositions
+ID | Disposition | Evidence and assessment
+O1 | Resolved | Addendum, Correction / ownership map and O1; 05, Responsibility and trust table / Decisions, validation and evidence; 07, Ownership and atomicity; 08, Canonical boundary / Storage and schema recommendation. Correctly separates #0005 process/storage ownership, #0006 policy, #0008 canonical state/format and #0010 detailed persistence. Allocation neither selects mechanisms nor asserts durability.
+O2 | Resolved | Addendum, O2; 06, Conceptual responsibilities / Stable identity and mutable presentation; 07, Urgency and ordering recommendation / Ownership and atomicity. One persisted priority may change through authorized edits or automatic promotions. Floors/counts/score/order remain derived from one committed revision. Relaxing constraints never automatically demotes; permitted explicit lowering remains bounded by surviving floors. The link-removal example is consistent. A retained base/effective pair requires an alternative contract and demotion semantics; it is not selected or implied.
+O3 | Resolved | Addendum, O3; 06, Stable identity and mutable presentation; 07, Urgency and ordering recommendation. A unique board-local final tie-break and total comparison preserve deterministic order across clients/restarts. Neither numeric encoding nor a new persisted key field is assumed; the later contract must select representation and comparison.
+
+Residual choices and boundary
+Terry's structure-packet choice at #0009 remains outstanding. Topology/storage,
+direct JSON/Git requirements, audit reconstruction/retention, durability budgets,
+formula and graph-policy recommendations remain deferred as in #0009; multi-card
+reprioritization remains proposed. Identity representation/comparison belongs to
+the later contract. This review creates no additional owner-approval gate.
+
+Only this report was written; original designs and addendum were read only.
+The primary's original-source hash verification remains separate. No legacy code,
+tests, internal architecture, private boards, source audit, implementation, install,
+repository or live operation was used. This checks documentary consistency, not
+runtime behavior. Primary verification and handoff remain separate; Terry alone
+controls Completed.

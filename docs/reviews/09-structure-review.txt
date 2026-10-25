@@ -1,0 +1,58 @@
+LOCALSWIM REBOOT - INDEPENDENT STRUCTURE REVIEW (#0009)
+2026-10-25 | Reviewer: sol_high_0009_review_structure
+
+Recommendation: PASS WITH NON-BLOCKING OBSERVATIONS.
+The four designs form a coherent conceptual architecture. No blocking behavioral
+contradiction or missing authority boundary was found at this level. Correct the
+ownership citations and align the terminology below before dependent contracts
+treat these recommendations as settled definitions. These are bounded corrections,
+not authorization for this reviewer to edit the source artifacts.
+
+Basis and authority
+Reviewed design/05-system-topology.txt through 08-state-audit.txt in full, the #0009
+card, brief r2, owner decisions r2, design 01-03 and review/04-baseline-review.txt.
+Terry explicitly accepted #0004; its intentional Ready for Review lane is not a
+missing prerequisite. Go plus TypeScript 7.x and public MIT FOSS are fixed. The
+review assumes the stated local, loopback, directly attached storage envelope;
+platforms, budgets and unselected mechanisms remain provisional.
+
+Cross-document assessment
+Board engines own independent revisions and health; workspace navigation introduces
+no cross-board transaction or permission grant. Stable board/card/principal identity
+is distinct from presentation and physical storage ownership. Authentication supplies
+actor context; Go enforces policy for every writer, including maintenance. Browser
+and CLI cannot confer rights by supplying labels. Acceptance binds the reviewed card
+and policy revisions and commits evidence atomically; ordinary comments, assignment
+and Completed labels do not substitute for that authority.
+
+Blocking, hierarchy and nonblocking associations have separate semantics. Cycles,
+completion, archive, unique reachability and atomic promotions are explicitly covered.
+Derived results use one committed board revision. State/audit co-commit, attachment
+availability, revision fencing and refusal without successful-change history agree
+across the packet. Publication progress remains separate from local saves.
+
+Material observations
+ID | Severity / type | Source and section | Impact | Concrete correction
+O1 | Low / ownership citation | 05, Responsibility and trust table; Decisions, validation and evidence; 07, Ownership and atomicity | 05 assigns persistence selection to #0006; 07 assigns physical persistence to #0005. Those are domain and topology artifacts, respectively. | Point canonical-state/storage recommendations to #0008 and detailed persistence mechanisms to their designated later contract; retain #0005 for process/storage ownership and #0006 for policy.
+O2 | Low / terminology | 06, Conceptual responsibilities; Stable identity and mutable presentation; 07, Urgency and ordering recommendation; Ownership and atomicity | 06's "user's explicit priority" can suggest a preserved base value, while 07 deliberately persists promotions without a base/effective pair. The concepts can coexist, but readers could infer incompatible schemas or automatic demotion. | If adopting 07, describe one persisted priority that explicit edits and automatic promotions may change, and distinguish derived floors/scores from that value. A retained base/effective pair is an alternative requiring a revised contract, not an implied requirement of 06.
+O3 | Low / deferred identity detail | 06, Stable identity and mutable presentation; 07, Urgency and ordering recommendation | A final tie-break by "unique ticket number" assumes numeric/orderable ticket encoding while 06 leaves encoding open. | Specify a unique deterministic board-local tie-break key at contract selection; either explicitly select numeric tickets or define ordering for the selected ticket representation.
+
+Recommendations and remaining decisions
+Accept the conceptual responsibility split; retain serialized revision-checked board
+admission as the coherent recommendation. Separate service-per-board hosting remains
+a valid isolation alternative, not a contradiction. JSON, database/export and event
+storage are clearly labeled alternatives with different reviewability, transaction
+and reconstruction costs; none is established by mechanism claims or measurements.
+
+Terry still chooses topology/storage, direct JSON/Git requirements, audit content
+reconstruction/retention, durability budgets and graph policy recommendations.
+Formula continuity, hierarchy cardinality, self-link refusal and multi-card cycle
+reprioritization remain proposed choices; the last must not become an assumed
+retained command feature. Identity binding, wire/schema details and workspace
+preference authorization belong to later contracts. Gate only dependent decisions.
+
+Boundary verification
+Architecture review only. No legacy implementation/tests/internal design, private
+board data, source-tree audit, peer edits, code, installs or live changes were used.
+No runtime guarantee was verified. Primary verification and Terry's acceptance remain
+separate; Terry alone controls Completed. Any corrective work requires its own scope.

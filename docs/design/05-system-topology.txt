@@ -1,0 +1,107 @@
+LOCALSWIM REBOOT — SYSTEM TOPOLOGY (#0005)
+2026-10-25 | Author: sol_medium_0005_system_topology
+Recommendation for independent #0009 review; no implementation authorization.
+
+Authority and assumptions
+Terry accepted #0004 on 2026-10-25; owner-decisions-2026-10-25-r2.txt supersedes
+pending-acceptance wording in foundation artifacts. Go core/service/CLI/background
+tools and TypeScript 7.x browser are selected. Repositories are public MIT FOSS;
+board contents, credentials and runtime records remain private.
+
+Assume the foundation's local desktop, loopback service and directly attached
+storage envelope for this recommendation. Platforms, numerical budgets, exact
+compatibility, audit reconstruction and hardware-loss durability remain provisional.
+No performance or power-loss guarantee follows from this process layout.
+
+Recommended topology
+Use one Go host per explicitly configured local hosting root. The same host supports
+one standalone board or a workspace containing several boards. A workspace is a
+registry and navigation view, not a shared board transaction or authorization scope.
+Each board has an independent engine instance, storage handle, command queue,
+revision context and health state. Opening a workspace must tolerate unavailable or
+invalid boards. Bound concurrent loading, queues and attachment transfers so one
+busy board cannot consume every host resource.
+
+Use supervised Go child workers for optional monitoring and publishing. This keeps
+network/Git waits and worker failures outside request handling without prescribing
+one service process per board. Worker granularity follows ownership: monitoring has
+one lease/cursor per board; publishing has one coordinator per repository, including
+repositories containing multiple boards. Workers may serve multiple owned scopes
+with bounded concurrency. Their supervision does not confer permission to publish.
+
+Context/container diagram (arrows are interactions, not detailed protocols)
+
+ Human ──> TypeScript 7 browser ──┐
+ Automation/human ──> Go CLI ─────┤ authenticated loopback boundary
+                                v
+ + Go host: lifecycle owner + browser assets + service adapters --------+
+ | Workspace registry/health ──> independent board engines A, B, ...    |
+ |                              shared Go domain/application core     |
+ |                              per-board persistence adapters        |
+ +----------------------+-----------------------------+---------------+
+                        |                             |
+                 private board stores        sanitized activity/status
+                        ^                             v
+           stopped-board CLI core       supervised Go monitor worker
+           (exclusive maintenance)      (one owner/cursor per board)
+                                                      |
+ Host publish intent/status <──> Go publisher worker ──> optional Git remote
+                                (one owner per repo)
+
+Responsibility and trust table
+Container / boundary | Responsibility and constraint
+Browser | Board/workspace presentation, drafts and conflict recovery; never authoritative for actor rights or persistence success.
+CLI/service adapters | Validate external envelopes, authenticate actors, enforce request-origin protection for browser requests, translate core outcomes; CLI live writes use the host.
+Shared Go core | Board commands, workflow/relationship rules, authorization decisions and explicit outcomes; no browser, transport, Git or supervisor dependencies.
+Board persistence adapters | Commit/revision/integrity boundary selected by #0006; no cross-board transaction implied. Reject conflicting ownership of the same board storage identity.
+Workspace host | Registry, board activation, aggregate health and lifecycle; preserve per-board permissions and partial failure. Cross-board links/operations require later explicit contracts.
+Monitor/publisher adapters | Consume authorized sanitized activity or publication intent; expose separate save/publish states. Credentials remain in the owning runtime boundary, never browser bundles or public artifacts.
+
+Ownership and lifecycle
+An explicit launcher or service manager owns the host lifetime; closing a browser
+window does not stop boards. A second launcher discovers the existing host or fails
+clearly. Distinct hosts may own distinct boards, but never acquire the same storage
+identity concurrently; aliases must not bypass ownership checks. Locking, stale-owner
+recovery and host discovery details belong to later contracts.
+
+Shutdown stops admission, settles or reports in-flight outcomes, persists worker
+progress, then releases ownership. Worker restarts reconcile durable progress;
+they never blindly replay user mutations. Monitor progress must preserve uncertain
+intervals across host downtime, suppress only nonempty proven automation-only
+activity, and keep prose/credentials out of alerts. Separate status/target/lock
+records preserve each board's destination. Publishing failures do not roll back
+local saves; shutdown reports pending publication truthfully.
+
+Stopped-board maintenance uses the same Go core and storage adapters only after
+exclusive ownership excludes the host and conflicting workers. Maintenance mode
+does not silently start a live host. Core reuse means shared implementation, not
+two independently writable authorities.
+
+Alternatives and consequences
+1. Recommended host plus supervised workers: efficient workspace startup and one
+   browser contract, with independent board validation and worker recovery. A host
+   crash can interrupt every hosted board; logical boundaries do not isolate memory
+   corruption or process-wide failure. Validate resource fairness and restart recovery.
+2. Separate service per board plus workspace aggregator: stronger crash/resource
+   isolation, but more lifecycle, discovery and authorization coordination. Reconsider
+   if measured host interference violates accepted budgets or exposure expands.
+3. One process containing host and all background jobs: simplest packaging, but
+   couples Git/network stalls and worker failures to interactive availability. Reject
+   as the default for optional long-running external work.
+
+Decisions, validation and evidence
+Recommend accepting this topology at #0009; Terry retains later mechanism approval
+under review decision D7. No new library-by-library owner gates are proposed.
+#0006 selects persistence; later contracts select identity/origin controls, worker
+reconciliation, browser channels and TS7 availability. Broader hosting requires
+revisiting the trust assumptions, not merely binding another address.
+
+Carry O2 into synthetic unauthorized-actor/origin checks: zero state/audit mutation
+and sanitized refusal. Carry O3 into reproducible cold/warm and contention profiles
+before claiming budgets. Carry O5 by pinning documentation evidence before packets.
+
+Inputs: architecture-input-brief-r2.txt; owner-decisions-2026-10-25-r2.txt;
+design/01-product-scope.txt, 02-clean-room-method.txt, 03-quality-attributes.txt;
+reviews/04-baseline-review.txt (O1–O5). No legacy implementation, tests, internal
+architecture, private boards or current peer outputs were read. This is fresh design
+reasoning with disclosed provenance, not independently isolated clean-room proof.

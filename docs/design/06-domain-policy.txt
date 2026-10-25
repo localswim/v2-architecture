@@ -1,0 +1,106 @@
+LOCALSWIM REBOOT — DOMAIN AND WORKFLOW POLICY (#0006)
+2026-10-25 | Author: sol_medium_0006_domain_policy
+Architecture recommendation for independent #0009 review; no implementation authority.
+
+Outcome and authority
+Recommend a board-scoped domain with stable references, configurable workflow and
+centrally enforced actor authority. Go owns domain decisions for service, CLI and
+background tools; the TypeScript 7.x browser presents those decisions. Public
+repositories remain MIT FOSS; actual board/runtime data remains private.
+Terry's explicit #0004 acceptance releases this design wave despite its RFR lane.
+
+Conceptual responsibilities
+Entity / boundary       | Responsibility
+Board                   | Stable identity; cards, workflow and configuration scope.
+Card                    | Stable identity/ticket; editable content, lane, ownership,
+                        | explicit priority, relationships and archive visibility.
+Workflow configuration  | Stable lane/priority references, labels, ordering,
+                        | transition rules and designated acceptance transitions.
+Configured principal    | Stable identity, actor class and granted authority; its
+                        | display name is presentation, never proof of authority.
+Comment / acceptance    | Attributed contribution / human decision about a specific
+                        | card revision; neither is anonymous mutable presentation.
+Policy enforcement      | Evaluate authenticated actor, operation, current domain
+                        | state and policy; return allowed result or safe refusal.
+
+Stable identity and mutable presentation
+Recommend opaque stable board/card identities and separate human-friendly tickets
+unique within a board. Renaming a board, card, lane, priority or user preserves its
+identity and references. Tickets are not reused after archive; references include
+board identity so identical ticket labels on different boards cannot collide.
+Identifier encoding, cross-board moves and legacy reference compatibility remain
+later contract decisions. Relationships reference identity rather than titles.
+
+Archive changes default visibility, not existence: preserve identity, content,
+comments, relationships and attribution for restoration. Existing references remain
+resolvable with an archived indication. Archive-related dependency/triage treatment
+belongs to the relationship contract; hiding a card must not silently erase links.
+Priority ordering comes from configuration, with derived urgency kept conceptually
+distinct from the user's explicit priority. No scoring formula is selected here.
+
+Configured product versus Terry's template
+Product mechanism       | Terry-specific configuration/example
+Named ordered lanes     | Ready for Work, In Progress, Ready for Review,
+                        | Needs Terry, Blocked and owner-controlled Completed.
+Transition predicates   | Require In Progress before substantive ticket work;
+                        | human-only acceptance and Terry's Completed authority.
+Semantic workflow rules | Ordinary dependencies can remain Ready for Work;
+                        | Blocked means an external obstacle; Needs Terry means
+                        | the next meaningful step requires Terry's judgment.
+Priority defaults       | P3 Normal; dependencies alone do not raise priority.
+
+These names and meanings belong in a supplied template, not hardcoded product
+identifiers. Explicit owner decisions can release a dependency gate without a
+Completed transition, as #0004 demonstrates. A configurable transition alone cannot
+prove that off-board work obeyed the In Progress rule; tools must honor that gate.
+
+Actor authority and refusal ownership
+Resolve actor identity through the trusted authentication boundary; a client-sent
+name, owner field or human/bot flag cannot establish authority. Keep configured
+principal grants and policy separate from mutable labels, window preferences and
+card prose. Assignment identifies responsibility; it grants no implicit permission.
+Administrative policy changes require their own authorized capability and revision
+checks. Credential mechanisms and deployment trust boundaries remain later design.
+
+The Go application boundary owns enforcement for every mutation entry point,
+including CLI/background actions; UI affordances are advisory. Refuse unknown
+actors, missing grants, invalid transitions and stale decisions before domain
+mutation. Return a stable sanitized reason and conflict/reconciliation information
+where appropriate. Refusal creates no successful domain-change/audit event;
+privacy-safe operational diagnostics may record the refusal separately. Policy
+administrators own correcting grants; owners resolve workflow choices; clients
+preserve user input and present the reason rather than bypassing enforcement.
+
+Atomic human acceptance and invariants
+- An authorized human accepts a specific reviewed card revision, not merely its
+  current title or ticket. Automation cannot acquire human authority by relabeling.
+- Validate actor, acceptance capability, card revision, relevant policy revision
+  and transition preconditions together. Commit acceptance evidence, transition
+  and attributable change record together, or commit none. Concurrent content or
+  policy changes cause a conflict requiring renewed review; no blind replay.
+- Subsequent substantive edits cannot inherit that acceptance silently. Retain the
+  accepted revision as history and expose the current revision as unaccepted;
+  a template may additionally return it to a review lane.
+- Identity references remain valid across renames/archive. Missing configuration
+  references are validation failures, never substituted by display-name matching.
+
+Assumptions, tradeoffs and open choices
+Assume local human/automation collaboration; remote identity guarantees are not
+established. Central policy enforcement reduces divergent clients but requires
+explicit policy-version conflict handling. Prefer configurable semantic roles over
+fixed lane IDs; unrestricted scripting offers flexibility but adds policy risk.
+Recommend declarative rules initially. Terry may accept these recommendations as
+one packet. Still open: who may administer policy, delegated human acceptance
+beyond Terry's template, which edits invalidate review, and whether acceptance
+requires reviewer/author separation for humans. Authentication binding, exact
+permission vocabulary, persistence and audit reconstruction remain designated
+downstream contracts; none prevents this conceptual design.
+
+Evidence and author check
+Inputs: cards-r2/0006-arch-domain-policy.txt; owner-decisions-2026-10-25-r2.txt;
+architecture-input-brief-r2.txt; design/01-product-scope.txt, 02-clean-room-method.txt,
+03-quality-attributes.txt; reviews/04-baseline-review.txt (especially O2/O4).
+These have disclosed source-derived provenance, not isolated clean-room status.
+No legacy source/tests/internal design, private boards or current peer outputs
+were consulted. Checked scope, invariants and output cap; independent review,
+primary verification and Terry acceptance remain separate. No live changes made.

@@ -1,0 +1,122 @@
+LOCALSWIM REBOOT - CANONICAL STATE AND AUDIT (#0008)
+2026-10-25 | Author: sol_high_0008_state_audit
+Recommendation for independent #0009 review; architecture only.
+
+Authority and assumptions
+Terry accepted #0004 on 2026-10-25; its Ready for Review lane does not revoke
+that acceptance [O]. Go core/service/CLI/background tools and TypeScript 7.x
+browser are fixed. All project repositories are public MIT FOSS; real board and
+runtime data remain private. Foundation proposals guide this recommendation;
+unselected alternatives and numerical budgets remain provisional [F,Q,R].
+
+Canonical boundary
+Recommend one authoritative committed revision per board containing domain state
+and its corresponding audit batch. Domain state includes configuration/rights,
+stable identities, cards/comments, workflow/acceptance, relationships, archive
+status and attachment manifests. Derived triage/search/attention views are
+rebuildable, not competing authorities. Attachment bytes remain separate; their
+complete verified availability is a prerequisite to publishing referencing state.
+Retention must preserve detached bytes until an explicit retention policy permits
+removal. This note does not select a byte-storage mechanism.
+
+Shared workspace preferences have their own revision/audit boundary. Window drafts,
+focus and navigation are local recovery context, not board mutations. Do not imply
+cross-board or board/workspace atomicity. Git publication has separate progress
+and cannot redefine whether a local revision committed.
+
+Conceptual admission and event flow
+
+  command / external proposed state + expected revision + actor context
+                              |
+                  parse and quarantine proposed change
+                              |
+        validate format, references, policy and external evidence
+                 |                         |
+             rejection                revision fence
+                 |                         |
+     sanitized diagnostic       one logical state + audit commit
+     preserve original bytes               |
+                              publish admitted revision to readers
+                                           |
+                              derived views / optional Git export
+
+Admission design
+All writers, including CLI maintenance, use the owning aggregate's admission
+contract. Reject unknown required versions, invalid references, unauthorized
+transitions and stale revisions before publication. Bind attribution to verified
+actor context; accepting a submitted actor label alone is insufficient.
+
+Recommend staged validation plus serialized commit with a revision fence. An
+immutable candidate simplifies isolation but may duplicate large state; a private
+mutable transaction workspace can offer equivalent isolation with stricter alias
+control. In-place edits to published memory complicate rollback and expose partial
+policy; reject that option. No inherited immutable-candidate or snapshot mechanism
+is required. External checks need pinned inputs, bounded validity and final
+revision/policy checks; stale evidence causes rejection or explicit revalidation.
+Validators cannot mutate live state or grant authority themselves.
+
+On invalid reload, preserve rejected bytes separately from admitted memory. Existing
+readers may see the last admitted revision with an explicit stale/unhealthy marker;
+disable writes until recovery validates authoritative storage. On cold start,
+quarantine the board without inventing an empty replacement. Other boards remain
+usable. Persistence failure or uncertain response must not prompt blind mutation
+replay; reconcile using revision and operation correlation.
+
+Invariant table
+Boundary | Required invariant | Evidence/check to design later
+Commit | Accepted state revision and audit batch agree; neither appears alone | Fault each persistence boundary; restart selects a complete valid revision
+Attribution | Every retained mutation has actor, action, aggregate/revision and operation correlation | Exercise configuration/rights, cards/comments, workflow/acceptance, links, archive, attachment manifests, shared preferences and maintenance
+Policy | Readers never receive partly validated state or effective policy | Reject malformed, unauthorized and stale synthetic proposals with zero domain/audit mutation
+Bytes | Published attachment references identify complete verified bytes | Interrupt admission; retain uncertain orphan bytes for recovery
+Recovery | Retained memory is labeled; rejected disk state stays untouched | Invalid reload/cold-start cases and independent healthy-board reads
+
+Audit guarantees
+Audit consistency means each committed mutation has corresponding attributable
+evidence. It does not establish content replay: summaries cannot reconstruct deleted
+or edited prose. Recommend mutation metadata initially; full reconstruction requires
+versioned content-bearing events plus an initial state and explicit retention/privacy
+choices. Rejected attempts belong in separate sanitized diagnostics, not committed
+domain history. Attribution is not cryptographic authenticity; hashes alone do not
+prove authorship against a writer who can replace both state and history.
+
+Process-crash recovery and acknowledged-save power-loss survival are distinct.
+Neither JSON nor database selection alone proves either. Filesystem synchronization,
+commit ordering, platform behavior and hardware-loss budgets need later fault
+validation. Avoid claiming durable acknowledgement until that contract is verified.
+
+Storage and schema recommendation
+Recommend deterministic UTF-8 JSON as the initial canonical-format proposal, with
+state and audit in the same logical commit unit. This preserves direct reviewable
+Git diffs while admission avoids treating file edits as automatically trusted.
+JSON/Git-friendly canonical storage remains an unresolved D4 requirement [R]; this
+recommendation neither promotes it to binding authority nor replaces it silently.
+
+Alternative | Benefit | Cost / constraint fit
+Canonical JSON with co-committed audit | Human inspection and direct deterministic Git diffs | Whole-document rewrite and growing audit cost; prototype against provisional workload before commitment
+Transactional database plus JSON exports | Natural state/audit transaction boundary and bounded updates | Exports can lag; canonical files lose useful Git diffs; requires explicit acceptance if D4 requires direct JSON storage
+Append-only content events plus projection | Reconstruction when events contain sufficient content | Event evolution, compaction, privacy and projection recovery add scope; metadata events alone are insufficient
+
+Go owns versioned persisted-domain validation and evolution; browser types describe
+the wire contract, not storage authority. Version storage and API independently.
+Unsupported versions fail closed for writes. Migration is a separately validated,
+attributed admission step preserving source bytes and a recovery path; no implicit
+startup rewrite. Historical events retain their version/meaning; correction appends
+superseding evidence. This defines ownership, not a full field schema or migration.
+
+Open choices and evidence
+Resolve D4's direct JSON/Git requirement, content replay/retention and D5's hardware
+loss tolerance before implementation contracts depend on them. Routine validators
+and engineering choices need no additional owner gate [R,O4]. Storage feasibility
+is unmeasured; format selection is an architecture recommendation for Terry.
+
+[O] owner-decisions-2026-10-25-r2.txt, Current update; Standing project decisions.
+[B] architecture-input-brief-r2.txt, Candidate capabilities; Open owner decisions.
+[F] design/01-product-scope.txt, Capability matrix; Assumptions and material limits.
+[E] design/02-clean-room-method.txt, evidence/reuse boundary and provenance.
+[Q] design/03-quality-attributes.txt, scenarios 1-5, 10; provisional workload.
+[R] reviews/04-baseline-review.txt, D1/D4/D5/D7 and O4.
+
+Author checks: scope, diagram, invariants, alternatives and guarantee distinctions
+checked against these permitted inputs. No legacy implementation/tests/internal
+docs, private board data or peer drafts consulted; no runtime guarantees measured.
+Independent review and Terry's acceptance remain separate; Terry alone Completed.

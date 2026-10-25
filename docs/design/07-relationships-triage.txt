@@ -1,0 +1,74 @@
+LOCALSWIM REBOOT — RELATIONSHIPS AND TRIAGE (#0007)
+2026-10-25 | Author: sol_medium_0007_relationships_triage
+Architecture recommendation; independent #0009 review remains separate.
+
+Authority and status
+Owner-decisions-2026-10-25-r2 accepts #0004 and releases this architecture wave,
+although its lane intentionally remains Ready for Review. Go core/service/CLI and
+TypeScript 7.x browser are selected; public MIT FOSS is binding. The accepted
+foundation retains relationship, deterministic triage and archive outcomes. Exact
+formula continuity and choices below are recommendations for Terry, not additional
+accepted compatibility promises. No implementation or live changes are authorized.
+
+Conceptual rule matrix
+Concern | Retained outcome / recommended precise contract
+Blocking | A blocks B means A is prerequisite, B downstream. blocked_by is the inverse presentation of the same fact. Only blocking links affect urgency/counts; relationship creation/type replacement is atomic.
+Nonblocking | Typed directional associations remain visible and navigable; no urgency, count, execution eligibility or parenthood follows from them. Exact type vocabulary is deferred to the contract design.
+Hierarchy | Separate organizational parent/child relation; recommend one parent per card, no self-parent or ancestor cycle. Reparent atomically. It neither creates blockers nor aggregates child completion/priority. Depth includes archived/completed members; no historical links disappear.
+Blocking cycles | Permit and expose cycles, including mutual blocking; reject self-links as a proposed validation rule. Cycles do not make traversal undefined or count the origin. A cycle warns about execution deadlock; it never grants permission to start work.
+Completion | Use a stable semantic completed state, independent of label. Completed nodes neither count, receive automatic promotions nor transmit urgency/reachability. Completing a card preserves links and never demotes descendants. Authorized reopening resumes the unfinished rules atomically.
+Archive | Visibility only: preserve lane, identity, links, priority and history. Archived unfinished nodes participate fully. Hidden/search/lane filters and result limits never change global derived values. Explicit inspection can explain hidden participants.
+
+Urgency and ordering recommendation
+Preserve documented direction: an unfinished blocked card must be at least as urgent
+as every unfinished upstream blocker reachable without crossing completion. This is
+not reverse propagation from an urgent dependent to its prerequisites. Use the board
+policy's total priority ranking; lower rank means greater urgency. Priority differences
+never forbid a link: promote affected unfinished cards instead. Open cycle members
+share the strongest applicable urgency. Removing links, completing cards or lowering
+a blocker never silently demotes existing priorities. An explicit priority request is
+bounded by remaining upstream floors; report requested and effective priority.
+
+Recommend the documented score: ((priority rank + 1) * 100) minus the number of
+distinct unfinished downstream cards reachable through blocking links. Count each
+card once globally, exclude the origin, and stop at completion. Permit negative
+scores. Order ascending score, then priority rank, then unique ticket number.
+This can put a sufficiently influential lower-priority card first; the constant 100
+is a product choice, not a guarantee of strict priority grouping.
+
+Ownership and atomicity
+Value | Authority / persistence boundary
+Links, parent, priority, lane/completion, archive, policy rank | Persist accepted facts; Go domain authority validates a revision-checked board transaction and records attributable audit evidence. No separate persisted base/effective priority pair is proposed.
+Promotions and explicit priority effects | Persist resulting priorities plus one attributable history effect per actually changed card with the triggering edit, including unselected/hidden cards, in one atomic board revision. Refusal/conflict changes neither facts nor audit; no blind retry.
+Counts, floors, score, ordering, hierarchy depth | Derived from one committed board revision and identified policy. Service supplies authoritative values/explanations to web and CLI. Stopped-board reads use the same Go domain semantics without writes; TypeScript does not invent a second formula.
+
+The transaction covers relationship/type edits, priority edits, authorized reopen and
+policy changes whenever they affect urgency. Board-wide validation and audited
+promotions succeed together or fail together; physical persistence is #0005's remit.
+Recommend explicit multi-card reprioritization evaluated together: selected cycle
+members can lower together, while unselected upstream blockers still impose floors.
+Exact limits, commands, schema and audit representation belong to later contracts.
+
+Synthetic acceptance examples (P0 most urgent; arrows mean blocks)
+1. A -> B -> A: A counts B once; B counts A once. If A=P1 and B=P3,
+   B promotes to P1. A self-link is refused under the proposed rule.
+2. A -> B, A -> C, B -> D, C -> D: A counts three, not four.
+3. A -> Completed B -> C: A counts zero; urgency does not cross B.
+4. A -> archived unfinished B -> C: A counts two even when B is hidden.
+5. A=P1 -> B=P3: B persists P1; lowering A to P4 leaves B=P1 until an
+   explicit permitted change. B=P0 does not promote A.
+6. A parent-of B, A relates-to C: neither relation changes triage or urgency.
+
+Choices, evidence and limits
+Recommend continuity above over strict-priority-first ordering; the latter is simpler
+to explain but changes documented influence ranking. Rejecting blocking cycles would
+simplify scheduling but reject documented graphs. Single-parent acyclic hierarchy and
+self-link rejection are new proposals requiring confirmation; multi-parent hierarchy
+is the bounded alternative and complicates organizational depth/ownership.
+
+Inputs: brief r2; owner decisions r2; design 01–03; review 04. Behavior evidence:
+C:/Projects/localswim/README.md, only Daily use, Archiving cards and Dependency
+priority inheritance; SHA256 BF5808D475DBF3510D6323A9E4D26469AF483B05BE60E30EC078628E386E21DC.
+This local document is not release-pinned runtime verification. Prior source exposure
+is disclosed by the foundation; no isolated provenance claim. No legacy code, tests,
+internal design, private boards or concurrent peer outputs were consulted.
