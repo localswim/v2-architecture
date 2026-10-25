@@ -1,0 +1,116 @@
+LOCALSWIM REBOOT - OWNERSHIP AND LIFECYCLE (#0011)
+2026-10-25 | Author: sol_high_0011_ownership_lifecycle
+Recommendation; independent validation belongs to #0014.
+
+Authority and assumptions
+Owner decisions r5 records accepted #0009 and #0031; designs #0005-#0008 plus
+#0030 are the structure baseline. Go core/service/CLI/background tools,
+TypeScript 7.x browser, public MIT repositories and UTF-8/LF are fixed.
+Assume loopback hosting and directly attached local storage. Windows 11 x64
+and Linux x64 remain proposed platforms [Q]; equivalent exclusion semantics
+require validation on each approved platform.
+
+Ownership and identity
+Recommend one authoritative writer per board storage aggregate: either its Go
+host engine or stopped-board maintenance using the same core. Workspace/root
+ownership coordinates discovery; it does not confer ownership of member boards.
+A domain board ID identifies references, not physical exclusion: a copied board
+may retain that ID at different storage. Duplicate workspace board IDs require
+explicit resolution; never silently redirect.
+
+Resolve storage aliases to a canonical physical aggregate identity before opening.
+Ownership must cover the whole aggregate, including state/audit and attachment
+admission, through a stable coordination anchor outside replaceable state files.
+Equivalent paths must meet at that anchor. Reject unsupported alias/storage
+arrangements rather than promise exclusion from path normalization alone.
+Relocation/rebinding requires exclusive maintenance; copying cannot transfer
+ownership. Validate identity/anchor mechanisms and supported aliases with #0010.
+
+Require an exclusive process-lifetime ownership primitive with verified release
+semantics, plus a fresh owner generation for discovery/correlation. Discovery
+records, PIDs, timestamps and listener probes are advisory. An absent listener,
+old PID or expired heartbeat cannot authorize takeover; an uncertain owner means
+unavailable writes. After acquiring exclusion, reconcile old worker effects
+and validate storage. Generation checks supplement exclusion;
+they do not independently fence storage or external effects.
+
+Coordination order
+Serialize host creation per canonical hosting root; release startup coordination
+before acquiring board ownership. Acquire multiple board reservations only in
+canonical-identity order; no cross-board transaction follows. Within an owned board,
+order admission queue before persistence commit coordination. Never wait for child
+exit, network/Git or another board while holding commit coordination. Worker scope
+reservations are managed separately: children never acquire board writer ownership
+or hold a worker reservation while synchronously awaiting a board mutation.
+
+Lifecycle/state diagram
+
+ Dormant -> Acquiring -> Recovering -> Serving -> Draining -> Releasing -> Dormant
+                |            |           |          |
+             conflict     invalid     storage     deadline
+                v            v        uncertain     v
+           Unavailable   Quarantined <- write-disabled / outcome-unknown
+                                      |
+                                    crash -> new Acquiring -> Recovering
+
+Only Serving admits new mutations. Recovery/quarantine may expose validated retained
+reads with explicit health status; cold-start invalid bytes never become an empty
+board. Other boards remain usable. Probes report responsiveness separately
+from write readiness and operation outcome.
+
+Normal and recovery sequence
+1. A launcher resolves the hosting root; competing launchers discover the same
+   authenticated host or receive conflict. Distinct hosts still compete
+   for each board anchor. Acquire ownership, validate committed state/audit using
+   #0010, reconcile worker scopes, then advertise write readiness.
+2. Live CLI writes use the host. Offline maintenance must acquire the identical
+   board exclusion and finish recovery first; it never falls back merely because
+   transport failed. Revision/policy checks remain mandatory after ownership.
+3. Restart/replacement closes admission, rejects queued unadmitted commands, and
+   settles admitted commands where possible.
+   A disconnected client or transport timeout does not cancel an admitted write.
+   Preserve correlation/revision reconciliation for uncertain responses; never
+   blindly replay. Concurrent restarts receive conflict/retry information.
+4. Stop optional workers cooperatively; persist/reconcile their progress and
+   outstanding publication outcomes. Release board ownership only after admitted
+   storage activity and child effects are quiescent. Successor acquisition may have
+   a service gap; it must recover before readiness. No overlapping writer handoff.
+5. A drain deadline triggers explicit incomplete shutdown, not a false successful
+   save or forced ownership release. If termination is necessary, report uncertainty;
+   successor recovery resolves complete committed revisions. Process-crash recovery
+   does not establish acknowledged-save survival under power loss.
+
+Captured child resources
+The host owns captured child handles/session identity, generation and allowed board
+or repository scopes. Monitor ownership is per board; publishing coordination is
+per repository. Children consume sanitized activity or authorized publication intent,
+never mutate canonical state directly. Closing a browser does not terminate them.
+
+Request cooperative stop and await bounded acknowledgement. Escalate
+only against captured, verified owned children; never identify cleanup targets by
+PID alone. After a host crash, surviving children must lose authority to start new
+effects. A successor must establish their quiescence and reconcile already-started
+external effects before activating competing scopes; generation labels alone cannot
+cancel Git/network work. If proof is unavailable, disable affected worker scopes
+and report intervention needed while safe local board work may resume. Preserve
+monitor cursors/targets and uncertain intervals; uncertain activity must still alert.
+Workspace removal releases registration, not unrelated processes or board data.
+
+Invariants, choices and checks
+Safety: one writer, validated state/audit, no ownership theft, no implied rollback
+after timeout. Liveness: conflict/recovery/drain are visible and bounded in reporting;
+completion cannot be guaranteed while an owner or external effect remains uncertain.
+Prefer an availability gap over overlapping owners. Separate per-board services
+offer stronger crash isolation at added coordination cost [T]; retain the accepted
+host topology. Exact primitives, drain budgets and residual-child reconciliation
+need synthetic competing-launch, alias,
+live/offline, crash, PID-reuse and interrupted-drain validation, not new owner gates.
+
+Evidence: owner-decisions-2026-10-25-r5.txt; [T] design/05-system-topology.txt;
+design/06-domain-policy.txt, 08-state-audit.txt, 30-structure-addendum.txt;
+reviews/09-structure-review.txt, 31-structure-addendum-review.txt;
+design/02-clean-room-method.txt; [Q] design/03-quality-attributes.txt.
+Author checked scope, diagram, sequence and limits. Disclosed-provenance design;
+no legacy source/tests/internal docs, private boards, peer drafts or live operations.
+No runtime guarantees tested. Recommendations need review/approval only; no missing
+owner input prevents handoff. Primary verification and Terry's Completed remain separate.

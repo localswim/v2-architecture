@@ -1,0 +1,40 @@
+BINDING OWNER DECISIONS - 2026-10-25 (r5)
+
+Current update
+- Terry explicitly stated: "0004 is approved and can be moved to RFR".
+- Review gate 0004 is accepted in this conversation. Move its card to Ready for Review exactly as requested; no Completed transition is authorized or performed.
+- This explicit acceptance releases architecture cards 0005-0008 even while the review card remains RFR. A lane label does not negate the recorded owner decision.
+- Use the reviewed foundation proposals and five non-blocking observations as inputs. Keep unselected alternatives and unverified numerical budgets labeled; later storage/topology/channel choices remain with their designated cards.
+- Approval authorizes this architecture wave, not implementation, installation, migration, release or cutover.
+- Source/reuse rules remain disclosed-provenance behavior inputs; no legacy implementation/tests/internal design or private board data as worker input.
+
+Standing project decisions
+- Go core/service/CLI/background tools and TypeScript 7.x browser are the selected direction.
+- localswim and every localswim project repository are public, MIT-licensed FOSS; preserve third-party notices and private handling of actual board/runtime data.
+- https://github.com/localswim/v2-architecture is public, main, MIT; organization owned by TerryOtt.
+
+History
+- r1 remains preserved as prior evidence; its pending-foundation-acceptance statement is superseded by this explicit 0004 approval.
+- The original GitHub setup/email/Terms approval was separate; the current architecture approval is the quote above.
+
+Additional binding owner update (r3)
+- Terry explicitly instructed: "Definitely use Unix style line endings for all repos in localswim".
+- All localswim repositories use LF line endings for text. Enforce via .gitattributes and .editorconfig; publish UTF-8/LF text while preserving binary bytes.
+- This supplements the public/MIT policy and does not accept structure gate 0009.
+- r2 remains preserved; no architecture author artifact is rewritten by this policy record.
+
+Lane semantics clarified by Terry (r4)
+- Ready for Review (RFR): the work is ready and only Terry's review/approval remain, including finished architecture or decision proposals.
+- Needs Terry: unfinished work cannot advance without a specific input or action only Terry can provide. State that intervention; review/approval alone is RFR.
+- Blocked: neither Terry nor Bot can do anything to advance the work until an external condition changes, such as ordered test hardware arriving. Ordinary dependencies and pending reviews are not Blocked.
+- Dependent cards stay Ready for Work with their dependency relationships intact. RFR does not imply approval or waive prerequisites.
+- Card0009 was corrected from Needs Terry to RFR because its only remaining step is Terry review/approval. This correction does not accept the structure packet; gate0004 remains the explicitly approved gate.
+- This clarification supersedes broader pending-review lane wording in earlier artifacts and plans. Historical comments and evidence remain preserved.
+- The global AGENTS.md and architecture repository AGENTS.md now record these definitions.
+
+Later owner acceptance (r5)
+- On 2026-10-25, Terry accepted the foundation and structure packets, including the separately reviewed structure clarification addendum.
+- These owner-controlled Completed cards are accepted inputs and will not be reopened or edited. Gate0009 now releases runtime architecture authors0010-0013.
+- The current authoritative structure wording is designs0005-0008 together with addendum0030, passed independent reviews0009/0031. The earlier r4 pending-review statements are superseded by this later acceptance.
+- Unverified budgets remain unverified; detailed mechanism choices belong to their designated architecture contracts. Selected Go+TypeScript7.x, publicMIT and UTF-8/LF directions remain binding.
+- A later clarification of the language-comparison question is a comparison request, not a request to replace the selected stack or cancel the architecture work. No implementation, install, migration, release or cutover is authorized here.

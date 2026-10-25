@@ -1,0 +1,69 @@
+LOCALSWIM REBOOT - INDEPENDENT RUNTIME ADDENDUM REVIEW (#0033)
+2026-10-25 | Reviewer: sol_high_0033_review_runtime_addendum
+
+Recommendation: PASS WITH OBSERVATIONS.
+Addendum32 closes review14 F1-F2 as a bounded architecture recommendation.
+No mandatory correction remains within this review's scope. Acceptance does not
+approve installation of a local issuer or qualify any browser/platform combination.
+
+Basis and authority
+Read card0033, review14, addendum32, designs10-13, topology05, addendum30 and
+owner decisions r5. Terry's Completed0001-0009/0030/0031 remain accepted inputs.
+Go+TypeScript7.x, publicMIT, private runtime data and UTF-8/LF remain fixed.
+This companion supersedes only the two conflicting/omitted runtime boundaries;
+the original designs and review remain historical evidence.
+
+F1 disposition: CLOSED
+Operation identity equals command correlation within stable principal/aggregate
+scope; diagnostic request identity stays separate. Fingerprints include command,
+target, content digests and revision/evidence preconditions. Serialized recognition
+prevents concurrent candidates. Authorized retained committed matches return their
+historical outcome without executing or imposing today's revision fence; mismatched
+content conflicts. Definitive noncommit and uncertain evidence remain distinct.
+Co-committed recognition survives restart. Published retention boundaries do not
+turn absent, expired or damaged evidence into failure, including inside the stated
+horizon. Retry mode cannot become first submission. Explicit new intent exposes
+possible duplication; deliberate first-submission misuse is outside this bounded
+contract. Storage, wire and client behavior now agree without global exactly-once
+or power-loss claims.
+
+F2 disposition: CLOSED UNDER STATED PRECONDITIONS
+Responsibility now rests with the issuer/control plane, launcher, Go adapter and
+browser. Captured private IPC associates the intended generation/key; launcher
+verification of chain, exact name and expected key precedes grant registration.
+The browser receives no URL secret and discloses the entered grant only after
+trust/name verification at the launcher-selected origin. Atomic single-use exchange
+binds principal, instance, origin, scope and pending browser nonce to a new session.
+Protected reads, commands and fetch-stream events require cookie plus session-bound
+header and browser-context checks; public navigation grants no protected access.
+Current authority/lease checks, stream invalidation and acknowledged-or-expired
+revocation precede replacement; lifecycle quiescence still applies. Lost exchange
+responses require new issuance, never command replay. These close the prior missing
+handshake, rather than merely naming another unspecified owner.
+
+Observations and residual choices
+ID | Type / source | Implication and required downstream treatment
+O1 | Deployment precondition / 32 F2, Failure and limits | Terry must review the proposed local-issuer trust expansion. Browser-profile/account trust provisioning, constrained signing, localhost resolution and fail-closed support remain unqualified; accepting this report authorizes no installation.
+O2 | Credential scope / 32 F2 | A host-only cookie is not port-isolated [S4]. Unique never-reused names, exclusive instance keys/issuance and exact origin checks carry isolation. Signing policy does not itself establish browser-enforced CA name constraints; validate actual trust scope.
+O3 | Capability assumption / 12 Authority, 32 F2 | Human issuance assumes trusted launcher access and automation non-possession of that capability. Neither TLS, Origin, browser presence nor a same-account process label proves a person or excludes account-controlling automation; qualify access boundaries without claiming hostile-account isolation.
+
+Numerical retention/lease budgets and trust-store/IPC/cookie/token APIs remain
+engineering qualification, not additional logical defects or fabricated owner
+interventions. Terry retains mechanism acceptance and residual-risk choices.
+
+Protocol checks (official primary sources, accessed2026-10-25)
+[S1] https://www.rfc-editor.org/rfc/rfc8446.html#section-4.4.3
+[S2] https://www.rfc-editor.org/rfc/rfc9525.html#section-1.2
+[S3] https://www.rfc-editor.org/rfc/rfc6761.html#section-6.3
+[S4] https://www.rfc-editor.org/rfc/rfc6265.html#section-8.5
+[S5] https://www.w3.org/TR/2026/WD-fetch-metadata-20260921/#sec-fetch-site-header
+Checked key possession, separate certification-path/name verification, localhost
+resolution requirements, cookie scope and request-context semantics. S5 remains
+a Working Draft; none establishes installed browser support.
+
+Checks and handoff
+Only this report written. Primary supplied original-source hash verification;
+review leaves originals intact. No code, tests, installs, live/repository operations,
+legacy source/internal documents or private boards. Documentary validation only;
+primary verification remains separate. Review/approval-only handoff is RFR, with
+no concrete Needs Terry intervention. Terry alone controls Completed.

@@ -1,0 +1,101 @@
+LOCALSWIM REBOOT - INTERFACE CONTRACTS (#0013)
+2026-10-25 | Author: sol_medium_0013_interface_contracts
+Recommendation for independent #0014 review; architecture only.
+
+Authority and assumptions
+Owner-decisions-2026-10-25-r5 records accepted #0009/#0031 gates. Designs
+05-08 plus addendum30 govern this recommendation. Go owns service/domain policy;
+TypeScript 7.x owns browser presentation. Public repositories remain MIT FOSS;
+actual board/runtime data stays private. Assume authenticated loopback hosting,
+independent boards and separate workspace preferences. No implementation is authorized.
+
+Boundary and ownership/versioning
+Recommend HTTP/JSON read models and explicit commands, described by one newly
+authored, version-controlled OpenAPI 3.1 document with reusable schemas [S1].
+Generate browser declarations using openapi-typescript; its documentation describes
+OpenAPI 3.1 support and runtime-free output [S2]. Use a thin typed fetch adapter
+with explicit response validation. Pin schema digest, generator/version, options and
+output lineage; deterministic regeneration and compatibility fixtures are later gates.
+The tool's 7.x version is unrelated to TypeScript 7 compatibility: verify that
+combination under #0022; this note claims no tested toolchain compatibility.
+
+Contract | Authority / evolution rule
+Wire schemas, outcome/error union | Service contract owner; explicit API major and additive revision; independently versioned from storage.
+Read projections | Go supplies committed board/policy revision, health and derived values; no domain logic generated into TS.
+Commands and authorization | Go validates actor context, rights, references and preconditions at admission; adapter types grant no authority.
+Generated browser declarations | Derived from pinned contract; never hand-edited or treated as runtime validators.
+Capabilities and limits | Host advertises protocol majors, named/versioned features and enforced limits; per-board availability/rights checked again at execution.
+Operation reconciliation | Board authority reports correlated outcomes and retention horizon; expired/missing evidence stays indeterminate.
+
+Runtime validation and evolution
+Validate request syntax, media type, byte/depth/count limits and schema before
+Go admission; then enforce domain invariants and authorization. Validate Go response
+serialization against the same contract in verification. Browser boundaries validate
+incoming JSON, errors and notification envelopes before use; validate outgoing
+commands for feedback, with Go repeating all checks. Select validators and prove
+shared-schema subset equivalence later; generated types alone perform none of this.
+
+Negotiate a supported major before mutation. Unknown required features/command
+variants fail closed; unsupported major permits only a compatible discovery/error
+envelope. Add optional response fields compatibly; clients ignore unknown optional
+fields, but preserve safe handling of unknown outcome/error codes. Adding a required
+field or changing semantics requires a new major or explicit feature negotiation.
+Reject unknown mutation fields rather than silently accepting misspelled intent.
+Capability visibility guides UI; it never substitutes for fresh authorization.
+
+Read and command semantics
+Read models include stable board identity, committed revision, policy revision,
+health/staleness and server-derived triage/order/explanations. Recommend opaque ASCII
+identity strings with bytewise stable card-identity comparison as the final unique
+board-local tie-break; server order is authoritative. Tickets remain display references.
+Pagination binds filters/cursor to a revision; expiry requires refresh. Filtered pages
+never redefine global counts. Stale retained memory is labeled and writes disabled.
+
+Commands express intent, target board, expected board/policy revisions and unique
+operation correlation. Acceptance additionally binds reviewed card revision. Go
+atomically checks all relevant fences and commits state/audit effects together.
+Workspace forwarding preserves the explicit board target, actor and preconditions;
+never substitutes another board, expands permission or promises cross-board atomicity.
+Shared preferences use their own revision. Local save and Git publication stay separate.
+
+Representative sequences (conceptual, not endpoint definitions)
+1. Read B@r7/p2 -> submit relationship edit expecting r7/p2 -> committed r8,
+   with resulting priority changes and refresh references. Concurrent edit instead
+   yields conflict/current authorized revision; retain draft, refresh and obtain
+   deliberate resubmission. No automatic merge or mutation replay.
+2. Submit acceptance -> unauthorized principal yields refused with no domain/audit
+   change. Malformed input yields invalid; resource admission yields unavailable or
+   limit-exceeded. Errors carry version, stable code/category, correlation, safe
+   field references and retry guidance; exclude prose, credentials and internals.
+3. Submit operation Q -> connection lost/cancel races commit -> client reports
+   unknown, preserves draft -> reconnect queries Q and current revision. Report
+   committed/not-committed only with authoritative evidence; otherwise indeterminate.
+   Never infer failure from absence, expiration or transport status. Reconcile before
+   deliberate new intent. Correlation is not an exactly-once or deduplication promise.
+
+Bounds, attachments and reconnect
+Advertise/enforce body, page, field, queue, transfer and time limits; numerical budgets
+remain unverified. Stream attachment bytes separately with bounded concurrency;
+stage, verify size/integrity and publish complete bytes before a revision-checked
+manifest command. Reauthorize transfer/finalization; inaccessible/partial uploads
+never become referenced attachments. Preserve uncertain orphan bytes for recovery.
+Cancellation stops pending work where possible; only confirmed precommit cancellation
+proves no commit. Notifications invalidate read models; reconnect refreshes revisions
+and health, reconciles uncertain operations and resumes reads without replaying writes.
+
+Decisions, tradeoffs and evidence
+Recommend the neutral schema plus generated declarations over hand-maintained dual
+models; it adds generator/validator conformance work. Protobuf/RPC is an alternative
+with another browser transport/toolchain boundary. Terry's review can accept this
+proposal; unresolved limits, reconciliation retention, validator selection and identity
+encoding need downstream specification, not an invented owner-blocking gate.
+#0010 owns persistence guarantees; identity/origin, browser channels and #0022
+retain their designated decisions. No durability or performance claim is measured.
+
+Inputs: card0013; owner decisions r5; design02/03/05-08/30; reviews09/31.
+[S1] https://spec.openapis.org/oas/v3.1.1.html (versioned specification).
+[S2] https://openapi-ts.dev/introduction (official introduction, accessed 2026-10-25;
+mutable documentation, not a pinned dependency release).
+Checked outcome distinctions, ownership and scope/cap. No legacy code/tests/internal
+docs, private boards or concurrent peer outputs consulted; no installs/live changes.
+Fresh #0014 review and primary verification remain separate; Terry alone Completed.

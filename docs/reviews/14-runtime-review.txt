@@ -1,0 +1,60 @@
+LOCALSWIM REBOOT - INDEPENDENT RUNTIME REVIEW (#0014)
+2026-10-25 | Reviewer: sol_high_0014_review_runtime
+
+Recommendation: CHANGES REQUIRED.
+The runtime design is coherent except for two bounded interface clarifications
+below. Resolve these in separately scoped corrective work before treating this
+packet as a settled runtime contract. Neither finding establishes an implemented
+vulnerability or calls for new product features.
+
+Basis and assumptions
+Read designs 10-13 in full, their cards, accepted designs 05-08 with addendum30,
+reviews04/09/31 and owner decisions r5. Terry's Completed 0001-0009/0030/0031
+are accepted inputs; historical pending-acceptance wording is superseded. Go core,
+service/CLI/workers, TypeScript 7.x browser, public MIT and UTF-8/LF remain fixed.
+Assume the stated trusted desktop account, authenticated loopback service, directly
+attached storage and cooperating writer. Hostile-account isolation is excluded.
+
+Cross-layer traces
+- Mutation/conflict: authenticated principal and explicit board target reach Go
+  admission. Candidate validation, current rights/evidence and board/policy/card
+  revision fences precede one state/audit/operation outcome commit. Stale or
+  unauthorized requests change neither domain state nor successful-change audit.
+- Upload: bounded, reauthorized staging verifies complete bytes before a fenced
+  manifest commit. Incomplete references are forbidden; uncertain or retained bytes
+  survive cleanup. Reference removal precedes retention-qualified deletion.
+- Lost response/restart: transport failure does not prove cancellation. Correlated
+  evidence determines committed/not-committed; missing or expired evidence remains
+  indeterminate. Restart first acquires physical aggregate exclusion, validates
+  saved state and intent, then admits complete revisions. Unknown writes stay fenced.
+- Drain/children: admission closes before settling storage. Deadline expiry cannot
+  authorize ownership release while writes may commit. Captured-child authority,
+  quiescence and external-effect reconciliation supplement process generations;
+  unresolved worker scopes can remain disabled while demonstrably safe local work
+  resumes. Git publication remains separate from local commitment.
+
+Material findings
+ID | Severity / type | Source and section | Impact | Correction direction
+F1 | Medium / conflicting duplicate contract | 10, Transaction sequence 1 and Recovery contract; 13, Read and command semantics, sequence 3 | 10 promises a recorded result without re-execution for a recognized committed identity, while 13 says correlation is not a deduplication promise. Clients and adapters cannot tell which bounded behavior is contractual. | State whether correlation and operation identity are the same. Align recognized duplicate, mismatched-content and expired-evidence behavior across storage and wire contracts; retain no blind replay and no global exactly-once claim.
+F2 | Medium / unresolved security-contract ownership | 12, Recommended authority model and Boundary controls/Discovery; 13, Decisions, tradeoffs and evidence | 12 explicitly assigns secure bootstrap delivery/request binding to 13; 13 supplies no such responsibility or handshake outline and returns identity/origin/browser-channel decisions to unspecified designated owners. Trusted issuer, actor separation and instance invalidation are clear, but the browser credential handoff remains unclosed. | Name the responsible contract/card and dependency, or supply a bounded launcher-to-intended-host/session binding sequence here. Cover instance proof before secret disclosure, single-use exchange and session request binding; encoding/cookie APIs may remain deferred.
+
+Decisions and qualification limits
+Recommend preserving the common transaction/ownership model while correcting F1-F2.
+JSON versus database/export and shared-host versus per-board isolation are coherent
+alternatives, not contradictions; this review selects none. Credential expiry,
+revocation and host replacement responsibilities otherwise agree with fresh
+admission checks and event-channel invalidation.
+
+Retention/reconciliation horizons, numerical limits, validator/toolchain selection,
+platform exclusion/flush primitives and residual-child mechanisms remain explicit
+specification or qualification work. Logical read-back is not power-loss survival;
+no runtime guarantee or TS7 generator compatibility is established. Error schemas,
+activity and diagnostics consistently exclude prose, credentials and arbitrary paths.
+Terry retains proposal acceptance and any outstanding durability/retention choices;
+F1-F2 require bounded design correction, not a new owner decision or Needs Terry.
+
+Checks and handoff
+Architecture review only; no legacy implementation/tests/internal documents,
+private boards, source audit, fixes, code, repository, install or live changes.
+Only this report was written, as UTF-8/LF with a final newline. Primary verification
+and handoff remain separate. Finished review belongs in RFR; Terry alone Completed.

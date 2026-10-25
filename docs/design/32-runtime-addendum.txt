@@ -1,0 +1,117 @@
+LOCALSWIM REBOOT - RUNTIME CONTRACT ADDENDUM (#0032)
+2026-10-25 | Author: sol_high_0032_runtime_addendum
+Proposed companion to unchanged designs10-13; fresh review0033 is separate.
+
+Authority and correction map
+Owner decisions r5 and accepted designs05-08/30 govern. Go+TypeScript7.x,
+public MIT and private runtime data remain fixed. This recommendation resolves
+review14 F1-F2; it authorizes no implementation, installation or live change.
+
+Finding | Companion wording / responsibility
+F1 | Replaces conflicting duplicate wording in 10 Transaction/Recovery and 13 sequence3. Go admission, persistence and wire adapters share the outcome contract below.
+F2 | Completes 12 bootstrap/Discovery and 13 deferred browser-channel ownership. Trusted control plane owns issuance/lifecycle; launcher owns intended-instance selection/delivery; Go HTTP adapter owns exchange/request binding; browser owns presentation. This addendum supplies their contract.
+
+F1 - bounded operation recognition
+Operation identity and command correlation are the same opaque identifier, scoped
+to stable principal and aggregate identity, independent of transport/session/host
+generation. Diagnostic request IDs are separate. A deterministic fingerprint covers
+command/version, target, payload/byte digests and every expected revision/evidence
+precondition. Changing these requires deliberate new intent and a new identity.
+
+Authenticate and authorize outcome disclosure first. Serialize matching in-flight
+identities; never create concurrent candidates. A retained committed match returns
+its recorded committed revision/outcome without re-execution or applying today's
+revision fence to that historical command. Current rights still govern disclosure.
+A fingerprint mismatch is identity-conflict, with no mutation or successful-change
+audit. Retained definitive noncommit evidence returns not-committed, without retrying.
+Pending/uncertain evidence returns indeterminate and invokes10's recovery fence.
+
+Only an explicit first submission admits a new identity. Retry/reconciliation mode
+never converts missing evidence into first submission: absent, expired or damaged
+evidence returns indeterminate, even within an advertised horizon. Clients preserve
+drafts and reconcile; an explicit new intent may duplicate an unresolved effect and
+must expose that uncertainty. No automatic new identity, replay or global exactly-once
+guarantee follows. Deliberate first-submission misuse is outside duplicate recognition.
+
+Persistence co-commits committed fingerprint/outcome with state/audit and preserves
+lookup across restart. Publish the guaranteed retention horizon and earliest retained
+evidence boundary; retain unresolved recovery evidence until reconciled. Pruning must
+never manufacture not-committed. Numeric horizons remain specification work, not an
+unbounded deduplication or power-loss durability promise. Wire responses distinguish
+committed, proven-not-committed, indeterminate and identity-conflict consistently.
+
+F2 - concrete local bootstrap recommendation
+Use TLS1.3 and a trusted local certificate issuer, without remote identity service.
+This is a new proposed deployment precondition, not an accepted stack requirement.
+Limit trust to the intended account/browser profile, never automatic machine-wide
+installation; restrict issuer signing to its generated loopback names.
+Trust provisioning in each supported browser is a prerequisite, never certificate
+warning bypass. Issuer keys/control IPC require OS account protection. The launcher
+selects the configured root and captured host, not a descriptor's unverified endpoint.
+Each instance receives a fresh key and exact, never-reused i-<random>.localhost name;
+no wildcard or shared host key. Qualify loopback resolution/browser trust support
+[S1-S3]; unsupported configurations refuse browser login.
+
+One bounded sequence (all secret-bearing network traffic uses verified TLS):
+
+ Control plane/launcher       Captured Go host                  Browser
+   -- private inherited IPC: root, generation, nonce ---------->
+   <-- key + signed nonce; verify captured-channel association --
+   -- certificate for unique name; activate generation -------->
+   -- TLS challenge: verify chain/name AND expected key -------->
+   -- register one-use grant through this proven channel ------->
+   -- open exact HTTPS URL (no secret); show private grant ------> user
+                                  <-- anonymous bootstrap GET ---
+                                  -- inert login + pending nonce ->
+ user enters grant only at launcher-opened, TLS-verified page --->
+                                  <-- exchange(grant,nonce) POST --
+                                  -- atomic consume; new session ->
+                                  <-- bound authorized requests --
+
+The control plane binds each unpredictable, expiring grant to principal, instance,
+exact origin, board/operation scope and one exchange. It grants no read/command
+authority before exchange. Go binds consumption to the pending browser nonce,
+rechecks active generation/expiry, and creates a fresh opaque session with those
+rights. Browser gets an HttpOnly, Secure, SameSite=Strict, host-only cookie (Path=/)
+and a separate session-bound request token in memory [S4]. No credentials enter
+URLs, command arguments, bundles, persistent web storage, discovery or logs.
+Exchange itself requires exact Origin and same-origin request metadata.
+
+Anonymous access permits only bounded public assets/login/health metadata, never
+board/workspace reads, outcome lookup or events. All protected browser requests,
+including reads and fetch-stream events, require cookie plus the session-bound
+custom header; exact approved Origin when supplied and same-origin Fetch Metadata
+are mandatory [S5]. Reject null/foreign origins, foreign Host/authority and unsupported
+browser metadata; no CORS grants. Initial public navigation is the explicit
+missing-Origin exception. Browser-generated protected requests without Origin need
+the header and same-origin metadata; absence alone grants nothing. CLI/workers use
+distinct authenticated channels, credentials and actor grants; neither labels nor
+opening a browser confer human acceptance. The trusted human launcher alone issues
+human grants; automation cannot invoke that issuance capability.
+
+Failure, replacement and limits
+Wrong key/name/root, trust failure or expired/consumed grant refuses disclosure or
+exchange. Lost exchange responses require fresh launcher issuance, never grant reuse.
+Revocation invalidates grants/sessions and closes streams; adapter checks current
+authority and its bounded issuer lease at admission, failing closed after lease loss.
+Issuer reports revocation pending until host acknowledgement or lease expiry;
+replacement waits for that boundary and11's quiescence before activating new grants,
+using a new hostname/key/session store. Certificate expiry is separate; immediate
+browser certificate revocation is not promised. Reauthentication never replays commands.
+
+Trust-store/IPC APIs, lease/expiry budgets and browser qualification remain engineering
+choices. Trusting a local issuer expands account trust; its compromise, trusted-page
+script compromise, malicious extensions, credential transfer mistakes and same-account
+malware defeat these protections. This proves authorized session possession and TLS
+service identity, not a person, hostile-account isolation or tamper-proof attribution.
+
+Evidence and author checks
+[S1] https://www.rfc-editor.org/rfc/rfc8446.html (TLS1.3 certificate proof).
+[S2] https://www.rfc-editor.org/rfc/rfc9525.html (service-name verification).
+[S3] https://www.rfc-editor.org/rfc/rfc6761.html section6.3 (localhost names).
+[S4] https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie
+(cookie attributes; consulted2026-10-25).
+[S5] https://www.w3.org/TR/2026/WD-fetch-metadata-20260921/
+(browser request-context headers; Working Draft, qualification required).
+Documentary consistency/encoding checks
+only; no runtime tests or guarantees. Original10-13 unchanged. Terry alone Completed.

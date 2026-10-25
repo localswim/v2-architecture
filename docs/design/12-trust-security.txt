@@ -1,0 +1,108 @@
+LOCALSWIM REBOOT - LOCAL TRUST AND SECURITY (#0012)
+2026-10-25 | Author: sol_high_0012_trust_security
+Architecture recommendation for fresh independent #0014 review; no implementation.
+
+Authority and trust assumptions
+Owner decisions r5 accepts #0009 and #0031, releasing this card. Go owns the
+core/service/CLI/workers; TypeScript 7.x owns browser presentation. Public MIT FOSS
+does not make board data, credentials or runtime records public. The separate
+language comparison changes none of this authority.
+
+Assume one trusted desktop account, loopback-only listeners and directly attached
+storage. The OS, launcher and installed executables are trusted. Hostile websites,
+uncredentialed local callers and malformed imported files are in scope. A process
+controlling that account can read credentials or replace executable/state bytes;
+this design provides no hostile-account, administrator or malware isolation.
+Loopback location, filesystem possession and actor labels alone prove no authority.
+All protections below are recommendations requiring implementation qualification.
+
+Trust-boundary diagram (arrows cross validation boundaries)
+
+  trusted account / launcher ---- protected runtime control ----+
+                                                              v
+  hostile web --> [TypeScript browser] -- session + origin --> [Go host]
+  human/automation --> [Go CLI] -- distinct credential --------> | adapters
+  untrusted descriptors/files/attachments --------------------> | validation
+                                                               v
+                                                [Go policy + board admission]
+                                                               |
+                                           scoped stores / sanitized activity
+                                                               |
+                                                [bounded worker subprocesses]
+                                                               |
+                                                   optional Git/network boundary
+
+Recommended authority model
+Issue unpredictable, revocable capabilities from the trusted local control plane,
+bound to principal, host instance, allowed boards/operations and expiry. A workspace
+listing grants no board access. Human browser sessions and automation credentials
+are distinct; browser presence does not prove human identity. Bind human sessions
+through the trusted launcher; never infer actor class from a request field.
+Automation cannot mint human acceptance authority, even by invoking the human CLI.
+Default grants deny policy administration, acceptance and publication unless
+explicitly assigned. Workers receive only their owned scopes and required rights.
+
+Use short-lived, single-use browser bootstrap material exchanged for an opaque
+session. Keep bootstrap and reusable credentials out of URLs, browser bundles,
+localStorage, command arguments, logs and public files. Prefer an HttpOnly,
+SameSite session cookie plus session-bound mutation protection; specify secure
+bootstrap delivery and request binding in #0013 before implementation depends on
+them. CLI/worker credentials use protected runtime storage or inherited private
+channels, not descriptor discovery. This needs no remote identity service.
+
+Rotate on explicit revocation, expiry, suspected disclosure and host replacement;
+invalidate old instance credentials and sessions, including open event channels.
+Reauthentication never silently replays a mutation. Grant/policy changes fence
+in-flight admission against current authority; revocation cannot undo committed work.
+
+Boundary controls
+Surface | Required architectural constraint
+Browser/HTTP | Bind only configured loopback addresses; validate exact Host/authority and approved browser Origin, including event channels. Reject unknown/null origins; no wildcard/reflected CORS. Reads need authority too. Origin is supplementary, never identity.
+CLI/workers | An absent Origin grants nothing; use an explicit authenticated non-browser channel. Go evaluates principal, scope, operation and current policy for every command, including stopped-board maintenance.
+Discovery | Descriptors contain endpoint/instance metadata, never bearer secrets. Validate owner/access, bounded syntax, expected root and freshness; pin the intended instance and require its proof before sending reusable secrets. Reject mismatch; no alternate-host fallback.
+Files/bytes | Parse bounded inert data; validate versions, references and policy before admission. Resolve paths under configured roots using platform-aware containment and race-resistant access. Treat imported actor/audit labels as unverified claims.
+
+Bounded threat model
+ID / threat | Mitigation | Residual risk and owner
+T1 Cross-site loopback requests, rebinding or forged Host | Exact host/origin checks, authenticated reads/writes, session request binding; refuse before mutation | Browser/transport owner qualifies supported browsers; local malware excluded.
+T2 Actor spoofing or privilege escalation | Trusted credential-to-principal binding; Go least-authority policy and revision checks | Policy administrator owns grants; stolen credentials exercise their remaining rights.
+T3 Credential theft/replay | Private delivery/storage, expiry/revocation, instance binding and no secret diagnostics | Runtime owner handles disclosure; same-account compromise remains outside isolation.
+T4 Spoofed/stale descriptor or wrong host | Validate private discovery and authenticate expected instance; fail closed on mismatch | Lifecycle/interface owners qualify restart and stale-discovery cases.
+T5 Cross-board or workspace authority confusion | Authorize each resolved stable board/resource identity; no implicit workspace grant | Domain owner qualifies aliases and inaccessible-board cases.
+T6 Malformed state or externally edited rights/history | Quarantine and bounded validation; do not trust file-supplied attribution or automatically grant changed rights | Admission/persistence owners define authorized reconciliation; local writer can rewrite evidence.
+T7 Attachment script/content or deceptive filename | Opaque byte identifiers, inert download handling, separate safe previews; escape displayed names/prose | Attachment/browser owners qualify content handling; opening externally retains user/application risk.
+T8 Traversal, link/reparse escape or path race | Containment for reads/writes/temp/export paths; reject unsafe indirection; recheck at use | Storage/attachment owners qualify Windows/Linux semantics; string-prefix checks are insufficient.
+T9 Subprocess/option injection or credential inheritance | Fixed executables, argument vectors, validated operands, constrained environment/working directory; no content-built shell | Worker owner limits approved Git/network scope and inherited handles; trusted binaries remain assumed.
+T10 Audit tampering or diagnostic leakage | Co-commit attribution metadata; separate sanitized refusals; allowlisted diagnostic fields | Audit/observability owners: no cryptographic authorship, full replay or tamper-proof promise.
+T11 Oversized input or shared-host exhaustion | Bound parsing, queues, transfers, workers and diagnostic rates; visible refusal | Host owner qualifies fairness; shared process failure can affect multiple boards.
+
+Qualification, tradeoffs and remaining choices
+Carry foundation review #0004 O2 explicitly: synthetic unknown/underprivileged
+actors, spoofed human labels, hostile/missing/null browser origins, wrong hosts,
+expired/revoked credentials and cross-board attempts must produce zero domain
+state/audit mutation, safe refusal and sanitized diagnostics. Cover CLI, browser,
+event channels and maintenance; rejected attempts create no successful-change
+history. Verify authorized controls separately. This note runs no runtime tests.
+
+Local audit records establish which verified principal the host associated with a
+committed operation and revision. They cannot prove the person at the keyboard,
+off-board review, uncompromised credentials or integrity against a local rewriter.
+Diagnostics expose stable category/correlation and safe remediation, never card
+prose, tokens, attachment payloads or arbitrary local paths.
+
+Capabilities keep desktop operation simple but require lifecycle discipline;
+OS-integrated identity is an alternative with platform coupling. A shared secret
+for all clients is simpler but loses actor separation and selective revocation;
+reject it. Remote hosting/identity services require a separate trust design.
+Exact bootstrap, credential encoding, permission vocabulary and containment APIs
+remain designated contract choices, not extra owner-approval gates. No missing
+owner input prevents this recommendation; only review/approval remains at handoff.
+
+Evidence and checks
+Inputs: cards-r2/0012; owner-decisions r5; accepted designs 05,06,08 with 30;
+reviews 09/31; evidence method 02; quality 03; foundation review 04 O2.
+Disclosed-provenance fresh reasoning, not independently isolated clean-room proof.
+Checked bounded scope, assumptions/protections, threat ownership and prose cap;
+UTF-8/LF with final newline. No legacy source/tests/internal documents, private
+boards, peer drafts, installs or live operations used. Fresh #0014 validation,
+primary verification and Terry acceptance remain separate; Terry alone Completed.

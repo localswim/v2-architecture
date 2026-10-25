@@ -1,0 +1,106 @@
+LOCALSWIM REBOOT - PERSISTENCE AND RECOVERY (#0010)
+2026-10-25 | Author: sol_high_0010_persistence_recovery
+Architecture recommendation for independent #0014 review.
+
+Authority and boundary
+Owner decisions r5 records Terry's acceptance of #0001-#0009/#0030/#0031.
+Read #0005-#0008 with #0030's responsibility corrections. Go core/service/CLI/
+background tools, TypeScript 7.x browser, public MIT repositories and UTF-8/LF
+remain fixed. Actual board data and recovery material stay private.
+
+Recommend canonical deterministic JSON containing one board's state, audit batch
+and committed operation correlation in one replacement unit. This implements
+#0008's accepted recommendation without changing direct JSON/Git reviewability.
+Workspace preferences have a separate unit; no cross-board transaction is promised.
+Git commits/pushes are publication, never the local storage commit boundary.
+
+Transaction sequence
+1. Under exclusive storage ownership, parse/authenticate the request. Bind its
+   operation identity to actor, board and command fingerprint; a reused identity
+   with different content is rejected. A recognized committed operation returns
+   its recorded outcome without re-executing it.
+2. Prepare an isolated candidate and audit effects. Stage attachment bytes;
+   verify completeness, content identity and availability. Validate authorization,
+   references, format and evidence. Serialize board commit admission; recheck
+   expected revision, rights and evidence validity immediately before commitment.
+   A stale revision rejects the entire candidate.
+3. Write a complete same-directory candidate JSON; validate its bytes. Flush and
+   close candidate and new attachment files using the qualified platform contract.
+   Retain the previous valid JSON as recovery material. Persist a recovery intent
+   identifying operation, base/candidate revisions and content digests before
+   attempting replacement. Intent and staging are private, non-authoritative.
+4. Replace the canonical JSON using a qualified same-filesystem primitive. This
+   is the logical commit point: state, audit and operation outcome appear together.
+   Complete required namespace synchronization and read-back validation before
+   success acknowledgement. An uncertain result fences further writes.
+5. Publish only the verified committed revision to in-memory readers and derived
+   views; signal its revision to clients and authorized background workers.
+   Publication/notification failure cannot undo commitment. Return committed
+   revision and separate Git progress. Cleanup follows; its failure is maintenance
+   debt, not permission to replay the mutation.
+
+  prepare -> validate -> revision fence -> replace attempt
+                                              |
+                             classify verified canonical state
+                               /             |              \
+                         base remains    candidate        other/missing
+                         uncommitted     committed          unknown
+                              stop     publish/respond   fence/quarantine
+                                        Git separately
+
+Outcomes and recovery
+Outcome / failure | Meaning and responsibility
+Definite rejection: invalid/unauthorized/stale | No candidate committed; return refusal/conflict without successful-change audit. Go admission owns this decision.
+Definitely uncommitted: disk-full/staging/intent failure before replacement | Canonical base remains verified. Fail whole mutation; preserve uncertain staging for later cleanup. Adapter must prove replacement was not attempted.
+Committed: canonical candidate verified | State, audit and operation match. Lost response or notification leaves client uncertainty; reconcile by operation/revision, never submit a new identity automatically.
+Unknown: interrupted/erroring replacement, synchronization or unreadable result | Error alone proves neither rollback nor commitment. Fence board writes; recovery validates canonical bytes against intent. Matching candidate proves committed; matching base proves uncommitted; missing/other/invalid bytes remain unknown and quarantined.
+Cleanup failure after committed result | Keep committed outcome; retry bounded cleanup separately. Never delete bytes still referenced or needed for unresolved recovery.
+Malformed/unsupported saved state | Preserve original bytes and diagnostics; cold start quarantines board. Warm readers may retain last admitted revision labeled stale/unhealthy; writes remain disabled.
+
+Recovery contract
+Startup acquires ownership before inspecting canonical state, intent and retained
+material. Validate format, references, state/audit revision agreement, operation
+correlation and referenced byte availability before admission. A prepared candidate
+is never promoted merely because it exists. Discard neither ambiguous intent nor
+orphan bytes automatically. If neither outcome is provable, require an explicit
+validated restore/reconciliation operation preserving rejected evidence; never
+invent an empty board or silently select a backup. Healthy boards remain available.
+
+Committed operation lookup must survive restart. Define a documented retention/
+reconciliation horizon before implementation; absent correlation outside that
+horizon means unknown, not uncommitted. Clients retain drafts until resolution.
+Audit metadata supports outcome identification, not full content reconstruction.
+
+Attachment deletion first commits reference removal. Physical deletion waits for
+explicit retention policy and exclusion of current, retained and unresolved
+revisions. Available bytes without references are tolerable orphans; references to
+incomplete bytes are forbidden. External deletion/corruption quarantines affected
+state; it cannot be repaired by a successful JSON parse.
+
+Assumptions, alternative and qualification
+Assume one cooperating writer, directly attached local storage and no unsupported
+external edits. External JSON changes require validated admission, never automatic
+trust. Network/cloud-synchronized stores and hostile local writers are outside
+this recommendation.
+
+Transactional database plus JSON export is the sole alternative: easier co-commit
+and bounded updates, but lagging exports lose direct canonical Git diffs. Adoption
+requires an explicit storage-contract change; it is not a hidden fallback.
+
+Process-crash recovery and power-loss survival require separate qualification.
+File flushes, replacement and namespace persistence have platform/filesystem/
+hardware limits; no universal atomicity or acknowledged-save power-loss guarantee
+is established here. Read-back proves a local logical outcome, not power-loss
+survival. Qualify selected Windows/Linux combinations through synthetic
+faults at every boundary, disk-full, reopen, corrupt-state, attachment and lost-
+response cases before claiming #0003's process-crash targets. Terry selects any
+hardware-loss budget, backup retention and recovery objectives; review-only choices
+belong in RFR, not Needs Terry.
+
+Evidence and checks
+Inputs: owner-decisions-2026-10-25-r5.txt; design/02,03,05,08,30;
+reviews/04,09,31; cards-r2/0010; v2-architecture/AGENTS.md.
+Documentary checks only: sequence, outcome distinctions, failure coverage and
+scope. No legacy source/tests/internal documents, private boards, peer drafts,
+implementation or runtime validation. Fresh #0014 review and primary verification
+remain separate; Terry alone controls Completed.
