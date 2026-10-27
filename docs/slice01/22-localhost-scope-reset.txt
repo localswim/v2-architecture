@@ -1,0 +1,153 @@
+SLICE01 - V1 PRODUCT, GO/TYPESCRIPT ARCHITECTURE
+2026-10-27 | Owner-directed scope reset | Documentation, not an implemented release
+
+Current authority
+The owner directed the remaining spike back to V1's product scope, using Go,
+TypeScript and SQLite. Browser UI AND CLI connect to the same loopback-only HTTP
+service. Network exposure and TLS are future work outside V2. The owner explicitly
+selected V1's local browser connection rather than a port-free desktop wrapper.
+The name means "localhost swimlanes": localhost is the V2 product boundary,
+including the CLI, and not an optional network-deployment setting.
+
+This reset supersedes the TLS, issuer, enrollment, login-code, native delegation
+and manually qualified-browser requirements in 05/07/18, the old 09 task map and
+their implementation bindings wherever they conflict with this document. Other
+accepted data/domain rules remain. Historical decisions, Completed cards, failed
+attempts and component evidence remain preserved, with their original limits.
+The companion 22-localhost-task-map.json is the current remaining-task overlay.
+
+Product baseline and boundaries
+- Build the same local board tool for one human and cooperative automation under
+  a trusted desktop account. Go owns rules and writes; TypeScript owns the UI.
+  One Go executable serves embedded assets/API and its CLI calls that local API.
+- Spike 01 remains the existing one-board vertical slice: view/create/edit/comment,
+  lanes, assignment, priority, relationships, explicit human approval, useful
+  history/draft/reload recovery, one attachment, readable export and a local
+  consistent backup/restored-copy check.
+- V1's workspace/Attention UI, board discovery/pins, broader card/search/hierarchy
+  and archive/unarchive UX, attachment/cover UX, monitor/alerts, live code update
+  convenience and optional publishing remain V2 parity backlog, not deleted
+  requirements or new Spike 01 work. JSON-to-SQLite import/cutover also needs its
+  own scope before touching V1 data. This spike does not claim complete V1 parity.
+- V1 is the product baseline, not a requirement to reproduce every old internal
+  mechanism. Existing explicit owner decisions, including P3 default, lane meaning
+  and preserving assigned priority while showing dependency pressure, still apply.
+- No enterprise accounts, remote users, LAN/public listener, TLS/PKI, desktop UI
+  framework, remote backup, new workflow engine or distributed administration.
+- Advanced retention administration, inherited source-outcome archives and a full
+  recovery/authority-transfer protocol are outside the remaining spike. Preserve
+  their existing code/evidence as legacy components, not mandatory product work.
+  Do not add automatic history/outcome pruning to the normal local path merely
+  because the legacy schema contains retention settings.
+
+Normal operation
+Start the local service for an explicit board/data directory. Open its printed
+http://127.0.0.1:PORT/ address. Run the CLI against the same board/service. First
+run creates the private local metadata, SQLite board and configured human/bot
+identities automatically; later starts reopen them without replacing identity or
+data. No certificate installation, account enrollment, login-code copying, fixture
+delegation or privileged shell is part of ordinary startup/use/testing.
+
+Bind only the numeric IPv4 loopback address and one stable configured port. Refuse
+wildcard/LAN addresses, unknown Host values and unsafe remote-target CLI options.
+Do not add a TLS switch, reverse-proxy mode or IPv6 listener in this spike. The CLI
+finds the local endpoint through private service metadata for the selected board;
+it verifies installation/board/incarnation before writing and does not write SQL
+directly while the service owns the board. Unavailable service is an honest error,
+not a mutation fallback or automatic replay. Port/config changes are deliberate.
+
+Small local authority boundary
+- Persist the configured human and automation identities and their policy in
+  SQLite. Server admission resolves actor/rights for every operation inside the
+  serialized write transaction; request fields, assignment and UI flags cannot
+  choose human authority. Keep the existing grant/domain model internally where
+  useful, without exposing general grant administration in the V2 workflow.
+- Browser startup automatically establishes its configured human session from the
+  exact local UI origin. Use an installation-namespaced host-only HttpOnly,
+  SameSite=Strict session cookie, Path=/, no Domain, and no Secure flag on HTTP.
+  Require an exact Origin and non-simple request header on browser mutations;
+  no CORS grants. A normal page load obtains the session without a login screen.
+- The CLI automatically obtains an automation-only capability from ordinary
+  account-private service metadata. Never include a human/owner capability there.
+  No --actor human, approve/admin grant minting, or browser-session exchange exists
+  in the CLI. Keep secrets out of URLs, logs, exports, drafts and machine output.
+- Bind capabilities to the current service instance, installation, board,
+  incarnation and actor. Restart rotates ephemeral credentials; page/CLI reconnect
+  can recover their normal channels automatically, but never resubmit a mutation.
+  Reject mixed or malformed authentication instead of falling back to another
+  channel. Expired/unavailable credentials give a clear reconnect result.
+- Human approval remains an explicit UI action on current revisions. Automation
+  can hand off but cannot approve, create human/admin authority or move a card to
+  Completed through any write route, CLI flag, batch or alternate command. Data
+  edits continue to invalidate stale approval as required by the domain rules.
+- Preserve basic Host/Origin/content-type checks, text-safe rendering, bounded
+  inputs, OS-private metadata and revision checks. These are small local-app
+  protections, not a hostile-same-account isolation or proof-of-human-review claim.
+
+Durability and recovery retained
+SQLite remains authoritative. Reuse database/sql plus the frozen SQLite binding;
+retain foreign keys, rollback journal, FULL synchronization, transaction-scoped
+rights/revision checks, lifetime writer ownership and atomic history/outcome/BLOB
+writes. Acknowledged saves follow the existing commit contract. Do not weaken
+SQLite settings or replace its guarantees with Python-style file bookkeeping.
+
+Retain immutable operation identity and original outcome lookup, visible conflicts,
+recoverable input and no automatic mutation replay after timeout/restart. Missing
+evidence stays UNKNOWN. Keep useful browser private-recovery code already built;
+perform its IndexedDB write/completion/readback check automatically in the normal
+product composition. No manually approved profile or special manifest enables
+normal editing. If required recovery storage cannot persist a submission, retain
+editable input and show the specific limitation before dispatch; do not claim a
+safe save or manufacture a positive qualification flag. Actual power-loss proof,
+exact Chrome sandbox-ACE inventories and hostile account isolation are not release
+gates. Exercise the real browser and ordinary OS-private files instead.
+
+Keep readable board export and one consistent local backup/restored-copy journey
+with exact attachment bytes and no overwrite of an existing board. A restored
+copy has a fresh runtime identity; it cannot settle an original request's UNKNOWN
+outcome or import authority. No full source-ledger transfer or retention-expiry
+matrix is required. Retain the existing storage safe-refusal policy for interrupted
+journals; this reset does not authorize automatic repair or reinterpret earlier
+V01 evidence. Local bootstrap supplies the restored copy's configured identities
+automatically rather than importing credentials or requesting terminal enrollment.
+
+Implementation and evidence disposition
+- L02 implements local startup, HTTP/authority/CLI/browser composition. Remove
+  TLS-only wiring from the normal command path and update HTTPS-only context
+  validators/generated bindings needed by that path. Prefer ephemeral local
+  capabilities over writing HTTP origins into the old TLS CLI-credential table.
+  If a physical schema change is actually needed, document/version/test it;
+  never silently migrate old private fixtures or change data semantics.
+- Existing cryptographic providers may remain as unused, clearly labeled legacy
+  code initially. No rewrite of stable transaction/domain packages just to delete
+  history. No native trust/provider suite may require host enrollment in CI.
+- V02 replaces its old security-ceremony matrix with actual HTTP UI/CLI behavior,
+  bot refusal/human approval, auto-start/reconnect, drafts/conflicts/UNKNOWN/no
+  replay, keyboard/IME, storage failure and attachment basics. Reuse useful cases;
+  remove issuer/login/delegation/profile-manifest requirements, not their failures.
+- V03 narrows to readable export and consistent local backup/restored-copy tests
+  with local bootstrap. V04 wires complete native/browser dispatch and clean
+  builds after production changes. Old Q04 hashes remain historical, not evidence
+  for the new executable. R01 independently reviews the final changed path.
+- Each required case runs or reports failure; zero/skipped required cases cannot
+  pass. Retain meaningful native concurrency/failure tests, actual browser/CLI
+  interoperability and independent review. Do not grow this into a certification
+  project or convert documentary review into runtime evidence.
+
+Old fixture cleanup
+Retire the prepared TLS/delegation fixture; do not ask the owner to delegate it.
+Stop only owned running test processes gracefully if any exist. Remove the exact
+previously installed test issuer through the already-reviewed owner removal path;
+never remove unrelated certificates. This is one-time cleanup of earlier tests,
+not a dependency of L02/V02 implementation. Keep the exact scope/fingerprint and
+manual removal instructions private. Preserve original evidence and test stores.
+No trust/grant action or production implementation is performed by this reset.
+
+Verification basis
+V1 baseline: public localswim README, especially Daily use, Transition permissions,
+Multiple boards and Attachments; read as product evidence,
+not copied source/tests. Known differences and deferred parity are explicit above.
+W3C Secure Contexts 3.1 treats numeric loopback origins as potentially trustworthy;
+that supports testing ordinary local browser storage without a CA, but does not
+establish this product's browser behavior or physical durability:
+https://www.w3.org/TR/secure-contexts/#is-origin-trustworthy

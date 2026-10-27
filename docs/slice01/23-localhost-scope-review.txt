@@ -1,0 +1,68 @@
+SLICE01 - INDEPENDENT LOCALHOST SCOPE REVIEW
+2026-10-27 | Fresh independent review | PASS
+
+Outcome
+PASS. No mandatory correction remains in the localhost scope reset, remaining-task
+overlay and corresponding proposed work sequence. This is a documentary scope and
+readiness review. It does not establish an implemented runtime, passing browser
+journey, qualified backup, current build or physical durability.
+
+Reviewed scope
+- 22-localhost-scope-reset.txt and 22-localhost-task-map.json, architecture README,
+  and the implementation README and localhost scope decision.
+- Accepted one-board acceptance outcomes and relevant existing Go/browser seams.
+- V1 public README product behavior only; no V1 source or tests were copied.
+- Proposed dependency/lane reconciliation and remaining three-turn sequence.
+
+Findings
+- The product name means localhost swimlanes. Browser AND CLI use the same numeric
+  IPv4 loopback HTTP service. LAN/public listeners and TLS are outside V2.
+  Enrollment, issuer installation, login codes, fixture delegation and manually
+  qualified browser profiles are removed from the ordinary product workflow.
+- Server admission still resolves identity and current rights for every write
+  inside the serialized transaction. Browser startup establishes its local human
+  cookie; ordinary CLI metadata supplies only automation authority. Supported CLI
+  operations cannot promote to human/admin authority, approve or reach Completed.
+  Cross-route refusals and explicit current-revision UI approval require real tests.
+  This remains cooperative automation under a trusted desktop account, without a
+  hostile same-account isolation or proof-of-human-review claim.
+- SQLite ownership, foreign keys, rollback journal, FULL synchronization and atomic
+  domain/history/outcome/attachment writes remain. Immutable original operation
+  identity, visible conflicts, UNKNOWN and no automatic replay survive restart.
+  Reconnect supplies credentials, not permission to repeat submitted mutations.
+- Normal browser composition must perform actual IndexedDB write/completion and
+  fresh readback. A manually asserted qualification flag is insufficient. Required
+  recovery failure retains input and reports its limitation before dispatch.
+- Advanced retention administration, automatic pruning inferred from old schema
+  settings, source-ledger transfer and full recovery authority-transfer matrices
+  are outside the remaining spike. One consistent local backup/restored-copy
+  journey retains exact attachment bytes, separate runtime identity and source
+  uncertainty. Preserved legacy component code does not revive excluded scope.
+- The spike does not claim full V1 parity. Workspace/Attention/discovery/pins,
+  broader card/search/hierarchy/archive and attachment/cover interactions,
+  monitor/alerts/publishing, local update convenience and explicit V1 import/cutover
+  remain visible future scope under the current owner workflow policies.
+- L02 owns the bounded HTTP/runtime/authentication/browser composition changes,
+  including incompatible old validators and normal-route deactivation. V02 and
+  V03 follow accepted L02; V03 retains V01. V04 retains transaction, browser,
+  archive and script prerequisites; R01 follows the changed product and evidence.
+  The proposed order has no new dependency cycle and assumes no same-turn owner
+  acceptance. Ready for Work retains dependencies; In Progress and acceptance
+  gates still apply. Historical Completed work and qualification limits remain.
+- Exact legacy test-issuer cleanup is a separate owner action and cannot block
+  local implementation. Its exact operational instructions remain private.
+
+Verification and limits
+The reviewed source files use UTF-8 without BOM, LF and a final newline; JSON
+parses and frozen source hashes match. Relevant current providers were examined
+to identify required composition changes, rather than treating existing HTTPS
+behavior as already converted. Earlier build and partial browser evidence apply
+only to their recorded source and conditions.
+
+Numeric loopback is potentially trustworthy under W3C Secure Contexts section 3.1;
+that rationale does not prove product storage behavior or power-loss safety:
+https://www.w3.org/TR/secure-contexts/#is-origin-trustworthy
+
+No runtime, browser journey, service, trust/grant or owner action was executed by
+this review. Implementation, fresh independent runtime reviews, required tests and
+owner-controlled acceptance remain necessary before the changed product is ready.

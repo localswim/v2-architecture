@@ -2,6 +2,14 @@
 
 High-level architecture and decision records for the Go + TypeScript 7.x clean-room reboot of localswim.
 
+The **2026-10-27 [localhost scope reset](docs/slice01/22-localhost-scope-reset.txt)**
+is the current direction: V1's local product on Go/TypeScript and SQLite, with
+both browser UI and CLI using loopback-only HTTP. LAN access, TLS and certificate,
+enrollment or delegation ceremonies are outside V2. SQLite durability and human/bot
+approval boundaries remain. The [remaining-task overlay](docs/slice01/22-localhost-task-map.json)
+supersedes conflicting transport and qualification requirements below. This is
+an owner-directed scope change to implement; historical packets remain preserved.
+
 Start with the [fresh-choice decision agenda](docs/reconsideration/44-decision-agenda.txt)
 and [current owner direction](docs/decisions/fresh-choice-reassessment-2026-10-25.txt).
 Terry reopened every earlier product and technical choice, including the candidate

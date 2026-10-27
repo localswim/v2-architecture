@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "status": "OWNER_DIRECTED_RESCOPE_NOT_IMPLEMENTED",
+  "authorityDate": "2026-10-27",
+  "scope": "V1 product baseline with Go, TypeScript and SQLite; browser and CLI share loopback-only HTTP; no LAN or TLS in V2",
+  "productBoundary": "localswim means localhost swimlanes; loopback-only browser and CLI are V2 acceptance requirements",
+  "supersedes": "Conflicting remaining-task transport, enrollment and qualification requirements in 09-task-proposals.json; historical completed evidence remains unchanged",
+  "contract": "22-localhost-scope-reset.txt",
+  "tasks": [
+    {
+      "id": "L01",
+      "outcome": "Publish and independently review the localhost scope reset and updated remaining work",
+      "ownership": ["docs/slice01/22-localhost-*", "architecture README", "implementation scope-reset decision and README", "private board plan"],
+      "dependencies": [],
+      "acceptance": ["Owner direction reflected without enterprise scope", "Durability and human/bot admission preserved", "Executable scopes, evidence limits, parity backlog and cleanup recorded"],
+      "runtimeEvidence": false
+    },
+    {
+      "id": "L02",
+      "outcome": "Deliver the ordinary loopback HTTP Go service, automatic local human/bot channels, browser bootstrap and CLI connection",
+      "ownership": ["cmd/localswim", "internal/transport/local", "local runtime/source and authentication adapters", "existing HTTPS-only validators and generated context bindings needed by this path", "web/src/api", "web/src/session-ui", "web/src/recovery trusted composition", "embedded asset staging", "local runtime documentation and tests"],
+      "dependencies": ["L01"],
+      "acceptance": ["Fresh start opens synthetic board without trust, login code, delegation or manual profile qualification", "Browser and CLI use same 127.0.0.1 HTTP service and SQLite authority", "Restart reopens same data and identities; credentials reconnect without replay", "Server-resolved automation cannot approve, mint human/admin authority or reach Completed by any route", "Host/Origin/basic local credential protections and old-path deactivation tested", "Schema changes only if necessary, versioned and tested; no implicit fixture migration"],
+      "requiresFreshIndependentReview": true
+    },
+    {
+      "id": "V02",
+      "outcome": "Qualify the actual local browser plus CLI product journey",
+      "ownership": ["qualification/browser", "local CLI interoperability fixtures"],
+      "dependencies": ["L02"],
+      "acceptance": ["Actual HTTP browser/CLI writes and common board state", "Real human approval and bot refusal across routes", "Automatic normal recovery readiness", "Conflicts, reload, service restart, original UNKNOWN resolution and no replay", "Keyboard/IME, private input clearing, storage denial/quota and attachment basics", "No CA, owner delegation, code exchange or custom Chrome profile ACL gate"],
+      "requiresFreshIndependentReview": true
+    },
+    {
+      "id": "V03",
+      "outcome": "Qualify readable export and a consistent local backup/restored copy",
+      "ownership": ["qualification/native/archive"],
+      "dependencies": ["L02", "V01"],
+      "acceptance": ["Readable board export and consistent local backup with exact attachment bytes", "Unsafe/missing/tampered input refused without overwrite", "Interrupted publication/status reported truthfully", "Fresh restored-copy identity with automatic local bootstrap", "Original uncertainty preserved; no source-ledger transfer, retention-expiry matrix, terminal enrollment or TLS fixture"],
+      "requiresFreshIndependentReview": true
+    },
+    {
+      "id": "V04",
+      "outcome": "Wire complete qualification dispatch and verify the changed local release",
+      "ownership": ["qualification/native root dispatch", "package/script dispatch if changed", "final build evidence and generated assets"],
+      "dependencies": ["L02", "V01", "V02", "V03", "P02"],
+      "acceptance": ["Root native command reaches required transaction and archive cases", "Browser command runs revised required local matrix", "Failure/zero/skipped required cases propagate", "Check/build/assets/generator/ordinary tests pass", "Two clean builds of final source agree; historical Q04 result not reused as current pass"],
+      "requiresFreshIndependentReview": true
+    },
+    {
+      "id": "R01",
+      "outcome": "Fresh independent final review of the local product and evidence",
+      "ownership": ["qualification/review"],
+      "dependencies": ["L02", "V02", "V03", "V04"],
+      "acceptance": ["V1 slice behavior and explicit owner policies traced", "Human/bot approval and SQLite/recovery claims supported", "No TLS/remote/enterprise dependency on normal path", "Deferred V1 parity and unsupported durability claims explicit"],
+      "reviewerIndependentOfImplementation": true
+    },
+    {
+      "id": "CLEANUP",
+      "outcome": "Retire the legacy TLS fixture and remove only its installed test issuer",
+      "ownership": ["private fixture lifecycle and exact issuer cleanup record"],
+      "dependencies": [],
+      "acceptance": ["No old fixture delegation", "Owned test processes stopped gracefully", "Exact reviewed issuer removed through existing owner action; unrelated certificates untouched", "Private evidence preserved"],
+      "blocksImplementation": false,
+      "ownerOnlyAction": "Existing exact test-issuer removal confirmation; private instructions only"
+    }
+  ],
+  "deferredV1Parity": ["Workspace discovery, Attention and pins", "Broader card/search/hierarchy and archive/unarchive UX", "Broader attachment/cover interactions", "Monitor, optional alerts/publishing and live code update convenience", "Explicit V1 JSON import/cutover"],
+  "outOfV2Scope": ["LAN/public listeners", "TLS and certificate lifecycle", "Remote users/enterprise identity", "Desktop framework replacement"],
+  "outsideRemainingSpike": ["Advanced retention administration", "Inherited source-ledger and full recovery/authority-transfer archive protocol"],
+  "historicalEvidence": "Preserve completed cards and all original review/build/test results; none imply qualification of changed runtime"
+}
