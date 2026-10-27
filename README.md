@@ -20,6 +20,15 @@ The first [consolidated architecture overview](docs/design/28-architecture-overv
 and [independent final review](docs/reviews/29-final-review.txt) remain preserved
 evidence. Their documentary consistency does not settle the best fresh design.
 
+## Spike 02 milestones toward V1 parity
+
+The [milestone roadmap and M01 work package](docs/spike02/milestones-and-m01.txt)
+uses customer-visible checkpoints from the accepted Spike 01 toward V1 feature
+parity. Only M01 (multi-board workspace) is decomposed; M02-M06 remain high-level
+goals for later scoping. The [structured plan](docs/spike02/milestones-and-m01.json)
+records acceptance and dependencies. This is planning, not delivered capability
+or authorization for live migration/cutover.
+
 ## Slice 01 implementation design
 
 The first slice follows one board through browser and CLI reads, creation, edits,

@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "status": "Planning baseline; no implementation or delivered capability claimed",
+  "date": "2026-10-27",
+  "authority": "Owner requested customer-visible milestones toward V1 feature parity, decomposing only M01; accepted Spike 01/local scope and explicit owner policies remain.",
+  "implementationBase": "628eb72a6265fe267465e3fe3446378549927934",
+  "goal": "A dependable localhost-only successor to V1 on Go, TypeScript and SQLite.",
+  "milestones": [
+    {
+      "key": "M01",
+      "title": "Work across projects and boards in one local workspace",
+      "done": "Open one localhost workspace, select any of three synthetic boards across two projects, see truthful counts for supported Attention categories, use shared pins, and switch/reload without losing or misapplying private work. Missing lane categories are explicitly not configured until M02.",
+      "planningLevel": "Decomposed now; synthetic data only."
+    },
+    {
+      "key": "M02",
+      "title": "Complete daily card work through browser and CLI",
+      "done": "Reach the remaining documented daily card outcomes: usable card detail and committed history, search/filter, rename, hierarchy and typed links, archive/unarchive, configurable workflow and keyboard-friendly interaction. Preserve explicit priority and human acceptance.",
+      "planningLevel": "High level only; define detailed acceptance and any deliberate V1 differences before implementation."
+    },
+    {
+      "key": "M03",
+      "title": "Manage attachments and cover images in ordinary use",
+      "done": "Add, inspect, download and remove attachments and choose/clear covers through ordinary product controls; bytes, attribution, history, references and export/restore remain consistent.",
+      "planningLevel": "High level only; no attachment-storage rewrite or new limits selected."
+    },
+    {
+      "key": "M04",
+      "title": "Operate the local tool and its optional automation reliably",
+      "done": "Restore useful monitor alerts with bot-only suppression, explicit targets and delivery state, optional Git-readable publishing/backup and maintainable local update/restart behavior. Board saves remain independent of optional delivery/publishing.",
+      "planningLevel": "High level only; explicitly opt-in external publishing/notifications, no message sending or remote credentials authorized now."
+    },
+    {
+      "key": "M05",
+      "title": "Bring a V1 board into V2 without losing its work",
+      "done": "Demonstrate read-only inventory/dry-run and isolated JSON-to-SQLite import with card IDs/tickets, actors, policy, relationships, history and exact attachment bytes accounted for; prove coexistence and a usable recovery path.",
+      "planningLevel": "High level only; synthetic rehearsal first. Named real sources/destinations and any activation/cutover require later explicit owner authorization."
+    },
+    {
+      "key": "M06",
+      "title": "Accept feature parity and a maintainable everyday release",
+      "done": "Reconcile the V1 capability matrix against delivered behavior and owner-approved intentional changes; demonstrate an ordinary multi-board browser/CLI workflow, restart/recovery, backup/restore and optional operations on the final candidate.",
+      "planningLevel": "High level only; no full-parity claim until evidence closes every retained outcome and the owner accepts it."
+    }
+  ],
+  "m01Tasks": [
+    {
+      "key": "M01.01",
+      "title": "Freeze the workspace contract and parity checkpoint",
+      "requires": [],
+      "acceptance": [
+        "Document a small integration contract for project/board addressing, configured roots, discovery/registration/create behavior, hosting/lifecycle, API/CLI selection, shared pins and per-window recovery. Use /board/<project>/<board> navigation; distinguish the V1 planning boards from V2 SQLite data.",
+        "Reuse accepted Go authority/storage/recovery and TS view modules. Choose the least complicated hosting/adapter composition that preserves one writer per board; record actual file ownership and required contract extensions. No new framework, TLS, accounts or workflow engine.",
+        "Freeze a three-board/two-project acceptance fixture and a retained/remaining/intentional-difference matrix from the V1 public README and accepted Spike 01. Include startup, unavailable board, counts, pins/two windows and pending operation during navigation. Current qualified lanes are Ready for Work/In Progress/Ready for Review/Completed. M01 must not add configurable workflow states; unsupported Attention categories are not configured, not fabricated zero.",
+        "Fresh independent contract review precedes owner handoff. Consequential choices not already authorized must be explicit in the finished proposal; downstream cards wait for accepted contract."
+      ],
+      "boundedScope": "Workspace contract and acceptance matrix; no product implementation.",
+      "ownership": "docs/decisions workspace contract and public parity matrix"
+    },
+    {
+      "key": "M01.02",
+      "title": "Host and reopen independent boards under configured projects",
+      "requires": [
+        "M01.01"
+      ],
+      "acceptance": [
+        "Implement configured project/board discovery or explicit registration and synthetic board initialization according to the accepted contract. Three boards across two projects remain separately identifiable and persistent.",
+        "Exactly one authoritative writer owns each board. Repeated selection, restart, duplicate registration or a second host cannot create a second writer or silently replace a store/identity. Preserve the existing one-board entry.",
+        "A missing, invalid, busy or unavailable board has an explicit status while healthy boards remain usable. No automatic V1 JSON adoption, repair, grant expansion or real-data migration.",
+        "Run focused host/lifecycle checks on real supported filesystem/loopback boundaries, with fresh non-author review before handoff."
+      ],
+      "boundedScope": "Go workspace registry and lifecycle integration; no browser shell or importer.",
+      "ownership": "Go workspace host/registry plus local runtime integration"
+    },
+    {
+      "key": "M01.03",
+      "title": "Project truthful workspace Attention and board health",
+      "requires": [
+        "M01.02"
+      ],
+      "acceptance": [
+        "Expose board keys/labels, current identity/revision, availability/freshness and truthful counts for categories supported by the current four-lane policy, including Ready for Review. Blocked/Needs Terry are explicitly not configured until M02, not fabricated zero. Archived cards do not inflate counts.",
+        "Use two projects and three boards with distinct supported-state counts to prove projection membership. Known zero, not configured, stale last-known data and unavailable/unknown remain distinguishable; no failed query becomes a current zero.",
+        "Membership disclosure and projections reuse the local authority boundary. A pin or URL grants no board right. Catalog reads never mutate cards, assigned priority or approval.",
+        "Freeze deterministic activity/ordering rules in the accepted contract; preserve stable ties and avoid inventing cross-board atomicity or new urgency scoring. Independently review actual adapter behavior."
+      ],
+      "boundedScope": "Go catalog/projection and focused tests; no search, hierarchy or publishing.",
+      "ownership": "Go workspace catalog/projection and boundary contracts"
+    },
+    {
+      "key": "M01.04",
+      "title": "Select and use the correct board through the actual CLI",
+      "requires": [
+        "M01.02"
+      ],
+      "acceptance": [
+        "Provide focused project/board list/selection and initialization commands from the accepted contract. Existing single-board --data invocation continues to work.",
+        "Actual built CLI operations address the deliberately selected board only. Ambiguous, missing or unavailable targets refuse visibly; never fall back to the last/default board or direct SQL writes.",
+        "Show current identity/revision and readable/machine-distinguishable outcomes. Preserve automation-only CLI authority and existing original-operation lookup/no-replay behavior.",
+        "With two same-ticket boards, create/edit/comment on A and prove B unchanged; switch explicitly to B and repeat. Run real local CLI checks and obtain fresh independent review."
+      ],
+      "boundedScope": "Go CLI selection adapter and ordinary CLI evidence; no human approval channel.",
+      "ownership": "cmd/localswim and CLI workspace selection adapters"
+    },
+    {
+      "key": "M01.05",
+      "title": "Navigate the workspace through the normal browser",
+      "requires": [
+        "M01.03"
+      ],
+      "acceptance": [
+        "Build project/board sidebar and Attention display using the real catalog. Use labels/full counts and keyboard selection; preserve useful board space and show errors/retry without blocking healthy boards.",
+        "Support /board/<project>/<board> direct links, normal Back/Forward, another window and switching without a full document reload. Unknown links show unavailable and never select another board.",
+        "Board rendering and edit controls remain bound to the selected stable identity. Preserve focus and existing editor input during harmless refresh; a delayed A response cannot paint or dispatch against B.",
+        "Demonstrate ordinary DOM selection among all three boards and cross-client shared state. Retain the existing single-board journey; fresh non-author review before handoff."
+      ],
+      "boundedScope": "TS workspace shell/router and catalog integration; no new card feature set.",
+      "ownership": "TS workspace shell/navigation and board composition"
+    },
+    {
+      "key": "M01.06",
+      "title": "Share pins while keeping each window independent",
+      "requires": [
+        "M01.03",
+        "M01.05"
+      ],
+      "acceptance": [
+        "Implement pin/unpin/manual reorder with server-persisted preferences scoped to the workspace. Pins/order survive browser and host restart and appear in a second window.",
+        "Use revision-conflict handling for simultaneous preference edits; failed saves are visible and never silently claim persistence. Preferences do not alter board revisions or grant membership/approval.",
+        "Keep active board, sidebar view state, focus and scroll per window; shared pin refresh must not steal another window's route or editor. Keyboard pin/reorder controls remain usable.",
+        "Demonstrate two windows with different active boards, shared reordered pins, one failed/stale preference save, refresh and restart. Obtain fresh independent review."
+      ],
+      "boundedScope": "Workspace preferences plus bounded TS pin controls; no device/account sync platform.",
+      "ownership": "Go workspace preferences and TS pin/window-state controls"
+    },
+    {
+      "key": "M01.07",
+      "title": "Preserve drafts and original outcomes across board navigation",
+      "requires": [
+        "M01.04",
+        "M01.05",
+        "M01.06"
+      ],
+      "acceptance": [
+        "Reuse existing private draft/original-submission stores with full board/installation/incarnation/actor context. Switching A to B cannot expose, overwrite, clear or submit A's private input as B.",
+        "Reload/back/forward and two windows recover the correct per-board input/base. A late A mutation response while B is active cannot replace B prose/focus or resolve an unrelated submission.",
+        "Reconnect/host restart refreshes selection/authority without replay. Immutable original lookup stays with its original board/context/fingerprint; unavailable or replaced source remains UNKNOWN, not inferred noncommit.",
+        "Actual browser/CLI fault scenarios cover cross-board late response, pending-original navigation, storage denial and explicit discard scope. Preserve the qualified single-board behavior and obtain fresh recovery/authority review."
+      ],
+      "boundedScope": "Workspace recovery coordination only; no rewrite of the journal, retention policy or authority transfer.",
+      "ownership": "TS workspace/session/recovery coordination and narrow adapter wiring"
+    },
+    {
+      "key": "M01.08",
+      "title": "Qualify the complete multi-board customer journey",
+      "requires": [
+        "M01.04",
+        "M01.06",
+        "M01.07"
+      ],
+      "acceptance": [
+        "Freeze mandatory actual product cases for two projects/three boards: create/select/read/write, Attention known-zero versus failure, pins/two windows, bookmarks/Back/Forward, navigation with drafts/pending originals, restart and healthy-board isolation.",
+        "Run the built CLI and normal browser controls against fresh synthetic SQLite data. Preserve the existing 21-case single-board inventory and negative bot-approval/premature-start checks; mocks are not positive end-to-end evidence.",
+        "Bind current sources, generated assets, executable and tools to raw results; keep failed attempts and owned teardown. Refresh affected native lifecycle/durability checks when the new host changes those boundaries; do not relabel old PASS.",
+        "Publish the delivered-capability matrix, remaining gaps and exact reproduction command. Proportionate focused checks precede the full milestone journey; no benchmark or elaborate qualification platform."
+      ],
+      "boundedScope": "Mandatory integration qualification and capability report, not new product implementation.",
+      "ownership": "qualification/workspace plus browser/native inventories as actually affected"
+    },
+    {
+      "key": "M01.09",
+      "title": "Demonstrate M01 and independently review the handoff",
+      "requires": [
+        "M01.08"
+      ],
+      "acceptance": [
+        "Demonstrate one normal localhost workspace with three boards across two projects, including multiple boards within one project, truthful Attention, shared pins and isolated per-window/board work. State delivered capability separately from completed cards.",
+        "A fresh non-author independently verifies the complete workflow and actual evidence, including preserved SQLite ownership and human/bot boundaries. Required source/build/asset checks pass on the final candidate.",
+        "Publish PASS or actionable Changes Required with material findings, deliberate limitations and a concise startup/use/recovery note. A separate non-author validates the final review report before publication.",
+        "Only owner review remains at handoff. Preserve owner-controlled Completed and hold M02 implementation until its own later decomposition/acceptance; no live import/cutover is part of M01."
+      ],
+      "boundedScope": "Final milestone demonstration, independent review and owner handoff; no new features.",
+      "ownership": "qualification/workspace final review/report and user run sheet"
+    }
+  ],
+  "globalConstraints": [
+    "Browser AND CLI use the same numeric-loopback HTTP authority; no LAN/TLS/enrollment ceremony.",
+    "P3 default; assigned priority is not raised by graph position. Preserve human-only approval and Completed, SQLite durability and original UNKNOWN/no replay.",
+    "V1 public documented outcomes are the baseline; intentional departures need a concrete benefit and owner acceptance. Old candidate architecture that conflicts with the localhost reset is historical.",
+    "Only M01 is decomposed/eligible for future execution under its recorded prerequisites. Later milestone cards are high-level roadmap, not authorized implementation.",
+    "No real V1 board import, activation, external message delivery or live cutover is authorized by this planning task.",
+    "Fresh non-author review before each handoff; move each selected card In Progress first. Four active direct subagents/depth one conservatively retained; planned assignments reserve no slots.",
+    "M01 keeps the qualified four-lane policy. Full configurable lanes/Blocked/Needs Terry parity belongs to M02; unsupported Attention categories remain explicitly not configured. No hidden reverse dependency from M01 to M02."
+  ],
+  "sources": [
+    "https://github.com/localswim/localswim/blob/628eb72a6265fe267465e3fe3446378549927934/qualification/closure/review.txt",
+    "../slice01/22-localhost-scope-reset.txt",
+    "../slice01/01-scope-acceptance.txt",
+    "../design/17-workspace.txt (candidate detail only where consistent with current owner scope)",
+    "https://github.com/TerryOtt/localswim/blob/608b3dfb62e76a5e0e699023ca3d7dba2c555ceb/README.md"
+  ],
+  "v1Baseline": "V1 public README: Multiple boards in one workspace; Daily use; Archiving cards; Card attachments and cover photos; Data safety and Git; Live code updates; Shared board-write monitor. Documentation only; no V1 implementation/tests copied.",
+  "roadmapOrder": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06"
+  ],
+  "currentCapability": "Spike 01 is owner-accepted; one-board runtime and bounded final qualification passed. No complete V1 parity, deployment or migration claim."
+}
