@@ -1,0 +1,345 @@
+M01.01 - WORKSPACE INTEGRATION CONTRACT
+2026-10-27 | Proposal for owner acceptance; no product implementation
+
+Purpose and acceptance boundary
+Deliver one ordinary localhost workspace over three independent SQLite boards in
+two projects. Browser and CLI address the intended board; Attention is truthful,
+pins are shared, and each window retains its own private work. M01.00 is accepted.
+This document decides integration, fixture and ownership boundaries for M01.02-.10;
+it does not implement or qualify them. Acceptance of M01.01 adopts the proposed
+choices below. Downstream work waits for that actual owner acceptance.
+
+Authority: accepted work-package R2, accepted Spike 01/current localhost scope,
+implementation 628eb72, architecture 4ca49ff, and V1 public README 608b3df. V1 supplies
+observable product outcomes, not source/test reuse. Prior exposure is disclosed;
+no independently isolated clean-room claim. No real V1 board is an M01 fixture.
+
+1. Composition decision
+Use one Go process and numeric-IPv4-loopback listener for a configured workspace.
+Extract/reuse a listener-free board engine from internal/transport/local, retaining
+each engine's existing store, authority, ownership locks and admitted-request drain.
+Standalone serve --data continues through the same engine with its own listener.
+Keep SQLite schema/settings, domain commands, history/outcome/byte transactions,
+explicit priority and human-only approval. No new framework, account hierarchy,
+workspace actors/grants, generic outcome ledger or workflow engine.
+
+Alternative                 Reason not selected for M01
+Listening boards + proxy    Extra origins, credential/cookie translation, upstream
+                            failure/uncertainty and child-lifetime supervision.
+Direct per-board web origins Cross-origin shell/private-recovery complexity or full
+                            navigations; conflicts with the ordinary same-page job.
+
+The engine extraction is consequential work, explicitly M01.02, not incidental
+registry code. No claim of fewer processes removing ownership/recovery obligations.
+
+2. Configuration, addressing and membership
+Workspace private root contains workspace.json, workspace-preferences.json and an
+ephemeral workspace-service.json. Names are proposed durable product-neutral IDs.
+Configuration schema 1 stores workspace UUID, fixed listener port, monotonic config
+revision, configured project roots and explicit member registrations. Preferences
+have their own revision. Board SQLite and identity.json remain separate authority.
+Use account-private atomic files under exclusive workspace ownership, bounded
+strict parsing, duplicate/unknown-field refusal and expected-revision writes.
+Configuration limit: 1 MiB and 256 active members; preferences limit: 64 KiB. These are
+bounded M01 support limits, not performance qualification or a new storage system.
+
+Project/board keys are explicit immutable lower-case ASCII slugs, 1-64 characters,
+matching [a-z0-9]+(?:-[a-z0-9]+)*. A board key is unique within its project. Labels
+are nonempty Unicode display strings, 1-200 scalars, independent of keys. No key
+rename/rebinding or deletion of board storage is introduced in M01.
+Route /board/<projectKey>/<boardKey> resolves to the registered full tuple
+(installationId, boardId, incarnation), never directly to a browser-supplied path.
+Labels/paths/ports are not identity or authority. Reject duplicate aliases, duplicate
+BoardID across active members, duplicate tuples and physical-root aliases. The
+BoardID restriction preserves existing /api/v1/boards/{boardId} domain routing.
+
+Membership is explicit create/register/list; no recursive scan or JSON adoption.
+Project roots are explicit absolute local roots. Creation may create the named
+private root; registration accepts only a valid initialized Go data root beneath
+its configured project root. Reuse native root/private-file guards; reject path
+escapes, reparse/symlink aliases, UNC/device/ADS paths and identity replacement.
+Revalidate actual path/tuple under acquisition and at selected dispatch. A root
+change never silently remaps an existing key. A stopped standalone synthetic V2
+store can be deliberately registered; a busy standalone writer stays busy, not
+reused/proxied/killed. No real-data adoption or live cutover is authorized here.
+
+V1 recursively discovers JSON snapshots. Explicit SQLite membership is an intentional
+M01 difference: it avoids accidental V1 adoption and gives unambiguous identities.
+This consequence needs owner acceptance, not a hidden claim of identical discovery.
+
+3. Initialization, uncertainty and lifecycle
+Normal first serve --workspace DIR --port PORT creates an empty private workspace;
+the first port is explicit. Later serve may omit port to reuse it; conflicting
+ports/owners refuse without fallback. Examples may use 8820 to coexist with the V1
+administrative gateway 8810. Do not reinterpret the administrative planning boards
+as V2 application data. Existing --data default/reopen behavior remains compatible.
+
+Validate key/path/config preconditions before board initialization; publish member
+registration only after initialized identity is verified. Initialization and config
+publication are separate durable steps, never a cross-board transaction. On failed
+or uncertain registration, retain initialized bytes. Report initialized-unregistered
+or UNKNOWN, never delete/recreate/adopt/retry automatically. A focused status read
+compares config revision, key, canonical path and tuple: exact mapping is registered;
+successfully read absent mapping is not registered; unreadable/conflicting state is
+UNKNOWN. A deliberate register may CAS current config; it never repeats initialization.
+This registry result does not settle a possibly committed board-domain operation.
+
+Bind the host after valid config/workspace ownership; independently activate members
+without waiting for every member before serving the shell. Coalesce acquisition per
+member; release global config/bookkeeping locks before native IO, SQL, drain or waits.
+Missing/invalid/busy members retain visible sanitized status; healthy members remain
+usable. Explicit retry never overwrites failed state or starts a second writer.
+No arbitrary upstream URL is accepted and no other process is terminated.
+
+Host close stops admission, drains admitted handlers and read/export leases, removes
+only its own epoch's metadata while ownership is held, closes authority/store and
+releases each engine. A response timeout cannot release a still-admitted writer.
+Partial acquisition/close failures preserve owned handles for cleanup, not a false
+successful release. No automatic membership removal or board deletion is added.
+
+4. Identity, rendezvous and legacy --data compatibility
+Preserve each member's installationId, boardId, incarnation, human/bot actor/grant
+IDs and identity.Port (the standalone default). Workspace UUID/port are separate.
+Two engines may retain equal standalone ports because they do not listen separately.
+
+Standalone publication keeps its exact legacy unversioned service.json shape
+{identity, origin, epoch, botToken}, including origin==identity.Port. Updated readers
+also accept workspace-member shape {metadataVersion:2, identity, origin, epoch,
+botToken, host:{mode:"workspace",workspaceId}}. Its identity is unchanged; origin is
+the effective canonical numeric-loopback host origin, independent of identity.Port.
+These are strict tagged alternatives, not optional-field guessing. Derive board session/bootstrap
+paths from validated mode/BoardID; never accept arbitrary metadata URLs. Bound
+metadata at 64 KiB, keep it private/nonprinting, refuse unsupported versions, and
+independently verify the live session/identity. Metadata is rendezvous, not health.
+
+Updated --data DIR CLI can address that DIR while owned by a workspace: read v2
+metadata, connect to effective host origin, use its board-scoped automation channel
+and keep DIR/cli-evidence. Standalone reopen preserves its stored default port and
+identity after workspace ownership ends. Older clients encountering unsupported
+metadata refuse clearly; no promise that old binaries understand workspace mode.
+No SQLite migration or silent rewrite of persistent port/identity is authorized.
+
+workspace-service.json is separate bounded private host rendezvous:
+{metadataVersion:1, workspaceId, origin, epoch, automationToken}. Its origin must
+match the fixed configured host port and current live host context; unsupported
+versions or changed workspace identity refuse. It is not a board credential file.
+
+5. Browser/API authority and generated boundaries
+The verified static app shell is served at / and syntactically valid
+/board/<projectKey>/<boardKey>; an unknown registered target renders unavailable
+inside the shell, never another board. No inline secret/config injection into assets.
+GET /api/v1/runtime-mode returns strict nonsecret {apiVersion:1,mode} and workspaceId
+only for workspace mode, with no-store and exact Host/Origin protection. It grants
+no access. The current bundle branches on this discriminator before bootstrap;
+invalid/unavailable mode is a connection error, not a default-board fallback.
+Standalone uses existing local bootstrap; workspace uses workspace bootstrap then
+catalog/resolve and board-specific bootstrap. No mutable current board is stored
+on the server, and root workspace URL opens the chooser rather than selecting one.
+
+Keep domain /api/v1/boards/{boardId}/... paths and existing request envelopes.
+Workspace adds POST /api/v1/boards/{boardId}/local/bootstrap and
+GET /api/v1/boards/{boardId}/session. Bootstrap carries expected installationId and
+incarnation and returns existing bootstrap/session fields bound to that member's
+epoch/tuple. Root {} bootstrap and root session are standalone-only; workspace has
+no default-board variants. Wrong/missing/member-replaced selections refuse.
+
+Board cookies are host-only HttpOnly SameSite=Strict, named by installation/board/
+incarnation, Path=/api/v1/boards/{boardId}/. They cannot overwrite another board's
+session. Validate raw cookie syntax/duplicates before channel selection; retain
+mixed browser/bearer refusal, exact Host/Origin and the non-simple browser header.
+No CORS or human CLI grant/approve channel. Durable rights/actor kind still resolve
+in Go under the existing transaction admission. CLI bot A cannot authenticate B.
+Standalone keeps its existing cookie/session behavior. Rotate ephemeral authority
+on restart without changing the durable tuple or replaying a command.
+
+Workspace metadata needs its own explicit local channel because board-path cookies
+do not reach catalog/preferences. Automatic POST /api/v1/workspace/bootstrap issues
+an ephemeral workspace browser cookie, scoped to /api/v1/workspace/, with the same
+Host/Origin/header/cookie protections. Account-private workspace-service.json holds
+only an automation capability, effective origin/workspace UUID and epoch. These
+small host capabilities permit catalog/configuration operations and browser pins;
+they are not durable actors/grants and cannot authorize board mutations or approval.
+No account/enrollment/code ceremony or hostile-same-account assurance is introduced.
+
+Catalog membership disclosure follows that workspace channel. Each member's counts/
+activity additionally require its currently configured human read grant for browser
+or automation read grant for CLI; absence is opaque unavailable, not a disclosure
+through pins/known URLs. Private filesystem paths and credential values never appear in
+browser catalog, errors, URLs or recovery records. Explicit data-root paths appear
+only in private CLI control requests/records, never browser projections or logs.
+Workspace browser cookie is
+ignored as board mutation authority; CLI workspace capabilities never return human
+capabilities or administer existing board grants. Existing explicit create bootstrap of configured local identities
+is reused only for a new synthetic store, not an arbitrary grant administration API.
+
+Generate strict Go-owned workspace/selection/bootstrap/preference DTOs through the
+existing aggregate generator and TS declarations/validators. Reuse SessionRead and
+domain mutation schemas. Do not hand-maintain parallel wire types. Freeze common
+field names above; implementation schemas supply explicit bounds and strict parse
+fixtures together before consumers. New DTOs remain API 1 additive routes.
+
+Workspace wire/authority surface (responses and nonempty JSON requests carry
+apiVersion:1; the explicitly empty bootstrap request remains {})
+Route | Request / response boundary | Accepted channel
+POST /api/v1/workspace/bootstrap | Empty{}; workspaceId,epoch and human mode in
+  response, HttpOnly workspace cookie; no board grants | Exact local UI origin/header.
+GET /api/v1/workspace/catalog | Catalog projection described below | Workspace
+  browser cookie or workspace automation bearer; per-member read rights separately.
+GET /api/v1/workspace/projects | Configured project keys/labels, including empty
+  projects, plus config revision; no private roots | Same workspace channels.
+GET /api/v1/workspace/boards | Configured member list, optionally filtered by explicit
+  projectKey; same selected-context disclosure rules as catalog | Same.
+GET /api/v1/workspace/projects/{p}/boards/{b} | Resolve keys to current status,
+  workspaceId,configRevision and ready tuple/memberEpoch; no paths/secrets | Same.
+POST /api/v1/workspace/projects | expectedConfigRevision,key,label,root; validated
+  registration/result and new config revision | Workspace automation only.
+POST /api/v1/workspace/boards | expectedConfigRevision,projectKey,boardKey,label,
+  dataDir and action:create|register; register may include expectedIdentity |
+  Workspace automation only; no existing board grant/approval administration.
+POST /api/v1/workspace/boards/status | Read-only JSON inspection with explicit projectKey/boardKey;
+  registered/initialized-unregistered/unavailable/UNKNOWN and current revision |
+Workspace automation; private path inspection remains CLI-only. An initialized but
+  unregistered root requires explicit dataDir inspection in the private control
+  request, with the same root/identity guards; it is never a browser route.
+GET/POST /api/v1/workspace/preferences | Read current revision/order; write
+  expectedPreferencesRevision with strict pin/unpin/reorder action. Reorder supplies
+  complete current pin-reference order; server binds keys to registered tuples |
+  Browser workspace cookie for writes; read through authorized workspace channels.
+
+Resolve is a status read, not permission to mutate or a wait for all members. It
+coalesces selected-member acquisition and returns unavailable/pending truthfully;
+the normal shell bounds connection/loading at 20 seconds then offers Retry. Stale
+expected config/preference revision returns 412 with CONFIG_CHANGED/PREFERENCES_CHANGED
+and sanitized current revision, without applying a partial command. Control mutations
+send once; a success whose body is unusable is UNKNOWN until explicit status read.
+Use existing typed refusal/outcome conventions and generate their new code variants
+together. No new numeric CLI exit-class hierarchy or general operation ledger.
+
+6. CLI selection and control surface
+Keep serve --data DIR [--port PORT] and --data DIR [--json] existing commands.
+Workspace grammar is serve --workspace DIR [--port PORT], then
+--workspace DIR [--project KEY --board KEY] [--json] COMMAND. --data and --workspace
+selection are mutually exclusive; no --actor human/native-owner/grant override.
+project list/create, board list/create/register/status are focused control commands.
+Creation takes explicit keys/labels/data root; register pins the exact identity read
+through the bounded native inspection under ownership, optionally checked against
+an expected tuple supplied by the caller. No manual copying of a login credential.
+Config-changing commands go through the running host with expected config revision;
+CLI reads it once, sends once, and reports stale/refused/unknown distinctly.
+
+Card/attachment/export/original commands require both project and board keys,
+resolve exact registration/context, verify live board session and dispatch through
+existing adapters. No remembered/default-board fallback, SQL mutation fallback or
+automatic POST replay. Current CLI output/exit outcome classes remain; workspace
+control adds explicit initialized-unregistered/UNKNOWN status, not fake board commits.
+Initialize/register never grants approval or changes another board's revision.
+
+7. Catalog, polling, ordering and preferences
+GET /api/v1/workspace/catalog returns workspace/config revision, observation time,
+and authorized entries with keys/labels, full selected identity when known, board
+revision, availability, freshness/age, last successful observation, committed card
+activity/coverage and supported Attention. No cross-board atomic snapshot claim.
+Availability: ready, missing, invalid, busy, unavailable or identity_conflict.
+Freshness: fresh, stale or never. Each count has state known/stale/unknown/
+not_configured and value integer or null. Successful Ready for Review may be known 0;
+Blocked/Needs Terry are not_configured/null until M02. Exclude archived cards.
+Failures never become current zero; old identity caches never describe replacements.
+
+Visible windows poll every 5 seconds, immediately on focus/retry and after a local
+terminal commit; one poll in flight per window with navigation-generation guards.
+Coalesce host probe work across windows. Use at most 4 outstanding member activation/
+projection jobs, 1-second read/acquisition attempt budget and 2-second catalog-response
+budget. Return independently completed/cache results; mark unfinished entries stale
+or unknown. Round-robin pending members prevents repeated first-member starvation.
+Do not synchronously wait for 256 reads before responding, create duplicate jobs for a
+timed-out member, hold a global registry lock over IO, or release ownership while an
+admitted operation still runs. Native checks must prove the supported one-slow-member
+case; no claim of bounded arbitrary disk/driver execution or aggregate memory is made.
+
+Pinned/Other are flat workspace groups, with project/board identity readable in each
+row. Pins use saved manual order. Other sorts latest committed card activity first,
+then fresh/known supported attention sum on exact activity ties, then case-folded
+display label and exact project/board keys. Unknown activity sorts last; equal
+unknowns use deterministic label/key ties without manufacturing a score. Preserve
+future timestamps for order, clamp elapsed display at zero, and do not reorder due
+to time passing alone. Include committed archived-card edits in activity, exclude
+file touches/labels/recovery-expiry metadata. Coverage and unavailable history remain
+honest, not an invented all-time timestamp. A fresh healthy update cannot steal view
+state. Current observed timestamps may differ across independent board reads.
+
+Pins/preferences have a separate revision and account-private atomic persistence.
+Expected-revision conflict returns visible current state for deliberate retry; failed
+or malformed saves never claim persistence or silently reset. Pins bind registered
+key plus identity and grant no membership/board rights. Another window sees changes
+on the next successful poll. No V1 preference import or device/account sync platform.
+
+8. Window lifetime and recovery
+Each window owns active route, per-board editor/base/draft selection, filters,
+focus, scroll and sidebar collapse/width. Preserve window identity across its reload
+using bounded window-local state; a new window has a new identity. Distinct draft IDs
+prevent same-board editors sharing a record. Shared recoverable records may be
+listed, but another window's active input is never automatically attached/overwritten.
+Reuse existing private-store context/immutable originals and retention; do not add a
+new recovery schema. A controller suspends/reattaches views; destroy/remount alone
+does not preserve input. On failed persistence retain memory input and block
+destructive app/Back/Forward navigation until saved or explicitly discarded.
+Forced reload with unavailable storage cannot promise lossless durable recovery.
+
+Every response/callback checks full board context and navigation/view generation.
+Late A read/mutation/recovery results cannot paint B, resolve B originals or dispatch
+A input as B. Reconnect/refresh never resubmits or automatically looks up originals;
+deliberate original lookup retains its original context/fingerprint. Unavailable or
+replaced source stays UNKNOWN. CLI originals include origin, and browser storage is
+origin-bound: registering a stopped synthetic standalone store at a new workspace
+origin does not silently migrate old drafts/evidence. Preserve inaccessible originals
+and refuse mismatched lookup as UNKNOWN; no origin-rebinding claim or real cutover.
+
+9. Fixture and parity checkpoint
+See ../spike02/m01-acceptance-fixture-r1.json and
+../spike02/m01-parity-checkpoint-r1.txt.
+Specify three fresh boards across projects harbor and orchard, including two same-
+ticket boards in harbor. Seed the main user journey through supported built CLI and
+browser commands. Archive creation is not available in the accepted ordinary command
+set: test archived-count exclusion separately with an immutable validated synthetic
+read/projection fixture, clearly technical evidence. Do not add archive UI/API or SQL
+seed the positive customer journey to bypass the M02 prerequisite.
+The fixture is a specification only; this task creates no runtime data or product
+qualification PASS. Keep the accepted 21-case single-board inventory and add the
+named actual multi-board cases. Mocks/delays supplement, never replace positive
+normal executable/browser/CLI evidence. Preserve failed attempts and exact bindings.
+
+10. Ownership and sequencing
+Package | Owner/file boundary; shared output custody
+M01.02 | local runtime/http/authority engine-host seam, board session/bootstrap and
+        | v2 rendezvous; strict transport DTO/generator additions and own tests.
+M01.03 | internal/workspace registry/native-path/config/host activation; cmd serve
+        | wiring after .02. Keep current store/domain packages intact.
+M01.04 | cmd CLI selector/parser, cli/core and archive connection adapters/evidence.
+M01.05 | TS api client/local-session, view lifetime/window controller and existing
+        | board/recovery coordination; private storage format unchanged.
+M01.06 | Go workspace catalog/projection/poll cache and read DTOs; no TS shell.
+M01.07 | TS workspace shell/routes/sidebar, app composition/styles; consumes .05/.06.
+M01.08 | Workspace preferences API/persistence and shell pin controls after .07.
+M01.09 | Joined actual qualification/fixture execution and changed native/build
+        | inventories; parent stages generated assets after source integration.
+M01.10 | Customer run sheet/demo, fresh final candidate review and separate fresh
+        | report validation; reuse only proven applicable evidence.
+
+One author owns each shared file per wave. Common Go-owned DTO/schema/declaration
+and asset generation is serialized by the primary; parallel D/E/F workers do not
+independently regenerate or hand-edit shared outputs. Record concrete handoffs before
+editing shared entry points. After accepted .03, .04/.05/.06 may overlap; .07 waits
+accepted .05/.06, .08 waits .07, .09 joins all, .10 follows .09. Keep exact recorded
+prerequisites/owner acceptance and four-direct/depth-one rolling reviews.
+
+11. Scope, evidence and owner decisions
+Retain ordinary single-board operation, human/bot authority, SQLite durability,
+UNKNOWN/no replay and explicit priority. Full configurable workflow, broader card
+work/archive UI, attachments/covers, monitor/publishing, import and final parity
+remain M02-M06. No LAN/TLS, new framework/accounts or unsupported assurance.
+No source/runtime behavior is changed by this contract. Static consistency checks
+and fresh independent review assess the proposal only; actual affected-boundary
+evidence belongs to implementation packages. Owner acceptance explicitly adopts
+single-listener extraction, explicit membership, immutable aliases, metadata v2,
+board/workspace channel separation, bounded polling/config limits and origin-loss
+limits. Finished proposal review belongs RFR; it is not missing owner-only setup.

@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "status": "Specification only, requiring owner acceptance of M01.01; not a dataset or runtime PASS",
+  "sourceBaseline": "accepted Spike01 implementation628eb72; M01 work-packageR2",
+  "workspace": {
+    "privateRunRoot": "PRIVATE_RUN_ROOT/<fresh-run-id>",
+    "configurationRoot": "PRIVATE_RUN_ROOT/<fresh-run-id>/workspace",
+    "firstPort": "Explicit unused numeric-loopback port; no production fallback. Examples use8820, not administrative gateway8810.",
+    "projectRoots": "Two explicit private roots beneath PRIVATE_RUN_ROOT; no real V1 data",
+    "freshIdentityRule": "Generate unique installation/board/incarnation/human/bot/grant IDs through normal initialization; record exact tuples in the run manifest."
+  },
+  "projects": [
+    {
+      "key": "harbor",
+      "label": "Harbor",
+      "boards": [
+        {
+          "key": "dispatch",
+          "label": "Dispatch",
+          "initialCards": [
+            {
+              "ticket": 1,
+              "title": "Dispatch parcel",
+              "lane": "Ready for Work",
+              "priority": "P3"
+            },
+            {
+              "ticket": 2,
+              "title": "Dispatch review one",
+              "lane": "Ready for Review",
+              "priority": "P3"
+            },
+            {
+              "ticket": 3,
+              "title": "Dispatch review two",
+              "lane": "Ready for Review",
+              "priority": "P3"
+            }
+          ],
+          "reviewCount": 2
+        },
+        {
+          "key": "research",
+          "label": "Research",
+          "initialCards": [
+            {
+              "ticket": 1,
+              "title": "Research seed",
+              "lane": "Ready for Work",
+              "priority": "P3"
+            },
+            {
+              "ticket": 2,
+              "title": "Research review",
+              "lane": "Ready for Review",
+              "priority": "P3"
+            }
+          ],
+          "reviewCount": 1
+        }
+      ]
+    },
+    {
+      "key": "orchard",
+      "label": "Orchard",
+      "boards": [
+        {
+          "key": "garden",
+          "label": "Garden",
+          "initialCards": [],
+          "reviewCount": 0
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "lanes": [
+      "Ready for Work",
+      "In Progress",
+      "Ready for Review",
+      "Completed"
+    ],
+    "defaultAssignedPriority": "P3",
+    "blockedCategory": {
+      "state": "not_configured",
+      "value": null
+    },
+    "needsHumanCategory": {
+      "state": "not_configured",
+      "value": null
+    },
+    "approval": "Human browser action only; automation refuses approve/Completed",
+    "priority": "Dependency pressure does not rewrite assigned priority"
+  },
+  "seedMethod": {
+    "positiveJourney": "Actual built workspace/create/selection CLI and normal browser; current revisioned create/start/handoff commands. No SQL writes or archive command invented to seed the positive journey.",
+    "reviewTransitions": [
+      "card.create -> Ready for Work",
+      "card.edit -> In Progress",
+      "review-handoff -> Ready for Review"
+    ],
+    "reset": "Each mutating scenario uses fresh run or a declared normal-command seed/reset with captured pre/post revisions; do not assume unchanged counts after other cases.",
+    "technicalArchiveCase": "Separate immutable validated synthetic read/projection fixture with archived Ready-for-Review card; label technical provenance. It proves count exclusion only, not archive creation UI/API. M02 owns archiving functionality.",
+    "controlledFaults": "Use existing bounded delay/storage/refusal seams, with actual native filesystem/HTTP paths where affected. Label injected versus actual effects; no mock-only positive claim."
+  },
+  "cases": [
+    {
+      "id": "W01",
+      "title": "Initialize, register, reopen",
+      "owners": "M01.02/M01.03",
+      "evidence": "actual native + built CLI",
+      "expected": "Create all3members2projects; restart same port/tuples; list keys/labels; same-ticket1 identifies distinct cardUUIDs. Duplicate key/BoardID/physical root and unsafe/replaced directory refuse; busy member does not launch another writer."
+    },
+    {
+      "id": "W02",
+      "title": "Interrupted create and registry publication",
+      "owners": "M01.03",
+      "evidence": "actual owned native fixture + labeled fault",
+      "expected": "Fail or lose registration publication after initialization; bytes remain, no repeat create/adoption/deletion; status exact mapping vs absent vs UNKNOWN; deliberate CAS register only after inspection."
+    },
+    {
+      "id": "W03",
+      "title": "Board transport and authority",
+      "owners": "M01.02",
+      "evidence": "actual HTTP + current built clients",
+      "expected": "Board-scoped bootstrap/session; wrong board cookie/bearer/incarnation/installation refuses. Workspace cookie never authorizes board mutation; CLI remains automation-only and cannot approve/Completed. Preserve explicit human review and existing negative gates."
+    },
+    {
+      "id": "W04",
+      "title": "Legacy data selector and evidence compatibility",
+      "owners": "M01.02/M01.04",
+      "evidence": "actual built CLI + native metadata vectors",
+      "expected": "Current --data reads a workspace-owned member through metadataV2; legacy unversioned standalone remains valid. Stored default port/identity unchanged; old unsupported format refuses. Original origin/context cannot silently rebound."
+    },
+    {
+      "id": "W05",
+      "title": "CLI cross-board writes",
+      "owners": "M01.04",
+      "evidence": "actual built CLI",
+      "expected": "Explicitly select Dispatch create/edit/comment once; Research unchanged despite ticket1 collision. Deliberately select Research and repeat. Missing/ambiguous/unavailable/mismatched selectors refuse without last/default target, SQL fallback or replay."
+    },
+    {
+      "id": "W06",
+      "title": "Routes, navigation and window state",
+      "owners": "M01.05/M01.07",
+      "evidence": "normal browser + real server",
+      "expected": "Cold /board/harbor/dispatch and second-window links; Back/Forward/reload/keyboard/rapid switch; unknown key unavailable not fallback. Sidebar collapse/width/filter, focus/scroll and editor/base return to the correct window/board."
+    },
+    {
+      "id": "W07",
+      "title": "Late response and original isolation",
+      "owners": "M01.05/M01.07",
+      "evidence": "actual browser/HTTP plus labeled delays",
+      "expected": "Delay A reads and potentially committed mutation response, select B: no A paint/dispatch/outcome resolution in B. Return to A and deliberately inspect original using its exact context/fingerprint. Lost/unavailable evidence staysUNKNOWN; no resend from reconnect/navigation."
+    },
+    {
+      "id": "W08",
+      "title": "Two windows and persistence denial",
+      "owners": "M01.05/M01.07",
+      "evidence": "normal browser + labeled private-storage denial",
+      "expected": "Different-board and same-board windows have independent active inputs/draftIDs/selection. Reload preserves each window identity. Shared recoverable records never overwrite an active editor. Failed persistence retains input and prevents destructive app/history switch unless explicit discard; forced reload loss limit honest."
+    },
+    {
+      "id": "W09",
+      "title": "Attention, freshness and unhealthy isolation",
+      "owners": "M01.06/M01.07",
+      "evidence": "actual catalog/browser/CLI + technical projection edge",
+      "expected": "Initial review counts2/1/0 and null-not-configured categories; CLI/browser commit appears after next successful poll. One slow/busy/invalid/missing member cannot make healthy entries zero or stall navigation. Round-robin cache/probe work progresses; retry/restart recovers. Technical archived fixture excluded."
+    },
+    {
+      "id": "W10",
+      "title": "Deterministic activity ordering",
+      "owners": "M01.06/M01.07",
+      "evidence": "actual committed updates + deterministic projection cases",
+      "expected": "Pinned order fixed. Other rows use actual committed activity, supported known-count ties, label/key ties. Equal/future/unknown/gapped activity, archived-card edits and config/mtime-only changes behave as specified; time passing alone never reorders."
+    },
+    {
+      "id": "W11",
+      "title": "Shared pins and independent views",
+      "owners": "M01.08",
+      "evidence": "normal browser2windows + host restart",
+      "expected": "Pin/unpin/manual keyboard reorder observed in second window and survives browser/host restart. Stale expected preference revision conflicts; failed/malformed persistence visible, no reset. Shared pins do not change route/input/focus/scroll or board revisions/authority."
+    },
+    {
+      "id": "W12",
+      "title": "Drain, restart and uncertainty",
+      "owners": "M01.02/M01.03/M01.05",
+      "evidence": "actual supported native/HTTP boundaries",
+      "expected": "Stop admission before drain; retain writer through admitted save/export/read leases. Restart preserves tuple/port and rotates ephemeral channels. Refuse duplicate host/standalone ownership and wrong-epoch metadata cleanup. Existing source-bound UNKNOWN is preserved."
+    },
+    {
+      "id": "W13",
+      "title": "Complete milestone demonstration",
+      "owners": "M01.09/M01.10",
+      "evidence": "actual normal executable/browser/CLI + independent reviews",
+      "expected": "Run joined three-board/two-project workflow and retained21single-board inventory with affected native/build/source/asset bindings. Preserve failures, exact commands, owned teardown, concise startup/recovery note and actual UX/prewalk. Fresh final candidate reviewer and separate final report validator; no full-parity/import/cutover claim."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+M01 PARITY CHECKPOINT / INTENTIONAL DIFFERENCES
+2026-10-27 | M01.01 proposal; no delivered-capability claim
+
+Baseline: V1 public README 608b3df, especially Multiple boards, Daily use,
+Transition permissions and Attachments. Existing Spike 01/current localhost scope
+and owner policies override historical TLS or priority-promotion machinery.
+Contract: ../decisions/workspace-contract-2026-10-27.txt.
+Fixture: m01-acceptance-fixture-r1.json. Prior source exposure is disclosed.
+
+Outcome | Retained / already qualified | Remaining in M01 | Difference / later scope
+One normal local application | Go/TS/SQLite and automatic browser/CLI channels |
+  Workspace host with independent board engines | Loopback HTTP only; no TLS/accounts.
+Select correct board/project | Existing full durable identity and CLI verification |
+  Explicit project/board keys, cold routes, lists/create/register/status, exact CLI |
+  Explicit membership replaces recursive JSON discovery; owner acceptance required.
+Existing single-board use | Current --data serve/read/write/reconnect | Shared engine,
+  legacy metadata parser and hosted-member --data compatibility | No old-binary
+  workspace promise; unsupported rendezvous refuses rather than guessing.
+Attention | Unarchived committed state and known zero | Current four-lane review
+  count, not-configured categories, stale/unknown/error distinction, live refresh |
+  Full Blocked/Needs Terry/configurable lanes deferred to M02, not fabricated zero.
+Find next board | V1 stable committed activity ordering | Flat Pinned/Other rows,
+  project/board labels, stable ties, future/unknown timestamps and truthful coverage |
+  Supported category sum only until M02; no new urgency or priority formula.
+Shared curation | Stable references and local authority | Shared persistent pin/
+  unpin/manual keyboard order, conflicts and visible failure | No V1 pin import or
+  account/device sync; preferences cannot grant membership or board authority.
+Useful board space/window state | Qualified focus/editor behavior | Collapsible/
+  resizable sidebar with per-window width/filter/route/selection/focus/scroll |
+  Retain outcomes; exact V1 pixels/process counts are not requirements.
+Bookmarks/navigation | Existing local origin and context checks | /board/project/board,
+  cold link/refresh, Back/Forward and no-full-reload switching | Immutable slugs are
+  independent of display labels; no key rename/rebinding feature in M01.
+Preserve private work | Existing IDB drafts and immutable originals | Board-aware
+  client/session and suspend/reattach, same/different-board windows, storage denial,
+  stale-response guards | No recovery schema rewrite; failed durable storage cannot
+  promise forced-reload recovery; deliberate cross-origin move is not automatic migration.
+Honest failure/recovery | UNKNOWN/no automatic replay, revision/rights admission |
+  Unavailable member remains visible, healthy members usable, retry/restart, interrupted
+  registration inspection and graceful owned drain | No generic recovery platform,
+  guessed noncommit, forced foreign service takeover or cross-board transaction.
+Human approval/priority | Human-only approve/Completed, assigned priority retained |
+  Verify isolation across selected member and preserve the existing negative gates |
+  CLI/workspace control metadata does not become human board authority.
+Remaining daily card features | Qualified create/edit/comment/link/handoff/approval |
+  Use them to exercise selected boards | Broader search/history/rename/hierarchy and
+  archive/unarchive UX belong to M02. Archived-count exclusion uses a technical read
+  fixture, not a hidden archive-implementation prerequisite in M01.
+Attachments/covers | Qualified existing attachment/export basics remain |
+  Preserve existing single-board regression where affected | Broader M03 attachment/
+  cover UX is not built during workspace work.
+Operations/notifications | Owned lifecycle and existing outcome evidence remain |
+  Required workspace start/restart/error/readiness support | Monitor alerts, optional
+  publishing/live-update conveniences and notification delivery remain M04.
+Real adoption/full parity | Existing single-board accepted evidence | Synthetic M01
+  workspace demonstration and current source/build/evidence report | JSON import,
+  real-data cutover and complete parity acceptance remain M05/M06.
+
+Review gates
+- M01.01 is a finished contract proposal for independent review and Terry acceptance;
+  it implements no runtime, fixture data, ownership, credential or schema change.
+- Owner acceptance adopts the explicit differences and concrete contract choices.
+  Consequential rejected choices require revising this contract before dependent work.
+- Each implementation handoff preserves original prerequisites and needs fresh
+  non-author review; only Terry controls Completed. Review waiting belongs RFR.
+- Actual positive customer cases use the normal built executable/browser/CLI.
+  Deterministic edge/controlled-fault fixtures remain explicitly technical evidence.
+  Neither a planning PASS nor a component test is delivered M01 capability.

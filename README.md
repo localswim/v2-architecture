@@ -26,7 +26,8 @@ The current [M01 work package R2](docs/spike02/m01-work-package-r2.txt) and its
 [structured plan](docs/spike02/m01-work-package-r2.json) implement Terry's requested
 planning replacement: M01.00 is pre-timed preparation, followed by A-J as
 M01.01-M01.10. The nine earlier work cards are archived with their history intact.
-This is planning; preparation, timing and product implementation remain unstarted.
+These packets describe the planning baseline. They do not claim delivered workspace
+capability or start implementation/timing by themselves.
 
 The [original milestone roadmap](docs/spike02/milestones-and-m01.txt) and its
 [structured history](docs/spike02/milestones-and-m01.json) remain preserved. Only
@@ -37,6 +38,12 @@ The accepted [independent M01 breakdown](docs/spike02/independent-m01-breakdown-
 and [comparison with the nine-card package](docs/spike02/m01-breakdown-comparison-r1.txt)
 explain the explicit runtime/session task and earlier private-work isolation.
 Those original proposal documents remain historical; use R2 for current numbering.
+
+The [M01.01 workspace contract](docs/decisions/workspace-contract-2026-10-27.txt),
+[synthetic fixture specification](docs/spike02/m01-acceptance-fixture-r1.json) and
+[parity checkpoint](docs/spike02/m01-parity-checkpoint-r1.txt) are the concrete
+integration proposal. They require owner acceptance before M01.02 implementation;
+no workspace runtime or qualification is delivered by these documents.
 
 ## Slice 01 implementation design
 
