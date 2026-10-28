@@ -29,6 +29,11 @@ goals for later scoping. The [structured plan](docs/spike02/milestones-and-m01.j
 records acceptance and dependencies. This is planning, not delivered capability
 or authorization for live migration/cutover.
 
+A subsequent [independent M01 breakdown](docs/spike02/independent-m01-breakdown-r1.txt)
+and [comparison with the nine-card package](docs/spike02/m01-breakdown-comparison-r1.txt)
+propose explicit runtime/session work and earlier private-work isolation. They are
+proposals for owner review; the existing task baseline remains unchanged.
+
 ## Slice 01 implementation design
 
 The first slice follows one board through browser and CLI reads, creation, edits,

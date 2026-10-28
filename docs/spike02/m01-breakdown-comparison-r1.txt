@@ -1,0 +1,108 @@
+M01 FRESH BREAKDOWN COMPARED WITH THE ACCEPTED NINE-CARD PROPOSAL
+2026-10-27 | Planning recommendation; existing cards remain unchanged
+
+Recommendation
+Keep the original M01 goal, acceptance coverage and most task identities. Revise
+two boundaries before implementation: expose runtime/session composition as its
+own early task, and implement board-context/private-work isolation before normal
+browser switching. Remove pins and CLI completion as prerequisites of that isolation.
+Make automatic catalog refresh and persistence-failure navigation behavior explicit.
+This produces ten proposed packages A-J, compared with the original nine. The count
+is not the objective; the extra boundary makes the largest integration risk visible.
+No faster completion or calibrated turn estimate is claimed.
+
+What the existing plan gets right
+The nine cards cover the milestone well: three boards/two projects, lifecycle,
+truthful Attention, real CLI, browser routes, shared pins, private recovery, joined
+qualification and independent handoff. They preserve the four-lane limitation,
+synthetic data, owner gates, human/bot authority and UNKNOWN/no replay. It is not
+a fundamentally incomplete plan. Its previous independent planning PASS remains
+valid evidence of coherence; this comparison does not reopen accepted planning.
+
+Mapping: independent package -> existing work
+A contract/fixture -> M01.01 #0008, retained.
+B runtime/session/dispatch bridge -> part of M01.02 #0009 and shared transport
+  assumptions; propose one new early task rather than leave it implicit.
+C membership/create/reopen/lifecycle -> remaining M01.02 #0009.
+D explicit CLI selection/evidence -> M01.04 #0011, retained with explicit evidence-root check.
+E browser context/private-work controller -> M01.07 #0014 plus the isolation seam
+  already partly required by M01.05. Move earlier; retain existing recovery engine.
+F catalog/projection/refresh contract -> M01.03 #0010, retained with refresh/fairness cases.
+G shell/routes/Attention display -> M01.05 #0012, consuming accepted E and F.
+H shared pins/window behavior -> M01.06 #0013, retained after G.
+I joined product qualification -> M01.08 #0015, retained.
+J independent demonstration/handoff -> M01.09 #0016, retained.
+
+Material planning observations
+
+1. Runtime, session and dispatch changes are under-specified as a work unit.
+The original contract card calls for hosting/adapters and contract extensions;
+the host card includes one writer per board and membership authority. These
+requirements are present, not missing. But the implementation couples one board's
+store/authority to its listener/descriptor lifetime, and both server/client expose
+singleton bootstrap/session routes. Ordinary CLI evidence also belongs to a
+selected data root. Treating this as only registry work risks discovering shared
+transport/auth changes after downstream adapter ownership is frozen.
+Recommendation: B first, exercising two real board contexts under A's chosen
+topology. C adds persisted configuration/create/reopen. Freeze generated DTOs,
+bootstrap/session selection and single-board compatibility in A. Do not assume a
+new shared listener or rewrite the domain core without a concrete case.
+
+2. Recovery coordination comes too late and has unnecessary prerequisites.
+Original M01.07 requires M01.04, M01.05 and M01.06. Pin persistence does not enable
+draft isolation, and CLI completion does not enable a browser context controller.
+M01.05 already requires some late-response protection, so the original plan does
+not authorize an unsafe release. It does, however, divide overlapping safety
+ownership across a navigation card and a later recovery card.
+Recommendation: E owns the reusable context/view/recovery boundary before G
+navigation is accepted. H pins extends the already-safe shell. CLI and catalog
+can progress independently after accepted registry/runtime interfaces.
+
+3. Persistence denial needs a precise customer outcome.
+The original recovery task includes storage denial and discard scope, which is
+correct. Clarify the navigation behavior: if the latest input cannot be persisted,
+retain the mounted/in-memory input, prevent destructive application navigation or
+obtain explicit discard. Never silently destroy the editor because some older
+draft exists. Forced browser reload with unavailable durable storage cannot carry
+an unconditional lossless-recovery promise. This clarification is a failure policy,
+not authorization to weaken the normal reload acceptance.
+
+4. Attention must update during use, not only be correct when fetched.
+The original catalog and shell tasks describe truthful counts and cross-client
+shared state, but do not explicitly assign automatic refresh, request timeout,
+stale-result handling and slow-member isolation to a package.
+Recommendation: A specifies the smallest bounded refresh contract, F supplies
+independently bounded per-board results, G demonstrates a browser/CLI edit changing
+the right Attention count without a full page reload. Distinguish deadline/refusal
+from known zero. No push/event platform or performance benchmark is required.
+
+5. Keep qualification and final review distinct without redundant reruns.
+Original M01.08 and M01.09 have legitimate separate owners: execute the actual
+journey, then independently assess/demo/hand off. Keep both. The final reviewer
+checks that candidate sources/assets/build match qualifying evidence and reruns
+only changed or unresolved cases; an unchanged broad rerun is not automatically
+required. Retain the separate non-author validation of the final report.
+
+Proposed dependency changes if adopted
+- New B after accepted #0008; #0009/C after accepted B.
+- #0014/E after accepted #0009; remove its #0011, #0012 and #0013 blockers.
+- #0012/G retains #0010/F and gains #0014/E as a blocker.
+- #0013/H stays after #0012/G (its #0010 dependency may remain as redundant traceability).
+- #0011/D and #0010/F remain after #0009/C.
+- #0015/I retains #0011, #0013 and #0014; #0013 transitively covers G/F.
+- #0016/J retains #0015/I. Preserve all history and superseded plans.
+No dependency or existing description is changed by this comparison. Exact patch
+and new card materialization follow owner acceptance; no new hidden gate is added.
+
+Decision scope
+This comparison recommends a planning revision only. It does not complete #0008's
+integration contract, choose host topology, implement M01, revise the accepted
+roadmap, authorize later milestones or touch real board data.
+
+Evidence and review bounds
+Independent breakdown: independent-m01-breakdown-r1.txt.
+Original: milestones-and-m01.txt and .json at architecture9af61de.
+Implementation inspected: clean628eb72, narrow current Go/TS runtime, CLI, client,
+view and recovery seams cited in the independent breakdown. These are static
+planning observations, not discovered product bugs or a runtime qualification.
+Prior source exposure is disclosed. Fresh non-author review is recorded separately.
