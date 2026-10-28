@@ -1,0 +1,169 @@
+M01 CURRENT WORK PACKAGE R2
+2026-10-27 | Owner-adopted replacement; no product implementation
+
+Authority
+Terry explicitly directed archiving the current RFW cards, adding M01.00 pre-timed preparation, and adopting A-J as M01.01-M01.10 in the current chat. Completed #0017 preserves the accepted independent breakdown/review.
+
+Outcome
+Three synthetic SQLite boards across two projects; ordinary browser/CLI, truthful supported Attention, shared pins and isolated private work.
+
+Timing boundary
+M01.00 is pre-timed preparation. No timer, duration budget or product task is started by replacing the board; record timing convention in M01.00.
+
+Replacement
+The nine original RFW tasks #0008-#0016; archive, do not delete, rewrite, complete or reuse their IDs. Preserve all history, original relationships and prior plan evidence.
+Historical proposals and reviews retain their original wording and verdicts.
+All eleven replacement cards are P3 / Ready for Work children of M01.
+M01.00 is unstarted prep; A-J map exactly to M01.01-M01.10. Ticket numbers remain allocated by the board.
+
+M01.00 - Complete pre-timed preparation (source: pre-timed prep)
+Outcome
+Prepare the accepted M01 work package for a later timed run, without starting that run or performing A-J work.
+
+Deliverables and acceptance
+- Confirm the accepted planning inputs and clean architecture/implementation baselines; record checkout locations, current prerequisite acceptance and the source/build identities to use.
+- Inventory the existing qualified toolchain and exact build/test/browser commands. Record availability and concrete setup gaps; do not upgrade dependencies or install trust/credentials by default.
+- Prepare private evidence/output directories and reserve fresh synthetic-data locations. Do not import V1 boards or decide/build A's acceptance fixture in advance.
+- Record the timing convention and deliberate start/stop markers before a later run: identify pre-timed preparation separately, and distinguish active work from tool waits and owner-review waiting. Do not invent a duration budget or silently exclude design, coding, debugging, tests or review from the future measured work.
+- Publish a concise ready-to-start checklist, reproduction commands, worker/file-ownership starting points and unresolved inputs. No product behavior, integration contract, implementation, new product qualification or timer start is completed by this preparation card.
+
+Readiness
+- The A-J proposal was accepted by Terry on Completed #0017; the original planning #0001 is also Completed.
+- Move this card In Progress before performing preparation. Fresh independent non-author review precedes RFR; only Terry controls Completed.
+- M01.01 starts only after this prep is owner-accepted. This board replacement leaves M01.00 Ready for Work and unstarted.
+
+Recorded prerequisite labels: accepted original planning and independent breakdown
+
+M01.01 - Fix the integration decisions and acceptance fixture (source: A)
+Deliver: a short workspace contract plus three-board/two-project fixture and
+retained/remaining/intentional-difference matrix. Decide stable route keys versus
+durable board identity, configured membership and explicit creation, host topology,
+board session/bootstrap and CLI selection, lifecycle, catalog freshness/ordering,
+and preference/window ownership. Choose the smallest supported composition;
+do not redesign accepted storage or select a framework. Name adapter/file owners,
+generated-contract changes and acceptance cases before parallel work.
+Exit: independently reviewed proposal and owner acceptance. No production code.
+Requires: accepted original planning #0001 and owner-accepted M01.00 preparation; the A-J replacement was accepted on Completed #0017.
+Recorded prerequisite labels: M01.00
+
+M01.02 - Make the runtime and transport safely address independent boards (source: B)
+Deliver: the necessary host/board runtime bridge, board-selected bootstrap/session
+and request dispatch, while retaining single-board startup. This may reuse engines
+or adapt existing runtimes as M01.01 decides; a one-listener extraction is not assumed.
+Exercise two actual synthetic boards using resolved registrations supplied by a
+test harness; persisted workspace configuration belongs to M01.03. Both have separate
+ownership, authority, revisions and outcome records. Browser cookies/session calls
+must select the intended board; CLI bot credentials cannot gain human rights.
+Exit: actual HTTP wrong-board/refusal, cross-board read/write, restart/credential
+rotation and admitted-request drain checks; affected generated bindings agree.
+Requires: M01.01 accepted. Independent authority/concurrency review before handoff.
+Recorded prerequisite labels: M01.01
+
+M01.03 - Persist workspace membership and complete board lifecycle (source: C)
+Deliver: configured projects, stable board keys/labels and the chosen bounded
+registration/discovery/create behavior. Provide actual initialization and reopening
+of three synthetic boards. Registry configuration and preferences stay separate
+from board state; adding a board cannot silently replace an existing identity.
+Exit: restart preserves membership and stores; duplicate aliases/identity conflicts
+and unsafe paths refuse; missing/invalid/busy members do not disable healthy ones.
+Recheck membership and target identity at use. Preserve existing --data operation.
+Requires: M01.01 and M01.02 accepted. Physical path/ownership behavior gets native checks.
+Recorded prerequisite labels: M01.01, M01.02
+
+M01.04 - Deliver explicit workspace selection through the real CLI (source: D)
+Deliver: project/board list and exact target selection/initialization using M01.03 and
+M01.02; preserve the existing --data interface and board-local private evidence store.
+Exit: built CLI creates/edits/comments against A while same-ticket B is unchanged,
+then deliberately selects B. Missing, ambiguous, unavailable and replaced targets
+refuse without default-board fallback, direct SQL mutation or automatic replay.
+Existing original-operation lookup remains bound to its source context.
+Requires: M01.02 and M01.03 accepted. Independent review; CLI remains automation-only.
+Recorded prerequisite labels: M01.02, M01.03
+
+M01.05 - Make browser board context and private-work switching safe (source: E)
+Deliver: a board-scoped client/session and view-lifetime controller using existing
+draft/original stores. Keep active editor, focus and draft selection window-local;
+records retain full installation/board/incarnation/actor context and operation IDs.
+Explicitly handle detaching/reattaching a view rather than assuming destroy/remount
+preserves its current editor. Do not rewrite recovery storage or retention.
+Exit: delayed A reads/mutations cannot repaint or resolve B; switching back restores
+the right editor/base. Pending originals stay with A. Two windows, including the
+same board in both, retain independent input/selection. Reconnect never resubmits.
+If private persistence fails, retain input and prevent destructive app navigation
+or require explicit discard; never promise durable recovery through a forced reload
+with unavailable storage. Prove the controller against real board sessions plus
+deterministic late-response/storage-denial cases before using it for navigation.
+Requires: M01.02 and M01.03 accepted. Independent recovery/authority review; no pin dependency.
+Recorded prerequisite labels: M01.02, M01.03
+
+M01.06 - Project truthful Attention and bounded refresh results (source: F)
+Deliver: Go catalog projection and its read contract: supported category counts,
+availability/freshness, committed activity ordering and stable ties. Known zero,
+not configured, stale and unavailable are different. Archived items do not inflate
+counts; catalog reads do not mutate priorities, approvals or boards.
+Exit: actual board mutations appear on subsequent real catalog reads; a bounded
+failed/timed-out/slow member does not stall healthy entries
+or overwrite good data with a fabricated zero. Retry/restart recovers truthfully.
+Define bounded polling or another minimal refresh mechanism in M01.01; no new event bus.
+Requires: M01.03 accepted. No browser-shell dependency; integrated display belongs to M01.07.
+Recorded prerequisite labels: M01.03
+
+M01.07 - Deliver the ordinary workspace chooser and browser navigation (source: G)
+Deliver: the thin project/board shell consuming M01.03, M01.05 and M01.06, Attention with automatic
+refresh, /board/<project>/<board> deep links, Back/Forward, keyboard selection,
+per-window active route/view state, clear loading/error/retry and board composition.
+No full page reload on switch.
+Exit: normal browser selects all three boards and edits the intended one. Unknown
+routes remain unavailable; they never select a fallback board. Cold deep links,
+refresh, two windows and rapid navigation preserve M01.05's isolation and input rules.
+Browser/CLI writes update the correct count without manual page reload. Failed
+refresh preserves labeled stale data and lets healthy boards remain usable.
+Requires: M01.03, M01.05 and M01.06 accepted. This handoff must already be safe to switch boards.
+Recorded prerequisite labels: M01.03, M01.05, M01.06
+
+M01.08 - Add shared pins without sharing active-window context (source: H)
+Deliver: workspace-persisted pins/manual ordering and keyboard controls. Separate
+preference revision/conflicts from board revisions and route state.
+Exit: a second window observes reordered pins; browser/host restart preserves them.
+Simultaneous stale writes and failed saves are visible; shared updates cannot steal
+another window's route, editor, focus or scroll. Malformed saved configuration is
+reported, not silently reset. Pins grant no membership or approval rights.
+Requires: M01.03 and M01.07 accepted; never a prerequisite of M01.05.
+Recorded prerequisite labels: M01.03, M01.07
+
+M01.09 - Qualify the joined customer journey and changed boundaries (source: I)
+Deliver: one executable acceptance inventory over three fresh boards/two projects,
+normal browser and built CLI. Same-ticket boards, two windows, cold links, Attention,
+pins, restart, unhealthy-member isolation, drafts and pending originals all run.
+Preserve the accepted21-case single-board inventory; refresh affected runtime,
+authority, lifecycle and persistence evidence as changes require. Each package
+already carries focused tests; this is integration evidence, not deferred testing.
+Bind sources, generated assets and executable to results, retaining failed attempts.
+Exit: required cases pass or report actionable failure; reproducible commands and
+capability matrix state limits honestly. Mocks are not positive product evidence.
+Requires: M01.04, M01.05, M01.06, M01.07 and M01.08 accepted.
+Recorded prerequisite labels: M01.04, M01.05, M01.06, M01.07, M01.08
+
+M01.10 - Independently demonstrate and hand off M01 (source: J)
+Deliver: concise normal startup/use/recovery instructions and final customer demo.
+A fresh non-author reviews the final candidate and actual M01.09 evidence; a separate
+non-author validates the final report as required by the accepted handoff scope.
+Exit: PASS or Changes Required with traceable findings; only owner review remains
+at RFR. Owner controls Completed. No M02 expansion or real-data adoption.
+Requires: M01.09 accepted. Reuse valid M01.09 evidence after checking source/build binding;
+do not duplicate an unchanged full journey merely to create another artifact.
+Recorded prerequisite labels: M01.09
+
+Execution rules
+Execution and scope
+- Move the selected card In Progress before design, implementation, tests, review or delegation. Ready for Work retains unaccepted prerequisites; RFR alone does not satisfy them.
+- Keep localhost HTTP Go/TypeScript/SQLite, synthetic data, one authoritative writer per board, explicit assigned priority, human-only approval/Completed and original UNKNOWN/no automatic replay.
+- Keep the four qualified workflow lanes. Blocked/Needs Terry are explicitly not configured until M02; do not fabricate zero counts for unsupported categories.
+- No real V1 import, activation/cutover, TLS/LAN, account system, new framework/workflow engine, monitor/publishing or new attachment feature scope.
+- Use bounded author work and fresh independent non-author review. Split an oversized package before execution rather than silently expanding scope. At most four active direct subagents, depth one; no grandchildren or idle reviewer reservations.
+- Run proportionate affected-boundary checks; actual browser/CLI evidence is required where specified. Planning materialization is not implementation or runtime qualification.
+
+Sources and preservation
+https://github.com/localswim/v2-architecture/blob/c63febb1b7c06c4a958190bb4c94962bca3d8680/docs/spike02/independent-m01-breakdown-r1.txt
+The previous roadmap remains historical. M02-M06 stay high-level Backlog milestones; their scope and milestone links are not changed.
+No current card, timer, application feature, runtime qualification or live adoption is completed by this administrative replacement.

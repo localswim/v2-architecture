@@ -22,17 +22,21 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
-The [milestone roadmap and M01 work package](docs/spike02/milestones-and-m01.txt)
-uses customer-visible checkpoints from the accepted Spike 01 toward V1 feature
-parity. Only M01 (multi-board workspace) is decomposed; M02-M06 remain high-level
-goals for later scoping. The [structured plan](docs/spike02/milestones-and-m01.json)
-records acceptance and dependencies. This is planning, not delivered capability
-or authorization for live migration/cutover.
+The current [M01 work package R2](docs/spike02/m01-work-package-r2.txt) and its
+[structured plan](docs/spike02/m01-work-package-r2.json) implement Terry's requested
+planning replacement: M01.00 is pre-timed preparation, followed by A-J as
+M01.01-M01.10. The nine earlier work cards are archived with their history intact.
+This is planning; preparation, timing and product implementation remain unstarted.
 
-A subsequent [independent M01 breakdown](docs/spike02/independent-m01-breakdown-r1.txt)
+The [original milestone roadmap](docs/spike02/milestones-and-m01.txt) and its
+[structured history](docs/spike02/milestones-and-m01.json) remain preserved. Only
+M01 is decomposed; M02-M06 remain high-level goals for later scoping. No live
+migration or cutover is authorized.
+
+The accepted [independent M01 breakdown](docs/spike02/independent-m01-breakdown-r1.txt)
 and [comparison with the nine-card package](docs/spike02/m01-breakdown-comparison-r1.txt)
-propose explicit runtime/session work and earlier private-work isolation. They are
-proposals for owner review; the existing task baseline remains unchanged.
+explain the explicit runtime/session task and earlier private-work isolation.
+Those original proposal documents remain historical; use R2 for current numbering.
 
 ## Slice 01 implementation design
 
