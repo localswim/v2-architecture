@@ -41,9 +41,14 @@ and [structured history](docs/spike02/daily-work-milestone-split-r1.json) retain
 the superseded M03-M09 numbering; the rough-cuts overlay preserves those outcomes.
 The broader [M02 work package R1](docs/spike02/m02-work-package-r1.txt) and its
 [structured plan](docs/spike02/m02-work-package-r1.json) remain historical evidence;
-existing stories need repartitioning before execution under the smaller milestones.
-This is a roadmap update only; no product work, timer, live migration or cutover
-is authorized.
+the current [story repartition R2](docs/spike02/m02-story-repartition-r2.txt) and
+[structured package](docs/spike02/m02-story-repartition-r2.json) retain eight
+read/edit stories in M02 and move the other outcomes into M03-M06, splitting
+existing-workflow updates from initial workflow creation. Each milestone owns
+its browser/CLI, keyboard, focused qualification and review/handoff proof.
+This is planning only; no product work, timer, live migration or cutover is
+authorized. Serial work/review stays in the primary; delegation requires useful
+parallel work and review independence is described as actually performed.
 
 The accepted [independent M01 breakdown](docs/spike02/independent-m01-breakdown-r1.txt)
 and [comparison with the nine-card package](docs/spike02/m01-breakdown-comparison-r1.txt)

@@ -1,0 +1,96 @@
+M02-M06 STORY REPARTITION R2
+2026-10-29 | Owner-requested planning; no product execution
+
+M02 is read/edit on the accepted four-lane workspace. Search/archive, hierarchy/links and workflow changes have separate milestone homes. All original story identities/history remain; no outcome silently dropped.
+
+M02.00 - Preflight
+- Confirm accepted M01, clean source/build identities, available existing toolchain and current smaller M02 work package. No tool upgrades or feature work.
+- Inventory exact existing build/generated-contract/browser/CLI commands, reserve synthetic evidence locations and record concrete readiness gaps. Inventory M02 read/edit only; later milestone preflights are separate.
+- Record separate preflight and future development clocks, owner-only wait rules, file ownership and review approach under the current useful-parallel-work policy.
+- Deliver a concise ready-to-start checklist and review; no acceptance contract or product qualification is performed early.
+
+M02.01 - Freeze read/edit acceptance and integration decisions
+- Freeze bounded examples for readable details/committed history, rename, description, comments, owner and explicit priority; normal browser and real CLI on the accepted four-lane workspace.
+- Choose safe text/history pagination, no-op and conflict behavior using existing foundations. Same-ticket boards, private draft isolation, keyboard/IME and human-only approval remain covered.
+- Name file ownership and changed boundaries. No custom workflow, archive/search, hierarchy/link expansion, attachment expansion or full parity matrix is part of this contract.
+- Publish a short reviewed proposal and synthetic fixture specification. Owner acceptance gates implementation; no product code.
+
+M02.02 - Read useful card details and committed history
+- Readable ticket/title, description, existing state/priority/owner, existing relationship summaries, attributed comments and committed history through ordinary drawer and focused CLI reads.
+- Bound history/comments with honest continuation and empty/error states; retain access to older facts. Render text safely and distinguish private drafts/pending originals from committed facts.
+- Delayed card/board reads cannot paint another drawer or expose private work. Preserve selection, draft and focus through refresh/reconnect.
+- Verify browser/CLI committed-fact agreement and board isolation with focused checks; no new hierarchy/link/archive/search capabilities.
+
+M02.03 - Rename and edit daily card fields safely
+- Rename Unicode title with stable ID/ticket, save description, assign/reassign owner, choose explicit priority and append an attributed comment.
+- Conflicts, invalid input and UNKNOWN preserve editor/original submission and never silently replay. Keep accepted no-op behavior and human-only approve/Completed.
+- Cover keyboard Enter/Escape/IME and useful focus restoration, actual browser/CLI operations, two-window stale edits, same-ticket board isolation and reopen/audit facts.
+- Use accepted four-lane workflow; no configurable lanes, relationship edits, archive/search or attachment expansion.
+
+M02.04 - Complete read/edit keyboard and focus journeys
+- Keyboard-only open/read/edit/comment/rename/owner/priority and existing permitted move/approval controls are named, visibly focused and activate once.
+- Escape/composing input cannot submit or discard unrelated work; drawer close returns to a visible opener or an existing documented fallback without building M03 search.
+- Join feature-level checks for refresh, reordering, two windows and board switching. Record/fix material usability findings; no whole-product accessibility claim.
+
+M02.05 - Close real CLI read/edit parity
+- Join already supplied focused read/history and create/edit/comment/rename/assignment/explicit-priority commands into a readable built-executable journey, with useful help/structured output.
+- Explicit workspace and retained --data selection never fall back to another board; Unicode output and status distinguish commit/refusal/UNKNOWN without replay.
+- Exercise negative bot approval/Completed and original operation lookup. This is read/edit parity only; each later feature story owns its own CLI slice.
+
+M02.06 - Qualify the joined read/edit customer journey
+- Exercise the scoped M02 read/edit acceptance matrix through actual browser and built CLI using fresh synthetic workspace boards and two windows.
+- Cover history/editor usability, conflicts, UNKNOWN, restart/reopen and affected M01 context/pins/Attention regressions. No broad later-feature qualification gate.
+- Run required source/generated-contract/asset/build checks plus changed native/transaction boundaries. Reuse unchanged accepted evidence with explicit bindings; retain failures/owned cleanup.
+- Bind source, executable/assets/tools and results; review material failures and fixes. No workflow/schema/storage redesign is priced or authorized by this card.
+
+M02.07 - Review, demonstrate and hand off M02 read/edit
+- Provide a short startup/use/recovery guide, normal browser/CLI read/edit demonstration and bound final candidate/evidence references.
+- Review candidate and report with useful independent parallel review where available; otherwise primary performs serial review and labels its lack of independence truthfully. Fix/re-review material changes.
+- Only Terry acceptance remains at RFR. No later milestone implementation, real import/adoption/cutover, external delivery or full-parity release claim.
+
+M03.01 - Archive and restore cards without losing work
+- Archive/unarchive in browser and CLI; default lane/search/Attention projections hide archived work, while explicit listing/focused inspection find it.
+- Preserve identity/ticket, recorded lane, comments/history, hierarchy/typed links and existing attachment references; no deletion or byte collection.
+- Exercise stale revisions, unknown outcomes, restart, truthful counts/activity and compatible export/restore. Own scoped keyboard/error/CLI checks.
+- Before execution, complete milestone-specific acceptance/readiness and scope focused integration/review/handoff within M03; do not defer proof to final release.
+
+M03.02 - Find and filter daily work
+- Literal ticket/ID/title/description/comment search and supported lane/owner/priority/archive filters through browser and real CLI, with deterministic explicit-priority ordering.
+- Bound results with honest continuation and empty/error states; board scoping, Unicode/metacharacters, readable safe text and per-window filters remain correct.
+- Freeze matching/order examples in M03 acceptance. Search is read-only; do not add a search platform or automatic priority propagation.
+- Demonstrate the joined find/archive outcome, affected restart/regression cases and scoped review/handoff in M03.
+
+M04.01 - Organize cards with parent and child hierarchy
+- Create/reparent/clear hierarchy with readable parent/full-child navigation through browser and CLI; refuse self/cycles/missing/foreign-board targets/stale revisions atomically.
+- Preserve archived/Completed identities and history. Hierarchy remains distinct from blocking links and never changes priority/lane or approval.
+- Complete M04-specific acceptance/readiness; include keyboard/error journeys, reopen/compatible round trips, focused integration checks and review/handoff.
+
+M04.02 - Manage typed card relationships
+- Create/remove accepted blocking, related, reference and duplicate links with readable reciprocal exact-target views in browser and CLI.
+- Freeze inverse/deduplication/self/cycle and atomic relationship replacement/create-with-links examples in M04 acceptance; invalid or stale inputs refuse without partial writes.
+- Preserve history, explicit priority and lane/approval; typed links remain distinct from hierarchy. Own keyboard/failure checks, restart/round trips and joined M04 demonstration/review.
+
+M05.01 - Create and reopen configured workflows
+- Initialize synthetic boards with configured lanes/labels/transitions and actor grants using ordinary product browser/CLI controls; reopen with stable policy and lane identities.
+- Invalid/duplicate policy refuses atomically; resolve current board/actor/policy and expected revision. Policy cannot grant bot approval/Completed or change explicit priorities.
+- Cover rollback/conflict/reopen, generated boundaries and compatible export/restore for changed persistent policy. Existing-board policy edits/retirement and category Attention belong to M06.
+- Complete M05-specific acceptance/preflight and own keyboard/error, focused actual integration, appropriate authority review and customer handoff.
+
+M06.01 - Change existing workflows safely
+- Implement supported existing-board policy/lane label/transition updates, stable IDs and explicit retirement/identity-change support or refusal; never silently relocate cards or rewrite history.
+- Preserve single writer, revision admission, actor grants, human-only Completed, explicit priority and original outcomes. Invalid/stale requests leave the accepted board untouched.
+- Version/document and verify any actual compatibility change; cover rollback/conflict/restart and supported export/restore. No silent migration of private boards.
+- Complete M06 acceptance/readiness, ordinary browser/CLI controls and focused keyboard/failure/authority review; Attention controls follow M06.02.
+
+M06.02 - Use workflow changes and truthful Attention
+- Expose supported existing-workflow controls through normal browser/CLI and render configured lane labels/order/permitted moves; retain human review/approval audit behavior.
+- Project committed unarchived Blocked/Needs Terry/RFR counts by stable category identity. Known zero, not configured, stale and unavailable remain distinct across boards.
+- Renaming labels cannot change terminal/category identity; reject stale/invalid moves visibly while retaining input. Preserve M01 pins/private context/same-ticket isolation.
+- Demonstrate changed-workflow plus Attention end to end with affected native/catalog checks, keyboard/error cases, review and customer handoff.
+
+Rules
+- RFW retains accepted prerequisite gates. Move eligible work In Progress before execution; only Terry controls Completed. M02 epic remains In Progress until children RFR or owner-Completed. Later milestone parents remain Backlog.
+- Browser/CLI, keyboard, focused integration and review/handoff stay with each feature milestone. No final catch-all implementation gate.
+- Delegate only for useful parallel work. Primary performs serial work and review; claim independence only when actually supplied.
+- No product work/timer, budget acceptance, real import/cutover or external delivery starts by repartitioning.
+- Public broad m02-work-package-r1 and prior milestone overlays remain preserved history. This overlay is current for these stories; M07-M17 retain the rough-cuts roadmap.
