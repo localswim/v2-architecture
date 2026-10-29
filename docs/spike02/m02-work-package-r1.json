@@ -1,0 +1,277 @@
+{
+  "revision": "m02-decomposition-r1",
+  "date": "2026-10-29",
+  "parent": 3,
+  "status": "planning-only",
+  "stories": [
+    {
+      "key": "M02.00",
+      "id": "spike02-m02-00",
+      "title": "Preflight",
+      "prerequisites": [
+        "M01"
+      ],
+      "scope": "Prepare a reproducible starting point for M02 without implementing features or deciding the acceptance contract in advance.",
+      "acceptance": [
+        "Confirm owner-Completed M01 #0002 and current accepted Spike01/local scope; record clean architecture and implementation source/build identities and existing parity evidence.",
+        "Inventory existing documented daily-card capabilities against M02; identify reuse and concrete setup gaps. Inventory exact build, generated-contract, CLI and ordinary browser commands without copying V1 source/tests or upgrading tools.",
+        "Reserve synthetic fixture/evidence locations; identify file owners, shared seams, native checks and review gates. Record any timing convention separately; this decomposition approves no budget and starts no development timer.",
+        "Deliver a concise readiness checklist with blockers and reproduction commands. Fresh independent review precedes owner handoff; no product qualification or pre-completed contract claim."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "detail": "M02.00: Preflight\n\nOutcome and scope\nPrepare a reproducible starting point for M02 without implementing features or deciding the acceptance contract in advance.\n\nDeliverables and acceptance\n- Confirm owner-Completed M01 #0002 and current accepted Spike01/local scope; record clean architecture and implementation source/build identities and existing parity evidence.\n- Inventory existing documented daily-card capabilities against M02; identify reuse and concrete setup gaps. Inventory exact build, generated-contract, CLI and ordinary browser commands without copying V1 source/tests or upgrading tools.\n- Reserve synthetic fixture/evidence locations; identify file owners, shared seams, native checks and review gates. Record any timing convention separately; this decomposition approves no budget and starts no development timer.\n- Deliver a concise readiness checklist with blockers and reproduction commands. Fresh independent review precedes owner handoff; no product qualification or pre-completed contract claim.\n\nRequires: M01 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.01",
+      "id": "spike02-m02-01",
+      "title": "Freeze daily-work acceptance and integration contracts",
+      "prerequisites": [
+        "M02.00"
+      ],
+      "scope": "Agree the smallest daily-card contract and concrete parity matrix before implementation.",
+      "acceptance": [
+        "Map every M02 outcome from the documented V1 public guide and accepted V2 policy to a retained capability, bounded implementation story or explicit intentional difference requiring Terry acceptance.",
+        "Freeze synthetic two-project/three-board cases with same-ticket cards, distinct human/bot actors, custom workflows, hierarchy, link types and archived work. State search fields/matching/order, history bounds, Unicode/text rendering and keyboard/focus expectations.",
+        "Specify stable workflow/lane identity, permitted transitions, compatible persistence/API/archive evolution, hierarchy/link semantics and explicit priority. Preserve human-only approval/Completed and immutable original UNKNOWN/no replay; no automatic priority propagation.",
+        "Name adapter/file ownership and dependent contract changes. Resolve consequential choices in a finished independently reviewed proposal; owner acceptance gates .02-.09. No product code."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.01: Freeze daily-work acceptance and integration contracts\n\nOutcome and scope\nAgree the smallest daily-card contract and concrete parity matrix before implementation.\n\nDeliverables and acceptance\n- Map every M02 outcome from the documented V1 public guide and accepted V2 policy to a retained capability, bounded implementation story or explicit intentional difference requiring Terry acceptance.\n- Freeze synthetic two-project/three-board cases with same-ticket cards, distinct human/bot actors, custom workflows, hierarchy, link types and archived work. State search fields/matching/order, history bounds, Unicode/text rendering and keyboard/focus expectations.\n- Specify stable workflow/lane identity, permitted transitions, compatible persistence/API/archive evolution, hierarchy/link semantics and explicit priority. Preserve human-only approval/Completed and immutable original UNKNOWN/no replay; no automatic priority propagation.\n- Name adapter/file ownership and dependent contract changes. Resolve consequential choices in a finished independently reviewed proposal; owner acceptance gates .02-.09. No product code.\n\nRequires: M02.00 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.02",
+      "id": "spike02-m02-02",
+      "title": "Persist and enforce configurable workflows",
+      "prerequisites": [
+        "M02.01"
+      ],
+      "scope": "Extend Go authority and persistence for board-specific lanes, labels and transitions, retaining existing boards.",
+      "acceptance": [
+        "Initialize and reopen distinct synthetic board workflows, including Blocked and Needs Terry; stable lane IDs survive label rename. Invalid/duplicate policy or unsupported transitions refuse atomically.",
+        "Define and implement supported existing-board workflow updates and lane retirement/identity changes per accepted contract; refuse unsupported changes clearly without silently relocating cards or rewriting history.",
+        "Admission resolves current board/actor/policy and expected revision. Configured permissions cannot confer bot approval/Completed authority. Preserve explicit assigned priority and no-change behavior.",
+        "Exercise rollback/conflict/restart and supported export/restore round trips for changed policy/schema, or prove compatibility unchanged. Generated boundaries agree. Fresh Sol High transaction/authority review."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.02: Persist and enforce configurable workflows\n\nOutcome and scope\nExtend Go authority and persistence for board-specific lanes, labels and transitions, retaining existing boards.\n\nDeliverables and acceptance\n- Initialize and reopen distinct synthetic board workflows, including Blocked and Needs Terry; stable lane IDs survive label rename. Invalid/duplicate policy or unsupported transitions refuse atomically.\n- Define and implement supported existing-board workflow updates and lane retirement/identity changes per accepted contract; refuse unsupported changes clearly without silently relocating cards or rewriting history.\n- Admission resolves current board/actor/policy and expected revision. Configured permissions cannot confer bot approval/Completed authority. Preserve explicit assigned priority and no-change behavior.\n- Exercise rollback/conflict/restart and supported export/restore round trips for changed policy/schema, or prove compatibility unchanged. Generated boundaries agree. Fresh Sol High transaction/authority review.\n\nRequires: M02.01 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.03",
+      "id": "spike02-m02-03",
+      "title": "Use configured workflows and truthful Attention",
+      "prerequisites": [
+        "M02.02"
+      ],
+      "scope": "Expose ordinary workflow controls in browser/CLI and project configured categories into the workspace.",
+      "acceptance": [
+        "Create/configure a synthetic workflow through supported product controls; render configured lane labels/order and permitted move choices. Human review/approval remains one authoritative audited action.",
+        "Show Blocked/Needs Terry/Ready for Review full counts from committed unarchived work, with stable category mapping. Known zero, not configured, stale and unavailable remain distinct across boards.",
+        "Renaming labels cannot change terminal/category identity. Custom boards do not inherit another board policy; rejected/stale moves preserve input and expose the actual outcome.",
+        "Verify actual browser and CLI operations, ordinary keyboard controls and changed catalog/native boundaries. Preserve M01 pins, private context, same-ticket isolation and healthy-board use."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.03: Use configured workflows and truthful Attention\n\nOutcome and scope\nExpose ordinary workflow controls in browser/CLI and project configured categories into the workspace.\n\nDeliverables and acceptance\n- Create/configure a synthetic workflow through supported product controls; render configured lane labels/order and permitted move choices. Human review/approval remains one authoritative audited action.\n- Show Blocked/Needs Terry/Ready for Review full counts from committed unarchived work, with stable category mapping. Known zero, not configured, stale and unavailable remain distinct across boards.\n- Renaming labels cannot change terminal/category identity. Custom boards do not inherit another board policy; rejected/stale moves preserve input and expose the actual outcome.\n- Verify actual browser and CLI operations, ordinary keyboard controls and changed catalog/native boundaries. Preserve M01 pins, private context, same-ticket isolation and healthy-board use.\n\nRequires: M02.02 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.04",
+      "id": "spike02-m02-04",
+      "title": "Read useful card details and committed history",
+      "prerequisites": [
+        "M02.01"
+      ],
+      "scope": "Deliver a readable card drawer and targeted CLI inspection with trustworthy committed history.",
+      "acceptance": [
+        "Show ticket/title, description, state, priority, owner, relationship summaries and attributed/timestamped comments/history. Use safe readable text/formatting and clear empty/error states.",
+        "Browse bounded history/comments using the accepted contract; distinguish committed facts from private drafts/pending originals. Older history remains reachable without fabricated completeness.",
+        "Switch cards/boards while reads are delayed; stale responses cannot paint another drawer or expose private work. Preserve selection, draft and focus through refresh/reconnect.",
+        "Actual CLI focused and structured output agrees with normal browser committed facts; cross-board access and failure cases use synthetic data."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "detail": "M02.04: Read useful card details and committed history\n\nOutcome and scope\nDeliver a readable card drawer and targeted CLI inspection with trustworthy committed history.\n\nDeliverables and acceptance\n- Show ticket/title, description, state, priority, owner, relationship summaries and attributed/timestamped comments/history. Use safe readable text/formatting and clear empty/error states.\n- Browse bounded history/comments using the accepted contract; distinguish committed facts from private drafts/pending originals. Older history remains reachable without fabricated completeness.\n- Switch cards/boards while reads are delayed; stale responses cannot paint another drawer or expose private work. Preserve selection, draft and focus through refresh/reconnect.\n- Actual CLI focused and structured output agrees with normal browser committed facts; cross-board access and failure cases use synthetic data.\n\nRequires: M02.01 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.05",
+      "id": "spike02-m02-05",
+      "title": "Rename and edit daily card fields safely",
+      "prerequisites": [
+        "M02.01",
+        "M02.04"
+      ],
+      "scope": "Complete create/edit/comment/assignment/explicit-priority and title rename through ordinary product controls.",
+      "acceptance": [
+        "Rename a Unicode title while preserving stable card ID/ticket and relationships; save description, assign/reassign owner, choose explicit priority and append an attributed comment.",
+        "Conflicts, validation failures and unknown outcomes preserve input/original submission and never silently retry. No-op policy follows accepted V2 behavior; changing links cannot silently promote priority.",
+        "Keyboard Enter/Escape/composition handling is deliberate; controls restore useful focus without discarding another editor. Bot CLI cannot approve or move its own work Completed.",
+        "Verify browser/CLI parity, two-window stale edits, same-ticket board isolation, restart and correct committed audit entries."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "detail": "M02.05: Rename and edit daily card fields safely\n\nOutcome and scope\nComplete create/edit/comment/assignment/explicit-priority and title rename through ordinary product controls.\n\nDeliverables and acceptance\n- Rename a Unicode title while preserving stable card ID/ticket and relationships; save description, assign/reassign owner, choose explicit priority and append an attributed comment.\n- Conflicts, validation failures and unknown outcomes preserve input/original submission and never silently retry. No-op policy follows accepted V2 behavior; changing links cannot silently promote priority.\n- Keyboard Enter/Escape/composition handling is deliberate; controls restore useful focus without discarding another editor. Bot CLI cannot approve or move its own work Completed.\n- Verify browser/CLI parity, two-window stale edits, same-ticket board isolation, restart and correct committed audit entries.\n\nRequires: M02.01, M02.04 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.06",
+      "id": "spike02-m02-06",
+      "title": "Organize cards with parent and child hierarchy",
+      "prerequisites": [
+        "M02.01",
+        "M02.04"
+      ],
+      "scope": "Add, change and clear parent relationships with readable child navigation.",
+      "acceptance": [
+        "Create/reparent/clear a child through browser and CLI; show parent and full reachable children with stable identity and navigation.",
+        "Refuse self-parenting, cycles, missing/foreign-board targets and stale revisions without partial writes. Distinguish hierarchy from blocking relationships.",
+        "Preserve archived and Completed card identity/history; hierarchy does not implicitly move cards, change priority or confer approval.",
+        "Verify actual hierarchy operations, restart and archive/export round-trip compatibility for new fields, with fresh independent review."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "detail": "M02.06: Organize cards with parent and child hierarchy\n\nOutcome and scope\nAdd, change and clear parent relationships with readable child navigation.\n\nDeliverables and acceptance\n- Create/reparent/clear a child through browser and CLI; show parent and full reachable children with stable identity and navigation.\n- Refuse self-parenting, cycles, missing/foreign-board targets and stale revisions without partial writes. Distinguish hierarchy from blocking relationships.\n- Preserve archived and Completed card identity/history; hierarchy does not implicitly move cards, change priority or confer approval.\n- Verify actual hierarchy operations, restart and archive/export round-trip compatibility for new fields, with fresh independent review.\n\nRequires: M02.01, M02.04 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.07",
+      "id": "spike02-m02-07",
+      "title": "Manage typed card relationships",
+      "prerequisites": [
+        "M02.01",
+        "M02.04"
+      ],
+      "scope": "Create and remove supported typed links with understandable reciprocal views.",
+      "acceptance": [
+        "Browser and CLI support blocking, related, reference and duplicate relationships retained by the accepted parity matrix; show readable type and exact target.",
+        "Freeze and exercise inverse/deduplication/self/cycle rules from .01; reject invalid, missing or foreign-board targets atomically. Removing a link preserves history.",
+        "Blocking links communicate dependency without silently changing assigned priority, lane or human acceptance. Hierarchy remains a separate relation.",
+        "Verify inverse views, stale/conflicting edits, reload/restart and compatible export/restore, with focused domain/authority review."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.07: Manage typed card relationships\n\nOutcome and scope\nCreate and remove supported typed links with understandable reciprocal views.\n\nDeliverables and acceptance\n- Browser and CLI support blocking, related, reference and duplicate relationships retained by the accepted parity matrix; show readable type and exact target.\n- Freeze and exercise inverse/deduplication/self/cycle rules from .01; reject invalid, missing or foreign-board targets atomically. Removing a link preserves history.\n- Blocking links communicate dependency without silently changing assigned priority, lane or human acceptance. Hierarchy remains a separate relation.\n- Verify inverse views, stale/conflicting edits, reload/restart and compatible export/restore, with focused domain/authority review.\n\nRequires: M02.01, M02.04 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.08",
+      "id": "spike02-m02-08",
+      "title": "Archive and restore cards without losing work",
+      "prerequisites": [
+        "M02.01",
+        "M02.04"
+      ],
+      "scope": "Archive/unarchive through browser and CLI while preserving card identity and committed evidence.",
+      "acceptance": [
+        "Archive hides cards from ordinary lane/search/Attention views; explicit archived listing and focused inspection find them. Unarchive restores the same card and recorded lane, not a new ticket.",
+        "Preserve comments/history, parent/child and typed links, owner/priority, existing attachment references and human-controlled Completed semantics. No delete, garbage collection or attachment feature expansion.",
+        "Handle stale revision, unavailable board and unknown outcomes without retry or duplicate audit. Archived work remains represented according to .01 dependency rules.",
+        "Exercise restart, truthful workspace activity/counts and supported backup/export/restore round trip with actual product commands."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.08: Archive and restore cards without losing work\n\nOutcome and scope\nArchive/unarchive through browser and CLI while preserving card identity and committed evidence.\n\nDeliverables and acceptance\n- Archive hides cards from ordinary lane/search/Attention views; explicit archived listing and focused inspection find them. Unarchive restores the same card and recorded lane, not a new ticket.\n- Preserve comments/history, parent/child and typed links, owner/priority, existing attachment references and human-controlled Completed semantics. No delete, garbage collection or attachment feature expansion.\n- Handle stale revision, unavailable board and unknown outcomes without retry or duplicate audit. Archived work remains represented according to .01 dependency rules.\n- Exercise restart, truthful workspace activity/counts and supported backup/export/restore round trip with actual product commands.\n\nRequires: M02.01, M02.04 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.09",
+      "id": "spike02-m02-09",
+      "title": "Find and filter daily work",
+      "prerequisites": [
+        "M02.01",
+        "M02.04",
+        "M02.08"
+      ],
+      "scope": "Deliver literal, readable board-scoped search and filters through browser and CLI.",
+      "acceptance": [
+        "Find exact ticket/ID and title/description/comment text under accepted .01 matching rules; filter by supported lane/owner/priority/archive options and expose clear empty/error states.",
+        "Define deterministic result/next ordering from accepted explicit-priority policy; hierarchy/link position cannot invent priority promotion. Bound results with honest continuation/completeness.",
+        "Search is read-only and board scoped. Same-ticket boards, Unicode, safe rendered text and metacharacters do not select another board or execute content.",
+        "Preserve per-window filter/selection/focus across refresh and board switching; actual built CLI and browser return consistent membership and ordering."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "detail": "M02.09: Find and filter daily work\n\nOutcome and scope\nDeliver literal, readable board-scoped search and filters through browser and CLI.\n\nDeliverables and acceptance\n- Find exact ticket/ID and title/description/comment text under accepted .01 matching rules; filter by supported lane/owner/priority/archive options and expose clear empty/error states.\n- Define deterministic result/next ordering from accepted explicit-priority policy; hierarchy/link position cannot invent priority promotion. Bound results with honest continuation/completeness.\n- Search is read-only and board scoped. Same-ticket boards, Unicode, safe rendered text and metacharacters do not select another board or execute content.\n- Preserve per-window filter/selection/focus across refresh and board switching; actual built CLI and browser return consistent membership and ordering.\n\nRequires: M02.01, M02.04, M02.08 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.10",
+      "id": "spike02-m02-10",
+      "title": "Complete keyboard and focus journeys",
+      "prerequisites": [
+        "M02.03",
+        "M02.05",
+        "M02.06",
+        "M02.07",
+        "M02.08",
+        "M02.09"
+      ],
+      "scope": "Join all daily-work controls into a usable keyboard journey and independently inspect browser usability.",
+      "acceptance": [
+        "Use keyboard-only create/open/read/edit/comment, rename, move, priority/owner, search/filter, hierarchy/link, archive/unarchive and human review; named controls and visible focus remain usable.",
+        "Enter/Space activate once; Escape and composing text do not submit or close unrelated work. Closing the drawer restores its opener or a documented search fallback.",
+        "Refresh/reordering, two windows and board navigation preserve the correct input, selection, scroll and focus; no drag-only required action.",
+        "Fresh non-author UX prewalk uses ordinary DOM/browser controls and records actionable findings. Fix/re-review material issues before handoff; no whole-product accessibility certification."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "detail": "M02.10: Complete keyboard and focus journeys\n\nOutcome and scope\nJoin all daily-work controls into a usable keyboard journey and independently inspect browser usability.\n\nDeliverables and acceptance\n- Use keyboard-only create/open/read/edit/comment, rename, move, priority/owner, search/filter, hierarchy/link, archive/unarchive and human review; named controls and visible focus remain usable.\n- Enter/Space activate once; Escape and composing text do not submit or close unrelated work. Closing the drawer restores its opener or a documented search fallback.\n- Refresh/reordering, two windows and board navigation preserve the correct input, selection, scroll and focus; no drag-only required action.\n- Fresh non-author UX prewalk uses ordinary DOM/browser controls and records actionable findings. Fix/re-review material issues before handoff; no whole-product accessibility certification.\n\nRequires: M02.03, M02.05, M02.06, M02.07, M02.08, M02.09 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.11",
+      "id": "spike02-m02-11",
+      "title": "Close real CLI daily-work parity",
+      "prerequisites": [
+        "M02.03",
+        "M02.05",
+        "M02.06",
+        "M02.07",
+        "M02.08",
+        "M02.09"
+      ],
+      "scope": "Join the story-level CLI operations into a coherent daily-work command journey.",
+      "acceptance": [
+        "Built executable help, focused reads, machine-readable results and mutations cover the accepted daily-card matrix; each feature story already supplies its needed CLI operation.",
+        "Use explicit workspace project/board and retained --data selection against same-ticket boards. No implicit current-board fallback or direct database mutation.",
+        "Readable Unicode output and error/exit contracts distinguish success, definite refusal and UNKNOWN; lookup uses the original operation/context and never replays a mutation.",
+        "Negative bot approval/Completed checks remain. Document concrete commands and obtain fresh non-author review of the actual executable journey."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.11: Close real CLI daily-work parity\n\nOutcome and scope\nJoin the story-level CLI operations into a coherent daily-work command journey.\n\nDeliverables and acceptance\n- Built executable help, focused reads, machine-readable results and mutations cover the accepted daily-card matrix; each feature story already supplies its needed CLI operation.\n- Use explicit workspace project/board and retained --data selection against same-ticket boards. No implicit current-board fallback or direct database mutation.\n- Readable Unicode output and error/exit contracts distinguish success, definite refusal and UNKNOWN; lookup uses the original operation/context and never replays a mutation.\n- Negative bot approval/Completed checks remain. Document concrete commands and obtain fresh non-author review of the actual executable journey.\n\nRequires: M02.03, M02.05, M02.06, M02.07, M02.08, M02.09 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.12",
+      "id": "spike02-m02-12",
+      "title": "Qualify the joined daily-work customer journey",
+      "prerequisites": [
+        "M02.10",
+        "M02.11"
+      ],
+      "scope": "Run integrated M02 acceptance and proportionate changed-boundary regression on the final candidate.",
+      "acceptance": [
+        "Trace every retained M02 outcome to actual built browser/CLI cases on fresh synthetic two-project/three-board data, including custom workflows and human/bot boundaries.",
+        "Qualify ordinary history/edit/search/hierarchy/link/archive workflows plus two-window conflicts, original UNKNOWN, restart/reopen and M01 private-work/Attention/pin regressions.",
+        "Run required source/generated-contract/asset/build checks and affected native SQLite, ownership, rollback and compatible export/restore checks. Keep controlled-fault and ordinary positive evidence distinct.",
+        "Bind source/tool/executable/assets to results; preserve failed attempts and owned cleanup. Report gaps and intentional differences honestly. Fresh independent non-author validation precedes owner handoff."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.12: Qualify the joined daily-work customer journey\n\nOutcome and scope\nRun integrated M02 acceptance and proportionate changed-boundary regression on the final candidate.\n\nDeliverables and acceptance\n- Trace every retained M02 outcome to actual built browser/CLI cases on fresh synthetic two-project/three-board data, including custom workflows and human/bot boundaries.\n- Qualify ordinary history/edit/search/hierarchy/link/archive workflows plus two-window conflicts, original UNKNOWN, restart/reopen and M01 private-work/Attention/pin regressions.\n- Run required source/generated-contract/asset/build checks and affected native SQLite, ownership, rollback and compatible export/restore checks. Keep controlled-fault and ordinary positive evidence distinct.\n- Bind source/tool/executable/assets to results; preserve failed attempts and owned cleanup. Report gaps and intentional differences honestly. Fresh independent non-author validation precedes owner handoff.\n\nRequires: M02.10, M02.11 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    },
+    {
+      "key": "M02.13",
+      "id": "spike02-m02-13",
+      "title": "Independently demonstrate and hand off M02",
+      "prerequisites": [
+        "M02.12"
+      ],
+      "scope": "Demonstrate the accepted complete daily-work milestone and publish a reviewable customer handoff.",
+      "acceptance": [
+        "Provide a short startup/use/recovery guide and normal browser/CLI demonstration covering every .01 outcome with final source/build/evidence references.",
+        "Fresh non-author reviewer checks the integrated candidate and evidence, reports PASS or actionable Changes Required, and verifies accepted intentional differences and unresolved limitations.",
+        "A distinct fresh non-author validates the final report/package; fix and re-review material changes. Only Terry review/approval remains at RFR; only Terry controls Completed.",
+        "Preserve M01 and all superseded evidence; no M03 implementation, real import/adoption/cutover, external delivery or general/full-parity release claim."
+      ],
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "detail": "M02.13: Independently demonstrate and hand off M02\n\nOutcome and scope\nDemonstrate the accepted complete daily-work milestone and publish a reviewable customer handoff.\n\nDeliverables and acceptance\n- Provide a short startup/use/recovery guide and normal browser/CLI demonstration covering every .01 outcome with final source/build/evidence references.\n- Fresh non-author reviewer checks the integrated candidate and evidence, reports PASS or actionable Changes Required, and verifies accepted intentional differences and unresolved limitations.\n- A distinct fresh non-author validates the final report/package; fix and re-review material changes. Only Terry review/approval remains at RFR; only Terry controls Completed.\n- Preserve M01 and all superseded evidence; no M03 implementation, real import/adoption/cutover, external delivery or general/full-parity release claim.\n\nRequires: M02.12 owner-accepted.\nExecution: In Progress before work; fresh independent review; Terry controls Completed.\n\nAuthority: Terry M02 decomposition request, 2026-10-29; parent #0003. Planning only until later execution authorization. Shared rules: docs/spike02/m02-work-package-r1.txt.\n"
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+M02 DAILY CARD WORK - WORK PACKAGE R1
+2026-10-29 | Decomposition proposal; no product implementation
+
+Authority and status
+- Terry requested decomposing Spike02 #0003 into M02.00 Preflight plus M02.01 onward.
+- Accepted M01 #0002 and its children remain owner-controlled Completed.
+- This authorizes planning/materializing stories only. Preflight, contract work and product execution have not started; later execution rechecks authorization and prerequisites.
+- Historical milestones-and-m01 and M01 packages remain unchanged; this is the current M02 decomposition overlay.
+
+Shared execution and acceptance rules
+- All children: P3 Normal, Bot owner, Ready for Work with explicit prerequisites. A dependent RFW card is not evidence its prerequisites are accepted.
+- Move each card In Progress before any future work, tests or delegation. Keep it there through fresh independent review; handoff RFR awaits Terry acceptance.
+- Reuse accepted Go/TS/SQLite and loopback HTTP browser/CLI authority. Keep one writer, expected revisions, durable atomic outcomes, original UNKNOWN/no replay, explicit priority and human-only approval/Completed.
+- Preserve existing capabilities. Deliberate V1 differences require concrete examples and Terry acceptance in .01; do not copy V1 source/tests. Public V1 guide and accepted parity checkpoint are outcome references; prior source exposure is disclosed.
+- Use synthetic data only. Shared administrative board tooling stays in C:\Projects\localswim. No M03 attachment expansion, M04 automation, M05 real import/cutover or M06 full-parity/release work.
+- Every implementation story includes its domain/API, required browser and CLI slice, generated contracts and focused checks; .10/.11 join usability and CLI behavior rather than deferring all UI/CLI until the end.
+- Changed persistent data must have explicit supported upgrade/refusal and compatible export/restore evidence; .01 decides scope, not an unreviewed schema redesign.
+- Fresh independent review is mandatory per story; use Sol High for authority, transactions, recovery/concurrency. Final .13 candidate review and distinct report validation remain separate roles.
+- Plan conservatively for at most four active direct workers, depth one; rolling authors then fresh reviewers, no idle reviewer reservations. No timing budget approved or timer started by decomposition.
+
+Prerequisite labels
+M01 = owner-Completed Spike02 #0002. All M02 prerequisites require owner acceptance before dependent execution.
+
+M02.00: Preflight
+
+Outcome and scope
+Prepare a reproducible starting point for M02 without implementing features or deciding the acceptance contract in advance.
+
+Deliverables and acceptance
+- Confirm owner-Completed M01 #0002 and current accepted Spike01/local scope; record clean architecture and implementation source/build identities and existing parity evidence.
+- Inventory existing documented daily-card capabilities against M02; identify reuse and concrete setup gaps. Inventory exact build, generated-contract, CLI and ordinary browser commands without copying V1 source/tests or upgrading tools.
+- Reserve synthetic fixture/evidence locations; identify file owners, shared seams, native checks and review gates. Record any timing convention separately; this decomposition approves no budget and starts no development timer.
+- Deliver a concise readiness checklist with blockers and reproduction commands. Fresh independent review precedes owner handoff; no product qualification or pre-completed contract claim.
+
+Requires: M01 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.01: Freeze daily-work acceptance and integration contracts
+
+Outcome and scope
+Agree the smallest daily-card contract and concrete parity matrix before implementation.
+
+Deliverables and acceptance
+- Map every M02 outcome from the documented V1 public guide and accepted V2 policy to a retained capability, bounded implementation story or explicit intentional difference requiring Terry acceptance.
+- Freeze synthetic two-project/three-board cases with same-ticket cards, distinct human/bot actors, custom workflows, hierarchy, link types and archived work. State search fields/matching/order, history bounds, Unicode/text rendering and keyboard/focus expectations.
+- Specify stable workflow/lane identity, permitted transitions, compatible persistence/API/archive evolution, hierarchy/link semantics and explicit priority. Preserve human-only approval/Completed and immutable original UNKNOWN/no replay; no automatic priority propagation.
+- Name adapter/file ownership and dependent contract changes. Resolve consequential choices in a finished independently reviewed proposal; owner acceptance gates .02-.09. No product code.
+
+Requires: M02.00 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.02: Persist and enforce configurable workflows
+
+Outcome and scope
+Extend Go authority and persistence for board-specific lanes, labels and transitions, retaining existing boards.
+
+Deliverables and acceptance
+- Initialize and reopen distinct synthetic board workflows, including Blocked and Needs Terry; stable lane IDs survive label rename. Invalid/duplicate policy or unsupported transitions refuse atomically.
+- Define and implement supported existing-board workflow updates and lane retirement/identity changes per accepted contract; refuse unsupported changes clearly without silently relocating cards or rewriting history.
+- Admission resolves current board/actor/policy and expected revision. Configured permissions cannot confer bot approval/Completed authority. Preserve explicit assigned priority and no-change behavior.
+- Exercise rollback/conflict/restart and supported export/restore round trips for changed policy/schema, or prove compatibility unchanged. Generated boundaries agree. Fresh Sol High transaction/authority review.
+
+Requires: M02.01 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.03: Use configured workflows and truthful Attention
+
+Outcome and scope
+Expose ordinary workflow controls in browser/CLI and project configured categories into the workspace.
+
+Deliverables and acceptance
+- Create/configure a synthetic workflow through supported product controls; render configured lane labels/order and permitted move choices. Human review/approval remains one authoritative audited action.
+- Show Blocked/Needs Terry/Ready for Review full counts from committed unarchived work, with stable category mapping. Known zero, not configured, stale and unavailable remain distinct across boards.
+- Renaming labels cannot change terminal/category identity. Custom boards do not inherit another board policy; rejected/stale moves preserve input and expose the actual outcome.
+- Verify actual browser and CLI operations, ordinary keyboard controls and changed catalog/native boundaries. Preserve M01 pins, private context, same-ticket isolation and healthy-board use.
+
+Requires: M02.02 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.04: Read useful card details and committed history
+
+Outcome and scope
+Deliver a readable card drawer and targeted CLI inspection with trustworthy committed history.
+
+Deliverables and acceptance
+- Show ticket/title, description, state, priority, owner, relationship summaries and attributed/timestamped comments/history. Use safe readable text/formatting and clear empty/error states.
+- Browse bounded history/comments using the accepted contract; distinguish committed facts from private drafts/pending originals. Older history remains reachable without fabricated completeness.
+- Switch cards/boards while reads are delayed; stale responses cannot paint another drawer or expose private work. Preserve selection, draft and focus through refresh/reconnect.
+- Actual CLI focused and structured output agrees with normal browser committed facts; cross-board access and failure cases use synthetic data.
+
+Requires: M02.01 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.05: Rename and edit daily card fields safely
+
+Outcome and scope
+Complete create/edit/comment/assignment/explicit-priority and title rename through ordinary product controls.
+
+Deliverables and acceptance
+- Rename a Unicode title while preserving stable card ID/ticket and relationships; save description, assign/reassign owner, choose explicit priority and append an attributed comment.
+- Conflicts, validation failures and unknown outcomes preserve input/original submission and never silently retry. No-op policy follows accepted V2 behavior; changing links cannot silently promote priority.
+- Keyboard Enter/Escape/composition handling is deliberate; controls restore useful focus without discarding another editor. Bot CLI cannot approve or move its own work Completed.
+- Verify browser/CLI parity, two-window stale edits, same-ticket board isolation, restart and correct committed audit entries.
+
+Requires: M02.01, M02.04 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.06: Organize cards with parent and child hierarchy
+
+Outcome and scope
+Add, change and clear parent relationships with readable child navigation.
+
+Deliverables and acceptance
+- Create/reparent/clear a child through browser and CLI; show parent and full reachable children with stable identity and navigation.
+- Refuse self-parenting, cycles, missing/foreign-board targets and stale revisions without partial writes. Distinguish hierarchy from blocking relationships.
+- Preserve archived and Completed card identity/history; hierarchy does not implicitly move cards, change priority or confer approval.
+- Verify actual hierarchy operations, restart and archive/export round-trip compatibility for new fields, with fresh independent review.
+
+Requires: M02.01, M02.04 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.07: Manage typed card relationships
+
+Outcome and scope
+Create and remove supported typed links with understandable reciprocal views.
+
+Deliverables and acceptance
+- Browser and CLI support blocking, related, reference and duplicate relationships retained by the accepted parity matrix; show readable type and exact target.
+- Freeze and exercise inverse/deduplication/self/cycle rules from .01; reject invalid, missing or foreign-board targets atomically. Removing a link preserves history.
+- Blocking links communicate dependency without silently changing assigned priority, lane or human acceptance. Hierarchy remains a separate relation.
+- Verify inverse views, stale/conflicting edits, reload/restart and compatible export/restore, with focused domain/authority review.
+
+Requires: M02.01, M02.04 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.08: Archive and restore cards without losing work
+
+Outcome and scope
+Archive/unarchive through browser and CLI while preserving card identity and committed evidence.
+
+Deliverables and acceptance
+- Archive hides cards from ordinary lane/search/Attention views; explicit archived listing and focused inspection find them. Unarchive restores the same card and recorded lane, not a new ticket.
+- Preserve comments/history, parent/child and typed links, owner/priority, existing attachment references and human-controlled Completed semantics. No delete, garbage collection or attachment feature expansion.
+- Handle stale revision, unavailable board and unknown outcomes without retry or duplicate audit. Archived work remains represented according to .01 dependency rules.
+- Exercise restart, truthful workspace activity/counts and supported backup/export/restore round trip with actual product commands.
+
+Requires: M02.01, M02.04 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.09: Find and filter daily work
+
+Outcome and scope
+Deliver literal, readable board-scoped search and filters through browser and CLI.
+
+Deliverables and acceptance
+- Find exact ticket/ID and title/description/comment text under accepted .01 matching rules; filter by supported lane/owner/priority/archive options and expose clear empty/error states.
+- Define deterministic result/next ordering from accepted explicit-priority policy; hierarchy/link position cannot invent priority promotion. Bound results with honest continuation/completeness.
+- Search is read-only and board scoped. Same-ticket boards, Unicode, safe rendered text and metacharacters do not select another board or execute content.
+- Preserve per-window filter/selection/focus across refresh and board switching; actual built CLI and browser return consistent membership and ordering.
+
+Requires: M02.01, M02.04, M02.08 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.10: Complete keyboard and focus journeys
+
+Outcome and scope
+Join all daily-work controls into a usable keyboard journey and independently inspect browser usability.
+
+Deliverables and acceptance
+- Use keyboard-only create/open/read/edit/comment, rename, move, priority/owner, search/filter, hierarchy/link, archive/unarchive and human review; named controls and visible focus remain usable.
+- Enter/Space activate once; Escape and composing text do not submit or close unrelated work. Closing the drawer restores its opener or a documented search fallback.
+- Refresh/reordering, two windows and board navigation preserve the correct input, selection, scroll and focus; no drag-only required action.
+- Fresh non-author UX prewalk uses ordinary DOM/browser controls and records actionable findings. Fix/re-review material issues before handoff; no whole-product accessibility certification.
+
+Requires: M02.03, M02.05, M02.06, M02.07, M02.08, M02.09 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.11: Close real CLI daily-work parity
+
+Outcome and scope
+Join the story-level CLI operations into a coherent daily-work command journey.
+
+Deliverables and acceptance
+- Built executable help, focused reads, machine-readable results and mutations cover the accepted daily-card matrix; each feature story already supplies its needed CLI operation.
+- Use explicit workspace project/board and retained --data selection against same-ticket boards. No implicit current-board fallback or direct database mutation.
+- Readable Unicode output and error/exit contracts distinguish success, definite refusal and UNKNOWN; lookup uses the original operation/context and never replays a mutation.
+- Negative bot approval/Completed checks remain. Document concrete commands and obtain fresh non-author review of the actual executable journey.
+
+Requires: M02.03, M02.05, M02.06, M02.07, M02.08, M02.09 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.12: Qualify the joined daily-work customer journey
+
+Outcome and scope
+Run integrated M02 acceptance and proportionate changed-boundary regression on the final candidate.
+
+Deliverables and acceptance
+- Trace every retained M02 outcome to actual built browser/CLI cases on fresh synthetic two-project/three-board data, including custom workflows and human/bot boundaries.
+- Qualify ordinary history/edit/search/hierarchy/link/archive workflows plus two-window conflicts, original UNKNOWN, restart/reopen and M01 private-work/Attention/pin regressions.
+- Run required source/generated-contract/asset/build checks and affected native SQLite, ownership, rollback and compatible export/restore checks. Keep controlled-fault and ordinary positive evidence distinct.
+- Bind source/tool/executable/assets to results; preserve failed attempts and owned cleanup. Report gaps and intentional differences honestly. Fresh independent non-author validation precedes owner handoff.
+
+Requires: M02.10, M02.11 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+M02.13: Independently demonstrate and hand off M02
+
+Outcome and scope
+Demonstrate the accepted complete daily-work milestone and publish a reviewable customer handoff.
+
+Deliverables and acceptance
+- Provide a short startup/use/recovery guide and normal browser/CLI demonstration covering every .01 outcome with final source/build/evidence references.
+- Fresh non-author reviewer checks the integrated candidate and evidence, reports PASS or actionable Changes Required, and verifies accepted intentional differences and unresolved limitations.
+- A distinct fresh non-author validates the final report/package; fix and re-review material changes. Only Terry review/approval remains at RFR; only Terry controls Completed.
+- Preserve M01 and all superseded evidence; no M03 implementation, real import/adoption/cutover, external delivery or general/full-parity release claim.
+
+Requires: M02.12 owner-accepted.
+Execution: In Progress before work; fresh independent review; Terry controls Completed.
+
+Sources
+- docs/spike02/milestones-and-m01.txt (historical milestone scope)
+- docs/spike02/m01-parity-checkpoint-r1.txt (retained/remaining boundaries)
+- docs/slice01/22-localhost-scope-reset.txt (current local scope)
+- V1 public README at 608b3df (documented outcomes only)
+- Accepted M01 product handoff a0722d3 (no repeated qualification claim)

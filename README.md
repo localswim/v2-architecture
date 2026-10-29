@@ -30,9 +30,12 @@ These packets describe the planning baseline. They do not claim delivered worksp
 capability or start implementation/timing by themselves.
 
 The [original milestone roadmap](docs/spike02/milestones-and-m01.txt) and its
-[structured history](docs/spike02/milestones-and-m01.json) remain preserved. Only
-M01 is decomposed; M02-M06 remain high-level goals for later scoping. No live
-migration or cutover is authorized.
+[structured history](docs/spike02/milestones-and-m01.json) remain preserved.
+The [M02 work package R1](docs/spike02/m02-work-package-r1.txt) and its
+[structured plan](docs/spike02/m02-work-package-r1.json) decompose daily card work
+into M02.00 Preflight and M02.01-M02.13, with acceptance and dependency gates.
+This is planning only; no M02 product work or timer has started. M03-M06 remain
+high-level goals for later scoping. No live migration or cutover is authorized.
 
 The accepted [independent M01 breakdown](docs/spike02/independent-m01-breakdown-r1.txt)
 and [comparison with the nine-card package](docs/spike02/m01-breakdown-comparison-r1.txt)
