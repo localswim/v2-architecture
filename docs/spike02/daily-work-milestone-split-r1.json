@@ -1,0 +1,87 @@
+{
+  "revision": "daily-work-milestone-split-r1",
+  "date": "2026-10-29",
+  "status": "owner-directed-roadmap-only",
+  "authority": "Owner accepted smaller capability milestones and requested M03-M05 in Backlog with former milestones shifted to M06+.",
+  "milestones": [
+    {
+      "milestone": "M02",
+      "title": "Read and edit cards comfortably",
+      "scope": "Useful card detail and committed history, rename, description, comments, owner and explicit priority.",
+      "prior_stories": [
+        "M02.04",
+        "M02.05"
+      ]
+    },
+    {
+      "milestone": "M03",
+      "title": "Find and retire work",
+      "scope": "Search and filter daily work, archive cards, inspect archived work and unarchive without losing identity or history.",
+      "prior_stories": [
+        "M02.08",
+        "M02.09"
+      ]
+    },
+    {
+      "milestone": "M04",
+      "title": "Organize related work",
+      "scope": "Organize cards through parent/child hierarchy and typed blocking, related, reference and duplicate relationships.",
+      "prior_stories": [
+        "M02.06",
+        "M02.07"
+      ]
+    },
+    {
+      "milestone": "M05",
+      "title": "Configure the workflow",
+      "scope": "Configure board-specific lanes and transitions and show truthful Blocked, Needs Terry and Ready for Review Attention.",
+      "prior_stories": [
+        "M02.02",
+        "M02.03"
+      ]
+    },
+    {
+      "milestone": "M06",
+      "title": "Manage attachments and cover images in ordinary use",
+      "formerly": "M03",
+      "scope": "Original attachment/covers outcome retained."
+    },
+    {
+      "milestone": "M07",
+      "title": "Operate the local tool and its optional automation reliably",
+      "formerly": "M04",
+      "scope": "Original optional operations outcome retained."
+    },
+    {
+      "milestone": "M08",
+      "title": "Bring a V1 board into V2 without losing its work",
+      "formerly": "M05",
+      "scope": "Original adoption/import/recovery outcome retained; real sources/destinations and activation require later explicit authorization."
+    },
+    {
+      "milestone": "M09",
+      "title": "Accept feature parity and a maintainable everyday release",
+      "formerly": "M06",
+      "scope": "Original final parity/release acceptance retained; no early full-parity claim."
+    }
+  ],
+  "sequence": [
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09"
+  ],
+  "boundaries": [
+    "Browser and real CLI together in each capability milestone.",
+    "M02-M04 retain accepted four-lane workflow; configurable workflow isolated in M05.",
+    "Each future package has bounded preflight/acceptance, keyboard behavior, focused qualification, fresh independent review and customer demonstration.",
+    "Target roughly3-4h base per package, then estimate independently and split again if needed. Target is not a forecast/budget.",
+    "Umbrella update only: existing story IDs, parenting, descriptions and dependencies retained pending explicit repartition. Old M02 R1 package/estimate are historical broader baselines, not narrowed M02 execution authority.",
+    "All new/later umbrellas P3 Backlog. M02 parent stays In Progress until children RFR or owner-Completed. Completed remains owner-controlled.",
+    "Original later scope, stable identities, history and links retained; new sequence added. No product work/timer, real import/cutover or external delivery."
+  ]
+}

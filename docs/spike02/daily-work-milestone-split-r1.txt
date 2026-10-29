@@ -1,0 +1,49 @@
+DAILY-WORK MILESTONE SPLIT R1
+2026-10-29 | Owner-directed roadmap update; no implementation
+
+M02 - Read and edit cards comfortably
+Useful card detail and committed history, rename, description, comments, owner and explicit priority.
+Source scope: former broad M02.04, M02.05.
+
+M03 - Find and retire work
+Search and filter daily work, archive cards, inspect archived work and unarchive without losing identity or history.
+Source scope: former broad M02.08, M02.09.
+
+M04 - Organize related work
+Organize cards through parent/child hierarchy and typed blocking, related, reference and duplicate relationships.
+Source scope: former broad M02.06, M02.07.
+
+M05 - Configure the workflow
+Configure board-specific lanes and transitions and show truthful Blocked, Needs Terry and Ready for Review Attention.
+Source scope: former broad M02.02, M02.03.
+
+M06 - Manage attachments and cover images in ordinary use
+Original attachment/covers outcome retained.
+Formerly M03; original scope retained.
+
+M07 - Operate the local tool and its optional automation reliably
+Original optional operations outcome retained.
+Formerly M04; original scope retained.
+
+M08 - Bring a V1 board into V2 without losing its work
+Original adoption/import/recovery outcome retained; real sources/destinations and activation require later explicit authorization.
+Formerly M05; original scope retained.
+
+M09 - Accept feature parity and a maintainable everyday release
+Original final parity/release acceptance retained; no early full-parity claim.
+Formerly M06; original scope retained.
+
+Sequence: M02 -> M03 -> M04 -> M05 -> M06 -> M07 -> M08 -> M09
+
+Rules and pending work
+- Browser and real CLI together in each capability milestone.
+- M02-M04 retain accepted four-lane workflow; configurable workflow isolated in M05.
+- Each future package has bounded preflight/acceptance, keyboard behavior, focused qualification, fresh independent review and customer demonstration.
+- Target roughly3-4h base per package, then estimate independently and split again if needed. Target is not a forecast/budget.
+- Umbrella update only: existing story IDs, parenting, descriptions and dependencies retained pending explicit repartition. Old M02 R1 package/estimate are historical broader baselines, not narrowed M02 execution authority.
+- All new/later umbrellas P3 Backlog. M02 parent stays In Progress until children RFR or owner-Completed. Completed remains owner-controlled.
+- Original later scope, stable identities, history and links retained; new sequence added. No product work/timer, real import/cutover or external delivery.
+
+Preserved history
+- milestones-and-m01 TXT/JSON, M01 package/evidence and broad m02-work-package-r1 TXT/JSON retain their original contents.
+- This overlay supersedes broad M02 milestone grouping; no completed history is rewritten. Later decomposition must move/revise existing story cards rather than duplicate their outcomes.

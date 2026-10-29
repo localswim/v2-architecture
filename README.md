@@ -31,11 +31,16 @@ capability or start implementation/timing by themselves.
 
 The [original milestone roadmap](docs/spike02/milestones-and-m01.txt) and its
 [structured history](docs/spike02/milestones-and-m01.json) remain preserved.
-The [M02 work package R1](docs/spike02/m02-work-package-r1.txt) and its
-[structured plan](docs/spike02/m02-work-package-r1.json) decompose daily card work
-into M02.00 Preflight and M02.01-M02.13, with acceptance and dependency gates.
-This is planning only; no M02 product work or timer has started. M03-M06 remain
-high-level goals for later scoping. No live migration or cutover is authorized.
+The current [daily-work milestone split](docs/spike02/daily-work-milestone-split-r1.txt)
+and its [structured roadmap](docs/spike02/daily-work-milestone-split-r1.json)
+separate M02 read/edit, M03 find/retire, M04 organize and M05 configurable workflow.
+Each delivers browser and CLI together. Earlier attachments, operations, adoption
+and final parity milestones are now M06-M09, with their original scope retained.
+The broader [M02 work package R1](docs/spike02/m02-work-package-r1.txt) and its
+[structured plan](docs/spike02/m02-work-package-r1.json) remain historical evidence;
+existing stories need repartitioning before execution under the smaller milestones.
+This is a roadmap update only; no product work, timer, live migration or cutover
+is authorized.
 
 The accepted [independent M01 breakdown](docs/spike02/independent-m01-breakdown-r1.txt)
 and [comparison with the nine-card package](docs/spike02/m01-breakdown-comparison-r1.txt)
