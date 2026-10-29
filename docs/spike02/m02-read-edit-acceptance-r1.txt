@@ -1,0 +1,86 @@
+M02.01 READ/EDIT ACCEPTANCE EXAMPLES R1
+2026-10-29 | Proposal for owner acceptance; specification only
+
+Authority and bounds
+Current M02 story repartition R2 and accepted M01 workspace contract govern.
+Implementation input: a0722d3; no V1 source/tests reused. Companion:
+m02-read-edit-fixture-r1.json. This proposal performs no runtime qualification.
+Owner acceptance of M02.01 gates .02 onward. Primary integration contract defines
+file ownership. These browser/history adapters are proposed outcomes, not claims
+about the existing delivered surface.
+
+1. Read committed facts
+Normal browser: open Dispatch ticket 1, then focused built CLI card read/history
+by its real card UUID and explicit workspace/project/board selector. Both expose
+the same committed title, description, lane, explicit priority, owner, attributed
+comments, available relationship summaries and history facts. Show actor identity
+and timestamp without inventing missing labels. Empty description, no owner and
+empty comments/history have readable distinct states. Error/unavailable never
+appears as empty. Existing relationships are read-only; no hierarchy/link editing.
+
+Treat markup, metacharacters and Unicode as inert text; preserve prose line breaks
+and make long valid text readable without clipping away access. Use existing
+title 1-200 Unicode scalar and prose/comment 65,536 UTF-8 byte limits; blank title
+or comment refuses, empty description clears. Do not normalize away submitted text.
+
+2. Older facts remain reachable
+Seed one create plus 25 attributed comment commits: 26 states accounted for (current plus 25 retained prior snapshots)
+and 25 comments before later scenario edits. Current state is separate; 25 prior states remain. The browser shows at most 20 history
+rows or comments per local page; named continuation reaches every returned row,
+without duplicates, false completion or a full-history claim. CLI focused history
+returns the existing complete validated HistoryRead, not a fabricated first page.
+Refresh/reopen repeats the committed facts with deterministic presentation.
+Current-origin prior states sort revision descending; other origins follow by
+originBoard/originIncarnation, descending revision within each. Keep provenance
+and actual timestamps; never compare revisions globally. Comments sort createdAt
+ascending, with commentId ties. Current state is not duplicated as a history row.
+
+Reuse existing full CardRead/HistoryRead routes/DTOs. This is a bounded display,
+not bounded network/server memory or a cursor API. Show coverage gaps, removed or
+compact facts honestly; never reconstruct missing old text from current state.
+A separate technical projection example may demonstrate inherited/gapped records;
+it cannot substitute for the ordinary seeded positive journey.
+
+3. Daily edits through both clients
+Browser renames to "Dispatch café 船 🚲", saves multiline description, assigns the
+local human, reassigns the local bot, clears owner, chooses explicit P2 then P3,
+and appends "Reviewed <script> & café\nSecond line". Actual CLI performs equivalent
+supported edits/comment on a separate fresh scenario. Reopen and cross-read each
+commit: ID/ticket, existing relationships and unrelated fields remain stable;
+owner change confers no authority and priority never propagates automatically.
+Comments are append-only attributed facts; equal comment text remains a deliberate
+new append, not a field no-op.
+
+4. Refusal, no-op and uncertainty
+Two windows load the same base. A commits; B submits stale expected revision.
+B receives definite REVISION_CONFLICT, retains text/base, and may deliberately
+refresh/reconcile before a new submission; never silently merge or resend.
+Unchanged current field edit returns durable NOT_COMMITTED/NO_CHANGE, with no
+board/card revision or history/activity bump. Stale, invalid or unauthorized input
+does not bypass admission as a no-op. Completed edits/comments refuse.
+
+Lose a submitted response at a labeled fault seam. Keep the immutable original
+submission, fingerprint and exact origin/board context visibly pending/UNKNOWN,
+separate from committed history and editable private drafts. Refresh, reconnect,
+restart and navigation never replay. Deliberate original lookup may settle it;
+missing/unavailable/replaced-source evidence stays UNKNOWN.
+
+5. Isolation and usable controls
+Dispatch/Research ticket 1 have distinct UUIDs. Delay Dispatch detail/history and
+a mutation response, switch to Research: no Dispatch facts, drafts, focus or
+outcome may paint/dispatch there. Orchard/Garden remains independently empty.
+Explicit CLI selection and retained --data select their exact member; missing or
+mismatched selection refuses without fallback. Same-board windows keep separate
+draft IDs/input; return/reload restores only the proper window/board draft.
+
+Keyboard-only open/read/rename/edit/comment/owner/priority controls are named and
+visibly focused. Enter activates single-line actions once; multiline prose keeps
+newline. IME composition/confirmation Enter never submits. Escape cancels the
+current unsubmitted editor with explicit discard confirmation when dirty; it never deletes an immutable original or unrelated draft; drawer close returns focus to
+its visible opener or documented workspace fallback. Refresh/reordering preserves
+the active editor/focus rather than stealing them.
+
+6. Human acceptance stays human
+Built CLI/bot approve or direct Completed attempts refuse without mutation.
+Normal browser human approval retains the existing reviewed-revision rules.
+No search/archive/new workflow/hierarchy/link/attachment capability is added.

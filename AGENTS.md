@@ -29,3 +29,16 @@ Terry clarified these lane meanings on 2026-10-25:
 
 Use the shared localswim CLI for board reads and mutations. Never edit board
 JSON directly. Preserve historical comments, superseded plans, and review evidence.
+
+## Fresh-eyes review exception
+
+Terry clarified on 2026-10-29 that a fresh-eyes subagent review of work authored
+by the parent is always permitted, even when no useful work can overlap. An
+independent audit without the parent's preconceived conclusions is a useful
+use of credits; parallel work is not a prerequisite for this review.
+
+This supersedes earlier parallel-only delegation restrictions for that review.
+It does not require fixed reviewer pairs or idle staffing. Keep other purely
+serial work in the parent, provide evidence without prescribing a verdict, and
+describe actual independence truthfully. Preserve task authorization, required
+verification and explicit model/effort, depth and concurrency limits.

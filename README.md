@@ -48,7 +48,16 @@ existing-workflow updates from initial workflow creation. Each milestone owns
 its browser/CLI, keyboard, focused qualification and review/handoff proof.
 This is planning only; no product work, timer, live migration or cutover is
 authorized. Serial work/review stays in the primary; delegation requires useful
-parallel work and review independence is described as actually performed.
+parallel work, with the explicit exception that fresh-eyes review of parent-authored
+work is always permitted even without overlap. Review independence is described
+as actually performed.
+
+The [M02.01 read/edit contract](docs/decisions/m02-read-edit-contract-2026-10-29.txt),
+[acceptance examples](docs/spike02/m02-read-edit-acceptance-r1.txt) and
+[synthetic fixture specification](docs/spike02/m02-read-edit-fixture-r1.json)
+freeze the proposed details/history presentation and existing write semantics.
+This proposal requires owner acceptance before implementation; it is not a
+runtime qualification or delivered-feature claim.
 
 The accepted [independent M01 breakdown](docs/spike02/independent-m01-breakdown-r1.txt)
 and [comparison with the nine-card package](docs/spike02/m01-breakdown-comparison-r1.txt)

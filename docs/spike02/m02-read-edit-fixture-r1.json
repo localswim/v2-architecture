@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "status": "Specification only; owner acceptance required; no runtime data, execution or PASS",
+  "authority": [
+    "m02-story-repartition-r2.txt",
+    "m02-read-edit-acceptance-r1.txt",
+    "accepted M01 workspace contract"
+  ],
+  "sourceBaseline": "implementation a0722d3",
+  "workspace": {
+    "root": "PRIVATE_RUN_ROOT/<fresh-run-id>",
+    "initialization": "Normal built workspace/project/board commands; fresh identities/unused explicit numeric-loopback port. Record exact tuples and commands privately.",
+    "identity": "Generate installation/board/incarnation/card/actor/grant IDs normally; aliases below are recipe labels, never literal UUIDs.",
+    "policy": [
+      "Ready for Work",
+      "In Progress",
+      "Ready for Review",
+      "Completed"
+    ]
+  },
+  "projects": [
+    {
+      "key": "harbor",
+      "boards": [
+        {
+          "key": "dispatch",
+          "cards": [
+            {
+              "alias": "dispatch-one",
+              "ticket": 1,
+              "title": "Dispatch parcel",
+              "description": "",
+              "priority": "P3",
+              "owner": null,
+              "lane": "Ready for Work"
+            }
+          ],
+          "label": "Dispatch"
+        },
+        {
+          "key": "research",
+          "cards": [
+            {
+              "alias": "research-one",
+              "ticket": 1,
+              "title": "Research seed",
+              "description": "Different board; same display ticket",
+              "priority": "P3",
+              "owner": null,
+              "lane": "Ready for Work"
+            }
+          ],
+          "label": "Research"
+        }
+      ],
+      "label": "Harbor"
+    },
+    {
+      "key": "orchard",
+      "boards": [
+        {
+          "key": "garden",
+          "cards": [],
+          "label": "Garden"
+        }
+      ],
+      "label": "Orchard"
+    }
+  ],
+  "actors": {
+    "perBoard": [
+      "human: normal browser authority",
+      "bot: real CLI automation authority"
+    ],
+    "assignment": "Use only actors initialized for that board. Human/bot labels do not grant rights; do not introduce enrollment or grant-administration work."
+  },
+  "historySeed": {
+    "target": "dispatch-one",
+    "method": "One normal card create, then 25 successful comment.add operations with current expected revision, alternating normal human browser and actual CLI bot. Capture IDs/revisions/attribution.",
+    "commentPattern": "Synthetic history NN, NN=01..25",
+    "expectedBeforeOtherEdits": {
+      "currentAndPriorStates": 26,
+      "comments": 25,
+      "cardRevision": 26,
+      "priorHistoryRows": 25
+    },
+    "displayPageSize": 20,
+    "expectedPages": {
+      "history": [
+        20,
+        5
+      ],
+      "comments": [
+        20,
+        5
+      ]
+    },
+    "continuation": "Current state shown separately; current-origin prior snapshots cardRevision descending, then retained other origins ordered by originBoard/originIncarnation with descending revision within each. Full provenance retained; comments createdAt ascending then commentId. Local presentation of complete validated reads; no query/cursor extension.",
+    "reset": "Fresh scenario/run or declared normal-command reset; do not reuse initial counts after edits."
+  },
+  "texts": {
+    "rename": "Dispatch café 船 🚲",
+    "description": "Line one: café 船 🚲\nLine two: <script>alert(1)</script> & [label](file:///unused)",
+    "comment": "Reviewed <script> & café\nSecond line",
+    "invalid": {
+      "title": [
+        "",
+        "   ",
+        "201 Unicode scalar values"
+      ],
+      "comment": [
+        "",
+        " \n ",
+        "65537 UTF-8 bytes"
+      ]
+    },
+    "boundary": "Include valid 200-scalar title and 65536-byte prose/comment as generated synthetic text, with multibyte characters; never claim character count equals byte count."
+  },
+  "edits": {
+    "recipe": [
+      "rename",
+      "replace description",
+      "owner human",
+      "owner bot",
+      "clear owner null",
+      "priority P2",
+      "priority P3",
+      "append comment"
+    ],
+    "targets": "Run browser and actual CLI mutation journeys in separate fresh scenarios; cross-read committed facts in the other client.",
+    "identity": "Stable card UUID/ticket and existing relationship summaries; unrelated fields unchanged."
+  },
+  "cases": [
+    {
+      "id": "R01",
+      "action": "Read details/history in normal browser and actual built CLI",
+      "expect": "Committed-fact agreement, safe text, attribution, explicit empties/errors and all local pages reachable"
+    },
+    {
+      "id": "R02",
+      "action": "Two windows: same base; first commits; second submits stale revision",
+      "expect": "REVISION_CONFLICT; retained input/base; deliberate reconcile; no merge/replay"
+    },
+    {
+      "id": "R03",
+      "action": "Resubmit unchanged fields at current revision; submit identical comment text deliberately twice",
+      "expect": "Field edit NOT_COMMITTED/NO_CHANGE and no revision/history/activity bump; comments are separate appends"
+    },
+    {
+      "id": "R04",
+      "action": "Delay Dispatch reads/response; select Research same ticket; then return",
+      "expect": "Full tuple/UUID/window isolation; no delayed paint or wrong-board dispatch"
+    },
+    {
+      "id": "R05",
+      "action": "Lose response after submission; reconnect/restart; explicit original lookup",
+      "expect": "Immutable source-bound pending/UNKNOWN separate from committed facts/private draft; no replay; unavailable lookup stays UNKNOWN"
+    },
+    {
+      "id": "R06",
+      "action": "Keyboard-only open/read/edit/comment/owner/priority; composition and focus recovery",
+      "expect": "Named visible focus; single activation; multiline newline; IME Enter no submit; local confirmed-discard Escape for dirty input; visible opener/fallback return"
+    },
+    {
+      "id": "R07",
+      "action": "CLI exact workspace selection and retained --data; absent/mismatched selector",
+      "expect": "Correct member or definite refusal; no fallback"
+    },
+    {
+      "id": "R08",
+      "action": "Bot approve/direct Completed; human accepted review; edit/comment Completed",
+      "expect": "Bot refuses; human existing reviewed-revision policy; Completed edits/comments refuse"
+    },
+    {
+      "id": "R09",
+      "action": "Distinct windows/private drafts; reload/refresh/reorder/board switch",
+      "expect": "Own window/board draft preserved; no active editor overwrite or focus theft"
+    }
+  ],
+  "technicalOnly": {
+    "purpose": "Existing compact/removed/inherited coverage-gap presentation",
+    "method": "Separate immutable validated synthetic projection fixture at implementation time; no live SQL seed and no history-clear feature expansion.",
+    "expect": "Original provenance and missing coverage remain explicit; current state never substitutes for missing snapshot text."
+  },
+  "exclusions": [
+    "search",
+    "archive/restore",
+    "hierarchy edits",
+    "relationship edits",
+    "workflow changes",
+    "attachment expansion",
+    "real board data",
+    "V1 source/test copying"
+  ],
+  "evidence": "Future implementation captures actual executable/assets/source/commands, private fresh tuple mapping, failures, labeled fault seams and cleanup; this specification records none as executed."
+}

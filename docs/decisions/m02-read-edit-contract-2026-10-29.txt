@@ -1,0 +1,116 @@
+M02.01 READ/EDIT INTEGRATION CONTRACT
+2026-10-29 | Proposal for owner acceptance; no product implementation
+
+Purpose and authority
+Make ordinary card reading/editing comfortable in the accepted M01 four-lane
+localhost workspace. Current story repartition R2 and owner-Completed Preflight
+govern; implementation input is a0722d3 (subsequent guidance-only changes do not
+change product behavior). The acceptance examples and fixture specification are
+../spike02/m02-read-edit-acceptance-r1.txt and m02-read-edit-fixture-r1.json.
+Accepting this card adopts these bounded choices; implementation waits for that
+acceptance. No runtime PASS or independently isolated clean-room claim is made.
+
+1. Reuse the existing authority and transport
+Keep the Go/SQLite writer, physical layout5, API/archive versions, permissions,
+revision admission, immutable operations and human-only approval unchanged.
+Existing GET /api/v1/boards/{boardUUID}/cards/{cardUUID} and its /history route
+supply CardRead and HistoryRead; card.edit/comment.add supply writes. No cursor query, new mutation,
+workflow engine, retention setting, schema migration or dependency is selected.
+The browser adds a typed HistoryRead client method using its existing selected
+connection, strict decoder, schema/reference verification and generation fences.
+Do not bypass server admission or query SQLite from browser/CLI adapters.
+
+Card and history are separate authorized snapshots. Associate both with exact
+installation/board/incarnation/card and view/request generation; compare returned
+board/card revisions. If they disagree, retain current confirmed facts, mark the
+history stale and offer a deliberate read; do not combine them as one snapshot,
+loop until they match or overwrite an editor base. A late A result cannot paint B.
+
+2. Readable nonmodal details and bounded presentation
+Provide a named card-opening button and one nonmodal card-details region within
+the current board route. Selection, page, scroll and focus stay window/board-local;
+no new card URL or global current-card state. Close restores the visible opener,
+with existing Read current board as fallback if it disappeared; no M03 search
+dependency. Opening/closing details cannot discard a different dirty editor.
+
+Show current title/ticket/UUID, description, lane, explicit priority, owner,
+attributed comments/times and existing relationship summaries. Use actual actor
+labels with identity fallback, never synthesized attribution or new link edits.
+Render inert text with preserved prose line breaks and wrapping; no HTML/Markdown
+execution, truncation-only access or formatting engine. Empty and unavailable are
+different. Existing validation stays exact: nonblank1-200-scalar title; description
+<=65,536 UTF-8 bytes; nonblank comment <=65,536 bytes. No trimming/normalization.
+
+Locally page each validated comment/history collection at20 rows with named
+previous/next and visible range/returned total. Current state is separate from
+prior history. Current-origin history comes first, descending cardRevision; other
+origins sort by originBoard/originIncarnation, descending revision within origin.
+Use full provenance keys; never compare different incarnations' revisions as one
+timeline. Comments sort by createdAt in the existing whole-second UTC format,
+then commentId ascending for equal timestamps. Display original timestamps; no inferred
+chronology from retrieval order. Refresh explicitly resets the local page to1
+and announces new returned coverage without moving editor focus or changing input.
+
+Pages bound rendered rows only. Existing HTTP returns the complete validated
+collection; no network, database or aggregate-memory bound is asserted. A failed
+read is unavailable, never an empty/full-history result. Preserve coverage floors,
+gaps, compact/removed states and tombstones; unavailable old text stays absent.
+The benefit is reachable older facts with no new transport/storage protocol.
+
+3. Edits and private work
+Rename is a named action opening the existing card.edit editor focused on title;
+it shares the normal draft/operation flow, not a second concurrent rename store.
+Description, owner assignment/clear, explicit priority and comments use the same
+existing commands. Omitted edit fields retain values; owner:null clears ownership;
+owner never changes actor/rights. A real edit commits once and clears current
+approval under existing rules; Completed edits/comments refuse.
+
+An exact unchanged field edit is durable NOT_COMMITTED/NO_CHANGE after current
+admission, with no revision/history/activity bump; repeated comment text is a
+distinct deliberate append. Keep conflict/refusal precedence. Show stale-base
+conflicts and retain input/base; user deliberately reads/compares and submits new
+intent. No automatic merge, rebase, new opId or retry. Pending/UNKNOWN originals
+are separately visible, source-bound and inspected only by deliberate lookup;
+navigation, refresh and restart do not resubmit or prove noncommit.
+
+Enter submits a single-line action once; multiline prose retains newline. IME
+composition/confirmation Enter cannot submit. Escape cancels only the active
+unsubmitted edit using explicit discard confirmation when dirty; declining retains
+it. Confirmed discard affects only that window/context draft and never an immutable
+pending original or unrelated editor. Preserve M01 storage-denial navigation gates.
+
+4. CLI and ownership
+Retain actual --workspace/--project/--board and compatible --data selectors;
+card read/history/edit and comment add take canonical card UUID, not display ticket.
+JSON retains existing complete validated envelopes/exit codes; human output must
+make the same committed facts understandable. Do not invent a paging flag or
+ticket lookup. This UUID selector is existing accepted V2 behavior; readable
+tickets remain visible. UI paging/plain-text choices are explicit owner-gated
+presentation differences; no V1 pixel/Markdown parity claim is made.
+
+Area                       Implementation owner / boundary
+Go reads and CLI           .02/.03: boardapi, board/cards, CLI/core; preserve domain
+                           semantics; add adapters only when actual gaps require.
+Browser details/history    .02: board/view, api/client/boundary and scoped tests.
+Browser editors            .03: board/view and existing draft/operation flow.
+Joined keyboard/CLI         .04/.05: focused integration over those feature slices.
+Generated/shared assets    Primary: contractgen/assetstage; generated files checked,
+                           never hand-edited. Coordinate interfaces before splits.
+Qualification/handoff      .06/.07: bound actual browser/CLI and changed boundaries;
+                           primary owns desktop input, integration and publication.
+
+5. Proof, review and exclusions
+Fixture is a recipe, not runtime data: two projects/three boards, distinct same-
+ticket cards, ordinary initialized human/bot channels and create plus25 comments
+yield current revision26,25 prior history rows and25 comments (20/5 display pages).
+Positive proof uses the built executable, ordinary DOM and actual CLI; separate
+technical gapped-history/delay/storage-fault cases are labeled supplements.
+Acceptance examples cover no-op/conflict, UTF-8 boundaries, isolation, IME/focus,
+UNKNOWN, reopen and bot approval refusal. Own feature proof stays in M02; no
+workflow/search/archive/hierarchy/link/attachment expansion is included.
+
+A fresh-eyes reviewer of parent-authored work is always permitted even without
+overlap, per Terry's latest standing rule. Give evidence without prescribing a
+verdict; keep staffing/depth/model limits and describe independence truthfully.
+Required checks and material fix/re-review remain. This proposal neither starts
+implementation nor qualifies runtime behavior; only Terry controls Completed.
