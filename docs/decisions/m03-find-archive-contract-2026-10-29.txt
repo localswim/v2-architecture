@@ -1,0 +1,219 @@
+M03.01 FIND/ARCHIVE INTEGRATION CONTRACT
+2026-10-29 | Proposal for owner acceptance; no product implementation
+
+Purpose and adoption
+Find/filter current work, archive unfinished cards, explicitly inspect archived
+work and unarchive to its recorded lane in the accepted four-lane localhost
+workspace. Source baseline is implementation 77da365 (current executable equals
+the accepted M02 handoff). Acceptance examples and synthetic fixture recipe are
+../spike02/m03-find-archive-acceptance-r1.txt and
+../spike02/m03-find-archive-fixture-r1.json. The fixture is specification, not runtime data.
+
+Accepting this proposal adopts these exact bounded choices before implementation.
+Completed remains read-only, including archive/unarchive. This deliberately
+preserves the current terminal rule; archiving Completed is not delivered by
+this proposal. It would need a separate accepted rule for approval validity.
+No new workflow, hierarchy, attachment UI, import, search platform or storage
+engine is selected. Archive means visibility state, not export ZIP creation.
+
+1. Archive through the existing mutation and ledger
+Extend card.edit on PATCH /api/v1/boards/{boardId}/cards/{cardId} with optional
+archived:Boolean. Input containing archived must contain exactly that one field;
+null, strings and mixed archive/content/owner/lane edits refuse INVALID_INPUT
+before dispatch. Omission means the existing edit behavior; false is explicit
+unarchive, not omission. Reuse current edit rights, authenticated actor, full
+board/incarnation/card target, expected board/card revisions and immutable opId.
+No new command value, permission right, physical layout or archive/API version.
+
+Preserve omitted archived in canonical semantics exactly as ownerId omission is
+preserved. Do not add archived:null/false to any legacy card.edit payload.
+Existing request canonical bytes/fingerprints must remain byte-identical.
+Update Go descriptor Boolean validation/generation, canonical freeze, archived
+intent schema generation/validation, TypeScript preparation/recovery validation
+and domain decoding together. New same-candidate export/restore must retain both
+new archive edits and legacy omitted-field originals; older binaries need not
+accept newly extended payloads. Never rewrite historical intents or fingerprints.
+
+Admit normal authority/incarnation/revision/lane checks before comparing the flag.
+Completed refuses COMPLETED, even for a repeated flag. For unfinished cards, an
+equal flag is the existing durable NOT_COMMITTED/NO_CHANGE, with no board/card
+revision, history or activity advance. A real flag change commits once through
+the existing writer, advances board/card revisions and activity normally, and
+captures the exact prior state/references. Retain ticket/UUID, title/prose,
+priority/owner, recorded lane, comments, links and existing attachment references
+and bytes. Usual unfinished-card edit approval invalidation remains; no human
+approval or Completed transition is synthesized. No deletion or byte collection.
+
+Archived is not a new global read-only policy. Existing unfinished-card commands
+retain their existing admission; starting work already refuses an archived card.
+Direct card/history reads include archived state. Do not reopen Completed or
+change prerequisite/approval rules to implement visibility. Preserve current
+UNKNOWN/pending originals, deliberate lookup, no replay/rebase/new opId, and
+conflict/input retention across refresh, navigation, restart and failed delivery.
+
+CLI card archive UUID --input REQUEST_FILE and card unarchive UUID --input
+REQUEST_FILE are thin explicit aliases to card.edit, requiring respectively
+input:{archived:true} or input:{archived:false}. Use the normal full request
+envelope and explicit revisions, --input - and existing JSON/readable outcomes.
+Do not read-and-retry a mutation, accept ticket as mutation target, infer authority
+from owner, or conceal uncertainty with an automatic second operation.
+
+2. Preserve complete reads and introduce a distinct listing boundary
+Existing GET /api/v1/boards/{boardId} and BoardRead JSON stay complete current
+snapshots in their existing canonical ticket/UUID transport order. Do not add
+an archive query there, remove archived targets, weaken reference validators or
+drop links: BoardView's same-identity internal links require the target card.
+An active source linked to an archived target remains a valid complete BoardRead.
+Focused CardRead/HistoryRead and export likewise retain exact reference facts.
+
+Default browser lane rows and human-readable board listing hide archived cards;
+Archive status Active/Archived/All selects visible rows without mutating the
+complete source snapshot. Display rows sort explicit P0 through P5, then ticket,
+then card UUID. JSON board read is intentionally a full source snapshot, not an
+archive-hidden or bounded search result. Counts derive from the intended active
+projection. ReadyForReview excludes archived cards; unsupported Attention kinds
+remain not_configured/null. Retain all link/approval and last-card-activity facts.
+
+Add GET /api/v1/boards/{boardId}/cards for a separate fixed-size partial listing
+and search. POST on that path remains card.create. M03.02 owns empty-query
+archive listing plus continuation and CLI card list; M03.03 adds full matching
+and typed filters plus CLI card search. Neither feature defers its focused proof
+or ordinary browser/real-CLI/keyboard/error checks to final qualification.
+
+New generated CardSearchRead has apiVersion:1, scope:"card-search", and result:
+  identity: existing boardId/incarnation Identity
+  revision: current board revision, including zero for an empty initialized board
+  query: {q, lane, owner, priority, archive}, canonical filters described below
+  items: zero to 20 CardSummary rows
+  nextCursor: null or opaque bounded string
+CardSummary is exactly cardId,ticket,revision,title,lane,priority,ownerId,archived.
+ownerId is nullable; other row types/limits reuse existing card definitions.
+No description/comment graph, raw HTML, snippet, total count, more rows or hidden
+full BoardView appears in this partial DTO. Rows are unique, in the selected
+identity, ordered by explicit priority rank, numeric ticket, ASCII card UUID.
+Clients validate schema, identity/incarnation, length/order/unique IDs/tickets and
+requested canonical filters. Opening a result performs an independent focused
+read; it cannot treat the summary revision as a new editor base without reading.
+
+3. Literal matching, typed filters and bounded continuation
+Allowed query keys only: q,lane,owner,priority,archive,cursor. Reject duplicates,
+unknown keys, invalid encodings/scalars and invalid nonempty enum/UUID values;
+q may be empty, other provided values may not. No query on other existing routes
+is implicitly accepted. Preserve current authentication/refusal boundaries.
+
+q is a valid Unicode string of at most 1024 UTF-8 bytes before transformation.
+Do not trim whitespace. Empty q matches every card satisfying the filters.
+Use Go simple Unicode lowercasing on query and current title/description/current
+retained comment text, then literal substring matching. There is no regex,
+wildcard, token grammar, normalization, accent removal or full case folding:
+CAFÉ matches café; decomposed cafe+combining-accent differs; STRASSE does not
+match Straße. HTML/Markdown/metacharacters are inert literal text.
+
+Also OR an exact card UUID match after lowercasing, and an exact positive decimal
+ticket match with an optional single leading #. Ticket spelling must be canonical
+(no leading zero, sign or spaces) within the current safe integer range.
+Unrecognized ticket/UUID spelling is still ordinary literal text, never numeric
+coercion or a second query language. Do not substring-match IDs or tickets.
+Historical/removed comment or description text is not searched; absence never
+means that complete lifetime text was searched. Only current retained facts match.
+
+AND these optional filters with that OR text/identity predicate:
+  lane: exact existing four-lane value, omitted means any
+  owner: unassigned or canonical actor UUID, omitted means any
+  priority: P0..P5 exact, omitted means any
+  archive: active (default), archived, or all
+An unknown well-formed owner UUID yields no matches, not another board lookup.
+Canonical query echoes the exact validated q, null for omitted lane/owner/priority,
+and resolved archive. Lowercasing is internal to Go matching; clients compare the
+exact echoed q without reproducing Go Unicode mappings in JavaScript. Cursor
+binding preserves q spelling too; even a case-only query change starts a new
+first page. All matching and sort decisions remain authoritative Go reads.
+
+Read authority, identity, board revision, matching rows and next-page decision
+come from one authorized SQLite read snapshot per response. Return at most20
+rows; inspect a 21st match to decide whether nextCursor is non-null. No invented
+total count. This bounds result rows only; it is not a database-work, entity-byte,
+process-memory or complete board-read bound. Failed reads return a real failure,
+never partial or fabricated empty success. Search changes no durable board/card,
+history/activity/outcome/priority fact and creates no mutation operation.
+
+Cursor is opaque and at most 2048 ASCII bytes, with strict bounded decoding.
+Use a per-handler-generation random epoch and secret with HMAC-SHA256 over a
+canonical payload binding epoch, authenticated actor, board/incarnation/revision,
+canonical-filter digest and last priority/ticket/UUID sort key. A cursor is not
+authority; recheck current read rights for every page. No persisted cursor store,
+credential, remote service or new dependency. Never log query text/cursors/secrets.
+
+Malformed/oversized query/token syntax refuses INVALID_INPUT. An unusable,
+tampered or mismatched cursor, changed board revision or restarted handler returns
+HTTP409/CURSOR_STALE without rows; reveal no validation branch or capability.
+The user chooses First page to start a fresh snapshot. No automatic continuation
+across revisions, silent skipping/repeat, cached-authority reuse or changed-query
+reuse. Complete reads, revocation and mutation UNKNOWN semantics stay separate.
+
+CLI card list [--archive MODE] [--cursor TOKEN] supplies the M03.02 empty-query
+listing. CLI card search [--query TEXT] [--lane VALUE] [--owner VALUE]
+[--priority Pn] [--archive MODE] [--cursor TOKEN] supplies M03.03; omitted query
+means empty. Keep existing --workspace/project/board and compatible --data,
+normal --json/readable output and exit semantics. Print returned count and an
+explicit next cursor when present, never claim all results on a limited page.
+
+4. Browser context, focus and errors
+Named controls: Find cards, Search cards, Lane, Owner, Explicit priority,
+Archive status, Apply filters, Clear filters, Next results, First page,
+Archive card, Unarchive card, and explicit archive confirmation/cancel.
+Find cards focuses the query. Apply/Enter runs a first page using the selected
+filters; composing Enter does not submit. Clear resets filters including Active
+and first-page position. Next is enabled only for a valid non-stale nextCursor;
+First page deliberately refreshes. Forward-only continuation is promised, not
+Previous, random pages or a stable lifetime result count.
+
+Keep query/filter drafts and selected context private per window/board using
+existing context/storage-denial gates. Persist bounded filters if supported,
+not cursors/results across restart; reload acquires a fresh first page. Fence
+responses by connection, board/incarnation, query/filter request generation and
+page request. A late A response cannot paint B or overwrite edited filter input.
+Invalid/stale/failed reads retain visible input and truthful previous stale rows;
+empty, loading, unavailable, partial page and end-of-results are distinct.
+
+Archive/unarchive uses the existing edit/original recovery path and named native
+buttons. A dirty editor first follows the existing explicit keep/discard/cancel
+gate; do not autosave, silently discard, weaken persistence refusal or purge an
+unresolved original. Successful hiding may leave focused details open with their
+archived status updated. Close returns to the visible opener, else Find cards
+when available, else Read current board. Filtering/refresh cannot replace the
+mounted editor or steal input focus. An archive/filter action on one board/window
+never changes another window's private query/editor/selection.
+
+5. Ownership, proof and exclusions
+Area                            Owner and exact starting boundary
+Mutation/legacy fingerprint      M03.02: contract descriptor/intent/generate,
+                                archive generate/semantic, board/cards/snapshot,
+                                writer/recovery integration; no schema migration
+Partial list/search and filters  M03.02 listing then M03.03: boardapi routes,
+                                handlers/projection/new read service; contract/
+                                transport types/decode/generate; same read authority
+CLI and normal runtime          .02/.03: transport/cli/core invocation/readable,
+                                cmd/localswim local_entry/workspace_cli/local_help
+Browser                         .02/.03: api/client/boundary, board/view/details,
+                                session-ui window-controller/window-state/recovery
+Counts                          .02: local/workspace_projection, accepted null kinds
+Generated/shared outputs        Primary integration: contractgen/assetstage,
+                                schemas/web-generated/schema-data; never hand-edit
+Joined/final proof              .04/.05: complete required gates, source/binary-
+                                bound two-board/window actual browser/CLI journey,
+                                labeled faults/reuse, guides/local kit and cleanup
+
+Run feature-local compatibility/regression including a visible card linked to a
+hidden archived target, exact legacy frozen bytes, false-versus-omission, stale
+revisions, no-op, restart/original lookup without replay and same-candidate
+export/restore of exact logical facts/retained bytes. Existing hierarchy/file
+references are conservation assertions, not new editors or attachment features.
+
+Early integrated prewalk checks capacity, first failure, cleanup/restart and the
+handoff channel. Full raw runtime/session data stays private. Native positive,
+controlled fixture, injected fault and unchanged evidence reuse are labeled and
+bound; mocks/process termination do not prove physical power-loss safety.
+Required checks, fresh non-author review and material-fix re-review precede RFR.
+Only owner review/acceptance remains at proposal handoff. RFR alone does not
+accept this contract or authorize dependent implementation.

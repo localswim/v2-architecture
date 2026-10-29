@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "status": "Synthetic specification only; no runtime data, execution or PASS",
+  "authority": [
+    "M03.01 integration contract",
+    "m03-find-archive-acceptance-r1.txt",
+    "accepted M01/M02 contracts"
+  ],
+  "identity": {
+    "initialization": "Use normal built workspace/project/board and card commands on a fresh private root. Generate identities normally; aliases below are recipe labels, never UUIDs.",
+    "isolation": "Record actual installation/board/incarnation/card/actor/grant tuples privately. No live SQL or board JSON edits.",
+    "lanes": [
+      "Ready for Work",
+      "In Progress",
+      "Ready for Review",
+      "Completed"
+    ],
+    "priorities": [
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5"
+    ]
+  },
+  "projects": [
+    {
+      "key": "harbor",
+      "boards": [
+        {
+          "key": "dispatch",
+          "cards": [
+            {
+              "alias": "dispatch-one",
+              "ticket": 1,
+              "title": "TitleNeedle Dispatch café 船 🚲 Straße",
+              "description": "DescriptionNeedle\nLiteral % _ [x] .* \\ <script> & quotes '\"\nComposed café; decomposed café",
+              "comments": [
+                "CommentNeedle retained current comment",
+                "CommentNeedle retained current comment"
+              ],
+              "priority": "P3",
+              "owner": "human",
+              "lane": "Ready for Review",
+              "archived": false
+            },
+            {
+              "alias": "dispatch-two",
+              "ticket": 2,
+              "title": "Other parcel",
+              "description": "TitleNeedle appears in a different field",
+              "comments": [
+                "Distinct comment"
+              ],
+              "priority": "P1",
+              "owner": null,
+              "lane": "Ready for Work",
+              "archived": false
+            },
+            {
+              "alias": "dispatch-three",
+              "ticket": 3,
+              "title": "Other dispatch",
+              "description": "No target marker",
+              "comments": [
+                "CommentNeedle peer"
+              ],
+              "priority": "P3",
+              "owner": "bot",
+              "lane": "In Progress",
+              "archived": false
+            }
+          ]
+        },
+        {
+          "key": "research",
+          "cards": [
+            {
+              "alias": "research-one",
+              "ticket": 1,
+              "title": "TitleNeedle Research",
+              "description": "Same display ticket; distinct UUID and board",
+              "comments": [
+                "CommentNeedle research only"
+              ],
+              "priority": "P3",
+              "owner": "human",
+              "lane": "Ready for Work",
+              "archived": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "orchard",
+      "boards": [
+        {
+          "key": "garden",
+          "cards": []
+        }
+      ]
+    }
+  ],
+  "setup": {
+    "actors": "Use only each board's normally initialized human/browser and automation/CLI actors. Assignment labels do not grant authority.",
+    "lanes": "Create, start and review-handoff through existing commands to obtain stated lanes. Completed edge uses existing human approval only.",
+    "references": "Create one existing informational link from active dispatch-two to dispatch-one through the supported command. Before/after archiving target capture link ID/attribution/current-history references. Full BoardRead contains both and validates; default visible/list/search rows exclude archived target; active-source relation and focused archived-target read/history resolve. No hierarchy/attachments.",
+    "scenarioReset": "Fresh browser and actual-CLI scenarios; never reuse expected initial counts/revisions after mutations. Baseline project cards precede the boundary group."
+  },
+  "matchingCases": [
+    {
+      "id": "F01",
+      "query": "TitleNeedle",
+      "dispatchExpected": [
+        "dispatch-two",
+        "dispatch-one"
+      ],
+      "reason": "Text across fields; explicit priority precedes ticket"
+    },
+    {
+      "id": "F02",
+      "query": "DescriptionNeedle",
+      "dispatchExpected": [
+        "dispatch-one"
+      ]
+    },
+    {
+      "id": "F03",
+      "query": "CommentNeedle",
+      "dispatchExpected": [
+        "dispatch-one",
+        "dispatch-three"
+      ],
+      "reason": "Repeated comment matches yield one row per card"
+    },
+    {
+      "id": "F04",
+      "queryRecipe": "Separately query exact positive decimal ticket1, #1, and generated canonical UUID of dispatch-one (also uppercase UUID spelling); each finds dispatch-one.",
+      "dispatchExpected": [
+        "dispatch-one"
+      ],
+      "scope": "Identity OR current text matching, AND selected filters; no ticket/UUID substring matching"
+    },
+    {
+      "id": "F04N",
+      "query": "10",
+      "dispatchExpected": [],
+      "phase": "Base-only before boundaryGroup",
+      "reason": "No exact ticket10 exists yet and base current prose lacks10; must not identity-substring-match ticket1. Later boundary ticket10 is a different scenario."
+    },
+    {
+      "id": "F05",
+      "query": "CommentNeedle",
+      "filters": {
+        "lane": "Ready for Review",
+        "owner": "human",
+        "priority": "P3",
+        "archive": "active"
+      },
+      "dispatchExpected": [
+        "dispatch-one"
+      ]
+    },
+    {
+      "id": "F06",
+      "query": "",
+      "filters": {
+        "owner": "unassigned",
+        "archive": "active"
+      },
+      "dispatchExpected": [
+        "dispatch-two"
+      ]
+    },
+    {
+      "id": "F07",
+      "query": "AbsentNeedle",
+      "dispatchExpected": [],
+      "expect": "Successful zero matches distinct from unavailable/error"
+    },
+    {
+      "id": "F08",
+      "queryRecipe": "Each of %, _, [x], .*, backslash, <script>, quote, 船 and 🚲 as literal text",
+      "dispatchExpected": [
+        "dispatch-one"
+      ],
+      "expect": "No wildcard, regex, SQL or markup execution"
+    },
+    {
+      "id": "F09",
+      "queryRecipe": "Dispatch CAFÉ -> dispatch-one; Dispatch café -> no matches; Straße -> dispatch-one; STRASSE -> no matches",
+      "expect": "Go simple Unicode ToLower literal substring; no normalization, diacritic removal or full folding; stored text unchanged"
+    },
+    {
+      "id": "F10",
+      "queryRecipe": "Generate exactly 1,024 UTF-8 byte multibyte query, then 1,025 bytes; empty query and whitespace-only query separately",
+      "expect": "1,024 bytes accepted even if no match; 1,025 refuses; empty all, whitespace preserved, no trim or normalization"
+    }
+  ],
+  "boundaryGroup": {
+    "board": "harbor/dispatch",
+    "createAfterBaseCards": true,
+    "count": 21,
+    "aliasPattern": "boundary-NN, NN=01..21",
+    "titlePattern": "BoundaryNeedle NN",
+    "description": "BoundaryNeedle duplicate-field marker",
+    "comments": [
+      "BoundaryNeedle comment marker"
+    ],
+    "owner": null,
+    "lane": "Ready for Work",
+    "archived": false,
+    "ticketRecipe": "Allocate normally in ascending NN; tickets 4 through 24 when initialized from this exact base recipe",
+    "priorityByNN": {
+      "01": "P3",
+      "02": "P0",
+      "03": "P5",
+      "04": "P1",
+      "05": "P2",
+      "06": "P4",
+      "07through21": "P3"
+    },
+    "query": "BoundaryNeedle",
+    "pageSize": 20,
+    "expectedOrderNN": [
+      "02",
+      "04",
+      "05",
+      "01",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "06",
+      "03"
+    ],
+    "expectedPageLengths": [
+      20,
+      1
+    ],
+    "exact20Case": "Separate fresh scenario creates NN=01..20 only; expected page length 20 and no continuation",
+    "oneCase": "Separate query title-only unique marker or identity yields one row",
+    "stalePageCase": "Read first page, commit a normal update, then use old continuation: 409 CURSOR_STALE; First page deliberately restarts without concatenation. Service restart also makes cursor stale.",
+    "contextMismatchCase": "Use continuation with changed query (including case-only q), lane, owner, priority, archive mode or Research board: definite refusal, no fallback."
+  },
+  "archiveJourney": {
+    "target": "dispatch-one",
+    "clients": "Run ordinary built browser and actual built CLI journeys on separate fresh scenarios; cross-read each committed mutation in the other client",
+    "sequence": [
+      "default find",
+      "open details by returned UUID",
+      "read current/history",
+      "archive with current revisions",
+      "default exclusion",
+      "explicit archived find",
+      "direct archived inspection/history",
+      "unarchive with current revisions",
+      "default visible in retained lane"
+    ],
+    "beforeArchive": {
+      "archived": false,
+      "lane": "Ready for Review",
+      "activeRFRContribution": 1
+    },
+    "afterArchive": {
+      "archived": true,
+      "lane": "Ready for Review",
+      "defaultFindPresence": false,
+      "defaultLanePresence": false,
+      "activeRFRContribution": 0,
+      "archivedFindPresence": true,
+      "allFindPresence": true,
+      "directReadAllowed": true
+    },
+    "afterUnarchive": {
+      "archived": false,
+      "lane": "Ready for Review",
+      "defaultFindPresence": true,
+      "activeRFRContribution": 1
+    },
+    "conserve": [
+      "card UUID",
+      "ticket",
+      "title",
+      "description",
+      "explicit priority",
+      "owner",
+      "comments/IDs/attribution",
+      "retained history/provenance",
+      "link identity/target",
+      "existing references"
+    ],
+    "approval": "card.edit existing approval invalidation on real unfinished-card archive/unarchive; Completed is terminal/read-only and both actions refuse, even equal flag",
+    "noOp": "Repeated current authorized archive or unarchive gives durable NOT_COMMITTED/NO_CHANGE without revision/history/activity bump; stale/invalid/unauthorized admission precedes no-op",
+    "activity": "A real commit uses existing activity semantics; archive exclusion does not erase actual last-activity metadata",
+    "scenarioPhase": "Separate fresh base cards only; no boundaryGroup."
+  },
+  "cases": [
+    {
+      "id": "A01",
+      "action": "Find/inspect/archive/unarchive in ordinary browser and actual CLI",
+      "expect": "Cross-client committed agreement, default exclusion, explicit archived access, conserved facts"
+    },
+    {
+      "id": "A02",
+      "action": "Missing authority, wrong source/board/card, stale board/card revisions, invalid input, repeated current state",
+      "expect": "Definite refusal/no-op classification; no unadmitted changes; no gate bypass"
+    },
+    {
+      "id": "A03",
+      "action": "Two windows share base; A archives; B submits stale archive/unarchive",
+      "expect": "Definite conflict, preserved input/base, deliberate read/new intent only"
+    },
+    {
+      "id": "A04",
+      "action": "Lose submitted response at named seam, navigate/filter/reconnect/restart, deliberately look up original",
+      "expect": "Source-bound immutable original remains UNKNOWN until adequate lookup; no replay/new operation; search presence/absence cannot settle it"
+    },
+    {
+      "id": "A05",
+      "action": "Delay Dispatch reads/outcome; switch to Research ticket 1 and Garden; return",
+      "expect": "No cross-board paint/dispatch; windows retain separate private contexts and correct identities"
+    },
+    {
+      "id": "A06",
+      "action": "Keyboard named filters/Next results/First page/open/archive/unarchive; IME Enter; dirty draft keep/discard/cancel and recovery failure",
+      "expect": "One activation, visible focus, no lost input or lossy navigation; new state announces without selecting a different card"
+    },
+    {
+      "id": "A07",
+      "action": "Successful archive removes list opener; close details; change filters and navigate pages",
+      "expect": "Selected details retained with correct state; focus returns to named available opener/fallback; explicit result state"
+    },
+    {
+      "id": "A08",
+      "action": "Graceful same-workspace restart; explicit reread and fresh find",
+      "expect": "Archived state/lane/identity/order retained; no pending-original replay; stale continuation not reused"
+    },
+    {
+      "id": "A09",
+      "action": "Existing normal full-board export and supported restore compatibility",
+      "expect": "Archived state and retained facts/provenance conserved; filtered page does not limit export; restore is distinct from unarchive"
+    },
+    {
+      "id": "A10",
+      "action": "Archive dispatch-one while active dispatch-two links to it; read full board JSON, default visible/list/search rows and focused source/target",
+      "expect": "Complete BoardRead includes both with valid reference closure; default visible rows exclude target; relationship retained and archived-target CardRead/HistoryRead resolves; no validator weakening"
+    }
+  ],
+  "evidenceCategories": {
+    "ordinary": "Named built-browser journey and actual executable CLI; positive cross-reads, bounds, counts and keyboard focus",
+    "injected": "Named delayed/lost-response seams with immutable original and lookup; not native crash/power-loss proof",
+    "controlled": "Malformed/stale continuation, denied authority, retained/removed comment and export/restore edges; not substitutes for positive ordinary journey",
+    "reuse": "Exact prior candidate/source and narrow covered behavior; M02 evidence alone does not qualify find/archive",
+    "privateBinding": "Future source/executable/staged assets/commands, alias-to-identity mapping, first failures/retests and cleanup belong in private evidence"
+  },
+  "exclusions": [
+    "real board data",
+    "credentials",
+    "live board JSON/SQL edits",
+    "V1 source/test copying",
+    "new workflow",
+    "hierarchy",
+    "new attachments",
+    "new search platform",
+    "automatic priority propagation",
+    "runtime qualification in this specification"
+  ],
+  "searchContract": {
+    "filters": "AND lane exact label, owner omitted any/unassigned/canonical UUID, explicit priority exact P0..P5, archive active(default)/archived/all",
+    "page": "Fixed20 partial summary rows; Next results and First page only. Authenticated bounded process-ephemeral cursor binds board/incarnation/revision/exact q/default-resolved typed filters/last sort key; current read right rechecked.",
+    "transport": "GET /api/v1/boards/{boardUUID}/cards?q&lane&owner&priority&archive&cursor; separate generated summary DTO, no full content/history",
+    "order": "P0..P5, ticket ascending, canonical UUID ascending",
+    "cli": "card search --query TEXT --lane LABEL --owner UUID|unassigned --priority P0..P5 --archive active|archived|all --cursor TOKEN; all flags optional, no query means all subject to filters",
+    "query": "q <=1024 UTF-8 bytes, whitespace preserved, empty all; ToLower literal substring current title/description/retained comments OR exact canonical UUID/positive decimal ticket optional leading #",
+    "queryEcho": "Exact validated original q; default-resolved lane/owner/priority/archive. Go simple lowercasing is authoritative matching only, never JS normalization. Cursor binds exact q including case; case-only changes require fresh First page."
+  },
+  "archiveContract": {
+    "mutation": "Existing card.edit payload archived:true or archived:false only; mixed edit fields refuse; omission retained in legacy semantic fingerprint",
+    "policy": "Existing edit right/revisions; Completed archive/unarchive refuse before no-op; other unfinished archived-card operation admission unchanged, start remains refused",
+    "boardRead": "Existing GET board/BoardRead JSON remains COMPLETE archived-inclusive source snapshot, canonical ticket order and graph reference closure. No archive query. Default UI lanes/human-readable CLI board projection hide archived locally; Archive status selects visible mode.",
+    "compatibility": "Same new candidate export/restore plus frozen legacy card.edit fingerprint compatibility check",
+    "cli": "card archive|unarchive CARD-UUID --input FILE are thin aliases to card.edit with the matching archived flag",
+    "listing": "M03.02 adds GET /boards/{boardUUID}/cards empty q/archive/cursor only and card list [--archive active|archived|all] [--cursor TOKEN], fixed 20 partial CardSearchRead scope card-search summaries without reference graph; M03.03 expands same route to full filters and card search. Both default active."
+  },
+  "matchingCasesPhase": "Fresh base cards only, before boundaryGroup seeding; independent fresh base for archiveJourney. Do not reuse base-only counts/ticket negatives after later mutations."
+}

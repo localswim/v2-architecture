@@ -1,0 +1,224 @@
+M03.01 FIND/ARCHIVE ACCEPTANCE EXAMPLES R1
+2026-10-29 | Specification for acceptance; no execution or runtime PASS
+
+Authority and scope
+The companion m03-find-archive-fixture-r1.json supplies only synthetic recipes.
+The M03.01 integration contract under ../decisions/ governs exact boundary and
+ownership choices. Acceptance gates implementation; this document does not start
+later stories. Retain the accepted four-lane Go/TypeScript/SQLite workspace,
+one writer, explicit priority, existing permissions and human-only approval.
+No V1 adoption, new workflow, hierarchy, attachment feature or search platform.
+
+Scenario boundaries
+Run matchingCases against a fresh three-card Dispatch base before creating any
+boundary-group cards. Run archiveJourney on a separate fresh base, also without
+the boundary group. Pagination scenarios use fresh base plus their stated 20 or
+21 matching boundary cards. Never reuse base-only counts or ticket expectations
+after boundary seeding or other mutations.
+
+1. Find committed cards in one selected board
+In the ordinary browser select Harbor / Dispatch, activate Find cards, enter a
+literal query and apply filters. In the actual built CLI select the same member
+explicitly and perform the equivalent card search operation. Both return the same
+committed summary identities, ticket, title, recorded lane, explicit priority,
+owner and archived state in deterministic order; search returns no full prose or
+history. Open details for complete existing CardRead/HistoryRead. A read changes no board/card revision,
+history, activity, approval or operation outcome. Find reads committed current
+facts only; private drafts, pending originals and older snapshots are not matches.
+
+q is at most 1,024 UTF-8 bytes. Apply Go simple Unicode ToLower to q and current
+title/description/retained comment text for literal substring matching. No Unicode
+normalization, accent removal or full case folding. Also OR exact canonical UUID
+and exact positive decimal ticket (optional leading #); identity matching is not
+a substring. Preserve query whitespace; empty q matches all. Include exactly
+1,024-byte valid multibyte query and refused 1,025-byte query (bytes, not scalars).
+Exercise ticket and UUID identity, title-only, description-only and retained-comment-only matches;
+a single card matching several fields appears once. Combined lane, owner,
+explicit-priority and archive filters are AND restrictions on query results.
+Use owner identity rather than display-label equality; unassigned is distinct from
+any owner. Board labels and tickets are never authority or cross-board selectors.
+
+Use inert Unicode and metacharacters, including cafe accents, 船, 🚲, quotes,
+percent, underscore, brackets, backslash and <script>. They must not become SQL,
+regular expressions, HTML or wildcard syntax. Query Dispatch CAFÉ matches the
+fixture title; Dispatch café does not match its composed accent. STRASSE does
+not match Straße. Saved text never changes.
+Empty query means all cards satisfying the filters; no match is a successful empty
+result. Malformed selector/filter, unavailable board and stale result are explicit
+errors/states, never zero matches. No global-board or workspace search is implied.
+
+Concrete future CLI examples (new grammar; not claimed available today)
+Use the actual built executable; W is a fresh private workspace path and CARD is
+its returned canonical UUID. Selection flags precede each command:
+  localswim --workspace W --project harbor --board dispatch card search --query CommentNeedle --lane "Ready for Review" --owner HUMAN-UUID --priority P3 --archive active
+  localswim --workspace W --project harbor --board dispatch card read CARD
+  localswim --workspace W --project harbor --board dispatch card archive CARD --input archive-request.json
+  localswim --workspace W --project harbor --board dispatch board read
+  localswim --workspace W --project harbor --board dispatch --json board read
+  localswim --workspace W --project harbor --board dispatch card list
+  localswim --workspace W --project harbor --board dispatch card list --archive archived
+  localswim --workspace W --project harbor --board dispatch card search --query CommentNeedle --archive archived
+  localswim --workspace W --project harbor --board dispatch card history CARD
+  localswim --workspace W --project harbor --board dispatch card unarchive CARD --input unarchive-request.json
+Use actual fresh typed card.edit envelopes in request files with current expected
+board/card revisions and payload {"archived":true} or {"archived":false}; aliases
+freeze card.edit as the original command, not a new archive command. Repeat with
+retained --data DIR selection on a separate scenario. card search with no query
+matches all subject to filters; --owner unassigned selects null ownership.
+Next results uses --cursor TOKEN with identical query/filter flags. First page
+omits cursor deliberately; no automatic retry. Search endpoint is GET
+/api/v1/boards/{boardUUID}/cards with q, lane, owner, priority, archive, cursor;
+card list initially supplies empty-query/archive/cursor listing; card search
+expands the same summary route with full query/filter flags. Unknown, duplicate or
+malformed parameters refuse. Existing board read JSON remains the complete source
+snapshot in canonical ticket order, including archived cards and closed references;
+it gains no archive query. Default UI lanes and human-readable CLI board projection
+hide archived locally. Partial summaries use the new CardSearchRead scope card-search
+and contain no comment/link/attachment graph. Filters use exact
+existing lane/priority values, owner omitted=any, unassigned or canonical UUID.
+On the base-only scenario, exact ticket 1, #1 and dispatch-one's exact UUID each
+find dispatch-one. A separate query 10 has no match: it does not identity-match
+ticket 1 and no base current prose contains that text. This negative is not run
+after the boundary scenario creates ticket 10.
+
+2. Bounded results are honest
+Use the 21-card boundary group: first page has 20 rows, the final page one, and
+continuation reaches all 21 once in explicit P0..P5 priority order then ascending
+ticket, then canonical card UUID as a final tie-breaker. Show the returned count
+and whether another page exists; do not imply a complete board count from a page.
+Equal priorities use ticket order independent
+of title, comment time or insertion access plan. Repeat an unchanged query
+through both clients and obtain identical order. Repeated fields/comments never
+duplicate a card. Include empty, one-row, exactly-20 and 21-row results.
+
+A continuation belongs to the exact installation/board/incarnation, original q
+and default-resolved typed filters, committed revision and last sort key. Echo q
+exactly; Go lowercasing is internal to matching, not client normalization. A
+case-only q change needs a fresh first page. The authenticated,
+bounded cursor is process-ephemeral; a board revision change or service restart
+returns 409 CURSOR_STALE. Recheck read authority on every page. Change
+filters or board, or commit between pages: discard/refuse the old continuation
+and deliberately start a fresh first page. Never append mismatched pages, silently
+skip rows or loop retries. Error retains the last confirmed result marked stale;
+new queries do not label old rows as new successful results.
+
+3. Find -> inspect -> archive -> find archived -> unarchive
+Run a fresh ordinary browser journey on dispatch-one, then an equivalent actual
+CLI journey on a separate fresh scenario; cross-read each commit in the other
+client. Query the card, open its details by returned UUID, read comments/history,
+and invoke Archive card with current expected board/card revisions. Archive
+is card.edit with payload {"archived":true} only; unarchive uses false only.
+Mixed edits refuse; omission preserves existing semantic fingerprint behavior.
+A real change commits once, retains recorded lane and identity, advances normal
+revision/history/activity and applies existing edit approval invalidation.
+
+Default visible lanes, card list/search, Attention and active counts exclude it.
+An active Ready for Review fixture contributes one before archive and zero after;
+archived activity may still contribute the actual last-activity metadata. No new
+Attention category is invented. Re-read default projections after the commit;
+a stale view is not proof of exclusion. Complete low-level BoardRead JSON still
+contains archived cards so graph references stay valid; this is visibility, not
+a security/data-hiding boundary. An explicit Archived filter finds it,
+All returns both states, and direct card read/history by UUID remains available
+with a visible archived label. Archive never deletes or completes the card.
+
+Inspect the archived card, activate Unarchive card with current revisions, then
+read it in the other client. archived=false restores default visibility in its
+retained lane; it does not synthesize a new workflow transition or approval.
+Title, description, explicit priority, owner, comments and their attribution,
+card/ticket identity, existing links, references and retained history remain.
+Do not reuse pre-mutation page/count/revision expectations after a later edit.
+
+4. Admission, no-op and original uncertainty
+Use existing authority and serialized admission. Cover authorized browser/CLI,
+missing edit authority, wrong board/incarnation/card, stale board revision, stale
+card revision, and invalid input. No refusal mutates card, revision, history,
+activity or approval. Current repeated archive/unarchive is a definite durable
+NOT_COMMITTED/NO_CHANGE; invalid, stale or unauthorized requests cannot bypass
+admission as no-ops. Completed remains terminal/read-only: both archive and unarchive refuse before
+no-op. This bounded policy requires owner acceptance. Neither action permits bot
+approval, lane changes or human-gate bypass. Other unfinished-card operations on
+archived cards retain existing admission; start already refuses archived cards.
+
+Two windows load the same current base. A archives; B's stale unarchive/archive
+fails definitely and retains context. User deliberately reads current facts before
+forming new intent. Lose a submitted response at a named fault seam, retaining the
+immutable original envelope, fingerprint and source tuple as pending/UNKNOWN.
+Refresh, reconnect, restart, filter changes and navigation never replay or create
+a replacement operation. Only deliberate original lookup may settle it; missing,
+expired, unavailable or replaced-source evidence remains UNKNOWN. A search result
+or absence cannot resolve the original outcome. Cover first definite failure and
+first unavailable read separately; do not show success or silently recover by retry.
+
+5. Named controls, focus and private context
+Provide named Find cards, Search cards, Lane, Owner, Explicit priority, Archive
+status, Apply filters, Clear filters, Next results and First page controls;
+archive choices are Active, Archived and All. Rows have named Open card controls;
+details expose Archive card or Unarchive card and Read current card/history.
+Keyboard activation occurs once, IME composition Enter does not search/submit,
+and visible focus survives reads. Page/filter changes return focus to the invoked
+control and announce the result state; loading results do not steal editor focus.
+After a successful archive/unarchive retain the selected details with its new
+archived label; if its list opener disappears, Close returns to Find cards or the
+existing Read current board fallback. No result silently selects another card.
+
+Keep query/filter/page selection private to window and exact board identity.
+Dispatch and Research both have ticket 1 with distinct UUIDs and text. Delay a
+Dispatch result/detail/mutation response, switch to Research, then return: nothing
+paints or dispatches into the wrong board. Separate windows retain separate query,
+filter, focus, draft and pending-original context; selected data/recovery must not
+cross windows. Garden remains independently empty. CLI missing/mismatched member
+selection refuses without fallback; retained --data selects its exact board.
+
+Opening find, changing filters, inspecting another result and archiving must not
+lose or submit dirty edits. Require existing explicit keep/discard/cancel resolution before
+a destructive context change or archive action on that draft; cancel preserves
+input/base. Existing recovery limits and old mounted-editor safeguards remain:
+if persistence fails, expose the failure and block lossy navigation. No promise
+of restored DOM focus after process restart; reentry exposes available proper
+window/board drafts and source-bound originals without replay.
+
+6. Retention, restart and export compatibility
+Preserve an informational link from active dispatch-two to dispatch-one. Archive
+dispatch-one: default visible rows exclude it, while complete board read still
+contains both cards and the intact same-board target reference. Active source
+details retain the relationship; focused archived-target read/history resolves.
+Never weaken reference validation, omit links or present partial BoardRead as full.
+
+Use normal fresh synthetic setup and normal authorized commands only. Archive is
+not history pruning: retained comments, snapshots, links/references and immutable
+outcomes keep their existing retention/provenance semantics. Search matches only
+retained current comments; unavailable removed text is not reconstructed. No new
+retention settings, physical layout, API/archive version or migration is implied.
+
+Gracefully restart the same workspace, explicitly reread current state and repeat
+default/Archived/All queries and direct inspection. State and order persist; private
+pages may deliberately restart at page one rather than reuse stale continuations.
+Normal export/restore compatibility checks retain archived flag, lane, UUID/ticket,
+comments/history/reference conservation and restore provenance according to the
+existing archive contract. Qualify export/restore on the same new candidate and
+retain a frozen legacy card.edit intent fingerprint compatibility check.
+Export complete board data, not the current filtered
+page. Restore remains a separate existing operation; unarchive is not restore.
+
+7. Qualification and early integrated prewalk
+Before broad final qualification, perform one built-browser + real-CLI prewalk on
+fresh synthetic identities: find by comment, inspect, archive, default exclusion,
+Archived inspection, unarchive, stale revision, lost response/original lookup and
+graceful restart. Check actual packaged browser assets and CLI delivery early.
+Record first failure before correction; rerun the affected journey after fixes.
+
+Future evidence labels remain distinct:
+- Ordinary use: actual named browser controls and actual built CLI with selected
+  member, committed cross-reads, order/boundaries/counts and keyboard focus.
+- Injected fault: named delay/lost-response seam, immutable original/UNKNOWN and
+  explicit lookup; not ordinary user success or native crash/power-loss proof.
+- Controlled check: malformed continuation, denied grant and retention/export
+  edge fixtures; never substitute these for the ordinary positive journey.
+- Qualified reuse: identify exact prior candidate/source and covered behavior;
+  M02 read/edit/history/recovery evidence does not qualify M03 find or archive.
+
+Bind future evidence privately to source, executable, staged assets, commands,
+fixture aliases/full identities, revisions, first failures and cleanup. Public
+specification contains no runtime identity, credential or execution claim. Fresh
+independent non-author review precedes handoff; owner acceptance remains separate.
