@@ -31,11 +31,14 @@ capability or start implementation/timing by themselves.
 
 The [original milestone roadmap](docs/spike02/milestones-and-m01.txt) and its
 [structured history](docs/spike02/milestones-and-m01.json) remain preserved.
-The current [daily-work milestone split](docs/spike02/daily-work-milestone-split-r1.txt)
-and its [structured roadmap](docs/spike02/daily-work-milestone-split-r1.json)
-separate M02 read/edit, M03 find/retire, M04 organize and M05 configurable workflow.
-Each delivers browser and CLI together. Earlier attachments, operations, adoption
-and final parity milestones are now M06-M09, with their original scope retained.
+The current [Backlog rough cuts](docs/spike02/backlog-rough-cuts-r1.txt) and
+[structured roadmap](docs/spike02/backlog-rough-cuts-r1.json) split the remaining
+scope into M03-M17, generally 3-4 hours each with some 2-3-hour outcomes.
+These are low-confidence WAGs, not probabilistic forecasts or approved budgets.
+Browser/CLI, focused checks and fresh review stay within each usable outcome.
+The preceding [daily-work milestone split](docs/spike02/daily-work-milestone-split-r1.txt)
+and [structured history](docs/spike02/daily-work-milestone-split-r1.json) retain
+the superseded M03-M09 numbering; the rough-cuts overlay preserves those outcomes.
 The broader [M02 work package R1](docs/spike02/m02-work-package-r1.txt) and its
 [structured plan](docs/spike02/m02-work-package-r1.json) remain historical evidence;
 existing stories need repartitioning before execution under the smaller milestones.

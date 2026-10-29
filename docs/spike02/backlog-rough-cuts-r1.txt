@@ -1,0 +1,73 @@
+BACKLOG MILESTONE ROUGH CUTS R1
+2026-10-29 | Low-confidence scope sizing, not a probabilistic forecast
+
+Owner requested a quick pass, with more small milestones preferred to broad delivery batches. WAGs include ordinary fixes/checks/review/handoff and exclude owner-only waits. They are neither P80/P95 nor approved budgets. Re-estimate close to execution and split again if above roughly4h.
+
+M03 - Find and retire work | WAG 3-4h
+Search/filter, archive, inspect archived work and unarchive; current four-lane workflow.
+Source: preceding roadmap M03.
+
+M04 - Organize related work | WAG 3-4h
+Parent/child hierarchy and typed links; no automatic lane/priority changes.
+Source: preceding roadmap M04.
+
+M05 - Create and reopen configured workflows | WAG 3-4h
+Initialize synthetic boards with configured lanes/labels/transitions and human/bot rules; reopen safely. Existing-board policy editing and Attention integration follow separately.
+Source: preceding roadmap M05.
+
+M06 - Change workflows and show truthful Attention | WAG 3-4h
+Update supported existing-board workflows, stable labels/IDs and compatibility/refusal; project configured Attention categories. No new workflow engine.
+Source: preceding roadmap M05.
+
+M07 - Add, inspect and download card files | WAG 3-4h
+Ordinary browser/CLI attach, list, inspect, download and detach; attribution/history and retained bytes remain correct. Keep existing limits/storage foundations.
+Source: preceding roadmap M06.
+
+M08 - Use covers and preserve attachment consistency | WAG 2-3h
+Choose/clear covers and recover from ordinary failures; verify retained references, bytes and supported export/restore after attachment operations.
+Source: preceding roadmap M06.
+
+M09 - Run useful board-change alerts | WAG 3-4h
+Explicit monitor targets/lifecycle, bot-only suppression and honest pending/delivery state; exercise only synthetic/local delivery. External delivery remains opt-in and separately authorized.
+Source: preceding roadmap M07.
+
+M10 - Publish optional Git snapshots and backups | WAG 3-4h
+Opt-in Git-readable board publishing/backup, bounded failure/retry status and exact included files; board saves remain independent. Synthetic/local destination; remote credentials/push activation require explicit authorization.
+Source: preceding roadmap M07.
+
+M11 - Update and restart the local application | WAG 2-3h
+Bounded maintainable local update/start/restart/reopen workflow, visible build/status and recovery guide; preserve ownership, drafts and original UNKNOWN/no replay. No installer/platform expansion.
+Source: preceding roadmap M07.
+
+M12 - Inventory a V1 board and preview import | WAG 2-3h
+Read-only synthetic V1 inventory/dry-run with capability/compatibility report, ID/policy/history/reference accounting and unsupported-input refusals. No destination activation.
+Source: preceding roadmap M08.
+
+M13 - Import logical V1 board data into an isolated copy | WAG 3-4h
+Import synthetic actors/policy/cards/IDs/tickets, relationships, comments and committed history into an isolated SQLite destination; validate all logical counts/references and refuse unsafe input. Attachment bytes follow separately; partial output is not adoption-ready.
+Source: preceding roadmap M08.
+
+M14 - Complete imported attachment bytes and references | WAG 3-4h
+Copy exact synthetic attachment bytes, metadata/covers and retained references into the isolated import; verify hashes, missing/corrupt-file refusal and coherent export/restore. No real source mutation or activation.
+Source: preceding roadmap M08.
+
+M15 - Rehearse V1 coexistence and recovery | WAG 3-4h
+Exercise the complete synthetic imported board through ordinary browser/CLI, preserve the V1 source, prove coexistence and rollback/recovery; prepare the adoption checklist. Named real sources/destinations and cutover still need owner authorization.
+Source: preceding roadmap M08.
+
+M16 - Reconcile the retained feature-parity outcomes | WAG 2-3h
+Trace documented V1 outcomes to delivered evidence or owner-approved differences; identify gaps as separately scoped small work rather than hiding implementation in final acceptance. No full-parity claim with open gaps.
+Source: preceding roadmap M09.
+
+M17 - Qualify and hand off the everyday release | WAG 3-4h
+Run the final ordinary multi-board browser/CLI, restart/recovery, backup/restore and applicable optional-operations regression on the bound candidate; independent candidate/report review and usable release handoff. Reuse milestone evidence, refresh changed boundaries; new gaps become separate bounded work.
+Source: preceding roadmap M09.
+
+Scope accounting
+- Previous M03/M04 retained. Previous M05 -> M05-M06; M06 -> M07-M08; M07 -> M09-M11; M08 -> M12-M15; M09 -> M16-M17. Original outcomes remain accounted for.
+- Every milestone includes proportionate keyboard/browser/CLI proof, fresh independent review and a reviewable customer outcome where applicable. Existing V1/SQLite components are reused.
+- Logical import is isolated and explicitly incomplete until attachment fidelity and coexistence/recovery are demonstrated. No real source activation or cutover authorized.
+- Each milestone qualifies its own feature; final parity/release reconciles and regresses completed outcomes. Newly found feature gaps get separate small scope, not a final big-bang implementation bucket.
+- Current milestone order M02 -> M03 -> ... -> M17; old prerequisite links are retained as transitive constraints. P3/Backlog for all later milestones.
+- M02 remains In Progress. Existing story cards and Completed history remain unchanged; future story repartition and scoped estimates still pending. No product work/timer starts by this rough planning.
+- daily-work-milestone-split-r1 and older roadmaps/estimates remain preserved historical evidence. This is the current milestone overlay.

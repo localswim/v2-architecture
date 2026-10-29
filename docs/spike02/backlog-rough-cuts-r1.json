@@ -1,0 +1,112 @@
+{
+  "revision": "backlog-rough-cuts-r1",
+  "date": "2026-10-29",
+  "confidence": "WAG/low; not P80/P95 or budget",
+  "milestones": [
+    {
+      "number": 3,
+      "title": "Find and retire work",
+      "wag_hours": "3-4",
+      "scope": "Search/filter, archive, inspect archived work and unarchive; current four-lane workflow.",
+      "source": "M03"
+    },
+    {
+      "number": 4,
+      "title": "Organize related work",
+      "wag_hours": "3-4",
+      "scope": "Parent/child hierarchy and typed links; no automatic lane/priority changes.",
+      "source": "M04"
+    },
+    {
+      "number": 5,
+      "title": "Create and reopen configured workflows",
+      "wag_hours": "3-4",
+      "scope": "Initialize synthetic boards with configured lanes/labels/transitions and human/bot rules; reopen safely. Existing-board policy editing and Attention integration follow separately.",
+      "source": "M05"
+    },
+    {
+      "number": 6,
+      "title": "Change workflows and show truthful Attention",
+      "wag_hours": "3-4",
+      "scope": "Update supported existing-board workflows, stable labels/IDs and compatibility/refusal; project configured Attention categories. No new workflow engine.",
+      "source": "M05"
+    },
+    {
+      "number": 7,
+      "title": "Add, inspect and download card files",
+      "wag_hours": "3-4",
+      "scope": "Ordinary browser/CLI attach, list, inspect, download and detach; attribution/history and retained bytes remain correct. Keep existing limits/storage foundations.",
+      "source": "M06"
+    },
+    {
+      "number": 8,
+      "title": "Use covers and preserve attachment consistency",
+      "wag_hours": "2-3",
+      "scope": "Choose/clear covers and recover from ordinary failures; verify retained references, bytes and supported export/restore after attachment operations.",
+      "source": "M06"
+    },
+    {
+      "number": 9,
+      "title": "Run useful board-change alerts",
+      "wag_hours": "3-4",
+      "scope": "Explicit monitor targets/lifecycle, bot-only suppression and honest pending/delivery state; exercise only synthetic/local delivery. External delivery remains opt-in and separately authorized.",
+      "source": "M07"
+    },
+    {
+      "number": 10,
+      "title": "Publish optional Git snapshots and backups",
+      "wag_hours": "3-4",
+      "scope": "Opt-in Git-readable board publishing/backup, bounded failure/retry status and exact included files; board saves remain independent. Synthetic/local destination; remote credentials/push activation require explicit authorization.",
+      "source": "M07"
+    },
+    {
+      "number": 11,
+      "title": "Update and restart the local application",
+      "wag_hours": "2-3",
+      "scope": "Bounded maintainable local update/start/restart/reopen workflow, visible build/status and recovery guide; preserve ownership, drafts and original UNKNOWN/no replay. No installer/platform expansion.",
+      "source": "M07"
+    },
+    {
+      "number": 12,
+      "title": "Inventory a V1 board and preview import",
+      "wag_hours": "2-3",
+      "scope": "Read-only synthetic V1 inventory/dry-run with capability/compatibility report, ID/policy/history/reference accounting and unsupported-input refusals. No destination activation.",
+      "source": "M08"
+    },
+    {
+      "number": 13,
+      "title": "Import logical V1 board data into an isolated copy",
+      "wag_hours": "3-4",
+      "scope": "Import synthetic actors/policy/cards/IDs/tickets, relationships, comments and committed history into an isolated SQLite destination; validate all logical counts/references and refuse unsafe input. Attachment bytes follow separately; partial output is not adoption-ready.",
+      "source": "M08"
+    },
+    {
+      "number": 14,
+      "title": "Complete imported attachment bytes and references",
+      "wag_hours": "3-4",
+      "scope": "Copy exact synthetic attachment bytes, metadata/covers and retained references into the isolated import; verify hashes, missing/corrupt-file refusal and coherent export/restore. No real source mutation or activation.",
+      "source": "M08"
+    },
+    {
+      "number": 15,
+      "title": "Rehearse V1 coexistence and recovery",
+      "wag_hours": "3-4",
+      "scope": "Exercise the complete synthetic imported board through ordinary browser/CLI, preserve the V1 source, prove coexistence and rollback/recovery; prepare the adoption checklist. Named real sources/destinations and cutover still need owner authorization.",
+      "source": "M08"
+    },
+    {
+      "number": 16,
+      "title": "Reconcile the retained feature-parity outcomes",
+      "wag_hours": "2-3",
+      "scope": "Trace documented V1 outcomes to delivered evidence or owner-approved differences; identify gaps as separately scoped small work rather than hiding implementation in final acceptance. No full-parity claim with open gaps.",
+      "source": "M09"
+    },
+    {
+      "number": 17,
+      "title": "Qualify and hand off the everyday release",
+      "wag_hours": "3-4",
+      "scope": "Run the final ordinary multi-board browser/CLI, restart/recovery, backup/restore and applicable optional-operations regression on the bound candidate; independent candidate/report review and usable release handoff. Reuse milestone evidence, refresh changed boundaries; new gaps become separate bounded work.",
+      "source": "M09"
+    }
+  ]
+}
