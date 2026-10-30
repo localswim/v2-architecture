@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "status": "Synthetic recipe specification proposal only; no execution or runtime PASS",
+  "authority": "M05.01 proposed integration/acceptance; owner acceptance gates0038",
+  "baseline": {
+    "archive": 1,
+    "api": 1,
+    "physical": 6,
+    "base": 5
+  },
+  "selectedVersions": {
+    "archive": 1,
+    "fingerprint": 1,
+    "api": 1,
+    "physical": 7,
+    "base": 5
+  },
+  "initialization": "Fresh normal qualified localfixture setup only; no real issuer trust/human grant, live SQL or board JSON edit. Runtime UUIDs/credentials private; aliases never authority. Separate fresh attempt per case/variant.",
+  "boards": [
+    {
+      "key": "dispatch",
+      "member": "harbor",
+      "cards": [
+        "prerequisite",
+        "dependent",
+        "peer",
+        "archive-peer",
+        "completed-peer",
+        "unrelated"
+      ]
+    },
+    {
+      "key": "research",
+      "member": "harbor",
+      "cards": [
+        "different-card-ticket1"
+      ]
+    },
+    {
+      "key": "garden",
+      "member": "orchard",
+      "cards": [
+        "other-window"
+      ]
+    }
+  ],
+  "kinds": [
+    {
+      "forward": "blocked_by",
+      "direction": "directed",
+      "kind": "blocking",
+      "cycle": "new additions cannot close blocking cycle",
+      "inverse": "blocks"
+    },
+    {
+      "forward": "informs",
+      "direction": "directed",
+      "kind": "informational",
+      "cycle": "allowed, legacy unchanged",
+      "inverse": "informed_by"
+    },
+    {
+      "forward": "relates_to",
+      "direction": "symmetric",
+      "kind": "related",
+      "cycle": "allowed, unique unordered pair single owner",
+      "inverse": "relates_to"
+    },
+    {
+      "forward": "references",
+      "direction": "directed",
+      "kind": "reference",
+      "cycle": "allowed",
+      "inverse": "referenced_by"
+    },
+    {
+      "forward": "duplicates",
+      "direction": "directed",
+      "kind": "duplicate",
+      "cycle": "refuse duplicate cycles, max one active outgoing",
+      "inverse": "duplicated_by"
+    }
+  ],
+  "requestContract": {
+    "inputExamples": "Fragments only. Future full envelopes use current source board identity/actor/opId/expected revisions and normal prepared pipeline; no fabricated authority.",
+    "replacement": "all owned active kinds; incoming untouched",
+    "emptyArray": "intentional create or clear",
+    "createParentCombination": "one transaction",
+    "maxArrayEntries": 100,
+    "field": "input.relationships",
+    "legacyLinkAdd": {
+      "targetCardId": "resolved existing selected-board UUID",
+      "kind": "blocking"
+    },
+    "omitted": "legacy exact bytes",
+    "modernLinkAdd": {
+      "targetAlias": "peer",
+      "kind": "reference"
+    },
+    "createInput": {
+      "relationships": [
+        {
+          "targetAlias": "peer",
+          "kind": "reference"
+        }
+      ],
+      "description": "Recipe only",
+      "title": "Synthetic related café 船",
+      "priority": "P3"
+    },
+    "null": "invalid",
+    "result": "create/edit exactly cardId + one card ResultRef; legacy link commands unchanged",
+    "specFields": [
+      "kind",
+      "target.boardId",
+      "target.incarnation",
+      "target.cardId"
+    ],
+    "editInput": {
+      "relationships": []
+    }
+  },
+  "cases": [
+    {
+      "id": "normal",
+      "checks": [
+        "all5 stored kinds and inverse views",
+        "one fact/actual owner, no peer revisions",
+        "archived/Completed peer labels",
+        "legacy informational directed retained"
+      ],
+      "mode": "future ordinary browser and actual CLI"
+    },
+    {
+      "id": "atomic-create",
+      "checks": [
+        "parent+relationships+card one transaction",
+        "invalid each position no partial state/ticket/link allocation",
+        "result cardId and exactly one card ResultRef"
+      ],
+      "mode": "future normal plus invalid variants"
+    },
+    {
+      "id": "owned-replace",
+      "checks": [
+        "all owned kinds replaced, incoming untouched",
+        "matching active IDs retained; inactive IDs never resurrect",
+        "equal permutation NO_CHANGE; [] clear; null and mixed fields refuse",
+        "retained exact owned legacy external facts conserved without new authority"
+      ],
+      "mode": "future ordinary/controlled"
+    },
+    {
+      "id": "graph-bound",
+      "checks": [
+        "blocking and duplicate new cycles refuse final state atomically",
+        "related/reference/informational and cross-kind loops legal",
+        "legacy unrelated cycles survive; visited traversal terminates",
+        "no total board edge/read truncation cap"
+      ],
+      "mode": "future ordinary plus controlled100/101 arrays"
+    },
+    {
+      "id": "identity-canonical",
+      "checks": [
+        "full targetCardRef same current Board.Identity for new facts",
+        "foreign/colliding ticket/inherited target refusal",
+        "old omissions fingerprint bytes and source ResultRefs exact",
+        "array order immutable; source permissions and expected revisions checked"
+      ],
+      "mode": "future normal and labeled controlled"
+    },
+    {
+      "id": "recovery",
+      "checks": [
+        "private visible vs durable input distinguished",
+        "original UNKNOWN no automatic lookup/replay/rebase/replaced opId; deliberate exact-original lookup retained",
+        "stale windows and board/window/generation guards",
+        "archive/search/Close-focus and joined scenario before feature handoff"
+      ],
+      "mode": "future normal plus labeled injected native response-loss"
+    },
+    {
+      "id": "restore-upgrade",
+      "checks": [
+        "full records and canonical/blob bytes from first restore prewalk",
+        "all matching Link.Target refs rebase including inactive/history",
+        "immutable original/result bytes and Snapshot.Origin/CreatedIn retained",
+        "restore->new relationship/hierarchy edit->second restore",
+        "explicit6->7 and retained5->6->7 distinct from restore",
+        "frozen5/6 validation, failure rollback, unsupported/corrupt refusal"
+      ],
+      "mode": "future separately labeled normal/controlled"
+    },
+    {
+      "id": "qualification-handoff",
+      "checks": [
+        "full native/browser inventory21+new zero required failures/skips",
+        "two isolated clean builds/empty caches and output comparison",
+        "exact-bound unchanged reuse labeled",
+        "recursive guide/schema/extracted kit/owned cleanup/actuals/current roster"
+      ],
+      "mode": "future full required gates and fresh normal demo"
+    }
+  ],
+  "accounting": "Full complete-delivery proof/review/fixes/kit/demo/cleanup/publication in base; no runtime claim or dependent work before acceptance"
+}

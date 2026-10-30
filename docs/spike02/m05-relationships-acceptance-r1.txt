@@ -1,0 +1,134 @@
+M05.01 RELATIONSHIP ACCEPTANCE EXAMPLES R1
+2026-10-30 | Specification proposal only; no execution, runtime fixture or PASS
+
+Authority: ../decisions/m05-relationships-integration-2026-10-30.txt and companion
+m05-relationships-fixture-r1.json. Owner acceptance gates implementation. These
+recipes specify future synthetic normal/controlled journeys, not real board data.
+Every scenario starts with a fresh normally initialized workspace/profile and
+normal commands, explicit identities/revisions/rights and private future evidence.
+Do not edit live SQL/board JSON, install real issuer trust or issue human grants.
+Synthetic human approval uses the existing qualified localfixture process and is
+labeled as such; it is not authority to configure a real installation.
+
+Seed and identity
+Harbor/Dispatch has prerequisite, dependent, peer, archive-peer, completed-peer and
+unrelated. Harbor/Research also allocates ticket1 with a different full identity;
+Orchard/Garden provides another member/window. Capture actual UUIDs privately.
+Aliases/tickets below never become mutation targets. Read current Board.Identity,
+explicit source revision and complete BoardRead before deliberately preparing a
+new intent. Add comments, attachment bytes, a non-root hierarchy and legacy links
+through normal setup before complete-record comparison. Each variant uses a fresh
+seed so counts/tickets and unknown originals are not reused between attempts.
+
+1. Types and ordinary reciprocal use
+In actual packaged browser, select Dispatch and open dependent by exact identity.
+Add Depends on prerequisite, Related to peer, References archive-peer and Duplicates
+completed-peer. Read each peer's inverse view; exact kind/owner/target/linkId is
+consistent across both ends, but only one Link row exists. Inspect legacy Informs
+and Informed by without silently converting them. Verify related reverse add is
+LINK_ALREADY_EXISTS and does not add a second row; different kinds on a pair coexist.
+Open the actual owner to remove from an incoming view, then issue its exact-source
+link.remove. Peer revisions/approvals/hierarchy/lane/priority/owner remain exact;
+only owner/board revision and normal owner history change. Repeat in real CLI with
+explicit board selection, full input envelopes and readable/JSON relationships.
+
+2. Atomic create with owned links AND parent
+Use normal card.create input title/description/explicit priority/owner, optional
+parent:prerequisite and relationships to existing peers. One card/ticket, parent
+and all Link facts/current refs appear at one board revision; source starts at
+normal create revision. Result is exactly cardId, compact/full ResultRefs one card.
+Read fresh BoardRead to discover link IDs. Confirm no peer content mutation.
+For every member position, substitute one invalid foreign/incarnation/missing/self
+target, unknown kind, duplicate semantic entry or invalid parent: no partial card,
+ticket allocation, links, refs, prior snapshot or board/activity advance. Distinguish
+durable original refusal from pre-dispatch structural refusal; ledger evidence may
+exist without committed card state. A proposed two-new-card batch is unsupported.
+
+3. Whole OWNED set replacement
+Seed outgoing blocking+informational+reference, incoming reference+related from
+other owners, and an inactive historical link. card.edit relationships only retains
+identical matching IDs, deactivates removed outgoing facts and allocates new IDs
+for additions at one owner revision. Incoming facts remain byte-identical except
+their derived display may refresh from the new board revision. Reverse-related
+ownership is not stolen; conflicting ownership proposal refuses. Reordering an
+equal set returns durable NO_CHANGE without snapshots/activity/card revision.
+[] clears all owned active kinds including informational; incoming remains visible.
+Null relationships or mixed fields (including parent/archive/priority) refuse.
+Inactive historical IDs never resurrect. Completed source refuses even equal/clear;
+unfinished archived source works under normal edit permission. Archived/Completed
+peer targets remain legal without a peer revision or approval change.
+
+4. Graphs, bounds and concurrent admission
+blocking A->B->C refuses added C->A (BLOCKING_CYCLE); duplicate A->B->C refuses
+C->A (DUPLICATE_CYCLE). Refuse two outgoing duplicate targets. Related/reference/
+informational cycles are legal; a hierarchy edge and opposing link alone are legal.
+A batch whose individually plausible additions close a cycle refuses as a whole;
+validate against final proposed set after intended removals. Existing legacy
+blocking cycles/external facts survive unrelated operations and6->7 conservation;
+new edges must not introduce a cycle, and traversal must terminate. Clear/removal
+repairs are allowed. Synthetic controlled100/101-entry arrays prove the batch cap;
+this does not bound existing incoming/board sets or truncate reads.
+Two windows use the same expected board revision for conflicting additions or
+replacement: at most one commits; the other retains input with original conflict
+evidence, never automatic retry. Capture all allocations/counters/full records.
+
+5. Canonical, identity and authority compatibility
+Golden omitted-field card.create/edit and legacy link.add targetCardId fingerprints
+and complete canonical bytes stay equal after new decoders/refreeze/export/restore.
+Modern exact-target link.add and relationships are distinct originals. Empty[] is
+preserved as intentional; null refuses. Input array order is retained in canonical
+bytes even where semantic set equality yields NO_CHANGE. Freeze/browser/archive
+must agree; no target:null or relationships:null padding in old intents.
+Test wrong board/member/incarnation, colliding ticket, missing peer, sourceCompleted,
+forbidden actor and revoked authority, stale board/source revisions and foreign
+linkId/owner. No target/permission guessed from labels, assignment or inverse view.
+Legacy equal add and inactive/missing remove keep their admitted refusal codes.
+
+6. Failure, private input, original recovery and focus
+Normal browser and realCLI paths plus explicitly labeled native-response loss,
+pre/post-commit interruption and storage-admission refusal distinguish structural
+refusal, durable NOT_COMMITTED, COMMITTED and UNKNOWN. Preserve visible input and
+exact separately stored originals; prove durable claims by readback, not visibility.
+Restart/reopen/relationship navigation/search must not lookup/settle/replay an
+UNKNOWN original or regenerate opId automatically. Deliberate read/compare/new
+intent is separate. Exercise two windows, delayed reads, board/member switching,
+composition Enter, multiline input, Escape, dirty cancel and exact opener/Close
+focus fallback. Run archive/search/Close-focus plus joined hierarchy/link/batch
+and restored-original search BEFORE feature handoff, not first at qualification.
+
+7. Full-record restoration and explicit physical upgrade
+First restore prewalk compares ALL cards/comments/active+inactive links/snapshots/
+approvals/attachments/provenance/tombstones/history/originals and exact blobs.
+Allow only existing documented identity transformations: all retained same-source
+Link.Target refs (including inactive/history rows) and current parent edges rebase;
+Snapshot.Origin/historical parents/CreatedIn and immutable original/result bytes
+stay source-bound. Preserve unresolved foreign facts. Restore, add a new same-scope
+relationship and hierarchy edit, then restore again; compare the complete records
+under each exact source identity, never counts alone.
+Separate controlled frozen6->7 explicit offline upgrade: preserve ALL old row
+values/link IDs/history/canonical bytes, frozen5/6 DDL fingerprints, physical7/base5
+and exact new related uniqueness. Retain supported5->6->7 sequence. Live writer,
+unknown/corrupt/extra/future inventory and injected precommit failure refuse/roll
+back without partial changes; distinguish ambiguous postcommit outcome. Older6
+binary rejects7/new enums rather than stripping. Kill/restart is not power-loss proof.
+
+8. Joined qualification and usable handoff
+Join find/open/hierarchy/reparent/create+links/read reciprocal/replace/remove/
+archive/refind/unarchive and ordinary restart with explicit conservation. Deep/wide
+complete incident reads, both same-ticket boards, owned/incoming distinctions and
+local20 pages must report exact totals and revision; --json returns all complete
+incident rows once and refuses --page. Empty first page succeeds; bad page refuses.
+Modify a paged replacement with hidden owned facts: the editor retains the complete
+owned set, and no hidden relationship disappears. Changed-revision explicit refresh
+resets page1 safely; oversize100+ replacement refuses without truncating input.
+Deliberate exact-original lookup remains available; automatic lookup/replay does not.
+Run all required native/browser inventories (21 existing browser cases plus new
+required cases; zero required failures/skips), two isolated clean builds/empty
+caches, generated/staged/executable comparisons and source-stability checks.
+Retain failure attempts, diagnose harness assumptions separately and re-review
+material fixes. Label unchanged qualified reuse by exact source/build/materials.
+Extract/use the new local kit, recursively audit guide/schema references, run a
+fresh normal demo without injected faults, verify owned host/browser/listener
+cleanup, and hand off reviewed evidence/limits/actuals and current worker plan.
+Use the10MiB channel fallback with hashes/small attachments. No later milestone,
+general release, real-data migration or physical power-loss claim follows.

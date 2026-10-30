@@ -1,0 +1,267 @@
+M05.01 TYPED RELATIONSHIPS AND ATOMIC SET CONTRACT
+2026-10-30 | Proposal for owner acceptance; no implementation or runtime PASS
+
+Outcome and authority
+Connect exact cards with readable reciprocal typed relationships, atomically create
+a card with relationships, and replace its complete owned relationship set. Preserve
+accepted hierarchy, explicit priority, one writer, human-only approval and immutable
+original outcomes. Baseline implementation249945c (accepted M04 product e51be8d,
+physical/base6/5, API/archive1); accepted M05.00 found no readiness blocker.
+Companions: ../spike02/m05-relationships-acceptance-r1.txt and
+m05-relationships-fixture-r1.json. Owner acceptance gates #0038 implementation.
+No workflow, cross-board linking, graph/search service, merge, import or real-data
+adoption is introduced. Prior V1 exposure is disclosed, not clean-room certification.
+
+1. Stored facts, ownership and reciprocal presentation
+Keep one existing-style Link fact with linkId, owner cardId, kind, exact target
+CardRef, active, createdAt and CreatedIn provenance. No mirrored counterpart row.
+Only its owning/source card owns current_reference and historical reference entries.
+Incoming/reciprocal views derive from the complete validated BoardRead at one board
+revision; a search page never establishes completeness. Existing link IDs and owner
+cards never change to manufacture reciprocal views or lexical ownership.
+
+Stored kind      Owner/source meaning          Target-side label
+blocking         source is blocked by target   target blocks source (label: blocks)
+informational    source informs target         informed by source (legacy directed)
+related          source relates to target      relates to source (symmetric)
+reference        source references target      referenced by source
+duplicate        source duplicates target      duplicated by source
+
+For blocking the current source->target edge remains dependent->prerequisite.
+The target's label is "blocks" with the dependent source as peer. Existing start
+admission continues checking only source-owned active blocking prerequisites for
+current nonarchived human-approved Completed status; adding/removing a link never
+starts/completes a card. Reference/related/duplicate/informational do not block.
+Duplicate is a descriptive directed assertion, not identity merging or completion.
+Keep informational as its own legacy directed kind; never relabel it related or
+turn its existing opposite-direction rows into one symmetric record.
+
+Newly added facts require full same-selected-board/current-incarnation target cards,
+using Board.Identity rather than the peer's CreatedIn. Self is refused for all
+kinds. Archived/Completed peers are legal targets and explicitly labeled. A
+Completed source is read-only even for no-op; unfinished archived sources retain
+normal edit rights. Foreign/historical refs, colliding tickets and labels never
+resolve implicitly. Preserve accepted legacy external/historical Link rows and
+unavailable targets as evidence; they do not become new admissible foreign links.
+
+Uniqueness is active (source,kind,exact target) for directed kinds, unordered exact
+endpoints for related. Different kinds may coexist. Related cycles and reference/
+informational cycles are legal. A source has at most one active duplicate target;
+adding duplicate edges must not close a duplicate cycle. New blocking edges must
+not close a blocking cycle, independent of duplicate and hierarchy graphs. Combined
+cross-kind loops alone are legal. Validate added edges against the final proposed
+set in the writer snapshot, including other additions in the same batch. Existing
+accepted legacy blocking cycles/external evidence must survive unchanged upgrades
+and unrelated edits; they cannot justify introducing another cycle. Visited-set
+traversal must terminate on legacy cycles. Removal/clear can repair legacy states.
+
+Only the source revision advances once, captures one prior snapshot for an edit,
+and invalidates source current approval under existing mutation rules. Peer content
+revisions/history/approvals and hierarchy/lane/priority/owner do not change for a
+derived view. The board revision/activity advances once. No new approval authority.
+
+2. Mutations and canonical originals
+Reuse card.create, card.edit, link.add and link.remove; add no command/event type.
+card.create optionally accepts input.relationships:[RelationshipSpec,...], together
+with ordinary create fields and optional parent. RelationshipSpec is exactly
+{kind: one stored kind above, target:{boardId,incarnation,cardId}}. New relation
+targets must already exist; the new source cannot target itself, another proposed
+new card or a display ticket. Create+parent+relationships is one transaction.
+
+card.edit optionally accepts input.relationships as its ONLY input field. It
+replaces ALL source-owned active links of every kind, including legacy
+informational. It does not replace incoming links owned by other cards. Label this
+operation "Replace owned relationships"; show incoming separately. Preserve exact
+matching active facts/linkIds, deactivate omitted owned facts without deleting their
+history, and allocate fresh IDs for new facts. Do not resurrect an inactive linkId.
+An incoming related fact cannot be stolen/reowned by replacement: refuse a proposed
+new owned related edge duplicating it. Clear with []; null is invalid. Preserve
+incoming facts even if their source is Completed or lacks mutation permission.
+An exact matching owned legacy foreign/historical fact may be retained unchanged
+in a replacement; that is conservation, not admission of a new foreign target.
+Do not validate that retained member as a newly created same-scope relationship.
+
+Limit each submitted relationships array to100 entries (100 legal,101 refused).
+This bounds a batch, not total board edges, incoming views or legacy owned count.
+Existing larger sets remain readable and removable; [] may clear any existing owned
+count in one operation. Refuse duplicate semantic entries within one array rather
+than silently dropping them. Request array order remains in canonical bytes;
+semantic set equality is order-independent. Equal replacement is durable
+NOT_COMMITTED/NO_CHANGE after normal authority/identity/revision/Completed admission.
+Invalid member, parent, type, target, graph or bound refuses the whole request.
+No card/ticket/link ID allocation, snapshot/current-ref/activity advance or partial
+link deactivation survives a refusal. The ordinary durable refusal ledger may grow;
+"unchanged" does not mean that no original-outcome record exists.
+
+link.add keeps legacy {kind:blocking|informational,targetCardId:UUID} unchanged.
+Modern input is {kind:storedKind,target:CardRef}. Exactly one target spelling is
+permitted; targetCardId is legacy-only and cannot submit the three new kinds.
+Same-board semantic checks occur in the authoritative transaction. Equal existing
+add retains LINK_ALREADY_EXISTS, including reverse related add; do not silently
+change legacy refusal to NO_CHANGE. link.remove keeps {linkId}, source ownership,
+inactive/missing refusal and existing card+link result semantics. Duplicate cycle
+uses DUPLICATE_CYCLE; blocking retains BLOCKING_CYCLE, self SELF_LINK, equal add
+LINK_ALREADY_EXISTS. New invalid shapes/bounds/set duplicates use INVALID_INPUT;
+existing legacy precedence/codes stay unchanged. No foreign target facts leak.
+
+Preserve current rights and admission order, authenticated actor, route/target,
+expected board/source-card revisions, immutable opId and writer transaction.
+Recheck authority at admission/apply; no browser precheck confers rights. Stale
+two-window writers cannot jointly bypass cycles, uniqueness or replacement checks.
+Creation result remains exactly {cardId}, edit result exactly {cardId}; ResultRefs
+remain exactly one card for these commands, even with relationships. Expose new
+linkIds through a deliberate committed BoardRead, not extra terminal result fields
+or link ResultRefs rejected by archive compactReferences. Legacy link.add/remove
+keep card+link ResultRefs and linkId results. Transactionally retain complete new
+Link facts/current-reference rows with the committed card; existing card snapshots,
+not widened result cardinality, account for changed owned sets.
+
+Omitted relationships and modern target MUST remain absent from old normalized
+payloads and optional-null padding. Also keep absent legacy targetCardId omitted
+from modern exact-target intents; exactly one target spelling survives all freeze
+paths, never a padded targetCardId:null counterpart. Apply this to Go Freeze, archive refreeze and
+browser recovery/canonical validation together. Do not inject relationships:null,
+relationships:[] or target:null into a legacy intent. Explicit [] is a distinct new
+intent (equal edit may NO_CHANGE); null relationships is refused. Do not sort or
+rewrite an original array after preparation. No fingerprint/version reset.
+Keep every old/new canonical byte sequence, fingerprint, opId, full/compact terminal
+record and lookup evidence exact. UNKNOWN remains separate and immutable across
+refresh, restore, reopen, upgrade, relationship navigation and current-card reads.
+Never replay, infer settlement from current state, replace opId or automatically
+retry a conflict/uncertain original. User compares and deliberately makes new intent.
+
+3. Physical storage and logical compatibility
+Select physical PRAGMA user_version7, immutable board.schema_version5; fresh stores
+use7/5. Keep API/archive/fingerprint and all unrelated version domains at1. Expand
+link.kind only to blocking/informational/related/reference/duplicate and add the
+active related unordered-pair uniqueness constraint. Preserve existing directed
+active_typed_pair and entity/current_reference/revision_reference ownership rules.
+No dual-owner facts or changes to existing operation.command/event type checks.
+
+Preserve independent frozen5 AND frozen6 DDL/validation (the current frozen5 helper
+derives shared DDL and must not silently inherit7 changes). Supported upgrade is
+explicit offline6->7 under the
+normal ownership/lease boundary, not startup repair. Existing supported5->6 remains
+available; a5 source upgrades through validated6 then7, not a direct undocumented
+rewrite. These are two explicit guarded operations; successful5->6 is retained if
+a later6->7 attempt refuses, and6 still requires the explicit next upgrade before
+new-version startup. In a guarded BEGIN IMMEDIATE rebuild link for its expanded CHECK/index,
+copy all existing values/IDs/active flags/provenance exactly, update only physical
+version and relevant DDL, then validate exact7 schema/FKs/all conserved records
+before COMMIT. Retain all unrelated tables, including card_parent and canonical
+originals. No deletion or filtering of foreign/inactive/history-only links, no
+retrospective graph normalization. Failed admission/copy/validation before commit
+rolls back original stores without partial DDL/data/version change. Commit/durability
+ambiguity uses existing UNKNOWN/uncertain handling, not a false rollback claim.
+
+Unknown/future/corrupt layouts, extra inventory, active writers or bad identity
+refuse safely; never overwrite to force readiness. Current startup admits supported
+7 only and gives an actionable explicit-upgrade requirement for supported older
+stores. An old6 binary must reject7, not strip links. Ordinary kill/restart and
+injected faults do not establish physical power-loss safety.
+
+API/archive1 gain strict additive kinds and optional input arrays; no new graph
+read endpoint or envelope version. Older strict decoders may refuse unsupported
+kinds/fields. Preserve old omitted-field packages and canonical old requests. All
+current/historical Link facts, snapshots/IDs, comments, attachments, approval facts,
+provenance, history/outcomes/tombstones and blob bytes survive export/restore.
+Use existing restore transformation: ALL retained Link.Target refs matching the
+source board/incarnation (including inactive/history-linked rows) rebase to new
+local incarnation; foreign/unmatched targets stay exact. CreatedIn, Snapshot.Origin,
+canonical intent/result bytes and historical parent refs stay source-bound. Current
+parent adjacency rebases under accepted M04 rules. Do not falsely promise bytewise
+equality of those permitted transformed link targets. Compare complete records after
+only enumerated transforms plus exact immutable original/blob bytes, twice across
+restore->new relationship/hierarchy edit->second restore. Current active new-kind
+targets must validate as full same-scope cards; historical unavailable rows retain
+registry/provenance validation rather than being rewritten into current authority.
+Restore is not upgrade proof: both get separate required scenarios.
+
+4. Browser, CLI and readable reciprocal views
+Details show owned outgoing and derived incoming facts, exact peer identities,
+kind/direction, ticket/title and archived/Completed/unavailable labels. For related
+show one fact per unordered pair with actual owner identity. Forward add actions are
+"Depends on", "Related to", "References" and "Duplicates"; legacy informational
+remains visible/editable as "Informs". Inverse labels are read/navigation views,
+not a hidden mutation of the selected peer. Removing/editing an incoming fact
+requires deliberately opening its actual owner, then a new exact owner envelope;
+no synthesized inverse command, borrowed revision or silent cross-card edit.
+
+Actual CLI keeps explicit workspace/project/board or --data selection:
+  card create --input FILE
+  card link-add CARD-UUID --input FILE
+  card link-remove CARD-UUID --input FILE
+  card relationships-replace CARD-UUID --input FILE
+  card relationships CARD-UUID [--page N]
+relationships-replace maps only to card.edit input.relationships, not a new command.
+--input is the ordinary full prepared request/envelope with explicit expected
+revisions; aliases neither fetch-and-retry nor mutate by ticket/title. A readable
+relationships read uses complete BoardRead, pages locally20 rows and prints exact
+total, owned/incoming counts and source board revision. Sort by peer numeric ticket,
+peer canonical UUID, kind, owner UUID, linkId; retain external unavailable facts
+after local peers ordered by exact ref. No network cursor/completeness claim.
+--json card relationships CARD emits CLI-only RelationshipRead apiVersion1,
+scope:"relationships", result:{identity,revision,card:CardRef,ownedCount,
+incomingCount,relationships:[{linkId,owner:CardRef,peer:CardRef,kind,direction,
+label,owned}],complete:true}. direction is outgoing/incoming/symmetric, label as
+table above; peer details come from same BoardRead, never stale label substitution.
+JSON includes all active incident rows once, no --page combination (exit1).
+Empty first readable page succeeds; invalid/out-of-range positive page is error1.
+
+Editors use the existing private draft/immutable preparation/strict readback/native
+dispatch pipeline. Require deliberate selection/save; dirty cancel uses explicit
+discard confirmation. Enter once except composition, multiline newline preserved;
+Escape closes only active unsubmitted input, not pending originals/unrelated drafts.
+Restore exact live opener focus or existing Read current board fallback. Retain input
+on conflict/first failure/storage refusal/unavailability, distinguishing visible from
+durable input. Late board/window/generation read/focus callbacks cannot paint/focus
+another context; restored-original search, archive/search/Close-focus regression and
+joined hierarchy/link/batch journey execute BEFORE feature handoff.
+Browser relationship pages are local20-row slices of the captured complete
+BoardRead, with exact total/owned/incoming counts and board revision. Preserve
+board/window-local page context; an explicit refresh of a changed revision resets
+page1 with appropriate focus/input retained. Generation-stale reads cannot paint
+another selection. Replacement editors initialize the COMPLETE owned set, not the
+visible page; modifying a page cannot silently drop hidden owned relationships.
+Legacy owned sets over100 remain completely readable; a replacement exceeding the
+100-entry submission bound refuses visibly without truncation or partial removal.
+Deliberate user-triggered exact-original lookup remains available under accepted
+recovery rules; it can establish a terminal original outcome. Current-card reads
+and automatic navigation must never infer that outcome or trigger replay.
+
+5. Ownership, proof and exit
+Store/schema/explicit upgrade: internal/store/schema, open and native dispatcher;
+frozen6/7 validators, guarded link rebuild and exact conservation/refusal.
+Domain/card snapshots/canonical: internal/board/cards and workflow, contract
+descriptor/intent/result, writer/outcome; shared final-state admission in one writer.
+Archive/restore: contract/archive, archive export/validate/restore; all retained link
+rows, canonical-refreeze absence, complete record/byte and explicit rebase proof.
+Reads/CLI: boardapi projections, contract/transport and CLI/core; complete incident
+views from BoardRead, owner-correct commands and exact envelope exit taxonomy.
+Browser/recovery: typed api, board/details/view, existing session/draft/recovery;
+no parallel original store or invented current-card/global context.
+Primary coordinates contractgen/assetstage and source boundary integration; generated
+outputs are never hand-edited. Feature owns focused native/browser/realCLI/keyboard/
+error/recovery/compatibility proof, docs and fresh transaction/recovery/concurrency
+review. Qualification runs FULL required native/browser inventories (all21 existing
+browser cases plus required new cases, zero required failures/skips), two isolated
+clean builds/empty caches, generated/staged/output hash and source-stability checks.
+Exact unchanged reuse is separately bound; M04 acceptance does not waive M05 proof.
+
+Companion scenarios cover all types/inverses, mixed-invalid all-or-nothing state and
+allocation, atomic parent+create+links, set preservation/clear/no-op, reverse related
+deduplication, blocking/duplicate cycle/coexistence,100/101 arrays, stale windows,
+old originals, unavailable/colliding targets, restore twice and separate6->7 upgrade.
+Use full retained records/canonical bytes from the FIRST restore prewalk. Record
+normal, controlled/injected and reused evidence separately; retain failed attempts
+and diagnose product defects versus harness assumptions without replaying UNKNOWN.
+Price ordinary fixes/review/re-review, early joined proof, usable extracted kit,
+recursive guides, normal demo, cleanup and durable publication in base. M05.04
+provides a fresh local kit (10MiB channel limit), not a general release.
+
+This ticket ends with a reviewed decision/fixture specification for owner acceptance.
+No implementation/runtime qualification or dependent ticket begins here. Reforecast
+remaining delivery after accepted contract/material findings, naming retired and
+residual risks; original225m base+75m reserve=300m cap stays spending authority.
+If justified whole-development P80 exceeds240m, split/reforecast BEFORE feature work
+or further spending; never omit required proof or bury new scope in reserve.
