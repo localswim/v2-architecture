@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "status": "Synthetic specification proposal only; no runtime data, execution or PASS",
+  "authority": [
+    "M04.01 integration proposal",
+    "m04-hierarchy-acceptance-r1.txt",
+    "accepted M01/M02/M03 contracts"
+  ],
+  "decisionBinding": "Synchronized M04.01 proposal choices; owner acceptance remains required. No execution or implementation claim.",
+  "identity": {
+    "initialization": "Fresh normally initialized private workspace/project/board and card commands; recipe aliases never authority or mutation targets. Record actual identities privately. No live SQL/board JSON edits.",
+    "isolation": "Each mutation, boundary, restart and restore journey starts from a fresh stated recipe; never reuse counts or ticket expectations across seeds.",
+    "lanes": [
+      "Ready for Work",
+      "In Progress",
+      "Ready for Review",
+      "Completed"
+    ],
+    "priority": "Explicit P0..P5; creation omission P3; no hierarchy propagation"
+  },
+  "projects": [
+    {
+      "key": "harbor",
+      "boards": [
+        {
+          "key": "dispatch",
+          "cards": [
+            {
+              "alias": "root-one",
+              "ticket": 1,
+              "title": "Root café 船 🚲 <script>",
+              "priority": "P3",
+              "owner": "human",
+              "lane": "Ready for Review",
+              "archived": false,
+              "parent": null
+            },
+            {
+              "alias": "root-two",
+              "ticket": 2,
+              "title": "Second root",
+              "priority": "P1",
+              "owner": null,
+              "lane": "Ready for Work",
+              "archived": false,
+              "parent": null
+            },
+            {
+              "alias": "child-one",
+              "ticket": 3,
+              "title": "Child with distinct explicit priority",
+              "priority": "P4",
+              "owner": "bot",
+              "lane": "In Progress",
+              "archived": false,
+              "parent": "root-one"
+            },
+            {
+              "alias": "orphan-one",
+              "ticket": 4,
+              "title": "Unrelated original",
+              "priority": "P3",
+              "owner": "human",
+              "lane": "Ready for Work",
+              "archived": false,
+              "parent": null
+            }
+          ]
+        },
+        {
+          "key": "research",
+          "cards": [
+            {
+              "alias": "research-one",
+              "ticket": 1,
+              "title": "Colliding ticket; foreign board",
+              "priority": "P3",
+              "owner": "human",
+              "lane": "Ready for Work",
+              "archived": false,
+              "parent": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "orchard",
+      "boards": [
+        {
+          "key": "garden",
+          "cards": []
+        }
+      ]
+    }
+  ],
+  "setup": {
+    "actors": "Normal initialized human/browser and automation/CLI actors only; assignment gives no authority.",
+    "states": "Create/start/handoff/approve through normal supported commands only; Completed uses real existing human approval.",
+    "conservation": "Add retained comments, both legacy link types and supported attachment bytes through normal commands before capturing full logical baselines.",
+    "links": "Informational child-one -> root-two; blocking orphan-one -> root-one, with normal start refusal while prerequisite unfinished. Hierarchy neither retypes these edges nor treats them as parents."
+  },
+  "boundaryRecipes": {
+    "deep64": "Fresh board chain65 nodes rootdepth0 through leafdepth64; navigate all hops. Child/attach making depth65 refuses. Reparent a subtree whose root fits but deepest descendant exceeds64 refuses atomically.",
+    "family1000": "Fresh family1000 nodes including root (999 descendants); exactly1000 accepted, adding/reparenting to1001 refused. 49 local20 pages plus final19 reaches all999 once. Archived/Completed count.",
+    "localPages": "Fresh independent 0/1/20/21 descendant scenarios yield 0/1/20/20+1 rows and exact total/end. No server cursor. CLI invocations each fresh revision; JSON includes complete descendants and --json+--page refuses. Browser pages one captured complete revision; new background revision marks stale and deliberate refresh resets page1 without dirty-input discard.",
+    "oldNewFamilies": "Clear subtree and reparent between families; atomically check resulting old/new sizes and depths including every descendant; same-family valid reparent allowed, cycle refuses.",
+    "boardNotCap": "Two separately valid families whose combined board count exceeds1000 remain permitted.",
+    "identity": "Normally allocated ticket1 in Dispatch and Research, distinct full identities; missing/foreign/wrong-incarnation parent refuses.",
+    "seeding": "Large64/65-depth and1000/1001-family fixtures are bounded controlled native/component recipes via normal V2writer/model harness, not1000 actualCLI-process creates or liveSQL. Browser navigation of such a fixture labeled controlled-seed. Separate ordinary browser/actualCLI journey uses small21-descendant20+1 pages."
+  },
+  "journeys": [
+    {
+      "id": "H01",
+      "action": "Create child in browser and actual CLI on separate fresh recipes; cross-read commits",
+      "expect": "Single parent, own UUID/ticket, Ready for Work; explicit priority retained, separate omission P3; no inherited owner/lane/approval"
+    },
+    {
+      "id": "H02",
+      "action": "Set orphan-one -> root-one; reparent -> root-two; clear",
+      "expect": "One atomic edge replacement; inverse direct-children reads agree; root state explicit; normal ledger/snapshots"
+    },
+    {
+      "id": "H03",
+      "action": "Self/cycle/missing/foreign/malformed parent and denied/wrong-source/stale revisions",
+      "expect": "Malformed parent or mixed/exclusive-input structure refuses before dispatch; a structurally valid envelope admitted to domain checks yields durable definite INVALID_INPUT/FORBIDDEN or stale noncommit as applicable. Both preserve card/edge/ticket/domain history and never imply successful dispatch."
+    },
+    {
+      "id": "H04",
+      "action": "Current equal-parent set and root clear; separately stale/unauthorized/Completed equal-state requests",
+      "expect": "Admission precedes durable NO_CHANGE; no revisions/history/activity bump or terminal bypass"
+    },
+    {
+      "id": "H05",
+      "action": "Exact parent and complete children: zero/one/page/page+1, deep chain and wide branch",
+      "expect": "Descendant pre-order, sibling ticket/UUID order; exact direct parent, exact total and complete local20 pages; depth64/family1000 accepted and +1 refused."
+    },
+    {
+      "id": "H06",
+      "action": "External revision change, revoked read authority, member/incarnation switch and restart while browsing local pages",
+      "expect": "Stale/error state explicit; deliberate complete BoardRead reload, no server cursor or mixed snapshot/automatic retry"
+    },
+    {
+      "id": "H07",
+      "action": "Two windows same base; first commits, second submits stale set/clear",
+      "expect": "Definite conflict retains input/base; deliberate reread/new intent only"
+    },
+    {
+      "id": "H08",
+      "action": "Lose submitted response; refresh/navigate/switch/reconnect/restart; lookup original deliberately",
+      "expect": "Immutable source-bound UNKNOWN; no replay/rebase/new opId; reads/absence/restored outcomes cannot settle original"
+    },
+    {
+      "id": "H09",
+      "action": "Keyboard named controls/IME/cancel; dirty keep/discard/cancel and persistence refusal",
+      "expect": "One activation, visible focus/fallback, preserved private input; failed persistence blocks lossy navigation"
+    },
+    {
+      "id": "H10",
+      "action": "Delay Dispatch responses; switch Research ticket1/Garden and return; keep second window independent",
+      "expect": "No cross-member paint/dispatch or private draft/original leakage; CLI selection never falls back"
+    },
+    {
+      "id": "H11",
+      "action": "Archived parent/child, Completed child/target, approval and legacy links",
+      "expect": "Completed child mutation refuses even no-op; unfinished archived child editable and archived/Completed parent target permitted; no target/content-revision change or lane/priority/owner/approval/start propagation"
+    },
+    {
+      "id": "H12",
+      "action": "Same-candidate full export/restore and supported old/new upgrade/refusal matrix; graceful restart",
+      "expect": "Full graph/history/bytes/provenance conserved; explicit exact-v5->v6 upgrade old rows/fingerprints unchanged; unsupported version unchanged refusal; native injected precommit rollback/reopen distinguished from export/restore; UNKNOWN no replay"
+    }
+  ],
+  "fullRecordChecklist": [
+    "current cards/UUIDs/tickets/revisions/nextTicket",
+    "explicit priorities/owners/lanes/archive flags",
+    "exact parent and complete child closure",
+    "retained full snapshots/history",
+    "comment IDs/text/attribution",
+    "both legacy link types/IDs/endpoints/attribution",
+    "current and historical approval provenance",
+    "supported attachment references/digests/bytes",
+    "immutable retained operation canonical bytes/fingerprints/outcomes",
+    "restore incarnation/source provenance and inactive source authority"
+  ],
+  "gates": {
+    "M04.02": "COMPLETE feature: authoritative model/admission/atomicity/history/schema/compatibility/restore prewalk; actual browser/CLI mutation/read, keyboard/focus/private-input/error/recovery/UNKNOWN and complete bounded hierarchy navigation/local paging. Do not defer client delivery to .03.",
+    "M04.03": "JOINED full required qualification: source/binary/assets bound browser/actualCLI journey, clean builds/contracts/assets/Go/TS/scripts checks, separate native/browser inventories, complete compatibility/regression/upgrade/restore, evidence reconciliation and independent review/re-review.",
+    "M04.04": "extractedkit verification, normal small browser/actualCLI demo, guides/start-use/recovery/cleanup and final source/board/evidence handoff; .03 broad qualification already complete."
+  },
+  "evidence": {
+    "ordinary": "Actual built browser controls and executable CLI; explicit selected member, cross-read committed facts.",
+    "controlled": "Malformed/foreign/denied/version/graph fixtures, not substitutes for ordinary success.",
+    "injected": "Named delay/lost-response seam; not native crash/power-loss proof.",
+    "reuse": "Exact unchanged prior candidate/source/behavior only; no new hierarchy qualification by old evidence.",
+    "private": "Actual identity/credential/source/binary/assets/commands/revisions/first failure/retest/cleanup binding stays private."
+  },
+  "exclusions": [
+    "product implementation or tests in this specification",
+    "runtime qualification or PASS",
+    "private board identities/paths/rosters/credentials",
+    "V1 source/tests/internal designs or adoption",
+    "typed/batch expansion",
+    "workflow/priority propagation",
+    "new graph/search platform",
+    "automatic replay/retry",
+    "physical power-loss claim"
+  ],
+  "contract": {
+    "input": "Optional parent:null or full CardRef {boardId,incarnation,cardId} on card.create/card.edit. Create normal fields+parent; edit parent exclusive. Same board/current incarnation only.",
+    "legacy": "Omitted parent absent from canonical optional-null padding and frozen bytes; root read/archive/history omits parent; old snapshots omitted=>root. Preserve explicit parent:null through BOTH contract.Freeze and archive/semantic.go optional-null stripping; old omission remains absent/byte-identical.",
+    "effects": "Only child revision/snapshot/current approval changes. Parents/ancestors/descendant content revisions/history unchanged; board revision drives derived membership/paths.",
+    "limits": {
+      "rootDepth": 0,
+      "maxParentEdges": 64,
+      "maxFamilyNodes": 1000,
+      "includesArchivedCompleted": true,
+      "totalBoardCap": false
+    },
+    "read": "Full validated complete BoardRead, no graph endpoint/network cursor; local20 descendant pre-order pages, sibling ticket/UUID ascending, exact total/completion.",
+    "terminal": "Completed child refuses even no-op; archived unfinished child editable; archived/Completed parent target allowed.",
+    "schema": "Physical6 card_parent adjacency; explicit guarded offline exact-v5->v6 upgrade in one BEGIN IMMEDIATE, full v5/v6 validation before COMMIT; no startup upgrade; unsupported3/4/future/unknown/corrupt refuses unchanged. Tablecard_parent(incarnation,child_id,parent_id): uniquechild, fullsame-incarnation child/parentFK, CHECKchild<>parent, parentindex; root absentrow; no delete/GC changes. PhysicalVersion is PRAGMAuser_version6; board.schema_version5 remains immutablebaseSchemaVersion including fresh6. No boardtable/oldrow rewrite; validators cannot assume physical/base equality.",
+    "versions": "API/archive1 optional parent/CardRef extension; old strict decoders can refuse new fields; legacy canonical intents preserved.",
+    "cli": "card create --input FILE normal fields+parent; card set-parent CARD --input FILE exactly input.parent=CardRef; card clear-parent CARD --input FILE exactly input.parent=null; aliases card.edit. card children CARD [--page N] fresh complete BoardRead each invocation, readable20 rows/exact total/page/revision. --json card children CARD emits complete CLI-only HierarchyRead; --json+--page invocation exit1; empty first valid0, out-of-range explicit error.",
+    "hierarchyRead": {
+      "apiVersion": 1,
+      "scope": "hierarchy",
+      "fields": [
+        "identity",
+        "revision",
+        "root",
+        "parent|null",
+        "directChildCount",
+        "descendantCount",
+        "nodes",
+        "complete:true"
+      ],
+      "nodeFields": [
+        "ref",
+        "ticket",
+        "title",
+        "lane",
+        "priority",
+        "ownerId|null",
+        "archived",
+        "parent|null",
+        "depth relative to selected root"
+      ],
+      "nodes": "All descendants in pre-order, selected root separate, no new HTTP DTO/endpoint.",
+      "envelope": "Existing read envelope; listed fields in result. result.root selected CardRef, parent selected current parent|null; directChildCount counts depth1."
+    },
+    "history": "CurrentParentRef validates against current Board.Identity, not target.CreatedIn. Server historical parent validates Snapshot.Origin board/incarnation and knowncardUUID/ticketregistry; target.CreatedIn may predate SnapshotOrigin after restore. HistoryRead client structural shape/snapshot scope only; unresolved historical identity=>unavailable in this view. No foreign owned rows/registryDTO/new endpoint. Parent excluded from current_reference/revision_reference; card_parent currentedge, SnapshotState exact historical ref.",
+    "nativeCommands": {
+      "inspect": "localswim --data DIR storage inspect --board-id BOARD-UUID --incarnation INC-UUID; exactknownphysical5/6 read-only; physicalVersion/baseSchemaVersion separately5/5 or6/5, plus identity.",
+      "upgrade": "localswim --data DIR storage upgrade --from-version 5 --to-version 6 --board-id BOARD-UUID --incarnation INC-UUID; offline existingpath/nativeaccountlease only; expected identity mandatory.",
+      "refusal": "Valid6 matchingidentity=>NO_CHANGE no rewrite; unknown/corrupt/dirtysidecar/heldlease refuses unchanged.",
+      "uncertainty": "NativeupgradeUNKNOWN exit4; deliberate storage inspect before retry, not operation lookup/no invented opId. No workspace/HTTP/browser/startup migration route."
+    }
+  },
+  "compatibilityRecipes": {
+    "fullRecord": "Same-candidate hierarchy-rich export/restore with complete logical checklist, fresh destination incarnation/remapping, preserved source provenance and inactive source grants/outcomes. Restore current edges only after all cards, rebase current local references to destination incarnation; historical snapshots/immutable intents bytes remain unchanged.",
+    "legacyRoot": "Exact frozen physicalv5 full record, explicit offline upgrade yields empty hierarchy, every old card root; old intents/fingerprints/history bytes unchanged. PRAGMAuser_version5->6 only; preserve board.schema_version5 and every oldrow; inspect reports5/5 then6/5.",
+    "unsupported": "Physical3/4/future/unknown or corrupt source: refusal without rewrite; normal openv5 refuses without automatic upgrade.",
+    "interruption": "Named native injection before upgrade COMMIT reopens intactv5; confirmed COMMIT reopens validv6. Separate from export/restore and physical power-loss claims. Lost reply after COMMIT requires deliberate version inspection/fullv5-or-v6 validation, no automatic upgrade retry.",
+    "wire": "API/archive1 roots omit parent, old omitted snapshots mean roots, new parent fields full CardRef; old strict decoder unsupported-field refusal remains possible.",
+    "restoreMutationRestore": "Controlled firstrestore -> newhierarchymutation -> secondrestore: currentparent uses each currentBoard.Identity; historicalparent uses its Snapshot.Origin and knownUUID/ticketregistry despite older target.CreatedIn. Preserve immutable snapshots/intentbytes, and render structurally valid unresolvedhistorical identities unavailable without registry DTO."
+  }
+}

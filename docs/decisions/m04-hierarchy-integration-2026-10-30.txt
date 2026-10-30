@@ -1,0 +1,300 @@
+M04.01 HIERARCHY INTEGRATION AND COMPATIBILITY CONTRACT
+2026-10-30 | Proposal for owner acceptance; no product implementation
+
+Purpose and adoption
+Deliver one parent per card, readable complete bounded child navigation, atomic
+create-child/reparent/clear, and safe persistence in the accepted four-lane
+localhost application. The implementation baseline is
+35c2050972228f74368388ef206a016e9c3f0513; its executable matches the accepted
+M03 handoff. Examples and recipe specification are
+../spike02/m04-hierarchy-acceptance-r1.txt and m04-hierarchy-fixture-r1.json.
+They are proposed future acceptance, not executed fixtures or runtime PASS.
+
+Owner acceptance adopts these decisions before feature implementation. It does
+not accept later runtime evidence or start M05. Expanded typed links and atomic
+relationship batches remain M05. Existing blocking/informational links remain
+unchanged and independent from hierarchy; opposing edges in different graphs do
+not alone make either graph cyclic. No priority/lane/owner/approval propagation,
+new workflow, graph/search service, dependency or real-data import is selected.
+Prior exposure to V1 is disclosed; no independently isolated clean-room claim.
+
+1. Authoritative child property and bounded forest
+A card has zero or one current parent. Root means no parent. The authoritative
+Go transaction admits an exact CardRef {boardId,incarnation,cardId}, never a ticket,
+label, implicit active board or bare foreign UUID. Parent must be a full current
+card in the same selected board and current incarnation. Refuse self, missing,
+foreign-board/incarnation, malformed, forbidden, cycle and over-bound proposals
+without partial card/edge/history changes. Use generic INVALID_INPUT for invalid
+graph/target/bound semantics; do not leak another board's facts.
+
+Freeze maximum depth at 64 parent edges from root depth zero, and maximum
+connected tree/family at 1,000 cards including root, archived and Completed cards.
+This is not a 1,000-card board limit: independent roots do not share a quota.
+Validate the resulting forest, including a moved subtree and its new ancestors,
+inside the same sole-writer revision-checked transaction. A boundary family of
+1,000 and depth64 is legal; 1,001 or depth65 is refused atomically. Clearing
+splits a family. Concurrent individually plausible mutations cannot jointly
+create a cycle or exceed a bound: no check/use gap outside the writer snapshot.
+
+An unfinished archived child retains ordinary edit permission. Archived or
+Completed parents can be targets; neither confers permission or archives/starts/
+completes a child. A Completed child itself is read-only, including equal-parent
+and clear-root attempts: refuse COMPLETED before NO_CHANGE. Reparenting an
+unfinished ancestor can alter a Completed descendant's derived path while that
+descendant's own direct parent, state, revision, history and approval stay intact.
+This is a selected presentation/property rule, not an edit of that descendant.
+
+Only the changed child advances its card revision, captures its prior snapshot
+and clears its current approval under existing edit rules. The board revision
+and activity advance once. Parent/ancestor content revisions and approvals do
+not advance for derived membership changes. Create-child creates one card/ticket
+and parent edge atomically; a refused parent does not consume a ticket.
+Existing comments, links, attachments, provenance and all original outcomes stay.
+
+2. Reuse mutation commands, canonical bytes and private originals
+Extend card.create and card.edit with optional input.parent: CardRef or null.
+Create permits ordinary create fields plus parent; omission or explicit null
+creates a root. In edit, supplied parent must be the only input field; null
+clears the parent. Mixed parent/content/owner/lane/archive edits refuse before
+dispatch. Omission retains existing behavior and parent, not an implicit clear.
+
+Keep existing create/edit rights, authenticated actor, route/board/incarnation,
+expected board/card revisions, immutable opId and exact admission precedence.
+After normal authority/identity/revision/Completed admission, an unfinished
+equal-parent or clear-root edit is durable NOT_COMMITTED/NO_CHANGE without
+board/card/history/activity advance. A real change commits through the existing
+writer, original ledger and snapshot path once. The parent target needs no new
+permission right or separate write intent; normal read routes retain read rights.
+
+As for ownerId/archived, omit an absent parent from normalized legacy payloads.
+Never pad parent:null into an older card.create/edit canonical intent. Preserve
+existing canonical bytes, fingerprints, terminal records, lookup evidence and
+legacy omission semantics byte-for-byte. Explicit parent:null is an intentional
+new payload even when it creates a root. Update descriptor, canonical freeze,
+generated schemas, Go decoder, browser preparation/recovery validator and CLI
+aliases together. No new domain command/event type or fingerprint version.
+Also preserve explicit parent:null in internal/contract/archive/semantic.go's
+optional-null handling before retained-intent refreeze; it must join the
+ownerId/archived preservation exceptions. Clearing a parent must survive a full
+export/restore with the same canonical intent/fingerprint, not become omission.
+
+Keep UNKNOWN/pending originals separately visible and source-bound. Refresh,
+reopen, hierarchy navigation, upgrade and restore never settle, replay, rebase,
+replace opId or automatically retry an original. Refusal retains input/base;
+the user deliberately reads/compares and creates a new intent when appropriate.
+Structural refusal before dispatch and durable noncommit are distinct evidence.
+
+3. Storage layout six and historical parent representation
+Adopt physical layout6. Keep existing layout5 tables/rows and add card_parent
+adjacency plus a parent lookup index. A non-root row stores incarnation,
+child_id and parent_id; child is unique within incarnation, child != parent,
+and both composite keys refer to full card rows in that same incarnation.
+Root has no row. Graph acyclicity/depth/family admission belongs to Go under
+the writer; full layout6 validation and restore also reject invalid forests.
+This does not add a new entity kind, deletion/garbage collector or cascade.
+
+Physical layout version is PRAGMA user_version. Deliberately retain the existing
+board.schema_version DEFAULT5/CHECK=5 column and value as an immutable base-schema
+discriminator, including newly initialized physical6 stores. Do not rebuild that
+table or silently equate this base value with the physical extension level.
+Native inspection reports physicalVersion and baseSchemaVersion separately:
+5/5 before upgrade, 6/5 afterward. Validators and tests must check both intended
+values; a header6 or base5 alone is insufficient. Older binaries still refuse
+user_version6 and its additional schema. This explicit decoupling is a selected
+proposal choice, not an accidental stale version row.
+
+Current Card and retained SnapshotState gain optional parent:CardRef. Serialize
+root by omission; omitted legacy state means root. Retain exact non-root
+historical refs and provenance. Current edges are reconstructed from current
+cards, not inferred from link rows or the order of historical snapshots.
+
+Do not put another card into current_reference/revision_reference: those tables
+enforce ownership by the selected card for comments/links/attachments/approvals.
+Current card_parent foreign keys protect full current targets. Historical parent
+refs are retained in SnapshotState and validated as exact historical identities
+against the known card/ticket/entity provenance registry. They do not promise
+that a historical target is still a full current row. Show identity/unavailable
+when it is historical, compacted or absent; never substitute a current label
+from another incarnation or refuse unrelated history because of unavailable text.
+Current parent targets must be full and same-incarnation; no dangling current edge.
+Full-card deletion is not added here, and live FK constraints cannot be bypassed.
+
+Historical scope comes from Snapshot.Origin: a non-root parent must name that
+snapshot's board/incarnation and a known card UUID/ticket in the source registry.
+The server/archive validator performs that registry check. A standalone
+HistoryRead contains no full registry: its client validates shape and snapshot
+scope only, then shows the exact identity as unresolved/unavailable in that view
+until an explicit exact-scope read establishes availability. Add no registry DTO,
+foreign owned Rows, new read endpoint or fabricated target fact.
+
+Never require parent incarnation to equal the target card's CreatedIn provenance.
+After restore, a current full target may retain an older CreatedIn; current
+parent refs use the selected Board.Identity, not CreatedIn. A later hierarchy
+mutation/snapshot uses its snapshot-time Origin; a second restore must preserve
+that historical Origin/ref while rebasing only current edges. Include this
+restore -> new hierarchy mutation -> second restore acceptance recipe.
+
+API/archive format versions stay1 with an optional parent extension, as with prior
+optional owner/archive evolution. Existing root documents and legacy omitted-field
+intents remain compatible. New hierarchy-bearing Card/SnapshotState fields must be
+strictly validated; an older strict decoder must refuse an unsupported field,
+never ignore it or silently strip hierarchy. No promise that an older executable
+can open physical6 or restore a hierarchy-bearing package. Keep unrelated version
+types fixed at1; a physical layout number is not an API/archive version.
+
+New export/restore must retain current parent identities, all supported prior
+snapshots, comments/history/link/attachment/approval records and exact blob bytes.
+During restore, rebase current same-source parent refs to the new local
+incarnation like existing current local link targets. Historical parent refs and
+immutable intent/result bytes retain their original provenance; no rewrite to
+new incarnation or current authority. Insert full cards before current edges and
+verify the complete forest before destination publication. A malformed/cyclic/
+foreign/dangling/over-bound current graph refuses with no partial published target.
+Do not apply a single current-tree shape to unrelated historical snapshot times.
+
+4. Explicit bounded physical upgrade; startup remains fail-closed
+Normal serve/open validates exact physical6 and never automatically upgrades,
+repairs, guesses, deletes or adopts a mismatched store. Provide future native-only:
+  localswim --data DIR storage inspect --board-id BOARD-UUID --incarnation INC-UUID
+  localswim --data DIR storage upgrade --from-version 5 --to-version 6 --board-id BOARD-UUID --incarnation INC-UUID
+These are offline account-owner storage operations, not HTTP/browser mutations,
+grant enrollment, workspace-selection shortcuts or domain operation IDs.
+
+Inspect uses the existing-only private path/exclusion checks and read-only access
+to validate exact supported layout5 or6 and expected identity; report version/
+identity/validation without rewrite or lock-file creation. Upgrade requires a
+closed owned host and an existing-only native write/exclusion lease, verified
+expected board/incarnation, qualified local private directory/ACL, and only the
+known database/lock inventory. No new missing lock/database/directory is created.
+Unknown files, dirty sidecars/hot journals, wrong identity, held lease, corrupt
+data, unknown layout or layouts3/4 refuse without repair or database/metadata
+rewrite. No service may upgrade a file while a writer/read lease is held.
+
+Freeze an exact layout5 validator from the accepted V2 baseline (not V1 source).
+After read-only preflight, take BEGIN IMMEDIATE and revalidate that same version/
+identity/schema/integrity/relational/byte snapshot. Create only the empty
+card_parent table/index and layout6 guards, set user_version6 last, fully validate
+the layout6 candidate and COMMIT. Preserve board/incarnation/card/ticket IDs,
+all original table rows/bytes, revisions, counters, historical JSON, operations/
+fingerprints/rights/approvals/credentials and blobs. Roots require no backfill,
+domain operation, fabricated activity or approval invalidation. Unknown schemas
+never receive even an attempted DDL change.
+
+Failure before COMMIT rolls back to a fully valid unchanged layout5. Fault tests
+must prove it; fresh reopen must still validate5. Reply loss/uncertain COMMIT is
+native upgrade UNKNOWN (exit4), never guessed rollback/success or automatically
+retried; deliberately inspect version plus full validation before deciding.
+This native uncertainty is not an immutable card operation and has no fabricated
+opId/lookup receipt. A matching already-valid6 upgrade invocation reports
+NO_CHANGE without rewrite. Ordinary open still validates the complete committed
+layout and cannot treat a version header alone as health.
+
+A successful synthetic5->6 upgrade must demonstrate full-record/byte conservation
+and runnable new application behavior before adding hierarchy, then use the
+new hierarchy operations and normal reopen. Logical export/restore alone is not
+upgrade evidence. Separately prove exact-root legacy archive restore and
+hierarchy-bearing round trips; refuse unsupported/malformed sources safely.
+Only synthetic V2 compatibility is authorized; real V1 adoption remains later.
+
+5. Complete reads, deterministic navigation and honest local pages
+Existing authorized complete BoardRead gains optional parent on current cards.
+The Go read/validation boundary verifies the complete same-board forest. Derive
+navigation only from that complete validated current BoardRead, including
+archived/Completed cards. Never infer full children from a CardSearchRead page
+or a focused CardRead. No new network graph endpoint, cursor/search platform,
+partial-graph protocol or claim of bounded whole-board network/memory is selected.
+Existing full BoardRead may be larger than one family; that existing cost remains.
+
+Show exact Parent (or No parent) and Children controls in nonmodal details.
+Hierarchy lists all reachable descendants (excluding the selected root) with
+depth relative to the root, exact ticket/UUID/title/lane/priority/owner/archive
+facts, direct-parent context and exact direct-child/descendant counts. Pre-order
+depth-first traversal sorts siblings by numeric ticket then canonical UUID.
+Locally render20 rows/page, exact range/total and page/end status, including zero,
+20 and21 rows. Archived children are visibly labeled, not silently dropped;
+ordinary lanes/search/Attention retain accepted default archived exclusion.
+
+UI local pages belong to one captured BoardRead identity/revision and view
+generation. A background new revision marks that hierarchy stale and offers
+Read current hierarchy; do not splice pages, silently switch target or discard
+dirty input. Deliberate refresh resets page1 while preserving appropriate focus/
+private originals. Opening an exact current target follows existing card details;
+foreign/historical unavailable refs do not silently become a current-board card.
+Page/selection remain board/window-local, no shared global current-card state.
+
+Future actual CLI uses existing selectors (--workspace/--project/--board or --data):
+  card create --input FILE
+  card set-parent CARD-UUID --input FILE
+  card clear-parent CARD-UUID --input FILE
+  card children CARD-UUID [--page N]
+The parent aliases submit ordinary card.edit full envelopes with exactly parent
+CardRef/null. They do not fetch revisions and auto-retry, accept display tickets
+as mutation targets or invent authority from ownership.
+
+Readable children defaults to local page1/20 and prints exact counts and source
+revision; positive out-of-range pages are explicit invocation errors, not empty
+success. Empty first page is successful zero. Each invocation reads a fresh
+complete snapshot; no stable multi-invocation cursor or snapshot guarantee.
+  --json card children CARD-UUID
+returns a CLI-only HierarchyRead envelope: apiVersion1, scope "hierarchy", result
+with identity, revision, root:CardRef, parent:CardRef|null, directChildCount,
+descendantCount, nodes and complete:true. nodes are all descendants, each with
+ref, ticket, title, lane, priority, ownerId|null, archived, parent:CardRef|null,
+depth. Root is not repeated in nodes; counts match the full array. Keep the
+existing output encoder/exit taxonomy. --json plus --page is invocation error1,
+not a partial list claiming completeness. This presentation projection comes
+from BoardRead; it is not a new HTTP return scope or a database-reading CLI.
+
+6. Browser editing, focus and original recovery
+Create child is a named action bound to the selected exact parent; ordinary new
+card defaults root. Set parent and Clear parent use the existing draft/immutable
+submission machinery with exclusive parent intent. Parent selection reads only
+the exact current board, includes appropriate archived/Completed labels and
+never treats a search page as a full target list. Keep explicit final selection/
+save; do not guess by matching ticket/title or automatically commit on navigation.
+
+Dirty edit cancellation requires the existing explicit discard confirmation.
+Enter submits single-line actions once, composition Enter does not submit, and
+multiline text retains newline. Escape applies only to the active unsubmitted
+editor; pending originals and unrelated drafts survive. Closing/navigation
+restores a live exact opener, with existing Read current board as fallback.
+Late A reads/focus callbacks cannot paint/focus B; asynchronous handler completion,
+restored-original state and board/window/generation changes get native browser
+checks early, not only controlled DOM claims at final review.
+
+7. Ownership, proof and bounded delivery
+Area                          Feature/primary ownership
+Physical6/explicit upgrade     internal/store/schema and open, cmd native dispatch;
+                              frozen5/6 validators, leases, atomicity/refusal proof.
+Domain/canonical/history       internal/board/cards, contract/intent/descriptor,
+                              snapshots/outcomes, optional-field provenance.
+Reads and actual CLI           boardapi projection/validation, CLI/core/native
+                              entry; complete forest and local hierarchy output.
+Archive/restore                contract/archive, archive export/validate/restore;
+                              current ref rebasing and immutable history retained.
+Browser/private work           api typed boundaries, board/details/view, existing
+                              session/recovery; no parallel private submission store.
+Generated/staged boundaries    Primary coordinates contractgen/assetstage; never
+                              hand-edit generated contracts or embedded assets.
+Qualification/kit              Later hierarchy qualification/handoff owns joined
+                              proof, full required gates, extracted usable kit.
+
+Feature delivery includes focused native/store, real HTTP/browser/CLI, keyboard,
+refusal/no-op/stale/UNKNOWN/restart, graph boundary and upgrade/round-trip checks,
+docs and fresh transaction/concurrency/recovery review. Larger controlled fixtures
+may establish64/65 and1000/1001 bounds; label them separately from the small normal
+product journey. No claim that generated JSON/type checking executes those cases.
+Joined qualification runs full required native/browser/clean-build/regression
+gates or exact justified unchanged reuse and records source/build/material inputs.
+Use full-record comparisons, not just history counts or link existence.
+
+Every milestone retains ordinary fixes, fresh independent review/re-review,
+complete proof, kit/demo/guide audit, cleanup and durable source/board publication
+in its base work. Scope is bounded by the accepted hierarchy decision, not by
+hiding required tests or migrating work to M05. Reforecast after this accepted
+contract and material findings; if development P80 exceeds four hours, stop and
+split before implementation/further spending. No automatic larger budget.
+
+This card ends with a reviewed decision/fixture specification for owner acceptance.
+Implementation and runtime qualification remain unstarted; only the owner can
+accept the handoff and authorize eligible dependent work.
