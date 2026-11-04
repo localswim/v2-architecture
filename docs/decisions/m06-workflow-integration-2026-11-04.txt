@@ -1,0 +1,364 @@
+M06.01 CONFIGURED NEW-BOARD WORKFLOW CONTRACT
+2026-11-04 | Proposal for owner acceptance; no implementation or runtime PASS
+
+Outcome and authority
+Create a new board with a bounded, immutable workflow; use it for ordinary cards,
+transitions, human approval and filtering through browser and actual CLI. Preserve
+the accepted M04/M05 graph, original-outcome, storage and authority contracts.
+Owner acceptance of this contract and its companion synthetic specification gates
+#0033 implementation. RFR alone is not acceptance. Terry authorized M06's complete
+250m P80 base + 80m reserve = 330m P95 cap and explicit start despite the general
+240m sizing target. This is a milestone-specific exception, not a broader change
+to the sizing policy.
+Companions: ../spike02/m06-workflow-acceptance-r1.txt and
+m06-workflow-fixture-r1.json. Those are specification, not executed evidence.
+
+1. One immutable definition per configured board
+Use this exact new Workflow shape (unknown fields and explicit null are invalid):
+  {workflowId:UUID, revision:1,
+   lanes:[{id:UUID,label:string,role:Role},...],
+   transitions:[{from:UUID,to:UUID,actors:[ActorKind,...]},...],
+   actorRights:{human:[Right,...],automation:[Right,...]}}
+Role is initial | in_progress | review | completed | waiting. ActorKind is human
+or automation, resolved from trusted runtime identity, never from an input flag.
+UUID means the existing nonzero lowercase UUID shape, not a new UUID version rule.
+The creator generates definition/lane IDs once in the draft; preview, submission
+and deliberate status comparison retain them. Lane order is array order; no
+second numeric order or hidden sort. IDs identify lanes, labels only present them.
+The complete identity is (Board.Identity, workflowId, revision, lane.id).
+Equal IDs in another board never authorize or resolve a cross-board operation.
+
+Require 4..16 lanes, exactly one each initial/in_progress/review/completed, and
+zero or more waiting lanes. Labels contain 1..80 Unicode scalars, no U+0000..001F
+or U+007F, and no leading/trailing Unicode whitespace. Reject duplicate lane IDs
+and labels equal under Go strings.EqualFold; do not trim, normalize or silently
+deduplicate them. Preserve accepted label bytes and array order. Display the
+semantic role alongside the label in the editor and workflow summary so a label
+does not claim authority. Waiting is ordinary nonterminal work; a name such as
+Blocked or Needs Terry does not establish off-board facts or owner intervention.
+
+Require 3..64 distinct directed transitions. No self edges, unknown endpoints,
+duplicate (from,to), outgoing completed edge, or empty actors. actors and rights
+are strictly lexicographically sorted, unique arrays; transitions are strictly
+sorted by (from,to) UUID bytes. Reject unsorted/duplicate input, never repair it.
+Every lane must be reachable from initial by human-admissible edges and every
+nonterminal lane must have a human-admissible path to completed. This prevents
+unusable initial/dead-end configurations without allowing scripting or predicates.
+Exactly one edge enters completed: review->completed, actors:[human]. Exactly
+one edge enters review: in_progress->review. Both mandatory edges admit human.
+Other edges may join any nonterminal lanes except review as a destination.
+Cycles outside completed are legal. Configuration is at most 64 KiB UTF-8 JSON;
+the whole setup request retains the existing stricter bound if lower.
+
+Workflow actorRights is a ceiling on ordinary rights, not a principal registry or
+credential. Allowed names are attach, comment, create, edit, export, read,
+read-own-outcome, review-handoff, plus approve for human only. Both actor kinds
+require read/read-own-outcome. Human additionally requires create/edit/
+review-handoff/approve so there is an operable human path through the workflow.
+An actor kind on an ordinary edge requires edit; on the handoff edge it requires
+review-handoff; on the approval edge it requires approve. Validate this at setup.
+At runtime require BOTH current independently verified grant and policy ceiling,
+plus the edge actor kind. Assignment, labels, setup request fields and a prior
+successful read confer no authority. Preserve native-owner versus ordinary channel
+separation. No configured grant-admin, history-admin, restore, actor enrollment,
+credential export, issuer trust change or human/bot reclassification is introduced.
+New local channel actors/grants are seeded from this definition by the existing
+trusted setup path; subsequent grants cannot bypass its ordinary-right ceiling.
+
+Default compatibility is exact, not a converted custom definition. Omitted
+workflow means the existing four stable lane strings in existing order:
+Ready for Work, In Progress, Ready for Review, Completed. The three existing
+forward transitions, ordinary rights and human-only approve stay unchanged.
+Default actor grants remain attach/comment/create/edit/export/read/
+read-own-outcome/review-handoff for both kinds, with approve additionally human.
+Its policyVersion stays1 and no workflow object/UUID/null is synthesized into old
+reads, archives, snapshots or canonical intent. Explicit workflow:null is invalid.
+New configured boards also use policyVersion1; Workflow.revision1 is immutable.
+M07 may later define changes/versioning; M06 provides no edit or retirement route.
+Priorities remain the explicit P0..P5 model, default P3, with existing order/labels.
+No urgency inference, lane-derived priority, new priority ID or priority editor.
+
+2. Domain transitions and meaningful approval
+On configured boards, Card.lane and SnapshotState.lane hold a configured lane UUID.
+Default boards retain exact old literal values. Complete BoardRead gains optional
+workflow; it carries the entire definition in the same identity/revision snapshot.
+No paged policy, label-only authority, extra network graph endpoint or inference
+from search results. CardRead, HistoryRead and CardSearchRead results also carry
+optional workflow in the same result object as identity/revision. The complete
+definition is mandatory on configured-board results, absent on default results;
+do not make an isolated history/search client guess its profile from a UUID.
+CLI hierarchy projections that carry lanes include that same optional definition.
+Validate every current/snapshot/query lane against its result's definition; a
+snapshot's older Origin stays provenance, not a different current authority.
+Transport without the required context refuses instead of guessing labels from
+a stale catalog. Search remains a partial card list and grants no mutation or
+original authority merely because its small policy definition is complete.
+
+card.create retains its current input/result, including optional parent/relations/
+owner. Create enters initial automatically and uses explicit requested priority or
+P3; lane/laneId on create is invalid. Create plus parent/relationships stays one
+transaction. Creation cannot start/approve a card or evade prerequisites.
+
+For configured ordinary moves extend card.edit with optional laneId:UUID, which
+must be its ONLY input field. null, a legacy lane plus laneId, unknown lane and
+mixed content/move input are invalid. card.edit.lane remains exactly the existing
+literal In Progress path for default boards only; do not reinterpret an old intent
+as a new workflow move. Custom laneId never targets review or completed; use the
+existing review-handoff and approve commands. No new command/event/result kind.
+Default boards reject laneId; custom boards reject non-null legacy lane input.
+Legacy normalized lane:null remains legal retained evidence, not a fresh move.
+
+Every configured move checks the edge from current lane, actor kind and current
+edit grant/ceiling in the writer snapshot. Entering in_progress from ANY other lane
+also checks every active source-owned blocking prerequisite using accepted M05
+semantics: available current nonarchived peer, human current approval at its
+current reviewed revision and policy. A renamed completed lane is interpreted by
+its semantic role; matching a label or raw string is insufficient. Other link
+kinds and hierarchy do not create prerequisite gates. Moving into initial/waiting
+or back from review is possible only when explicitly configured; it never starts
+work implicitly. Archived unfinished sources retain the existing rule: no workflow
+transition until deliberately unarchived. Creation of links is not a transition.
+
+review-handoff uses exactly the in_progress->review edge and current handoff
+grant/ceiling; it preserves its existing empty input and card result. approve uses
+the review->completed edge, verified human actor, current approve grant/ceiling
+and input.policyVersion1. Validate expected board/card revisions, policy, identity,
+route and authority together. Atomically snapshot the reviewed version, create
+human approval evidence and move to completed, or do none. Approval refers to the
+specific prior card/board revision, not its label/title. Current approval requires
+that evidence and the accepted revision relation, not merely a completed lane.
+Automation cannot gain approval by altered labels, grants, edges or raw requests.
+Completed remains terminal and read-only under every mutation path, including
+content, archive, hierarchy, relationships, comments and attachments, even no-op.
+
+Other substantive edits and actual moves preserve existing snapshot and approval
+invalidation rules. A successful move advances card and board once with one
+activity; no peer revision, priority or assignment change. After normal authority/
+identity/revision/Completed admission, reject archived source and review/completed
+destinations before equality. For an unarchived source and allowed generic target
+role (initial, in_progress or waiting), equal laneId returns durable
+NOT_COMMITTED/NO_CHANGE, with no snapshot/activity/counter change. Do not require
+a self edge or re-run start prerequisites for that no-op. Forbidden edge uses
+INVALID_TRANSITION, unknown lane
+uses INVALID_INPUT, missing authority FORBIDDEN, stale revisions existing conflict,
+and prerequisite failure PREREQUISITE_NOT_APPROVED. Keep established refusal order
+and codes for old default requests; no existence/policy leak to unauthorized users.
+Preserve create/edit results {cardId}, handoff {cardId}, approve
+{cardId,approvalId}, existing ResultRefs and immutable original-outcome rules.
+
+3. Exact setup, browser and real CLI paths
+Standalone configured initialization is an explicit native operation:
+  localswim --data DIR board init --workflow FILE
+FILE is exactly a Workflow object. Require a new private target under the existing
+native path/ACL/ownership/exclusion rules; refuse an existing initialized/partial
+root instead of replacing or repairing it. Initialize complete policy, channel
+actors/grants and empty board before reporting initialized identity. Then ordinary
+  localswim serve --data DIR
+reopens it without a workflow option. Existing first-serve default creation remains.
+A workflow option is never an instruction to change an existing board.
+
+The existing workspace CLI gains --workflow FILE on board create, retaining
+explicit --workspace, project key, board key, label and private --root handling.
+Omission retains existing default creation. board register may inspect/register an
+already valid configured board, but cannot receive a workflow, rewrite it or infer
+identity from a key. Actual CLI command/parser/help and JSON output are part of
+delivery; a Go service call alone is not CLI evidence.
+
+For browser use an existing selected workspace/project. Add only:
+  POST /api/v1/workspace/boards/configured
+  {apiVersion:1,workspaceId,expectedConfigRevision,projectKey,boardKey,label,workflow}
+All fields required. Add an equally narrow status operation:
+  POST /api/v1/workspace/boards/configured/status
+  {apiVersion:1,workspaceId,projectKey,boardKey,workflow,expectedIdentity?}
+expectedIdentity, when supplied, uses existing WorkspaceIdentity. No dataDir,
+root, actor, grant, action or project-create field; unknown keys/null are refused.
+workspaceId must match the trusted runtime workspace identity in both routes.
+Derive the new direct child root from the validated board key under the existing
+selected project's guarded root. Apply existing physical containment/alias/ACL/
+exclusion checks; no browser-returned private path. Refuse occupied root/key and
+physical/identity collision before publication. Never reuse another board's root.
+Do not widen the existing browser ban on project creation, arbitrary root/register,
+administration or other non-GET workspace mutations. Require the trusted workspace
+browser channel, existing exact origin/host/CSRF/body protections and context; no
+client human flag or bearer copied from another board. The local human browser is
+the actor for setup; CLI remains its distinct existing local automation channel.
+
+Setup uses existing expectedConfigRevision CAS and two boundaries: complete native
+initialization, then workspace membership publication. It is not a card mutation,
+has no invented opId/approval/activity and makes no cross-file atomicity claim.
+Validate the WHOLE definition/request before creating a root or allocating durable
+identity. Invalid/duplicate input changes neither domain nor registry. Native IO or
+publication failures may leave a complete initialized-unregistered board; retain
+it and report uncertainty, never delete or overwrite it to fake rollback.
+
+Return existing WorkspaceControlResult status vocabulary, exact current config
+revision and identity when established. Success is registered; ambiguous dispatch,
+initialization or publication is UNKNOWN, not success or presumed failure. A
+deliberate configured status carries the complete original Workflow, validates it
+under the same strict rules as creation, and compares its complete canonical
+decoded definition with the stored definition. Match workflow UUID/revision AND
+every lane ID/label/role/order, transition/actor set and ordinary-right ceiling;
+UUID equality alone never establishes a definition match. Also validate the exact
+key/project and expected identity when known. Status remains registered,
+initialized-unregistered, unavailable or UNKNOWN. Inspect full valid native state,
+not just a version header or directory existence. It is read-only: no repair,
+create, register or replay. Identity/definition mismatch is UNKNOWN, never another
+board's success. Comparison canonicalizes JSON representation only, preserving
+all defined strings and array order; it does not normalize or replace the draft.
+Keep standalone native init/inspect status equivalently explicit; native inspect
+returns full validity, identity and the complete Workflow for exact caller
+comparison, or explicit default-profile absence, without exposing credentials.
+For a registered active member owned by this host, compare a coherent authorized
+live engine/store snapshot; do not attempt exclusive offline inspection against
+its live ownership. Otherwise use the guarded existing-only offline inspection
+path. A busy/foreign owner or unavailable full validation returns UNKNOWN; status
+never detaches, restarts, activates, repairs or steals ownership merely to inspect.
+
+Setup is deliberately NOT a retriable idempotent domain command. Repeating create
+at an occupied root/key refuses without allocation, even with the same definition;
+it must not create a second board or claim the first request succeeded. Double
+submission admits at most one initialization/publication. After UNKNOWN retain
+the exact draft, known identity and status context. A status observation describes
+current state; it does not retroactively settle the original UNKNOWN or justify
+automatic replay. Recovery/registration of a proven initialized-unregistered board
+uses the existing explicit native CLI register path after deliberate inspection.
+Browser shows that concrete next step; no new browser repair/resume capability.
+
+Browser offers a bounded workflow editor and complete read-only preview before
+Create; show roles, ordered labels, edge actors and ordinary-right ceilings.
+Existing CLI default creation remains available unchanged. Invalid configuration preserves
+draft and identifies bounded fields without leaking internal paths. Browser and
+actual CLI must create custom boards and then perform ordinary card creation,
+lane move, handoff, human approval, lane filter, close/reopen and use again.
+Move/filter choices resolve IDs from the selected complete policy, showing label
+and role. Client affordances follow current actor grants but server is authoritative.
+Search query lane remains the existing lane query field: default literal or exact
+custom UUID, checked against the selected board definition; no label matching.
+Keep existing archive defaults, literal search, cursor/revision and selected-board
+isolation. Multi-board catalog/Attention receives no new categories in M06.
+
+Retain private unsubmitted drafts, explicit dirty-discard confirmation, composition
+Enter handling, one submission, multiline behavior and exact live opener/fallback
+focus. A stale request/read/focus callback cannot affect a different workspace,
+project, board, window or generation. Pending card originals retain their strict
+private prepare/readback/dispatch/lookup protocol. Current lane or status reads,
+navigation, refresh/reopen and a second window never resolve/replay UNKNOWN.
+Actual CLI adds:
+  card move CARD-UUID --input FILE
+This aliases card.edit with only input.laneId, using the normal full exact request
+envelope (board/incarnation/opId/expectedRevision/expectedCardRevision/target).
+It neither fetches/retries revisions nor accepts a label/ticket as mutation identity.
+Existing card edit/start/handoff/approve and card search CLI remain usable with
+their appropriate default/configured semantics and the existing exit taxonomy.
+
+4. Physical, logical and immutable-original compatibility
+Select physical PRAGMA user_version8, immutable board.schema_version5; fresh stores
+are8/5. Keep fingerprint/API/archive1, policyVersion1, workspace registry/preferences1
+and unrelated version domains unchanged. New optional Board.workflow is a strict
+additive extension. Absence requires the exact old four-lane/default interpretation;
+presence requires the complete validated definition and UUID membership for ALL
+current cards and retained snapshot states. No mixed legacy/custom interpretation.
+An older strict decoder may refuse configured documents; do not claim old-binary
+configured-board support. Default exports omit workflow and preserve old shapes.
+
+Keep policy's version1 row unchanged; add optional immutable workflow_definition
+per incarnation with workflow UUID/revision1 and canonical complete definition.
+SQL Card.lane admits the four legacy literals or UUID shape; Go authoritative full
+validation enforces exact membership/profile and policy grant/approval invariants.
+Do not rely on the broader SQL CHECK as authorization. Open, archive validation,
+restore and writer admission share the same policy validator. New policy rows are
+created only during new-board initialization/restore; ordinary edits cannot alter
+or delete them. No default metadata backfill or lane-row relabeling on upgrade.
+
+Freeze independent5/6/7 DDL and validators before changing shared current helpers.
+Only explicit offline7->8 is added, preserving supported5->6->7 as separate guarded
+steps. Current startup supports8 and fails closed on older/unknown/corrupt layouts
+with the explicit-upgrade requirement; no startup repair. Native storage inspect
+and upgrade retain exact expected board/incarnation, known inventory, private ACL,
+closed host/lease and BEGIN IMMEDIATE revalidation requirements from M04/M05.
+Upgrade adds an empty definition table and rebuilds constrained tables/guards only
+where required for the widened lane shape. Preserve every retained row/value,
+including implicit rowids where present, IDs, counters, policy1, grants, credentials,
+approvals, snapshots, canonical originals/results/fingerprints, tombstones and blobs.
+Validate full8 schema/FKs/integrity/conservation before COMMIT. A refusal before
+COMMIT leaves valid exact7; ambiguous durability is UNKNOWN, not claimed rollback.
+Old7 binaries reject8 rather than stripping configuration. Adjacent successful
+steps remain if a later step refuses; no undocumented direct5/6->8 transform.
+
+laneId is omission-preserving in Go Freeze, browser preparation/canonical validation
+and archive refreeze. Do not pad laneId:null into old normalized payloads. For new
+laneId intents the existing legacy lane:null normalization may remain, but only
+laneId is an actual new submitted field; refreeze must reproduce exact bytes.
+No canonical version reset, sorting of a prepared original, replay or opId change.
+Preserve ALL full/compact original outcomes, lookup evidence and UNKNOWN across
+default/custom reopen, explicit upgrade, restore and normal edits. Archive history
+must validate new and old normalized intents without current-state reinterpretation;
+legacy card.edit.lane continues its old literal grammar independent of modern IDs.
+Membership validation applies to committed card/snapshot facts, not every attempted
+input in a refused original. A well-shaped but foreign/unknown laneId may be valid
+retained NOT_COMMITTED evidence; preserve its exact attempted target and refusal,
+never reject/repair the archive merely because that attempted lane is not a member.
+
+Export/restore retains full configured definition/UUID/revision/labels/order/rights/
+edges and every card/history/approval fact. Lane UUIDs and workflow UUID do not
+change on restore; their enclosing Board.Identity rebases under existing rules.
+Approval policyVersion1 and historical reviewed revisions remain exact. Rebase
+current hierarchy/link references only as already specified by M04/M05; preserve
+historical provenance, canonical bytes/results and all blobs. Restored local channel
+actors/grants are freshly created using the definition ceilings; no archived
+credential/grant becomes current authority. Preserve attribution actors as history.
+Validate the complete package before target publication, including lane membership
+in retained snapshots, human approval facts and canonical original/refreeze checks.
+Wrong/missing definition, foreign lane, malformed rights/edge and mixed profile
+refuse the whole package without a partially published target. Default packages
+remain accepted without a fabricated workflow. Prove both first restore and
+restore->new custom moves/approval->second restore by full-record comparison after
+only enumerated existing identity transforms. Restore is not physical upgrade proof.
+
+5. Ownership, proof and scope boundary
+Feature/native: internal/store/schema/open; transport/local initialization;
+workspace guarded configured create/status; CLI parser/dispatch; offline upgrade.
+Domain/canonical: board/cards/workflow/grants and contract descriptor/intent;
+shared definition validation and semantic roles across all Completed/prerequisite
+guards, including attachment/link/hierarchy and history validation paths.
+Read/archive: boardapi, contract/transport/archive, export/restore; exact complete
+definition with strict omission and full retained-record conservation.
+Browser: generated API types, board/actions/search, existing workspace/session/
+private draft/recovery coordination; no parallel principal or original store.
+Primary coordinates contractgen/assetstage; generated outputs are never hand-edited.
+
+Companion specifications cover default/custom boards, bounds and duplicate/invalid
+all-or-nothing refusal, human/bot ceilings/edges, terminal approval, prerequisites,
+explicit priority, exact cross-board isolation, stale writers/double submit, setup
+UNKNOWN/status, dirty/focus/context retention, CLI/parser behavior, reopen, immutable
+old originals, separate7->8 upgrade and two full-record restore journeys. Feature
+owns focused runtime proof and ordinary fixes, fresh Sol / High transaction/
+authority/recovery review and re-review. Qualification runs complete required
+native/browser inventories with zero required failures/skips, joined normal
+browser+actualCLI journey and two isolated clean builds with generation/staging,
+hash/source-stability checks. Controlled/injected and reused evidence is labeled
+separately; source inspection and mocks never imply power-loss or normal-user PASS.
+Guide closure, usable extracted kit, normal demo, cleanup and durable publication
+remain included in the complete milestone, not moved to hidden follow-up work.
+
+M07 owns existing-board policy edits, label/order changes, lane retirement/mapping,
+policy revisions and configurable/category Attention. M06 neither implements them
+nor promises that its new-board definition can be changed in place. Real V1 import,
+cross-board policy transfer, scripting, arbitrary predicates, policy marketplaces,
+multi-human role administration and general release remain outside this contract.
+No real board/card prose, credential, private path or runtime profile is evidence.
+Public references use synthetic data only; prior V1 exposure is disclosed rather
+than described as independently isolated clean-room work.
+
+Evidence basis (source inspection, not executed feature qualification)
+- M04/M05 accepted integration contracts and current source/readiness map.
+- implementation/internal/contract/descriptor.go and intent.go: fixed legacy
+  grammar, original normalization and omission; archive types/decode/refreeze.
+- implementation/internal/board/cards, workflow, grants, attachments: current
+  revision/Completed/prerequisite/authority seams require role-based integration.
+- implementation/internal/store/schema: physical7/base5 and fixed lane/policy DDL.
+- implementation/internal/workspace/http.go: current CLI-only mutation boundary,
+  two-stage initialize/publish and explicit status; browser route above is new scope.
+- implementation/internal/transport/local/runtime.go: fixed channel seed grants.
+Independent compatibility assessment informs physical8 and optional-definition
+choice; fresh independent contract review and Terry acceptance remain required.

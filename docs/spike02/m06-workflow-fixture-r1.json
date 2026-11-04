@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "status": "SPECIFICATION_ONLY_NOT_EXECUTED",
+  "authority": "M06.01 proposed contract; owner acceptance gates #0033. Not a runtime PASS or authorization to create real boards.",
+  "contract": "../decisions/m06-workflow-integration-2026-11-04.txt",
+  "acceptance": "m06-workflow-acceptance-r1.txt",
+  "baseline": {
+    "physical": 7,
+    "base": 5,
+    "api": 1,
+    "archive": 1,
+    "fingerprint": 1,
+    "policy": 1
+  },
+  "selectedVersions": {
+    "physical": 8,
+    "base": 5,
+    "api": 1,
+    "archive": 1,
+    "fingerprint": 1,
+    "policy": 1,
+    "workflowRevision": 1
+  },
+  "dataBoundary": "All UUIDs below are synthetic specification constants. Resolve runtime identities/revisions separately in each future fresh fixture. No credentials or private paths are included.",
+  "workspaces": [
+    {
+      "alias": "harbor",
+      "projects": [
+        "dispatch-project",
+        "research-project"
+      ]
+    }
+  ],
+  "boards": [
+    {
+      "alias": "custom-a",
+      "project": "dispatch-project",
+      "workflow": "customSixLane",
+      "cards": [
+        "prerequisite",
+        "dependent",
+        "archived-peer",
+        "completed-peer"
+      ]
+    },
+    {
+      "alias": "custom-b",
+      "project": "research-project",
+      "workflow": "customSixLane",
+      "cards": [
+        "same-display-ticket-distinct-identity"
+      ]
+    },
+    {
+      "alias": "default",
+      "project": "dispatch-project",
+      "workflow": "omitted",
+      "cards": [
+        "legacy-original-holder"
+      ]
+    }
+  ],
+  "customSixLane": {
+    "workflowId": "61000000-0000-4000-8000-000000000001",
+    "revision": 1,
+    "lanes": [
+      {
+        "id": "60000000-0000-4000-8000-000000000001",
+        "label": "Intake",
+        "role": "initial"
+      },
+      {
+        "id": "60000000-0000-4000-8000-000000000002",
+        "label": "Queued",
+        "role": "waiting"
+      },
+      {
+        "id": "60000000-0000-4000-8000-000000000003",
+        "label": "Working",
+        "role": "in_progress"
+      },
+      {
+        "id": "60000000-0000-4000-8000-000000000004",
+        "label": "Verification",
+        "role": "review"
+      },
+      {
+        "id": "60000000-0000-4000-8000-000000000005",
+        "label": "Accepted",
+        "role": "completed"
+      },
+      {
+        "id": "60000000-0000-4000-8000-000000000006",
+        "label": "On hold",
+        "role": "waiting"
+      }
+    ],
+    "transitions": [
+      {
+        "from": "60000000-0000-4000-8000-000000000001",
+        "to": "60000000-0000-4000-8000-000000000002",
+        "actors": [
+          "automation",
+          "human"
+        ]
+      },
+      {
+        "from": "60000000-0000-4000-8000-000000000001",
+        "to": "60000000-0000-4000-8000-000000000003",
+        "actors": [
+          "automation",
+          "human"
+        ]
+      },
+      {
+        "from": "60000000-0000-4000-8000-000000000002",
+        "to": "60000000-0000-4000-8000-000000000003",
+        "actors": [
+          "automation",
+          "human"
+        ]
+      },
+      {
+        "from": "60000000-0000-4000-8000-000000000003",
+        "to": "60000000-0000-4000-8000-000000000004",
+        "actors": [
+          "automation",
+          "human"
+        ]
+      },
+      {
+        "from": "60000000-0000-4000-8000-000000000003",
+        "to": "60000000-0000-4000-8000-000000000006",
+        "actors": [
+          "automation",
+          "human"
+        ]
+      },
+      {
+        "from": "60000000-0000-4000-8000-000000000004",
+        "to": "60000000-0000-4000-8000-000000000003",
+        "actors": [
+          "human"
+        ]
+      },
+      {
+        "from": "60000000-0000-4000-8000-000000000004",
+        "to": "60000000-0000-4000-8000-000000000005",
+        "actors": [
+          "human"
+        ]
+      },
+      {
+        "from": "60000000-0000-4000-8000-000000000006",
+        "to": "60000000-0000-4000-8000-000000000003",
+        "actors": [
+          "automation",
+          "human"
+        ]
+      }
+    ],
+    "actorRights": {
+      "human": [
+        "approve",
+        "attach",
+        "comment",
+        "create",
+        "edit",
+        "export",
+        "read",
+        "read-own-outcome",
+        "review-handoff"
+      ],
+      "automation": [
+        "attach",
+        "comment",
+        "create",
+        "edit",
+        "export",
+        "read",
+        "read-own-outcome",
+        "review-handoff"
+      ]
+    }
+  },
+  "limits": {
+    "lanes": {
+      "min": 4,
+      "max": 16
+    },
+    "transitions": {
+      "min": 3,
+      "max": 64
+    },
+    "labelScalars": {
+      "min": 1,
+      "max": 80
+    },
+    "workflowJsonUtf8Bytes": 65536
+  },
+  "default": {
+    "workflow": "omitted, never null or synthesized",
+    "laneIds": [
+      "Ready for Work",
+      "In Progress",
+      "Ready for Review",
+      "Completed"
+    ],
+    "roles": [
+      "initial",
+      "in_progress",
+      "review",
+      "completed"
+    ],
+    "actorRights": {
+      "human": [
+        "approve",
+        "attach",
+        "comment",
+        "create",
+        "edit",
+        "export",
+        "read",
+        "read-own-outcome",
+        "review-handoff"
+      ],
+      "automation": [
+        "attach",
+        "comment",
+        "create",
+        "edit",
+        "export",
+        "read",
+        "read-own-outcome",
+        "review-handoff"
+      ]
+    }
+  },
+  "requestFragments": {
+    "configuredMove": {
+      "input": {
+        "laneId": "60000000-0000-4000-8000-000000000003"
+      }
+    },
+    "legacyMove": {
+      "input": {
+        "lane": "In Progress"
+      }
+    },
+    "mixedMoveInvalid": {
+      "input": {
+        "laneId": "60000000-0000-4000-8000-000000000003",
+        "title": "must refuse"
+      }
+    },
+    "customBoardCreate": {
+      "apiVersion": 1,
+      "workspaceId": "RUNTIME_WORKSPACE_UUID",
+      "expectedConfigRevision": "RUNTIME_REVISION",
+      "projectKey": "dispatch-project",
+      "boardKey": "custom-a",
+      "label": "Custom A",
+      "workflow": "customSixLane object"
+    },
+    "configuredStatus": {
+      "apiVersion": 1,
+      "workspaceId": "RUNTIME_WORKSPACE_UUID",
+      "projectKey": "dispatch-project",
+      "boardKey": "custom-a",
+      "workflow": "complete original customSixLane object",
+      "expectedIdentity": "OPTIONAL_KNOWN_RUNTIME_WORKSPACE_IDENTITY"
+    },
+    "note": "Fragments/aliases only. Future full domain envelopes use actual opId, incarnation, target and expected revisions in the existing private prepare/readback/dispatch pipeline. Creation/status are not domain original-outcome commands."
+  },
+  "invalidDefinitionVariants": [
+    {
+      "change": "lanes length3 /17",
+      "expected": "whole input refuses before durable allocation"
+    },
+    {
+      "change": "transitions length2 /65",
+      "expected": "whole input refuses"
+    },
+    {
+      "change": "label0 /81 Unicode scalars, leading/trailing whitespace, control character",
+      "expected": "refuse without trimming or normalization"
+    },
+    {
+      "change": "duplicate lane UUID or EqualFold-equal labels",
+      "expected": "refuse; preserve original input"
+    },
+    {
+      "change": "missing/duplicate required role, unknown role, null/unknown fields",
+      "expected": "refuse"
+    },
+    {
+      "change": "self edge, duplicate/unsorted edge, missing endpoint, empty/duplicate/unsorted actor set",
+      "expected": "refuse"
+    },
+    {
+      "change": "unreachable lane or no human path to completed",
+      "expected": "refuse"
+    },
+    {
+      "change": "outgoing completed edge or another incoming review/completed edge",
+      "expected": "refuse"
+    },
+    {
+      "change": "automation approve, administration/enrollment right, missing required human right, edge without corresponding right",
+      "expected": "refuse"
+    },
+    {
+      "change": "workflow JSON65537 UTF-8 bytes",
+      "expected": "refuse before initialization; boundary-valid65536 sample tested separately"
+    }
+  ],
+  "scenarioGroups": [
+    {
+      "id": "W01",
+      "scope": "default/custom definition and initialization",
+      "oracle": "exact definition/IDs/order/rights and default omission; normal CLI and browser routes"
+    },
+    {
+      "id": "W02",
+      "scope": "bounds/duplicate/invalid whole-input refusal",
+      "oracle": "no durable policy/actor/board/registry allocation for known pre-initialization refusal; distinguish IO uncertainty"
+    },
+    {
+      "id": "W03",
+      "scope": "workspace/standalone reopen and repeated setup",
+      "oracle": "stable exact identity; occupied key/root refuses; no reconfiguration or duplicate board"
+    },
+    {
+      "id": "W04",
+      "scope": "creation publication failure/status and stale two-writer contexts",
+      "oracle": "compare complete original definition, not just reused workflowId; mismatched labels/order/rights/edges is UNKNOWN; retained complete initialized bytes; current status only; no auto POST replay or guessed original outcome"
+    },
+    {
+      "id": "W05",
+      "scope": "ordinary movement, grants, roles and approval",
+      "oracle": "current writer authority/edge/prerequisite checks; human-only terminal approval; one source revision/activity; peers and priorities unchanged"
+    },
+    {
+      "id": "W06",
+      "scope": "canonical old/new requests and no-op",
+      "oracle": "legacy bytes exact; laneId omitted from old payload; new field exclusive; refused foreign-lane originals retained; equal allowed target NO_CHANGE under contract guards"
+    },
+    {
+      "id": "W07",
+      "scope": "private input, keyboard, generation races, lost response",
+      "oracle": "input/focus preserved, exact context, no auto lookup/replay; deliberate original lookup only"
+    },
+    {
+      "id": "W08",
+      "scope": "read projections and existing feature conservation",
+      "oracle": "complete selected workflow with lane-bearing reads; custom/default filters plus read/edit/archive/hierarchy/all link kinds remain correct"
+    },
+    {
+      "id": "W09",
+      "scope": "full records and twice-restored configured archive",
+      "oracle": "complete definition/rights/history/canonical originals/blobs preserved under enumerated identity transforms; new channels not source credentials"
+    },
+    {
+      "id": "W10",
+      "scope": "frozen7 and explicit7-to-8 adjacent upgrade",
+      "oracle": "old default bytes and all logical rows conserved; refusal/rollback/UNKNOWN distinguished; no automatic conversion/custom workflow installation"
+    },
+    {
+      "id": "W11",
+      "scope": "complete qualification and final extracted normal demo",
+      "oracle": "full required native/browser and two clean builds; exact candidate binding; separate fresh normal kit use and owned cleanup"
+    }
+  ],
+  "evidenceRules": [
+    "Specification and static validation are not executed product evidence.",
+    "Normal browser/actual CLI, controlled component, injected fault and exact-input reused evidence remain separately labeled.",
+    "Full required inventories must have no required skips/failures/retries; two clean builds compare complete generated/staged/executable output sets.",
+    "Use full retained-record comparisons at first restore prewalk; current card counts alone are insufficient.",
+    "Preserve failed attempts and immutable originals; a current read is not proof of original noncommit.",
+    "No real-data adoption, power-loss, broad accessibility or installed OS IME certification."
+  ]
+}
