@@ -1,0 +1,360 @@
+M08.01 ATTENTION CATEGORY CONTRACT R1
+2026-11-05 | #0106 | implementation contract, pending independent review
+
+Authority and scope
+This contract completes the approved M08.01 story in current-plan R5. Current
+run authority permits the M08 sequence through Ready for Review after fresh
+independent review. Terry retains final Completed. Synthetic specifications are
+not runtime qualification. The accepted M07 contract remains normative except
+for the explicit category and projection extensions below.
+
+Companions
+- ../spike02/m08-attention-acceptance-r1.txt
+- ../spike02/m08-attention-fixture-r1.json
+- m07-workflow-change-contract-2026-11-05.txt
+
+1. Stable meaning and assignment
+The stable category keys, in display order, are blocked, needsTerry and
+readyForReview. Their fixed display names are Blocked, Needs Terry and Ready
+for Review. Categories are board-policy metadata attached to lane identities.
+They never derive from a lane label, its position, ticket number, card prose,
+owner, priority, hierarchy or an unresolved relationship.
+
+Blocked means work waits for an external condition which neither Terry nor Bot
+can advance. Needs Terry means unfinished work requires a specific Terry input
+or action. Ready for Review means the remaining step is Terry review/approval.
+Normal prerequisite dependency alone does not imply Blocked. Pending review
+alone does not imply Needs Terry. Users deliberately place cards in appropriate
+lanes through existing card operations. Assignment makes no transition, grant,
+approval, notification or automatic movement happen.
+
+Each active lane belongs to at most one category. Each Blocked/Needs Terry set
+contains zero through twelve active waiting-role lane IDs. Ready for Review
+contains zero or one ID, which must be the one active review-role lane. Initial,
+in_progress and completed lanes cannot be assigned. The two waiting categories
+cannot overlap. Categories may cover no lanes. Multiple waiting lanes may share
+a category so boards can keep distinct external/input queues. The existing
+single protected review role preserves one approval handoff meaning.
+
+Assignment lives in optional Workflow.attention, with this exact shape
+
+  AttentionAssignments = {
+    blocked: LaneId[], needsTerry: LaneId[], readyForReview: LaneId[]
+  }
+
+All three keys are required when attention is present. Each array is non-null,
+sorted ascending by exact lane ID and duplicate-free. IDs must resolve in the
+same complete candidate's active lanes, using its existing profile grammar.
+Unknown keys, null, partial objects, label references, unknown/retired IDs,
+wrong roles, overlap, unsorted/duplicate IDs and excessive cardinality refuse
+as INVALID_INPUT. Validation never sorts, trims or silently repairs input.
+
+Absent Workflow.attention means the implicit mapping at that policy version
+  blocked=[], needsTerry=[], readyForReview=[current review-role ID].
+The implicit default board uses the literal stable ID "Ready for Review".
+Configured boards resolve their UUID review ID. Absent Workflow itself retains
+the exact M07 implicit-default representation and this same implicit mapping.
+
+An explicit empty array means that category is not configured. It is never a
+known zero. A nonempty mapping with zero matching cards is known zero. Explicit
+attention with all three arrays empty disables all three measures. Explicit
+Ready for Review can be disabled because this field selects an Attention
+measure, while the protected review lane and human approval flow remain fixed.
+This gives explicit-empty one consistent meaning for all three categories.
+Omission retains the accepted M07 review measure for existing boards. Explicit
+attention matching the implicit mapping is still a configuration change because
+its presence records a deliberate policy choice. Omitting attention in a later
+full candidate deliberately restores implicit behavior and is a change. There
+is no inheritance from the previous policy when the candidate omits the field.
+
+2. One policy, one writer and exact historical interpretation
+Reuse Workflow, workflow.edit, workflowPolicies and existing policyVersion.
+There is no separate category revision, mutation command, grant or mutable
+assignment table. A category-only or mixed edit submits one complete Workflow
+candidate at current policyVersion+1. Existing M07 workflow show/preview/edit
+entry points carry attention. Initial configured creation accepts this optional
+field under the same validator at revision1. Untouched default creation still
+omits Workflow and has implicit policy1.
+
+This choice makes category/workflow races ordinary single-writer policy races.
+One policy record describes labels, roles, transitions, ceilings and assignments
+together. A separate category store would require cross-version pairing and
+additional historical retention which this scope does not need.
+
+Reuse exactly
+- PATCH /api/v1/boards/{boardId}/workflow and command workflow.edit.
+- Existing body {opId,incarnation,target:null,expectedRevision,
+  expectedCardRevision:null,input:{expectedPolicyVersion,workflow}}.
+- POST /api/v1/boards/{boardId}/workflow/preview and its existing exact body.
+- Result {workflowId,policyVersion}, workflow FactRef, workflow.edit activity.
+- Current channel grant AND actor-kind edit ceiling, browser human and CLI
+  automation attribution, native-owner separation and own-outcome authority.
+- Existing board CAS, expectedPolicyVersion and original-resolution precedence.
+
+Add attention to the existing Workflow descriptor and full-candidate equality.
+Equality ignores only proposed revision, as M07 does. Presence versus absence
+of attention matters. Exact NO_CHANGE creates no policy/card/activity counter,
+and stores only its permitted durable refusal. Stale equal candidates still
+refuse before equality. At most one competing old-revision policy/card/approval
+mutation succeeds. Failures have no partial assignment/history effects.
+
+Both category-only and mixed real first edits of implicit default1 enter the
+M07 default profile and its strict current-card compatibility gate. An explicit
+empty configuration is a real edit. WORKFLOW_INCOMPATIBLE retains legacy use,
+opening and export boundaries. It does not repair old approvals. M07 exact
+unchanged implicit candidates still avoid this first-edit gate.
+
+Keep 4..16 lanes, 3..64 transitions, 65536-byte whole Workflow, 800000-byte whole
+request, 128 retained policies and 8388608 canonical policy-array bytes. Category
+bytes count in those existing bounds. No independent unbounded history is added.
+Capacity includes implicit/version1. At capacity unchanged remains NO_CHANGE,
+changed candidates refuse INVALID_INPUT. A new configured revision1 counts its
+attention bytes in the same bounds.
+
+Retiring an empty waiting lane requires removing its assignment in the same
+candidate. Retiring a still-assigned or occupied lane refuses. Archived occupants
+still prevent retirement. Every historical policy retains its exact assignment,
+including absence. Retired IDs never return. Renames and array order changes do
+not alter membership. Category-only changes leave every card revision, pin,
+approval, snapshot, relation, comment, attachment and archived flag untouched.
+Historical labels and categories resolve from the state's existing policy pin,
+with omitted pin meaning1. Current counts and current lane presentation always
+resolve current policy. Policy edits never repin old card states or snapshots.
+
+M07 issuing-policy approval validation, human-only approval, terminal Completed,
+current-pointer checks and source-owned blocking-prerequisite rules are unchanged.
+Neither category assignment nor count proves an approval or satisfies a link.
+Changing or disabling Ready for Review does not alter its protected lane/edges.
+Stored grants and historical originals remain exact, including disabled grants
+that exceed a later ceiling and valid refused foreign/retired-lane attempts.
+
+3. Preview extension
+The current M07 preview remains authoritative and read-only. Add one required
+attention member to WorkflowChanges
+
+  attention: {
+    beforeSource: "implicit" | "explicit",
+    afterSource: "implicit" | "explicit",
+    before: AttentionAssignments,
+    after: AttentionAssignments,
+    changed: boolean
+  }
+
+before/after are resolved effective assignments. changed is true when explicit
+presence or assignments differ, even if the effective mapping is identical.
+Existing currentWorkflow and candidate retain exact optional field presence.
+Existing occupancy includes archived counts. Preview's same authorized snapshot
+also adds currentAttention and candidateAttention, each CatalogAttention below.
+Candidate counts use current committed unarchived cards with candidate mapping.
+These are preview estimates, not future reservations. A candidate with a new
+empty waiting lane yields known0 for its mapped category. No original, UUID,
+revision, activity or reservation is allocated by preview. Its authority and
+CAS checks precede disclosure just as M07 requires.
+
+4. Authoritative observations and wire shapes
+Extend local.CatalogSnapshot using one withConfiguredRead/SQL read transaction.
+Load and validate current complete policy, current grant/ceiling, identity,
+revision, activity/coverage and all three counts inside that snapshot. Count
+distinct committed current card identities where archived=false and lane is
+in that category's resolved current set. Never count history, drafts, originals,
+optimistic writes, archived cards or inherited child/linked-board state.
+
+No mapping means {state:"not_configured",value:null}. A nonempty mapping returns
+{state:"known",value:N}, including N=0. Counts are nonnegative safe integers.
+The three sets are disjoint, so their known sum counts each card at most once.
+Never manufacture a numeric zero after failed authorization/read/validation.
+
+Use these exact additional DTOs, generated with the existing contract tooling
+
+  AttentionContext = {
+    policyVersion: PositiveSafeInteger,
+    workflowId: UUID | null,
+    profile: "default" | "configured",
+    source: "implicit" | "explicit",
+    assignments: AttentionAssignments,
+    lanes: {id:LaneId,label:WorkflowLabel,role:"waiting"|"review"}[]
+  }
+  BoardAttention = {
+    apiVersion:1,boardId:UUID,incarnation:UUID,revision:SafeInteger,
+    attentionContext:AttentionContext,attention:CatalogAttention
+  }
+
+lanes contains exactly the assigned lane IDs once, sorted ascending by exact ID,
+with labels/roles from the same current policy. workflowId is null only for
+implicit default1. profile defaults to configured when Workflow.profile is
+omitted. source describes attention-field presence, not profile. Policy/version
+and lane details are sufficient for category explanation without exposing cards
+or entire retained history in the catalog. Unknown fields/null alternatives not
+listed here refuse at strict decode boundaries.
+
+Add GET /api/v1/boards/{boardId}/attention. It uses normal current board-channel
+read authority and returns BoardAttention directly on success. Existing bounded
+nonterminal transport errors apply. No request body, selection inference, label
+resolution or private paths are accepted. The normal board response continues
+carrying exact current Workflow and complete retained WorkflowPolicies.
+
+Extend WorkspaceCatalogEntry with required attentionContext:AttentionContext|null.
+Keep all current names including attention.readyForReview/blocked/needsTerry and
+CatalogCount {state,value}. Available fresh entries have non-null context and
+all mappings/counts from their own observation. There is no cross-board atomic
+snapshot. observedAt is catalog assembly time, lastObservedAt is per-board time,
+and boardRevision/policyVersion name that observation.
+
+For a legitimate retained stale observation, preserve its entire context and
+numeric facts, mark configured counts stale, retain unmapped counts as
+not_configured and mark entry freshness stale. Never mix its old mapping with
+new counts. The current scheduler need not add a stale cache. Failed probes,
+timeouts, authority loss, identity/epoch replacement and never-observed entries
+must erase context and all category knowledge together. They have
+attentionContext:null and all three counts {state:"unknown",value:null},
+freshness:"never" and existing unavailable/opaque identity conventions.
+Even an implicit category is unknown without an authorized observation.
+
+Preserve coalescing, bounded FIFO fair work, late-join revalidation, original
+attempt budgets, slot ownership through actual native return and healthy-sibling
+progress. Do not add background polling or retain facts after revoked authority.
+
+5. Ordering and presentation
+Keep existing catalog order by last committed card activity descending, null
+last. For equal non-null times use fresh known aggregate Attention descending.
+For this tie only, a fully observed not_configured component contributes0.
+A valid fresh observation with all three disabled therefore has ranking sum0.
+Fresh aggregate ranks before stale/unknown aggregate. Two stale/unknown values
+do not receive invented numeric comparison. Then keep current case-folded board
+label, projectKey and boardKey ascending. When both activity times are null,
+keep the existing label/key fallback. Do not compare different-board revisions.
+
+workflow.edit advances board revision and policy activity but never
+lastCardActivity. A category change can alter the aggregate tie-break, which is
+expected. It cannot masquerade as a newer card event. Category display order is
+fixed Blocked, Needs Terry, Ready for Review regardless of JSON member order.
+
+Render known0 as 0, not_configured as Not configured, stale values explicitly
+as stale with their observation age, and unknown as Unavailable. Never hide the
+distinction using a bare dash or sum displayed as an authoritative total. Show
+current category source, stable lane IDs/roles and policy context in editor/detail
+views. Preserve selected board/editor DOM, focus, filters, pins, route and private
+drafts during workspace refreshes and equal-ticket member changes.
+
+6. Actual CLI and ordinary browser
+Use the existing ordinary local CLI selectors for new command attention show
+
+  localswim --data DIR [--json] attention show
+  localswim --workspace DIR --project PROJECT --board BOARD [--json] attention show
+
+It calls the new HTTP read using the existing provider, with exact selected
+identity checked. workflow show,
+workflow preview --input FILE and workflow edit --input FILE expose the new
+configuration and preview. They do no implicit read-for-revision or retry.
+
+Add this workspace-level command to the actual executable
+
+  localswim --workspace DIR [--json] workspace catalog
+
+It requires explicit workspace selection, accepts no --project/--board/--data
+or mutation input, and GETs /api/v1/workspace/catalog through the existing saved
+workspace location and authenticated automation channel. JSON is the exact
+generated WorkspaceCatalog. Readable output shows
+workspace/config revision, project/board keys/labels, board/incarnation/epoch
+when known, policyVersion/source, all three stateful values and freshness/age.
+Missing selection/invalid flags return existing exit1, refusal exit2, unavailable
+exit3, successful catalog exit0 even when an individual member is unavailable.
+Ordinary mutation and UNKNOWN retain existing exit classes. No human actor
+override or filesystem discovery is introduced. Provider plumbing may add this
+read method but must preserve current credential/origin and board selection rules.
+
+Browser category editing is part of the existing workflow editor. It uses the
+same draft, mandatory explicit preview, separate save and exact private
+prepare/readback. Controls identify category meaning and allowed stable lanes,
+including explicit disable and restore-implicit actions. Combined workflow and
+category changes are one candidate. Preserve input on refusal/storage failure,
+explicit dirty discard, composition/keyboard behavior and delayed-context guards.
+UNKNOWN keeps the exact original and candidate. Reopen, refresh, catalog reads
+and a second window never auto-lookup, clear or replay it. Deliberate authorized
+exact-original lookup remains the only reconciliation path.
+
+Browser acceptance uses supported real-browser actions and fresh mailbox runs
+through shared Valkey/Webdis53147 per AGENTS.md. A bounded private forwarding
+adapter is allowed by the existing migration boundary. Preserve CSP and release
+interactive control before retrieving bounded sanitized evidence. Queue failure
+pauses queue-dependent evidence and requires immediate Terry attention. Queue
+messages are diagnostics and never substitute for product/CLI assertions.
+
+7. Storage, generation, old versions and restore
+Select physical user_version10 as a capability boundary. Keep base schema5,
+API1, archive format/schema1, fingerprint1, registry/preferences1 and existing
+policy-version types. No generic version validator is widened. Current10 uses
+the current9 table/trigger inventory and stores the optional attention bytes
+inside the same immutable workflow definition JSON. No assignment table or
+duplicate writable representation is added. The physical bump makes old9 startup
+refuse before an older executable can mutate a category-bearing store.
+
+Freeze physical9 validation independently before shared validators change.
+Frozen9 accepts exactly the previous workflow/original/archive vocabulary with
+attention absent everywhere, including nested workflow.edit originals. Do not
+let a new shared JSON decoder make an old-version fixture accept attention.
+Preserve frozen5/6/7/8 admission and separate adjacent upgrades. Add only explicit
+9->10 through SupportedUpgradeStep and every native/application adapter. Current
+startup refuses9 with upgrade guidance. Old9 refuses10. Read-only inspection
+recognizes valid9 and10 with their corresponding validators. Every old source
+has its exact original acceptance boundary, including default opaque history.
+
+9->10 runs through existing closed-root/inventory/identity/integrity checks and
+single offline transaction. It changes only the physical version marker. Verify
+all logical rows, rowids where required, exact definition/snapshot/original/blob
+bytes, policy versions and identity remain unchanged. It introduces no attention
+field, Workflow, UUID, policy record, card pin, approval or domain operation.
+Repeat valid10 is NO_CHANGE. Wrong source/identity, active owner, future/corrupt
+layout, extra/missing files and precommit failures preserve source. Postcommit
+reply/cleanup ambiguity remains UNKNOWN pending deliberate inspection.
+
+Generated Go/TypeScript/JSON contracts cover Workflow.attention, preview changes,
+BoardAttention and expanded catalog validation. Update all canonical validation
+and refreeze paths without altering pre-M08 canonical bytes. Absent attention
+must stay absent through parse, equality, re-encode, archive and restore. Empty
+arrays must stay empty, never null or omitted. Keep old full/compact original
+results and fingerprints exact. No catalog/read field enters intent freezing.
+
+Current archives preserve exact attention presence/value in every retained policy
+and current definition. New readers accept old M06/M07 archives with implicit
+category interpretation without backfill. Old strict readers refuse objects
+containing attention or new read/preview fields, never silently discard them.
+An archive without new fields retains its old shape. Independent version fields
+stay1. A new full archive validates every policy's mapping against that policy's
+own lanes, current duplicate representation and exact original semantics.
+
+First and second runnable restore compare every retained record, policy, card,
+snapshot, approval, comment, relation, activity, full/compact original, tombstone
+and exact blob under only the accepted identity/bootstrap transformations.
+Historical origin segments keep exact bytes. Fresh local channels obey current
+ceilings. Missing/invalid mapping, mixed-version context, illegal overlap and
+retired/foreign membership refuse the whole candidate before target publication.
+Permitted legacy opaque stored history retains M07's separate full-read/archive
+representability limit. No lossy export or new opaque encoding is introduced.
+
+8. Story ownership and completion evidence
+M08.02 owns shared domain/storage/generated/preview/count logic, board read,
+actual single-board CLI, physical compatibility and first complete restore.
+M08.03 owns expanded catalog validation/projection, existing scheduler integration,
+workspace actual CLI, freshness/ordering and multi-board authority races.
+Stage the shared resolver and BoardAttention DTO under M08.02 without requiring
+its new context or all-category wire fields on WorkspaceCatalogEntry yet. The
+old catalog retains accepted M07 review-role behavior until M08.03 switches its
+producer, validator and clients together. M08.02 makes its resolver available
+for that switch. Shared generated type work must preserve this intermediate
+compatibility. The final catalog shape above belongs to M08.03, not an implied
+early expansion of M08.02. Browser consumers retain their accepted M07 behavior
+until their assigned M08.04/M08.05 integration step consumes the new DTOs.
+M08.04 owns ordinary browser workflow/category configuration and selected-board
+feedback with actual CLI parity. M08.05 owns chooser/sidebar integration, three
+boards across two projects, private-window isolation and refresh races.
+M08.06 owns joined current-candidate complete native/browser inventories, two
+isolated clean builds, separately labeled faults/concurrency and second restore.
+M08.07 owns verified extracted kit, guides/schema closure, normal demonstration,
+saved-port reopen, cleanup, publication and independent final handoff.
+
+Each story receives fresh non-author review before handoff. No new business
+feature or unresolved owner choice is required by this contract. Any implementation
+finding that changes these meanings or conservation guarantees returns to contract
+review. Evidence must distinguish synthetic specifications, focused runtime proof,
+full qualification and the exact delivered candidate.

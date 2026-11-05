@@ -1,0 +1,179 @@
+M08 ATTENTION ACCEPTANCE R1
+2026-11-05 | #0106 | executable specifications, not runtime results
+
+The decision contract is ../decisions/m08-attention-contract-2026-11-05.txt.
+Synthetic input and exact projection expectations are in
+m08-attention-fixture-r1.json. Projection rows are intentionally minimal count
+inputs, not purported full archive Cards. Runtime tests must create complete
+valid cards through normal operations, with separate labeled native fault fixtures.
+Every case requires authoritative assertions and a fresh non-author review.
+
+A01. Absent, explicit and zero [M08.02]
+On implicit default1 and configured1 without attention, blocked/needsTerry are
+not_configured/null and readyForReview counts current unarchived review cards.
+Rename review away from Ready for Review and rename an unrelated waiting lane
+to that label. The count still follows the review ID. Explicit mapping counts
+are exactly fixture expected.counts. Explicit all-empty returns all three
+not_configured/null. A nonempty mapping to an empty waiting lane yields known0.
+Explicit implicit-equivalent mapping is a real change, not NO_CHANGE. Removing
+the field is a real change back to source implicit. No old record is backfilled.
+
+A02. Validation and complete candidate [M08.02]
+Exercise every fixture invalidAssignment and the following boundaries. Arrays
+at0 and maximum12 waiting IDs, review at0/1/2, unknown/null/missing object keys,
+null array/items, duplicate/unsorted IDs, wrong-profile IDs, label-as-ID, overlap,
+foreign/retired/nonmember ID, initial/in_progress/completed assignment. Each
+invalid frozen save is NOT_COMMITTED/INVALID_INPUT without domain change.
+Mix a valid rename with invalid mapping and prove neither persists. Creation,
+preview, edit, reopen, full read, original decode/refreeze and archive validation
+use the same complete semantic rule. Array equality is exact, with no repairs.
+
+A03. Existing-policy composition [M08.02]
+Category-only and mixed workflow/category changes each advance board revision,
+policyVersion and activity exactly once. Keep all card revisions, state pins,
+current approval pointers and lastCardActivity exact. Add and map one waiting
+lane in a single edit. Remove a mapped empty waiting lane only with mapping
+removal in that candidate. An archived occupant still prevents retirement.
+Historical assigned retired IDs resolve only in their historical policy and
+can never be reused. Reordering/renaming preserves current counts and identities.
+
+A04. Default gate and retained history [M08.02]
+First real implicit-default category edit creates profile default/revision2
+with one retained version1 record and existing fixed literal IDs. Preserve the
+M07 first-edit WORKFLOW_INCOMPATIBLE gate for legacy incompatible current cards.
+Exact unchanged default candidate remains NO_CHANGE without the gate. Explicit
+empty is a real edit and enters the gate. Legacy stored opaque history remains
+byte-exact with its existing read/archive representability boundary. Two later
+category edits preserve historical assignments, pin1 omissions, current and
+historical labels, delayed snapshot pins and all original canonical bytes.
+
+A05. Authority and grants [M08.02]
+Browser human and actual CLI automation need current independently valid edit
+grant and current edit ceiling. Preview additionally needs read. Assignment,
+owner text or a human request field cannot grant rights. Lower and restore
+automation edit ceiling using normal mixed candidates. Stored grants remain
+unchanged. Revoked/missing grants remain ineffective. Automation cannot approve,
+use native owner or grant-admin, even with all categories enabled.
+
+A06. Preview and bounds [M08.02]
+Compare exact candidate, before/after source/mappings, changed flag, current
+and candidate counts, occupancy including archived cards, approval preserved
+count and capacity. Preview causes no mutation or identity allocation. Equal
+candidate uses proposed revision+1 but returns wouldChange false. Exact limits
+65536 Workflow bytes, 800000 request bytes, 128 policies and 8388608 canonical
+policy-array bytes pass only when all independent limits pass. One-byte/record
+excess refuses. At capacity NO_CHANGE remains usable. Retained category bytes
+are included in capacity. Unknown keys and duplicate JSON keys refuse.
+
+A07. Approval and prerequisites [M08.02, M08.06]
+Human-approve a prerequisite under policy1, then change all mappings, including
+disabling review Attention. Existing completed card, approval original and
+issuing policy remain exact and valid after reopen/restore. Source-owned active
+blocking dependency still admits start with fresh context. Needs Terry/Blocked
+assignment never satisfies it. Missing/wrong/archived approval facts still fail.
+Stale new approval after a category edit refuses under board/policy CAS. Existing
+same original resolves to its old result under current own-outcome authority.
+All M07 terminal protections and substantive approval invalidation rules remain.
+
+A08. Atomic races [M08.02, M08.03]
+Race category/category, category/workflow, category/card move, category/archive,
+category/human approve and category/grant revoke from shared old context. There
+is one writer order and at most one winner from an old board revision. Verify
+exact conflict/authority refusal and absence of partial rows. A count read
+interleaved with each race reports entirely before or after state and matching
+policy/revision. A slow count read must never combine new mapping with old cards.
+
+A09. Originals and uncertainty [M08.02, M08.04, M08.06]
+Induce transport loss before commit, after commit and at durable ambiguity as
+separate cases. Preserve exact opId/bytes/fingerprint/expected context and UNKNOWN.
+Current read/preview/catalog/refresh/navigation/reopen never resolves or replays
+the original. Deliberate exact-original lookup is authoritative under current
+rights. Same ID/different mapping returns OPERATION_MISMATCH. Unavailable/pruned
+lookup remains honest. Compare old absent fields and new explicit empty arrays
+in full and compact successful/refused originals through two restores.
+
+A10. Actual single-board executable [M08.02]
+Run actual parser/help and HTTP-backed executable with --data, and with
+--workspace/--project/--board. Exercise workflow show/preview/edit and attention
+show in JSON/readable forms. Compare exact identity, revision, policy source,
+assigned IDs/roles/labels and three counts to browser/API observations. No hidden
+revision lookup, retry or actor impersonation. Wrong selectors/missing service/
+denial have existing bounded error/exit classes. An internal Go call is not proof
+of the actual executable. Initial configured board creation with attention works.
+
+A11. Multi-board observation and states [M08.03]
+Run three distinct boards across two projects with equal display tickets and
+duplicate labels. Mix default absent, explicit configured and explicit-empty
+boards. Compare actual workspace catalog JSON/readable output with board reads.
+Each entry retains its own board/incarnation/epoch/revision/policy/time. Empty
+category never becomes0 and mapped zero never becomes unavailable. Failed/new
+unauthorized observation has null context and all three unknown/null counts.
+Retained stale fixture preserves whole old context, stale numeric counts and
+not_configured empty categories. No cache feature is required to create stale.
+
+A12. Scheduler, privacy and ordering [M08.03]
+Preserve bounded FIFO fair work, shared native slots and per-attempt budgets.
+Stall one member and show healthy sibling progress across repeated polls.
+Join a coalesced job after grant revocation and prove revalidated authority.
+Replace a same-key member or engine epoch while response is delayed. Old facts
+cannot publish into the replacement. Refused reads leak neither mappings nor
+counts/identities beyond existing opaque availability rules. Apply exact fixture
+sort inputs and expected order. Policy-only edits preserve lastCardActivity,
+though a changed fresh aggregate may change an equal-time tie-break.
+
+A13. Browser configuration [M08.04]
+Through supported real browser actions inspect categories/IDs/roles, toggle
+implicit versus explicit, assign/disallow lanes, preview and separately save a
+category-only and mixed candidate. Read counts via actual CLI after each save.
+Exercise keyboard tab/focus, composition Enter, Escape, dirty close/discard,
+private prepare/readback failure, stale preview, save refusal and UNKNOWN.
+Two windows own distinct drafts. One successful save leaves the other's draft
+and original intact until explicit resolution. Delay callbacks across project,
+board, incarnation, window and generation changes. No stale paint/focus/save.
+
+A14. Browser Attention integration [M08.05]
+Render all three states/counts/context on the ordinary chooser/sidebar at wide
+and narrow widths. Compare browser facts with actual executable facts on the
+three-board/two-project fixture. Labels alone never choose mapping/identity.
+Refresh after browser and CLI changes preserves active editor nodes, selection,
+focus, route, filters, pins and private drafts. Authority loss, replacement,
+unavailable sibling and delayed response preserve isolation and honest states.
+Use fresh53147 mailbox, bounded sanitized diagnostics, release UI before reading
+messages, and delete only owned mailbox after evidence export. Keep required
+product assertions independent of transport diagnostics.
+
+A15. Explicit upgrade and frozen legacy [M08.02, M08.06]
+Generate frozen valid physical9 default/configured/edited histories, including
+old originals, opaque stored snapshots and all retained record types. New
+startup refuses until explicit9->10. Upgrade only physical marker and compare
+all required rows/rowids/bytes. Preserve separate5->6->7->8->9 steps. Test wrong
+identity, active owner, unknown/extra/missing inventory, invalid legacy grammar,
+precommit DDL/validation failures and postcommit reply/cleanup UNKNOWN. Repeat10
+is NO_CHANGE. Frozen9 rejects attention anywhere, including nested originals.
+Old9 refuses10 and strict old API/archive readers reject extended shapes.
+
+A16. Complete first and second restore [M08.02, M08.06]
+Export current mapped, implicit and explicit-empty boards with several policy
+versions, retired mapped lanes, valid historical approvals, current/historical
+cards, comments, parent/relationships, activity, full/compact original outcomes,
+refusals, UNKNOWN, tombstones and exact blobs. Compare every record at first
+restored prewalk, allowing only accepted identity/bootstrap transforms. Retain
+old archive absence. Make a normal mapping/card/human-approval edit on restored
+board, then repeat export/restore and complete comparison. Malformed mapping,
+missing policy/pin, duplicate current representation, illegal overlap or wrong
+approval rejects before target publication. No category repair or lossy export.
+
+A17. Joined qualification and kit [M08.06, M08.07]
+Run complete required native/browser inventories with zero required skips/fails.
+Bind source, tools, generated assets, executable, provider and teardown to two
+isolated clean extractions/builds and full output-set equality, or explicitly
+justify exact unchanged evidence reuse. Serialize fixed-port suites. Retain all
+failed attempts and independently review material corrections. Reassess actual
+policy growth and count-query bounds against selected limits. Package exact
+qualified executable, contracts/notices/guides/manifest. Fresh extracted-kit
+normal browser/actual-CLI/keyboard demonstration includes workflow/category
+changes, cross-board Attention, approval/prerequisite/archive/search/hierarchy/
+relationships, two-window drafts and saved-port reopen/full-read parity.
+Verify recursive guide/schema closure, owned-process cleanup and privacy, then
+publish usable local fallback when board attachment size prevents attachment.
+Independent final evidence review precedes Ready for Review. Terry owns Completed.

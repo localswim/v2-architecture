@@ -1,0 +1,137 @@
+{
+  "fixtureVersion": 1,
+  "status": "synthetic-specification-not-runtime-evidence",
+  "contract": "../decisions/m08-attention-contract-2026-11-05.txt",
+  "rowScope": "Minimal projection inputs, not full archive Cards. Runtime cases must satisfy complete card and approval invariants.",
+  "identity": {
+    "boardId": "10000000-0000-4000-8000-000000000101",
+    "incarnation": "10000000-0000-4000-8000-000000000102",
+    "revision": 41,
+    "policyVersion": 3
+  },
+  "workflow": {
+    "workflowId": "10000000-0000-4000-8000-000000000100",
+    "revision": 3,
+    "lanes": [
+      {"id":"10000000-0000-4000-8000-000000000001","label":"Queue","role":"initial"},
+      {"id":"10000000-0000-4000-8000-000000000002","label":"Active","role":"in_progress"},
+      {"id":"10000000-0000-4000-8000-000000000003","label":"Owner review","role":"review"},
+      {"id":"10000000-0000-4000-8000-000000000004","label":"Done","role":"completed"},
+      {"id":"10000000-0000-4000-8000-000000000005","label":"External delivery","role":"waiting"},
+      {"id":"10000000-0000-4000-8000-000000000006","label":"Third-party response","role":"waiting"},
+      {"id":"10000000-0000-4000-8000-000000000007","label":"Owner input","role":"waiting"},
+      {"id":"10000000-0000-4000-8000-000000000008","label":"Unassigned wait","role":"waiting"}
+    ],
+    "transitions": [
+      {"from":"10000000-0000-4000-8000-000000000001","to":"10000000-0000-4000-8000-000000000002","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000002","to":"10000000-0000-4000-8000-000000000003","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000002","to":"10000000-0000-4000-8000-000000000005","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000002","to":"10000000-0000-4000-8000-000000000006","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000002","to":"10000000-0000-4000-8000-000000000007","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000002","to":"10000000-0000-4000-8000-000000000008","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000003","to":"10000000-0000-4000-8000-000000000004","actors":["human"]},
+      {"from":"10000000-0000-4000-8000-000000000005","to":"10000000-0000-4000-8000-000000000002","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000006","to":"10000000-0000-4000-8000-000000000002","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000007","to":"10000000-0000-4000-8000-000000000002","actors":["automation","human"]},
+      {"from":"10000000-0000-4000-8000-000000000008","to":"10000000-0000-4000-8000-000000000002","actors":["automation","human"]}
+    ],
+    "actorRights": {
+      "human": ["approve","attach","comment","create","edit","export","read","read-own-outcome","review-handoff"],
+      "automation": ["attach","comment","create","edit","export","read","read-own-outcome","review-handoff"]
+    },
+    "attention": {
+      "blocked": ["10000000-0000-4000-8000-000000000005","10000000-0000-4000-8000-000000000006"],
+      "needsTerry": ["10000000-0000-4000-8000-000000000007"],
+      "readyForReview": ["10000000-0000-4000-8000-000000000003"]
+    }
+  },
+  "rows": [
+    {"id":"a","lane":"10000000-0000-4000-8000-000000000001","archived":false},
+    {"id":"b","lane":"10000000-0000-4000-8000-000000000002","archived":false},
+    {"id":"c","lane":"10000000-0000-4000-8000-000000000003","archived":false},
+    {"id":"d","lane":"10000000-0000-4000-8000-000000000003","archived":true},
+    {"id":"e","lane":"10000000-0000-4000-8000-000000000004","archived":false},
+    {"id":"f","lane":"10000000-0000-4000-8000-000000000005","archived":false},
+    {"id":"g","lane":"10000000-0000-4000-8000-000000000005","archived":true},
+    {"id":"h","lane":"10000000-0000-4000-8000-000000000006","archived":false},
+    {"id":"i","lane":"10000000-0000-4000-8000-000000000007","archived":false},
+    {"id":"j","lane":"10000000-0000-4000-8000-000000000007","archived":false}
+  ],
+  "expected": {
+    "source":"explicit",
+    "counts": {
+      "blocked":{"state":"known","value":2},
+      "needsTerry":{"state":"known","value":2},
+      "readyForReview":{"state":"known","value":1}
+    },
+    "assignedLaneIds":["10000000-0000-4000-8000-000000000003","10000000-0000-4000-8000-000000000005","10000000-0000-4000-8000-000000000006","10000000-0000-4000-8000-000000000007"],
+    "aggregate":5
+  },
+  "variants": [
+    {
+      "name":"absent-attention","attentionPresent":false,"expectedSource":"implicit",
+      "expectedCounts":{"blocked":{"state":"not_configured","value":null},"needsTerry":{"state":"not_configured","value":null},"readyForReview":{"state":"known","value":1}}
+    },
+    {
+      "name":"all-explicit-empty","attentionPresent":true,
+      "attention":{"blocked":[],"needsTerry":[],"readyForReview":[]},"expectedSource":"explicit",
+      "expectedCounts":{"blocked":{"state":"not_configured","value":null},"needsTerry":{"state":"not_configured","value":null},"readyForReview":{"state":"not_configured","value":null}}
+    },
+    {
+      "name":"mapped-empty-wait","attentionPresent":true,
+      "attention":{"blocked":["10000000-0000-4000-8000-000000000008"],"needsTerry":[],"readyForReview":["10000000-0000-4000-8000-000000000003"]},"expectedSource":"explicit",
+      "expectedCounts":{"blocked":{"state":"known","value":0},"needsTerry":{"state":"not_configured","value":null},"readyForReview":{"state":"known","value":1}}
+    }
+  ],
+  "invalidAssignments": [
+    {"name":"overlap","replaceField":"needsTerry","value":["10000000-0000-4000-8000-000000000005"],"expectedCode":"INVALID_INPUT"},
+    {"name":"initial-role","replaceField":"blocked","value":["10000000-0000-4000-8000-000000000001"],"expectedCode":"INVALID_INPUT"},
+    {"name":"in-progress-role","replaceField":"blocked","value":["10000000-0000-4000-8000-000000000002"],"expectedCode":"INVALID_INPUT"},
+    {"name":"completed-role","replaceField":"blocked","value":["10000000-0000-4000-8000-000000000004"],"expectedCode":"INVALID_INPUT"},
+    {"name":"review-in-waiting-category","replaceField":"blocked","value":["10000000-0000-4000-8000-000000000003"],"expectedCode":"INVALID_INPUT"},
+    {"name":"waiting-in-review-category","replaceField":"readyForReview","value":["10000000-0000-4000-8000-000000000007"],"expectedCode":"INVALID_INPUT"},
+    {"name":"unknown-id","replaceField":"blocked","value":["10000000-0000-4000-8000-000000000999"],"expectedCode":"INVALID_INPUT"},
+    {"name":"duplicate","replaceField":"blocked","value":["10000000-0000-4000-8000-000000000005","10000000-0000-4000-8000-000000000005"],"expectedCode":"INVALID_INPUT"},
+    {"name":"unsorted","replaceField":"blocked","value":["10000000-0000-4000-8000-000000000006","10000000-0000-4000-8000-000000000005"],"expectedCode":"INVALID_INPUT"},
+    {"name":"label-instead-of-id","replaceField":"blocked","value":["External delivery"],"expectedCode":"INVALID_INPUT"},
+    {"name":"null-array","replaceField":"blocked","value":null,"expectedCode":"INVALID_INPUT"},
+    {"name":"explicit-null","replaceAttention":null,"expectedCode":"INVALID_INPUT"},
+    {"name":"missing-key","replaceAttention":{"blocked":[],"needsTerry":[]},"expectedCode":"INVALID_INPUT"},
+    {"name":"extra-key","replaceAttention":{"blocked":[],"needsTerry":[],"readyForReview":[],"other":[]},"expectedCode":"INVALID_INPUT"}
+  ],
+  "save": {
+    "construction":"Copy fixture.workflow verbatim, change revision to4 and attention to all three empty arrays. Insert it as input.workflow in envelope.",
+    "envelope":{"opId":"10000000-0000-4000-8000-000000000103","incarnation":"10000000-0000-4000-8000-000000000102","target":null,"expectedRevision":41,"expectedCardRevision":null,"input":{"expectedPolicyVersion":3}},
+    "expectedResult":{"workflowId":"10000000-0000-4000-8000-000000000100","policyVersion":4},
+    "expectedBoardRevision":42,"expectedPolicyRecordsAdded":1,"expectedActivityAdded":1,"expectedCardRevisionChanges":0,"expectedLastCardActivityChanged":false,
+    "expectedPreview":{"beforeSource":"explicit","afterSource":"explicit","changed":true},
+    "expectedCounts":"variants[name=all-explicit-empty].expectedCounts"
+  },
+  "sourceEquality": [
+    {"beforePresent":false,"afterPresent":true,"afterAssignment":"implicit-resolved","expectedChanged":true},
+    {"beforePresent":true,"beforeAssignment":"implicit-resolved","afterPresent":false,"expectedChanged":true},
+    {"beforePresent":true,"afterPresent":true,"sameAssignment":true,"expectedChanged":false,"expectedOutcome":"NOT_COMMITTED","expectedCode":"NO_CHANGE"}
+  ],
+  "availability": {
+    "failedObservation":{"freshness":"never","attentionContext":null,"attention":{"blocked":{"state":"unknown","value":null},"needsTerry":{"state":"unknown","value":null},"readyForReview":{"state":"unknown","value":null}}},
+    "retainedStale":{"freshness":"stale","retainExactContext":true,"attention":{"blocked":{"state":"stale","value":2},"needsTerry":{"state":"stale","value":2},"readyForReview":{"state":"stale","value":1}}}
+  },
+  "sort": {
+    "rows": [
+      {"key":"older-high","activity":"2026-11-04T12:00:00Z","freshness":"fresh","counts":[20,20,20],"label":"A","projectKey":"p","boardKey":"a"},
+      {"key":"newer-low","activity":"2026-11-05T12:00:00Z","freshness":"fresh","counts":[0,0,0],"label":"Z","projectKey":"p","boardKey":"b"},
+      {"key":"tie-high","activity":"2026-11-05T12:00:00Z","freshness":"fresh","counts":[2,2,1],"label":"Z","projectKey":"p","boardKey":"c"},
+      {"key":"tie-empty","activity":"2026-11-05T12:00:00Z","freshness":"fresh","counts":[null,null,null],"label":"A","projectKey":"p","boardKey":"d"},
+      {"key":"tie-stale","activity":"2026-11-05T12:00:00Z","freshness":"stale","counts":[99,99,99],"label":"A","projectKey":"p","boardKey":"e"},
+      {"key":"no-activity","activity":null,"freshness":"fresh","counts":[99,99,99],"label":"A","projectKey":"p","boardKey":"f"}
+    ],
+    "nullCountMeaning":"not_configured on an authorized fresh observation, zero for ranking only",
+    "expectedKeys":["tie-high","tie-empty","newer-low","tie-stale","older-high","no-activity"]
+  },
+  "upgrade":{"from":9,"to":10,"expectedChangedFields":["PRAGMA user_version"],"expectedPolicyRecordsAdded":0,"expectedAttentionFieldsInserted":0,"expectedCardRevisionChanges":0},
+  "cli": {
+    "boardRead":["localswim","--data","PRIVATE_BOARD","--json","attention","show"],
+    "workspaceRead":["localswim","--workspace","PRIVATE_WORKSPACE","--json","workspace","catalog"],
+    "expectedSuccessfulExit":0,"invalidSelectionExit":1,"unavailableExit":3
+  }
+}
