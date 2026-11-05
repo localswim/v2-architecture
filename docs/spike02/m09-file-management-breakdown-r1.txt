@@ -1,0 +1,201 @@
+M09 CARD-FILE STORY BREAKDOWN R1
+2026-11-05
+
+Customer outcome
+Manage card files through the ordinary browser and actual CLI, including add, list, inspect, download and detach, with correct attribution, history and retained bytes.
+
+Scope and execution gates
+- Each delivery story joins the browser, actual executable CLI and authoritative service into a demonstrable user outcome. Reuse accepted attachment add/read, byte storage, native file publication and private recovery components.
+- Keep M10 cover selection/clearing and its broader attachment-consistency outcome separate. M09 defines safe handling of any existing cover reference affected by detach and proves preservation of existing export/restore guarantees.
+- Preserve current authority, Completed protection, assigned priorities, workflow policy history, hierarchy, relationships, Attention and source-bound original outcomes.
+- Use synthetic private data, existing 10 MiB file and 64 MiB protected-byte limits, inert filenames/content, one writer and exact retained bytes. Contract review resolves any required representation/version changes.
+- Preflight and development each require their own reviewed estimate and explicit start. The historical 3-4 hour WAG is not a development allowance. Re-estimate the complete milestone after Preflight and split or seek explicit owner direction if its base exceeds the current four-hour sizing target.
+
+Dependencies
+M09.00 -> M09.01 -> M09.02 -> M09.03 -> M09.04 -> M09.05 -> M09.06
+
+Accepted starting point
+Implementation 18570c3f24d8e22cec30a8199b5eed85db066133
+Qualified source cd3280f9c576d0112822050d85a6ed758b7d1de5
+Architecture 75097b67d0b0b2d528b87bbc28aa27f291a43ba5
+
+M09.00 Preflight (#0121)
+
+Outcome
+Establish a reproducible accepted-M08 starting point and identify attachment readiness before feature work.
+
+Acceptance
+- Verify accepted source, pinned tools, private roots, shared-queue health and current default/configured workspace startup, actual CLI selection and saved-port reopen using bounded existing-path checks.
+- Exercise an existing ordinary attachment add/read/download path through browser and actual CLI, including byte verification and current board/card context. Record existing-path failures and the boundary between readiness repair and separately scoped feature work.
+- Inventory current metadata/history, attachment selection, upload/download, recovery, quota/pin, export/restore and generated-contract paths. Check the configured-workflow Completed selector concern from the M08 handoff and classify its readiness or development ownership.
+- Publish source-bound readiness evidence, fresh independent review, owned host/listener/mailbox cleanup and a refreshed remaining plan. Account for Preflight separately.
+
+Prerequisites
+- #0120 accepted breakdown
+- #0104 accepted M08
+
+Entry gates
+- Accepted breakdown
+- Approved Preflight estimate
+- Explicit Preflight start
+- Move this story In Progress before execution, testing or independent review.
+- Retain fresh independent review and Terry's control of Completed.
+
+Scope boundary
+Existing-path readiness and seam inventory. Feature semantics and product changes belong to the following development stories.
+
+Planning source
+M09-R1 under planning #0120 and epic #0004.
+
+M09.01 Agree card-file behavior and executable acceptance (#0122)
+
+Outcome
+One reviewed contract defines file inspection, transfer and removal against the accepted workflow and recovery model.
+
+Acceptance
+- Define selected-card and historical attachment identity, list/inspect fields, ordering and bounded continuation, default visibility, archived and Completed behavior, and current read authority. Decide access to detached retained metadata/bytes explicitly, accounting for the existing live-current-reference download check. Define attribution from existing provenance/history before selecting new fields.
+- Define add and detach admission, actor rights/current workflow ceilings, board/card revisions, approval invalidation, attribution/activity/history, absent or already-detached targets, NO_CHANGE/refusal ordering and original lookup after uncertain delivery.
+- Resolve detach effects on current references, existing cover references, retained history/originals, byte pins and quota without automatic byte deletion. Specify races with add, detach, card/workflow edits, approval, archive and export.
+- Specify browser and actual CLI interactions, exact command/API/generated shapes, memory-only raw-file handling, deliberate discard/reselection, filename/media safety and browser-offered versus native-verified download outcomes.
+- Decide compatibility/version/upgrade or safe-refusal requirements and complete first/second restore comparisons. Publish normal, boundary and fault acceptance examples with requirement ownership, then obtain fresh Sol / High review and owner acceptance.
+
+Prerequisites
+- #0121 M09.00
+
+Entry gates
+- Accepted Preflight
+- Approved remaining-development estimate
+- Explicit development start
+- Move this story In Progress before execution, testing or independent review.
+- Retain fresh independent review and Terry's control of Completed.
+
+Scope boundary
+Behavior, representations and synthetic acceptance specifications. Concrete schema, route and detach semantics are decisions for this accepted contract.
+
+Planning source
+M09-R1 under planning #0120 and epic #0004.
+
+M09.02 Find, inspect and download a card's files (#0123)
+
+Outcome
+A user can select the intended card, inspect its files and obtain verified bytes through the browser and actual CLI.
+
+Acceptance
+- Deliver the accepted selected-card list/inspect/read surfaces through the authoritative service, generated contracts, ordinary browser and actual CLI, including empty lists and bounded ordered results where required.
+- Present identity, name, media label, size, digest, attribution and current/historical availability according to the contract. Preserve exact card/board context across equal display tickets, navigation, delayed responses, authority loss and refresh.
+- Verify complete bytes before browser offers or native publication. Exercise zero-byte/binary/non-ASCII-name examples, missing/corrupt bytes, access refusal, cancellation/interruption and native no-overwrite/path safeguards. Preserve the distinction between a browser offer and verified local CLI save.
+- Cover default/configured workflows and contract-defined active/archived/Completed reads. Publish focused browser/actual-CLI evidence, shared-queue diagnostics, user guidance and fresh independent review.
+- Deliver any compatibility work required by this slice at its own handoff. If the accepted contract changes persisted representations or introduces a reader compatibility boundary, prove explicit upgrade or safe refusal, saved-port reopen and a first complete retained-record/original/blob restore comparison here. Record source-based justification when this read-only slice introduces no such change.
+
+Prerequisites
+- #0122 M09.01
+
+Entry gates
+- Accepted file contract and current phase authority
+- Move this story In Progress before execution, testing or independent review.
+- Retain fresh independent review and Terry's control of Completed.
+
+Scope boundary
+A complete inspection/download outcome using existing attachments and synthetic fixtures. Upload and detach remain subsequent delivery outcomes.
+
+Planning source
+M09-R1 under planning #0120 and epic #0004.
+
+M09.03 Attach files safely from browser and CLI (#0124)
+
+Outcome
+A user can attach one chosen file to the intended card and inspect or download the committed result through either client.
+
+Acceptance
+- Complete the existing upload path against the accepted file contract, including role-aware configured-workflow eligibility and selected-card controls. Join browser upload/CLI read and CLI upload/browser read through M09.02.
+- Preserve metadata drafts, private prepare/readback, memory-only raw bytes, explicit discard/reselection, keyboard/composition/focus and window isolation. Capture the exact file bytes and original board/card context before dispatch.
+- Exercise accepted size/quota boundaries, zero-byte and duplicate-content cases, invalid metadata, malformed or incomplete transfer, storage/permission failures, revision races and concurrent changes. Co-commit exact bytes, references, history, attribution, approval effects and original outcome.
+- Demonstrate deliberate lookup after lost response, reload/reopen without resubmission and input retention on refusal. Include first complete export/restore comparison for new add-path effects, focused regression proof, user guidance and fresh independent review.
+
+Prerequisites
+- #0123 M09.02
+
+Entry gates
+- Accepted preceding delivery and current phase authority
+- Move this story In Progress before execution, testing or independent review.
+- Retain fresh independent review and Terry's control of Completed.
+
+Scope boundary
+Complete add-file outcome and its required persistence/recovery compatibility, reusing the existing byte authority.
+
+Planning source
+M09-R1 under planning #0120 and epic #0004.
+
+M09.04 Detach a card file while preserving retained evidence (#0125)
+
+Outcome
+A user can deliberately remove a current card-file association through the browser or CLI while retained evidence remains correct.
+
+Acceptance
+- Deliver the accepted detach command, authoritative admission, generated/API/CLI path and ordinary browser confirmation with exact target/context. Implement the contract's current-reference, cover-reference, approval, history/activity and repeated-request behavior atomically.
+- Protect historical references, originals, blob pins and quota accounting. Physical byte reclamation requires separate authority. Include required representation/version compatibility, explicit upgrade or safe refusal, reopen and the first complete restore comparison at this delivery boundary.
+- Exercise current authority/ceiling checks, archived/Completed rules, stale and competing changes, foreign/nonexistent/already-detached identities, storage failure and lost-response original lookup without replay.
+- Join add, inspect, download and detach through both clients. Prove the contract-defined retained-history/download behavior after removal and preserve existing cover representations. Publish user guidance, focused regression/conservation evidence and fresh independent Sol / High review.
+
+Prerequisites
+- #0124 M09.03
+
+Entry gates
+- Accepted add-file delivery and current phase authority
+- Move this story In Progress before execution, testing or independent review.
+- Retain fresh independent review and Terry's control of Completed.
+
+Scope boundary
+New detach lifecycle and its necessary compatibility. New cover-choice UI and automatic garbage collection are separate work.
+
+Planning source
+M09-R1 under planning #0120 and epic #0004.
+
+M09.05 Qualify the complete card-file lifecycle (#0126)
+
+Outcome
+One exact integrated candidate satisfies the file-management contract and preserves the accepted M08 product.
+
+Acceptance
+- Run complete required native/browser inventories with zero required failures/skips and two isolated clean source extractions/builds with separate caches and matching complete generated/staged/executable outputs, or independently justified exact unchanged evidence reuse.
+- Run the joined ordinary browser/actual-CLI lifecycle across default/configured boards in a multi-board workspace. Include current and contract-defined historical file views, role/authority boundaries, keyboard/narrow layout, private windows and M08 workflow/Attention plus edit/archive/search/hierarchy/relationship regressions.
+- Bind separately labeled concurrency, transfer/storage faults, UNKNOWN/no-replay, quota and integrity checks to the candidate. Compare complete records, policies, approvals, current/historical references, originals, tombstones and exact blobs through first/second runnable restores and required old-reader/upgrade controls.
+- Serialize fixed-port suites, validate bounded shared-queue evidence and owned cleanup, retain failures, and correct/re-review material findings. Publish traceability and obtain fresh independent authority/recovery and final evidence review.
+
+Prerequisites
+- #0125 M09.04
+
+Entry gates
+- Accepted file deliveries and current phase authority
+- Move this story In Progress before execution, testing or independent review.
+- Retain fresh independent review and Terry's control of Completed.
+
+Scope boundary
+Joined qualification of the implemented candidate. Each feature story already owns its first compatibility and focused correctness proof.
+
+Planning source
+M09-R1 under planning #0120 and epic #0004.
+
+M09.06 Deliver and demonstrate the exact M09 review kit (#0127)
+
+Outcome
+Terry receives a usable verified kit and a fresh ordinary demonstration of the whole card-file lifecycle.
+
+Acceptance
+- Package the exact qualified executable, generated contracts, notices, complete startup/browser/CLI/recovery guides, checksums and evidence index. Verify extracted hashes and recursive guide/schema dependencies and a usable delivery path, including local fallback above the board attachment limit.
+- Run a fresh extracted-kit browser/actual-CLI demonstration of add, list, inspect, download and detach, historical evidence and byte verification across default/configured boards, then saved-port reopen with complete current-read parity.
+- Inspect bounded shared-queue evidence and close all owned hosts/listeners/mailboxes. Obtain fresh independent final package/demo review, publish source/evidence, record actuals and process lessons and hand off story/epic after checking every child's state.
+
+Prerequisites
+- #0126 M09.05
+
+Entry gates
+- Accepted joined qualification and current phase authority
+- Move this story In Progress before execution, testing or independent review.
+- Retain fresh independent review and Terry's control of Completed.
+
+Scope boundary
+Verified delivery and normal demonstration of the qualified candidate.
+
+Planning source
+M09-R1 under planning #0120 and epic #0004.
