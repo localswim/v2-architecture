@@ -29,6 +29,12 @@ milestones shift to M09-M19. This overlay preserves earlier scope and evidence
 while superseding their milestone-number references. Execution remains subject
 to the separate acceptance and phase-start gates.
 
+The [M07.01 workflow-change contract](docs/decisions/m07-workflow-change-contract-2026-11-05.txt),
+[acceptance scenarios](docs/spike02/m07-workflow-change-acceptance-r1.txt) and
+[synthetic fixture](docs/spike02/m07-workflow-change-fixture-r1.json) propose
+editable existing workflows with retained policy history and original-operation
+compatibility. They require owner acceptance before implementation.
+
 The current [M01 work package R2](docs/spike02/m01-work-package-r2.txt) and its
 [structured plan](docs/spike02/m01-work-package-r2.json) implement Terry's requested
 planning replacement: M01.00 is pre-timed preparation, followed by A-J as

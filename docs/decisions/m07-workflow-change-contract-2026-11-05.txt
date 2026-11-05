@@ -1,0 +1,460 @@
+M07.01 EXISTING-BOARD WORKFLOW CHANGE CONTRACT R1
+2026-11-05 | Proposal for owner acceptance | #0096
+
+Outcome and authority
+Edit an existing default or configured board through its ordinary browser and
+actual CLI, with an exact preview, deliberate save and retained policy history.
+This proposal and its synthetic companions require fresh independent Sol / High
+review and Terry's acceptance before #0058 implementation. Specification is not
+runtime evidence. Terry approved the M07/M08 split and M07 development start.
+Companions are ../spike02/m07-workflow-change-acceptance-r1.txt and
+m07-workflow-change-fixture-r1.json. The accepted M06 contract governs unchanged
+behavior. This contract explicitly supersedes its immutable-policy restrictions
+only for the supported existing-board changes below.
+
+1. Supported edits and fixed meaning
+Support label changes, lane-array reorder, ordinary transition/actor changes,
+ordinary-right ceiling changes, new waiting lanes, and empty waiting-lane
+retirement. Submit a complete replacement candidate, not a sequence of patches.
+An existing default with legacy CURRENT card/approval facts incompatible with the
+edited-profile invariant cannot take its first real edit. It receives the explicit
+WORKFLOW_INCOMPATIBLE refusal described below and keeps its valid legacy behavior.
+Validate the complete resulting graph before any mutation. Retain the M06 bounds
+of 4..16 active lanes, 3..64 edges, 64 KiB definition, exact Unicode labels,
+case-folded label uniqueness, sorted unique rights/actors/edges and human
+reachability. Definitions never contain executable predicates or scripts.
+
+The initial, in_progress, review and completed lanes keep their original IDs and
+roles forever. Existing waiting lanes keep their IDs and role. Changing any
+existing lane's identity or role, changing the workflow identity/profile,
+replacing a required-role lane, merging lanes or automatically remapping cards
+is refused. A rename keeps identity. Reordering changes presentation only.
+Retire a waiting lane only when NO current card, including an archived card,
+occupies it. Historical snapshots, activities, originals and approvals may still
+refer to it. Retain its ID in history and forbid reusing that ID in any later
+policy, even with its old label. Reusing an old label for a different active lane
+is allowed if current labels remain unique. Clients must display identity/role
+context so equal labels across versions do not imply continuity.
+
+Keep exactly the M06 protected review edges, in_progress->review and
+review->completed, with human admitted on both and human alone on the latter.
+Only the former may also admit automation when its ceiling allows handoff.
+No other edge enters review/completed and no edge leaves completed. The human
+read/read-own-outcome/create/edit/review-handoff/approve rights remain mandatory.
+Both actor kinds retain read/read-own-outcome. No automation approve right,
+owner inference, automatic start or new terminal/reopen operation is introduced.
+
+All supported changes leave cards in their current lanes. No card revision,
+content, current approval pointer, explicit P0..P5 priority, owner, parent,
+relationship, comment, attachment or archived flag is changed by a policy edit.
+Existing cards may become unable to take an old ordinary edge or lose automation
+access. Show this in preview. Required human reachability prevents a policy-only
+dead end. An archived unfinished card must still be deliberately unarchived
+before workflow movement. Completed stays terminal/read-only on every card path.
+
+2. Default and configured identities
+Configured boards retain the M06 Workflow shape, workflowId and UUID lane IDs.
+Workflow.revision becomes a positive safe integer and equals board.policyVersion.
+Revision1 and its exact stored definition are retained. profile is omitted for
+configured definitions. Explicit profile:"configured" is refused to avoid a
+second canonical spelling.
+
+An untouched default board retains workflow omission, policyVersion1, all four
+literal lane IDs and old shapes. Its first real edit introduces Workflow with
+profile:"default", one freshly generated workflowId, revision2, and the same
+lanes identified by their original strings. The required ID/role pairs are
+Ready for Work/initial, In Progress/in_progress, Ready for Review/review and
+Completed/completed. These IDs remain exact even after their labels change.
+New waiting lanes use UUID IDs. No conversion of current or historical lane
+values is performed. profile:"default" is the only new profile spelling and
+appears only after an explicit existing-default edit. The workflowId is generated
+once in the draft, retained through preview/save/UNKNOWN and fixed after commit.
+The implicit revision1 default has no invented historical UUID or workflow field.
+Before the first real default change, validate ALL current cards, including
+archived cards, against the strict current-state invariant. A noncompleted card
+has no current approval pointer. A completed card has a pointer to an existing
+human approval for that card, issued under policy1, with reviewed card revision
+equal to current revision minus1. The approval's required references must resolve.
+Legacy state accepted by the old complete validators can fail this additional
+editing gate. Return WORKFLOW_INCOMPATIBLE for that case during preview/save,
+after ordinary authority/CAS/candidate checks and before any domain effect.
+For a frozen save, this is the normal durable NOT_COMMITTED refusal carrying
+that code. Preview remains read-only. This gate checks current pointers and
+their relevant approval facts, not every unrelated retained historical approval.
+This is a supported-feature limitation, not a declaration of corrupt legacy
+storage. Keep source opening, legacy operations, export and restore behavior
+unchanged. Do not clear pointers, repair Completed, invent approvals, or make
+historical bytes conform to the newer invariant. An exact NO_CHANGE candidate
+does not enter the new profile and does not require this additional gate.
+After the first committed edit, every CURRENT card uses strict current lane/
+approval validation on open, read, mutation admission and restore, even when its
+unchanged state pin is still implicitly1. The permissive legacy branch applies
+to historical records only. A pin1 current card cannot conceal later corruption.
+
+For default-profile definitions, transition endpoints and lane IDs accept those
+four literal IDs plus waiting UUIDs. For configured definitions they remain UUIDs
+only. Sort transitions by exact endpoint strings. All other M06 validation rules
+apply through the same profile-aware validator. M06 new-board init/create keeps
+its original configured-only UUID/revision1 grammar and rejects profile.
+The complete identity is board/incarnation, profile, workflow identity when
+present, policyVersion, and lane ID. A label, array position, ticket or a matching
+UUID in a second board never supplies authority.
+
+After a default edit, preserve card.edit.lane="In Progress" as its exact legacy
+start intent against that stable ID, regardless of display label. Do not add new
+values to legacy lane. Extend explicit card.edit.laneId to the profile's exact
+lane IDs, as its only input field. This allows ordinary moves to added waiting
+lanes and fixed default IDs through card move. Untouched defaults still reject
+laneId as in M06. Configured boards still reject legacy lane. Archived/review/
+completed/equal-target refusal order and NO_CHANGE rules otherwise remain M06.
+
+3. Retained policy and historical interpretation
+Retain an immutable complete policy record for EVERY committed policy version.
+Each record is {policyVersion:N, workflow?:Workflow}. Default version1 omits
+workflow, configured version1 contains its exact original Workflow. Later records
+contain complete definitions. Versions are contiguous from1. Only the current
+pointer advances. Definitions and retired IDs are never rewritten or pruned by
+card-history/activity/outcome retention. No-change creates no policy version.
+Bound retained history to 128 policy records and 8 MiB of canonical UTF-8 encoded
+workflowPolicies array. Count version1. A changed save exceeding either bound
+returns INVALID_INPUT before any domain mutation. NO_CHANGE remains available
+at capacity. Preview exposes current use and remaining capacity. Do not silently
+drop old policies, auto-compact, or publish a state exceeding these limits. These
+limits are an explicit M07 choice, alongside existing transport/archive limits.
+
+Add optional workflowPolicies to Board, complete board/card/history/search
+results and lane-bearing hierarchy results. It is omitted for untouched M06
+boards. After the first edit it is the ordered complete policy record array
+including version1 and current. Existing workflow is the exact current definition
+and board.policyVersion names it. Inconsistent duplicate representations refuse
+at storage/read/archive validation. Current and history arrive in one coherent,
+authorized selected-board snapshot. Partial card search never grants whole-board
+or mutation authority. A failed/incomplete definition read gives unavailable
+context, never guessed labels from a catalog or another window.
+
+Add optional workflowPolicyVersion to Card and SnapshotState. Omission means1
+and is retained exactly for old facts. On each new card revision after policy1,
+write its current policy version. A policy-only edit does not repin existing
+cards. When capturing a prior card revision into a snapshot, copy its existing
+pin, not the policy current at snapshot insertion. History labels/roles resolve
+the state's pin. Current-board/card displays resolve CURRENT policy while exposing
+the recorded pin separately where history is shown. This keeps a card created
+before a rename historically intelligible without rewriting that card's facts.
+Pruned state has no invented lane/label. Retain available summary provenance.
+Historical default-policy1 facts retain the complete old default validation
+branch even after the first edit. Do not send those facts through configured or
+post-edit approval validation merely because the board now has a Workflow.
+In particular, preserve baseline-accepted approval associations and opaque
+legacy snapshot JSON with no lane. Where a legacy snapshot has a lane, retain
+the old default-literal membership checks. The old branch's permissiveness is
+historical compatibility and supplies no current approval or prerequisite proof.
+Snapshots pinned to2 or later, and all configured history, use their respective
+strict retained-policy validation. A missing pin on old default history means1.
+
+Opaque storage acceptance does not imply representability in SnapshotState or
+the existing archive. Preserve exact stored bytes and the old default opaque-state
+validation through physical upgrade, policy edit and reopen. Preserve existing
+bounded history-read/export unavailability when those old bytes cannot pass the
+applicable full read/archive validators. Do not add a new opaque encoding, invent
+readable card fields, silently omit the record or publish a lossy archive. Legacy
+facts already representable by the complete old API/archive remain representable
+and byte/value-conserved through those paths and repeated restore.
+Activity records for policy changes carry policyVersion and workflow identity,
+not copied card prose. Historical card activity/originals are not reinterpreted
+as accepted under current policy. Retention of activity is not a substitute for
+the policy table or explicit state pin.
+
+4. Approval, prerequisites and actual authority
+Every new approve request supplies CURRENT policyVersion, now any positive safe
+integer. Existing approval records retain their exact issuing policyVersion and
+reviewed card/board revisions. Old approval originals still decode/refreeze with
+their original value and bytes. A stale approve cannot silently adopt a new policy.
+
+An existing current approval remains valid across ALL supported workflow edits
+because required lane identities, roles, review path, human-only approval and
+the reviewed card revision remain invariant. Validate its issuing retained policy,
+human attribution, card identity, reviewed-card-revision=current-card-revision-1,
+current approval pointer and current completed-role membership. Do not require
+approval.policyVersion == CURRENT policyVersion. The exact issuing version must
+exist and must authorize the original review/approval facts. An old version's
+existence alone does not excuse malformed/missing approval evidence.
+For default-policy1 historical approval evidence, preserve the old validators'
+acceptance rather than retroactively applying this current-authority test to
+every retained historical record. Only approvals independently meeting the
+strict current test can satisfy a current Completed/prerequisite assertion.
+The same rule MUST govern blocking-prerequisite admission, reopen, archive and
+restore, for both default and configured boards. A nonarchived completed peer
+with that valid approval still satisfies a source-owned active blocking link
+after a policy edit. Other link types and hierarchy remain irrelevant to start.
+Existing substantive card mutations retain their approval invalidation rules.
+Missing/corrupt historical policy is an integrity refusal, never approval or
+permission inferred from a current label. Role/identity changes that would require
+global invalidation are outside the supported contract and are refused.
+
+workflow.edit requires the authenticated ordinary channel's CURRENT edit grant
+AND current actor-kind edit ceiling in the writer snapshot. Browser uses its
+verified local human actor. Actual CLI uses its existing automation actor. Neither
+may supply actor kind or borrow native-owner authority. Assignment gives no right.
+The edit ceiling is the chosen policy-management admission right for this bounded
+feature. There is no separate enrollment, grant-admin or credential operation.
+
+Ceilings never issue, expand, revoke, replace or rewrite stored grants. Effective
+ordinary authority is intersection of an independently valid current grant and
+the current policy ceiling. Lowering a ceiling may immediately disable an existing
+grant right. Raising it may make that independently retained right effective
+again, but cannot create a missing or revoked grant. Preview discloses both effects.
+Stored historical and disabled grant rows may legitimately exceed CURRENT ceiling.
+Validate their legal vocabulary/actor restrictions independently, not against the
+latest ceiling. New grant issuance retains current-ceiling admission. Forbidden
+automation approve/grant-admin/history-admin rights are invalid in every
+historical/current record. Existing separate automation restore administration
+retains its accepted native-channel rules and cannot enter actorRights.
+Native-owner administrative separation is unchanged. Automation may remove its
+own edit ceiling. Subsequent ordinary automation edits refuse. Human mandatory
+edit plus its independently valid grant remains the supported recovery path.
+
+5. Mutation, preview, concurrency and originals
+Add command workflow.edit with target none and normal exact board/incarnation/
+opId/expectedRevision/expectedCardRevision:null envelope. Route is
+PATCH /api/v1/boards/{boardId}/workflow. input is exactly
+{expectedPolicyVersion:N,workflow:COMPLETE_CANDIDATE}. The candidate revision is
+N+1 and expectedPolicyVersion is a positive safe integer. Unknown keys, explicit
+nulls, duplicate JSON keys, oversize definitions and malformed integers refuse.
+The exact wire body contains opId, incarnation, target:null, expectedRevision,
+expectedCardRevision:null and input. The authenticated route supplies boardId.
+Do not add apiVersion or boardId to this ordinary mutation body's grammar.
+The required envelope nulls above are the only null exceptions. Bound each full
+preview and mutation request to 800000 raw UTF-8 bytes, preserving the current
+board-API limit in addition to the independent 65536-byte definition limit.
+Oversize bodies retain existing HTTP413/nonterminal handling before freezing.
+Result is exactly {workflowId:UUID,policyVersion:NEXT}. Add workflow policy
+FactRef kind with id=workflowId and revision=NEXT, and workflow.edit activity type.
+Preserve fingerprintVersion1 and every preexisting command's canonical bytes.
+New command fields participate in its canonical original. No mutable preview
+token, current-state lookup or normalization is inserted during freezing.
+
+Add read-only POST /api/v1/boards/{boardId}/workflow/preview, with body
+{apiVersion:1,boardId,incarnation,expectedRevision,expectedPolicyVersion,workflow}.
+It requires current read and edit authority and current exact context. It accepts
+no opId, target, actor, card, filesystem path or grant. Apply the same candidate
+validator and occupancy checks to one coherent read snapshot. Return exact context,
+current/candidate definitions, proposed next policyVersion, wouldChange boolean,
+structured lane-label/order/add/retire and edge/right differences, current-card
+counts per affected lane including archived counts, retained approval count and
+the explicit approval-preserved rule. Identify newly effective/suppressed actor
+ceilings without exposing credentials or other principals' secret data.
+The success shape is exactly
+{apiVersion:1,boardId,incarnation,revision,policyVersion,currentWorkflow?:Workflow,
+ candidate:Workflow,wouldChange:boolean,nextPolicyVersion:N,
+ changes:{renamed:[{laneId,before,after}],orderChanged:boolean,
+          added:[WorkflowLane],retired:[WorkflowLane],transitionsChanged:boolean,
+          rights:{human:{added:[Right],removed:[Right]},
+                  automation:{added:[Right],removed:[Right]}}},
+ occupancy:[{laneId,currentCards:N,archivedCards:N}],
+ approval:{preservedCurrentCount:N,rule:"retained-issuing-policy"},
+ capacity:{policyRecords:N,policyRecordsAfter:N,canonicalPolicyBytesAfter:N,
+           maxPolicyRecords:128,maxCanonicalPolicyBytes:8388608}}.
+Here N denotes an appropriate nonnegative safe integer except positive policy
+versions. nextPolicyVersion and policyRecordsAfter equal current values for
+NO_CHANGE. currentWorkflow is omitted only for implicit default1. Added/retired
+lanes retain their definition order. Renamed/occupancy entries sort by exact
+lane ID and right arrays retain lexical order. occupancy covers every current
+lane, currentCards includes archivedCards, and the candidate is returned exactly
+as validated. Complete current/candidate edge arrays carry the transition diff
+when transitionsChanged is true. No private path or credential is returned.
+Invalid/stale previews return the normal bounded refusal taxonomy. Preview has
+no durable operation row, policy, activity, card change or allocation of identity.
+It does not reserve revisions or authorize save. Save submits the exact candidate
+the user previewed with the same expected revisions. The writer validates again.
+
+The existing single writer serializes policy edits and ALL card/grant mutations.
+Check authenticated actor/current authority before revealing policy/occupancy,
+then exact board/incarnation and expected board revision, then expected policy,
+complete candidate and invariant/occupancy checks. Retain existing AUTH/FORBIDDEN,
+identity and board-conflict precedence. Stale policy uses POLICY_CONFLICT.
+Well-shaped identity/role mutation, occupied retirement, retired-ID reuse or
+invalid candidate uses INVALID_INPUT. Do not persist a partial candidate.
+The first-default-edit compatibility failure uses WORKFLOW_INCOMPATIBLE as above.
+Counters at their safe-integer limit use COUNTER_OVERFLOW with no increment.
+
+On success append one policy record, advance current policy once and board revision
+once, record one activity and the original terminal outcome in the SAME transaction.
+Change no card/peer revision or approval. On failure write only the permitted
+immutable NOT_COMMITTED outcome. No domain/policy/card/activity partial effects.
+Preserve pre-freeze authentication/shape/transport refusal handling when there is
+no admissible canonical operation identity. Do not invent an outcome for it.
+Candidate equality ignores only its required proposed revision. All semantic
+fields, exact label bytes, lane order, edge/actor/right arrays and identity match.
+After current-authority/CAS/validity admission, equal candidates return durable
+NOT_COMMITTED/NO_CHANGE with no counters, version, history or activity advance.
+For implicit default1, an otherwise exact original-default candidate is NO_CHANGE
+and its draft workflowId is never installed. Never return a made-up committed ID.
+
+Concurrent card move/retirement, edit/approve, edit/grant-revoke and two policy
+edits have one writer order. A winner advances board revision. The other's old
+envelope refuses as stale before applying. Retried operation identity retains
+the first immutable outcome under existing same-op/fingerprint rules. Preserve
+the writer's ordering of exact retained-original resolution before fresh command
+admission, under current read-own-outcome authority. Do not turn a known original
+into a new stale-command refusal. Same opId with changed bytes is the existing
+OPERATION_MISMATCH. A prepared
+old card request is not rewritten, re-signed, replayed or retroactively evaluated
+as its new counterpart. Its exact first-dispatch admission uses current policy
+and existing CAS. Completed/failed originals remain exact through later edits.
+UNKNOWN remains UNKNOWN after preview/current-policy/catalog/search reads.
+Only a deliberate authorized lookup of the exact original may reconcile it.
+Unavailable/pruned lookup is not permission to replay or invent a terminal result.
+
+6. Ordinary browser and actual CLI
+Expose Edit workflow from the selected board for a current authorized editor.
+Show semantic roles beside current labels, fixed IDs in details, and protected
+review/Completed behavior. Reuse the M06 bounded editor. Add/remove only waiting
+lanes, rename/reorder, edit ordinary edges/actors and right ceilings, then explicit
+Preview and Save. Show affected occupancy, permission changes and preserved
+approvals before Save. Preview is required in the browser flow. Server authority
+never relies on the browser having shown it. Invalid save/preview preserves draft.
+
+Actual CLI adds workflow show, workflow preview --input FILE, and
+workflow edit --input FILE through the existing board-scoped HTTP transport.
+show returns coherent current/history policy context. Preview FILE is the exact
+preview body. Edit FILE is the normal full mutation envelope above. JSON/readable
+outputs and existing exit taxonomy expose conflicts/NO_CHANGE/UNKNOWN honestly.
+CLI performs no implicit read-for-revision, retry, forced save, actor override or
+label resolution. Existing card move/start/handoff/approve remain usable with
+the profile-aware rules. Demonstrate using the real parser and executable.
+
+Before dispatch, use the existing private prepare/readback/dispatch protocol for
+workflow.edit too. Durable private data includes exact bytes/fingerprint/opId,
+board/incarnation, expected policy/board versions, candidate and actor binding.
+Failure to persist/read back cannot dispatch. UNKNOWN retains that exact original
+and draft. Reload, reopen, a second window, changing selection, new previews or
+reading current policy never causes auto lookup/replay or clears uncertainty.
+Known refusal permits deliberate refreshed editing and a fresh original after
+the user sees new context. Never silently transplant edits to a newer policy.
+
+Keep per-window/per-board draft ownership and dirty-discard confirmation. Cancel
+preserves until deliberate discard. Escape does not save. Composition Enter never
+submits. Multiline controls retain Enter. Explicit keyboard activation of Preview
+and Save each dispatches once. Maintain tab order, visible focus, label/role names,
+validation focus, and return focus to the exact live opener or documented selected-
+board fallback. Delay reads/previews/saves/focus callbacks across board, incarnation,
+workspace, project, window and generation changes. Obsolete callbacks must not
+paint, overwrite input, move focus or act on a different current selection.
+One window's successful edit makes another's original stale, preserving its input
+and exact original result rather than doing background rebasing.
+
+7. Existing catalog and Attention compatibility
+Keep the M06 catalog/Attention response shapes, authority/freshness distinctions,
+committed unarchived-only counting, selected-board identity and known-zero versus
+absent/stale/unavailable behavior. Existing Ready for Review count resolves the
+current semantic review role ID from the same coherent board snapshot, including
+a renamed/reordered default or configured workflow. A literal SQL comparison with
+the display label or default string is insufficient on configured boards.
+Policy-only edits cannot add/remove cards from this count because the review ID
+is fixed. Card and policy concurrent reads still return a coherent revision or
+stale/unavailable evidence. The existing UI label may remain Ready for Review.
+It names this existing review measure, not a new configurable category.
+Preserve lastCardActivity and the catalog ordering derived from it. That existing
+measure includes committed card activity only. A workflow.edit has no committed
+card revision, so its policy activity does not advance lastCardActivity or reorder
+the catalog by that measure. Its board revision and ordinary activity history
+still advance as specified.
+No new category IDs, assignment, cardinality, counts, configuration, projection
+API or category-aware Attention semantics are selected here. M08 owns that
+extension and its joined qualification. M07 guides/kit must state this boundary.
+
+8. Physical, generated, API, archive and upgrade compatibility
+Select physical user_version9. Keep immutable board.schema_version5, API1,
+archive format/schema1, fingerprint1, workspace registry/preferences1 and other
+independent versions. PolicyVersion is the monotonically increasing workflow
+policy version defined above, no longer fixed1. Generated Go/TypeScript/schema
+descriptors include the new command, profile-aware IDs, pins/history/result/refs
+and preview shapes. Generation/staging remain authoritative, never hand-edited.
+Use distinct policy/workflow revision types and validators. Do not globally widen
+the shared Version type and thereby allow other protocol, schema or fingerprint
+fields to drift from their independently fixed values.
+
+Freeze physical8's exact DDL/validator independently before current helpers change.
+Only add explicit offline8->9, retaining supported5->6->7->8 separate steps.
+Current startup requires9 and refuses old/unknown/corrupt stores with explicit
+upgrade guidance. Old8 binaries refuse9. Old strict API/archive consumers may
+refuse edited objects and must never silently discard policy history/profile.
+Untouched M06 default/configured reads and exports retain omitted new fields.
+
+Physical9 retains complete versioned definitions/current pointer and state pins.
+An implementation may add versioned policy tables alongside old immutable rows,
+but must provide one authoritative validated current policy, no two independently
+writable copies. The exact physical8 workflow_definition row, existing rows and
+all original values remain conserved evidence. Upgrade seeds policy1 from exact
+M06 definition or implicit default and treats existing state pins as implicit1.
+No UUID regeneration, JSON snapshot rewrite, lane conversion, grant rewrite,
+approval update, label backfill or original re-encoding is allowed on upgrade.
+The old default historical/opaque storage validation branch and exact opaque
+bytes remain valid through upgrade, later policy editing and reopen. Retain the
+API/archive representability boundary stated above. The first-real-edit current-
+state compatibility gate is not an upgrade/open gate.
+Validate contiguous policy history, fixed IDs/roles, lifetime retired IDs, current
+membership and historical membership under the appropriate pins. Refuse gaps,
+conflicting current records, unresolvable pins, illegal historical actor rights or
+approval provenance. Legitimate historical grants above current ceiling remain
+valid stored evidence and confer only current effective rights.
+
+Use M04/M05 offline ownership/private-path/ACL/exclusion/inventory gates, expected
+board/incarnation, closed host/lease and BEGIN IMMEDIATE revalidation. Full schema,
+FK/integrity and complete-record conservation validation precedes COMMIT. Repeat
+upgrade is NO_CHANGE. Precommit refusal leaves valid exact8. Ambiguous durability
+is UNKNOWN, never alleged rollback. Successful earlier adjacent steps remain if
+a later step refuses. No startup migration or repair, no undocumented direct
+5/6/7->9 shortcut and no live SQL tooling as an ordinary editing path.
+
+Archives include complete policy history/current pointer, profile, retired IDs,
+state pins and all existing records. Old M06 archives import as policy1 without
+fabricated public fields. Validate the whole candidate before target publication.
+Missing/foreign policy/pin, wrong profile, role mutation, internally inconsistent
+retirement/retired-ID reuse, malformed rights/edge and broken approval refuse safely.
+Do not test historical cards or snapshots only against the latest active lanes.
+Retained attempted inputs may target an unknown/retired lane and legitimately
+record NOT_COMMITTED. They remain valid immutable evidence independent of current
+membership. Never reconstruct their canonical bytes from current definitions.
+
+Restore retains policy/workflow/lane IDs and versions, all history/approval facts,
+full/compact originals/results/fingerprints, tombstones, blobs and counters.
+Only existing explicitly documented board/incarnation/reference rebasing and fresh
+local-channel credential/bootstrap transforms apply. Preserve attribution actors,
+old origin fields and archived grant/history evidence without turning it into
+current authorization. Restored channels get ordinary rights bounded by the
+restored CURRENT ceiling. Old hidden grant rights do not become fresh credentials.
+Prove full-record comparison at first restore and after new policy/card activity
+followed by a second restore, including retired lanes and original UNKNOWN.
+Restore success is separate from physical-upgrade proof.
+
+9. Acceptance, ownership and remaining decisions
+#0058 owns authoritative storage/domain/API/real-CLI/generated/read/archive/upgrade
+implementation and focused admission/conservation tests. #0034 owns ordinary
+browser edit/preview/save and pending-original/context/input behavior. #0098 owns
+complete native/browser inventories, joined normal journey and two clean builds.
+#0099 owns runnable extracted kit, normal demonstration, guide/schema closure and
+durable handoff. Shared localpost diagnostics are mandatory for browser work,
+using its existing canonical service, private per-run registration/inbox, bounded
+schema-safe metadata, direct completed-file inspection and owned cleanup. Do not
+replace shared service or weaken product CSP/authentication. Diagnostics failure
+never changes product outcomes, clears input or triggers another mutation.
+
+Acceptance must cover each supported edit/refusal on both existing profiles,
+historical labels and retired membership, retained approval/prerequisite validity,
+ceiling intersection/re-expansion, all-or-nothing racing writers, stale/NO_CHANGE,
+old/new canonical originals and UNKNOWN, ordinary browser/actual CLI, current
+Attention compatibility, reopen, separate8->9 and complete two-restore comparison.
+This design deliberately refuses identity/role replacement and occupied retirement.
+Its use of ordinary edit for policy admission and default-profile extension are
+explicit owner-review choices. No extra owner-only input is needed to finish the
+proposal. Terry's acceptance is the implementation gate. This document grants no
+M08 category implementation, real-board migration or wider administration scope.
+
+Source basis, inspection only
+- Accepted m06-workflow-integration-2026-11-04.txt and M07/M08 split assessment.
+- implementation/internal/board/policy/policy.go and cards/move.go.
+- implementation/internal/board/workflow/workflow.go and grants/grants.go.
+- implementation/internal/store/schema/workflow.go and frozen layout inventories.
+- implementation/internal/contract/descriptor.go, intent.go and archive types.
+- Existing browser/private-original and catalog interfaces inherited from M06.

@@ -1,0 +1,1617 @@
+{
+  "schemaVersion": 1,
+  "status": "SPECIFICATION_ONLY_NOT_EXECUTED",
+  "authority": "M07.01 #0096 proposal. Fresh review and owner acceptance gate implementation. No runtime PASS or real-board authority.",
+  "contract": "../decisions/m07-workflow-change-contract-2026-11-05.txt",
+  "acceptance": "m07-workflow-change-acceptance-r1.txt",
+  "dataBoundary": "All names and IDs are synthetic. Replace runtime identity/revisions through normal fixture setup. No credentials or private paths.",
+  "versions": {
+    "baselinePhysical": 8,
+    "selectedPhysical": 9,
+    "immutableBoardSchema": 5,
+    "api": 1,
+    "archiveFormat": 1,
+    "archiveSchema": 1,
+    "fingerprint": 1,
+    "policyAndWorkflowRevision": "positive safe integer. Initial1. Committed edits contiguous"
+  },
+  "limits": {
+    "activeLanesMin": 4,
+    "activeLanesMax": 16,
+    "edgesMin": 3,
+    "edgesMax": 64,
+    "definitionUTF8BytesMax": 65536,
+    "policyRecordsMax": 128,
+    "canonicalPolicyArrayBytesMax": 8388608,
+    "labelScalarsMin": 1,
+    "labelScalarsMax": 80,
+    "existingArchiveDocumentBytesMax": 33554432,
+    "existingArchiveTotalJSONBytesMax": 67108864,
+    "fullPreviewAndMutationBodyBytesMax": 800000
+  },
+  "workflows": {
+    "configuredV1": {
+      "workflowId": "61000000-0000-4000-8000-000000000001",
+      "revision": 1,
+      "lanes": [
+        {
+          "id": "60000000-0000-4000-8000-000000000001",
+          "label": "Intake",
+          "role": "initial"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000002",
+          "label": "Queued",
+          "role": "waiting"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000003",
+          "label": "Working",
+          "role": "in_progress"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000004",
+          "label": "Verification",
+          "role": "review"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000005",
+          "label": "Accepted",
+          "role": "completed"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000006",
+          "label": "On hold",
+          "role": "waiting"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "60000000-0000-4000-8000-000000000001",
+          "to": "60000000-0000-4000-8000-000000000002",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000001",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000002",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000003",
+          "to": "60000000-0000-4000-8000-000000000004",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000003",
+          "to": "60000000-0000-4000-8000-000000000006",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000004",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000004",
+          "to": "60000000-0000-4000-8000-000000000005",
+          "actors": [
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000006",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        }
+      ],
+      "actorRights": {
+        "human": [
+          "approve",
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ],
+        "automation": [
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ]
+      }
+    },
+    "configuredV2": {
+      "workflowId": "61000000-0000-4000-8000-000000000001",
+      "revision": 2,
+      "lanes": [
+        {
+          "id": "60000000-0000-4000-8000-000000000001",
+          "label": "Intake",
+          "role": "initial"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000003",
+          "label": "Working",
+          "role": "in_progress"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000002",
+          "label": "Ready for Review",
+          "role": "waiting"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000006",
+          "label": "On hold",
+          "role": "waiting"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000004",
+          "label": "Human review",
+          "role": "review"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000005",
+          "label": "Accepted",
+          "role": "completed"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "60000000-0000-4000-8000-000000000001",
+          "to": "60000000-0000-4000-8000-000000000002",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000001",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000002",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000003",
+          "to": "60000000-0000-4000-8000-000000000004",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000003",
+          "to": "60000000-0000-4000-8000-000000000006",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000004",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000004",
+          "to": "60000000-0000-4000-8000-000000000005",
+          "actors": [
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000006",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        }
+      ],
+      "actorRights": {
+        "human": [
+          "approve",
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ],
+        "automation": [
+          "attach",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ]
+      }
+    },
+    "configuredV3Retired": {
+      "workflowId": "61000000-0000-4000-8000-000000000001",
+      "revision": 3,
+      "lanes": [
+        {
+          "id": "60000000-0000-4000-8000-000000000001",
+          "label": "Intake",
+          "role": "initial"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000003",
+          "label": "Working",
+          "role": "in_progress"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000002",
+          "label": "Ready for Review",
+          "role": "waiting"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000004",
+          "label": "Human review",
+          "role": "review"
+        },
+        {
+          "id": "60000000-0000-4000-8000-000000000005",
+          "label": "Accepted",
+          "role": "completed"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "60000000-0000-4000-8000-000000000001",
+          "to": "60000000-0000-4000-8000-000000000002",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000001",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000002",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000003",
+          "to": "60000000-0000-4000-8000-000000000004",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000004",
+          "to": "60000000-0000-4000-8000-000000000003",
+          "actors": [
+            "human"
+          ]
+        },
+        {
+          "from": "60000000-0000-4000-8000-000000000004",
+          "to": "60000000-0000-4000-8000-000000000005",
+          "actors": [
+            "human"
+          ]
+        }
+      ],
+      "actorRights": {
+        "human": [
+          "approve",
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ],
+        "automation": [
+          "attach",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ]
+      }
+    },
+    "defaultEditedV2": {
+      "profile": "default",
+      "workflowId": "71000000-0000-4000-8000-000000000001",
+      "revision": 2,
+      "lanes": [
+        {
+          "id": "In Progress",
+          "label": "In Progress",
+          "role": "in_progress"
+        },
+        {
+          "id": "Ready for Work",
+          "label": "Ready for Work",
+          "role": "initial"
+        },
+        {
+          "id": "Ready for Review",
+          "label": "Human review",
+          "role": "review"
+        },
+        {
+          "id": "Completed",
+          "label": "Completed",
+          "role": "completed"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "In Progress",
+          "to": "Ready for Review",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "Ready for Review",
+          "to": "Completed",
+          "actors": [
+            "human"
+          ]
+        },
+        {
+          "from": "Ready for Work",
+          "to": "In Progress",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        }
+      ],
+      "actorRights": {
+        "human": [
+          "approve",
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ],
+        "automation": [
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ]
+      }
+    },
+    "defaultEditedV3Waiting": {
+      "profile": "default",
+      "workflowId": "71000000-0000-4000-8000-000000000001",
+      "revision": 3,
+      "lanes": [
+        {
+          "id": "In Progress",
+          "label": "In Progress",
+          "role": "in_progress"
+        },
+        {
+          "id": "Ready for Work",
+          "label": "Ready for Work",
+          "role": "initial"
+        },
+        {
+          "id": "70000000-0000-4000-8000-000000000001",
+          "label": "Waiting",
+          "role": "waiting"
+        },
+        {
+          "id": "Ready for Review",
+          "label": "Human review",
+          "role": "review"
+        },
+        {
+          "id": "Completed",
+          "label": "Completed",
+          "role": "completed"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "70000000-0000-4000-8000-000000000001",
+          "to": "In Progress",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "In Progress",
+          "to": "70000000-0000-4000-8000-000000000001",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "In Progress",
+          "to": "Ready for Review",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        },
+        {
+          "from": "Ready for Review",
+          "to": "Completed",
+          "actors": [
+            "human"
+          ]
+        },
+        {
+          "from": "Ready for Work",
+          "to": "In Progress",
+          "actors": [
+            "automation",
+            "human"
+          ]
+        }
+      ],
+      "actorRights": {
+        "human": [
+          "approve",
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ],
+        "automation": [
+          "attach",
+          "comment",
+          "create",
+          "edit",
+          "export",
+          "read",
+          "read-own-outcome",
+          "review-handoff"
+        ]
+      }
+    }
+  },
+  "policyHistories": {
+    "configuredAfterRetirement": [
+      {
+        "policyVersion": 1,
+        "workflow": {
+          "workflowId": "61000000-0000-4000-8000-000000000001",
+          "revision": 1,
+          "lanes": [
+            {
+              "id": "60000000-0000-4000-8000-000000000001",
+              "label": "Intake",
+              "role": "initial"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000002",
+              "label": "Queued",
+              "role": "waiting"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000003",
+              "label": "Working",
+              "role": "in_progress"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000004",
+              "label": "Verification",
+              "role": "review"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000005",
+              "label": "Accepted",
+              "role": "completed"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000006",
+              "label": "On hold",
+              "role": "waiting"
+            }
+          ],
+          "transitions": [
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000002",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000002",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000003",
+              "to": "60000000-0000-4000-8000-000000000004",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000003",
+              "to": "60000000-0000-4000-8000-000000000006",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000005",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000006",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            }
+          ],
+          "actorRights": {
+            "human": [
+              "approve",
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ],
+            "automation": [
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ]
+          }
+        }
+      },
+      {
+        "policyVersion": 2,
+        "workflow": {
+          "workflowId": "61000000-0000-4000-8000-000000000001",
+          "revision": 2,
+          "lanes": [
+            {
+              "id": "60000000-0000-4000-8000-000000000001",
+              "label": "Intake",
+              "role": "initial"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000003",
+              "label": "Working",
+              "role": "in_progress"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000002",
+              "label": "Ready for Review",
+              "role": "waiting"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000006",
+              "label": "On hold",
+              "role": "waiting"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000004",
+              "label": "Human review",
+              "role": "review"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000005",
+              "label": "Accepted",
+              "role": "completed"
+            }
+          ],
+          "transitions": [
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000002",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000002",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000003",
+              "to": "60000000-0000-4000-8000-000000000004",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000003",
+              "to": "60000000-0000-4000-8000-000000000006",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000005",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000006",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            }
+          ],
+          "actorRights": {
+            "human": [
+              "approve",
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ],
+            "automation": [
+              "attach",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ]
+          }
+        }
+      },
+      {
+        "policyVersion": 3,
+        "workflow": {
+          "workflowId": "61000000-0000-4000-8000-000000000001",
+          "revision": 3,
+          "lanes": [
+            {
+              "id": "60000000-0000-4000-8000-000000000001",
+              "label": "Intake",
+              "role": "initial"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000003",
+              "label": "Working",
+              "role": "in_progress"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000002",
+              "label": "Ready for Review",
+              "role": "waiting"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000004",
+              "label": "Human review",
+              "role": "review"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000005",
+              "label": "Accepted",
+              "role": "completed"
+            }
+          ],
+          "transitions": [
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000002",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000002",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000003",
+              "to": "60000000-0000-4000-8000-000000000004",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000005",
+              "actors": [
+                "human"
+              ]
+            }
+          ],
+          "actorRights": {
+            "human": [
+              "approve",
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ],
+            "automation": [
+              "attach",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ]
+          }
+        }
+      }
+    ],
+    "defaultAfterWaiting": [
+      {
+        "policyVersion": 1
+      },
+      {
+        "policyVersion": 2,
+        "workflow": {
+          "profile": "default",
+          "workflowId": "71000000-0000-4000-8000-000000000001",
+          "revision": 2,
+          "lanes": [
+            {
+              "id": "In Progress",
+              "label": "In Progress",
+              "role": "in_progress"
+            },
+            {
+              "id": "Ready for Work",
+              "label": "Ready for Work",
+              "role": "initial"
+            },
+            {
+              "id": "Ready for Review",
+              "label": "Human review",
+              "role": "review"
+            },
+            {
+              "id": "Completed",
+              "label": "Completed",
+              "role": "completed"
+            }
+          ],
+          "transitions": [
+            {
+              "from": "In Progress",
+              "to": "Ready for Review",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "Ready for Review",
+              "to": "Completed",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "Ready for Work",
+              "to": "In Progress",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            }
+          ],
+          "actorRights": {
+            "human": [
+              "approve",
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ],
+            "automation": [
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ]
+          }
+        }
+      },
+      {
+        "policyVersion": 3,
+        "workflow": {
+          "profile": "default",
+          "workflowId": "71000000-0000-4000-8000-000000000001",
+          "revision": 3,
+          "lanes": [
+            {
+              "id": "In Progress",
+              "label": "In Progress",
+              "role": "in_progress"
+            },
+            {
+              "id": "Ready for Work",
+              "label": "Ready for Work",
+              "role": "initial"
+            },
+            {
+              "id": "70000000-0000-4000-8000-000000000001",
+              "label": "Waiting",
+              "role": "waiting"
+            },
+            {
+              "id": "Ready for Review",
+              "label": "Human review",
+              "role": "review"
+            },
+            {
+              "id": "Completed",
+              "label": "Completed",
+              "role": "completed"
+            }
+          ],
+          "transitions": [
+            {
+              "from": "70000000-0000-4000-8000-000000000001",
+              "to": "In Progress",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "In Progress",
+              "to": "70000000-0000-4000-8000-000000000001",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "In Progress",
+              "to": "Ready for Review",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "Ready for Review",
+              "to": "Completed",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "Ready for Work",
+              "to": "In Progress",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            }
+          ],
+          "actorRights": {
+            "human": [
+              "approve",
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ],
+            "automation": [
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "boards": [
+    {
+      "alias": "configured-a",
+      "profile": "configured",
+      "workflow": "configuredV1",
+      "cards": [
+        "unchanged-policy1-card",
+        "human-approved-prerequisite",
+        "dependent",
+        "archived-waiting-occupant",
+        "history-only-retired-lane"
+      ]
+    },
+    {
+      "alias": "default-a",
+      "profile": "implicit-default1",
+      "cards": [
+        "legacy-literal-original",
+        "human-approved-prerequisite",
+        "dependent",
+        "opaque-legacy-history"
+      ]
+    },
+    {
+      "alias": "configured-b",
+      "profile": "configured",
+      "workflow": "configuredV1",
+      "cards": [
+        "equal-display-ticket-different-identity"
+      ]
+    }
+  ],
+  "requests": {
+    "editEnvelope": {
+      "incarnation": "72000000-0000-4000-8000-000000000002",
+      "opId": "72000000-0000-4000-8000-000000000003",
+      "target": null,
+      "expectedRevision": 12,
+      "expectedCardRevision": null,
+      "input": {
+        "expectedPolicyVersion": 1,
+        "workflow": {
+          "workflowId": "61000000-0000-4000-8000-000000000001",
+          "revision": 2,
+          "lanes": [
+            {
+              "id": "60000000-0000-4000-8000-000000000001",
+              "label": "Intake",
+              "role": "initial"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000003",
+              "label": "Working",
+              "role": "in_progress"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000002",
+              "label": "Ready for Review",
+              "role": "waiting"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000006",
+              "label": "On hold",
+              "role": "waiting"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000004",
+              "label": "Human review",
+              "role": "review"
+            },
+            {
+              "id": "60000000-0000-4000-8000-000000000005",
+              "label": "Accepted",
+              "role": "completed"
+            }
+          ],
+          "transitions": [
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000002",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000001",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000002",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000003",
+              "to": "60000000-0000-4000-8000-000000000004",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000003",
+              "to": "60000000-0000-4000-8000-000000000006",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000004",
+              "to": "60000000-0000-4000-8000-000000000005",
+              "actors": [
+                "human"
+              ]
+            },
+            {
+              "from": "60000000-0000-4000-8000-000000000006",
+              "to": "60000000-0000-4000-8000-000000000003",
+              "actors": [
+                "automation",
+                "human"
+              ]
+            }
+          ],
+          "actorRights": {
+            "human": [
+              "approve",
+              "attach",
+              "comment",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ],
+            "automation": [
+              "attach",
+              "create",
+              "edit",
+              "export",
+              "read",
+              "read-own-outcome",
+              "review-handoff"
+            ]
+          }
+        }
+      }
+    },
+    "previewBody": {
+      "apiVersion": 1,
+      "boardId": "72000000-0000-4000-8000-000000000001",
+      "incarnation": "72000000-0000-4000-8000-000000000002",
+      "expectedRevision": 12,
+      "expectedPolicyVersion": 1,
+      "workflow": {
+        "workflowId": "61000000-0000-4000-8000-000000000001",
+        "revision": 2,
+        "lanes": [
+          {
+            "id": "60000000-0000-4000-8000-000000000001",
+            "label": "Intake",
+            "role": "initial"
+          },
+          {
+            "id": "60000000-0000-4000-8000-000000000003",
+            "label": "Working",
+            "role": "in_progress"
+          },
+          {
+            "id": "60000000-0000-4000-8000-000000000002",
+            "label": "Ready for Review",
+            "role": "waiting"
+          },
+          {
+            "id": "60000000-0000-4000-8000-000000000006",
+            "label": "On hold",
+            "role": "waiting"
+          },
+          {
+            "id": "60000000-0000-4000-8000-000000000004",
+            "label": "Human review",
+            "role": "review"
+          },
+          {
+            "id": "60000000-0000-4000-8000-000000000005",
+            "label": "Accepted",
+            "role": "completed"
+          }
+        ],
+        "transitions": [
+          {
+            "from": "60000000-0000-4000-8000-000000000001",
+            "to": "60000000-0000-4000-8000-000000000002",
+            "actors": [
+              "automation",
+              "human"
+            ]
+          },
+          {
+            "from": "60000000-0000-4000-8000-000000000001",
+            "to": "60000000-0000-4000-8000-000000000003",
+            "actors": [
+              "automation",
+              "human"
+            ]
+          },
+          {
+            "from": "60000000-0000-4000-8000-000000000002",
+            "to": "60000000-0000-4000-8000-000000000003",
+            "actors": [
+              "automation",
+              "human"
+            ]
+          },
+          {
+            "from": "60000000-0000-4000-8000-000000000003",
+            "to": "60000000-0000-4000-8000-000000000004",
+            "actors": [
+              "automation",
+              "human"
+            ]
+          },
+          {
+            "from": "60000000-0000-4000-8000-000000000003",
+            "to": "60000000-0000-4000-8000-000000000006",
+            "actors": [
+              "automation",
+              "human"
+            ]
+          },
+          {
+            "from": "60000000-0000-4000-8000-000000000004",
+            "to": "60000000-0000-4000-8000-000000000003",
+            "actors": [
+              "human"
+            ]
+          },
+          {
+            "from": "60000000-0000-4000-8000-000000000004",
+            "to": "60000000-0000-4000-8000-000000000005",
+            "actors": [
+              "human"
+            ]
+          },
+          {
+            "from": "60000000-0000-4000-8000-000000000006",
+            "to": "60000000-0000-4000-8000-000000000003",
+            "actors": [
+              "automation",
+              "human"
+            ]
+          }
+        ],
+        "actorRights": {
+          "human": [
+            "approve",
+            "attach",
+            "comment",
+            "create",
+            "edit",
+            "export",
+            "read",
+            "read-own-outcome",
+            "review-handoff"
+          ],
+          "automation": [
+            "attach",
+            "create",
+            "edit",
+            "export",
+            "read",
+            "read-own-outcome",
+            "review-handoff"
+          ]
+        }
+      }
+    },
+    "legacyStartInput": {
+      "lane": "In Progress"
+    },
+    "editedDefaultExplicitStartInput": {
+      "laneId": "In Progress"
+    },
+    "editedDefaultWaitingMoveInput": {
+      "laneId": "70000000-0000-4000-8000-000000000001"
+    },
+    "oldApprovalInput": {
+      "policyVersion": 1
+    },
+    "currentApprovalInputAfterTwoEdits": {
+      "policyVersion": 3
+    }
+  },
+  "expectedStateRecipes": [
+    {
+      "id": "first-real-save",
+      "before": {
+        "boardRevision": 12,
+        "policyVersion": 1
+      },
+      "after": {
+        "boardRevision": 13,
+        "policyVersion": 2,
+        "newPolicyRecords": 1,
+        "newActivity": 1,
+        "cardRevisionChanges": 0,
+        "approvalPointerChanges": 0
+      }
+    },
+    {
+      "id": "default-no-change",
+      "candidate": "exact implicit default semantics with proposed revision2 and draft workflow UUID",
+      "outcome": "NOT_COMMITTED/NO_CHANGE",
+      "boardPolicyCardActivityDeltas": 0,
+      "installsWorkflowUUID": false
+    },
+    {
+      "id": "history-pin",
+      "recipe": "Create card under1, rename twice without card mutation, mutate card under3",
+      "oldSnapshotPin": "omitted means1",
+      "newCardPin": 3,
+      "oldSnapshotLabelSource": "policy1",
+      "currentLabelSource": "current policy3"
+    },
+    {
+      "id": "retirement",
+      "target": "60000000-0000-4000-8000-000000000006",
+      "requiredOccupantsIncludingArchived": 0,
+      "historyPreserved": true,
+      "reuseIDAllowed": false
+    },
+    {
+      "id": "approval-survives",
+      "issuingPolicy": 1,
+      "currentPolicy": 3,
+      "rule": "Same card/reviewed revision, human attribution, pointer and completed role. Issuing policy retained and valid",
+      "satisfiesBlockingPrerequisite": true
+    },
+    {
+      "id": "ceiling-intersection",
+      "removedAutomationRight": "comment",
+      "storedGrantChanges": 0,
+      "effectiveAfterRemoval": false,
+      "effectiveAfterReExpansion": "only with independently current retained grant"
+    },
+    {
+      "id": "history-cap",
+      "startingPolicyRecords": 128,
+      "changedSave": "INVALID_INPUT with no domain effect",
+      "equalSave": "NOT_COMMITTED/NO_CHANGE"
+    },
+    {
+      "id": "workflow-only-catalog-order",
+      "boardRevisionDelta": 1,
+      "policyVersionDelta": 1,
+      "activityDelta": 1,
+      "committedCardRevision": null,
+      "lastCardActivityDelta": 0,
+      "catalogCardActivityOrderChanges": false
+    }
+  ],
+  "invalidCandidateRecipes": [
+    {
+      "change": "workflowId or profile differs after installation",
+      "expected": "INVALID_INPUT"
+    },
+    {
+      "change": "existing lane id/role replaced or required lane removed",
+      "expected": "INVALID_INPUT"
+    },
+    {
+      "change": "retire lane with archived or unarchived current occupant",
+      "expected": "INVALID_INPUT"
+    },
+    {
+      "change": "reuse retired waiting UUID",
+      "expected": "INVALID_INPUT"
+    },
+    {
+      "change": "automation approve, grant-admin or history-admin in actorRights",
+      "expected": "INVALID_INPUT"
+    },
+    {
+      "change": "any native administration right, including restore, in actorRights",
+      "expected": "INVALID_INPUT"
+    },
+    {
+      "change": "stale board and policy expected values",
+      "expected": "existing board-conflict precedence"
+    },
+    {
+      "change": "current board revision but wrong expectedPolicyVersion",
+      "expected": "POLICY_CONFLICT"
+    },
+    {
+      "change": "same opId with modified candidate",
+      "expected": "OPERATION_MISMATCH"
+    },
+    {
+      "change": "well-shaped retired/foreign lane target in retained refusal original",
+      "expected": "preserve exact historical NOT_COMMITTED evidence. Do not reject archive for target nonmembership"
+    },
+    {
+      "change": "real first default edit with baseline-valid incompatible CURRENT approval facts",
+      "expected": "NOT_COMMITTED/WORKFLOW_INCOMPATIBLE; source still valid legacy"
+    },
+    {
+      "change": "otherwise valid store uses current policyVersion 9007199254740991 despite contiguous history capped128",
+      "expected": "integrity refusal, not valid-counter progression"
+    },
+    {
+      "change": "request supplies expectedPolicyVersion 9007199254740991 against current1",
+      "expected": "POLICY_CONFLICT after ordinary context checks"
+    },
+    {
+      "change": "request supplies unsafe integer policyVersion 9007199254740992",
+      "expected": "shape refusal before freeze; no mutation"
+    }
+  ],
+  "scenarioIds": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17",
+    "A18",
+    "A19"
+  ],
+  "evidenceRules": [
+    "Specification constants and recipes are not executed tests.",
+    "Require browser plus shared-localpost diagnostics and actual executable CLI.",
+    "Compare all retained records at reopen/upgrade/first restore/second restore.",
+    "Keep source hashes, controlled fault evidence and ordinary user journeys distinct.",
+    "Existing review-role Attention compatibility only. Category semantics remain M08."
+  ],
+  "requestRouteContext": {
+    "boardId": "72000000-0000-4000-8000-000000000001",
+    "editMethod": "PATCH",
+    "editPath": "/api/v1/boards/{boardId}/workflow",
+    "previewMethod": "POST",
+    "previewPath": "/api/v1/boards/{boardId}/workflow/preview"
+  },
+  "expectedCommittedResult": {
+    "workflowId": "61000000-0000-4000-8000-000000000001",
+    "policyVersion": 2
+  },
+  "expectedCommittedFactRef": {
+    "kind": "workflow",
+    "id": "61000000-0000-4000-8000-000000000001",
+    "revision": 2
+  },
+  "pinInvariant": "A missing Card or SnapshotState.workflowPolicyVersion means1. New card revisions after policy1 record current version. Capturing an earlier revision copies its pin unchanged. Policy-only edits do not repin cards.",
+  "legacyCompatibilityRecipes": [
+    {
+      "id": "legacy-default-current-completed-without-approval",
+      "base": "Otherwise complete baseline-valid untouched default1 store/archive accepted by its full existing validators",
+      "currentCardFragment": {
+        "cardId": "73000000-0000-4000-8000-000000000001",
+        "revision": 3,
+        "lane": "Completed",
+        "currentApprovalId": null
+      },
+      "workflowPolicyVersion": "omitted means1",
+      "realFirstEditOutcome": "NOT_COMMITTED/WORKFLOW_INCOMPATIBLE",
+      "previewOutcome": "read-only WORKFLOW_INCOMPATIBLE",
+      "unchangedCandidateOutcome": "NOT_COMMITTED/NO_CHANGE",
+      "preserve": [
+        "source bytes and default profile",
+        "existing opening and legacy behavior",
+        "baseline API/archive representability"
+      ],
+      "satisfiesCurrentPrerequisite": false
+    },
+    {
+      "id": "legacy-default-historical-approval-compatibility",
+      "base": "Otherwise complete baseline-valid default1 with CURRENT cards meeting first-edit invariant",
+      "historicalStateFragment": {
+        "lane": "Completed",
+        "currentApprovalId": null
+      },
+      "workflowPolicyVersion": "omitted means1",
+      "requirement": "Use historical facts accepted by the complete old validators; preserve old policy1 validation after real edit, open, and where previously representable export/two restores. Do not infer current approval."
+    },
+    {
+      "id": "legacy-default-opaque-storage-history",
+      "base": "Otherwise valid default1 store with compatible CURRENT cards",
+      "exactStoredJSON": " {\"legacyValue\":\"synthetic\"} \n",
+      "workflowPolicyVersion": "omitted means1",
+      "requirement": "Preserve bytes and old absent-lane storage validation through upgrade, real edit and reopen. Preserve existing bounded read/export unavailability if complete old API/archive cannot represent it. No new wire encoding or lossy archive."
+    }
+  ],
+  "counterBoundaryRules": {
+    "validBoardAndActivity": "Exercise maximum safe integer with otherwise valid state and no wrap or partial effect",
+    "validPolicy": "Contiguous versions from1 imply maximum128; next changed save refuses capacity",
+    "invalidPolicy": "Max-safe/future/overflow policy and pin cases are malformed state/input, never a valid reachable policy counter"
+  }
+}
