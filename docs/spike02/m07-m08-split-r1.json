@@ -1,0 +1,33 @@
+{
+  "revision": "m07-m08-split-r1",
+  "date": "2026-11-05",
+  "status": "scope and numbering overlay; execution separately gated",
+  "milestones": [
+    {"id":"M01","title":"Work across projects and boards in one local workspace"},
+    {"id":"M02","title":"Read and edit cards comfortably"},
+    {"id":"M03","title":"Find and retire work"},
+    {"id":"M04","title":"Organize cards with hierarchy"},
+    {"id":"M05","title":"Connect cards with typed relationships"},
+    {"id":"M06","title":"Create and reopen configured workflows"},
+    {"id":"M07","title":"Change existing workflows safely","developmentStories":["contract and acceptance","authoritative mutation and actual CLI","ordinary browser editing","complete workflow qualification","extracted kit and normal demonstration"],"preflight":"Retain completed M07.00 evidence"},
+    {"id":"M08","title":"Configure and use truthful Attention","requires":"accepted M07","developmentStories":["category and Attention contract","durable category mutation, CLI and projection","ordinary browser category configuration and Attention","full joined workflow and Attention qualification","extracted combined kit and normal demonstration"],"preflight":"Fresh M08.00 after accepted M07"},
+    {"id":"M09","title":"Add, inspect and download card files","previousId":"M08"},
+    {"id":"M10","title":"Use covers and preserve attachment consistency","previousId":"M09"},
+    {"id":"M11","title":"Run useful board-change alerts","previousId":"M10"},
+    {"id":"M12","title":"Publish optional Git snapshots and backups","previousId":"M11"},
+    {"id":"M13","title":"Update and restart the local application","previousId":"M12"},
+    {"id":"M14","title":"Inventory a V1 board and preview import","previousId":"M13"},
+    {"id":"M15","title":"Import logical V1 board data into an isolated copy","previousId":"M14"},
+    {"id":"M16","title":"Complete imported attachment bytes and references","previousId":"M15"},
+    {"id":"M17","title":"Rehearse V1 coexistence and recovery","previousId":"M16"},
+    {"id":"M18","title":"Reconcile the retained feature-parity outcomes","previousId":"M17"},
+    {"id":"M19","title":"Qualify and hand off the everyday release","previousId":"M18"}
+  ],
+  "conservation": [
+    "M07 retains complete workflow editing through browser and actual CLI, historical approval/original conservation, compatibility and an independent usable handoff.",
+    "M08 explicitly owns category persistence as well as projection and browser consumers.",
+    "M08 retains the full original joined workflow/category/Attention qualification and combined extracted demonstration.",
+    "Each milestone retains current required native/browser/build proof and independently justified evidence reuse.",
+    "Historical plans, evidence and stable task identities are preserved; later scope is renumbered only."
+  ]
+}

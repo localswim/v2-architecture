@@ -22,6 +22,13 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
+The current planned numbering follows the [M07/M08 split](docs/spike02/m07-m08-split-r1.txt)
+and its [structured roadmap](docs/spike02/m07-m08-split-r1.json). M07 covers
+existing-workflow editing and M08 covers category-based Attention. Later
+milestones shift to M09-M19. This overlay preserves earlier scope and evidence
+while superseding their milestone-number references. Execution remains subject
+to the separate acceptance and phase-start gates.
+
 The current [M01 work package R2](docs/spike02/m01-work-package-r2.txt) and its
 [structured plan](docs/spike02/m01-work-package-r2.json) implement Terry's requested
 planning replacement: M01.00 is pre-timed preparation, followed by A-J as
@@ -31,7 +38,7 @@ capability or start implementation/timing by themselves.
 
 The [original milestone roadmap](docs/spike02/milestones-and-m01.txt) and its
 [structured history](docs/spike02/milestones-and-m01.json) remain preserved.
-The current [Backlog rough cuts](docs/spike02/backlog-rough-cuts-r1.txt) and
+The earlier [Backlog rough cuts](docs/spike02/backlog-rough-cuts-r1.txt) and
 [structured roadmap](docs/spike02/backlog-rough-cuts-r1.json) split the remaining
 scope into M03-M17, generally 3-4 hours each with some 2-3-hour outcomes.
 These are low-confidence WAGs, not probabilistic forecasts or approved budgets.
@@ -41,7 +48,7 @@ and [structured history](docs/spike02/daily-work-milestone-split-r1.json) retain
 the superseded M03-M09 numbering; the rough-cuts overlay preserves those outcomes.
 The broader [M02 work package R1](docs/spike02/m02-work-package-r1.txt) and its
 [structured plan](docs/spike02/m02-work-package-r1.json) remain historical evidence;
-the current [story repartition R2](docs/spike02/m02-story-repartition-r2.txt) and
+the earlier [story repartition R2](docs/spike02/m02-story-repartition-r2.txt) and
 [structured package](docs/spike02/m02-story-repartition-r2.json) retain eight
 read/edit stories in M02 and move the other outcomes into M03-M06, splitting
 existing-workflow updates from initial workflow creation. Each milestone owns

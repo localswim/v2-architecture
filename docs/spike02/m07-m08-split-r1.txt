@@ -1,0 +1,71 @@
+M07 / M08 MILESTONE SPLIT R1
+2026-11-05 | Scope and numbering overlay; execution remains separately gated
+
+M07 - Change existing workflows safely
+Deliver supported existing-board workflow changes through the ordinary browser
+and actual CLI. Preserve stable identities, historical interpretation, meaningful
+approval, current authority, original operations and explicit compatibility.
+
+Development stories
+- M07.01 Contract and synthetic acceptance for existing-workflow changes.
+- M07.02 Authoritative workflow mutation, persistence and actual CLI.
+- M07.03 Ordinary browser workflow editing and safe input/context handling.
+- M07.04 Complete workflow qualification, conservation and compatibility.
+- M07.05 Extracted kit, normal workflow demonstration and independent handoff.
+
+The completed M07.00 Preflight remains historical evidence for this milestone.
+Existing catalog/Attention compatibility remains regression scope during edits.
+New category assignment and category-based projection belong to M08.
+
+M08 - Configure and use truthful Attention
+Add stable category configuration and truthful committed unarchived counts on
+the accepted workflow-editing baseline. Preserve known-zero, not-configured,
+stale and unavailable distinctions and coherent current read authority.
+
+Stories
+- M08.00 Fresh existing-path Preflight after accepted M07.
+- M08.01 Category identity, assignment authority and Attention contract.
+- M08.02 Durable category mutation/storage, actual CLI and coherent projection.
+- M08.03 Ordinary browser category configuration and Attention presentation.
+- M08.04 Full joined workflow/category/Attention qualification and conservation.
+- M08.05 Extracted kit and complete combined normal demonstration/handoff.
+
+M08 owns both category persistence and its consumers. Its qualification and
+demonstration retain the complete original joined workflow-plus-Attention
+outcome, including prior edits, approvals, originals, restore and compatibility.
+Each milestone funds its own complete browser/CLI outcome, current required
+native/browser/build evidence, fresh review and usable delivery. Prior accepted
+proof is reused only with an explicit source/input-equivalence justification.
+
+Execution and scope boundaries
+M07 must be owner-accepted before fresh M08 Preflight. Each selected story still
+requires its prerequisite acceptance, phase authority and execution entry gate.
+The split selects no new schema, API, migration mechanism or workflow semantics.
+Unsupported changes require explicit decisions or refusals in the relevant
+contract. Preserve the bounded localhost Go/TypeScript/SQLite product direction,
+human-only approval/Completed, exact revisions and original UNKNOWN/no replay.
+Browser diagnostics use the shared localpost development workflow.
+
+Current milestone labels
+M01 Work across projects and boards in one local workspace
+M02 Read and edit cards comfortably
+M03 Find and retire work
+M04 Organize cards with hierarchy
+M05 Connect cards with typed relationships
+M06 Create and reopen configured workflows
+M07 Change existing workflows safely
+M08 Configure and use truthful Attention
+M09 Add, inspect and download card files
+M10 Use covers and preserve attachment consistency
+M11 Run useful board-change alerts
+M12 Publish optional Git snapshots and backups
+M13 Update and restart the local application
+M14 Inventory a V1 board and preview import
+M15 Import logical V1 board data into an isolated copy
+M16 Complete imported attachment bytes and references
+M17 Rehearse V1 coexistence and recovery
+M18 Reconcile the retained feature-parity outcomes
+M19 Qualify and hand off the everyday release
+
+Earlier numbering, plans and evidence remain preserved. Later outcomes retain
+their scope; renumbering supplies no additional implementation authority.
