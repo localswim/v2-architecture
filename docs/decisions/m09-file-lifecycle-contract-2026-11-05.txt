@@ -1,0 +1,356 @@
+M09.01 CARD-FILE LIFECYCLE CONTRACT R1
+2026-11-05 | #0122 | proposed implementation contract for independent review
+
+Authority and scope
+M09-R1 story M09.01 and Terry's current remaining-development authorization
+govern this work. Fresh independent review gates downstream implementation.
+Terry retains final owner acceptance and Completed. This document specifies
+behavior and executable acceptance inputs. It claims no runtime qualification.
+
+Source baseline
+Implementation 18570c3f24d8e22cec30a8199b5eed85db066133, physical10/base5.
+Preflight readiness-report.txt and seam-map.txt under the private artifact
+directory artifacts/2026-11-05-m09-preflight bind the inspected seams.
+Companions are ../spike02/m09-file-lifecycle-acceptance-r1.txt and
+../spike02/m09-file-lifecycle-fixture-r1.json.
+
+1. Identity, visibility and attribution
+An attachment ID names one immutable metadata record belonging to one card.
+Board ID, current incarnation, card ID and attachment ID establish current
+selection. Display ticket, filename, digest and card title never select an
+object. Equal bytes may belong to distinct attachment IDs, cards and boards.
+createdIn remains the attachment's exact source identity across restores.
+Historical snapshot identity remains origin + cardId + cardRevision. A restore
+changes current incarnation under existing rules, never historical provenance.
+
+The selected card Files view defaults to its current attachmentIds only. An
+explicit Retained view shows surviving non-current full attachment records
+belonging to that same card. Current and retained views are disjoint. Retained
+does not imply that a full historical snapshot still exists. Existing history
+views show exact snapshot attachment references, or their existing tombstones
+and coverage gaps when retention removed full records. Never infer current
+membership from the board-wide attachments metadata array.
+
+All reads use current ordinary read authority, current actor-kind read ceiling,
+exact selected board/incarnation and one consistent database reader snapshot.
+They include archived and Completed cards. Archive status is an explicit UI
+context, not a different read privilege. Native-owner, attach-only and
+read-own-outcome credentials alone confer no file read authority. A foreign
+or absent selected card/attachment returns the ordinary opaque NOT_FOUND after
+authority checks. A removed full metadata record also returns NOT_FOUND from
+file inspect. Its tombstone remains available through existing history reads.
+
+Keep archive.Attachment unchanged. Project attribution into the new read DTO
+from retained evidence. First find a unique COMMITTED attachment.add operation
+whose origin equals createdIn, card target and attachment ResultRef match, and
+terminalAt equals createdAt. Compact and full operations both qualify, including
+source archives after restore. Use its actorId and the retained Actor row.
+If no operation qualifies, a unique matching attachment.add activity event
+with that origin, timestamp and affected card/attachment may supply attribution.
+Conflicting qualifying actors or broken actor references make the read
+unavailable as an integrity failure. Without sufficient evidence, return
+unavailable attribution explicitly. Never use the inspecting actor, restore
+actor, mutable entity.creator_id or filename as a fallback creator.
+
+2. Bounded read API and generated contracts
+Add these ordinary authenticated GET routes, each with an empty request body
+
+  /api/v1/boards/{boardId}/cards/{cardId}/attachments
+  /api/v1/boards/{boardId}/cards/{cardId}/attachments/{attachmentId}
+
+List accepts only view=current|retained, limit=1..100, and cursor. Defaults are
+current and 50. Reject duplicate/unknown query keys, empty or malformed values,
+noncanonical positive decimal limits, and malformed/oversized cursors. Inspect
+accepts no query. Keep the existing raw-byte GET route and its no-query rule.
+
+Generate these strict DTOs through existing Go descriptors/TypeScript/schema
+generation. All shown members are required, arrays are non-null, nullability
+is explicit, and unknown fields refuse at strict decode boundaries.
+
+  FileAttribution = {
+    state: "known" | "unavailable",
+    actorId: UUID | null,
+    actorKind: "human" | "automation" | null,
+    actorLabel: string | null,
+    basis: "operation" | "activity" | null
+  }
+  CardFile = {
+    attachment: Attachment,
+    referenceState: "current" | "retained",
+    downloadState: "current_reference" | "not_current",
+    attribution: FileAttribution
+  }
+  CardFilesRead = {
+    apiVersion: 1, scope: "card-files",
+    result: {
+      identity: Identity, revision: SafeInteger,
+      cardId: UUID, cardRevision: PositiveSafeInteger,
+      view: "current" | "retained", items: CardFile[],
+      nextCursor: string | null
+    }
+  }
+  CardFileRead = {
+    apiVersion: 1, scope: "card-file",
+    result: {
+      identity: Identity, revision: SafeInteger,
+      cardId: UUID, cardRevision: PositiveSafeInteger, file: CardFile
+    }
+  }
+
+Known attribution has all four non-null detail fields. Unavailable attribution
+has all four null. Download state records eligibility at the metadata snapshot,
+not verified blob availability or future delivery. Current maps to
+current_reference, retained to not_current. Download still reauthorizes.
+
+Sort each list by createdAt ascending, then attachmentId ascending using exact
+canonical values. Return at most limit items. Opaque cursor is canonical unpadded
+base64url UTF-8 canonical JSON, bounded to 1024 ASCII bytes, containing exactly
+version=1, boardId, incarnation, cardId, boardRevision, cardRevision, view,
+afterCreatedAt and afterAttachmentId. Validate every type and context binding.
+Cursor is a position, never authority. Authorize again for every page. A stale
+revision returns REVISION_CONFLICT and no items. Context/view mismatch is
+INVALID_INPUT. Use the captured revision and last item's key for continuation.
+On conflict discard partial pagination and explicitly refresh from page1.
+An empty list succeeds with [] and null. Do not silently merge revisions.
+
+Existing BoardRead, CardRead and HistoryRead remain exact and complete under
+their current contracts. New bounded endpoints project existing data, including
+source-bound outcomes/activity for attribution. They introduce no stored read
+projection and no physical/schema change in M09.02. Browser history may obtain
+full metadata with inspect only for its exact selected card. Existing history
+coverage remains authoritative for removed snapshots and metadata.
+
+Resolve attribution only for the returned at-most100 attachment IDs, using
+batched compact operation headers/reference rows and then activity fallback
+inside the same snapshot. Bound candidate retrieval to two matching records
+per attachment/source to detect non-uniqueness. Do not load every original
+payload, history snapshot or blob to build a page. A single inspect applies the
+same bounded lookup to one ID. Conflicting/non-unique evidence fails explicitly.
+
+3. Downloads and safe metadata
+Retain GET /api/v1/boards/{boardId}/attachments/{attachmentId}. It requires
+the existing live current_reference, surviving metadata, current read authority,
+and full length/SHA256 verification in the same reader transaction. Retained
+bytes, an old snapshot, source receipt or guessed digest never enable this GET.
+After detach it returns NOT_FOUND even when historical pins retain exact bytes.
+Retained metadata remains inspectable, and UI states Download unavailable
+because this file is no longer attached. History export/restore still protects
+its bytes under existing pin rules. No historical-byte download API is added.
+
+Keep application/octet-stream, nosniff, complete verification before emitting
+success, and the existing generated attachment-ID .bin download filename.
+Metadata names/media labels are inert displayed text. Do not use them in HTML,
+headers, paths, shell commands, executable filenames or inline rendering.
+Retain exact accepted metadata, including empty strings and non-ASCII names.
+Name has a 255 UTF-8-byte bound, mediaLabel a 127-byte printable-ASCII bound,
+and existing strict UTF-8/JSON string validation applies. Escaped control
+characters accepted by the current name grammar remain inert text. Never
+trim, normalize Unicode, infer MIME or silently repair invalid input.
+
+Browser verifies response headers, complete bytes, expected length and digest
+before creating a download offer. Report Offered, never Saved from that event.
+Revoke temporary object URLs after use. Cancellation or interruption creates no
+success claim. Native CLI uses the existing private no-overwrite publication,
+protected-root/path/link defenses, complete hash checks and destination readback.
+Only its verified publication succeeds. Preserve existing unknown-publication
+outcome/exit behavior. Never retry file publication blindly.
+
+4. Add and detach authority and ordering
+Keep attachment.add, its multipart route, 16 KiB metadata/framing bounds,
+10 MiB inclusive raw-file limit and 64 MiB inclusive distinct protected-byte
+union. Duplicate content creates distinct immutable attachment IDs but counts
+one digest in the union. Zero bytes is valid. Verification precedes writer
+checkout. Preserve exact original canonical bytes and existing add receipts.
+
+Add attachment.detach, target card, POST
+  /api/v1/boards/{boardId}/cards/{cardId}/attachment-detach
+with the existing mutation envelope
+  {opId,incarnation,target:{cardId},expectedRevision,
+   expectedCardRevision,input:{attachmentId}}
+All fields are required. attachmentId is a canonical UUID. No arbitrary path,
+actor, source identity, bytes, preview token or optional field is accepted.
+The resolved route independently binds card and board. Fingerprint1 includes
+the input ID and existing context. Result is exactly {cardId,attachmentId}.
+COMMITTED ResultRefs are one attachment ref with null revision and one card
+ref at the new card revision, in canonical existing ordering. ByteFacts is [].
+
+Both add and detach require the existing attach right AND current actor-kind
+attach ceiling. Ownership/creator does not restrict or elevate these rights.
+No new grant or implicit read right is introduced. Archived unfinished cards
+remain eligible, preserving current add/card-edit behavior. The browser exposes
+mutation controls for archived cards only after explicit selection of that
+archived context. Current completed ROLE forbids both, including configured
+UUID lanes and formerly approved cards. Use role helpers, never literal labels.
+
+Reuse writer.Submit unchanged ordering
+- Structural/route/credential validation and exact original identity first.
+- Retained matching original resolves under current own-outcome authority,
+  before fresh CAS, rights, lane or quota checks. Mismatch stays mismatch.
+- Fresh submission authority precedes board CAS, counter bounds, card existence,
+  card CAS and card counter bounds, following current writer preconditions.
+- G01 current command right/ceiling and configured-policy integrity then apply.
+- Completed role then refuses COMPLETED. Archived alone does not refuse.
+- Detach resolves attachment in the exact incarnation/card. A foreign, absent
+  or tombstoned ID refuses NOT_FOUND. An existing full metadata record without
+  that current reference returns durable NOT_COMMITTED/NO_CHANGE.
+- A real change checks next_event overflow, then atomically applies.
+
+Stale already-detached requests therefore refuse REVISION_CONFLICT before
+NO_CHANGE. Unauthorized or Completed requests cannot learn NO_CHANGE. An exact
+retained receipt can resolve after later card edits or detach, subject to current
+own-outcome authority. Refusals preserve input and create only the existing
+permitted original/refusal record, with no board/card/activity/pin changes.
+
+5. Atomic detach and retention
+In the one existing writer transaction capture the complete prior card snapshot
+and its references/pins with cards.WriteSnapshot before removing any reference.
+Advance board revision once, card revision once, clear current_approval_id,
+pin current workflow for the changed card, remove exactly that current_reference
+and matching current_attachment_pin, and append one attachment.detach event
+with actual actor/op/time and the two result refs. Store the exact terminal
+original in that same commit. Keep prior approval record and prior approval ref
+in history. Add retains its existing equivalent snapshot/approval behavior.
+
+The attachment row and entity row remain immutable and full. Specifically,
+entity.removed_at and removal_reason stay NULL. Current schema requires
+entity.removed_at NULL iff its full typed row exists. It does not require every
+full attachment to have a current_reference. Keep that invariant. Full historical
+references cannot resolve to tombstones. Detach never fabricates a tombstone,
+deletes metadata, rewrites source creation facts or marks entity.removed_at.
+
+Remove only the selected current pin. Preserve all full-history pins,
+attachment.add full-COMMITTED operation pins, active-export pins and their
+exact lengths/digests. The new detach operation adds no operation_blob_pin and
+no ByteFact. Its compact/full original still retains the attachment ResultRef.
+Quota remains the distinct digest union across the existing registry. Detach
+does not promise quota relief and takes the same registry coordination as other
+reference/pin transitions so exports/recovery observe a consistent union.
+
+Existing explicit history/retention operations keep their separate authority,
+preview and coverage rules. They may later compact full originals/history,
+retain compact refs/byte facts, and tombstone metadata only when the existing
+pruner proves all full references/protection are gone. M09 adds no scheduler,
+immediate prune or physical GC action. Export continues to include every full
+attachment metadata row even when non-current, and exactly required protected
+blobs. Existing tombstones/coverage explain legitimately removed records.
+
+No cover field exists in this baseline. Do not introduce a cover representation,
+selection UI or clearing command. If integration discovers a supported stored
+cover reference, stop and extend this reviewed contract before detach is enabled
+for that representation. Required extension must atomically clear only a current
+cover referencing the detached file, preserve historical cover refs/bytes and
+resolve versioning. Never leave a dangling current cover or silently strip an
+unknown field. M10 owns new cover functionality.
+
+6. Races, recovery and client behavior
+All mutations race through existing board/card CAS and single writer. At most
+one same-base add, detach, card edit, archive, policy edit or approval commits.
+The loser keeps its exact original and explicit conflict. Detach after approval
+on a still-mutable card invalidates approval. Completed blocks fresh detach.
+Export sees a pinned complete before or after revision, never mixed refs/pins.
+Reader download admitted before detach may finish verified delivery from its
+captured snapshot. Download admitted after commit observes NOT_FOUND. UI marks
+read metadata as observed facts and never cancels a committed operation because
+navigation or a later detach occurred.
+
+Browser captures board/incarnation/card/revisions and metadata with one selected
+raw File held in memory. File.arrayBuffer conversion may be asynchronous. Capture
+the selected context and file-generation identity before that await, and verify
+both remain current after it completes. Then synchronously copy the resulting
+byte buffer into immutable submission ownership before subsequent async work.
+Only metadata/original evidence enters private durable drafts.
+Reload/reopen requires explicit raw-file reselection for an unsent draft. A
+different name/length/digest requires deliberate draft replacement. Never store
+raw file bytes in localStorage, IndexedDB, logs or queue diagnostics.
+
+Use existing prepare/readback and recovery coordination for both mutations.
+Freeze and durably verify the exact original before one dispatch. Lost response,
+cancel after dispatch or failed reconciliation remains UNKNOWN. No automatic
+resubmission, rehash into a new opId, command replay or success inference from
+a changed file list. Deliberate Lookup original uses exact source-bound context.
+Reload, private windows and refresh never replay or auto-lookup. Restore source
+receipts cannot resolve current-incarnation operations. Input/refusal/UNKNOWN
+remains inspectable until explicit discard under existing coordination rules.
+
+Detach requires a deliberate confirmation showing exact selected card context,
+attachment ID and inert name, stating that retained history/bytes are preserved
+and ordinary download becomes unavailable. Confirmation freezes that target.
+Keyboard/composition/focus, narrow layout, dirty navigation and independent
+windows follow existing editor rules. A late response cannot replace another
+board/card's selection or clear a newer draft. Refresh never reselects by ticket.
+
+Actual executable CLI retains both ordinary selector prefixes
+  localswim --data DIR [--json] ...
+  localswim --workspace DIR --project PROJECT --board BOARD [--json] ...
+and adds
+  attachment list CARD_ID [--view current|retained] [--limit N] [--cursor CURSOR]
+  attachment inspect CARD_ID ATTACHMENT_ID
+  attachment detach CARD_ID --input FILE
+Keep attachment add CARD_ID --input FILE --file FILE and
+attachment download ATTACHMENT_ID --destination FILE unchanged. New list and
+inspect use the new routes through the existing authenticated provider, exact
+selection and safe response validators. Detach input is the complete envelope;
+route/target must match the positional card. No implicit revision lookup/retry.
+JSON prints the exact generated read DTO or existing mutation result envelope.
+Readable output includes exact IDs, state, source, attribution/unavailable,
+name/media, size/digest, revisions and continuation when present. Preserve
+ordinary exits 0 success, 1 invocation/local I/O, 2 refusal, 3 unavailable and
+4 UNKNOWN. NO_CHANGE is the existing durable refusal, exit2.
+
+7. Compatibility and conservation
+M09.02 and M09.03 keep physical10/base5 with additive read transport types and
+client behavior. No persisted field changes are authorized there. Prove this
+through source inventory and unchanged canonical fixture results, plus each
+slice's required first complete export/restore comparison when it changes data.
+
+M09.04 selects physical11 as the detach capability boundary. Keep base5,
+API1, archive/schema1, fingerprint1 and current policy versions. Extend command,
+activity, card-target, result and compact-reference vocabulary for detach in
+every descriptor, generated Go/TS/schema, SQLite CHECK, archive validator,
+client recovery boundary and executable dispatcher. Preserve existing add-only
+ByteFact and operation-pin constraints. Detach has zero ByteFacts even when its
+terminal refusal or compact original is retained. Compact detach may reference
+a legitimate tombstone under existing cleared/expired rules; a full committed
+detach requires the full immutable attachment matching its card.
+
+Freeze physical10 validation before extending shared vocabulary. Its frozen
+grammar rejects attachment.detach everywhere, including nested current/source
+originals and activity. Preserve prior frozen versions and adjacent upgrades.
+Add only explicit 10->11 through all existing upgrade adapters. Current startup
+refuses10 with explicit upgrade guidance. Old10 startup refuses11 before write.
+Old10 archive import safely refuses a new detach-bearing archive, including a
+refused-only detach original. Archive1 records with only old vocabulary remain
+valid unchanged. Strict version/domain decoders must never silently skip detach.
+
+10->11 uses existing closed-root, exclusive-owner, inventory, identity and
+integrity validation and one offline transaction. Rebuild only objects whose
+CHECK vocabulary requires it with the established upgrade mechanism. Preserve
+all row values/required rowids, indexes, triggers, FKs and exact JSON/BLOB bytes;
+then validate the complete target schema. Introduce no operation, actor,
+attachment, policy, field/default, revision or event. Repeat11 is NO_CHANGE.
+Wrong/future/corrupt roots, active owner, mismatch or precommit fault preserve
+source. Postcommit uncertainty retains UNKNOWN pending deliberate inspection.
+
+Each affected delivery demonstrates a runnable first restore. M09.05 also
+demonstrates second-generation export/restore from the first restored store.
+Compare complete current cards, every full/tombstoned history row and refs,
+actors, attachment metadata, approvals, policies/pins, priorities, hierarchy,
+relationships, archive flags, coverage/floors/retention, activity, compact/full
+current/source originals, exact canonical intent/result bytes, byte facts,
+tombstones, lineage and every required blob's full bytes/length/digest.
+Apply only existing documented restore transformations to current incarnation,
+source-archive placement, current cross-card references and lineage. Compare
+original provenance/canonical bytes exactly. Verify reconstructed current,
+history and operation pin sets and distinct quota totals. No blanket exclusion
+of source originals, detached files or historical records is allowed.
+
+8. Delivery ownership
+M09.02 owns bounded reads, attribution, inert inspection, eligible downloads,
+selection/late-response safety, browser/actual CLI and unchanged-format proof.
+M09.03 owns completed-role UI correction and full add/recovery/transfer proofs.
+M09.04 owns detach, physical11/upgrade/old-reader proof and first detach restore.
+M09.05 owns joined fault/race inventories and second full runnable conservation.
+M09.06 owns exact kit, recursive guide dependencies and fresh extracted demo.
+Companion cases are requirements to execute, not pre-recorded passing results.
+Use synthetic private fixtures and the shared queue's bounded sanitized browser
+feedback per AGENTS.md. The parent owns gates, integration and publication.

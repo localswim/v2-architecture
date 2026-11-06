@@ -35,6 +35,10 @@ download, upload, detach, joined qualification and an extracted-kit handoff.
 Its browser and actual-CLI outcomes build on accepted M08. Preflight and
 development retain their separate estimate, acceptance and start gates.
 
+The [M09 file-lifecycle contract](docs/decisions/m09-file-lifecycle-contract-2026-11-05.txt)
+and [acceptance cases](docs/spike02/m09-file-lifecycle-acceptance-r1.txt)
+define selected-card file reads, attribution, transfers, detach and compatibility.
+
 The [M07.01 workflow-change contract](docs/decisions/m07-workflow-change-contract-2026-11-05.txt),
 [acceptance scenarios](docs/spike02/m07-workflow-change-acceptance-r1.txt) and
 [synthetic fixture](docs/spike02/m07-workflow-change-fixture-r1.json) propose

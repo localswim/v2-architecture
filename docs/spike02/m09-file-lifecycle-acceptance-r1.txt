@@ -1,0 +1,114 @@
+M09 FILE-LIFECYCLE EXECUTABLE ACCEPTANCE R1
+2026-11-05 | #0122 | specification, pending independent review and execution
+
+Normative source
+../decisions/m09-file-lifecycle-contract-2026-11-05.txt
+Machine-readable inputs and expected outcomes
+m09-file-lifecycle-fixture-r1.json
+
+Execution rules
+Use a fresh private synthetic workspace with two boards carrying equal display
+tickets. One board uses the default workflow and one uses the packaged configured
+workflow with explicit human/automation attach ceilings. Retain exact source,
+tool, fixture, executable, configuration, expected and observed result hashes.
+Fixture UUIDs are deterministic test inputs. Runtime-created IDs are bindings
+captured from authoritative successful responses, never guessed.
+
+The JSON is a case manifest for native/service/browser adapters, not a command
+script. Operations reference public contract command names and fixture bindings.
+Adapters must execute the listed setup/actions and assert each expected field.
+No case passes through the fixture file's existence or static parsing alone.
+Prescribed fault adapters must report the exact injection point. Synthetic SQL
+fixture creation belongs only to existing isolated test setup mechanisms.
+
+All mutation setup uses real APIs/CLI except controlled old-version, corruption,
+counter/retention and fault fixtures. Every such exception is labeled. Each
+case restores a fresh declared pre-state. Concurrent cases use separate actors,
+same captured base revisions and an explicit dispatch barrier. Race assertions
+use complete before/after records, not only HTTP status or command exit.
+
+M09.02 required cases
+- F01-F03 selected current/retained lists, metadata inspection and identity.
+- F04-F05 ordering, bounded paging, malformed and stale continuation.
+- F06-F08 read authority, configured/archived/Completed behavior and attribution.
+- F09-F12 verified browser/CLI byte transfer and storage/integrity failures.
+- F30 navigation/late responses and F33 original-byte compatibility.
+
+M09.03 required cases
+- F13-F17 add boundaries, raw-file lifetime, duplicates and failure atomicity.
+- F18 unknown delivery and F19 concurrent base-revision contenders.
+- F20 role-aware Completed and archived selection behavior.
+- F31 keyboard/private-window/draft behavior and F33 unchanged canonical bytes.
+- F34 first runnable conservation includes browser-added and CLI-added files.
+
+M09.04 required cases
+- F21-F24 detach normal/refusal/no-change and pin/approval/history semantics.
+- F18-F19 with detach as the chosen mutation and at each listed failure point.
+- F25 export/download/recovery races and F26 authorized later retention.
+- F27-F29 physical11, frozen10 and old-reader/upgrade boundaries.
+- F32 full/compact detach validation and F34 first complete detach restore.
+
+M09.05 and M09.06
+Qualification reruns all cases against one exact candidate with the required
+native/browser inventories. Run F35 second-generation conservation and retain
+complete comparisons. Package handoff runs F36 from a fresh extracted kit,
+then checks hashes, recursive guide dependencies, saved-port reopen, current
+read parity and owned host/listener/mailbox cleanup.
+
+Acceptance details
+Byte fixtures include empty, binary with NUL/high-bit bytes and a non-ASCII name.
+Generate 10 MiB and 10 MiB+1 inputs deterministically in private test storage.
+Generate distinct digest content to make the protected union exactly64 MiB.
+One further new byte refuses; duplicate protected content remains admissible
+subject to normal authority/CAS. Detached protected bytes still count.
+
+Read tests compare exact selected board/incarnation/card/attachment identity,
+both revisions, all metadata fields, source identity and attribution basis.
+Retained view contains only surviving non-current metadata. Existing history
+tests compare exact available snapshots/tombstones and coverage gaps. Historical
+metadata availability never grants ordinary-byte download eligibility.
+
+NO_CHANGE is durable NOT_COMMITTED. It changes no card/board/event/pin counter.
+Compare the whole permitted original receipt as well as domain state. A second
+fresh opId and current revisions is required to test repeated detach NO_CHANGE.
+Reusing the original opId tests immutable receipt resolution instead.
+
+Transfer integrity assertions include complete size/SHA256 and exact bytes.
+Browser assertions say Offered only after verification. Native success requires
+destination readback with exact bytes and no-overwrite/path defenses. Missing or
+corrupt required blobs fail before successful response/publication and fence
+the store according to existing integrity behavior. Publication uncertainty
+does not claim absence or blindly repeat the save.
+
+Fault points include preparation write/readback, before writer, before COMMIT,
+after COMMIT/before response, cleanup/reconciliation, partial/truncated upload,
+lost download and native final-publication readback. Assert no partial mutation,
+or exact original resolution/UNKNOWN when delivery is uncertain. Never call a
+failure noncommitted solely because the client lost a response.
+
+Conservation comparison is exhaustive
+- Cards, policies and policy history/pins, actors, approvals, priority,
+  relationships, hierarchy, archive flags and workflow/Attention semantics.
+- Every current and historical reference, snapshot state, coverage/floor,
+  tombstone and activity, including source incarnation and actor attribution.
+- Full and compact original records, immutable canonical intent/result bytes,
+  source archives, byte facts, retention metadata and lineage.
+- Every protected blob with exact bytes, length and digest, reconstructed
+  current/history/operation pins and deduplicated quota union.
+
+Restore comparison applies only the existing explicit current-incarnation,
+current-reference rebasing, source-ledger placement and lineage transformations.
+Record them field by field. Preserve the complete comparison output for source
+to first runnable restore and first restore to second runnable restore. Current
+read parity alone is insufficient. Detach must not synthesize an entity
+tombstone. Later authorized pruning must produce its existing genuine tombstone.
+
+No tests here authorize new cover UI, automatic GC, extra collectors or product
+telemetry. If a stored cover representation is discovered, enforce the contract
+extension gate before enabling detach on it. Use the shared Valkey/Webdis queue
+for bounded sanitized browser diagnostics. Export required evidence before
+deleting each owned mailbox. Never log card text, bytes, credentials or raw URLs.
+
+Review status
+This packet contains planned cases and fixture values. Independent review and
+runtime pass/fail receipts are separate artifacts owned by the current story.
