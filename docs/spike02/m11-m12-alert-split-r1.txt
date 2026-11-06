@@ -1,0 +1,100 @@
+LOCALSWIM ALERT MILESTONE SPLIT R1
+2026-11-06
+
+Terry requires development bases strictly below 240 minutes. Local alerts are split into complete M11 fixed-target delivery and later M12 reload, retarget and recovery. The original M12-and-later roadmap shifts to M13–M20.
+
+Terry directed all initial M12 story cards to be archived. M12 and every later epic remain Backlog. Prepare M12 stories and estimates fresh when M12 starts. The archived draft is historical evidence.
+
+M11 includes ordinary browser and actual CLI use, relevant complete qualification, fresh independent review and an extracted runnable demonstration. M11.00 Preflight is excluded from development totals. Its execution follows separate owner start and prerequisite gates.
+
+The proposed local destination is a private board-scoped inbox with durable receipts inside the existing Go host. Contracts settle its exact bounded storage, authority and receipt semantics. Shared Webdis remains browser-test diagnostics. External delivery retains a separate scope gate.
+
+M11 Use fixed-target local board alerts
+Development estimate 230 base + 85 reserve = 315 cap minutes.
+
+M11.00 Preflight
+A bounded readiness packet establishes that the accepted M10 candidate and required tools can support M11 development.
+Preflight excluded from development totals.
+
+- Read the exact accepted source, tool profile, M10 candidate and current board state. Inventory existing activity, coverage, identity, local runtime, CLI, private-file, browser and qualification entry points. Record reusable components and missing capabilities.
+- Perform only bounded baseline checks after a separate authorized preflight start, using fresh synthetic roots and the existing normal browser and actual CLI entry points. Check shared queue readiness before queue-dependent checks and record source/tool/executable bindings, owned cleanup and any blocker.
+- Record operational separation from the existing shared Python administrative board service and monitor. Preserve their owner, original chat target, pending evidence and runtime paths.
+- Produce a concise readiness and risk handoff with a fresh independent review. Feature contract, cursor semantics, new monitor code and feature-specific qualification belong to .01 onward.
+
+M11.01 Freeze fixed-target alerts and executable acceptance
+One accepted contract defines complete fixed-target local alerts and their safe basic lifecycle.
+30 base + 10 reserve = 40 cap minutes.
+
+- Freeze per-board monitor and local inbox identities, current authority, metadata-only interval evidence, one captured target, start/status/stop and clean reopen. Specify an opt-in private inbox with durable receipts inside the existing Go host and authenticated CLI/browser access. Local target setup excludes arbitrary paths.
+- Define restart-stable exact cursors and upper bounds, complete pagination, retained-origin attribution, gaps/retention, idle versus observed-empty intervals and explicit first-start baselines. Include committed card/policy changes, archived/Completed work and unknown/imported actors.
+- Suppress only complete nonempty evidence whose every event is verified as the configured automation principal. Human, mixed, unknown, observed-empty, malformed, failed, partial, expired and discontinuous evidence produce sanitized notices. Keep unresolved gaps separate from warning acceptance. Card prose and filesystem-write/event-count comparisons are excluded.
+- Specify one-owner exclusion, bounded debounce/max-age, durable pending before local acceptance, stable delivery identity and receipt lookup, capacity/backpressure and safe stop/reopen. On uncertain interruption retain pending and guard resumption until deliberate inspection or exact receipt reconciliation. Define inbox visibility, duplicate handling and receipt retention for this delivered baseline.
+- Freeze resource bounds, safe status fields, private-state versioning and applicable storage/restore semantics. Supply executable normal, fault and race cases and obtain fresh independent review and owner acceptance. Record reload/retarget/expanded recovery as M12 extension seams while giving every M11 failure a safe operator path.
+
+M11.02 Read complete sanitized activity intervals through the actual CLI
+An operator can inspect a complete bounded interval of authoritative, sanitized activity through the current service and actual CLI.
+50 base + 20 reserve = 70 cap minutes.
+
+- Implement Go-owned authenticated read projections and generated contracts over current committed evidence, with immutable captured upper bounds, restart-stable cursor context, bounded pagination and explicit complete/gap/expired/invalid states. Do not infer continuity from timestamps alone.
+- Expose the reader through the existing numeric-loopback service and exact workspace/project/board or standalone CLI selection. Validate board/incarnation/origin, actor/current read authority and continuation scope. Labels, supplied actor names and imported provenance cannot fabricate verified automation attribution.
+- Project only permitted IDs/categories/counts/status/correlation. Exclude card/comment/attachment prose, names, credentials and raw errors. Refused writes and NO_CHANGE do not appear as committed domain changes.
+- Exercise actual CLI reads for bot, human, mixed, archived/Completed, policy, multi-page, stale/revoked, retention/gap and restored-source cases. Document exact semantics and obtain fresh independent review. Preserve current board data, originals and browser/CLI behavior.
+
+M11.03 Run fixed-target local alerts with durable pending and safe reopen
+An operator can configure one local target for a selected board, run alerts, read accepted notices and safely stop and reopen that monitor through the actual CLI.
+60 base + 25 reserve = 85 cap minutes.
+
+- Compose the accepted interval reader into one shared V2 monitor with an explicit board and fixed local inbox target. Acquire native exclusion for the physical monitor scope before effects. Use bounded polling, quiet/max-age batching and catch-up.
+- Persist versioned private checkpoints, unresolved gaps and captured pending target/delivery identity before acceptance. Keep local delivery outside board transactions. Provide actual CLI target setup, start/status/stop, inbox read and exact receipt lookup with current authority and captured control identity. Advance a covered checkpoint only after durable valid suppression or confirmed local acceptance. Failed persistence leaves the interval pending.
+- Accept sanitized notices into the private local inbox with durable receipts, stable identity and explicit bounded capacity/backpressure. Report accepted into the local inbox precisely. Distinguish confirmed acceptance, definite nonacceptance and UNKNOWN. Retain unresolved evidence and stop safely on unresolvable delivery or storage failure.
+- Suppress only complete nonempty all-verified-configured-automation intervals. Human, mixed, unknown, observed-empty, partial, expired, malformed and failed evidence alerts conservatively. Preserve board isolation, backlog and gap markers without card fetches or filesystem-event-count equivalence.
+- Drain admitted effects before releasing ownership on stop. A stop deadline or ambiguous in-flight result reports incomplete quiescence and retains ownership/pending evidence. Reopen a cleanly stopped monitor using its saved target/checkpoint and catch up missed activity. After interruption expose guarded status and a deliberate inspection/receipt-reconciliation path before further delivery, with preserved pending and ownership. Prove concurrent start refusal, stable target recovery, local receipts, capacity failure, all attribution classes and cleanup. Publish guidance and obtain fresh independent review.
+
+M11.04 Configure and inspect fixed-target local alerts in the browser
+A user can set up and operate fixed-target local alerts, inspect sanitized inbox notices and safely stop/reopen them in the ordinary browser.
+30 base + 10 reserve = 40 cap minutes.
+
+- Provide exact board/local-inbox selection for initial configuration, start/status/stop, clean reopen and local inbox/receipt reads through the accepted service APIs. Display lifecycle, captured target, last observation, pending count/age, gaps and delivery status with safe reason codes.
+- Keep known zero, disabled, stale, unavailable and UNKNOWN distinct. Preserve pending and provide the baseline deliberate inspection/receipt-lookup controls needed for guarded recovery. Target replacement and cooperative live reload are delivered in M12.
+- Preserve current authorization, CSP, exact board/window identity, private editors and original operations. Delayed reads, authority loss, stale confirmation and board switches cannot control another scope. Cover keyboard/focus and desktop/narrow layouts.
+- Demonstrate ordinary browser/actual-CLI parity on default and configured boards, fixed-target local acceptance, bot suppression, human/mixed notices, safe stop/reopen and guarded interruption status. Use the shared queue for bounded test diagnostics, retain labeled faults, verify cleanup and obtain fresh independent review.
+
+M11.05 Qualify the complete fixed-target alert delivery
+The exact M11 candidate passes complete fixed-target alert qualification and preserves existing product behavior.
+40 base + 15 reserve = 55 cap minutes.
+
+- Freeze source/tools/contracts/providers and run required pinned gates, complete native/browser inventories and two isolated clean builds with all generated/staged/executable outputs compared. Review any exact unchanged evidence reuse explicitly.
+- Join actual CLI and ordinary browser setup, start/status/stop, local inbox/receipt observation and clean reopen on multiple independent boards with default/configured workflows. Each monitor retains its own fixed target and private state.
+- Prove all suppression classes, paging/captured-upper-bound continuity, continuous activity/max-age, retention gaps and unchanged idle polls. Label competing starts, interrupted delivery, local receipt ambiguity, capacity exhaustion, revoked reads and private-state failures. Verify safe guarded continuation and deliberate exact reconciliation.
+- Compare complete board/history/approval/original/attachment facts and bytes across the accepted export/restore and applicable compatibility boundaries. A restored board cannot inherit live delivery authority or an active target. Preserve failures, owned cleanup and a claim-by-claim evidence map. Obtain fresh independent review.
+
+M11.06 Demonstrate and hand off fixed-target local alerts
+Terry receives a verified M11 kit and a fresh ordinary demonstration of usable fixed-target local alerts.
+20 base + 5 reserve = 25 cap minutes.
+
+- Package the exact qualified executable, current setup/use/stop/reopen/recovery and CLI/browser guides, schemas/notices, manifest/checksums and evidence index. Verify extraction and recursive guide/schema closure, using the established local kit delivery when needed.
+- Execute the extracted kit and guide commands with new synthetic data. Demonstrate local target setup, start, bot-only suppression, human/mixed alert acceptance, inbox reads, safe stop/reopen and preserved source-board facts. Show the documented guarded inspection path for unresolved status using separately labeled evidence.
+- Distinguish normal demonstration from qualification faults/reuse, verify all owned cleanup, obtain fresh independent package/guide/evidence review and publish the durable handoff. Reconcile the M11 clock and planned workers, handing the complete milestone to Terry for review.
+
+M12 Reload, retarget and recover local board alerts
+
+This independently demoable outcome adds cooperative reload, deliberate retargeting, pending-destination preservation and enhanced reconciliation/concurrency. Its future breakdown must include its own preflight, normal browser/CLI delivery, complete qualification, independent review and extracted demonstration.
+
+Initial M12 stories and their estimates are archived. Fresh decomposition and estimation are required when Terry starts M12. Historical details remain in the JSON companion and private planning evidence.
+
+Current later numbering
+
+- M12 becomes M13 Publish optional Git snapshots and backups
+- M13 becomes M14 Update and restart the local application
+- M14 becomes M15 Inventory a V1 board and preview import
+- M15 becomes M16 Import logical V1 board data into an isolated copy
+- M16 becomes M17 Complete imported attachment bytes and references
+- M17 becomes M18 Rehearse V1 coexistence and recovery
+- M18 becomes M19 Reconcile the retained feature-parity outcomes
+- M19 becomes M20 Qualify and hand off the everyday release
+
+M01–M10 retain their labels. Historical plans and evidence retain their original milestone names. The earlier M07/M08 split remains historical context; this overlay supplies current M11–M20 numbering.
+
+Dependency intent
+
+M11 follows accepted M10 and the retained M09 prerequisite. M12 follows accepted M11. The shifted publishing milestone M13 and V1 preview milestone M15 retain the complete alert prerequisite through M12. Other existing dependencies retain their meanings. M12+ remain Backlog until separately advanced.

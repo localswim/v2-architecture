@@ -22,12 +22,17 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
-The current planned numbering follows the [M07/M08 split](docs/spike02/m07-m08-split-r1.txt)
-and its [structured roadmap](docs/spike02/m07-m08-split-r1.json). M07 covers
-existing-workflow editing and M08 covers category-based Attention. Later
-milestones shift to M09-M19. This overlay preserves earlier scope and evidence
-while superseding their milestone-number references. Execution remains subject
-to the separate acceptance and phase-start gates.
+The current roadmap splits local alerts into M11 fixed-target delivery and M12
+reload, retarget and recovery. M11 has a development base below four hours and
+its own preflight, qualification and extracted demonstration. M12 stories are
+archived for a fresh breakdown and estimate at its start. M12 and later milestones
+M13–M20 remain Backlog. Future bases must stay below four hours. Execution follows
+the separate acceptance and phase-start gates. [Alert milestone split](docs/spike02/m11-m12-alert-split-r1.txt) and
+[structured roadmap](docs/spike02/m11-m12-alert-split-r1.json).
+
+The earlier M07/M08 split records existing-workflow editing and category-based
+Attention. Its historical numbering and evidence remain preserved.
+[Earlier split](docs/spike02/m07-m08-split-r1.txt).
 
 The [M09 card-file breakdown](docs/spike02/m09-file-management-breakdown-r1.txt)
 starts with Preflight, followed by a lifecycle contract, file inspection and

@@ -1,0 +1,369 @@
+{
+  "revision": "m11-m12-alert-split-r1",
+  "date": "2026-11-06",
+  "state": "Planning split under owner direction; execution separately gated",
+  "baseLimitMinutesExclusive": 240,
+  "preflightExcluded": true,
+  "milestones": [
+    {
+      "key": "M11",
+      "title": "Use fixed-target local board alerts",
+      "baseMinutes": 230,
+      "reserveMinutes": 85,
+      "capMinutes": 315,
+      "stories": [
+        {
+          "key": "M11.00",
+          "title": "Preflight",
+          "estimate": null,
+          "outcome": "A bounded readiness packet establishes that the accepted M10 candidate and required tools can support M11 development.",
+          "acceptance": [
+            "Read the exact accepted source, tool profile, M10 candidate and current board state. Inventory existing activity, coverage, identity, local runtime, CLI, private-file, browser and qualification entry points. Record reusable components and missing capabilities.",
+            "Perform only bounded baseline checks after a separate authorized preflight start, using fresh synthetic roots and the existing normal browser and actual CLI entry points. Check shared queue readiness before queue-dependent checks and record source/tool/executable bindings, owned cleanup and any blocker.",
+            "Record operational separation from the existing shared Python administrative board service and monitor. Preserve their owner, original chat target, pending evidence and runtime paths.",
+            "Produce a concise readiness and risk handoff with a fresh independent review. Feature contract, cursor semantics, new monitor code and feature-specific qualification belong to .01 onward."
+          ]
+        },
+        {
+          "key": "M11.01",
+          "title": "Freeze fixed-target alerts and executable acceptance",
+          "estimate": [
+            30,
+            10,
+            40
+          ],
+          "outcome": "One accepted contract defines complete fixed-target local alerts and their safe basic lifecycle.",
+          "acceptance": [
+            "Freeze per-board monitor and local inbox identities, current authority, metadata-only interval evidence, one captured target, start/status/stop and clean reopen. Specify an opt-in private inbox with durable receipts inside the existing Go host and authenticated CLI/browser access. Local target setup excludes arbitrary paths.",
+            "Define restart-stable exact cursors and upper bounds, complete pagination, retained-origin attribution, gaps/retention, idle versus observed-empty intervals and explicit first-start baselines. Include committed card/policy changes, archived/Completed work and unknown/imported actors.",
+            "Suppress only complete nonempty evidence whose every event is verified as the configured automation principal. Human, mixed, unknown, observed-empty, malformed, failed, partial, expired and discontinuous evidence produce sanitized notices. Keep unresolved gaps separate from warning acceptance. Card prose and filesystem-write/event-count comparisons are excluded.",
+            "Specify one-owner exclusion, bounded debounce/max-age, durable pending before local acceptance, stable delivery identity and receipt lookup, capacity/backpressure and safe stop/reopen. On uncertain interruption retain pending and guard resumption until deliberate inspection or exact receipt reconciliation. Define inbox visibility, duplicate handling and receipt retention for this delivered baseline.",
+            "Freeze resource bounds, safe status fields, private-state versioning and applicable storage/restore semantics. Supply executable normal, fault and race cases and obtain fresh independent review and owner acceptance. Record reload/retarget/expanded recovery as M12 extension seams while giving every M11 failure a safe operator path."
+          ]
+        },
+        {
+          "key": "M11.02",
+          "title": "Read complete sanitized activity intervals through the actual CLI",
+          "estimate": [
+            50,
+            20,
+            70
+          ],
+          "outcome": "An operator can inspect a complete bounded interval of authoritative, sanitized activity through the current service and actual CLI.",
+          "acceptance": [
+            "Implement Go-owned authenticated read projections and generated contracts over current committed evidence, with immutable captured upper bounds, restart-stable cursor context, bounded pagination and explicit complete/gap/expired/invalid states. Do not infer continuity from timestamps alone.",
+            "Expose the reader through the existing numeric-loopback service and exact workspace/project/board or standalone CLI selection. Validate board/incarnation/origin, actor/current read authority and continuation scope. Labels, supplied actor names and imported provenance cannot fabricate verified automation attribution.",
+            "Project only permitted IDs/categories/counts/status/correlation. Exclude card/comment/attachment prose, names, credentials and raw errors. Refused writes and NO_CHANGE do not appear as committed domain changes.",
+            "Exercise actual CLI reads for bot, human, mixed, archived/Completed, policy, multi-page, stale/revoked, retention/gap and restored-source cases. Document exact semantics and obtain fresh independent review. Preserve current board data, originals and browser/CLI behavior."
+          ]
+        },
+        {
+          "key": "M11.03",
+          "title": "Run fixed-target local alerts with durable pending and safe reopen",
+          "estimate": [
+            60,
+            25,
+            85
+          ],
+          "outcome": "An operator can configure one local target for a selected board, run alerts, read accepted notices and safely stop and reopen that monitor through the actual CLI.",
+          "acceptance": [
+            "Compose the accepted interval reader into one shared V2 monitor with an explicit board and fixed local inbox target. Acquire native exclusion for the physical monitor scope before effects. Use bounded polling, quiet/max-age batching and catch-up.",
+            "Persist versioned private checkpoints, unresolved gaps and captured pending target/delivery identity before acceptance. Keep local delivery outside board transactions. Provide actual CLI target setup, start/status/stop, inbox read and exact receipt lookup with current authority and captured control identity. Advance a covered checkpoint only after durable valid suppression or confirmed local acceptance. Failed persistence leaves the interval pending.",
+            "Accept sanitized notices into the private local inbox with durable receipts, stable identity and explicit bounded capacity/backpressure. Report accepted into the local inbox precisely. Distinguish confirmed acceptance, definite nonacceptance and UNKNOWN. Retain unresolved evidence and stop safely on unresolvable delivery or storage failure.",
+            "Suppress only complete nonempty all-verified-configured-automation intervals. Human, mixed, unknown, observed-empty, partial, expired, malformed and failed evidence alerts conservatively. Preserve board isolation, backlog and gap markers without card fetches or filesystem-event-count equivalence.",
+            "Drain admitted effects before releasing ownership on stop. A stop deadline or ambiguous in-flight result reports incomplete quiescence and retains ownership/pending evidence. Reopen a cleanly stopped monitor using its saved target/checkpoint and catch up missed activity. After interruption expose guarded status and a deliberate inspection/receipt-reconciliation path before further delivery, with preserved pending and ownership. Prove concurrent start refusal, stable target recovery, local receipts, capacity failure, all attribution classes and cleanup. Publish guidance and obtain fresh independent review."
+          ]
+        },
+        {
+          "key": "M11.04",
+          "title": "Configure and inspect fixed-target local alerts in the browser",
+          "estimate": [
+            30,
+            10,
+            40
+          ],
+          "outcome": "A user can set up and operate fixed-target local alerts, inspect sanitized inbox notices and safely stop/reopen them in the ordinary browser.",
+          "acceptance": [
+            "Provide exact board/local-inbox selection for initial configuration, start/status/stop, clean reopen and local inbox/receipt reads through the accepted service APIs. Display lifecycle, captured target, last observation, pending count/age, gaps and delivery status with safe reason codes.",
+            "Keep known zero, disabled, stale, unavailable and UNKNOWN distinct. Preserve pending and provide the baseline deliberate inspection/receipt-lookup controls needed for guarded recovery. Target replacement and cooperative live reload are delivered in M12.",
+            "Preserve current authorization, CSP, exact board/window identity, private editors and original operations. Delayed reads, authority loss, stale confirmation and board switches cannot control another scope. Cover keyboard/focus and desktop/narrow layouts.",
+            "Demonstrate ordinary browser/actual-CLI parity on default and configured boards, fixed-target local acceptance, bot suppression, human/mixed notices, safe stop/reopen and guarded interruption status. Use the shared queue for bounded test diagnostics, retain labeled faults, verify cleanup and obtain fresh independent review."
+          ]
+        },
+        {
+          "key": "M11.05",
+          "title": "Qualify the complete fixed-target alert delivery",
+          "estimate": [
+            40,
+            15,
+            55
+          ],
+          "outcome": "The exact M11 candidate passes complete fixed-target alert qualification and preserves existing product behavior.",
+          "acceptance": [
+            "Freeze source/tools/contracts/providers and run required pinned gates, complete native/browser inventories and two isolated clean builds with all generated/staged/executable outputs compared. Review any exact unchanged evidence reuse explicitly.",
+            "Join actual CLI and ordinary browser setup, start/status/stop, local inbox/receipt observation and clean reopen on multiple independent boards with default/configured workflows. Each monitor retains its own fixed target and private state.",
+            "Prove all suppression classes, paging/captured-upper-bound continuity, continuous activity/max-age, retention gaps and unchanged idle polls. Label competing starts, interrupted delivery, local receipt ambiguity, capacity exhaustion, revoked reads and private-state failures. Verify safe guarded continuation and deliberate exact reconciliation.",
+            "Compare complete board/history/approval/original/attachment facts and bytes across the accepted export/restore and applicable compatibility boundaries. A restored board cannot inherit live delivery authority or an active target. Preserve failures, owned cleanup and a claim-by-claim evidence map. Obtain fresh independent review."
+          ]
+        },
+        {
+          "key": "M11.06",
+          "title": "Demonstrate and hand off fixed-target local alerts",
+          "estimate": [
+            20,
+            5,
+            25
+          ],
+          "outcome": "Terry receives a verified M11 kit and a fresh ordinary demonstration of usable fixed-target local alerts.",
+          "acceptance": [
+            "Package the exact qualified executable, current setup/use/stop/reopen/recovery and CLI/browser guides, schemas/notices, manifest/checksums and evidence index. Verify extraction and recursive guide/schema closure, using the established local kit delivery when needed.",
+            "Execute the extracted kit and guide commands with new synthetic data. Demonstrate local target setup, start, bot-only suppression, human/mixed alert acceptance, inbox reads, safe stop/reopen and preserved source-board facts. Show the documented guarded inspection path for unresolved status using separately labeled evidence.",
+            "Distinguish normal demonstration from qualification faults/reuse, verify all owned cleanup, obtain fresh independent package/guide/evidence review and publish the durable handoff. Reconcile the M11 clock and planned workers, handing the complete milestone to Terry for review."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "M12",
+      "title": "Reload, retarget and recover local board alerts",
+      "breakdownStatus": "Deferred until M12 start",
+      "stories": [],
+      "requires": "Accepted M11 and a fresh owner-authorized M12 breakdown/estimate with base below240 minutes"
+    }
+  ],
+  "laterRenumbering": [
+    {
+      "from": "M12",
+      "to": "M13",
+      "title": "Publish optional Git snapshots and backups"
+    },
+    {
+      "from": "M13",
+      "to": "M14",
+      "title": "Update and restart the local application"
+    },
+    {
+      "from": "M14",
+      "to": "M15",
+      "title": "Inventory a V1 board and preview import"
+    },
+    {
+      "from": "M15",
+      "to": "M16",
+      "title": "Import logical V1 board data into an isolated copy"
+    },
+    {
+      "from": "M16",
+      "to": "M17",
+      "title": "Complete imported attachment bytes and references"
+    },
+    {
+      "from": "M17",
+      "to": "M18",
+      "title": "Rehearse V1 coexistence and recovery"
+    },
+    {
+      "from": "M18",
+      "to": "M19",
+      "title": "Reconcile the retained feature-parity outcomes"
+    },
+    {
+      "from": "M19",
+      "to": "M20",
+      "title": "Qualify and hand off the everyday release"
+    }
+  ],
+  "conservation": [
+    "Each alert milestone includes ordinary browser and actual CLI use, full relevant qualification, an independently reviewed extracted kit and a fresh normal demonstration.",
+    "M11 preserves native single-owner exclusion, durable pending and receipt identity, safe stop/reopen, guarded unknown delivery and deliberate lookup. M12 adds supported reload, retarget and expanded recovery.",
+    "Previous milestones and historical plans retain their original labels and evidence. Existing task identities and history are preserved during repartition."
+  ],
+  "deliveryScope": "Proposed opt-in board-scoped local inbox with durable receipts in the existing Go host; details require accepted contracts. Shared queue serves browser diagnostics. External delivery requires separate scope.",
+  "estimateMethod": "M11 development estimates include its complete contract, implementation, browser/CLI outcome, qualification and extracted-kit demonstration. M11.00 is excluded. M12 story breakdown and estimates will be prepared fresh at M12 start under the strict below240-minute base rule. The earlier M12 proposal is retained only as historical evidence.",
+  "currentRoadmap": [
+    {
+      "id": "M01",
+      "title": "Work across projects and boards in one local workspace"
+    },
+    {
+      "id": "M02",
+      "title": "Read and edit cards comfortably"
+    },
+    {
+      "id": "M03",
+      "title": "Find and retire work"
+    },
+    {
+      "id": "M04",
+      "title": "Organize cards with hierarchy"
+    },
+    {
+      "id": "M05",
+      "title": "Connect cards with typed relationships"
+    },
+    {
+      "id": "M06",
+      "title": "Create and reopen configured workflows"
+    },
+    {
+      "id": "M07",
+      "title": "Change existing workflows safely"
+    },
+    {
+      "id": "M08",
+      "title": "Configure and use truthful Attention"
+    },
+    {
+      "id": "M09",
+      "title": "Add, inspect and download card files"
+    },
+    {
+      "id": "M10",
+      "title": "Use covers and preserve attachment consistency"
+    },
+    {
+      "id": "M11",
+      "title": "Use fixed-target local board alerts"
+    },
+    {
+      "id": "M12",
+      "title": "Reload, retarget and recover local board alerts"
+    },
+    {
+      "id": "M13",
+      "title": "Publish optional Git snapshots and backups"
+    },
+    {
+      "id": "M14",
+      "title": "Update and restart the local application"
+    },
+    {
+      "id": "M15",
+      "title": "Inventory a V1 board and preview import"
+    },
+    {
+      "id": "M16",
+      "title": "Import logical V1 board data into an isolated copy"
+    },
+    {
+      "id": "M17",
+      "title": "Complete imported attachment bytes and references"
+    },
+    {
+      "id": "M18",
+      "title": "Rehearse V1 coexistence and recovery"
+    },
+    {
+      "id": "M19",
+      "title": "Reconcile the retained feature-parity outcomes"
+    },
+    {
+      "id": "M20",
+      "title": "Qualify and hand off the everyday release"
+    }
+  ],
+  "historicalBreakdowns": [
+    {
+      "status": "Archived at owner direction before execution; fresh M12 breakdown required at start",
+      "milestone": {
+        "key": "M12",
+        "title": "Reload, retarget and recover local board alerts",
+        "baseMinutes": 145,
+        "reserveMinutes": 60,
+        "capMinutes": 205,
+        "stories": [
+          {
+            "key": "M12.00",
+            "title": "Preflight",
+            "estimate": null,
+            "outcome": "The accepted M11 fixed-target delivery and required test environment are ready for the M12 lifecycle extension.",
+            "acceptance": [
+              "Inspect the accepted M11 source, executable, contracts, current inbox/receipt/checkpoint formats and preserved failure evidence. Reconcile exact baseline identity and current tool/runtime availability.",
+              "After separately authorized preflight start, run bounded existing M11 browser/CLI readiness and shared diagnostic queue checks on fresh synthetic data, verify cleanup and identify any blocker. Produce a fresh independent readiness review.",
+              "Keep lifecycle-contract changes, new code and feature-specific probes in estimated M12.01 onward."
+            ]
+          },
+          {
+            "key": "M12.01",
+            "title": "Freeze reload, retarget and recovery acceptance",
+            "estimate": [
+              15,
+              5,
+              20
+            ],
+            "outcome": "An accepted delta contract defines enhanced lifecycle controls while preserving the complete M11 fixed-target behavior.",
+            "acceptance": [
+              "Define cooperative reload and deliberate retarget, saved-target restart, current authority/control revisions, ownership handoff and concurrent-control outcomes. Capture pending destinations and specify explicit migration only after in-flight reconciliation.",
+              "Define receipt retention/deduplication horizons, inbox cleanup/capacity, retry policy for proven nonacceptance and explicit duplicate-tolerant recovery where needed. UNKNOWN remains visible until exact evidence resolves it. Specify unresolved-gap retention and explicit new baselines.",
+              "Freeze private-state compatibility/migration or safe refusal, restore behavior, bounded host/adapter failure isolation and native/browser executable acceptance for races, revocation, partial shutdown and ambiguous delivery. Obtain fresh independent review and owner acceptance."
+            ]
+          },
+          {
+            "key": "M12.02",
+            "title": "Recover alerts across restart, reload and retarget",
+            "estimate": [
+              45,
+              25,
+              70
+            ],
+            "outcome": "An operator can recover the monitor and deliberately change its target without losing pending work or allowing competing delivery owners.",
+            "acceptance": [
+              "Complete restart/catch-up and supported cooperative reload semantics with durable private state, current authority checks, same-board physical ownership, stale/foreign/malformed-state refusal and explicit compatibility or safe refusal.",
+              "Retarget deliberately with captured revision/configuration identity. Keep old pending work bound to its original destination unless explicit accepted migration is supported after in-flight reconciliation. Failed/stale retarget cannot replace another request.",
+              "Distinguish accepted/not-accepted/UNKNOWN across restart and adapter lookup. Bound retries only where the contract proves nonacceptance or permits an explicit duplicate-tolerant policy. Preserve same delivery identity and surface uncertainty or capacity exhaustion without dropping pending intervals.",
+              "Drain admitted effects before releasing ownership. Stop/reload deadlines report incomplete quiescence truthfully. Prove duplicate-start exclusion, competing controls, slow/ambiguous delivery, cursor/epoch changes, corrupt checkpoint, lost replies and shutdown/restart using native and labeled fault evidence.",
+              "Provide actual CLI recovery/status guidance and fresh independent review. Preserve board writer lifecycle, live board state and any separately owned administrative monitors."
+            ]
+          },
+          {
+            "key": "M12.03",
+            "title": "Operate reload, retarget and delivery recovery in the browser",
+            "estimate": [
+              25,
+              10,
+              35
+            ],
+            "outcome": "A user can deliberately reload or retarget an existing monitor and reconcile pending delivery through ordinary browser controls.",
+            "acceptance": [
+              "Extend the delivered M11 browser with explicit cooperative reload, retarget and supported pending/UNKNOWN reconciliation controls. Present current and captured pending targets separately and show old-target work after a retarget.",
+              "Retain exact authority, board/window identity, control revision and immutable original intent through stale/refused/unknown responses. A successful current status read cannot settle a prior control outcome or replay a delivery.",
+              "Demonstrate browser/CLI parity for target changes with pending work, saved-target restart, two-window races, revoked authority, slow/ambiguous delivery, incomplete shutdown and guarded private-state recovery. Preserve M11 local inbox and ordinary card/editor interactions, keyboard/focus and narrow layout.",
+              "Use bounded shared queue diagnostics for browser tests, label faults, verify owned cleanup and obtain fresh independent review and operator guidance."
+            ]
+          },
+          {
+            "key": "M12.04",
+            "title": "Qualify lifecycle recovery and fixed-target regression",
+            "estimate": [
+              40,
+              15,
+              55
+            ],
+            "outcome": "The complete M12 candidate passes enhanced lifecycle qualification and a fresh regression of the accepted M11 alert outcome.",
+            "acceptance": [
+              "Freeze the M12 candidate and run required gates/native/browser inventories plus two isolated clean builds and complete output equality. Any unchanged evidence reuse is explicitly bound and independently reviewed.",
+              "Join ordinary actual CLI/browser reload, retarget, saved-target restart, pending/receipt inspection and supported reconciliation on isolated default/configured boards. Repeat complete M11 local acceptance and suppression behavior.",
+              "Separately prove competing owners/controls, stale retargets, pending old targets, crashes around persist/send/receipt/checkpoint, revocation, gap warnings, capacity/retention boundaries, incomplete drain and ambiguous outcomes. Validate safe current-format recovery and exact previous-M11 compatibility/refusal.",
+              "Conserve board/history/approval/original/attachment and private pending/receipt facts under the declared transformations. Preserve source isolation and restored-target safety, classify failures, close owned resources and obtain fresh independent review."
+            ]
+          },
+          {
+            "key": "M12.05",
+            "title": "Demonstrate and hand off resilient local alerts",
+            "estimate": [
+              20,
+              5,
+              25
+            ],
+            "outcome": "Terry receives the qualified M12 kit and a fresh ordinary demonstration of complete resilient local alerts.",
+            "acceptance": [
+              "Package the exact executable, lifecycle and recovery guides, schemas/notices, complete manifest and evidence index. Verify extraction, hashes and recursive guide closure.",
+              "From the extracted kit execute real CLI and browser setup/use, local notice acceptance, deliberate retarget/reload, preserved pending destination, safe stop/reopen and documented recovery. Re-demonstrate the accepted M11 fixed-target outcome.",
+              "Keep fresh normal evidence distinct from labeled faults and reuse, verify owned cleanup, obtain fresh independent kit/guide/evidence review and publish durable handoff and clock. Terry controls final milestone approval."
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
