@@ -1,6 +1,9 @@
 # localswim v2 architecture
 
-High-level architecture and decision records for the Go + TypeScript 7.x clean-room reboot of localswim.
+High-level architecture and decision records for the greenfield Go and
+TypeScript replacement of localswim. V1 is the behavior oracle. V2 serves
+one local user through one daemon and one routed port.
+[Architecture decision register](docs/decisions/README.md).
 
 The **2026-10-27 [localhost scope reset](docs/slice01/22-localhost-scope-reset.txt)**
 is the current direction: V1's local product on Go/TypeScript and SQLite, with
@@ -11,7 +14,7 @@ supersedes conflicting transport and qualification requirements below. This is
 an owner-directed scope change to implement; historical packets remain preserved.
 
 Start with the [fresh-choice decision agenda](docs/reconsideration/44-decision-agenda.txt)
-and [current owner direction](docs/decisions/fresh-choice-reassessment-2026-10-25.txt).
+and the [earlier owner direction](docs/decisions/fresh-choice-reassessment-2026-10-25.txt).
 Terry reopened every earlier product and technical choice, including the candidate
 language split. Working v1 is evidence of useful behavior; exact copying is optional,
 and retention or departure needs a concrete case.
