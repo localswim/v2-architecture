@@ -1,0 +1,240 @@
+M10.00 CARD COVER CONTRACT R1
+2026-11-06 | #0130 | acceptance candidate for fresh independent review
+
+Authority and baseline
+
+- M10-R2 and Terry's M10 start direction govern the work. M10-R1's original
+  M10.01–.05 labels map to execution M10.00–.04, tickets #0130–#0134 in order.
+  Review and advancement follow the current owner direction. Terry controls
+  Completed. The companion ../spike02/m10-cover-acceptance-r1.txt lists the
+  required proofs. This contract records requirements, with no M10 runtime pass.
+- Accepted M09 runtime candidate 215f165a4cb58cc0faf92b121c6ac98063545812,
+  Windows amd64 executable SHA256
+  f83706354e4c3b047b92599ea8b6a03aa6b31d316a97ab8a23c67f62df5463ca.
+  Handoff source 9b6b3e8ca6d114e3bf10583845a8b290861782d5, physical11/base5.
+  See the M09 lifecycle contract, implementation/qualification/m09/joined-r1.txt
+  and the M09.06 final handoff. M10.00 readiness is bound separately to the
+  actual candidate, tools, Windows amd64 fixture and browser run.
+- The V1 README's public behavior is the parity baseline. Choosing a cover
+  displays that image, unset uses the first eligible attached image, clear
+  restores fallback, and detach of the chosen file clears the choice. PNG,
+  JPEG, GIF and WebP are the compatibility set. V2 applies verified-byte and
+  resource admission and presents a static raster preview. V1 implementation
+  and fixtures are outside the V2 design input.
+
+1. State and exact references
+
+Add optional non-null coverAttachmentId (canonical UUID) to current Card and
+full SnapshotState in the Go, generated wire/read, archive and browser contracts.
+Absence means no explicit selection. Omit the field when unset. A stored or
+read-side JSON null is invalid. Fallback is presentation state, independent of
+the stored choice. Explicitly choosing the file already shown by fallback is
+a real change. Clear while unset is NO_CHANGE. Clear does not suppress fallback.
+
+A current choice must name a full immutable attachment row and attachment
+reference for that exact current card and incarnation. Resolve board identity
+through the current board and authenticated selection. A full historical
+choice must name a full immutable attachment of its card in that snapshot's own
+References.AttachmentIDs. Validate by exact snapshot origin/card/revision,
+including preserved source-origin snapshots. Current membership, another
+revision's membership, a tombstone, another card or a matching digest cannot
+substitute. Snapshot tombstones retain their existing shapes and coverage.
+Capture and project the field through all card snapshot writers/readers,
+including workflow, history and restore paths. Restore preserves the UUID and
+historical origin, with normal current incarnation rebind and no new provenance.
+
+Ordinary current card/board/history reads expose the explicit choice with
+existing read authority and exact identity. Archived and Completed cards remain
+readable under ordinary rules. Archived interaction requires explicit archived
+selection. No attachment filename, display ticket or digest selects a cover.
+
+2. Write, policy and outcome
+
+Use existing card.edit PATCH /api/v1/boards/{boardId}/cards/{cardId} and mutation
+envelope with target.cardId, opId, incarnation, expectedRevision and
+expectedCardRevision. For a cover edit the only input key is coverAttachmentId.
+A UUID sets it. Explicit null clears it. Omission preserves it during other
+valid edits. Reject a mixed patch, duplicate or unknown keys, malformed UUID or
+wrong input type during strict freeze, before dispatch/application. A cover
+field is invalid for create and every other command. Preserve optional input
+presence through C01 canonicalization, generated schemas/types, CLI freezing
+and browser recovery validation. Existing edits produce their same canonical
+bytes, digest, routes and behavior. Null and a UUID are distinct inputs.
+
+The cover-only card.edit subtype requires current attach grant and current
+actor-kind attach ceiling, including configured workflows. Other card.edit
+payloads keep their current edit checks. The narrow subtype grants no edit,
+download, read or review authority. Native-owner restrictions remain in place.
+An archived unfinished card may be edited with the same authority. The current
+Completed workflow role refuses fresh changes on default and configured boards.
+Use policy role identity, including configured UUID lanes.
+
+Keep writer.Submit ordering and transaction boundaries.
+
+1. Strict structure/route, credential and exact original identity. A matching
+   retained original resolves under current own-outcome authority before fresh
+   CAS, grant, lane or cover evaluation. A reused key with a different frozen
+   intent stays OPERATION_MISMATCH subject to current lookup authority.
+2. Fresh credential authority, board and card CAS, existence and counter checks
+   in their existing order. Apply current attach rights, configured policy
+   integrity and Completed role before examining attachment/choice state.
+3. For set, require exact current membership. Foreign, absent, retained-only
+   and tombstoned IDs return opaque NOT_FOUND. Read the matching blob in this
+   transaction with the existing attachment length and SHA-256 integrity rules
+   and cap. A byte-valid attachment failing section 3 refuses INVALID_INPUT.
+   An integrity or storage failure follows existing fail-closed behavior and
+   writer outcome reconciliation, including fencing where current rules call
+   for it. It cannot commit or masquerade as an unsupported but intact file.
+   After these checks, selecting the same explicit ID is NO_CHANGE. Clear skips
+   candidate lookup and raster validation, and is NO_CHANGE if already unset.
+4. A real change checks event capacity and commits one board and one card
+   revision advance, one normal attributed card.edit activity event, prior
+   full snapshot and existing reference/pin sets, current policy pin, approval
+   invalidation and exact terminal original together. Use normal {cardId}
+   result and card revision ResultRef. ByteFacts stays empty. Prior approval
+   remains inspectable in existing history. Refusals keep only the records
+   already permitted by the writer, with no domain, event, revision or pin
+   change. A stale request cannot bypass CAS as a no-op.
+
+The actual CLI reuses `card edit CARD_UUID --input FILE`, `card read CARD_UUID`,
+`card history CARD_UUID` and `operation read OP_UUID --evidence FILE`. JSON
+exposes exact authoritative state. Readable current/full history output labels
+the UUID or unset state explicitly. Use both exact workspace/project/board
+selectors and standalone --data. Preserve private immutable original capture,
+exit meanings and deliberate lookup. Never infer success from fallback or later
+read state. No automatic resubmission, lookup, rebase or new opId on reload,
+response loss, navigation, client cancellation or reopen.
+
+3. Raster admission and presentation
+
+Candidate bytes must be nonempty and at most 10,485,760 bytes, the existing
+file cap. Verify complete length and digest before classifying. Use actual byte
+format and bounds, independent of the filename, mediaLabel or response MIME.
+Accept only a recognized PNG, JPEG, GIF or WebP raster header with positive
+width and height, each at most 4096 and at most 4,194,304 pixels in total.
+Check the product using safe arithmetic before decode or canvas allocation.
+This is bounded structural admission. Compressed pixel data still has to
+decode successfully to produce a preview. Go remains authoritative for writes.
+
+Freeze a parity corpus for Go and the browser. PNG uses a complete first IHDR
+with the PNG signature, legal IHDR values and its declared dimensions. JPEG
+walks bounded marker segments to a supported raster SOF (baseline, extended
+sequential or progressive DCT), validating segment bounds and its frame
+dimension fields before any scan. GIF uses GIF87a/89a and the logical screen
+dimensions. WebP validates RIFF extent, WEBP form and bounded chunk lengths,
+padding and image header fields for lossy VP8, lossless VP8L and extended VP8X.
+Validate animated GIF/WebP frame rectangles against the admitted canvas, and
+extended WebP contained raster dimensions against their enclosing canvas or
+frame before decode. Reject malformed required structure, truncated headers,
+contradictory dimensions and oversized frame declarations. A signature alone
+is insufficient. Scans are bounded by verified bytes and must advance with
+checked offsets. Reuse reliable header primitives where appropriate. Use the
+existing pinned toolchain without introducing a required external decoder.
+
+Reuse the existing authorized same-origin raw attachment GET for verified
+bytes, with its current membership check, octet-stream/nosniff, response bounds
+and browser hash/length validation. Retain img-src 'self', connect-src 'self'
+and the ordinary credential/origin requirements. The browser runs the bounded
+raster check, supplies only the admitted type to a private Blob and uses
+createImageBitmap with a static default/first frame. Validate the returned
+dimensions under the same limits, draw into a bounded canvas and close the
+bitmap. Use a backing canvas no larger than 512 pixels on either axis and
+preserve aspect ratio. Canvas owns only the rendered preview. No preview
+object URL, data URL, inline SVG, HTML or raw-byte image URL is used. Inert
+metadata is displayed as text. Ordinary file download retains its own flow.
+Reference for Blob/ImageBitmap static animation semantics
+https://html.spec.whatwg.org/multipage/imagebitmap-and-animations.html
+Reference for VP8X and frame dimension fields
+https://developers.google.com/speed/webp/docs/riff_container
+
+If explicitly selected, show that choice and render it only if verified and
+decoded. If the selected bytes are unavailable or unsupported for display,
+retain the explicit selection and show the corresponding placeholder. Clearing
+is deliberate. When unset, consider only current attachments in createdAt
+ascending, then canonical attachmentId ascending, across page boundaries.
+Choose the first verified, structurally eligible and decoded preview. Skip a
+definitely ineligible file or verified byte sequence that fails raster decode.
+If an earlier candidate has an indeterminate transport or integrity failure,
+report preview unavailable and allow deliberate refresh. This preserves order
+even when a later file is readable. Show no-preview once the candidate list is
+exhausted. Browser controls distinguish explicit, fallback and empty/unavailable
+states. Candidate status comes from verified bytes, with authority determined
+by the server on each mutation.
+
+Reuse coherent authorized CardRead/BoardRead attachment metadata, or continue
+the existing M09 ordered file cursor to determine candidate order. Retained
+metadata never participates. One selected details view and visible card
+previews share at most two in-flight fetch/verify/decode jobs per window;
+selected details take priority over queued background jobs. Scan sequentially
+per card, at most eight candidates per cooperative batch. Yield between batches
+and stop on a stale or hidden context. Do not eagerly fetch offscreen cards or
+load every board blob. Abort network/body work on context change, with a ten
+second request/body deadline. Discard and close a late bitmap on completion;
+an outstanding unabortable decode still owns its scheduler slot. Remove stale
+canvas contents on context/authority invalidation, panel close or card leaving
+the visible set. Never persist source bytes, bitmaps or canvases.
+
+Bind async work and draft to exact board/incarnation, card/attachment IDs,
+board and card revisions, window and current generation. Recheck after each
+await and before draw or publish. Refresh restores a coherent authorized view.
+Late evidence cannot change another context or clear a newer draft. Preserve
+private inputs and existing recovery/editor conventions on refusal or failure.
+Controls have accessible labels, keyboard/focus behavior and a usable narrow
+layout. Preview failure never changes add, detach or download semantics.
+
+4. Detach, history and races
+
+In M09's single detach transaction capture the full prior card snapshot and
+its existing attachment references and pins before removing the attachment.
+Clear the current cover only when its UUID equals the detached attachment.
+Apply the existing detach approval/revision/event/original behavior once.
+Other detach and add preserve the explicit choice. A preview fallback may
+change through the ordered read view without an additional write or activity.
+Retain metadata, original provenance and full history/current or operation/export
+protection as applicable. No cover-specific pin, download privilege, new
+retention policy, quota relief, immediate prune or GC is introduced.
+
+Set, clear, add and detach share existing CAS and the single writer. With a
+valid base for two real changes, at most one may commit. Each loser observes its
+precise terminal/refusal and exact retained original under the existing rules.
+Export captures one complete protected revision, before or after a change.
+An admitted download may complete from the old consistent snapshot while a
+later download after detach refuses. The browser discards stale presentation.
+
+5. Compatibility, upgrade and complete conservation
+
+Use physical12/base5. API1, archive/schema1 and C01 fingerprint1 remain.
+Represent unset without synthesizing data for old cards or prior snapshots.
+Freeze exact physical11 inventory and semantic guards before extending shared
+decoders. Every predecessor adapter must refuse cover-bearing state or a full
+cover intent, including null clears, current and source originals, committed
+and refused originals. A v11 store carrying such payload under the old layout
+refuses rather than being reinterpreted as v12. Preserve earlier versions and
+existing adjacent upgrades. The old executable refuses physical12 before any
+write. A genuinely old-vocabulary archive imports into current with unset
+covers. The actual old reader refuses cover-bearing archives. Include an
+archive whose sole cover marker is a full NOT_COMMITTED original. Compact
+receipts retain their original opaque C01 fingerprint, class and references;
+with no retained cover member they have the unchanged old vocabulary. Preserve
+that receipt exactly and never invent or reconstruct its discarded payload.
+
+Current startup refuses old layouts with explicit offline upgrade guidance.
+Add adjacent 11→12 through all supported upgrade adapters using the existing
+exclusive ownership, exact root/identity/inventory and closed transaction
+protocol. Preserve row values, required rowids, existing C01 and stored JSON
+bytes, attachment and blob inventory, grants, revisions and saved-port data.
+The step adds representational capability only. Repeating after verified
+success is NO_CHANGE. Wrong identity, active owner, future/malformed source and
+precommit fault leave old inventory intact. Postcommit uncertainty requires
+deliberate inspect. Verify saved-port reopen and complete read parity.
+
+First and second-generation archive/restore must conserve explicit current and
+full-history choices, exact attachment references, metadata, retained source
+and current operation evidence, actor/approval/workflow/coverage/tombstone
+facts, activity, and all exact protected blobs/pins and quota union. Reject
+broken current or historical membership before publication; validate cover
+candidate header bounds when the archive's verified protected bytes are checked.
+Carry only existing allowed identity/provenance transforms, retaining exact
+canonical intent/result bytes and fingerprints. Retained-only bytes remain
+unavailable through ordinary download after both restores. Include a postrestore
+edit that captures a prior selected cover with its preserved revision origin.

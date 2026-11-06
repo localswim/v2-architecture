@@ -1,0 +1,228 @@
+M10 CARD COVER EXECUTABLE ACCEPTANCE R1
+2026-11-06 | #0130–#0134 | cases to execute, pending qualification
+
+Normative contract
+../decisions/m10-cover-contract-2026-11-06.txt
+Prerequisite lifecycle cases
+m09-file-lifecycle-acceptance-r1.txt and m09-file-lifecycle-fixture-r1.json
+
+Execution rules
+
+- Use synthetic Windows amd64, local NTFS and loopback, in new private attempt
+  roots. Freeze source tree/revision, exact executable/assets, manifests,
+  tools, inventory, fixture inputs and assertions before launch. Record hashes,
+  exact commands, exits and observed results. Bind generated contract artifacts
+  and complete outputs for both clean builds. Preserve failed attempts.
+- Start with a default board and a configured board whose Completed role is
+  identified by its UUID and whose actor-kind ceilings differ. Give both a
+  card with the same display ticket. Use another card in the same board and
+  two independent browser windows. Give racing requests distinct actors and
+  fresh operation IDs, capture an identical base and dispatch with a barrier.
+- Use normal controls, ordinary authenticated routes and the actual compiled
+  CLI. Native fixture/HTTP interception controls are only for declared cases.
+  Keep seeded data, corruption, fault/race overlays and the ordinary extracted
+  demonstration distinct. Exact saved-port tests reopen with the port omitted.
+- Use pinned Go 1.27.3, Node 26.13.0, npm 12.2.1, TypeScript 7.0.2, Chrome
+  157.0.8103.38 and Playwright 1.64.1 under implementation/qualification/toolchain.
+  Follow qualification/build/README.txt and its complete results command list,
+  qualification/native/README.txt and qualification/browser/README.txt.
+  Use the maintained shared-queue runbook with a fresh mailbox per attempt.
+  Validate bounded diagnostic pages and delete only the owned mailbox after
+  sender shutdown. UI/CLI/native assertions determine correctness.
+
+Fixture bindings
+
+Create A–D as small, visually distinct, independently renderable PNG, JPEG,
+GIF and WebP. Use unambiguous solid or patterned pixels to assert the selected
+asset. Include animated GIF and animated WebP with visually different frames.
+Use one valid raster with extensionless or misleading Unicode name and a
+nonimage mediaLabel. Give text and SVG/HTML files misleading image names and
+mediaLabel. Include zero-byte and binary files, malformed signatures/header
+segments, digest-valid but undecodable compressed payload, and an integrity
+failure fixture where stored bytes disagree with length or SHA-256. Use a
+separate case for a missing required blob. Freeze exact inputs by byte length
+and SHA-256. For a deliberately altered file, record which bytes were changed
+and whether the fixture is supposed to be intact under length/hash checks.
+
+Create dimension boundaries with checked fixture generation. Prove acceptance
+of a valid 4096×1024 raster and refusal of 4097×1, 4096×1025, zero axis,
+truncated required headers and oversized/inconsistent animated frame bounds.
+Test 10 MiB and 10 MiB+1 under existing upload rules with deterministic files.
+Include WebP lossy, lossless and extended headers. Run the same header corpus
+in Go and browser classification, separately asserting actual preview decode.
+Where native fixture seeding sets equal createdAt, use distinct canonical UUIDs
+with known order and at least two attachment pages. Capture all runtime-created
+IDs and actual revisions from confirmed results. Never select by fixture ticket.
+
+Actual CLI write sequence
+
+Run this shape in PowerShell 7 with a live synthetic host, an existing private
+run directory and IDs from ordinary reads. A second operation uses a deliberate
+fresh current read, new private input path and a fresh opId. For clear pass
+$null as $coverId. Use a new path for each original, including refusals.
+
+  $selection = @('--workspace', $workspace, '--project', 'harbor', '--board', 'dispatch')
+  $raw = & $exe @selection --json card read $cardId
+  if ($LASTEXITCODE -ne 0) { throw 'Current read failed' }
+  $current = ($raw | ConvertFrom-Json).result
+  if ($current.card.cardId -cne $cardId) { throw 'Wrong current card' }
+  $request = @{
+    opId = [guid]::NewGuid().ToString()
+    incarnation = $current.identity.incarnation
+    target = @{ cardId = $cardId }
+    expectedRevision = $current.revision
+    expectedCardRevision = $current.card.revision
+    input = @{ coverAttachmentId = $coverId }
+  }
+  $inputFile = Join-Path $privateRun ($request.opId + '.json')
+  $request | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $inputFile -Encoding utf8NoBOM
+  & $exe @selection --json card edit $cardId --input $inputFile
+  $mutationExit = $LASTEXITCODE
+
+Assert the existing envelope and exact case-specific outcome. Deliberately read
+`card read CARD_UUID` and `card history CARD_UUID`, JSON and readable. For
+original lookup use `operation read OP_UUID --evidence FILE` with the originally
+saved member-root CLI evidence, never the input file in its place. For the
+standalone variant use `@('--data', $memberRoot)` and a standalone host.
+Preserve and compare the immutable source originals. A different source, missing
+evidence, lost response or old ID never licenses a resubmission.
+
+Cases and assertions
+
+COV-00 | #0130 readiness. Bind the accepted M09 executable and exact handoff
+source. On synthetic default/configured boards use ordinary browser and actual
+CLI add, list, download and detach; compare bytes, reference state and exact
+identity, then stop and reopen on the saved port. Record queue availability,
+bounded round trip and owned cleanup. Inventory existing board/card/history
+and attachment route/schema, CSP, originals and archive/upgrade seams.
+
+COV-01 | #0131 CLI choice and audit. Set A on an unset card, replace A with B,
+repeat B with fresh current base and new opId, then clear twice. Assert commits
+for real changes and NO_CHANGE for repeats, stable {cardId} result, one card ref,
+no ByteFacts, exact revisions, prior snapshots and activity/approval behavior.
+Confirm omitted cover in an ordinary title edit preserves B. Use both CLI
+selectors and default/configured workflows. Confirm readable unset/explicit
+and full prior cover, including prior approval under an unfinished role.
+
+Before #0131 handoff, lose a committed response to the actual CLI using the
+declared post-handler response-loss fault. Assert exit 4 and UNKNOWN with the
+exact immutable original and no second write. Reopen or reconnect to the
+same source, deliberately run `operation read OP_UUID --evidence FILE` with
+the retained original evidence and confirm the exact committed result. Compare
+the committed card, revisions, history, activity and pins with one mutation.
+Keep this CLI proof separate from the browser response-loss proof in COV-09.
+
+COV-02 | #0131 admission and ordering. Submit malformed/mixed cover patches,
+stale board/card bases, equal-cover stale edit, wrong context, foreign/retained/
+tombstoned IDs, invalid raster, exact grant and current actor ceiling refusals,
+and default/configured Completed (including clear while unset). Prove attach
+without edit can cover-edit, edit without attach cannot, and attach never allows
+download or unrelated edit. Check native-owner refusal. Include archived
+unfinished success. Test old exact original and OPERATION_MISMATCH after later
+changes, under current own-outcome checks. Verify precise codes, durable
+originals when allowed, no side effects and unchanged legacy canonical vectors.
+
+COV-03 | #0131 membership and atomicity. With explicit A detach unrelated B,
+then A. Capture exact prior cover/attachment membership and approval before each
+commit. Assert no intermediate dangling cover, old A prior pin and retained
+metadata, correct ordinary raw/CLI refusal after detach, and no immediate quota
+relief. Include a later authorized retention case and complete historical
+membership/tombstone checks. Test archive validator refusal of wrong-card,
+wrong-revision, absent and tombstoned historical cover references.
+
+Before #0131 handoff, run native same-base set/clear, set/detach and clear/detach
+pairs. Start with explicit A and a distinct eligible B. Race set B against
+clear or detach B, and clear against detach A. Each pair starts with a fresh
+fixture and two otherwise valid changes from distinct actors. Use a dispatch
+barrier, then assert one commit and one durable REVISION_CONFLICT with exact
+originals. Check the winning state's cover and attachment membership, prior
+cover/pins, and single revision and activity increments. COV-09 repeats the
+races on the joined candidate and adds cover/add and export/download overlap.
+
+COV-04 | #0131 physical and archive predecessor. Bind an exact v11 executable,
+native v11 store and old-vocabulary archive. Current starts only after explicit
+offline 11→12 upgrade; old startup refuses new layout before write. Use actual
+`storage inspect` and `storage upgrade --from-version 11 --to-version 12` with
+`--data`, `--board-id` and `--incarnation`. Assert exact inventory/old C01/stored
+bytes, no new logical effects, saved-port reopen and repeat NO_CHANGE. Refuse
+active, wrong identity, malformed and future inputs. Inject before COMMIT and
+compare unchanged source. Inject postcommit UNKNOWN, then inspect deliberately.
+Include v11 stores with cover inserted under old schema into snapshot JSON or
+full originals; old-layout validation refuses before promotion. Prove actual
+old archive import refusal for current/historical cover and committed/source
+cover intents. Independently isolate a full refused-only cover original and
+assert refusal with unchanged source/no destination. Old-vocabulary archives
+restore unset. Compact receipts with opaque fingerprints conserve exact fields.
+
+COV-05 | #0131 first complete restore. Restore a changed card with explicit
+choice plus full prior choice and one selected-cover detach. Compare all
+fields in COV-11 and the old-vocabulary path in COV-04. Reopen restored data
+and assert actual CLI and raw-route read/byte parity with transformed identity.
+
+COV-06 | #0132 ordinary browser parity. Add A–D and ordinary files across both
+workflow profiles. With multiple pages and a tie, verify first decoded eligible
+fallback in exact order. Explicitly choose the fallback, change to another,
+clear to fallback, detach unrelated and selected files, then verify empty
+or new fallback. Exercise actual CLI-to-browser and browser-to-CLI reads and
+mutations. Check saved explicit vs fallback labels, static animation preview,
+keyboard labels/focus and narrow layout, explicit archived access and read-only
+Completed. Inspect authenticated GET, octet-stream/nosniff and unchanged CSP.
+No upload, download or fallback success is inferred from mutation completion.
+
+COV-07 | #0132 preview safety and isolation. Assert pixel/canvas results with
+the fixture corpus, absent DOM/URL rendering for text/SVG/HTML, mismatch and
+oversize refusal, stale/late fetch and decode discards, resource release,
+concurrency/backing-size bounds and no offscreen eager reads. Interleave windows
+and boards with same tickets. Navigate during delayed fetch/decode, change
+revision or remove current read authority. Verify no stale draw, cross-context
+write or old response clearing newer private inputs. Earlier indeterminate
+fallback shows unavailable; definitely ineligible is skipped. Explicit decode
+failure retains the choice and offers deliberate clear/reselection.
+
+COV-08 | #0132 file and cover recovery. Exercise stale revision, current-right
+loss, disconnect/reload, unsupported or absent bytes, transfer cancellation and
+bad length/digest. Preserve selected input and exact base/original evidence.
+Deliberately refresh/reselect/lookup as applicable. Check no raw bytes persisted,
+no false verified download offer and no automatic replay. Record injections
+separately. Retain accepted M09 upload/detach and verified transfer limits.
+Lose one genuinely committed browser cover response and confirm retained UNKNOWN
+across reload before deliberate exact-original lookup. Check the one committed
+effect without mutation replay. COV-09 repeats this on the joined candidate.
+
+COV-09 | #0133 race and response loss. Pair set/clear, set/detach, clear/detach
+and cover/add on one base using independently valid setup. Exercise either
+winner where reachable; observe one commit and one REVISION_CONFLICT, and exact
+originals. Overlap selected detach with export and an admitted download. Before
+and after protected states must be individually complete. Lose a committed
+cover response in browser and CLI, preserve UNKNOWN, reload or reopen without
+replay and resolve the exact original deliberately. Assert all persisted
+effects match that one commit. Include precommit fault and reconciliation
+fault without inferred noncommit or wrong-incarnation lookup success.
+
+COV-10 | #0133 final joined gate. Repeat COV-01–09 on one exact candidate with
+required native/browser inventories and both isolated clean builds. Reuse only
+exact accepted unchanged inputs with documented scope and independent review.
+Record final CLI/browser normal parity, complete gate exits, output equality,
+saved-port reopen, separate fault proof and predecessor/upgrade refusal proof.
+Compare complete browser and actual CLI current reads across the saved-port
+reopen on both workflow profiles.
+
+COV-11 | #0133 conservation. Export and run a first restore, mutate the
+restored card once to snapshot its prior cover under preserved origin, then
+export and run a second restore. Compare each export against its source at
+its frozen revision and each restore against that export. Compare all current
+and historical card/cover facts, references, actor/provenance, metadata,
+approvals, policy/workflow and pins, activities, retention/coverage/tombstones,
+full/compact/current/source originals, ByteFacts, lineage and every protected
+blob's exact bytes, length, digest, pin set and distinct quota union. Apply only
+existing admitted identity and lineage transformations. Compare C01 bytes, not
+arbitrary JSON formatting. Verify retained raw refusal and current exact bytes.
+
+COV-12 | #0134 exact extracted kit. Verify ZIP manifest/checksum and every
+extracted payload, executable/tool notice and recursively referenced schema,
+declaration and guide. On fresh data use only extracted executable and guides.
+Exercise documented CLI commands and browser set/change/clear/fallback, chosen
+detach, retained/current download outcomes and supported export/restore. Reopen
+on saved ports and compare exact current reads. Separate fresh normal proof
+from bound qualification/fault evidence. Confirm owned runtime/listener/queue
+cleanup, reviewed durable handoff and only RFR for final Terry review.
