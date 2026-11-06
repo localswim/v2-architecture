@@ -33,6 +33,7 @@ M09.02 required cases
 - F06-F08 read authority, configured/archived/Completed behavior and attribution.
 - F09-F12 verified browser/CLI byte transfer and storage/integrity failures.
 - F30 navigation/late responses and F33 original-byte compatibility.
+- F37-F40 legacy labels, response-byte paging and bounded serialization A1.
 
 M09.03 required cases
 - F13-F17 add boundaries, raw-file lifetime, duplicates and failure atomicity.
@@ -112,3 +113,43 @@ deleting each owned mailbox. Never log card text, bytes, credentials or raw URLs
 Review status
 This packet contains planned cases and fixture values. Independent review and
 runtime pass/fail receipts are separate artifacts owned by the current story.
+
+Response-byte amendment A1, 2026-11-05
+M09.02 review found proposed client caps of16KiB inspect,256KiB browser list
+and512KiB CLI list reject valid legacy labels/pages. Actor.Label has no such
+stored bound. This amendment sets one128MiB hard file-read response cap and
+one1MiB normal list target, measured as the full encoded UTF-8 response.
+An oversized first item may occupy a singleton page up to the hard cap.
+Server uses SetEscapeHTML(false); all surfaces preserve exact decoded labels.
+Physical10/base5 and archive/member limits remain unchanged.
+
+Run the two distinct F37 fixtures through the authoritative route, ordinary
+browser and actual CLI. First inspect and list a single attachment with a20KiB
+actor label. Separately list50 attachments with5000-byte labels, producing a
+complete response over256KiB and under1MiB, approximately281786 bytes with the
+review fixture's metadata. Assert the actual serialized bounds and all50 items.
+Compare exact labels and full generated DTOs in both fixtures. Do not require
+50 repeated20KiB labels to fit one1MiB page. Run F38 with repeated large labels
+to force a short
+nonterminal page, then traverse all cursors without duplicates or omissions.
+Include a singleton over1MiB and a following small item. Count cursor/envelope
+bytes, accept items.length below limit with nextCursor, and reject an empty
+page carrying a non-null cursor.
+
+F39 uses an accepted near32MiB synthetic actor-containing archive member,
+including HTML-significant characters and U+2028/U+2029. Verify exact decoded
+label, permitted JSON escaping, bounded response, browser/CLI acceptance and
+export/restore preservation. Generated fixture recipes supply large labels
+at test execution time; do not check multi-megabyte test data into the repo.
+
+F40 exercises explicit refusal for labels over33554432 UTF-8 bytes using
+isolated storage setup. Include ASCII, multibyte text and an embedded NUL
+before the over-limit suffix. Assert SQLite length(CAST(label AS BLOB))
+preflight, which counts all bytes through NUL; length(TEXT) is insufficient.
+Also exercise a single encoded response over134217728 bytes
+using a controlled transport fixture. Assert no success header/partial page,
+no truncation/attribution substitution, source unchanged and bounded memory
+behavior. Observe SQL length preflight and incremental one-item hydration so
+100 repeated large actors cannot cause100-label allocation before paging.
+Also test exact-cap success and cap+1 refusal on chunked and declared-length
+responses in both client decoders. Existing size/payload validation stays strict.

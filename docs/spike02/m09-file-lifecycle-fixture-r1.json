@@ -18,7 +18,27 @@
     {"key":"empty","name":"","mediaLabel":"","base64":"","byteLength":0,"sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
     {"key":"binary","name":"été-水.txt","mediaLabel":"application/octet-stream","base64":"AAEKf4D/","byteLength":6,"sha256":"cb6abcf3053610063a36e5a75311ad2d15767f5db56cc5590f8894ef8c842a0b"}
   ],
-  "limits": {"fileBytes":10485760,"protectedBytes":67108864,"listDefault":50,"listMaximum":100,"cursorMaximum":1024},
+  "limits": {"fileBytes":10485760,"protectedBytes":67108864,"listDefault":50,"listMaximum":100,"cursorMaximum":1024,"fileReadResponseBytes":134217728,"fileListTargetBytes":1048576,"actorLabelUtf8Bytes":33554432},
+  "responseByteAmendment": {
+    "revision":"A1",
+    "date":"2026-11-05",
+    "status":"planned-not-executed",
+    "encoding":"Go JSON Encoder SetEscapeHTML(false)",
+    "oversizedFirstItem":"singleton-if-within-hard-cap",
+    "shortNonterminalPageAllowed":true,
+    "emptyNonterminalPageAllowed":false,
+    "oversizedItemCode":"UNAVAILABLE",
+    "fixtureRecipes":[
+      {"key":"legacy20KiB","unit":"L","repeat":20480},
+      {"key":"legacy5000Bytes","unit":"M","repeat":5000},
+      {"key":"repeated600KiB","unit":"R","repeat":614400},
+      {"key":"oversizedSingleton2MiB","unit":"S","repeat":2097152},
+      {"key":"overLabelBound","unit":"X","repeat":33554433},
+      {"key":"overLabelBoundMultibyte","unit":"水","repeat":11184811},
+      {"key":"overLabelBoundEmbeddedNul","unit":"\u0000X","repeat":16777217},
+      {"key":"unicodeNearArchiveLimit","unit":"<>&\u2028\u2029","recipe":"repeat while complete actor-containing archive member remains <=33554432 UTF-8 bytes"}
+    ]
+  },
   "detachRequest": {
     "opId":"00000000-0000-4000-8000-000000000007",
     "incarnation":"00000000-0000-4000-8000-000000000002",
@@ -64,6 +84,10 @@
     {"id":"F33","owner":"M09.02,M09.03","setup":"accepted pre-M09 canonical originals and physical10 archive fixtures","action":"regenerate/read/refreeze and reopen","expect":{"canonicalIntentBytesUnchanged":true,"fingerprintsUnchanged":true,"noNewStoredFields":true,"physicalVersion":10}},
     {"id":"F34","owner":"M09.03,M09.04","setup":"complete mixed current/historical add/detach source fixture","action":"export and first runnable restore","expect":{"allRecordsCompared":true,"allOriginalBytesCompared":true,"allProtectedBlobBytesCompared":true,"onlyDocumentedTransforms":true,"readAndAttributionParity":true}},
     {"id":"F35","owner":"M09.05","setup":"first restored source of F34 with old/source compact/full originals","action":"export first restore and second runnable restore","expect":{"allRecordsCompared":true,"allOriginalBytesCompared":true,"allProtectedBlobBytesCompared":true,"lineageAndSourceLedgersCompared":true,"pinUnionCompared":true}},
-    {"id":"F36","owner":"M09.06","setup":"fresh extracted exact qualified kit, default/configured multi-board workspace","action":"browser add -> CLI inspect/download -> CLI add -> browser inspect/download -> detach -> retained inspect -> saved-port reopen","expect":{"joinedLifecycle":true,"retainedRawDownload":"NOT_FOUND","exactBytes":true,"currentReadParity":true,"ownedCleanup":true}}
+    {"id":"F36","owner":"M09.06","setup":"fresh extracted exact qualified kit, default/configured multi-board workspace","action":"browser add -> CLI inspect/download -> CLI add -> browser inspect/download -> detach -> retained inspect -> saved-port reopen","expect":{"joinedLifecycle":true,"retainedRawDownload":"NOT_FOUND","exactBytes":true,"currentReadParity":true,"ownedCleanup":true}},
+    {"id":"F37","owner":"M09.02","setup":"two independent fixtures: one attachment with legacy20KiB actor label;50 attachments with legacy5000Bytes actor labels","action":"authoritative list/inspect, ordinary browser and actual CLI","variants":[{"fixture":"legacy20KiB","items":1,"inspect":true,"list":true},{"fixture":"legacy5000Bytes","items":50,"list":true,"responseBytesGreaterThan":262144,"responseBytesLessThan":1048576,"referenceResponseBytesApproximate":281786}],"expect":{"exactLabel":true,"allSurfacesAccept":true,"physicalVersion":10,"newStoredLabelLimit":false}},
+    {"id":"F38","owner":"M09.02","setup":"three items sharing repeated600KiB actor label; separate singleton2MiB followed by a small item","action":"list limit50 and traverse all continuation cursors","expect":{"repeatedLabelPageLengths":[1,1,1],"singletonPageLengths":[1,1],"shortNonterminalPageAccepted":true,"emptyNonterminalPageRejected":true,"wireBudgetIncludesRepeatedLabelsAndEnvelope":true,"duplicates":0,"omissions":0}},
+    {"id":"F39","owner":"M09.02","setup":"unicodeNearArchiveLimit accepted source member with HTML-significant and U+2028/U+2029 text","action":"restore, list singleton, inspect, ordinary browser/actual CLI and export","expect":{"exactDecodedLabel":true,"responseBytesAtMost":134217728,"optionalHTMLEscapesDisabled":true,"sourceArchiveLimitUnchanged":true,"allSurfacesAccept":true}},
+    {"id":"F40","owner":"M09.02","setup":"overLabelBound, overLabelBoundMultibyte and overLabelBoundEmbeddedNul isolated stores; controlled exact-cap/cap+1 body fixtures;100 candidates with repeated large labels","action":"authoritative read and client streamed decoders","expect":{"overLabelBound":"UNAVAILABLE","overHardCap":"UNAVAILABLE","exactCapAcceptedWhenValid":true,"partialSuccess":false,"labelTruncation":false,"sqlLengthExpression":"length(CAST(label AS BLOB))","multibyteCountedInBytes":true,"embeddedNulSuffixCounted":true,"oneItemHydration":true,"sourceUnchanged":true}}
   ]
 }

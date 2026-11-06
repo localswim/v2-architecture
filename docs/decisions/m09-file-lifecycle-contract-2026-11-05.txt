@@ -103,7 +103,8 @@ not verified blob availability or future delivery. Current maps to
 current_reference, retained to not_current. Download still reauthorizes.
 
 Sort each list by createdAt ascending, then attachmentId ascending using exact
-canonical values. Return at most limit items. Opaque cursor is canonical unpadded
+canonical values. Return at most limit items and apply the response-byte budget
+below. Opaque cursor is canonical unpadded
 base64url UTF-8 canonical JSON, bounded to 1024 ASCII bytes, containing exactly
 version=1, boardId, incarnation, cardId, boardRevision, cardRevision, view,
 afterCreatedAt and afterAttachmentId. Validate every type and context binding.
@@ -113,6 +114,65 @@ INVALID_INPUT. Use the captured revision and last item's key for continuation.
 On conflict discard partial pagination and explicitly refresh from page1.
 An empty list succeeds with [] and null. Do not silently merge revisions.
 
+Response-byte amendment A1, 2026-11-05
+The file-read routes preserve exact legacy Actor.Label strings. Existing storage
+and type validation do not impose a short actor-label limit. The accepted archive
+JSON member limit is 33554432 bytes. File reads must support actor labels from
+those valid archives, including labels larger than16KiB and pages larger than
+256KiB or512KiB. No label truncation, new stored bound or attribution erasure
+is permitted to make a response fit.
+
+Use a128MiB hard HTTP response-body cap, exactly134217728 UTF-8 bytes, for both
+file-list and file-inspect in server, ordinary browser and actual CLI. This cap
+includes the complete JSON envelope and any final newline. The ordinary list
+page target is1MiB, exactly1048576 bytes, with the same full-envelope accounting.
+The server uses Go's JSON encoder with SetEscapeHTML(false), preserving standard
+JSON string escaping and exact decoded labels. Optional HTML escaping must not
+inflate repeated labels. U+2028/U+2029 escaping may remain as produced by this
+encoder. The128MiB cap accommodates that expansion and envelope overhead for
+any single label from an accepted32MiB archive member.
+
+Build the ordered page as the largest prefix of at most limit items whose
+actual serialized response fits the1MiB target. Budget the appropriate non-null
+continuation cursor when another item exists, including a byte-budget stop.
+When the first item alone exceeds1MiB, return that one complete item if its
+complete response fits128MiB. Never combine an oversized singleton with more
+items. If more records remain, nextCursor names the last returned item even
+when fewer than limit items were returned. A non-null nextCursor requires
+at least one returned item. Consumers must accept such short pages, advance
+using the cursor and never infer completion from items.length < limit.
+The final page has null nextCursor. A legitimate empty result has [] and null.
+
+Preflight UTF-8 label length in SQLite using length(CAST(label AS BLOB)) before
+crossing the driver. Do not use length(label), which counts text characters
+and stops at an embedded NUL. A label over
+33554432 UTF-8 bytes is outside this route's supported legacy envelope and
+refuses UNAVAILABLE before retrieval. An individually serialized response over
+128MiB also refuses UNAVAILABLE. These explicit read refusals preserve stored
+data and occur before success headers. Do not label an oversized known actor
+as unavailable attribution, skip an item, return partial JSON or manufacture an
+empty page. An oversized later item may be reached after an earlier nonempty
+page, then refuses on that continuation; it is never silently omitted.
+
+Select only the bounded ordered candidate keys and small metadata first.
+Hydrate attribution incrementally for one candidate item at a time after its
+label-length preflight. At most two source-matching operation/activity headers
+per item are needed to check uniqueness. Do not batch-fetch100 large labels or
+serialize every possible item before deciding the page boundary. A bounded
+current-page buffer and one candidate/encoding buffer are sufficient. Shared
+actor labels may reuse an immutable in-memory value, but their repeated wire
+bytes still count separately. No whole-board/history/original payload loading
+is introduced. Inspect applies the same preflight and hard cap to one item.
+
+Before success headers, the server verifies actual complete encoded size, using
+bounded buffers/counting. Browser and CLI enforce the same128MiB body cap for
+both routes, reading incrementally and stopping on excess before JSON decode.
+An available Content-Length is an early rejection aid, never the sole bound.
+Malformed, truncated or over-cap responses remain unavailable and cannot leave
+a partially rendered page. These budgets affect read transport only. Current
+physical10/base5, immutable originals, existing archive limits and DTO shapes
+remain unchanged.
+
 Existing BoardRead, CardRead and HistoryRead remain exact and complete under
 their current contracts. New bounded endpoints project existing data, including
 source-bound outcomes/activity for attribution. They introduce no stored read
@@ -120,12 +180,12 @@ projection and no physical/schema change in M09.02. Browser history may obtain
 full metadata with inspect only for its exact selected card. Existing history
 coverage remains authoritative for removed snapshots and metadata.
 
-Resolve attribution only for the returned at-most100 attachment IDs, using
-batched compact operation headers/reference rows and then activity fallback
-inside the same snapshot. Bound candidate retrieval to two matching records
-per attachment/source to detect non-uniqueness. Do not load every original
-payload, history snapshot or blob to build a page. A single inspect applies the
-same bounded lookup to one ID. Conflicting/non-unique evidence fails explicitly.
+Resolve attribution for the bounded ordered candidate set inside the same
+snapshot, following the incremental byte-budget rule above. Compact operation
+headers/reference rows and then activity fallback supply the source evidence.
+Bound candidate retrieval to two matching records per attachment/source to
+detect non-uniqueness. Do not load every original payload, history snapshot or
+blob to build a page. Conflicting/non-unique evidence fails explicitly.
 
 3. Downloads and safe metadata
 Retain GET /api/v1/boards/{boardId}/attachments/{attachmentId}. It requires
