@@ -1,0 +1,175 @@
+{
+  "revision": "activity-alert-roadmap-r1",
+  "date": "2026-11-06",
+  "baseLimitMinutesExclusive": 240,
+  "preflightExcludedFromDevelopment": true,
+  "status": "Milestone planning scope. Execution requires separate owner start and accepted prerequisites.",
+  "milestones": [
+    {
+      "key": "M11",
+      "title": "Inspect committed board changes",
+      "outcome": "Inspect the selected board's recent committed changes through the ordinary browser and actual CLI, with truthful attribution and coverage.",
+      "scope": [
+        "Read bounded activity pages from existing committed metadata, using explicit board/incarnation selection and current read authority. Use a captured upper bound so a paged inspection is coherent. Return human, automation or unknown attribution from authoritative evidence. Keep valid empty, unavailable, expired and gapped evidence distinct. Deliberate fresh read after a stale continuation or restart is sufficient for this interactive delivery.",
+        "Expose the same selected-board facts in a small read-only browser view and in readable and JSON CLI output. Keep card prose, attachment names and secrets out of the projection. Preserve current origin, editor state and existing domain behavior. Reuse current storage and contracts where feasible. Durable monitor checkpoints, suppression decisions and alert delivery belong to M12."
+      ],
+      "demo": "Make a human and an automation change on two synthetic boards. In the ordinary browser and actual CLI inspect the exact selected board, distinguish attribution and coverage, page deliberately and reopen cleanly. Demonstrate a separately labeled incomplete interval without presenting it as empty.",
+      "requires": "Accepted M10 and retained M09 prerequisite",
+      "delivery": "Each estimate covers full development from scoped contract through ordinary fixes, current required verification and independent review, qualification of the exact candidate (pinned gates, two isolated clean builds, mandatory native/browser evidence with justified reuse only), usable extracted kit with fresh normal demo, cleanup and publication. Separate readiness preflight and inactive owner waiting are excluded. Evidence uses synthetic/local scope."
+    },
+    {
+      "key": "M12",
+      "title": "Receive fixed-target local board alerts",
+      "outcome": "Run a fixed-target local monitor, observe human or uncertain activity notices in a private local inbox and verify bot-only suppression.",
+      "scope": [
+        "Build on the accepted M11 activity projection. Add the restart-stable complete interval evidence, attribution and checkpoint semantics the monitor needs. Suppress only a complete nonempty interval entirely verified as the configured automation actor. Human, mixed, unknown, observed-empty, failed, malformed and gapped evidence produces a sanitized notice. File-write counts do not determine activity coverage.",
+        "Use one owner per selected physical board and one fixed private local inbox target in the existing host. Persist pending intent and receipt identity before acceptance, bound capacity and report acceptance, failure and UNKNOWN honestly. Support initial setup, start, status, inbox/receipt read, safe stop and clean same-target reopen with catch-up through actual CLI and browser. After uncertainty retain pending and guard resumption until deliberate exact lookup. Cooperative live reload, target changes and expanded recovery belong to M13."
+      ],
+      "demo": "From the ordinary browser and actual CLI configure a synthetic board's local inbox, see a human notice, verify a bot-only interval is suppressed, inspect the receipt, then stop and reopen the same monitor. Demonstrate guarded uncertainty separately.",
+      "requires": "Accepted M11 activity inspection",
+      "delivery": "Each estimate covers full development from scoped contract through ordinary fixes, current required verification and independent review, qualification of the exact candidate (pinned gates, two isolated clean builds, mandatory native/browser evidence with justified reuse only), usable extracted kit with fresh normal demo, cleanup and publication. Separate readiness preflight and inactive owner waiting are excluded. Evidence uses synthetic/local scope."
+    },
+    {
+      "key": "M13",
+      "title": "Reload, retarget and recover local board alerts",
+      "outcome": "Operate the accepted fixed-target monitor through deliberate target changes, cooperative reload and expanded recovery without losing captured pending work.",
+      "scope": [
+        "Extend accepted M12 behavior through the normal CLI and browser. Add cooperative reload, revision-bound retarget, competing control and owner exclusion, and bounded restart and receipt reconciliation. Preserve original pending destinations and scope, immutable delivery identities, uncertainty and gaps through failures. Retry only under accepted policy with supported evidence.",
+        "Keep the existing local inbox and monitor guarantees, native ownership, shutdown safety, current authorization and default/configured board isolation. Prove prior private state compatibility or safe refusal and retain board/restore conservation. External delivery remains separately scoped."
+      ],
+      "demo": "Retarget with pending work, show the original pending destination and the new target for future changes, cooperatively reload, then deliberately reconcile the retained receipt through both clients. Reopen cleanly and demonstrate unchanged fixed-target suppression behavior.",
+      "requires": "Accepted M12 fixed-target alerts",
+      "delivery": "Each estimate covers full development from scoped contract through ordinary fixes, current required verification and independent review, qualification of the exact candidate (pinned gates, two isolated clean builds, mandatory native/browser evidence with justified reuse only), usable extracted kit with fresh normal demo, cleanup and publication. Separate readiness preflight and inactive owner waiting are excluded. Evidence uses synthetic/local scope."
+    }
+  ],
+  "shift": [
+    {
+      "from": "M13",
+      "to": "M14",
+      "title": "Publish optional Git snapshots and backups"
+    },
+    {
+      "from": "M14",
+      "to": "M15",
+      "title": "Update and restart the local application"
+    },
+    {
+      "from": "M15",
+      "to": "M16",
+      "title": "Inventory a V1 board and preview import"
+    },
+    {
+      "from": "M16",
+      "to": "M17",
+      "title": "Import logical V1 board data into an isolated copy"
+    },
+    {
+      "from": "M17",
+      "to": "M18",
+      "title": "Complete imported attachment bytes and references"
+    },
+    {
+      "from": "M18",
+      "to": "M19",
+      "title": "Rehearse V1 coexistence and recovery"
+    },
+    {
+      "from": "M19",
+      "to": "M20",
+      "title": "Reconcile the retained feature-parity outcomes"
+    },
+    {
+      "from": "M20",
+      "to": "M21",
+      "title": "Qualify and hand off the everyday release"
+    }
+  ],
+  "currentRoadmap": [
+    {
+      "id": "M01",
+      "title": "Work across projects and boards in one local workspace"
+    },
+    {
+      "id": "M02",
+      "title": "Read and edit cards comfortably"
+    },
+    {
+      "id": "M03",
+      "title": "Find and retire work"
+    },
+    {
+      "id": "M04",
+      "title": "Organize cards with hierarchy"
+    },
+    {
+      "id": "M05",
+      "title": "Connect cards with typed relationships"
+    },
+    {
+      "id": "M06",
+      "title": "Create and reopen configured workflows"
+    },
+    {
+      "id": "M07",
+      "title": "Change existing workflows safely"
+    },
+    {
+      "id": "M08",
+      "title": "Configure and use truthful Attention"
+    },
+    {
+      "id": "M09",
+      "title": "Add, inspect and download card files"
+    },
+    {
+      "id": "M10",
+      "title": "Use covers and preserve attachment consistency"
+    },
+    {
+      "id": "M11",
+      "title": "Inspect committed board changes"
+    },
+    {
+      "id": "M12",
+      "title": "Receive fixed-target local board alerts"
+    },
+    {
+      "id": "M13",
+      "title": "Reload, retarget and recover local board alerts"
+    },
+    {
+      "id": "M14",
+      "title": "Publish optional Git snapshots and backups"
+    },
+    {
+      "id": "M15",
+      "title": "Update and restart the local application"
+    },
+    {
+      "id": "M16",
+      "title": "Inventory a V1 board and preview import"
+    },
+    {
+      "id": "M17",
+      "title": "Import logical V1 board data into an isolated copy"
+    },
+    {
+      "id": "M18",
+      "title": "Complete imported attachment bytes and references"
+    },
+    {
+      "id": "M19",
+      "title": "Rehearse V1 coexistence and recovery"
+    },
+    {
+      "id": "M20",
+      "title": "Reconcile the retained feature-parity outcomes"
+    },
+    {
+      "id": "M21",
+      "title": "Qualify and hand off the everyday release"
+    }
+  ],
+  "deferredMilestones": "M12 and later epics remain Backlog. Future development plans require separate starts. Earlier alert story cards remain archived as historical evidence.",
+  "scopeConservation": "The read-only activity view precedes fixed-target local alerts. Restart-stable monitor checkpoints, suppression and local delivery belong to M12. Reload, retarget and expanded lifecycle recovery belong to M13. External delivery retains its separate scope gate."
+}

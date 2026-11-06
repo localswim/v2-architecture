@@ -22,13 +22,15 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
-The current roadmap splits local alerts into M11 fixed-target delivery and M12
-reload, retarget and recovery. M11 has a development base below four hours and
-its own preflight, qualification and extracted demonstration. M12 stories are
-archived for a fresh breakdown and estimate at its start. M12 and later milestones
-M13–M20 remain Backlog. Future bases must stay below four hours. Execution follows
-the separate acceptance and phase-start gates. [Alert milestone split](docs/spike02/m11-m12-alert-split-r1.txt) and
-[structured roadmap](docs/spike02/m11-m12-alert-split-r1.json).
+The current roadmap delivers M11 read-only activity inspection, M12 fixed-target
+local alerts and M13 reload, retarget and recovery. Each milestone has a distinct
+demo and a development base limit strictly below four hours. M12 through M21
+remain Backlog and execution follows separate start and prerequisite gates.
+[Activity and alert roadmap](docs/spike02/activity-alert-roadmap-r1.txt) and
+[structured roadmap](docs/spike02/activity-alert-roadmap-r1.json).
+
+The prior M11/M12 alert split retains its historical scope and numbering.
+[Earlier alert split](docs/spike02/m11-m12-alert-split-r1.txt).
 
 The earlier M07/M08 split records existing-workflow editing and category-based
 Attention. Its historical numbering and evidence remain preserved.

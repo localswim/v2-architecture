@@ -1,0 +1,82 @@
+LOCALSWIM ACTIVITY AND ALERT ROADMAP R1
+2026-11-06
+
+Each milestone development base must be strictly below four hours. Scope, estimate and independent demo apply to each complete delivery. Readiness preflight remains separate.
+
+All prior alert story breakdowns are historical. This roadmap records milestone scope only. M12 through M21 remain Backlog and execution requires separate owner start.
+
+M11 Inspect committed board changes
+
+Inspect the selected board's recent committed changes through the ordinary browser and actual CLI, with truthful attribution and coverage.
+
+Scope
+
+- Read bounded activity pages from existing committed metadata, using explicit board/incarnation selection and current read authority. Use a captured upper bound so a paged inspection is coherent. Return human, automation or unknown attribution from authoritative evidence. Keep valid empty, unavailable, expired and gapped evidence distinct. Deliberate fresh read after a stale continuation or restart is sufficient for this interactive delivery.
+- Expose the same selected-board facts in a small read-only browser view and in readable and JSON CLI output. Keep card prose, attachment names and secrets out of the projection. Preserve current origin, editor state and existing domain behavior. Reuse current storage and contracts where feasible. Durable monitor checkpoints, suppression decisions and alert delivery belong to M12.
+
+Normal demonstration
+
+Make a human and an automation change on two synthetic boards. In the ordinary browser and actual CLI inspect the exact selected board, distinguish attribution and coverage, page deliberately and reopen cleanly. Demonstrate a separately labeled incomplete interval without presenting it as empty.
+
+Prerequisite
+
+Accepted M10 and retained M09 prerequisite
+
+Delivery standard
+
+Each estimate covers full development from scoped contract through ordinary fixes, current required verification and independent review, qualification of the exact candidate (pinned gates, two isolated clean builds, mandatory native/browser evidence with justified reuse only), usable extracted kit with fresh normal demo, cleanup and publication. Separate readiness preflight and inactive owner waiting are excluded. Evidence uses synthetic/local scope.
+
+M12 Receive fixed-target local board alerts
+
+Run a fixed-target local monitor, observe human or uncertain activity notices in a private local inbox and verify bot-only suppression.
+
+Scope
+
+- Build on the accepted M11 activity projection. Add the restart-stable complete interval evidence, attribution and checkpoint semantics the monitor needs. Suppress only a complete nonempty interval entirely verified as the configured automation actor. Human, mixed, unknown, observed-empty, failed, malformed and gapped evidence produces a sanitized notice. File-write counts do not determine activity coverage.
+- Use one owner per selected physical board and one fixed private local inbox target in the existing host. Persist pending intent and receipt identity before acceptance, bound capacity and report acceptance, failure and UNKNOWN honestly. Support initial setup, start, status, inbox/receipt read, safe stop and clean same-target reopen with catch-up through actual CLI and browser. After uncertainty retain pending and guard resumption until deliberate exact lookup. Cooperative live reload, target changes and expanded recovery belong to M13.
+
+Normal demonstration
+
+From the ordinary browser and actual CLI configure a synthetic board's local inbox, see a human notice, verify a bot-only interval is suppressed, inspect the receipt, then stop and reopen the same monitor. Demonstrate guarded uncertainty separately.
+
+Prerequisite
+
+Accepted M11 activity inspection
+
+Delivery standard
+
+Each estimate covers full development from scoped contract through ordinary fixes, current required verification and independent review, qualification of the exact candidate (pinned gates, two isolated clean builds, mandatory native/browser evidence with justified reuse only), usable extracted kit with fresh normal demo, cleanup and publication. Separate readiness preflight and inactive owner waiting are excluded. Evidence uses synthetic/local scope.
+
+M13 Reload, retarget and recover local board alerts
+
+Operate the accepted fixed-target monitor through deliberate target changes, cooperative reload and expanded recovery without losing captured pending work.
+
+Scope
+
+- Extend accepted M12 behavior through the normal CLI and browser. Add cooperative reload, revision-bound retarget, competing control and owner exclusion, and bounded restart and receipt reconciliation. Preserve original pending destinations and scope, immutable delivery identities, uncertainty and gaps through failures. Retry only under accepted policy with supported evidence.
+- Keep the existing local inbox and monitor guarantees, native ownership, shutdown safety, current authorization and default/configured board isolation. Prove prior private state compatibility or safe refusal and retain board/restore conservation. External delivery remains separately scoped.
+
+Normal demonstration
+
+Retarget with pending work, show the original pending destination and the new target for future changes, cooperatively reload, then deliberately reconcile the retained receipt through both clients. Reopen cleanly and demonstrate unchanged fixed-target suppression behavior.
+
+Prerequisite
+
+Accepted M12 fixed-target alerts
+
+Delivery standard
+
+Each estimate covers full development from scoped contract through ordinary fixes, current required verification and independent review, qualification of the exact candidate (pinned gates, two isolated clean builds, mandatory native/browser evidence with justified reuse only), usable extracted kit with fresh normal demo, cleanup and publication. Separate readiness preflight and inactive owner waiting are excluded. Evidence uses synthetic/local scope.
+
+Current later numbering
+
+- M13 becomes M14 Publish optional Git snapshots and backups
+- M14 becomes M15 Update and restart the local application
+- M15 becomes M16 Inventory a V1 board and preview import
+- M16 becomes M17 Import logical V1 board data into an isolated copy
+- M17 becomes M18 Complete imported attachment bytes and references
+- M18 becomes M19 Rehearse V1 coexistence and recovery
+- M19 becomes M20 Reconcile the retained feature-parity outcomes
+- M20 becomes M21 Qualify and hand off the everyday release
+
+M01–M10 retain their labels. The shifted publishing and V1 preview epics retain the complete alert prerequisite through M13. Other dependencies retain their order. Earlier roadmap overlays retain historical numbering and evidence.
