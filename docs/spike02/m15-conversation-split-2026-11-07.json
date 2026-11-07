@@ -1,0 +1,436 @@
+{
+  "revision": "M15-RESPLIT-CONSENSUS-R2",
+  "date": "2026-11-07",
+  "units": "wall-clock story-sum minutes",
+  "globalInvariants": [
+    "External reference is separate from local UUID partition; immutable destination/policy/sanitized payload and stable identity before dispatch",
+    "Strict bounded canonical private state, physical/account identity, atomic flush, conservative publication uncertainty; no repair on read",
+    "Prepared/attempted evidence persists before effect; accepted/not-accepted only with established proof; ambiguous process/transport is UNKNOWN",
+    "No blind retry, no exactly-once, no invented lookup/idempotency or negative proof, no permission reconstruction from attempted bytes",
+    "Keep original target/Last/pending/receipt/cuts/acceptedAt/checkpoint/gaps across reopen and later target change",
+    "Safe legacy migration/refusal and target upgrades; bounded pinned receipts/retention/capacity",
+    "Label/date-range/sorted unique ticket allowlist or exact safe inspection fallback; no prose/secrets/raw errors/provider objects",
+    "Complete nonempty all-automation alone suppresses; uncertain/human/mixed/unknown/empty/malformed/failed/gapped alerts",
+    "Current authority and disabled/revoked scope; literal adapter args and bounded process/output/deadline; retained physical ownership until actual quiescence",
+    "Local-inbox contracts conserved; private runtime/destinations/credentials excluded from archive/export/restore",
+    "Reviewed complete scoped Go/HTTP/generated/production-TS seam before clients; changes return for seam review",
+    "Ordinary browser/actual CLI, scoped drafts/focus, late/stale fencing, exact revision/generation, no mutation replay; auth/origin/CSP preserved",
+    "Shared queue only development diagnostics, fresh bounded mailbox lifecycle; no product delivery through it",
+    "No live sends/activation; no board/code/runtime change by planning; administrative JSON monitor OFF"
+  ],
+  "completePreflightEveryMilestone": {
+    "story": "00",
+    "base": 40,
+    "reserve": 20,
+    "cap": 60,
+    "excludedFromDevelopment": true,
+    "scope": [
+      "Dated primary latest stable metadata for Go, Node, npm, TypeScript, Python, uv, all direct runtime/build/test dependencies and pinned browser tools; applicable PowerShell/Git/adapter runtime pins",
+      "Qualify stale tool/lockfile updates; required gates, two isolated clean builds with every output compared, post-test builds and full current native/browser inventories",
+      "Curated lint/type rule review and trials; TS stable compiler API/parser/linter support together; the TypeScript lint follow-up relevance; narrow exceptions",
+      "Record release sources, exact tools/locks/hashes/date, qualification/readiness failures, cleanup and fresh independent review"
+    ],
+    "analogy": "M14.00 39.391 minutes; M12/M13 about6.5 are not sufficient sizing anchors for complete current preflight"
+  },
+  "completeDeliveryEveryMilestone": {
+    "mandatory": [
+      "Current required pinned gates and two isolated clean builds; compare all generated/staged/web/embedded/executable outputs; applicable post-test rebuilds",
+      "Complete current native providers and native/browser inventories including Q02/Q03, transaction/continuation/archive/interruption and archive rows; actual CLI and joined adapter cases",
+      "Exact source/tool/lock/fixture/adapter/executable binding; independent source-bound justification for any reuse",
+      "All applicable old local-inbox and board/archive/restore conservation and restored-lineage checks",
+      "Fresh nonauthor Sol / High storage/recovery, authority/concurrency/shared seam and integrated evidence/code reviews; corrections and material re-review",
+      "Allowlisted kit/license/schema-reference closure, exact archive membership/manifest/checksum/extraction/binary verification",
+      "Fresh normal ordinary browser plus actual CLI demo through actual supported adapter and owned controlled receiver; fault evidence labelled separately",
+      "Needed private evidence exported, only owned resources/mailboxes cleaned, synthetic bounded reports/source published, clocks/dependencies/rolling turns1–3 reconciled",
+      "Fresh independent package/evidence review; story/epic ready for owner review after checks; the owner controls Completed and the project progress record progress refresh"
+    ],
+    "historicalInventoryAnchorOnly": {
+      "milestone": "M14",
+      "outputCount": 108,
+      "nativeProviderCount": 533,
+      "mandatoryBrowserCases": 21
+    },
+    "sharedQueueRunbook": "implementation/docs/runbooks/localpost-development.txt"
+  },
+  "milestones": [
+    {
+      "label": "M15",
+      "name": "Fixed conversation notices",
+      "base": 229,
+      "reserve": 55,
+      "cap": 284,
+      "baseStrictlyBelow240": true,
+      "prerequisites": [
+        "Owner approval of split and exact stories",
+        "Accepted M14 baseline rechecked",
+        "Own complete .00 passed",
+        "Bound supported adapter and owned authorized controlled receiver available"
+      ],
+      "usableCapability": "Repeated fixed-conversation notices under explicit Configure/Enable/Disable/Start/Stop with exact sanitized metadata, receipt-bound inspection and safe clean reopen; enabling never implicitly starts",
+      "newVersusPredecessor": "M14 only accepted local inboxes; this kit receives external conversation-protocol notices through the real supported adapter at the qualified receiver boundary",
+      "explicitUnavailableExternalCapabilities": [
+        "Retarget",
+        "Reload",
+        "Retry including known pre-invocation refusal",
+        "Interrupted pending settlement"
+      ],
+      "existingLocalInboxCapabilitiesRemain": true,
+      "unknownBehavior": "Persist original evidence, inspect after reopen, stay guarded; never fall through to local recovery",
+      "stories": [
+        {
+          "number": "01",
+          "name": "Fixed-delivery contract and inventory",
+          "base": 18,
+          "reserve": 5,
+          "cap": 23,
+          "dependsOn": [
+            "00"
+          ]
+        },
+        {
+          "number": "02",
+          "name": "Durable fixed external intent/evidence",
+          "base": 33,
+          "reserve": 9,
+          "cap": 42,
+          "dependsOn": [
+            "01"
+          ]
+        },
+        {
+          "number": "03",
+          "name": "Payload and bounded fixed-target dispatcher",
+          "base": 45,
+          "reserve": 13,
+          "cap": 58,
+          "dependsOn": [
+            "02"
+          ]
+        },
+        {
+          "number": "04",
+          "name": "Complete independently reviewed shared fixed-delivery seam",
+          "base": 14,
+          "reserve": 3,
+          "cap": 17,
+          "dependsOn": [
+            "03"
+          ]
+        },
+        {
+          "number": "05",
+          "name": "Actual CLI fixed delivery and help",
+          "base": 16,
+          "reserve": 4,
+          "cap": 20,
+          "dependsOn": [
+            "04"
+          ]
+        },
+        {
+          "number": "06",
+          "name": "Ordinary browser fixed delivery and guide",
+          "base": 20,
+          "reserve": 5,
+          "cap": 25,
+          "dependsOn": [
+            "04"
+          ]
+        },
+        {
+          "number": "07",
+          "name": "Full joined qualification and independent review",
+          "base": 58,
+          "reserve": 11,
+          "cap": 69,
+          "dependsOn": [
+            "05",
+            "06"
+          ]
+        },
+        {
+          "number": "08",
+          "name": "Extracted usable kit, fresh demo, cleanup and publication",
+          "base": 25,
+          "reserve": 5,
+          "cap": 30,
+          "dependsOn": [
+            "07"
+          ]
+        }
+      ],
+      "freshDemo": [
+        "Verify/extract exact kit and use shipped executable/default and configured boards",
+        "Ordinary browser/actual CLI configure/enable fixed owned controlled reference and deliberately Start; disable prevents later effects",
+        "Real adapter receiver gets exact human/mixed ticket/date notice",
+        "Show complete bot-only suppression and safe fallback",
+        "Stop/clean reopen/catch-up and positive acceptance boundary",
+        "Declared absence of external retarget/retry; local-inbox controls work"
+      ],
+      "separateControlledDemo": [
+        "Disclosed attempted-but-unacknowledged UNKNOWN survives reopen with original identity and no resend"
+      ],
+      "analogy": "M14 202.99 total: contract11.82/storage23.87/runtime39.18/CLI29.00/browser29.07/joined50.57/kit19.47. External process and missing ticket/date projection increase core; fixed clients are narrower; qualification58 and kit25 include full current delivery."
+    },
+    {
+      "label": "M16",
+      "name": "Retarget and recover conversation notices",
+      "base": 221,
+      "reserve": 54,
+      "cap": 275,
+      "baseStrictlyBelow240": true,
+      "prerequisites": [
+        "Owner accepts new M15",
+        "Owner approves exact M16 start/scope",
+        "Own complete .00 passed",
+        "Adapter/receiver capability and authority rechecked"
+      ],
+      "usableCapability": "Future-only external Retarget/Reload plus deliberate safe recovery/retry of never-attempted or proved-not-accepted original work",
+      "newVersusPredecessor": "Operator can change future conversation while settling eligible original pending work once with stable identity",
+      "unknownBehavior": "Remains guarded across retarget/reload/reopen; unavailable external lookup/idempotency reported truthfully; no UNKNOWN retry",
+      "stories": [
+        {
+          "number": "01",
+          "name": "Future-target/recovery contract and matrix",
+          "base": 10,
+          "reserve": 3,
+          "cap": 13,
+          "dependsOn": [
+            "00"
+          ]
+        },
+        {
+          "number": "02",
+          "name": "Recovery and evolving target evidence",
+          "base": 32,
+          "reserve": 9,
+          "cap": 41,
+          "dependsOn": [
+            "01"
+          ]
+        },
+        {
+          "number": "03",
+          "name": "Serialized external Retarget/Reload and deliberate recovery",
+          "base": 35,
+          "reserve": 10,
+          "cap": 45,
+          "dependsOn": [
+            "02"
+          ]
+        },
+        {
+          "number": "04",
+          "name": "Complete independently reviewed control/recovery seam",
+          "base": 12,
+          "reserve": 3,
+          "cap": 15,
+          "dependsOn": [
+            "03"
+          ]
+        },
+        {
+          "number": "05",
+          "name": "Actual CLI target/recovery controls and guides",
+          "base": 22,
+          "reserve": 5,
+          "cap": 27,
+          "dependsOn": [
+            "04"
+          ]
+        },
+        {
+          "number": "06",
+          "name": "Ordinary browser controls and guides",
+          "base": 25,
+          "reserve": 6,
+          "cap": 31,
+          "dependsOn": [
+            "04"
+          ]
+        },
+        {
+          "number": "07",
+          "name": "Full joined qualification and independent review",
+          "base": 60,
+          "reserve": 12,
+          "cap": 72,
+          "dependsOn": [
+            "05",
+            "06"
+          ]
+        },
+        {
+          "number": "08",
+          "name": "Extracted usable kit, fresh demo, cleanup and publication",
+          "base": 25,
+          "reserve": 6,
+          "cap": 31,
+          "dependsOn": [
+            "07"
+          ]
+        }
+      ],
+      "freshDemo": [
+        "Fresh exact qualified extraction and shipped executable",
+        "Ordinary browser/actual CLI configure A, generate human/mixed activity and receive A notice through real supported adapter at owned controlled receiver",
+        "Clean future retarget B, generate and receive B notice",
+        "Reload retains one owner and lineage; A-to-B-to-A revisions never rewind",
+        "Stop cleanly and verify owned cleanup; no fault or synthetic pending-state preparation in this ordinary journey"
+      ],
+      "separateControlledDemo": [
+        "Record synthetic pending-A-without-attempt fixture/source/stage; retarget future B; deliberately Recover eligible A once; actual adapter/receiver accepts A with original identity; later B notice",
+        "Proved pre-invocation failure then supported deliberate retry with stable identity after availability corrected",
+        "Attempted UNKNOWN remains guarded across retarget/reload/reopen with no retry; external lookup/idempotency capability stated honestly"
+      ],
+      "analogy": "M14 controls total202.99 plus M13 recovery storage12.97/host20.49; existing dispatcher/pattern reuse avoids wholesale addition. Storage32/runtime35 price combined target/recovery; CLI22/browser25; current joined60/kit25. Total221 is8.9% above M14."
+    }
+  ],
+  "totals": {
+    "developmentBase": 450,
+    "developmentReserve": 109,
+    "developmentCap": 559,
+    "separatePreflightBase": 80,
+    "separatePreflightReserve": 40,
+    "separatePreflightCap": 120,
+    "includingPreflightBase": 530,
+    "includingPreflightReserve": 149,
+    "includingPreflightCap": 679,
+    "baseSpreadMinutes": 8,
+    "baseSpreadPercentOfMean": 3.5555555556
+  },
+  "reservePolicy": "Reserve covers bounded adverse variation beyond ordinary implementation, fixes, required independent review and material re-review already included in base. Missing authority/support, unplanned infrastructure or material scope change requires readiness resolution and fresh estimation; reserve cannot hide known mandatory work.",
+  "reviewCostAccounting": {
+    "basis": "Forecast allocations inside original all-inclusive bases, not measured historical phase receipts. M14 IP-to-ready for owner review component/gate spans already include reviews/fixes; adding separate review wholesale risks double counting.",
+    "M15": {
+      "workMinutes": 173,
+      "independentReviewMinutes": 35,
+      "ordinaryFixMinutes": 21,
+      "baseMinutes": 229
+    },
+    "M16": {
+      "workMinutes": 165,
+      "independentReviewMinutes": 36,
+      "ordinaryFixMinutes": 20,
+      "baseMinutes": 221
+    },
+    "policy": "Required review, ordinary fixes, material finding re-review, complete inventories, two builds, own kit/demo/cleanup/publication are in base. No omitted mandatory work or assumed blanket evidence reuse to meet threshold."
+  },
+  "retryClarification": "Deliberate attempt only positively eligible never-attempted or proven-not-accepted evidence under fresh current authority and one-use admission. UNKNOWN never grants retry or renews spent ambiguous permission. Exact positive evidence may reconcile its own original identity. Missing/unsupported lookup is not negative proof.",
+  "status": "Three-party planning consensus; each initial clean-room split independently reviewed. Final independent publication validation is recorded separately. No implementation start or runtime qualification.",
+  "sourceScope": "Replaces the combined selected-conversation delivery milestone with two complete browser-and-actual-CLI feature milestones; all original scope retained.",
+  "planningOnly": true,
+  "numbering": {
+    "newMilestones": [
+      "M15 fixed conversation notices",
+      "M16 retarget and recover conversation notices"
+    ],
+    "previousM16AndLaterShift": 1,
+    "mapping": [
+      {
+        "previous": "M16",
+        "current": "M17",
+        "title": "Automatically commit exact board and workspace snapshots to local Git"
+      },
+      {
+        "previous": "M17",
+        "current": "M18",
+        "title": "Push queued Git snapshots and recover delivery"
+      },
+      {
+        "previous": "M18",
+        "current": "M19",
+        "title": "Apply a guarded live build update and resume open clients"
+      },
+      {
+        "previous": "M19",
+        "current": "M20",
+        "title": "Open a legacy-shaped workspace through the routed host"
+      },
+      {
+        "previous": "M20",
+        "current": "M21",
+        "title": "Preserve V1 blocker urgency and priority audit"
+      },
+      {
+        "previous": "M21",
+        "current": "M22",
+        "title": "Normalize selected priorities as one audited change"
+      },
+      {
+        "previous": "M22",
+        "current": "M23",
+        "title": "Find and order work with the familiar V1 triage rules"
+      },
+      {
+        "previous": "M23",
+        "current": "M24",
+        "title": "Use familiar daily browser controls, status and Attention notices"
+      },
+      {
+        "previous": "M24",
+        "current": "M25",
+        "title": "Maintain configured workflows and lane identities"
+      },
+      {
+        "previous": "M25",
+        "current": "M26",
+        "title": "Preview an accountable V1 import"
+      },
+      {
+        "previous": "M26",
+        "current": "M27",
+        "title": "Construct and reconcile isolated logical board data"
+      },
+      {
+        "previous": "M27",
+        "current": "M28",
+        "title": "Complete imported files and prove a restorable copy"
+      },
+      {
+        "previous": "M28",
+        "current": "M29",
+        "title": "Read adopted boards through supported legacy entry points"
+      },
+      {
+        "previous": "M29",
+        "current": "M30",
+        "title": "Keep established daily write integrations usable"
+      },
+      {
+        "previous": "M30",
+        "current": "M31",
+        "title": "Use supported legacy operator and admin entry points"
+      },
+      {
+        "previous": "M31",
+        "current": "M32",
+        "title": "Admit validated external snapshot replacements"
+      },
+      {
+        "previous": "M32",
+        "current": "M33",
+        "title": "Rehearse one-writer adoption and rollback"
+      },
+      {
+        "previous": "M33",
+        "current": "M34",
+        "title": "Close the V1 behavior and integration evidence ledger"
+      },
+      {
+        "previous": "M34",
+        "current": "M35",
+        "title": "Qualify and deliver the everyday drop-in release candidate"
+      }
+    ],
+    "dependencies": "The second new milestone requires accepted first milestone. Consumers requiring the whole previous delivery outcome require the second. Other feature prerequisites and stable identities remain unchanged; no new dependency on conversation delivery for local Git snapshots."
+  },
+  "readiness": [
+    "Separate owner kickoff/start and accepted prerequisites; fresh story entry In Progress before work.",
+    "Each own complete latest-stable preflight includes every directly-used tool/direct dependency, stale-pin qualification and curated lint/type rules.",
+    "Qualify exact REAL supported adapter/version/protocol acceptance and an explicitly owned controlled receiver reachable through it; no fake substitute or unauthorized live fallback.",
+    "UNKNOWN never authorizes replay. Missing support/authority or material new protocol/infrastructure/scope needs a readiness decision and fresh estimate.",
+    "Administrative JSON board monitor stays off. Shared browser diagnostic queue is not product delivery."
+  ],
+  "detail": "m15-conversation-split-2026-11-07.txt"
+}

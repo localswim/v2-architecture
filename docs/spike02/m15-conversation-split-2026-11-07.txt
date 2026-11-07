@@ -1,0 +1,155 @@
+SELECTED-CONVERSATION DELIVERY — TWO-MILESTONE SPLIT
+November 7, 2026 | M15-RESPLIT-CONSENSUS-R2 | planning only
+
+The combined delivery milestone exceeded its development-base gate. Two isolated
+Sol / High planners each obtained fresh independent review before sealing their
+plans. Parent and both authors subsequently agreed these complete vertical slices.
+Original plans/reviews are preserved. Final independent publication validation is recorded separately.
+
+M15 — Deliver fixed conversation notices
+229 minutes base +55 reserve =284 cap; separate .00 preflight 40+20=60.
+M16 — Retarget and recover conversation notices
+221 minutes base +54 reserve =275 cap; separate .00 preflight 40+20=60.
+
+Both development bases are strictly below 240 and differ 8 minutes (3.56% of mean).
+Combined development 450+109=559; separate preflights 80+40=120. These are conditional
+planning estimates, not measured future actuals or guaranteed elapsed caps.
+Each includes ordinary fixes, integration, independent review/re-review, current
+full gates, two isolated clean builds/all outputs, mandatory native/browser
+inventories, real adapter evidence, own kit/fresh normal demo, cleanup/publication.
+
+M15 usable outcome and demo
+
+From a fresh verified extraction, ordinary browser and actual CLI configure and
+enable a fixed controlled conversation reference, deliberately Start, receive
+human/mixed safe date-range/ticket notices through the REAL supported adapter,
+show bot-only suppression/fallback, Stop and clean reopen/catch-up. The preceding
+milestone only accepted local inboxes. Existing local-inbox controls remain.
+External Retarget/Reload/retry/pending settlement are explicitly unavailable in
+this fixed edition; uncertain interrupted work stays inspectable and guarded.
+Controlled attempted UNKNOWN/no-resend proof is separate from the normal demo.
+
+M16 usable outcome and demo
+
+From its own fresh extraction, ordinary browser and actual CLI receive A,
+retarget future work to B, receive B, Reload under one owner, preserve A-to-B-to-A
+revision history, then Stop/cleanup. The preceding fixed edition cannot do this.
+Separate controlled extracted-product proof prepares eligible original pending A,
+retargets future B and deliberately recovers A once under its original identity,
+then later B. Proven-no-effect retry and attempted UNKNOWN are separate cases.
+Normal and controlled proof cannot substitute for each other.
+
+Shared delivery and authority rules
+
+- External reference is separate from local UUID partition; immutable destination/policy/sanitized payload and stable identity before dispatch
+- Strict bounded canonical private state, physical/account identity, atomic flush, conservative publication uncertainty; no repair on read
+- Prepared/attempted evidence persists before effect; accepted/not-accepted only with established proof; ambiguous process/transport is UNKNOWN
+- No blind retry, no exactly-once, no invented lookup/idempotency or negative proof, no permission reconstruction from attempted bytes
+- Keep original target/Last/pending/receipt/cuts/acceptedAt/checkpoint/gaps across reopen and later target change
+- Safe legacy migration/refusal and target upgrades; bounded pinned receipts/retention/capacity
+- Label/date-range/sorted unique ticket allowlist or exact safe inspection fallback; no prose/secrets/raw errors/provider objects
+- Complete nonempty all-automation alone suppresses; uncertain/human/mixed/unknown/empty/malformed/failed/gapped alerts
+- Current authority and disabled/revoked scope; literal adapter args and bounded process/output/deadline; retained physical ownership until actual quiescence
+- Local-inbox contracts conserved; private runtime/destinations/credentials excluded from archive/export/restore
+- Reviewed complete scoped Go/HTTP/generated/production-TS seam before clients; changes return for seam review
+- Ordinary browser/actual CLI, scoped drafts/focus, late/stale fencing, exact revision/generation, no mutation replay; auth/origin/CSP preserved
+- Shared queue only development diagnostics, fresh bounded mailbox lifecycle; no product delivery through it
+- No live sends/activation; no board/code/runtime change by planning; administrative JSON monitor OFF
+
+Deliberate attempt only positively eligible never-attempted or proven-not-accepted evidence under fresh current authority and one-use admission. UNKNOWN never grants retry or renews spent ambiguous permission. Exact positive evidence may reconcile its own original identity. Missing/unsupported lookup is not negative proof.
+
+Work packages and estimates (base/reserve/cap minutes)
+
+M15 — Fixed conversation notices
+.00 complete latest-stable preflight 40/20/60, excluded from development.
+.01 Fixed-delivery contract and inventory: 18/5/23; requires 00.
+.02 Durable fixed external intent/evidence: 33/9/42; requires 01.
+.03 Payload and bounded fixed-target dispatcher: 45/13/58; requires 02.
+.04 Complete independently reviewed shared fixed-delivery seam: 14/3/17; requires 03.
+.05 Actual CLI fixed delivery and help: 16/4/20; requires 04.
+.06 Ordinary browser fixed delivery and guide: 20/5/25; requires 04.
+.07 Full joined qualification and independent review: 58/11/69; requires 05,06.
+.08 Extracted usable kit, fresh demo, cleanup and publication: 25/5/30; requires 07.
+
+M16 — Retarget and recover conversation notices
+.00 complete latest-stable preflight 40/20/60, excluded from development.
+.01 Future-target/recovery contract and matrix: 10/3/13; requires 00.
+.02 Recovery and evolving target evidence: 32/9/41; requires 01.
+.03 Serialized external Retarget/Reload and deliberate recovery: 35/10/45; requires 02.
+.04 Complete independently reviewed control/recovery seam: 12/3/15; requires 03.
+.05 Actual CLI target/recovery controls and guides: 22/5/27; requires 04.
+.06 Ordinary browser controls and guides: 25/6/31; requires 04.
+.07 Full joined qualification and independent review: 60/12/72; requires 05,06.
+.08 Extracted usable kit, fresh demo, cleanup and publication: 25/6/31; requires 07.
+
+Each shared Go/HTTP/generated/production-TypeScript seam is completed and
+independently reviewed before its CLI/browser consumers. Every milestone
+repeats complete current release qualification, whole board/archive/restore
+conservation and exact private-state migration/refusal/retention bounds.
+
+Review accounting
+
+M15 base 229 includes173 work +35independent review +21 ordinary fixes.
+M16 base 221 includes165 work +36independent review +20 ordinary fixes.
+These are forecast allocations, not historical phase receipts. Historical
+In-Progress-to-ready for owner review analog spans already include review/fixes. Required proof,
+review and ordinary material corrections are in base, never hidden in reserve.
+
+Each separate .00
+
+- Dated primary latest stable metadata for Go, Node, npm, TypeScript, Python, uv, all direct runtime/build/test dependencies and pinned browser tools; applicable PowerShell/Git/adapter runtime pins
+- Qualify stale tool/lockfile updates; required gates, two isolated clean builds with every output compared, post-test builds and full current native/browser inventories
+- Curated lint/type rule review and trials; TS stable compiler API/parser/linter support together; the TypeScript lint follow-up relevance; narrow exceptions
+- Record release sources, exact tools/locks/hashes/date, qualification/readiness failures, cleanup and fresh independent review
+
+Entry gates and evidence limits
+
+- Separate owner kickoff/start and accepted prerequisites; fresh story entry In Progress before work.
+- Each own complete latest-stable preflight includes every directly-used tool/direct dependency, stale-pin qualification and curated lint/type rules.
+- Qualify exact REAL supported adapter/version/protocol acceptance and an explicitly owned controlled receiver reachable through it; no fake substitute or unauthorized live fallback.
+- UNKNOWN never authorizes replay. Missing support/authority or material new protocol/infrastructure/scope needs a readiness decision and fresh estimate.
+- Administrative JSON board monitor stays off. Shared browser diagnostic queue is not product delivery.
+
+Scope preservation
+
+The first slice owns fixed external contract, immutable destination/policy/
+payload/identity, attempt/receipt storage, metadata projection, bounded adapter/
+authority/ownership, reviewed shared seam and fixed CLI/browser operation.
+The second owns future-only targets, reload/drain, safe migration/upgrades,
+eligible deliberate recovery/retry/positive reconciliation and expanded clients.
+Both own full current qualification and kit/demo/handoff. Original ambiguous
+reply, repeated identity, revoke/disable, target upgrade, incomplete drain and
+safe fallback cases remain. Local inbox behavior and archive/restore conservation
+remain qualified; runtime destinations/credentials stay outside export/restore.
+
+Current numbering overlay
+
+The former combined M15 becomes these M15/M16. Former M16 and later shift+1.
+Stable identities, feature prerequisites and historical evidence stay bound to
+their original versions. Complete-delivery consumers now require the new M16.
+Local Git snapshot work retains its independent existing prerequisites.
+
+M16 -> M17: Automatically commit exact board and workspace snapshots to local Git
+M17 -> M18: Push queued Git snapshots and recover delivery
+M18 -> M19: Apply a guarded live build update and resume open clients
+M19 -> M20: Open a legacy-shaped workspace through the routed host
+M20 -> M21: Preserve V1 blocker urgency and priority audit
+M21 -> M22: Normalize selected priorities as one audited change
+M22 -> M23: Find and order work with the familiar V1 triage rules
+M23 -> M24: Use familiar daily browser controls, status and Attention notices
+M24 -> M25: Maintain configured workflows and lane identities
+M25 -> M26: Preview an accountable V1 import
+M26 -> M27: Construct and reconcile isolated logical board data
+M27 -> M28: Complete imported files and prove a restorable copy
+M28 -> M29: Read adopted boards through supported legacy entry points
+M29 -> M30: Keep established daily write integrations usable
+M30 -> M31: Use supported legacy operator and admin entry points
+M31 -> M32: Admit validated external snapshot replacements
+M32 -> M33: Rehearse one-writer adoption and rollback
+M33 -> M34: Close the V1 behavior and integration evidence ledger
+M34 -> M35: Qualify and deliver the everyday drop-in release candidate
+
+This planning revision grants no product execution, live conversation message,
+target activation, shared-service operation or owner completion. Fresh .00 and
+.01+ story cards are created at each separately authorized kickoff. The old
+unstarted combined story set is retained as superseded provenance.
