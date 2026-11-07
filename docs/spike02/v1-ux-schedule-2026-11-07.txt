@@ -1,12 +1,12 @@
 V1 UX CHANGES IN THE V2 SCHEDULE
 November 7, 2026
 
-Planning reconciliation after accepted M13; numbering refreshed after the M15 split
+Planning reconciliation after accepted M14; current numbering after fixed-delivery resplit.
 
-Current numbering follows m15-conversation-split-2026-11-07.txt: former M16+
-shifted by one after fixed conversation notices and retarget/recovery became
-separate M15/M16 milestones. Stable scope, identities and historical source pins
-remain unchanged.
+Current numbering follows m15-fixed-delivery-six-split-2026-11-07.txt:
+fixed delivery is M15–M20, retained retarget/recovery is M21, and prior M17+
+labels shift by five. Stable scope, identities and historical source pins remain.
+Earlier two-way split documents are preserved as dated planning history.
 
 The owner requested that the recently accepted V1 changes remain explicit
 in V2. ADR 0001 makes supported V1 behavior the reference. This crosswalk
@@ -18,7 +18,7 @@ through V1 work items 0202-0205. Lane retirement followed in 2eb05dd,
 integrated by 4873cf6. It adds a material archived-occupant requirement.
 
 Keep the current M14 monitor reload/retarget milestone. The existing
-M21/M23/M24 placements already own the first four changes. M25 and the
+M26/M28/M29 placements already own the first four changes. M30 and the
 import/operator milestones carry the explicit retirement delta. A separate
 small M14 would duplicate their scope unless those boundaries were recut.
 V2's current board view also lacks the finished status toolbar, so the
@@ -28,7 +28,7 @@ This is a planning crosswalk. Preflight, contract acceptance and development
 retain the roadmap's separate starts and prerequisite gates. Historical
 Completed evidence keeps its original contract.
 
-1. M21 - Blocker urgency and priority audit
+1. M26 - Blocker urgency and priority audit
 
 V1 work item 0202, source 4c810e0.
 
@@ -47,11 +47,11 @@ urgency downstream into blocked cards.
 - Actual changes share the trigger's actor and atomic audited revision.
   Include startup, mutation, rollback, no-change and recovery boundaries.
 
-M21 must explicitly replace the retained V2 no-propagation target and
+M26 must explicitly replace the retained V2 no-propagation target and
 resolve supported cycle admission before implementation. Qualification
 must contain the three-card direction example above.
 
-2. M23 - Web lane display and distinct CLI triage
+2. M28 - Web lane display and distinct CLI triage
 
 V1 work item 0203, source c64baba.
 
@@ -68,7 +68,7 @@ Completed. Test diamonds, ties, cycles, lane moves and archive changes.
 CLI next/search retains its separate cross-lane ranking and global scoring
 semantics. Its score must not become the lane display key again.
 
-3. M24 - Stable status ages and clock geometry
+3. M29 - Stable status ages and clock geometry
 
 V1 work items 0204-0205, sources 7a877cf, 7678d0a and 531f3e7.
 
@@ -90,7 +90,7 @@ meaning. Distinguish a successful observation from a committed mutation
 and the wall clock. Current V1 polling constants are reference evidence;
 the V2 contract must bind the display to its actual source and freshness.
 
-4. M25 - Retire lanes with archived occupants and retained history
+4. M30 - Retire lanes with archived occupants and retained history
 
 V1 work item 0206, source 2eb05dd integrated by 4873cf6.
 
@@ -99,7 +99,7 @@ remain in the retired lane. M07/M08 currently refuse retirement with any
 current occupant, including archived cards. Retained policy versions
 alone do not provide the new behavior.
 
-M25 must define and qualify the following native contract.
+M30 must define and qualify the following native contract.
 
 - Retain stable lane identity/label and archived current membership.
   Keep historical grants, policy versions, state/approval pins, comments
@@ -116,7 +116,7 @@ M25 must define and qualify the following native contract.
   Use a synthetic fixture with 41 archived occupants and 12 other cards
   whose transitions include the lane. Include restart, audit and files.
 
-M25's existing 220-minute base and 80-minute reserve remain provisional.
+M30's existing 220-minute base and 80-minute reserve remain provisional.
 Fresh decomposition and re-estimation must include this complete delta.
 If the combined base cannot stay below 240 minutes, split a usable
 retirement delivery before import. New scope must not disappear into
@@ -124,14 +124,14 @@ unnamed reserve or an assumed completed M07 capability.
 
 5. Retirement propagation through import and compatibility
 
-- M26 previews V1 board schema 4 / embedded policy schema 7 retiredLanes
-  and archived occupants against the accepted M25 contract. Map the
+- M31 previews V1 board schema 4 / embedded policy schema 7 retiredLanes
+  and archived occupants against the accepted M30 contract. Map the
   complete supported source profile or report precise incompatibilities.
-- M27 conserves that logical membership and historical authority without
+- M32 conserves that logical membership and historical authority without
   silently moving or unarchiving cards.
-- M28 conserves files and references on those archived cards and proves
+- M33 conserves files and references on those archived cards and proves
   an inspectable restored copy.
-- M31's legacy operator adapter delegates lane retirement to the same
+- M36's legacy operator adapter delegates lane retirement to the same
   native V2 implementation.
 
 Existing prerequisite relationships continue to govern these milestones.

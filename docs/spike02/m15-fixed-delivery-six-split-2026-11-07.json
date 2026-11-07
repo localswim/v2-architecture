@@ -1,0 +1,957 @@
+{
+  "revision": "M15-FIXED-SIX-CONSENSUS-R3",
+  "date": "2026-11-07",
+  "milestones": [
+    {
+      "label": "M15",
+      "title": "Read and copy useful local notices",
+      "outcome": "Existing automatic local inbox notices gain exact bounded safe board label, activity time range and sorted unique ticket numbers, or the exact inspection fallback. Browser copy and actual CLI text/JSON make the notice useful for human forwarding without exposing card prose. Ship reusable production safe-text CLI formatter and browser clipboard helper, including exact canonical bytes, bounded content, permission/error disposition and preserved focus/drafts. The customer can forward text manually without an adapter.",
+      "demo": "Fresh shipped executable, default/configured synthetic boards. Start existing local inbox monitoring in ordinary browser and actual CLI. Human/mixed events produce identical safe notice text to inspect and copy/print; show bot-only suppression and fallback. Stop/reopen/catch up; existing local controls and receipts remain usable. No external dispatch claimed. Show exact clipboard/CLI text agreement and truthful failed/denied Copy behavior. Local M15 is fully INDEPENDENT of unqualified external adapter/receiver readiness.",
+      "prerequisite": "M14 owner-Completed",
+      "preflight": {
+        "number": "00",
+        "baseMinutes": 75,
+        "reserveMinutes": 35,
+        "capMinutes": 110,
+        "excludedFromDevelopment": true
+      },
+      "stories": [
+        {
+          "number": "01",
+          "title": "Freeze safe local notice and eventual external invariants",
+          "acceptance": [
+            "Strict payload canonicalization/bounds, evidence/fallback/privacy; record eventual immutable external identity/authority/UNKNOWN invariants and honest unsupported capabilities.",
+            "Freeze canonical payload/fallback, bounded label/date/sorted-unique-ticket allowlist, conservative suppression and exact saved-original Copy/CLI text semantics. One product adapter attempt per identity is separate from human forwarding; no delivery/receipt/no-effect claim from copy. Eventual fixed external invariants remain design constraints. High independent contract review/normal corrections."
+          ],
+          "baseMinutes": 16,
+          "reserveMinutes": 6,
+          "capMinutes": 22
+        },
+        {
+          "number": "02",
+          "title": "Capture authoritative ticket/date facts",
+          "acceptance": [
+            "Extend CaptureNoticeInterval in admitted pinned snapshot; validate board label/timestamps/ticket references. Human/mixed/unknown/empty/malformed/failed/gapped alerts; only complete nonempty automation-only metadata suppresses; never compare event and file-write counts.",
+            "Extend pinned interval capture for ticket/date facts; strict canonical size/allowlist/fallback. Suppress only complete nonempty all-automation metadata; human/mixed/unknown/empty/malformed/failed/gapped alerts and no write/event count equality. Authoritative fixtures and independent High review/fixes."
+          ],
+          "baseMinutes": 22,
+          "reserveMinutes": 8,
+          "capMinutes": 30
+        },
+        {
+          "number": "03",
+          "title": "Freeze safe payload in local private evidence",
+          "acceptance": [
+            "Versioned bounded payload persistence, original cut binding, migration/projection/refusal. Preserve local identity/acceptance/recovery and export/restore exclusion; never relabel old receipts. Shared Go canonical text helper remains state-free; cross-language production validation/vector agreement and safe serialization are verified.",
+            "Persist exact original local payload with native physical identity/account ACLs/flush/atomic publication, bounded capacity/retention, strict version/migration/refusal. Preserve local receipt semantics/cuts and uncertainty; native malformed/foreign/publication/interruption/exclusion proof and independent review/fixes."
+          ],
+          "baseMinutes": 16,
+          "reserveMinutes": 6,
+          "capMinutes": 22
+        },
+        {
+          "number": "04",
+          "title": "Review complete local-payload shared seam",
+          "acceptance": [
+            "Go DTO/HTTP/generated schema/declarations/production TS validators together. Current authority/origin/version/generation/revision/size. Independent Sol / High seam pass BEFORE clients; later seam changes return for review.",
+            "Go/HTTP/generated schemas/declarations and production TS validators together. Existing read projection returns exact saved payload, not regeneration; current authority/origin/version/size/scope/generation/revision. No Copy-specific endpoint required. Independent High seam review and fixes before clients, material client-discovered changes return for review."
+          ],
+          "baseMinutes": 17,
+          "reserveMinutes": 6,
+          "capMinutes": 23
+        },
+        {
+          "number": "05",
+          "title": "Actual CLI notice text and JSON",
+          "acceptance": [
+            "Exact safe payload/evidence on default/configured boards; stale/denied/uncertain responses without mutation replay. Reusable actual executable safe text output helper; explicit exact text/newline contract and no private destination data in copied notice payload.",
+            "Ship reusable bounded UTF-8 exact-text stdout helper and actual executable local-notice print route. No added newline/metadata; readable/JSON inspect supplies original identity/cuts separately. Both boards, original versus changed/reopened state, strict refusals, uncertain no-replay, byte assertions/help/guide/independent review/fixes."
+          ],
+          "baseMinutes": 18,
+          "reserveMinutes": 7,
+          "capMinutes": 25
+        },
+        {
+          "number": "06",
+          "title": "Ordinary browser inspection and copy",
+          "acceptance": [
+            "Copy canonical safe content only; original evidence versus drafts, selection/drafts/focus/window/late A-B-A isolation, auth/origin/CSP/local controls and supported shared-queue action/release/read/export/delete. Reusable production clipboard helper: bounded canonical payload, safe success/failure, denied clipboard/focus/draft preservation; no product mutation or send.",
+            "Ship production user-gesture Copy original text helper: success only after actual clipboard success, honest unavailable/denied/failed state, no attempt mutation, no current-board regeneration or late-selection cross-copy. Preserve drafts/focus/windows/A-B-A/delayed/denied isolation, auth/origin/CSP. Supported real browser and full owned queue lifecycle, exact-original assertions, guide/independent review/normal fixes/material re-review. Helper8 increment over original20 includes reuse API and clipboard behavior."
+          ],
+          "baseMinutes": 28,
+          "reserveMinutes": 10,
+          "capMinutes": 38
+        },
+        {
+          "number": "07",
+          "title": "Full current qualification and integrated review",
+          "acceptance": [
+            "ALL completeDelivery requirements; safe facts/suppression/fallback/canonical privacy and conservation joined cases; every current mandatory inventory run in full.",
+            "Repeat complete qualification standard below, full current local regression inventories and exact Copy/text/fallback/persistence/authority joined cases. Independent High integrated code/evidence review, expected fixes and material re-review are base."
+          ],
+          "baseMinutes": 68,
+          "reserveMinutes": 22,
+          "capMinutes": 90
+        },
+        {
+          "number": "08",
+          "title": "Extracted kit, fresh demo and publication",
+          "acceptance": [
+            "ALL completeHandoff requirements. New normal feature is useful copied/printed local notice, not a storage-only handoff.",
+            "Repeat complete kit standard below. NEW ordinary shipped browser Copy and actual CLI text demo of exact original after changes/reopen, complete package/guide closure and independent review/fixes/material re-review, cleanup/publication."
+          ],
+          "baseMinutes": 32,
+          "reserveMinutes": 12,
+          "capMinutes": 44
+        }
+      ],
+      "development": {
+        "baseMinutes": 217,
+        "reserveMinutes": 77,
+        "capMinutes": 294
+      },
+      "headroomMinutes": 23,
+      "independentEstimates": {
+        "A": {
+          "baseMinutes": 213,
+          "reserveMinutes": 65,
+          "capMinutes": 278
+        },
+        "B": {
+          "baseMinutes": 217,
+          "reserveMinutes": 77,
+          "capMinutes": 294
+        },
+        "baseRowSource": "B",
+        "reserveRowSource": "B"
+      }
+    },
+    {
+      "label": "M16",
+      "title": "Configure a fixed recipient and inspect adapter readiness",
+      "outcome": "Save/reopen one private fixed conversation reference/policy and inspect whether the ACTUAL supported installed adapter reports the required version/capability through approved read-only probes. Browser and actual CLI show safe bounded readiness codes and honest unsupported/unavailable results. No external notice send or receiver acceptance claimed.",
+      "demo": "Fresh extracted shipped executable, ordinary browser AND actual CLI, default/configured boards. Save private fixed recipient/policy, close/reopen and inspect the same config. Invoke the exact actual supported read-only version/help/capability probe that .00 qualified; display safe version/capability/readiness facts. Separately show genuine missing/unsupported capability with truthful result, never substitute executable. Verify Stop/Close/timeout retains native process/descendant ownership until actual join. Probe success is NOT delivery acceptance or receiver authority. If no supported probe exists, that is an explicit readiness disposition and cannot certify a runner that was never actually exercised against a supported probe.",
+      "prerequisite": "Accepted M15",
+      "preflight": {
+        "number": "00",
+        "baseMinutes": 75,
+        "reserveMinutes": 35,
+        "capMinutes": 110,
+        "excludedFromDevelopment": true
+      },
+      "stories": [
+        {
+          "number": "01",
+          "title": "Freeze private config and supported read-only readiness contract",
+          "acceptance": [
+            "Inventory exact real adapter/version/help/capability protocol and nonmutating commands. Only qualified literal allowlisted commands; no fabricated probe or assumed capability. Positive delivery and receiver gates remain distinct/unqualified. Freeze config/reference/policy/current authority/capabilities.",
+            "Freeze external-reference/local-UUID distinction, one initial fixed profile/policy/revision, no external Retarget/Reload/recovery/retry and no hidden executable/path/endpoint input. Parent observed CLI0.154.0 --version and queue --help exit0; bind ONLY these literal read-only probes to exact executable/hash/version after current review. Queue help declares --thread/--message and optional --remote websocket address, but no arbitrary arguments/endpoint/remote option is exposed by this product. Inventory allowlisted results/no-send semantics and unknown/unavailable/unsupported reasons. A probe is not target validation, delivery authority or receipt. Independent High contract review/corrections."
+          ],
+          "baseMinutes": 18,
+          "reserveMinutes": 5,
+          "capMinutes": 23
+        },
+        {
+          "number": "02",
+          "title": "Private fixed recipient configuration and policy",
+          "acceptance": [
+            "Distinct external-reference type, strict canonical/version/size/capacity/retention, physical identity/account ACL/flush/atomic publication, legacy projection/refusal. Save/reopen config with revision/generation; no observations, pending briefings, attempts or external delivery receipt. Current authority before config disclosure.",
+            "Ship separate strict versioned/capacity-bounded fixed config with native physical identity/account ACLs, flush/atomic publication, safe compatibility/refusal and no repair-on-read. Freeze selected-board reference/policy/revision; reconfiguration/retarget unavailable after initial binding. Profile remains private/excluded from export/restore and cannot by itself grant effects. Native malformed/oversized/foreign/partial-publication/reopen fixtures and High review/fixes/re-review."
+          ],
+          "baseMinutes": 22,
+          "reserveMinutes": 8,
+          "capMinutes": 30
+        },
+        {
+          "number": "03",
+          "title": "Ship complete bounded native read-only process runner",
+          "acceptance": [
+            "Production reusable native process helper: approved literal executable/args only, input/output/stderr/time/descendant bounds, current authority admission, one native owner, Stop/Close/deadline/incomplete drain retains ownership until actual process/descendant join. Missing executable, malformed/truncated/oversized output, lost/stalled process, descendants and admission/close faults. Read-only probes cannot send a notice. No raw probe output/errors/URLs/secrets exposed; strict bounded safe status/version/capability projection.",
+            "Ship complete native process/output/time/descendant helper, fixed approved executable/runtime profile and literal supported read-only arguments only, no shell. Scope/config/current-authority checks before read-only invocation/disclosure; cancellation/Stop/Close/timeout/incomplete drain retain native ownership until actual join. Handle missing executable, explicit rejection, malformed/truncated/oversized output, lost reply, timeout/stall, descendants/late completion and concurrent owners. No effect admission or receipt claims. Real adapter supported ordinary probe is separate from controlled native process fixtures; unsupported probe never substituted."
+          ],
+          "baseMinutes": 44,
+          "reserveMinutes": 20,
+          "capMinutes": 64
+        },
+        {
+          "number": "04",
+          "title": "Review complete config/readiness shared seam",
+          "acceptance": [
+            "Complete Go DTO/same-port HTTP/generated schema/declarations/production TS validators. Save fixed configuration/policy, status, read-only probe and Stop-probe; current-authority/revision/generation/origin/version/size and honest unsupported outcomes. Delivery Enable/Disable/Start/Send are unavailable in this kit; configuration and probe controls grant no later effect permission. Independent Sol / High pass before clients; later changes return for review.",
+            "Go DTO/HTTP/generated/schema/production TS validators together for configure-once/status/readiness/Stop and capability reasons. Strict bounds/version/scope/origin/revision/generation/current read authority and selected-board isolation. Enable/Start delivery unavailable, no effect fields manufactured. High independent seam review/fixes before clients; changes return for review."
+          ],
+          "baseMinutes": 22,
+          "reserveMinutes": 6,
+          "capMinutes": 28
+        },
+        {
+          "number": "05",
+          "title": "Actual CLI save/reopen/probe readiness",
+          "acceptance": [
+            "Actual executable readable/JSON config/status/readiness/Stop; both board configurations, exact real probe or truthful unsupported result, strict stale/wrong scope/uncertain response and no mutation replay. Existing safe text helper reused but full CLI feature integration proof fresh.",
+            "Readable/JSON configure/status/probe/Stop and concise help; both boards, persisted profile/revision after reopen, bounded actual supported probe or truthful unsupported result, stale/wrong/denied/uncertain replies with no replay. No raw output/provider errors or unsupported executable switches. Authoritative command assertions and independent review/fixes."
+          ],
+          "baseMinutes": 16,
+          "reserveMinutes": 6,
+          "capMinutes": 22
+        },
+        {
+          "number": "06",
+          "title": "Ordinary browser save/reopen/probe readiness",
+          "acceptance": [
+            "User-facing saved profile and readiness outcome, safe facts/clear unsupported reasons, focus/drafts/window/A-B-A/late/denied isolation, current auth/origin/CSP/local controls. Shared queue supported action/release/read/export/delete; never product delivery.",
+            "Private fixed profile and original revision display, explicit Readiness inspection with allowlisted result and truthful unsupported delivery reason; save/reopen both boards, never implicit invocation or sending. Preserve drafts/focus/windows/A-B-A and late/denied isolation, auth/origin/CSP. Real browser plus owned queue lifecycle, guide/independent review/fixes/material re-review."
+          ],
+          "baseMinutes": 20,
+          "reserveMinutes": 7,
+          "capMinutes": 27
+        },
+        {
+          "number": "07",
+          "title": "Full current config/runner qualification",
+          "acceptance": [
+            "ALL completeDelivery requirements; current mandatory inventories/full native process ownership faults/actual CLI/real browser and actual supported probe evidence. Probe source/protocol bound separately from synthetic process faults; none count as real external delivery acceptance.",
+            "Repeat full current qualification standard, real read-only adapter binding or negative unsupported disposition and complete native bounded runner/ownership faults, fixed private config compatibility/exclusion, actual CLI/browser joined cases. Independent High integrated review, ordinary fixes/material re-review. Read-only positive proof does not prove any external-effect boundary."
+          ],
+          "baseMinutes": 66,
+          "reserveMinutes": 24,
+          "capMinutes": 90
+        },
+        {
+          "number": "08",
+          "title": "Extracted readiness kit, fresh operator demo and publication",
+          "acceptance": [
+            "ALL completeHandoff requirements; fresh normal save/reopen plus actual bounded supported probe or truthful unsupported result; package states exactly what probe/runner support is shipped/test-only. Missing actual probe disposition explicit; no delivery proof substituted.",
+            "Repeat full kit standard; NEW ordinary shipped browser+actual CLI save/reopen profile and bounded actual supported read-only probe or truthful unsupported result. Show no notice send/receiver receipt/target authority claim; private prerequisites and negative-readiness limits explicit. Package/evidence review/fixes/re-review, owned cleanup/listener closure/publication."
+          ],
+          "baseMinutes": 30,
+          "reserveMinutes": 12,
+          "capMinutes": 42
+        }
+      ],
+      "development": {
+        "baseMinutes": 238,
+        "reserveMinutes": 88,
+        "capMinutes": 326
+      },
+      "headroomMinutes": 2,
+      "independentEstimates": {
+        "A": {
+          "baseMinutes": 238,
+          "reserveMinutes": 82,
+          "capMinutes": 320
+        },
+        "B": {
+          "baseMinutes": 228,
+          "reserveMinutes": 88,
+          "capMinutes": 316
+        },
+        "baseRowSource": "A",
+        "reserveRowSource": "B"
+      }
+    },
+    {
+      "label": "M17",
+      "title": "Prepare and copy immutable conversation briefings",
+      "outcome": "Using accepted private recipient config and safe Copy/text helpers, user explicitly captures a private immutable destination-bound briefing, inspects its exact safe interval text and copies/prints it for human forwarding. Historical/reopened briefings remain inspectable/copyable only; they never gain product Send eligibility.",
+      "demo": "Fresh extraction, ordinary browser and actual CLI, both boards. Save/use accepted fixed recipient, deliberately capture human/mixed interval, inspect immutable reference/policy/payload/cuts/identity, copy/print exact safe text, disable/reopen and inspect unchanged briefing. Show bot-only suppression/fallback and current disclosure authority. Product records NO external acceptance; copy is also NOT evidence that no human/independent external effect occurred. No adapter send.",
+      "prerequisite": "Accepted M16",
+      "preflight": {
+        "number": "00",
+        "baseMinutes": 75,
+        "reserveMinutes": 35,
+        "capMinutes": 110,
+        "excludedFromDevelopment": true
+      },
+      "stories": [
+        {
+          "number": "01",
+          "title": "Freeze immutable briefing and historical inspection-only contract",
+          "acceptance": [
+            "Full eventual effect invariant inventory with R2 current-live-session eligibility from first Send. Historical/interrupted never-attempted briefings cannot settle until the later M21 controls milestone. Existing config policy is reused, not reimplemented.",
+            "Freeze original selected fixed reference/policy, sanitized payload, observation/delivery identity/cuts and original-versus-current UI projection. Strict never-repaired state and no product-attempt status; Copy is user extraction, not receipt/no-effect proof. Reserve future effect evidence schema without creating permission. High independent review/consensus."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 5,
+          "capMinutes": 19
+        },
+        {
+          "number": "02",
+          "title": "Versioned immutable private briefing records",
+          "acceptance": [
+            "Original destination/policy/payload/observation/delivery identity/cuts frozen at capture; canonical private physical/ACL/flush/atomic/capacity/retention/migration/refusal. Reuse shipped config store binding and safe payload helper; new briefing state/fixtures remain real work. Persisted prepared bytes confer no live Send permission.",
+            "Reuse accepted fixed-profile native private I/O/physical/ACL/publication primitives; implement new versioned bounded immutable briefing records, identity/cuts/retention/capacity/compatibility/refusal and exact payload. No receipt/attempt state is synthesized. Native malformed/foreign/capacity/partial-publication/interruption/reopen and export exclusion proof; High review/fixes/material re-review. This is additional state, not subtraction of the entire profile price."
+          ],
+          "baseMinutes": 30,
+          "reserveMinutes": 10,
+          "capMinutes": 40
+        },
+        {
+          "number": "03",
+          "title": "Explicit current-authority briefing capture",
+          "acceptance": [
+            "Admitted pinned metadata/capture, current board/incarnation/configuration/generation/destination authority at capture/disclosure. No adapter invoke, no accepted receipt, no historical Send; disable/revocation fences capture/disclosure.",
+            "Capture under current board/incarnation/generation/configuration/reference authority, freeze originals and preserve them through subsequent changes/reopen. Bound history/capacity, strict clean interruption and no read repair. No automatic capture/send, no recreated session/send permission. Assertions and independent review/fixes."
+          ],
+          "baseMinutes": 18,
+          "reserveMinutes": 5,
+          "capMinutes": 23
+        },
+        {
+          "number": "04",
+          "title": "Review complete briefing shared seam",
+          "acceptance": [
+            "Go/HTTP/generated/production validators for capture/immutable evidence/capability; strict versions/limits/authority/origin/generation/revision; independent High pass BEFORE clients; reuse accepted config/probe seam, no delivery claim.",
+            "Go/HTTP/generated/production TS capture/list/read/original-evidence contract together, strict bounds/current read authority/origin/version/revision/generation. Reuse existing exact-text projection convention; no second Copy endpoint. Delivery-unavailable/no-product-attempt capability reasons truthful. High seam review before clients and on material changes."
+          ],
+          "baseMinutes": 18,
+          "reserveMinutes": 5,
+          "capMinutes": 23
+        },
+        {
+          "number": "05",
+          "title": "Actual CLI briefing capture/inspect/text",
+          "acceptance": [
+            "Actual executable fresh/default/configured capture and immutable JSON/text; historical/reopened inspection only; safe text helper reused, authoritative feature proof rerun.",
+            "New actual executable capture/list/inspect/print --text workflow using shipped exact UTF-8 helper and accepted config; no new formatter implementation. Both boards, changed/reopened original ref/cuts/identity and payload, refusal/unknown mutation/no replay. Help and authoritative byte assertions/independent review/fixes."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 5,
+          "capMinutes": 19
+        },
+        {
+          "number": "06",
+          "title": "Ordinary browser briefing capture/inspect/Copy",
+          "acceptance": [
+            "Reuse shipped clipboard/error/focus helper, new ordinary briefing journey; draft/config/original separation, A-B-A/window/late/denied isolation, auth/CSP and bounded queue lifecycle. No acceptance/no-effect inference from Copy.",
+            "New capture/history/original-versus-current workflow using accepted profile/readiness and shipped Copy helper. Preserve intended original recipient/payload/cuts/identity after reopen, truthful clipboard failures and no product attempt/receipt mutations. Window/draft/focus/A-B-A/late/denied isolation, auth/origin/CSP, supported browser/owned queue proof, guide and independent review/fixes."
+          ],
+          "baseMinutes": 18,
+          "reserveMinutes": 6,
+          "capMinutes": 24
+        },
+        {
+          "number": "07",
+          "title": "Full current briefing qualification and review",
+          "acceptance": [
+            "ALL completeDelivery requirements; full current inventories, immutable briefing/native state/source/privacy/conservation and historical Send refusal capability evidence.",
+            "Repeat full current qualification standard, native immutable-state/refusal/compatibility/privacy and current inherited runner/Copy/text inventories, exact original browser/CLI proof after changes/reopen. Independent High integrated code/evidence review, normal fixes/material re-review."
+          ],
+          "baseMinutes": 66,
+          "reserveMinutes": 23,
+          "capMinutes": 89
+        },
+        {
+          "number": "08",
+          "title": "Extracted briefing kit, fresh demo and publication",
+          "acceptance": [
+            "ALL completeHandoff requirements; new saved immutable briefing and safe forwarding workflow; no external receipt or product nonacceptance proof inferred from Copy.",
+            "Repeat complete kit standard and NEW shipped browser Copy/actual CLI text capture/change/reopen/original-byte demonstration on both boards. Show no product attempt recorded, no claim about human forwarding, incapable send/retarget/retry and preserved prior operator/local outcomes. Package/evidence review/fixes/re-review, cleanup/publication."
+          ],
+          "baseMinutes": 30,
+          "reserveMinutes": 12,
+          "capMinutes": 42
+        }
+      ],
+      "development": {
+        "baseMinutes": 208,
+        "reserveMinutes": 71,
+        "capMinutes": 279
+      },
+      "headroomMinutes": 32,
+      "independentEstimates": {
+        "A": {
+          "baseMinutes": 208,
+          "reserveMinutes": 70,
+          "capMinutes": 278
+        },
+        "B": {
+          "baseMinutes": 196,
+          "reserveMinutes": 71,
+          "capMinutes": 267
+        },
+        "baseRowSource": "A",
+        "reserveRowSource": "B"
+      }
+    },
+    {
+      "label": "M18",
+      "title": "Deliberately send one fresh briefing once",
+      "outcome": "Fresh current-session capture may acquire one native server-owned volatile first-effect reservation. User explicitly Sends once via REAL supported adapter to original approved fixed destination. Durable effect fence/positive evidence/UNKNOWN complete from first effect; historical briefings stay guarded and inspectable only.",
+      "demo": "Fresh extracted shipped executable, browser PLUS actual CLI, both boards and explicitly owned controlled receiver. Each creates a NEW capture within its same current live native session, deliberately Send once through real adapter, inspect exact safe payload/positive boundary/receipt/acceptedAt, Stop/reopen. Separately controlled historical/reopened/pre-attempt/UNKNOWN/stale-run/lost-reply/concurrent duplicate cases refuse or retain original without resend. No manually forwarded briefing used for normal send.",
+      "prerequisite": "Accepted M17",
+      "preflight": {
+        "number": "00",
+        "baseMinutes": 75,
+        "reserveMinutes": 35,
+        "capMinutes": 110,
+        "excludedFromDevelopment": true
+      },
+      "stories": [
+        {
+          "number": "01",
+          "title": "Freeze first-effect acceptance and fresh eligibility contract",
+          "acceptance": [
+            "Actual supported send protocol/positive boundary and owned receiver gates; currentEffectEligibility complete. Probes do not prove delivery or receiver authority. Existing full runner/config/briefing contracts reused, effect-specific contract new.",
+            "Bind supported adapter/version/literal protocol/real positive boundary and authorized owned receiver. No invented lookup/idempotency/negative proof/human receipt. Current-session fresh-send eligibility is not reconstructed on reopen; original identity fixed. Full normal/refusal/controlled/fault inventory and High independent review/consensus."
+          ],
+          "baseMinutes": 16,
+          "reserveMinutes": 6,
+          "capMinutes": 22
+        },
+        {
+          "number": "02",
+          "title": "Durable effect admission, receipt and guarded reopen",
+          "acceptance": [
+            "Fresh live volatile reservation never serialized/reconstructed; atomically consume once under native owner and flush attempted fence before effect. Exact receipt/acceptedAt only on positive proof. Historical/reopened/interrupted prepared and UNKNOWN remain guarded; original immutable state/exclusion preserved.",
+            "Add prepared/attempted pre-effect fencing and exact positive receipt/acceptedAt/identity reconciliation to accepted immutable records; strict canonical bounds/compatibility/capacity/native publication. Persistence/transport ambiguity UNKNOWN, reopen never recreates spent permission or retry. Attempt/publication crash points/exact positive reconciliation/no resend and High storage review/fixes/material re-review."
+          ],
+          "baseMinutes": 20,
+          "reserveMinutes": 7,
+          "capMinutes": 27
+        },
+        {
+          "number": "03",
+          "title": "Integrate actual send with accepted bounded runner",
+          "acceptance": [
+            "Reuse SHIPPED M16 process/output/time/descendant/actual-join helper; do not rewrite or reprice helper as free before shipment. Add actual fixed message arguments/current-authority/disable/revoke checks, exact acceptance parsing, ambiguity UNKNOWN/no resend, reservation serialization/invalidation, first-effect native ownership fault join. Complete process inventory reruns; new effect-specific tests and integration review retained.",
+            "Reuse ONLY shipped complete M16 literal process/output/time/descendant/actual-join runner. Implement real send command/positive parsing and effect-specific current board/incarnation/generation/configuration/destination authorization plus disabled/revoked fencing, durable pre-effect admission, attempt/lost-response/UNKNOWN semantics. Stop/Close/timeout/incomplete drain retain native owner until actual join. Re-run EVERY missing executable/rejection/malformed/truncated/oversized/lost reply/timeout/stall/descendant/late completion/native crash fault in EFFECT context, repeated distinct accepted deliveries and clean reopen. Read-only tests do not replace effect proof."
+          ],
+          "baseMinutes": 28,
+          "reserveMinutes": 17,
+          "capMinutes": 45
+        },
+        {
+          "number": "04",
+          "title": "Review complete Send/Stop/evidence seam",
+          "acceptance": [
+            "Complete Go/HTTP/generated/production validators; fresh current live-session eligibility enforced server side, no client eligibility assertion, strict authority/scope/version/origin/generation/revision, no replay. High pass BEFORE clients; historical prepared settlement unavailable.",
+            "Go/HTTP/generated/production TS send-new-once/enable/disable/status/Stop/evidence/capability seam with exact origin/scope/size/version/current authority/revision/generation and honest unknown. Enable never sends, no retarget/retry/reopen permission. High independent seam review/fixes before clients, material changes return for review."
+          ],
+          "baseMinutes": 20,
+          "reserveMinutes": 5,
+          "capMinutes": 25
+        },
+        {
+          "number": "05",
+          "title": "Actual CLI fresh Send/Stop and refusal matrix",
+          "acceptance": [
+            "Real receiver plus all normative first-effect CLI refusal/concurrency/lost-response cases; existing config/probe/briefing/text commands rerun; fault interception not ordinary acceptance.",
+            "Actual executable send once, enable/disable/status/Stop/exact evidence using accepted profile/history/text; both boards and real receiver, stale/wrong/refused/uncertain outcomes no replay, original fields/UNKNOWN/local controls. Authoritative assertions/help/guide and independent review/fixes."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 5,
+          "capMinutes": 19
+        },
+        {
+          "number": "06",
+          "title": "Ordinary browser fresh Send/Stop and refusal matrix",
+          "acceptance": [
+            "Actual same-session Send controls, strict historical/stale/late/UNKNOWN/lost-response no replay, drafts/focus/window/A-B-A isolation/auth/CSP; shared queue lifecycle. Existing configuration/copy helpers reused, feature integration freshly proven.",
+            "Integrate deliberate Send once/exact positive or UNKNOWN evidence into shipped briefing view; original versus current, disabled/revoked/unavailable reasons. Preserve selection/window/draft/focus/A-B-A/stale/late/denied isolation, auth/origin/CSP and supported browser/owned queue evidence. Actual receiver assertions, guide and independent review/fixes/material re-review."
+          ],
+          "baseMinutes": 20,
+          "reserveMinutes": 7,
+          "capMinutes": 27
+        },
+        {
+          "number": "07",
+          "title": "Full current first-effect qualification and independent review",
+          "acceptance": [
+            "ALL completeDelivery requirements PLUS entire firstEffectRefusalMatrix from FIRST effect. Full current runner/native inventories, real adapter/receiver positive proof, effect admission/crashes/UNKNOWN/no resend/native ownership/current authority/privacy/conservation.",
+            "Repeat full current qualification standard, exact source/tools/locks/fixtures/adapter policy/version/receiver/executable binding and complete effect authority/ownership/storage/UNKNOWN/suppression/private-state/compatibility matrix. ALL current inherited runner/Copy/history/local/native/browser inventories re-run; ordinary/controlled/fault proof distinct. Independent High integrated review, normal corrections/material re-review."
+          ],
+          "baseMinutes": 70,
+          "reserveMinutes": 27,
+          "capMinutes": 97
+        },
+        {
+          "number": "08",
+          "title": "Extracted real-send kit, fresh demo and publication",
+          "acceptance": [
+            "ALL completeHandoff requirements; fresh ordinary real send versus separately controlled historical/current-session refusal proof. Probes never substitute; state shipped support/runtime prerequisites.",
+            "Repeat full kit standard and NEW shipped ordinary browser/actual CLI real-adapter positive demo plus separately controlled UNKNOWN/no resend. Show original Copy/text distinction, no product permission from old/reopened briefs, exact receiver support/runtime prerequisite disclosure. Package/evidence review/fixes/material re-review, owned cleanup/publication."
+          ],
+          "baseMinutes": 32,
+          "reserveMinutes": 13,
+          "capMinutes": 45
+        }
+      ],
+      "development": {
+        "baseMinutes": 220,
+        "reserveMinutes": 87,
+        "capMinutes": 307
+      },
+      "headroomMinutes": 20,
+      "independentEstimates": {
+        "A": {
+          "baseMinutes": 220,
+          "reserveMinutes": 80,
+          "capMinutes": 300
+        },
+        "B": {
+          "baseMinutes": 218,
+          "reserveMinutes": 87,
+          "capMinutes": 305
+        },
+        "baseRowSource": "A",
+        "reserveRowSource": "B"
+      }
+    },
+    {
+      "label": "M19",
+      "title": "Run fixed notices within a live host session",
+      "outcome": "Deliberate Start/Stop/Disable operates automatic fixed notices within the current live native host ownership session, with complete first-effect safety. After host reopen, external Start/resume is explicitly unavailable; original records remain inspectable/guarded. Local inbox controls still work.",
+      "demo": "Fresh extracted shipped executable, browser PLUS actual CLI, default/configured boards, REAL adapter/owned receiver. Enable without start, deliberate Start, human/mixed/fallback receipt and bot-only suppression, Stop/Disable with actual native join. Same-live-host subsequent Start may use retained safe current checkpoint only under fresh live-run eligibility. Close/reopen host: inspect exact original state, show explicit external Start/resume refusal and zero product resend; local controls remain usable. No silent skipping/reset or historical settlement.",
+      "prerequisite": "Accepted M18",
+      "preflight": {
+        "number": "00",
+        "baseMinutes": 75,
+        "reserveMinutes": 35,
+        "capMinutes": 110,
+        "excludedFromDevelopment": true
+      },
+      "stories": [
+        {
+          "number": "01",
+          "title": "Freeze live-host automatic subset and reopen refusal",
+          "acceptance": [
+            "Full eventual automatic invariant model; explicit shipped current-live-host subset. Cross-host clean resume unavailable, no discarded intervals/checkpoints or fresh-identity bypass. Historical/dirty pending settlement the later M21 controls milestone only.",
+            "Freeze current-host activation/session eligibility, explicit Start/Stop/Disable semantics, polling/batching/cuts/gaps and one-owner invariants. First fresh run begins from an explicitly admitted baseline; existing captured cuts/obligations cannot be relabeled or skipped. Any same-host repeat Start must preserve its valid in-memory lower boundary and prove quiescence/current authority, otherwise refuse; no reset to latest to discard stopped intervals.",
+            "Freeze honest post-reopen external Start refusal, inspectable original evidence and local control availability; no supported resume or historical pending settlement. High independent contract/inventory review/normal fixes/consensus."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 5,
+          "capMinutes": 19
+        },
+        {
+          "number": "02",
+          "title": "Persist automatic original evidence and host-reopen guard",
+          "acceptance": [
+            "Immutable observation/target/policy/payload/cuts/checkpoint/Last/gaps/receipt plus durable initialized/terminal/dirty guard sufficient to REFUSE reopened external Start. No persisted eligibility or state-reset workaround. Same-live-host new run requires safe checkpoint and no unresolved original.",
+            "Add automatic observation/checkpoint/Last/gaps/current-host session markers to accepted canonical external records. Preserve all original target/policy/payload/cuts/receipt/acceptedAt and strict physical/account binding, ACL/publication/version/capacity/retention/compatibility/refusal.",
+            "Persist dirty/interrupted/prepared/attempted/UNKNOWN accurately. Clean Stop requires drained/joined admitted work and exact conserved checkpoint, but its saved clean status grants NO cross-host resume permission in this kit. Reopen never repairs, discards missed intervals/pending, resets grants or fabricates a new current-host eligibility token. Native crash/partial-publication/foreign/capacity/refusal/exclusion fixtures; High storage review/fixes/material re-review."
+          ],
+          "baseMinutes": 16,
+          "reserveMinutes": 7,
+          "capMinutes": 23
+        },
+        {
+          "number": "03",
+          "title": "Join live-session observer and first-effect mechanism",
+          "acceptance": [
+            "Start/Stop/Disable within live host, enabling never starts, source quiet/fallback/suppression/current authority. Fresh current-run single-use reservation for NEW captures; native ownership through actual join/incomplete drain. Cross-host reopen refuses. Never settle/drop original pending or silently advance cuts.",
+            "Integrate polling/quiet/max-age/coalescing/new immutable capture over accepted dispatcher, with conservative complete-nonempty automation-only suppression and all human/mixed/unknown/empty/malformed/failed/gapped fallback alerts. No event/write count equality.",
+            "All FIRST-effect protections remain: durable admission, real literal adapter, current board/incarnation/generation/configuration/destination authority before effects/disclosure, Disable/revocation fences, bounded output/time/descendants and native ownership through Stop/Close/deadline/incomplete drain until actual join. Repeated distinct accepted notices and same-host lifecycle are proved. Re-run effect/authority/process/interruption faults under monitor ownership; High concurrency review/normal fixes/material re-review. Post-reopen Start refuses rather than skipping or retrying preserved work."
+          ],
+          "baseMinutes": 34,
+          "reserveMinutes": 15,
+          "capMinutes": 49
+        },
+        {
+          "number": "04",
+          "title": "Review complete live-host automatic seam",
+          "acceptance": [
+            "Go/HTTP/generated/production validators complete with truthful cross-host-resume unsupported capability/current authority/preconditions; independent High BEFORE clients. Existing local controls preserved.",
+            "Complete Go/HTTP/generated/schema/production TS Configure/Enable/Disable/Status/Start/Stop/original evidence/capability subset with strict bounds/origin/version/scope/current authority/revision/generation/UNKNOWN. Enable never starts. Explicit post-reopen external Start unavailable reason and preserved readable original lineage/pending; external Retarget/Reload/Recover/retry unavailable, local inbox controls retained. High seam review/fixes before clients; material changes return for review."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 5,
+          "capMinutes": 19
+        },
+        {
+          "number": "05",
+          "title": "Actual CLI live-host monitor and reopen refusal",
+          "acceptance": [
+            "Ordinary real live-host Start/Stop/Disable, human/mixed/bot/fallback; actual CLI refusal after host reopen, historical/pre-attempt/UNKNOWN/stale-run/lost-reply cases no replay.",
+            "Actual readable/JSON executable Start/Stop/Disable/status/evidence, default/configured boards, real human/mixed notices, suppression/fallback, stale/wrong/refused/uncertain no replay and guarded UNKNOWN. After ordinary clean host reopen, demonstrate external Start refuses without mutation/resend/reset of original cuts/pending/receipts; local controls work. Help/guide states lifecycle limit. Authoritative command assertions and independent review/fixes."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 6,
+          "capMinutes": 20
+        },
+        {
+          "number": "06",
+          "title": "Ordinary browser live-host monitor and reopen refusal",
+          "acceptance": [
+            "Normal live-host monitoring and honest reopened unsupported UI, preserved original evidence/local controls, focus/drafts/window/A-B-A/late/auth/CSP and shared queue lifecycle.",
+            "Live-host monitor controls/status/original evidence through production validation; actual real notices and exact saved text/Copy. Show Enable never starts, Stop/Disable behavior, post-reopen unavailable Start/reason with inspectable originals and local controls. Preserve drafts/focus/windows/A-B-A/stale/delayed/denied isolation, auth/origin/CSP and full owned queue workflow. Independent review/normal fixes/material re-review and guide included."
+          ],
+          "baseMinutes": 20,
+          "reserveMinutes": 8,
+          "capMinutes": 28
+        },
+        {
+          "number": "07",
+          "title": "Full current live-host automatic qualification",
+          "acceptance": [
+            "ALL completeDelivery requirements, real adapter/receiver, complete first-effect/automatic native ownership/source fault matrix, original pending guards, reopening refusal without skip/reset/resend, all current inventories.",
+            "Charge the entire current qualification standard AGAIN: all pinned gates, TWO isolated clean builds/ALL applicable output comparison, all current providers/compiler/driver/native transaction/continuation/archive/interruption/all archive rows, actual CLI and mandatory real-browser/new+inherited joined cases. Exact source/tools/locks/fixtures/adapter/receiver/executable binding.",
+            "Real accepted automatic notices, complete process/authority/storage/UNKNOWN/no resend, post-reopen refusal with no loss/reset, local inbox/board/archive/restore/privacy conservation and current inherited Copy/profile/probe/history/one-shot inventories. High independent integrated code/evidence assessment, expected fixes/material re-review in base."
+          ],
+          "baseMinutes": 76,
+          "reserveMinutes": 28,
+          "capMinutes": 104
+        },
+        {
+          "number": "08",
+          "title": "Extracted live-host kit, fresh demo and publication",
+          "acceptance": [
+            "ALL completeHandoff requirements. Fresh ordinary live-host automatic feature, separately controlled reopen/dirty pending refusals; guide states no supported cross-host resume yet, local controls continue.",
+            "Charge full kit standard AGAIN: allowlisted qualified executable/licenses/notices/schema/reference/guide/manifest/checksums, exact archive membership/EVERY digest/full fresh extraction. NEW ordinary shipped browser+actual CLI real-adapter live-host demo then clean reopen refusal, local controls and conserved evidence; separate controlled UNKNOWN/fault proof and exact receiver boundary.",
+            "Fresh independent package/evidence review/normal fixes/material re-review; preserve evidence, owned-only cleanup/listener closure/mailbox deletion, source/evidence publication and same-turn pushes, clock/dependency/rolling-turn handoff. The owner controls Completed/the project progress record."
+          ],
+          "baseMinutes": 36,
+          "reserveMinutes": 14,
+          "capMinutes": 50
+        }
+      ],
+      "development": {
+        "baseMinutes": 224,
+        "reserveMinutes": 88,
+        "capMinutes": 312
+      },
+      "headroomMinutes": 16,
+      "independentEstimates": {
+        "A": {
+          "baseMinutes": 214,
+          "reserveMinutes": 78,
+          "capMinutes": 292
+        },
+        "B": {
+          "baseMinutes": 224,
+          "reserveMinutes": 88,
+          "capMinutes": 312
+        },
+        "baseRowSource": "B",
+        "reserveRowSource": "B"
+      }
+    },
+    {
+      "label": "M20",
+      "title": "Resume fixed notices after a clean restart",
+      "outcome": "After positively clean Stop and actual native join with no unresolved original pending effect, reopen host and deliberately Start fixed monitoring from exact preserved checkpoint, catching up NEW intervals. Dirty/interrupted/historical original pending remains guarded for the later M21 controls milestone.",
+      "demo": "Fresh extraction and shipped executable, ordinary browser PLUS actual CLI, both boards and real receiver. Start/receive, clean Stop and prove joined terminal, close host, create human/mixed activity, reopen and deliberately Start; NEW catch-up notice accepted with correct exact range/checkpoint and new current-run identity. Separately controlled dirty/prepared/UNKNOWN/historical/stale cases refuse and preserve original without settlement/reset/resend. No clean-resume support inferred from probe.",
+      "prerequisite": "Accepted M19",
+      "preflight": {
+        "number": "00",
+        "baseMinutes": 75,
+        "reserveMinutes": 35,
+        "capMinutes": 110,
+        "excludedFromDevelopment": true
+      },
+      "stories": [
+        {
+          "number": "01",
+          "title": "Freeze positive clean-stop resume boundary",
+          "acceptance": [
+            "Resume ONLY exact positively clean terminal/joined source/config state with no unresolved original. No historical prepared/dirty/UNKNOWN settlement; no lost or skipped interval/cut rewrite. The later M21 controls milestone remains distinct.",
+            "Define exact clean proof: successful drained Stop, every admitted process actually joined, durable nonambiguous checkpoint/publication, exact physical lineage/configuration and no unresolved old original. Clean marker alone is not permission. Bind independent first-effect/current authority before any new capture/effect/disclosure.",
+            "Resume starts NEW capture/identity over conserved clean lower bound, never reconstructs old attempt/session permission. Preserve historical original target/payload/cuts/receipt/acceptedAt; dirty/pre-attempt/pending/UNKNOWN remains guarded until the later M21 controls milestone. Full ordinary/refusal/fault inventory and High independent review/normal correction/consensus."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 5,
+          "capMinutes": 19
+        },
+        {
+          "number": "02",
+          "title": "Persist and validate clean terminal continuity",
+          "acceptance": [
+            "Version/projection/refusal for prior live-host kit; exact original checkpoint/lineage/config/terminal proof and private binding. No repair-on-read or eligibility reconstruction. Incomplete drain/interrupted publication/foreign state guarded; never discard original.",
+            "Extend/validate accepted private records for exact clean-close proof and resume eligibility with physical/account binding/ACL/flush/atomic publication/version/capacity/retention/compatibility/refusal. Safe handling of prior M19 formats must distinguish genuinely proven clean versus unprovable; never infer clean from file presence or remove guarded originals.",
+            "Conserve lower/upper/checkpoint/gaps/history receipts through Stop/close/reopen and failed/uncertain reads/publications. No repair, reset-to-current baseline, discarded missed intervals, grant recreation or historical settlement. Native crash at each clean publication/actual-join/reopen boundary, malformed/foreign/migration/capacity/exclusion proof and High storage review/normal fixes/material re-review."
+          ],
+          "baseMinutes": 22,
+          "reserveMinutes": 10,
+          "capMinutes": 32
+        },
+        {
+          "number": "03",
+          "title": "Admit new-run catch-up from exact safe checkpoint",
+          "acceptance": [
+            "Fresh current authority/native owner/generation after validated clean reopen; new observations from preserved checkpoint, current-session first-effect mechanism only. Historical pending blocks/refuses; race/disable/revoke/Close/actual-join ownership and source uncertainty retained.",
+            "Implement serialized explicit Start eligibility check against genuine clean proof and actual quiescence, exact board/incarnation/generation/configuration/reference/current authority. Preserve original lineage and capture fresh interval from conserved lower bound; strict sanitized payload/fallback handles retained/gapped/unavailable metadata conservatively. Never reset away stopped/closed activity.",
+            "Use accepted first-effect durable admission/process/positive/UNKNOWN mechanism for NEW identity only; disable/revocation and native Stop/Close/timeout/incomplete-drain actual-join exclusion remain. Dirty/pre-attempt/historical pending/UNKNOWN refuses with truthful reason, no repair/retry/lookup or permission reconstruction. Re-run same-host/reopened/late completion/partial-publication/authority faults and genuine repeated clean cycles; High concurrency/recovery review/expected fixes/material re-review."
+          ],
+          "baseMinutes": 28,
+          "reserveMinutes": 12,
+          "capMinutes": 40
+        },
+        {
+          "number": "04",
+          "title": "Review complete clean-resume seam",
+          "acceptance": [
+            "Complete Go/HTTP/generated/production validators for explicit clean resume/start/status/evidence and dirty/historical refusal. Scope/origin/version/size/revision/generation/current authority; High pass BEFORE clients.",
+            "Go/HTTP/generated/schema/production TS eligibility/reason/Start/status/evidence changes together, strict current authority/origin/version/size/scope/revision/generation/uncertain responses. Expose clean-resume capability separately from guarded historical recovery. Original target/evidence immutable and local controls preserved; High seam review/fixes before CLI/browser, material changes return for review."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 5,
+          "capMinutes": 19
+        },
+        {
+          "number": "05",
+          "title": "Actual CLI clean reopen/catch-up",
+          "acceptance": [
+            "Actual shipped CLI clean Stop/close/reopen/Start/new catch-up; default/configured boards; historical/dirty/UNKNOWN/stale/uncertain no replay. Preserve local controls.",
+            "Actual readable/JSON executable new explicit Start after genuine clean Stop/close/reopen on both boards; real receiver catches NEW downtime activity from conserved checkpoint, exact original and new identities/receipts, suppression/fallback, no implicit Start. Authoritative stale/wrong/revoked/uncertain no replay and guarded dirty/pre-attempt/UNKNOWN cases, help/guide and independent review/fixes."
+          ],
+          "baseMinutes": 14,
+          "reserveMinutes": 6,
+          "capMinutes": 20
+        },
+        {
+          "number": "06",
+          "title": "Ordinary browser clean reopen/catch-up",
+          "acceptance": [
+            "Full normal clean-reopen journey/new receipts, explicit guarded pending reasons/current auth/CSP/origin/focus/drafts/window/A-B-A/late isolation; shared queue lifecycle.",
+            "Ordinary clean Stop/close/reopen/deliberate Start/catch-up journey and truthful eligibility/guard reasons, original versus fresh capture/evidence, actual receiver and exact text/Copy. Preserve current authority/auth/origin/CSP, windows/drafts/focus/A-B-A/stale/delayed/denied isolation. Supported real-browser/owned queue proof, complete guide and independent review/normal fixes/material re-review."
+          ],
+          "baseMinutes": 18,
+          "reserveMinutes": 7,
+          "capMinutes": 25
+        },
+        {
+          "number": "07",
+          "title": "Full current final fixed-scope qualification",
+          "acceptance": [
+            "ALL completeDelivery requirements AND complete original fixed .07 matrix now including clean stop/reopen/catch-up. No acceptance lost: exact payload/suppression/fallback, current authority/native ownership/privacy/conservation and persistent UNKNOWN/no resend.",
+            "Charge full required qualification AGAIN: exact source/tools/locks/fixtures/adapter/receiver/executable binding, all pinned gates, TWO isolated clean builds/ALL generated/staged/web/embedded/executable/applicable post-test outputs; complete CURRENT provider/compiler/driver/native transaction/continuation/archive/interruption/all archive rows, actual CLI and mandatory real-browser inventories plus all new/inherited joined cases.",
+            "Complete ORIGINAL fixed-delivery normal/suppression/fallback/authority/disable/drain/private-state/compatibility/UNKNOWN/no resend and NEW clean-close/resume/catch-up matrix. Conservation of missed intervals/checkpoints/pending/receipt lineage, local inbox and board/archive/restore/privacy. Independent High integrated storage/authority/concurrency/recovery/code/evidence assessment, normal fixes/material re-review in base."
+          ],
+          "baseMinutes": 78,
+          "reserveMinutes": 28,
+          "capMinutes": 106
+        },
+        {
+          "number": "08",
+          "title": "Extracted final fixed kit, fresh demo and publication",
+          "acceptance": [
+            "ALL completeHandoff requirements AND original fixed .08 ordinary/controlled full journey. Clean resume is NEW visible feature; historical prepared/dirty/UNKNOWN original stays guarded until the later M21 controls milestone.",
+            "Charge full required kit AGAIN: qualified exact allowlist/executable/licenses/notices/schema/reference/guide/manifest/checksums, exact archive membership/EVERY digest/full fresh extraction. NEW shipped ordinary browser+actual CLI complete original fixed notice demo including genuine clean Stop/close/downtime activity/reopen/deliberate Start/NEW catch-up through REAL supported adapter and explicitly owned controlled receiver.",
+            "Separately controlled interrupted attempted UNKNOWN survives reopen with original identity/reference and zero resend; historical pre-attempt/dirty/pending remains guarded. Show unsupported external Retarget/Reload/Recover/retry and usable local controls; exact receiver shipped/test-only support/runtime prerequisites. Fresh independent package/evidence review/normal fixes/material re-review, preserved evidence/owned cleanup/listener closure/publication/pushes and clocks/dependencies/rolling turns1-3. The owner controls Completed/the project progress record."
+          ],
+          "baseMinutes": 36,
+          "reserveMinutes": 14,
+          "capMinutes": 50
+        }
+      ],
+      "development": {
+        "baseMinutes": 224,
+        "reserveMinutes": 87,
+        "capMinutes": 311
+      },
+      "headroomMinutes": 16,
+      "independentEstimates": {
+        "A": {
+          "baseMinutes": 214,
+          "reserveMinutes": 76,
+          "capMinutes": 290
+        },
+        "B": {
+          "baseMinutes": 224,
+          "reserveMinutes": 87,
+          "capMinutes": 311
+        },
+        "baseRowSource": "B",
+        "reserveRowSource": "B"
+      }
+    }
+  ],
+  "totals": {
+    "baseMinutes": 1331,
+    "reserveMinutes": 498,
+    "capMinutes": 1829
+  },
+  "preflightTotals": {
+    "baseMinutes": 450,
+    "reserveMinutes": 210,
+    "capMinutes": 660
+  },
+  "preflightRequirements": [
+    "Recheck accepted prerequisite, exact clean source and applicable instructions; move own .00 In Progress before any execution/review. Administrative JSON monitor stays OFF.",
+    "Check dated primary latest-stable Go, Node, npm, TypeScript, Python, uv, EVERY direct runtime/build/test dependency and pinned real-browser tools; include applicable Git, PowerShell and directly-used adapter runtime. Exclude prereleases. Record sources/date, exact tool/lock pins, hashes and verification.",
+    "Qualify stale pins/lock refreshes before handoff with required gates, TWO isolated clean builds, ALL generated/staged/web/embedded/executable/applicable post-test outputs and complete CURRENT native/provider/compiler/driver/archive/browser inventories. Preserve prior source bindings; any unqualifiable stable release is a concrete readiness issue.",
+    "Review strict curated lint/type rules against latest stable guidance. Trial useful changes, justify narrow exceptions, and assess stable TypeScript compiler API/parser/linter support together. Fresh nonauthor Sol / High review, ordinary corrections and material re-review included.",
+    "Each milestone has its OWN complete preflight, separately 75 base +35 reserve =110 cap; .00 excluded from development. No inherited partial preflight or ordinary feature work hidden in .00. Local M15 is independent of unresolved external adapter/receiver readiness. M16 must qualify its exact supported read-only/no-send probe boundary. First external-effect work requires actual supported send protocol/positive boundary and an explicitly authorized owned reachable controlled receiver; probe success does not grant either."
+  ],
+  "completeDelivery": [
+    "EVERY milestone runs all pinned gates, TWO isolated clean builds and comparison of ALL generated, staged, web, embedded, executable and applicable post-test outputs, bound to exact source/tools/locks/fixtures/executable hashes. Re-enumerate full CURRENT inventories; historical counts are anchors, not ceilings or automatic reuse.",
+    "EVERY milestone includes complete CURRENT provider/compiler/driver/native transaction/continuation/archive/interruption inventories, all archive rows, actual executable CLI and mandatory real-browser inventory, plus newly shipped and inherited joined cases. Preserve local-inbox, board/archive/restore conservation, independent restored lineage, physical/account identity and privacy.",
+    "Complete each scoped Go/HTTP/generated-schema/declaration/production-TypeScript-validator seam and fresh independent Sol / High review BEFORE either client enters. Material client-discovered changes return for seam correction/re-review. Fresh integrated nonauthor High authority/concurrency/storage/code/evidence assessment, ordinary fixes and material re-review are BASE work.",
+    "EVERY milestone ships its own exact allowlisted qualified executable/license/notices/schema/reference/guide closure/manifest/checksums; verify every archive member, payload digest and full fresh extraction. Run a NEW ordinary shipped-executable browser AND actual-CLI demonstration of the new useful capability on default/configured synthetic boards, with independent package/evidence review, fixes and material re-review.",
+    "Label ordinary, controlled, fault and precisely justified reused evidence separately; real adapter acceptance requires the REAL supported adapter and authorized receiver, never a stub, readiness probe or diagnostic queue. Preserve failed attempts under their source bindings. Native interruption does not prove physical power-loss safety.",
+    "Preserve/export needed evidence, then clean only owned fixtures/hosts/listeners/mailboxes and verify actual listener/process closure. Publish required bounded source-bound evidence/source; push every commit in its turn. Reconcile clocks/dependencies and remaining turns1-3. Only the owner controls Completed; the accepted project progress checkpoint changes only after owner milestone completion."
+  ],
+  "completeHandoff": [
+    "EVERY milestone ships its own exact allowlisted qualified executable/license/notices/schema/reference/guide closure/manifest/checksums; verify every archive member, payload digest and full fresh extraction. Run a NEW ordinary shipped-executable browser AND actual-CLI demonstration of the new useful capability on default/configured synthetic boards, with independent package/evidence review, fixes and material re-review.",
+    "Label ordinary, controlled, fault and precisely justified reused evidence separately; real adapter acceptance requires the REAL supported adapter and authorized receiver, never a stub, readiness probe or diagnostic queue. Preserve failed attempts under their source bindings. Native interruption does not prove physical power-loss safety.",
+    "Preserve/export needed evidence, then clean only owned fixtures/hosts/listeners/mailboxes and verify actual listener/process closure. Publish required bounded source-bound evidence/source; push every commit in its turn. Reconcile clocks/dependencies and remaining turns1-3. Only the owner controls Completed; the accepted project progress checkpoint changes only after owner milestone completion."
+  ],
+  "globalInvariants": [
+    "External reference and local UUID inbox are different types. Keep one fixed configured destination; changing future external destinations/Reload/Retarget/recovery/retry remains the later existing controls milestone. Current and original configuration, generation, revision, observation, intent and receipt remain distinct.",
+    "Freeze immutable original destination/policy/safe payload/identity/cuts/receipt/acceptedAt/checkpoint/gaps at admission. Strict canonical version/size/capacity/retention and native physical/account ACL/flush/atomic-publication/migration-or-refusal apply; no repair on read or permission reconstruction after reopen.",
+    "Payload is only validated board label, bounded activity range and sorted unique ticket numbers, or exact safe inspection fallback. Only complete nonempty all-automation suppresses; human/mixed/unknown/empty/malformed/failed/gapped evidence alerts. No event/write-count equality. Exclude prose, secrets, raw errors/stacks/URLs/provider objects.",
+    "Copy/CLI text is a human forwarding convenience, not product adapter acceptance, no-effect proof, reusable delivery permission or proof that independent human forwarding never happened. The one-attempt limit concerns product adapter attempts for an original identity, not exactly-once human delivery.",
+    "M16 exposes only qualified frozen literal read-only version/help probes of an allowlisted exact installed executable. No browser-supplied executable/path/arguments/network endpoint or credentials; no raw output/error disclosure. Current authority, output/time/descendant bounds and native ownership until actual join apply. Unsupported/unavailable/unknown probe outcomes are truthful. A readiness result is NOT real send/receiver acceptance or destination authority.",
+    "M18 FIRST external effect has durable pre-effect attempted fencing, fresh same-live-native-session one-use native reservation, current scope/destination authority and exact positive evidence or persistent UNKNOWN. Historical/reopened/interrupted/pre-attempt records do NOT confer Send permission. No blind replay, invented lookup/idempotency/negative proof, human receipt or exactly-once claim.",
+    "Current authority applies before effects and private disclosure. Disable/revoke fences later effects. Stop/Close/deadline/incomplete drain retains actual native process/descendant ownership until physical quiescence; no second owner can enter while admitted work remains.",
+    "M19 supports automatic fixed notices ONLY in the current live host session. After host reopen, external Start is explicitly unavailable; inspect/refuse with original records/cuts/gaps intact. Never discard missed intervals, drop pending work, reset permissions or fabricate clean state. Existing local-inbox controls remain usable.",
+    "M20 adds Start/catch-up ONLY after positively proven clean stop/quiescence and exact valid physical/source/configuration lineage, with no historical pending to settle. New captures use fresh current native-session admission. Dirty/historical/pre-attempt/UNKNOWN originals remain guarded for the later existing controls milestone; clean catch-up never silently settles them.",
+    "Preserve browser selection/window/draft/focus and stale/A-B-A/late/denied fencing, no mutation replay, current auth/origin/CSP. The shared queue is development diagnostics ONLY: fresh health/register mailbox, bounded supported browser action, release UI, validated bounded reads/exports and owned deletion. No shared-host operation or private collector.",
+    "Planning only: no product implementation, preflight execution, live conversation send, activation or monitor launch. Exact adapter send protocol/acceptance and explicitly owned controlled-receiver authority remain unqualified. Read-only planning feasibility observed CLI0.154.0 version/help exit0; this is not product-runner, delivery or receiver qualification.",
+    "M16 exposes saved fixed configuration/policy and read-only probe/status/Stop-probe only. Delivery Enable/Disable/Start/Send are unavailable until their later effect/monitor kits; saving policy does not grant future delivery permission."
+  ],
+  "currentEffectEligibility": [
+    "FIRST effect is M18. Only an explicitly authorized NEW briefing captured in the same currently live native host session may be attempted. Bind installation/board/incarnation, exact config revision/control generation, immutable destination/policy/payload/cuts/identity and current credential rights. A browser-supplied session value is not authority.",
+    "Native volatile current-session eligibility and one-use reservation are never reconstructed from persisted bytes. Serialize admission; validate exact durable prepared state and confirm attempted publication BEFORE adapter invocation, then check current authority again. A competing or repeated attempt cannot acquire a second permission. Pre-effect storage uncertainty prevents dispatch; attempted ambiguity stays UNKNOWN.",
+    "Historical, legacy, reopened, interrupted, old-session, stale-generation/revision and receipt-free pre-attempt pending records confer NO M18 Send permission even when readable or marked never-sent. Copy/print, reconnect, timeout, cancellation, current-state equality and a fresh request ID cannot renew or replace permission. Later existing M21 owns deliberate historical recovery.",
+    "Check current authority and disabled/revoked scope before actual effects AND private disclosure. Failed final authorization redacts private results and does not prove no effect. Exact genuine positive acceptance evidence reconciles only its own original identity/target/policy/payload/cuts/acceptedAt; absent/malformed/foreign/expired evidence is not negative proof.",
+    "Retain lifecycle reservation and native physical process/descendant ownership through Stop/Close/deadline/incomplete drain until actual quiescence. Only literal qualified send operation is added to the already shipped bounded runner. Read-only probe evidence cannot replace effect-context ownership/fault/acceptance proof.",
+    "M19 separately admits NEW automatic observations only in its current live host session after deliberate Start under current authority; it cannot settle a historical original or resume external Start after host reopen. M20 adds positively proven-clean, physically quiescent, exact-lineage reopen/catch-up only, with no historical pending settlement or silent lower-bound/gap reset.",
+    "Bind each volatile reservation to the current native ownership SESSION AND RUN, exact control generation and config revision. Session/run end, Stop/Close before physical effect admission, disable/revoke or generation invalidation permanently invalidate any unconsumed eligibility and prevent later admission. Preserve the original prepared record as guarded; a same-host restart, new run or new nonce cannot settle it. Already physically admitted effects retain ownership through actual join, without replay or negative-proof claims."
+  ],
+  "firstEffectRefusalMatrix": [
+    "Native: fresh same-session positive admission; concurrent duplicate Send/permission reuse; wrong/current-vs-old host session; historical never-sent/reopened/interrupted/pre-attempt/legacy/UNKNOWN records; wrong physical board/restored incarnation; stale config revision/control generation; no reconstruction of volatile permission from durable state.",
+    "Native effect/ownership: before/after attempted publication fault/crash, pre-effect uncertainty, explicit rejection, missing executable, malformed/truncated/oversized output, lost response, timeout/stall, descendants/late completion, competing Stop/Disable/Close, incomplete drain and duplicate owner. Every first-effect fault repeats in effect context despite prior read-only proof.",
+    "Authority/privacy: revoke or disable before dispatch and after admission/before private response; no idle-authority renewal by background work; preserve original status/identity/receipt/cuts/gaps and redact denied late results. Exact positive proof only; no resend or negative lookup inference.",
+    "HTTP/generated/production validators and actual CLI BOTH board configurations: genuine new-capture single Send; historical/wrong-session/wrong-scope/stale-generation/revision refusals, explicit unsupported capability, one POST and no mutation replay after an uncertain response; deliberate later status is a new observation.",
+    "Ordinary real browser BOTH configurations: same first-effect positive and negative original/session/scope/refusal cases; original input/evidence and focus/drafts preserved; selection A-to-B-to-A and delayed/stale/denied replies cannot repaint another scope. Shared diagnostic queue lifecycle stays bounded and carries no notice prose or secrets.",
+    "Fresh extracted M18 kit: NEW ordinary shipped browser+actual CLI real-adapter/authorized-receiver acceptance, plus SEPARATE controlled historical/current-session/pre-attempt/UNKNOWN/no-resend proof. State actual positive boundary, receiver support and runtime prerequisites; no probe-as-send or exactly-once claim.",
+    "M19/M20 joined proof retains all first-effect regressions. M19 after host reopen inspects/refuses Start without losing lower bounds, gaps, original pending or receipts. M20 starts/catches up only with positive clean-stop/quiescence and exact lineage/no pending; unproven legacy clean state, dirty/pre-attempt/UNKNOWN originals stay guarded for M21. No duplicate acceptance, silent missed-interval deletion or permission reset.",
+    "Native/API/actual CLI/ordinary browser negative cases explicitly include run/session end and Stop/Close BEFORE physical effect admission, disable/revoke/generation invalidation, then same-host new run/new nonce refusal for the same guarded original. Verify fresh independent captures remain separate identities and no invalidated permission is reconstructed."
+  ],
+  "estimatePolicy": "For each aligned complete milestone use the higher independent whole-milestone base and higher independent reserve. Base rowset and reserve rowset each come intact from their selected complete author forecast; no cheap row-picking, overlap discount or omitted mandatory work. Caps may exceed240; development base must be strictly below240. These are conditional engineering estimates, not guaranteed elapsed limits.",
+  "selection": "Six is the fewest common conservatively passing route after preserving the larger automatic-resume forecast; seven is an optional extra-headroom route, not required by the owner threshold. M16 base238 has2minutes margin: explicitly re-estimate at kickoff or material scope/tool/inventory/protocol change; no guarantee of actual time below4h.",
+  "originalScopeMapping": {
+    "00": "Own complete latest-stable preflight in ALL six kits; excluded from development.",
+    "01": "Every .01 contract/inventory: local payload, config/read-only probe, immutable briefing, first effect, live monitoring, clean resume. Eventual full invariant model and first-effect safety never deferred.",
+    "02": "M15.03 local enriched originals; M16.02 private config/policy; M17.02 immutable briefing; M18.02 attempted/positive evidence; M19.02 live observation/checkpoints; M20.02 proven-clean continuity.",
+    "03": "M15.02 authoritative ticket/date/suppression; M16.03 bounded read-only process foundation (not delivery proof); M18.03 actual real-send effect; M19.03 live observer/dispatch; M20.03 clean-reopen/catch-up.",
+    "04": "Each .04 complete current Go/HTTP/generated/production-TS seam, reviewed before clients. Final M20 includes full fixed subset.",
+    "05": "Each .05 actual CLI/new useful workflow, help, exact outputs and authority/refusal/uncertainty; final full fixed controls/catch-up with no replay.",
+    "06": "Each .06 ordinary browser/new useful workflow, production validation, exact originals, private state/focus/window/stale/late fencing, current auth/origin/CSP and full diagnostic mailbox cycle.",
+    "07": "Each .07 current complete two-build/all-output/native/provider/compiler/driver/archive/CLI/mandatory-browser plus new and inherited joined cases; final M20 full original fixed matrix.",
+    "08": "Each .08 own exact kit/fresh ordinary browser+CLI demo/independent package review/cleanup/publication; M18 real receiver+separate UNKNOWN; M20 full original fixed normal+controlled demonstration."
+  },
+  "planningOnly": true,
+  "status": "Six complete usable planning increments, independently reviewed common scope; final author agreement and validation receipts recorded separately. No implementation or runtime qualification claim.",
+  "sourceScope": "Replaces fixed-conversation M15 only. The separate later retarget/reload/recovery outcome is retained as M21. Prior four/five/seven alternatives and failed forecasts are preserved privately under their original binding.",
+  "previousPlanning": "m15-conversation-split-2026-11-07.txt and .json preserve the earlier two-way planning revision; fresh fixed-scope forecasts of 328 and 346 development minutes failed its 240-minute gate.",
+  "numbering": {
+    "fixedDeliveryLabels": [
+      "M15",
+      "M16",
+      "M17",
+      "M18",
+      "M19",
+      "M20"
+    ],
+    "previousM16Becomes": "M21: Retarget and recover conversation notices",
+    "previousM17AndLaterShift": 5,
+    "mapping": [
+      {
+        "previous": "M17",
+        "current": "M22",
+        "title": "Automatically commit exact board and workspace snapshots to local Git"
+      },
+      {
+        "previous": "M18",
+        "current": "M23",
+        "title": "Push queued Git snapshots and recover delivery"
+      },
+      {
+        "previous": "M19",
+        "current": "M24",
+        "title": "Apply a guarded live build update and resume open clients"
+      },
+      {
+        "previous": "M20",
+        "current": "M25",
+        "title": "Open a legacy-shaped workspace through the routed host"
+      },
+      {
+        "previous": "M21",
+        "current": "M26",
+        "title": "Preserve V1 blocker urgency and priority audit"
+      },
+      {
+        "previous": "M22",
+        "current": "M27",
+        "title": "Normalize selected priorities as one audited change"
+      },
+      {
+        "previous": "M23",
+        "current": "M28",
+        "title": "Find and order work with the familiar V1 triage rules"
+      },
+      {
+        "previous": "M24",
+        "current": "M29",
+        "title": "Use familiar daily browser controls, status and Attention notices"
+      },
+      {
+        "previous": "M25",
+        "current": "M30",
+        "title": "Maintain configured workflows and lane identities"
+      },
+      {
+        "previous": "M26",
+        "current": "M31",
+        "title": "Preview an accountable V1 import"
+      },
+      {
+        "previous": "M27",
+        "current": "M32",
+        "title": "Construct and reconcile isolated logical board data"
+      },
+      {
+        "previous": "M28",
+        "current": "M33",
+        "title": "Complete imported files and prove a restorable copy"
+      },
+      {
+        "previous": "M29",
+        "current": "M34",
+        "title": "Read adopted boards through supported legacy entry points"
+      },
+      {
+        "previous": "M30",
+        "current": "M35",
+        "title": "Keep established daily write integrations usable"
+      },
+      {
+        "previous": "M31",
+        "current": "M36",
+        "title": "Use supported legacy operator and admin entry points"
+      },
+      {
+        "previous": "M32",
+        "current": "M37",
+        "title": "Admit validated external snapshot replacements"
+      },
+      {
+        "previous": "M33",
+        "current": "M38",
+        "title": "Rehearse one-writer adoption and rollback"
+      },
+      {
+        "previous": "M34",
+        "current": "M39",
+        "title": "Close the V1 behavior and integration evidence ledger"
+      },
+      {
+        "previous": "M35",
+        "current": "M40",
+        "title": "Qualify and deliver the everyday drop-in release candidate"
+      },
+      {
+        "previous": "M16",
+        "current": "M21",
+        "title": "Retarget and recover conversation notices"
+      }
+    ],
+    "dependencies": "M14 -> M15 -> M16 -> M17 -> M18 -> M19 -> M20 -> existing external controls M21. Complete-fixed-delivery consumers require M20; complete-original-conversation consumers retain M21. Local Git snapshots now M22 retain their accepted M10 prerequisite without a new conversation-delivery dependency."
+  },
+  "detail": "m15-fixed-delivery-six-split-2026-11-07.txt",
+  "readiness": "Separate future kickoff/accepted prerequisites/own complete preflight/In Progress entry still govern every product task. All development bases are conditional engineering estimates below240, not guarantees; M16 base238 leaves2minutes and must be re-estimated on material change. Real send protocol/positive boundary and explicit owned controlled-receiver authority remain unqualified. Administrative JSON monitor stays OFF; diagnostic queue is not product delivery."
+}

@@ -1,0 +1,186 @@
+FIXED CONVERSATION NOTICES — SIX USABLE MILESTONES
+November 7, 2026 | M15-FIXED-SIX-CONSENSUS-R3
+Planning only; no product or live-delivery start.
+
+For each aligned complete milestone use the higher independent whole-milestone base and higher independent reserve. Base rowset and reserve rowset each come intact from their selected complete author forecast; no cheap row-picking, overlap discount or omitted mandatory work. Caps may exceed240; development base must be strictly below240. These are conditional engineering estimates, not guaranteed elapsed limits.
+
+Six is the fewest common conservatively passing route after preserving the larger automatic-resume forecast; seven is an optional extra-headroom route, not required by the owner threshold. M16 base238 has2minutes margin: explicitly re-estimate at kickoff or material scope/tool/inventory/protocol change; no guarantee of actual time below4h.
+
+Development prices: base + reserve = cap minutes. Each own .00 is separately75 +35 =110 and excluded.
+
+M15 — Read and copy useful local notices
+217 + 77 = 294 minutes; prerequisite M14 owner-Completed.
+Existing automatic local inbox notices gain exact bounded safe board label, activity time range and sorted unique ticket numbers, or the exact inspection fallback. Browser copy and actual CLI text/JSON make the notice useful for human forwarding without exposing card prose. Ship reusable production safe-text CLI formatter and browser clipboard helper, including exact canonical bytes, bounded content, permission/error disposition and preserved focus/drafts. The customer can forward text manually without an adapter.
+Fresh ordinary extracted browser AND actual CLI demo: Fresh shipped executable, default/configured synthetic boards. Start existing local inbox monitoring in ordinary browser and actual CLI. Human/mixed events produce identical safe notice text to inspect and copy/print; show bot-only suppression and fallback. Stop/reopen/catch up; existing local controls and receipts remain usable. No external dispatch claimed. Show exact clipboard/CLI text agreement and truthful failed/denied Copy behavior. Local M15 is fully INDEPENDENT of unqualified external adapter/receiver readiness.
+Planned work:
+- .01 Freeze safe local notice and eventual external invariants: 16 + 6 = 22.
+- .02 Capture authoritative ticket/date facts: 22 + 8 = 30.
+- .03 Freeze safe payload in local private evidence: 16 + 6 = 22.
+- .04 Review complete local-payload shared seam: 17 + 6 = 23.
+- .05 Actual CLI notice text and JSON: 18 + 7 = 25.
+- .06 Ordinary browser inspection and copy: 28 + 10 = 38.
+- .07 Full current qualification and integrated review: 68 + 22 = 90.
+- .08 Extracted kit, fresh demo and publication: 32 + 12 = 44.
+
+M16 — Configure a fixed recipient and inspect adapter readiness
+238 + 88 = 326 minutes; prerequisite Accepted M15.
+Save/reopen one private fixed conversation reference/policy and inspect whether the ACTUAL supported installed adapter reports the required version/capability through approved read-only probes. Browser and actual CLI show safe bounded readiness codes and honest unsupported/unavailable results. No external notice send or receiver acceptance claimed.
+Fresh ordinary extracted browser AND actual CLI demo: Fresh extracted shipped executable, ordinary browser AND actual CLI, default/configured boards. Save private fixed recipient/policy, close/reopen and inspect the same config. Invoke the exact actual supported read-only version/help/capability probe that .00 qualified; display safe version/capability/readiness facts. Separately show genuine missing/unsupported capability with truthful result, never substitute executable. Verify Stop/Close/timeout retains native process/descendant ownership until actual join. Probe success is NOT delivery acceptance or receiver authority. If no supported probe exists, that is an explicit readiness disposition and cannot certify a runner that was never actually exercised against a supported probe.
+Planned work:
+- .01 Freeze private config and supported read-only readiness contract: 18 + 5 = 23.
+- .02 Private fixed recipient configuration and policy: 22 + 8 = 30.
+- .03 Ship complete bounded native read-only process runner: 44 + 20 = 64.
+- .04 Review complete config/readiness shared seam: 22 + 6 = 28.
+- .05 Actual CLI save/reopen/probe readiness: 16 + 6 = 22.
+- .06 Ordinary browser save/reopen/probe readiness: 20 + 7 = 27.
+- .07 Full current config/runner qualification: 66 + 24 = 90.
+- .08 Extracted readiness kit, fresh operator demo and publication: 30 + 12 = 42.
+
+M17 — Prepare and copy immutable conversation briefings
+208 + 71 = 279 minutes; prerequisite Accepted M16.
+Using accepted private recipient config and safe Copy/text helpers, user explicitly captures a private immutable destination-bound briefing, inspects its exact safe interval text and copies/prints it for human forwarding. Historical/reopened briefings remain inspectable/copyable only; they never gain product Send eligibility.
+Fresh ordinary extracted browser AND actual CLI demo: Fresh extraction, ordinary browser and actual CLI, both boards. Save/use accepted fixed recipient, deliberately capture human/mixed interval, inspect immutable reference/policy/payload/cuts/identity, copy/print exact safe text, disable/reopen and inspect unchanged briefing. Show bot-only suppression/fallback and current disclosure authority. Product records NO external acceptance; copy is also NOT evidence that no human/independent external effect occurred. No adapter send.
+Planned work:
+- .01 Freeze immutable briefing and historical inspection-only contract: 14 + 5 = 19.
+- .02 Versioned immutable private briefing records: 30 + 10 = 40.
+- .03 Explicit current-authority briefing capture: 18 + 5 = 23.
+- .04 Review complete briefing shared seam: 18 + 5 = 23.
+- .05 Actual CLI briefing capture/inspect/text: 14 + 5 = 19.
+- .06 Ordinary browser briefing capture/inspect/Copy: 18 + 6 = 24.
+- .07 Full current briefing qualification and review: 66 + 23 = 89.
+- .08 Extracted briefing kit, fresh demo and publication: 30 + 12 = 42.
+
+M18 — Deliberately send one fresh briefing once
+220 + 87 = 307 minutes; prerequisite Accepted M17.
+Fresh current-session capture may acquire one native server-owned volatile first-effect reservation. User explicitly Sends once via REAL supported adapter to original approved fixed destination. Durable effect fence/positive evidence/UNKNOWN complete from first effect; historical briefings stay guarded and inspectable only.
+Fresh ordinary extracted browser AND actual CLI demo: Fresh extracted shipped executable, browser PLUS actual CLI, both boards and explicitly owned controlled receiver. Each creates a NEW capture within its same current live native session, deliberately Send once through real adapter, inspect exact safe payload/positive boundary/receipt/acceptedAt, Stop/reopen. Separately controlled historical/reopened/pre-attempt/UNKNOWN/stale-run/lost-reply/concurrent duplicate cases refuse or retain original without resend. No manually forwarded briefing used for normal send.
+Planned work:
+- .01 Freeze first-effect acceptance and fresh eligibility contract: 16 + 6 = 22.
+- .02 Durable effect admission, receipt and guarded reopen: 20 + 7 = 27.
+- .03 Integrate actual send with accepted bounded runner: 28 + 17 = 45.
+- .04 Review complete Send/Stop/evidence seam: 20 + 5 = 25.
+- .05 Actual CLI fresh Send/Stop and refusal matrix: 14 + 5 = 19.
+- .06 Ordinary browser fresh Send/Stop and refusal matrix: 20 + 7 = 27.
+- .07 Full current first-effect qualification and independent review: 70 + 27 = 97.
+- .08 Extracted real-send kit, fresh demo and publication: 32 + 13 = 45.
+
+M19 — Run fixed notices within a live host session
+224 + 88 = 312 minutes; prerequisite Accepted M18.
+Deliberate Start/Stop/Disable operates automatic fixed notices within the current live native host ownership session, with complete first-effect safety. After host reopen, external Start/resume is explicitly unavailable; original records remain inspectable/guarded. Local inbox controls still work.
+Fresh ordinary extracted browser AND actual CLI demo: Fresh extracted shipped executable, browser PLUS actual CLI, default/configured boards, REAL adapter/owned receiver. Enable without start, deliberate Start, human/mixed/fallback receipt and bot-only suppression, Stop/Disable with actual native join. Same-live-host subsequent Start may use retained safe current checkpoint only under fresh live-run eligibility. Close/reopen host: inspect exact original state, show explicit external Start/resume refusal and zero product resend; local controls remain usable. No silent skipping/reset or historical settlement.
+Planned work:
+- .01 Freeze live-host automatic subset and reopen refusal: 14 + 5 = 19.
+- .02 Persist automatic original evidence and host-reopen guard: 16 + 7 = 23.
+- .03 Join live-session observer and first-effect mechanism: 34 + 15 = 49.
+- .04 Review complete live-host automatic seam: 14 + 5 = 19.
+- .05 Actual CLI live-host monitor and reopen refusal: 14 + 6 = 20.
+- .06 Ordinary browser live-host monitor and reopen refusal: 20 + 8 = 28.
+- .07 Full current live-host automatic qualification: 76 + 28 = 104.
+- .08 Extracted live-host kit, fresh demo and publication: 36 + 14 = 50.
+
+M20 — Resume fixed notices after a clean restart
+224 + 87 = 311 minutes; prerequisite Accepted M19.
+After positively clean Stop and actual native join with no unresolved original pending effect, reopen host and deliberately Start fixed monitoring from exact preserved checkpoint, catching up NEW intervals. Dirty/interrupted/historical original pending remains guarded for the later M21 controls milestone.
+Fresh ordinary extracted browser AND actual CLI demo: Fresh extraction and shipped executable, ordinary browser PLUS actual CLI, both boards and real receiver. Start/receive, clean Stop and prove joined terminal, close host, create human/mixed activity, reopen and deliberately Start; NEW catch-up notice accepted with correct exact range/checkpoint and new current-run identity. Separately controlled dirty/prepared/UNKNOWN/historical/stale cases refuse and preserve original without settlement/reset/resend. No clean-resume support inferred from probe.
+Planned work:
+- .01 Freeze positive clean-stop resume boundary: 14 + 5 = 19.
+- .02 Persist and validate clean terminal continuity: 22 + 10 = 32.
+- .03 Admit new-run catch-up from exact safe checkpoint: 28 + 12 = 40.
+- .04 Review complete clean-resume seam: 14 + 5 = 19.
+- .05 Actual CLI clean reopen/catch-up: 14 + 6 = 20.
+- .06 Ordinary browser clean reopen/catch-up: 18 + 7 = 25.
+- .07 Full current final fixed-scope qualification: 78 + 28 = 106.
+- .08 Extracted final fixed kit, fresh demo and publication: 36 + 14 = 50.
+
+Every own complete preflight
+
+- Recheck accepted prerequisite, exact clean source and applicable instructions; move own .00 In Progress before any execution/review. Administrative JSON monitor stays OFF.
+- Check dated primary latest-stable Go, Node, npm, TypeScript, Python, uv, EVERY direct runtime/build/test dependency and pinned real-browser tools; include applicable Git, PowerShell and directly-used adapter runtime. Exclude prereleases. Record sources/date, exact tool/lock pins, hashes and verification.
+- Qualify stale pins/lock refreshes before handoff with required gates, TWO isolated clean builds, ALL generated/staged/web/embedded/executable/applicable post-test outputs and complete CURRENT native/provider/compiler/driver/archive/browser inventories. Preserve prior source bindings; any unqualifiable stable release is a concrete readiness issue.
+- Review strict curated lint/type rules against latest stable guidance. Trial useful changes, justify narrow exceptions, and assess stable TypeScript compiler API/parser/linter support together. Fresh nonauthor Sol / High review, ordinary corrections and material re-review included.
+- Each milestone has its OWN complete preflight, separately 75 base +35 reserve =110 cap; .00 excluded from development. No inherited partial preflight or ordinary feature work hidden in .00. Local M15 is independent of unresolved external adapter/receiver readiness. M16 must qualify its exact supported read-only/no-send probe boundary. First external-effect work requires actual supported send protocol/positive boundary and an explicitly authorized owned reachable controlled receiver; probe success does not grant either.
+
+Every complete delivery and handoff
+
+- EVERY milestone runs all pinned gates, TWO isolated clean builds and comparison of ALL generated, staged, web, embedded, executable and applicable post-test outputs, bound to exact source/tools/locks/fixtures/executable hashes. Re-enumerate full CURRENT inventories; historical counts are anchors, not ceilings or automatic reuse.
+- EVERY milestone includes complete CURRENT provider/compiler/driver/native transaction/continuation/archive/interruption inventories, all archive rows, actual executable CLI and mandatory real-browser inventory, plus newly shipped and inherited joined cases. Preserve local-inbox, board/archive/restore conservation, independent restored lineage, physical/account identity and privacy.
+- Complete each scoped Go/HTTP/generated-schema/declaration/production-TypeScript-validator seam and fresh independent Sol / High review BEFORE either client enters. Material client-discovered changes return for seam correction/re-review. Fresh integrated nonauthor High authority/concurrency/storage/code/evidence assessment, ordinary fixes and material re-review are BASE work.
+- EVERY milestone ships its own exact allowlisted qualified executable/license/notices/schema/reference/guide closure/manifest/checksums; verify every archive member, payload digest and full fresh extraction. Run a NEW ordinary shipped-executable browser AND actual-CLI demonstration of the new useful capability on default/configured synthetic boards, with independent package/evidence review, fixes and material re-review.
+- Label ordinary, controlled, fault and precisely justified reused evidence separately; real adapter acceptance requires the REAL supported adapter and authorized receiver, never a stub, readiness probe or diagnostic queue. Preserve failed attempts under their source bindings. Native interruption does not prove physical power-loss safety.
+- Preserve/export needed evidence, then clean only owned fixtures/hosts/listeners/mailboxes and verify actual listener/process closure. Publish required bounded source-bound evidence/source; push every commit in its turn. Reconcile clocks/dependencies and remaining turns1-3. Only the owner controls Completed; the accepted project progress checkpoint changes only after owner milestone completion.
+
+Preserved boundaries
+
+- External reference and local UUID inbox are different types. Keep one fixed configured destination; changing future external destinations/Reload/Retarget/recovery/retry remains the later existing controls milestone. Current and original configuration, generation, revision, observation, intent and receipt remain distinct.
+- Freeze immutable original destination/policy/safe payload/identity/cuts/receipt/acceptedAt/checkpoint/gaps at admission. Strict canonical version/size/capacity/retention and native physical/account ACL/flush/atomic-publication/migration-or-refusal apply; no repair on read or permission reconstruction after reopen.
+- Payload is only validated board label, bounded activity range and sorted unique ticket numbers, or exact safe inspection fallback. Only complete nonempty all-automation suppresses; human/mixed/unknown/empty/malformed/failed/gapped evidence alerts. No event/write-count equality. Exclude prose, secrets, raw errors/stacks/URLs/provider objects.
+- Copy/CLI text is a human forwarding convenience, not product adapter acceptance, no-effect proof, reusable delivery permission or proof that independent human forwarding never happened. The one-attempt limit concerns product adapter attempts for an original identity, not exactly-once human delivery.
+- M16 exposes only qualified frozen literal read-only version/help probes of an allowlisted exact installed executable. No browser-supplied executable/path/arguments/network endpoint or credentials; no raw output/error disclosure. Current authority, output/time/descendant bounds and native ownership until actual join apply. Unsupported/unavailable/unknown probe outcomes are truthful. A readiness result is NOT real send/receiver acceptance or destination authority.
+- M18 FIRST external effect has durable pre-effect attempted fencing, fresh same-live-native-session one-use native reservation, current scope/destination authority and exact positive evidence or persistent UNKNOWN. Historical/reopened/interrupted/pre-attempt records do NOT confer Send permission. No blind replay, invented lookup/idempotency/negative proof, human receipt or exactly-once claim.
+- Current authority applies before effects and private disclosure. Disable/revoke fences later effects. Stop/Close/deadline/incomplete drain retains actual native process/descendant ownership until physical quiescence; no second owner can enter while admitted work remains.
+- M19 supports automatic fixed notices ONLY in the current live host session. After host reopen, external Start is explicitly unavailable; inspect/refuse with original records/cuts/gaps intact. Never discard missed intervals, drop pending work, reset permissions or fabricate clean state. Existing local-inbox controls remain usable.
+- M20 adds Start/catch-up ONLY after positively proven clean stop/quiescence and exact valid physical/source/configuration lineage, with no historical pending to settle. New captures use fresh current native-session admission. Dirty/historical/pre-attempt/UNKNOWN originals remain guarded for the later existing controls milestone; clean catch-up never silently settles them.
+- Preserve browser selection/window/draft/focus and stale/A-B-A/late/denied fencing, no mutation replay, current auth/origin/CSP. The shared queue is development diagnostics ONLY: fresh health/register mailbox, bounded supported browser action, release UI, validated bounded reads/exports and owned deletion. No shared-host operation or private collector.
+- Planning only: no product implementation, preflight execution, live conversation send, activation or monitor launch. Exact adapter send protocol/acceptance and explicitly owned controlled-receiver authority remain unqualified. Read-only planning feasibility observed CLI0.154.0 version/help exit0; this is not product-runner, delivery or receiver qualification.
+- M16 exposes saved fixed configuration/policy and read-only probe/status/Stop-probe only. Delivery Enable/Disable/Start/Send are unavailable until their later effect/monitor kits; saving policy does not grant future delivery permission.
+
+First external-effect admission
+
+- FIRST effect is M18. Only an explicitly authorized NEW briefing captured in the same currently live native host session may be attempted. Bind installation/board/incarnation, exact config revision/control generation, immutable destination/policy/payload/cuts/identity and current credential rights. A browser-supplied session value is not authority.
+- Native volatile current-session eligibility and one-use reservation are never reconstructed from persisted bytes. Serialize admission; validate exact durable prepared state and confirm attempted publication BEFORE adapter invocation, then check current authority again. A competing or repeated attempt cannot acquire a second permission. Pre-effect storage uncertainty prevents dispatch; attempted ambiguity stays UNKNOWN.
+- Historical, legacy, reopened, interrupted, old-session, stale-generation/revision and receipt-free pre-attempt pending records confer NO M18 Send permission even when readable or marked never-sent. Copy/print, reconnect, timeout, cancellation, current-state equality and a fresh request ID cannot renew or replace permission. Later existing M21 owns deliberate historical recovery.
+- Check current authority and disabled/revoked scope before actual effects AND private disclosure. Failed final authorization redacts private results and does not prove no effect. Exact genuine positive acceptance evidence reconciles only its own original identity/target/policy/payload/cuts/acceptedAt; absent/malformed/foreign/expired evidence is not negative proof.
+- Retain lifecycle reservation and native physical process/descendant ownership through Stop/Close/deadline/incomplete drain until actual quiescence. Only literal qualified send operation is added to the already shipped bounded runner. Read-only probe evidence cannot replace effect-context ownership/fault/acceptance proof.
+- M19 separately admits NEW automatic observations only in its current live host session after deliberate Start under current authority; it cannot settle a historical original or resume external Start after host reopen. M20 adds positively proven-clean, physically quiescent, exact-lineage reopen/catch-up only, with no historical pending settlement or silent lower-bound/gap reset.
+- Bind each volatile reservation to the current native ownership SESSION AND RUN, exact control generation and config revision. Session/run end, Stop/Close before physical effect admission, disable/revoke or generation invalidation permanently invalidate any unconsumed eligibility and prevent later admission. Preserve the original prepared record as guarded; a same-host restart, new run or new nonce cannot settle it. Already physically admitted effects retain ownership through actual join, without replay or negative-proof claims.
+
+Mandatory first-effect refusal matrix
+
+- Native: fresh same-session positive admission; concurrent duplicate Send/permission reuse; wrong/current-vs-old host session; historical never-sent/reopened/interrupted/pre-attempt/legacy/UNKNOWN records; wrong physical board/restored incarnation; stale config revision/control generation; no reconstruction of volatile permission from durable state.
+- Native effect/ownership: before/after attempted publication fault/crash, pre-effect uncertainty, explicit rejection, missing executable, malformed/truncated/oversized output, lost response, timeout/stall, descendants/late completion, competing Stop/Disable/Close, incomplete drain and duplicate owner. Every first-effect fault repeats in effect context despite prior read-only proof.
+- Authority/privacy: revoke or disable before dispatch and after admission/before private response; no idle-authority renewal by background work; preserve original status/identity/receipt/cuts/gaps and redact denied late results. Exact positive proof only; no resend or negative lookup inference.
+- HTTP/generated/production validators and actual CLI BOTH board configurations: genuine new-capture single Send; historical/wrong-session/wrong-scope/stale-generation/revision refusals, explicit unsupported capability, one POST and no mutation replay after an uncertain response; deliberate later status is a new observation.
+- Ordinary real browser BOTH configurations: same first-effect positive and negative original/session/scope/refusal cases; original input/evidence and focus/drafts preserved; selection A-to-B-to-A and delayed/stale/denied replies cannot repaint another scope. Shared diagnostic queue lifecycle stays bounded and carries no notice prose or secrets.
+- Fresh extracted M18 kit: NEW ordinary shipped browser+actual CLI real-adapter/authorized-receiver acceptance, plus SEPARATE controlled historical/current-session/pre-attempt/UNKNOWN/no-resend proof. State actual positive boundary, receiver support and runtime prerequisites; no probe-as-send or exactly-once claim.
+- M19/M20 joined proof retains all first-effect regressions. M19 after host reopen inspects/refuses Start without losing lower bounds, gaps, original pending or receipts. M20 starts/catches up only with positive clean-stop/quiescence and exact lineage/no pending; unproven legacy clean state, dirty/pre-attempt/UNKNOWN originals stay guarded for M21. No duplicate acceptance, silent missed-interval deletion or permission reset.
+- Native/API/actual CLI/ordinary browser negative cases explicitly include run/session end and Stop/Close BEFORE physical effect admission, disable/revoke/generation invalidation, then same-host new run/new nonce refusal for the same guarded original. Verify fresh independent captures remain separate identities and no invalidated permission is reconstructed.
+
+Original fixed-scope coverage
+
+- .00: Own complete latest-stable preflight in ALL six kits; excluded from development.
+- .01: Every .01 contract/inventory: local payload, config/read-only probe, immutable briefing, first effect, live monitoring, clean resume. Eventual full invariant model and first-effect safety never deferred.
+- .02: M15.03 local enriched originals; M16.02 private config/policy; M17.02 immutable briefing; M18.02 attempted/positive evidence; M19.02 live observation/checkpoints; M20.02 proven-clean continuity.
+- .03: M15.02 authoritative ticket/date/suppression; M16.03 bounded read-only process foundation (not delivery proof); M18.03 actual real-send effect; M19.03 live observer/dispatch; M20.03 clean-reopen/catch-up.
+- .04: Each .04 complete current Go/HTTP/generated/production-TS seam, reviewed before clients. Final M20 includes full fixed subset.
+- .05: Each .05 actual CLI/new useful workflow, help, exact outputs and authority/refusal/uncertainty; final full fixed controls/catch-up with no replay.
+- .06: Each .06 ordinary browser/new useful workflow, production validation, exact originals, private state/focus/window/stale/late fencing, current auth/origin/CSP and full diagnostic mailbox cycle.
+- .07: Each .07 current complete two-build/all-output/native/provider/compiler/driver/archive/CLI/mandatory-browser plus new and inherited joined cases; final M20 full original fixed matrix.
+- .08: Each .08 own exact kit/fresh ordinary browser+CLI demo/independent package review/cleanup/publication; M18 real receiver+separate UNKNOWN; M20 full original fixed normal+controlled demonstration.
+
+Current numbering
+
+M14 -> M15 -> M16 -> M17 -> M18 -> M19 -> M20 -> existing external controls M21. Complete-fixed-delivery consumers require M20; complete-original-conversation consumers retain M21. Local Git snapshots now M22 retain their accepted M10 prerequisite without a new conversation-delivery dependency.
+- M17 -> M22: Automatically commit exact board and workspace snapshots to local Git
+- M18 -> M23: Push queued Git snapshots and recover delivery
+- M19 -> M24: Apply a guarded live build update and resume open clients
+- M20 -> M25: Open a legacy-shaped workspace through the routed host
+- M21 -> M26: Preserve V1 blocker urgency and priority audit
+- M22 -> M27: Normalize selected priorities as one audited change
+- M23 -> M28: Find and order work with the familiar V1 triage rules
+- M24 -> M29: Use familiar daily browser controls, status and Attention notices
+- M25 -> M30: Maintain configured workflows and lane identities
+- M26 -> M31: Preview an accountable V1 import
+- M27 -> M32: Construct and reconcile isolated logical board data
+- M28 -> M33: Complete imported files and prove a restorable copy
+- M29 -> M34: Read adopted boards through supported legacy entry points
+- M30 -> M35: Keep established daily write integrations usable
+- M31 -> M36: Use supported legacy operator and admin entry points
+- M32 -> M37: Admit validated external snapshot replacements
+- M33 -> M38: Rehearse one-writer adoption and rollback
+- M34 -> M39: Close the V1 behavior and integration evidence ledger
+- M35 -> M40: Qualify and deliver the everyday drop-in release candidate
+- M16 -> M21: Retarget and recover conversation notices
+
+Combined development: 1331 base + 498 reserve = 1829 cap minutes.
+Six separate preflights:450 base +210 reserve =660 cap minutes. Repeated full qualification/handoff intentionally increases total effort.
+Separate future kickoff/accepted prerequisites/own complete preflight/In Progress entry still govern every product task. All development bases are conditional engineering estimates below240, not guarantees; M16 base238 leaves2minutes and must be re-estimated on material change. Real send protocol/positive boundary and explicit owned controlled-receiver authority remain unqualified. Administrative JSON monitor stays OFF; diagnostic queue is not product delivery.

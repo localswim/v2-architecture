@@ -25,18 +25,25 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
+The current [fixed-notice six-milestone plan](docs/spike02/m15-fixed-delivery-six-split-2026-11-07.txt)
+and [structured plan](docs/spike02/m15-fixed-delivery-six-split-2026-11-07.json) split
+fixed conversation delivery into M15–M20: readable local notices, configuration
+and readiness, saved briefings, deliberate Send, live-session monitoring, and
+clean restart/catch-up. Each development base is strictly below four hours; every
+milestone retains its own full preflight, qualification, review and extracted-kit
+demonstration. Retarget/recovery is now M21; later labels shift by five.
+Earlier roadmap labels and pending-lane statements below remain historical.
+
 The [November 7 V1 UX schedule crosswalk](docs/spike02/v1-ux-schedule-2026-11-07.txt)
 records the reversed priority propagation, new web lane ordering, stable status
 geometry and archived-occupant lane retirement. It maps these accepted V1
 behaviors to the remaining V2 milestones after M13, with explicit retirement
 contract and estimate work before import.
 
-The current roadmap delivers M11 read-only activity inspection, M12 fixed-target
-local alerts and M13 reload, retarget and recovery. Each milestone has a distinct
-demo and a development base limit strictly below four hours. M12 through M21
-remain Backlog and execution follows separate start and prerequisite gates.
-[Activity and alert roadmap](docs/spike02/activity-alert-roadmap-r1.txt) and
-[structured roadmap](docs/spike02/activity-alert-roadmap-r1.json).
+The historical [activity and alert roadmap](docs/spike02/activity-alert-roadmap-r1.txt)
+and [structured roadmap](docs/spike02/activity-alert-roadmap-r1.json) preserve
+the earlier M11–M21 scope and gate statements. The latest planning overlay above
+governs current remaining numbering.
 
 The prior M11/M12 alert split retains its historical scope and numbering.
 [Earlier alert split](docs/spike02/m11-m12-alert-split-r1.txt).
