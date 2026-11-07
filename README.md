@@ -25,6 +25,12 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
+The [November 7 V1 UX schedule crosswalk](docs/spike02/v1-ux-schedule-2026-11-07.txt)
+records the reversed priority propagation, new web lane ordering, stable status
+geometry and archived-occupant lane retirement. It maps these accepted V1
+behaviors to the remaining V2 milestones after M13, with explicit retirement
+contract and estimate work before import.
+
 The current roadmap delivers M11 read-only activity inspection, M12 fixed-target
 local alerts and M13 reload, retarget and recovery. Each milestone has a distinct
 demo and a development base limit strictly below four hours. M12 through M21

@@ -1,0 +1,146 @@
+V1 UX CHANGES IN THE V2 SCHEDULE
+November 7, 2026
+
+Planning reconciliation after accepted M13
+
+The owner requested that the recently accepted V1 changes remain explicit
+in V2. ADR 0001 makes supported V1 behavior the reference. This crosswalk
+records the target behavior and its existing milestone placement.
+
+The signed M12-PLUS-JOINT-R2 roadmap already used V1 531f3e7. That pin
+contains priority propagation, lane display ordering and status geometry
+through V1 work items 0202-0205. Lane retirement followed in 2eb05dd,
+integrated by 4873cf6. It adds a material archived-occupant requirement.
+
+Keep the current M14 monitor reload/retarget milestone. The existing
+M20/M22/M23 placements already own the first four changes. M24 and the
+import/operator milestones carry the explicit retirement delta. A separate
+small M14 would duplicate their scope unless those boundaries were recut.
+V2's current board view also lacks the finished status toolbar, so the
+status work includes building its ordinary surface.
+
+This is a planning crosswalk. Preflight, contract acceptance and development
+retain the roadmap's separate starts and prerequisite gates. Historical
+Completed evidence keeps its original contract.
+
+1. M20 - Blocker urgency and priority audit
+
+V1 work item 0202, source 4c810e0.
+
+The propagation direction changed. For A blocks B blocks C, raising C to
+P1 promotes B and A upstream to P1. Earlier V1 behavior pushed blocker
+urgency downstream into blocked cards.
+
+- An unfinished blocker must be at least as urgent as its unfinished
+  blocked descendants. Both relationship directions enforce this rule.
+- Stored promotions persist after downstream demotion, unlink or
+  completion. A later explicit demotion is clamped by remaining demand.
+- Completed receives no automatic promotion and cuts propagation.
+  Archived unfinished cards participate.
+- Cycles converge deterministically. Hierarchy and nonblocking links
+  create no blocking urgency. Batch overrides are evaluated together.
+- Actual changes share the trigger's actor and atomic audited revision.
+  Include startup, mutation, rollback, no-change and recovery boundaries.
+
+M20 must explicitly replace the retained V2 no-propagation target and
+resolve supported cycle admission before implementation. Qualification
+must contain the three-card direction example above.
+
+2. M22 - Web lane display and distinct CLI triage
+
+V1 work item 0203, source c64baba.
+
+The web lane display changed from weighted triage ranking to this order.
+
+1. Configured priority order.
+2. Blockers before dependents at the same priority in the same visible lane.
+3. Lowest ticket among the currently eligible cards or cycle groups.
+
+Keep cycle members together in ticket order. Cross-lane and hidden archived
+paths impose no visible ordering constraint. Apply the same lane rule to
+Completed. Test diamonds, ties, cycles, lane moves and archive changes.
+
+CLI next/search retains its separate cross-lane ranking and global scoring
+semantics. Its score must not become the lane display key again.
+
+3. M23 - Stable status ages and clock geometry
+
+V1 work items 0204-0205, sources 7a877cf, 7678d0a and 531f3e7.
+
+- Fix the allocations of search, build, committed-update age, board-read
+  age and health. Values changing width must not move adjacent controls.
+- Reserve at least two right-aligned rendered digits and plural-width
+  unit slots. Verify 0/1/14 seconds, 1/2/14 minutes and hours, and larger
+  ages without overlap. Keep the digit edge, unit and ago anchors stable.
+- Reserve two right-aligned clock-hour digits. Keep colon, zero-padded
+  minutes/seconds and the 12-hour am/pm suffix stable at 9-to-10,
+  12-to-1, noon and midnight, including the no-data state.
+- Narrow windows and source/backup warnings give metadata its own stable
+  row. Clipped fields retain full values through tooltips.
+- Compare browser geometry across ages, widths, warnings and health
+  states. Preserve drafts, focus and the existing admission behavior.
+
+V1's Last JSON file read label maps to an honest V2 board-observation
+meaning. Distinguish a successful observation from a committed mutation
+and the wall clock. Current V1 polling constants are reference evidence;
+the V2 contract must bind the display to its actual source and freshness.
+
+4. M24 - Retire lanes with archived occupants and retained history
+
+V1 work item 0206, source 2eb05dd integrated by 4873cf6.
+
+Accepted V1 retirement requires no active occupants. Archived cards may
+remain in the retired lane. M07/M08 currently refuse retirement with any
+current occupant, including archived cards. Retained policy versions
+alone do not provide the new behavior.
+
+M24 must define and qualify the following native contract.
+
+- Retain stable lane identity/label and archived current membership.
+  Keep historical grants, policy versions, state/approval pins, comments
+  and file references inspectable and verifiable.
+- Hide the active column, creation choices and incoming move targets.
+  Refuse unarchive in place.
+- Supply a currently authorized route to move an archived card to an
+  active lane before unarchive. Preserve exact authority and revisions.
+- Settle V2's waiting-only and required-role restrictions explicitly
+  against V1's lane eligibility. Protect Completed and a usable workflow.
+- Keep current-card validation, reads, archive export and restore
+  consistent with archived membership in a retired lane.
+- Require exact writer/maintenance admission and idempotent repetition.
+  Use a synthetic fixture with 41 archived occupants and 12 other cards
+  whose transitions include the lane. Include restart, audit and files.
+
+M24's existing 220-minute base and 80-minute reserve remain provisional.
+Fresh decomposition and re-estimation must include this complete delta.
+If the combined base cannot stay below 240 minutes, split a usable
+retirement delivery before import. New scope must not disappear into
+unnamed reserve or an assumed completed M07 capability.
+
+5. Retirement propagation through import and compatibility
+
+- M25 previews V1 board schema 4 / embedded policy schema 7 retiredLanes
+  and archived occupants against the accepted M24 contract. Map the
+  complete supported source profile or report precise incompatibilities.
+- M26 conserves that logical membership and historical authority without
+  silently moving or unarchiving cards.
+- M27 conserves files and references on those archived cards and proves
+  an inspectable restored copy.
+- M30's legacy operator adapter delegates lane retirement to the same
+  native V2 implementation.
+
+Existing prerequisite relationships continue to govern these milestones.
+The supported source profile and any visible behavior departure require
+explicit disposition before a parity or drop-in claim.
+
+Source evidence
+
+V1 sources are in the shared localswim Python repository.
+board_state.py covers blocking_order, _blocking_priorities,
+_ordered_lane_items, Board.lanes and retirement. api_endpoint.py covers
+status geometry. Regression evidence includes test_dependencies.py,
+test_completed_dependencies.py, test_api.py and test_lane_retirement.py.
+
+V2 current evidence includes BoardView.visibleCards/renderCards, policyedit
+occupancy checks, archive workflow validation and M07/M08 contracts. This
+crosswalk preserves their delivered behavior and schedules the new target.
