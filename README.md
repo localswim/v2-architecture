@@ -29,9 +29,12 @@ The current [fixed-notice six-milestone plan](docs/spike02/m15-fixed-delivery-si
 and [structured plan](docs/spike02/m15-fixed-delivery-six-split-2026-11-07.json) split
 fixed conversation delivery into M15–M20: readable local notices, configuration
 and readiness, saved briefings, deliberate Send, live-session monitoring, and
-clean restart/catch-up. Each development base is strictly below four hours; every
-milestone retains its own full preflight, qualification, review and extracted-kit
-demonstration. Retarget/recovery is now M21; later labels shift by five.
+clean restart/catch-up. The owner subsequently authorized [M15 forecast A](docs/spike02/m15-local-execution-a-2026-11-07.txt)
+and its [structured execution record](docs/spike02/m15-local-execution-a-2026-11-07.json)
+at 260 minutes base plus 80 reserve, explicitly overriding the earlier four-hour
+start gate for M15 only. Scope and numbering are unchanged. Every milestone
+retains its own full preflight, qualification, review and extracted-kit
+demonstration. Retarget/recovery is M21; later labels shift by five.
 Earlier roadmap labels and pending-lane statements below remain historical.
 
 The [November 7 V1 UX schedule crosswalk](docs/spike02/v1-ux-schedule-2026-11-07.txt)

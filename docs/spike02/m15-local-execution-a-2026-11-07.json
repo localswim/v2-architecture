@@ -1,0 +1,87 @@
+{
+  "revision": "M15-LOCAL-EXECUTION-A-2026-11-07",
+  "date": "2026-11-07",
+  "milestone": "M15",
+  "status": "Owner authorized execution of forecast A; this record grants no completion or qualification claim.",
+  "scopeBaseline": "m15-fixed-delivery-six-split-2026-11-07.json",
+  "ownerDecision": "Execute the existing LOCAL M15 using independent forecast A: 260 minutes base + 80 reserve = 340 cap. This explicit start supersedes the previous below240-minute start gate for this run only. No second estimate is inserted as a separate milestone; scope and numbering are unchanged.",
+  "scope": "Enrich existing saved local notices with bounded authoritative board label, activity range and sorted unique ticket numbers or exact safe fallback; preserve captured original text, expose ordinary browser Copy and actual CLI exact UTF-8 text/readable/JSON. No recipient configuration, adapter/probe/external-delivery implementation or receiver prerequisite in M15.",
+  "development": {
+    "baseMinutes": 260,
+    "reserveMinutes": 80,
+    "capMinutes": 340,
+    "stories": [
+      {
+        "number": "01",
+        "title": "Define original local notice text and Copy acceptance",
+        "baseMinutes": 20,
+        "reserveMinutes": 6,
+        "capMinutes": 26
+      },
+      {
+        "number": "02",
+        "title": "Capture authoritative bounded notice facts",
+        "baseMinutes": 28,
+        "reserveMinutes": 8,
+        "capMinutes": 36
+      },
+      {
+        "number": "03",
+        "title": "Persist original text and compatible local evidence",
+        "baseMinutes": 36,
+        "reserveMinutes": 12,
+        "capMinutes": 48
+      },
+      {
+        "number": "04",
+        "title": "Complete and review the local notice presentation boundary",
+        "baseMinutes": 22,
+        "reserveMinutes": 6,
+        "capMinutes": 28
+      },
+      {
+        "number": "05",
+        "title": "Print exact original notice text through the actual CLI",
+        "baseMinutes": 24,
+        "reserveMinutes": 7,
+        "capMinutes": 31
+      },
+      {
+        "number": "06",
+        "title": "Copy original notice text in the ordinary browser",
+        "baseMinutes": 36,
+        "reserveMinutes": 12,
+        "capMinutes": 48
+      },
+      {
+        "number": "07",
+        "title": "Qualify the joined local notice text and Copy candidate",
+        "baseMinutes": 64,
+        "reserveMinutes": 20,
+        "capMinutes": 84
+      },
+      {
+        "number": "08",
+        "title": "Demonstrate and hand off the extracted local notice kit",
+        "baseMinutes": 30,
+        "reserveMinutes": 9,
+        "capMinutes": 39
+      }
+    ]
+  },
+  "preflightSeparate": {
+    "number": "00",
+    "baseMinutes": 75,
+    "reserveMinutes": 35,
+    "capMinutes": 110,
+    "excludedFromDevelopment": true
+  },
+  "executionRules": [
+    "New approved run has a 340-minute hard cap including readiness/metawork; earlier failed clocks and allowances are preserved and not resumed. Separate preflight accounting does not extend this run cap.",
+    "Current accepted M14 prerequisite and own complete latest-stable all-direct-tool/dependency/browser-tool/lint-type preflight remain. Each actual story enters In Progress before work and remains there through fresh nonauthor review.",
+    "Independent review PASS/ready-for-review advances current M15 story prerequisites under owner authorization. Complete Go/HTTP/generated/production-TypeScript seam review precedes both clients. The owner retains final review and Completed.",
+    "Full current qualification, two isolated clean builds/ALL outputs, mandatory native/real-browser inventories, ordinary fixes/material re-review, exact extracted kit/NEW shipped-browser+actual-CLI demo, owned cleanup and source/evidence publication remain in base.",
+    "M16-M20 and the later roadmap retain their approved scope and separately gated starts. This exception does not approve an above-gate forecast or execution in any other milestone.",
+    "Original receipts/identities/cuts/acceptedAt, native ownership/current authority, conservative suppression, privacy and UNKNOWN/no-replay remain. Copy is not external acceptance, no-effect proof or reconstructed delivery permission."
+  ]
+}

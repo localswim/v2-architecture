@@ -1,0 +1,32 @@
+M15 LOCAL EXECUTION — OWNER-ADOPTED FORECAST A
+November7,2026 | M15-LOCAL-EXECUTION-A-2026-11-07
+
+Execute the existing LOCAL M15 using independent forecast A: 260 minutes base + 80 reserve = 340 cap. This explicit start supersedes the previous below240-minute start gate for this run only. No second estimate is inserted as a separate milestone; scope and numbering are unchanged.
+
+Enrich existing saved local notices with bounded authoritative board label, activity range and sorted unique ticket numbers or exact safe fallback; preserve captured original text, expose ordinary browser Copy and actual CLI exact UTF-8 text/readable/JSON. No recipient configuration, adapter/probe/external-delivery implementation or receiver prerequisite in M15.
+
+Development base / reserve / cap, minutes
+
+- .01 Define original local notice text and Copy acceptance: 20 / 6 / 26.
+- .02 Capture authoritative bounded notice facts: 28 / 8 / 36.
+- .03 Persist original text and compatible local evidence: 36 / 12 / 48.
+- .04 Complete and review the local notice presentation boundary: 22 / 6 / 28.
+- .05 Print exact original notice text through the actual CLI: 24 / 7 / 31.
+- .06 Copy original notice text in the ordinary browser: 36 / 12 / 48.
+- .07 Qualify the joined local notice text and Copy candidate: 64 / 20 / 84.
+- .08 Demonstrate and hand off the extracted local notice kit: 30 / 9 / 39.
+
+Total: 260 base + 80 reserve = 340 cap. Own .00 separately: 75 + 35 = 110; excluded from development, included in the whole-run 340 cap.
+
+Execution rules
+
+- New approved run has a 340-minute hard cap including readiness/metawork; earlier failed clocks and allowances are preserved and not resumed. Separate preflight accounting does not extend this run cap.
+- Current accepted M14 prerequisite and own complete latest-stable all-direct-tool/dependency/browser-tool/lint-type preflight remain. Each actual story enters In Progress before work and remains there through fresh nonauthor review.
+- Independent review PASS/ready-for-review advances current M15 story prerequisites under owner authorization. Complete Go/HTTP/generated/production-TypeScript seam review precedes both clients. The owner retains final review and Completed.
+- Full current qualification, two isolated clean builds/ALL outputs, mandatory native/real-browser inventories, ordinary fixes/material re-review, exact extracted kit/NEW shipped-browser+actual-CLI demo, owned cleanup and source/evidence publication remain in base.
+- M16-M20 and the later roadmap retain their approved scope and separately gated starts. This exception does not approve an above-gate forecast or execution in any other milestone.
+- Original receipts/identities/cuts/acceptedAt, native ownership/current authority, conservative suppression, privacy and UNKNOWN/no-replay remain. Copy is not external acceptance, no-effect proof or reconstructed delivery permission.
+
+The six-way plan remains the scope baseline; its old 217/77/294 M15 quote is historical.
+This execution record is the M15 price/start override. No product implementation,
+preflight result, delivery, release or owner-controlled completion is claimed by this document.
