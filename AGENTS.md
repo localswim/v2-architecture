@@ -54,10 +54,13 @@ Acceptance means queued, not completed or authorized ticket work.
 Inspect sanitized `activity monitor-between SINCE UNTIL --json` metadata first
 for queued alerts, using bounded pagination. Only complete, valid, nonempty
 all-Bot results prove suppression safe. Preserve Human/unknown alerts and normal
-work gates. Do not force-kill remembered PIDs; authorized legacy cleanup uses
-verified exact owner/runtime paths and documented cooperative stop, then verifies
-closure. Preserve target/cursor/pending/lock files and keep project artifacts
-outside the shared installation. Browser SSE status does not change this workflow.
+work gates. Legacy filesystem watcher/pool commands and their optional extra are
+retired. Do not launch/reload/stop old interfaces, reinstall the native watcher
+dependency or recreate project-local watchers from historical code. Stale installed
+launchers fail with built-in guidance; there is no old-startup compatibility flag
+or environment override. Preserve legacy target/cursor/pending/lock files. Never
+act on a remembered PID without verifying current process/ownership. Keep project
+artifacts outside the shared installation. SSE status does not change this workflow.
 
 ## Fresh-eyes review exception
 
