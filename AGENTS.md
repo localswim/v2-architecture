@@ -30,6 +30,35 @@ Terry clarified these lane meanings on 2026-10-25:
 Use the shared localswim CLI for board reads and mutations. Never edit board
 JSON directly. Preserve historical comments, superseded plans, and review evidence.
 
+## Shared board owner notifications
+
+The current monitor is built into the healthy shared service at
+`C:\Projects\localswim`; reuse it and keep legacy JSON watchers/pools off.
+Use the shared frozen runner with an absolute owned BOARD path:
+`uv run --project C:\Projects\localswim --frozen --offline localswim-cli BOARD`.
+
+On an explicit connect request, inspect `notifications status --json`, resolve
+the current owning chat UUID from Codex app metadata, set
+`notifications target THREAD_UUID` only if needed, enable only if disabled, then
+verify enabled/target/board identity. Never use a remembered/example target.
+Check exits; inspect status after uncertain writes rather than replaying blindly.
+Target preserves enabled state and disable retains target. Documentation updates
+or service startup alone do not activate notifications; honor explicit shutdown.
+
+Committed Human edits coalesce after 15 seconds of quiet. One bounded
+`codex queue` attempt can wake the chat without Terry adding a prompt. Bot edits
+do not notify. There is no durable cursor/catch-up/retry; pending notices can be
+lost on shutdown. Native `codex.exe` must be on the Windows service PATH.
+Acceptance means queued, not completed or authorized ticket work.
+
+Inspect sanitized `activity monitor-between SINCE UNTIL --json` metadata first
+for queued alerts, using bounded pagination. Only complete, valid, nonempty
+all-Bot results prove suppression safe. Preserve Human/unknown alerts and normal
+work gates. Do not force-kill remembered PIDs; authorized legacy cleanup uses
+verified exact owner/runtime paths and documented cooperative stop, then verifies
+closure. Preserve target/cursor/pending/lock files and keep project artifacts
+outside the shared installation. Browser SSE status does not change this workflow.
+
 ## Fresh-eyes review exception
 
 Terry clarified on 2026-10-29 that a fresh-eyes subagent review of work authored
