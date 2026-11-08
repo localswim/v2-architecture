@@ -1,0 +1,547 @@
+{
+  "revision": "M17-FOUR-HOUR-CONSENSUS-R1",
+  "date": "2026-11-08",
+  "status": "PROPOSED_OWNER_APPROVAL_REQUIRED_NO_EXECUTION",
+  "authority": "Terry requested a fresh four-hour breakdown, after archiving the original stories. Two fresh Sol / High planners independently proposed and reviewed sealed plans before parent/planner consensus.",
+  "target": "Every smaller milestone P80 development base <=240 minutes, roughly time-equivalent, with a distinct new feature demonstrated at its end. P80 is an actuals-informed judgmental target, not statistically calibrated confidence.",
+  "scopeDecisionRequired": "Approve one additional, strictly bounded noninvoking installation-inspection operation and its separate result policy. The original identity-probe contract is retained; the new operation does not claim version/support/readiness or authorize later execution.",
+  "applicableProbeRule": "Qualification is relative to the shipped feature. M17A is noninvoking; M17B adds identity only, with first actual invocation in II.04 after II.05a. Neither ships or qualifies the later capability probe. All already-shipped current baseline cases remain mandatory.",
+  "newFeatureDefinition": {
+    "first": "Deliberately observe a currently server-qualified installed candidate without executing it, in ordinary browser and actual readable/JSON CLI. Missing/unqualified distinct; bounded fact, not version/readiness/capability, not future launch authority. No raw path/hash/account/private reference or error.",
+    "second": "Actually invoke qualified literal identity with all safety, controls and joined/incomplete semantics in both clients. No native product invocation before complete integration and review."
+  },
+  "milestones": [
+    {
+      "id": "I",
+      "title": "Inspect installation candidate without running it",
+      "stories": [
+        {
+          "id": "I.01",
+          "title": "Complete common native model and fresh independent design review",
+          "baseMinutes": 20,
+          "reserveMinutes": 7,
+          "capMinutes": 27,
+          "scope": "Freeze the original entire section7 identity lifecycle once. Preserve every bound and seam-before-clients gate. Includes common model review/corrections; new inspector disclosure contract is separately I.05."
+        },
+        {
+          "id": "I.02",
+          "title": "Trusted installation resolver",
+          "baseMinutes": 20,
+          "reserveMinutes": 8,
+          "capMinutes": 28,
+          "scope": "Implement server-only canonical trusted native codex.exe discovery, ordinary regular non-reparse path/account/provenance/file identity/hash policy. Inspector performs fresh per-request qualification and publishes only that current observation under current authority/identity. NO persisted/cached inspector result, history, polling, Copy or new selectors. A private native-execution provenance pin is a distinct internal mechanism; actual launch independently rechecks its pinned identity/hash and current authority, never trusts an old inspector view. No invocation, path/hash/account/private target disclosure."
+        },
+        {
+          "id": "I.03",
+          "title": "Dormant owned native custody components",
+          "baseMinutes": 35,
+          "reserveMinutes": 15,
+          "capMinutes": 50,
+          "scope": "Build suspended root/job, nonbreakaway kill-on-close/process ceiling, explicit inherited handle ownership, bounded concurrent-drain primitives and retained handles. No product entry point or actual installed command; integration with full runtime/control remains II.01-.03."
+        },
+        {
+          "id": "I.04",
+          "title": "Owned controlled component evidence",
+          "baseMinutes": 10,
+          "reserveMinutes": 5,
+          "capMinutes": 15,
+          "scope": "Controlled helper tests prove staged assignment/pre-resume cleanup/custody primitives and their actual teardown. This is additional component evidence, not actual installed readiness or complete product runner proof."
+        },
+        {
+          "id": "I.05",
+          "title": "Added inspector policy and model",
+          "baseMinutes": 5,
+          "reserveMinutes": 3,
+          "capMinutes": 8,
+          "scope": "Explicit NEW scope: safe noninvoking found/missing/unqualified candidate observation; separate exact bounded result from section7; no supported/OK, toolVersion or capability. One current-authority observation, no auto-run, no execution entitlement."
+        },
+        {
+          "id": "I.06",
+          "title": "Added inspector Go/HTTP/generated/production TS seam",
+          "baseMinutes": 12,
+          "reserveMinutes": 5,
+          "capMinutes": 17,
+          "scope": "Reuse generators, selected-board auth and strict boundary patterns. Implement exact query/result/no-store/code/null validation, authority and physical rechecks around resolver I/O, shared vectors. No partial native probe exposed."
+        },
+        {
+          "id": "I.07",
+          "title": "Added simple CLI and ordinary browser inspector",
+          "baseMinutes": 18,
+          "reserveMinutes": 5,
+          "capMinutes": 23,
+          "scope": "Deliberate read with readable/JSON CLI and private scoped browser result; use selected-board infrastructure, no process action, command input or auto-request on navigation. Short finite candidate facts only."
+        },
+        {
+          "id": "I.08",
+          "title": "Focused inspector client and authority cases",
+          "baseMinutes": 8,
+          "reserveMinutes": 4,
+          "capMinutes": 12,
+          "scope": "Default/configured, missing/unsafe/changed candidate, stale/denied/foreign/busy, late A-B-A and focus/private draft checks. Actual no-process effect assertions; shared-queue bounded real-browser feedback."
+        },
+        {
+          "id": "I.09a",
+          "title": "Fresh complete inspector seam review BEFORE clients",
+          "baseMinutes": 5,
+          "reserveMinutes": 3,
+          "capMinutes": 8,
+          "scope": "Fresh nonauthor Sol/High reviews complete I.02/I.05/I.06 resolver/current-authority/Go/HTTP/generated/production-TS inspector seam and vectors, plus available custody component evidence. Fixes and material seam re-review are included. Must PASS before I.07 begins; no partial API/client exception."
+        },
+        {
+          "id": "I.09b",
+          "title": "Fresh final component/client review AFTER focused cases",
+          "baseMinutes": 7,
+          "reserveMinutes": 3,
+          "capMinutes": 10,
+          "scope": "After I.07 and I.08, independently close remaining native component/client/privacy/authority evidence and normal fixes. Material seam findings return to I.06 and fresh I.09a re-review before resumed clients. This completes the former12-minute combined review allocation; it does not defer review to an unnamed task."
+        },
+        {
+          "id": "I.10",
+          "title": "Full current candidate qualification",
+          "baseMinutes": 65,
+          "reserveMinutes": 25,
+          "capMinutes": 90,
+          "scope": "Full current qualification on corrected maintained harnesses.5 bind sources/pins/locks and enumerate ALL current cases;17 two isolated clean builds and ALL generated/staged/web/embedded/EXE/applicable post-test output equality;15 full current provider/compiler/driver/native transaction/continuation/archive/interruption/actualCLI/lifecycle and newcase re-execution;10 mandatory ordinary browser plus Copy/inherited/config/archive/privacy and owned shared-queue/resource closure;10 fresh integrated source/evidence/authority/storage review;8 routine corrections, affected reruns and material re-review. Every existing and new case retained, no skipped/filtered/zero-case/unexplained failures. Separate complete new-native focused proof and seam review remain earlier.",
+          "breakdown": [
+            {
+              "work": "Current source/tool/lock/fixture binding and complete inventory",
+              "baseMinutes": 5
+            },
+            {
+              "work": "Two isolated clean builds and ALL output equality",
+              "baseMinutes": 17
+            },
+            {
+              "work": "All current native/provider/compiler/driver/CLI/lifecycle plus new cases",
+              "baseMinutes": 15
+            },
+            {
+              "work": "All mandatory ordinary-browser/archive/conservation/privacy/resource closure",
+              "baseMinutes": 10
+            },
+            {
+              "work": "Fresh independent integrated source and evidence review",
+              "baseMinutes": 10
+            },
+            {
+              "work": "Ordinary corrections, affected reruns and material re-review",
+              "baseMinutes": 8
+            }
+          ]
+        },
+        {
+          "id": "I.11",
+          "title": "Exact extracted NEW inspector kit/demo/publication",
+          "baseMinutes": 35,
+          "reserveMinutes": 15,
+          "capMinutes": 50,
+          "scope": "Full allowlist/licenses/notices/schemas/reference/guides, every member/CRC/size/hash and fresh extraction. NEW ordinary browser and actual readable/JSON CLI candidate observation on default/configured boards. Independent package/evidence review/fixes, proven owned teardown/publication/actuals/rolling workers."
+        }
+      ],
+      "baseMinutes": 240,
+      "reserveMinutes": 98,
+      "capMinutes": 338,
+      "preflight": {
+        "baseMinutes": 60,
+        "reserveMinutes": 25,
+        "capMinutes": 85,
+        "scope": [
+          "Check dated official upstream stable releases for every directly used runtime/build/test tool and direct dependency: Go, Node, npm, TypeScript, Python, uv, Git, PowerShell, native Codex adapter, browser and qualification tooling, all Go/web/harness direct dependencies. Inventory exact pins/locks; exclude prereleases; qualify every stale pin before handoff.",
+          "Review strict curated lint/type rules against current stable guidance, trial valuable changes, justify narrow exceptions; evaluate stable compiler API and parser/linter support together (tracking #0046).",
+          "Re-enumerate complete current provider/compiler/driver/native transaction/continuation/archive/interruption/actual CLI/mandatory ordinary-browser inventories. Run all applicable baseline gates and two isolated clean builds with equality of ALL generated/staged/web/embedded/executable/applicable post-test outputs.",
+          "Inventory installed tool metadata/provenance and document the safe qualification approach for literal --version. Do not invoke an ad hoc actual --version or any product probe in .00 before the complete reviewed safe runner exists. Actual invocation and complete new production-runner evidence belong to .01; missing supported actual interface remains a concrete readiness issue, never fake positive evidence. Preflight does not certify the absent new feature.",
+          "Use owned synthetic fixtures, fresh shared queue health/mailbox for browser work, exact source/tool/lock hashes, bounded sanitized evidence, full owned cleanup and fresh independent Sol / High review. Preflight has its own separate accounting; exclude it from the four-hour development estimate test."
+        ],
+        "additionalScope": [
+          "After accepted predecessor and fresh current-turn development estimate gate, move this .00 In Progress. No prior allowance resumes.",
+          "Check dated primary latest-stable metadata for Go, Node, npm, TypeScript, Python, uv, Git, PowerShell, actual native adapter/runtime, browser qualification tools and EVERY direct Go/web/harness runtime/build/test dependency. Exclude prereleases. Record exact verified versions, locks, sources, date and hashes.",
+          "Qualify every stale tool/lock refresh before handoff; inability to qualify any stable release is a concrete readiness issue, not a silently retained pin. Preserve old source/tool evidence.",
+          "Review strict curated lint/type rules using current official guidance; trial valuable changes, narrow justified exceptions, and assess stable TypeScript compiler API with stable parser/linter support. No blanket enablement.",
+          "Re-enumerate COMPLETE CURRENT provider/compiler/driver/native transaction/continuation/archive/interruption/actual-CLI/mandatory-browser inventories and ALL generated/staged/web/embedded/executable/applicable post-test outputs. Run full current pinned gates and two isolated clean builds; compare all outputs.",
+          "M17A ships noninvoking metadata inspection only. Its preflight and feature handoff do not require or permit an actual product probe or installed-version support claim. Preserve every already-shipped baseline case. Capability probing belongs to the later capability milestone.",
+          "Fresh nonauthor review, normal fixes/material re-review, owned synthetic fixture/account proof, source binding, shared diagnostic queue health and owned cleanup/publication. Never start/restart shared services, activate watchers or send notices."
+        ],
+        "interpretation": "Kickoff .00 prohibition on actual invocation controls: inspect installed metadata only until complete reviewed runner exists. EVERY candidate milestone independently repeats all current gates and two clean all-output builds. New development and its reviews are not preflight.",
+        "applicableProbeRule": "M17A ships noninvoking metadata inspection only. Its preflight and feature handoff do not require or permit an actual product probe or installed-version support claim. Preserve every already-shipped baseline case. Capability probing belongs to the later capability milestone.",
+        "sourceEraProbeClauseForTraceability": "Qualify the actual installed executable and supported frozen literal version/help/capability probes without sending. Missing supported probes remain explicit readiness issues; no substitute executable certifies the production adapter."
+      },
+      "dependencies": [
+        "explicit new-feature/result-policy owner approval",
+        "accepted M16",
+        "own current estimate/.00/IP",
+        "I.01 full-model review PASS before dependent native implementation",
+        "I.02/I.05/I.06 plus I.03/I.04 -> I.09a complete inspector seam review PASS -> I.07 clients -> I.08 focused cases -> I.09b final review -> I.10 complete qualification -> I.11 kit"
+      ],
+      "newDemo": "Exact extracted kit browser + CLI deliberate inspector returns qualified candidate/missing/unqualified on default/configured boards. Prove no child starts; denied/late facts never repaint another scope. Dormant code is not claimed as the user feature.",
+      "dependencyEdges": [
+        [
+          "I.01",
+          "I.02"
+        ],
+        [
+          "I.01",
+          "I.03"
+        ],
+        [
+          "I.03",
+          "I.04"
+        ],
+        [
+          "I.01",
+          "I.05"
+        ],
+        [
+          "I.02",
+          "I.06"
+        ],
+        [
+          "I.05",
+          "I.06"
+        ],
+        [
+          "I.06",
+          "I.09a"
+        ],
+        [
+          "I.04",
+          "I.09a"
+        ],
+        [
+          "I.09a",
+          "I.07"
+        ],
+        [
+          "I.07",
+          "I.08"
+        ],
+        [
+          "I.08",
+          "I.09b"
+        ],
+        [
+          "I.09b",
+          "I.10"
+        ],
+        [
+          "I.10",
+          "I.11"
+        ]
+      ],
+      "provisionalLabel": "M17A"
+    },
+    {
+      "id": "II",
+      "title": "Inspect actual installed identity with complete safe controls",
+      "stories": [
+        {
+          "id": "II.01",
+          "title": "Join remaining native custody into complete production runtime",
+          "baseMinutes": 10,
+          "reserveMinutes": 6,
+          "capMinutes": 16,
+          "scope": "Complete production root/descendant/pipe/handle actual joins and native component integration; failed pre-resume cleanup, parent exit, competing-owner and failed-close retention remain mandatory."
+        },
+        {
+          "id": "II.02",
+          "title": "Complete generation/authority/admission/Stop/Close",
+          "baseMinutes": 25,
+          "reserveMinutes": 10,
+          "capMinutes": 35,
+          "scope": "One current physical-board probe, zero automatic queued work,16 processes,64KiB,10s+2s incomplete reporting; short nonblocking gate no native/SQL I/O held. Current installation/board/incarnation/runtime/config/probe generations and launch-time provenance recheck; incomplete retains ownership/exclusion until actual join."
+        },
+        {
+          "id": "II.03",
+          "title": "Complete identity parser and all-layer probe/control seam",
+          "baseMinutes": 20,
+          "reserveMinutes": 8,
+          "capMinutes": 28,
+          "scope": "Exact literal --version only; server-owned environment/private cwd/closed stdin. Complete known-publisher ASCII semver<=96 parser optional one LF/CRLF zero exit no unexplained output. Bound2048 result finite codes; positive only actual joined evidence, capability null; denied late data redacted."
+        },
+        {
+          "id": "II.04",
+          "title": "Actual installed support plus complete integrated controlled fault evidence",
+          "baseMinutes": 25,
+          "reserveMinutes": 12,
+          "capMinutes": 37,
+          "scope": "AFTER whole runner is implemented/reviewed safe for invocation, qualify actual literal interface and rerun integrated controlled timeout/overflow/parser/descendant/drain/parent-exit/replacement/competing-owner/failure matrix. Reuse fixtures, never merely inherit stageI component PASS. Whole native review before clients."
+        },
+        {
+          "id": "II.05a",
+          "title": "Fresh complete native/seam source safety review BEFORE actual launch",
+          "baseMinutes": 12,
+          "reserveMinutes": 4,
+          "capMinutes": 16,
+          "scope": "After II.01-.03 are fully implemented and focused controlled checks exist, fresh nonauthor Sol/High reviews the ENTIRE integrated provenance/suspended-job/root-descendant-pipe-handle custody/output-parser/authority-admission/Stop-Close/actual-join/incomplete-exclusion implementation and complete Go/HTTP/generated/production-TS seam. Resolve normal findings and materially re-review to PASS BEFORE II.04 may execute actual installed codex.exe. StageI component review does not substitute."
+        },
+        {
+          "id": "II.05b",
+          "title": "Fresh complete native/seam evidence closure BEFORE clients",
+          "baseMinutes": 8,
+          "reserveMinutes": 4,
+          "capMinutes": 12,
+          "scope": "After II.04 actual supported literal-interface and complete controlled native/fault matrix, independently review evidence/source binding and all integrated safety outcomes; normal corrections and material re-review included. Material code changes return to II.05a and affected proof reruns. Full PASS before II.06 starts. Together II.05a/b are the existing20+8 review allowance, not new unpriced work."
+        },
+        {
+          "id": "II.06",
+          "title": "Both identity and control clients plus focused review/cases",
+          "baseMinutes": 40,
+          "reserveMinutes": 15,
+          "capMinutes": 55,
+          "scope": "Original45-minute paired clients less5 for real selected-board inspector layout/read scaffolding reuse. New deliberate probe/Stop, current generations, incomplete/joined states, late/stale/denied/foreign/busy and A-B-A/private/focus cases, ordinary and controlled default/configured proof, fresh client review/fixes. No15-minute saving assumption."
+        },
+        {
+          "id": "II.07",
+          "title": "Full current candidate qualification",
+          "baseMinutes": 65,
+          "reserveMinutes": 25,
+          "capMinutes": 90,
+          "scope": "Full current qualification on corrected maintained harnesses.5 bind sources/pins/locks and enumerate ALL current cases;17 two isolated clean builds and ALL generated/staged/web/embedded/EXE/applicable post-test output equality;15 full current provider/compiler/driver/native transaction/continuation/archive/interruption/actualCLI/lifecycle and newcase re-execution;10 mandatory ordinary browser plus Copy/inherited/config/archive/privacy and owned shared-queue/resource closure;10 fresh integrated source/evidence/authority/storage review;8 routine corrections, affected reruns and material re-review. Every existing and new case retained, no skipped/filtered/zero-case/unexplained failures. Separate complete new-native focused proof and seam review remain earlier.",
+          "breakdown": [
+            {
+              "work": "Current source/tool/lock/fixture binding and complete inventory",
+              "baseMinutes": 5
+            },
+            {
+              "work": "Two isolated clean builds and ALL output equality",
+              "baseMinutes": 17
+            },
+            {
+              "work": "All current native/provider/compiler/driver/CLI/lifecycle plus new cases",
+              "baseMinutes": 15
+            },
+            {
+              "work": "All mandatory ordinary-browser/archive/conservation/privacy/resource closure",
+              "baseMinutes": 10
+            },
+            {
+              "work": "Fresh independent integrated source and evidence review",
+              "baseMinutes": 10
+            },
+            {
+              "work": "Ordinary corrections, affected reruns and material re-review",
+              "baseMinutes": 8
+            }
+          ]
+        },
+        {
+          "id": "II.08",
+          "title": "Exact extracted NEW actual identity/control kit/demo/publication",
+          "baseMinutes": 35,
+          "reserveMinutes": 15,
+          "capMinutes": 50,
+          "scope": "All full kit/integrity/extraction/review/publication requirements again. NEW actual qualified version in browser and real readable/JSON CLI on default/configured boards; honest missing/unsupported and separate controlled Stop/Close/incomplete/actual-join cases. Preserve all stageI/older features and original notice/config/archive guarantees."
+        }
+      ],
+      "baseMinutes": 240,
+      "reserveMinutes": 99,
+      "capMinutes": 339,
+      "preflight": {
+        "baseMinutes": 60,
+        "reserveMinutes": 25,
+        "capMinutes": 85,
+        "scope": [
+          "Check dated official upstream stable releases for every directly used runtime/build/test tool and direct dependency: Go, Node, npm, TypeScript, Python, uv, Git, PowerShell, native Codex adapter, browser and qualification tooling, all Go/web/harness direct dependencies. Inventory exact pins/locks; exclude prereleases; qualify every stale pin before handoff.",
+          "Review strict curated lint/type rules against current stable guidance, trial valuable changes, justify narrow exceptions; evaluate stable compiler API and parser/linter support together (tracking #0046).",
+          "Re-enumerate complete current provider/compiler/driver/native transaction/continuation/archive/interruption/actual CLI/mandatory ordinary-browser inventories. Run all applicable baseline gates and two isolated clean builds with equality of ALL generated/staged/web/embedded/executable/applicable post-test outputs.",
+          "Inventory installed tool metadata/provenance and document the safe qualification approach for literal --version. Do not invoke an ad hoc actual --version or any product probe in .00 before the complete reviewed safe runner exists. Actual invocation and complete new production-runner evidence belong to .01; missing supported actual interface remains a concrete readiness issue, never fake positive evidence. Preflight does not certify the absent new feature.",
+          "Use owned synthetic fixtures, fresh shared queue health/mailbox for browser work, exact source/tool/lock hashes, bounded sanitized evidence, full owned cleanup and fresh independent Sol / High review. Preflight has its own separate accounting; exclude it from the four-hour development estimate test."
+        ],
+        "additionalScope": [
+          "After accepted predecessor and fresh current-turn development estimate gate, move this .00 In Progress. No prior allowance resumes.",
+          "Check dated primary latest-stable metadata for Go, Node, npm, TypeScript, Python, uv, Git, PowerShell, actual native adapter/runtime, browser qualification tools and EVERY direct Go/web/harness runtime/build/test dependency. Exclude prereleases. Record exact verified versions, locks, sources, date and hashes.",
+          "Qualify every stale tool/lock refresh before handoff; inability to qualify any stable release is a concrete readiness issue, not a silently retained pin. Preserve old source/tool evidence.",
+          "Review strict curated lint/type rules using current official guidance; trial valuable changes, narrow justified exceptions, and assess stable TypeScript compiler API with stable parser/linter support. No blanket enablement.",
+          "Re-enumerate COMPLETE CURRENT provider/compiler/driver/native transaction/continuation/archive/interruption/actual-CLI/mandatory-browser inventories and ALL generated/staged/web/embedded/executable/applicable post-test outputs. Run full current pinned gates and two isolated clean builds; compare all outputs.",
+          "M17B preflight validates only the already-shipped baseline, including M17A metadata inspection; it must not invoke the unshipped new identity feature. Exact literal identity proof occurs in II.04 only after complete native integration and II.05a independent source-safety PASS. No capability probe is required or permitted; capability belongs to the later capability milestone. Preserve every already-shipped baseline case.",
+          "Fresh nonauthor review, normal fixes/material re-review, owned synthetic fixture/account proof, source binding, shared diagnostic queue health and owned cleanup/publication. Never start/restart shared services, activate watchers or send notices."
+        ],
+        "interpretation": "Kickoff .00 prohibition on actual invocation controls: inspect installed metadata only until complete reviewed runner exists. EVERY candidate milestone independently repeats all current gates and two clean all-output builds. New development and its reviews are not preflight.",
+        "applicableProbeRule": "M17B preflight validates only the already-shipped baseline, including M17A metadata inspection; it must not invoke the unshipped new identity feature. Exact literal identity proof occurs in II.04 only after complete native integration and II.05a independent source-safety PASS. No capability probe is required or permitted; capability belongs to the later capability milestone. Preserve every already-shipped baseline case.",
+        "sourceEraProbeClauseForTraceability": "Qualify the actual installed executable and supported frozen literal version/help/capability probes without sending. Missing supported probes remain explicit readiness issues; no substitute executable certifies the production adapter."
+      },
+      "dependencies": [
+        "accepted I",
+        "own current estimate/.00/IP",
+        "II.01-.03 fully integrated source -> II.05a complete native/seam safety-source review PASS -> II.04 actual installed proof and integrated fault matrix -> II.05b complete evidence closure PASS -> II.06 clients -> II.07 full qualification -> II.08 extracted kit"
+      ],
+      "newDemo": {
+        "browser": [
+          "From newly extracted exact executable, select default synthetic board; deliberately Inspect installed tool, observe qualified version only after actual joined closure; no readiness/capability/delivery claim.",
+          "Repeat on genuinely configured board; preserve private draft/focus/A-B-A and current authority; denied late data redacted.",
+          "Separately labeled controlled stall/descendant Stop/Close/incomplete cases: retain exclusion until actual root/descendant/pipe/handle join, stale/foreign/denied/busy refuse. Genuine missing/unsupported also distinct."
+        ],
+        "cli": [
+          "Same exact extracted executable: frozen/reviewed selected-board inspect/probe-version/Stop grammar in readable and strict JSON forms on default and configured boards.",
+          "Actual installed literal --version proves positive identity; captured raw output never published. Control uses exact generation. Controlled fixtures never prove installed support.",
+          "Verify ordinary immutable configuration and local notice originals conserved; no automatic probe on navigation/open/reconnect."
+        ]
+      },
+      "dependencyEdges": [
+        [
+          "II.01",
+          "II.05a"
+        ],
+        [
+          "II.02",
+          "II.05a"
+        ],
+        [
+          "II.03",
+          "II.05a"
+        ],
+        [
+          "II.05a",
+          "II.04"
+        ],
+        [
+          "II.04",
+          "II.05b"
+        ],
+        [
+          "II.05b",
+          "II.06"
+        ],
+        [
+          "II.06",
+          "II.07"
+        ],
+        [
+          "II.07",
+          "II.08"
+        ]
+      ],
+      "provisionalLabel": "M17B"
+    }
+  ],
+  "accounting": {
+    "originalABase": 335,
+    "newInspectorIncrement": 50,
+    "newInspectorBreakdown": {
+      "separatePolicy": 5,
+      "seam": 12,
+      "simpleBothClients": 18,
+      "focusedCases": 8,
+      "extraReview": 7
+    },
+    "extraNativeComponentEvidenceAndReview": 10,
+    "repeatFullQualification": 65,
+    "repeatKit": 35,
+    "sourceSupportedClientReuseSaving": 5,
+    "sum": 480,
+    "explanation": "Original A335 assumed75 final qualification. Corrected full current closure is now65 for EACH stage.335+50newInspector+10extraComponentEvidenceReview+65additionalQualification+35additionalKit-5clientReuse-10recalibrationOfOriginalQualification=480. Equivalently fixed nonqualification370+two65=500-20=480. No mandatory scope moved to reserve/preflight.",
+    "qualificationRecalibrationAcrossBothStages": -20
+  },
+  "totals": {
+    "developmentBaseMinutes": 480,
+    "developmentReserveMinutes": 197,
+    "developmentCapMinutes": 677,
+    "preflightBaseMinutes": 120,
+    "preflightReserveMinutes": 50,
+    "preflightCapMinutes": 170,
+    "allInBaseMinutes": 600,
+    "allInReserveMinutes": 247,
+    "allInCapMinutes": 847
+  },
+  "qualificationAllowance": {
+    "baseMinutesEach": 65,
+    "work": {
+      "sourceInventoryAndBinding": 5,
+      "twoIsolatedBuildsAndAllOutputs": 17,
+      "allCurrentNativeProviderCompilerDriverCliLifecycleAndNewReruns": 15,
+      "mandatoryBrowserArchiveConservationPrivacyOwnedResources": 10,
+      "independentIntegratedSourceEvidenceReview": 10,
+      "routineFixesRerunsAndMaterialRereview": 8
+    },
+    "extraReserveMinutesEach": 25,
+    "evidenceBasis": "Current corrected M16 clean pair supporting chronology about15.31min (Go events6.03/5.93), timed native gates/CLI/lifecycle10.8536min. Historical71.17-minute qualification included a failed repeated clean pair and corrected test-output/diagnostic defects. Only repeat defect work is removed; every current gate, output, review and ordinary correction remains. New native proof and source review stay separately priced.",
+    "limitations": "Browser/archive and review allowances are judgmental. Future current-source/tool changes require re-estimation and full applicable execution. Historical results are not a future PASS."
+  },
+  "fullStandards": {
+    "qualification": [
+      "Freeze current source/tools/locks/fixtures and enumerate all CURRENT cases, including additions since M15. The historical inventory is not a fixed ceiling.",
+      "Run full pinned Go/TypeScript/lint/contract/asset/script/provider/compiler/driver gates; two independent clean builds with separate roots and equality of ALL generated, staged, web, embedded, executable and applicable post-test outputs.",
+      "Run every current native transaction, continuation, archive/interruption, actual-CLI and mandatory ordinary-browser case, plus new slice cases. No filtered, skipped, zero-case, failed or unexplained mismatch run passes. Keep failures and corrections source-bound.",
+      "Preserve local notices, archive/restore conservation and independent restored lineage; immutable original target/cuts/receipts, UNKNOWN/no replay, current authority, exact selected identity/incarnation/epoch/revisions and native actual joins.",
+      "Separate ordinary positive actual application/probe proof, controlled adapters/lifecycle faults, native component evidence and justified unchanged reused evidence. Controlled processes never establish actual installed adapter readiness.",
+      "Run ordinary extracted browser and actual built CLI NEW capability demos on both default and configured synthetic boards. Preserve drafts/focus/private window context through stale/delayed/A-B-A/revoked/conflicting replies; denied late data is redacted.",
+      "Browser work uses supported control plus fresh shared-queue health/register, bounded action, release control, bounded schema-validated reads/export and owned mailbox deletion. Application/native/transaction assertions remain authoritative; no secrets/prose/raw errors enter diagnostics.",
+      "Fresh integrated nonauthor Sol / High source/authority/concurrency/storage/evidence review, normal fixes and material re-review; recheck all previously affected baseline paths after changes."
+    ],
+    "kitAndDemo": [
+      "Build the exact independently qualified candidate review kit: allowlisted executable, license/notices, schema/reference/guide closure, manifest and checksums; no private worker roster, credentials, operational data or diagnostic exports.",
+      "Verify every archive member, CRC, size and digest; freshly extract the complete archive. Bind source, tool, lock, fixture and extracted executable hashes. Demonstrate from that extraction, not from a workspace build.",
+      "Include concise start/use/recovery guide, exact CLI examples, ordinary browser journey, decision dispositions and explicit unsupported/unavailable/unknown outcomes. Fresh independent package/evidence review plus fixes/material re-review included.",
+      "Preserve/export needed evidence; clean only verified owned roots/processes/listeners/mailboxes and prove closure. No remembered PID or shared service cleanup. Commit/push bounded durable evidence after verification under standing authority.",
+      "Reconcile genuine In Progress-to-RFR story times, dependencies and current remaining-turns 1-3 private plan/JSON. Terry alone controls Completed. Refresh #0180 only after Terry completes the milestone; preserve accepted Post M15. Any provisional final split checkpoint is explicitly acceptance-assumed and follows all stories/epics reaching RFR."
+    ]
+  },
+  "scopeCoverage": [
+    {
+      "original": "M17.00",
+      "new": [
+        "I.00",
+        "II.00"
+      ],
+      "rule": "Each milestone repeats complete current latest-stable direct-tools/dependencies and curated-rule preflight, baseline inventories, two isolated all-output builds, review and cleanup. No feature work is hidden in preflight."
+    },
+    {
+      "original": "M17.01 complete native bundle and seam",
+      "new": [
+        "I.01",
+        "I.02",
+        "I.03",
+        "I.04",
+        "I.09b",
+        "II.01",
+        "II.02",
+        "II.03",
+        "II.04",
+        "II.05a",
+        "II.05b"
+      ],
+      "rule": "First milestone can contain dormant preparation and controlled component evidence. It exposes no product invocation. Entire native bundle and independent source-safety review pass before the first real invocation in II.04; evidence closure then passes before clients."
+    },
+    {
+      "original": "M17.02 actual identity/control clients",
+      "new": [
+        "II.06"
+      ],
+      "rule": "Original ordinary browser/actual CLI identity and controls, both default/configured boards, privacy, drafts, focus, A-B-A and current authority remain. I.05-I.09a/I.07-I.08 are additional bounded inspector work, not credit for this original capability."
+    },
+    {
+      "original": "M17.03 full current qualification",
+      "new": [
+        "I.10",
+        "II.07"
+      ],
+      "rule": "Full qualification is repeated on each changed current candidate, not reused as a future PASS. Complete inventories, new cases, ALL outputs, review, corrections and owned cleanup remain."
+    },
+    {
+      "original": "M17.04 exact kit/new demo/publication",
+      "new": [
+        "I.11",
+        "II.08"
+      ],
+      "rule": "Each gets a complete verified newly extracted kit and a genuinely new ordinary-browser/actual-CLI demonstration. The first demonstrates the explicitly proposed noninvoking feature; only the second claims actual installed identity support."
+    }
+  ],
+  "safetyAndScope": [
+    "Inspector is a deliberate, fresh, uncached selected-board observation of eligible native candidate / missing / unqualified. No process is invoked. No version, supported/OK, policy-ready, capability, raw path/hash/account/target/error, persistence, history, polling, Copy or new selector surface.",
+    "Current physical identity and authority are checked around native metadata work and again before disclosure. No native I/O under the short memory gate. Inspector observations never confer future invocation authority.",
+    "I.01 reviewed full model precedes native preparation. Complete independent inspector seam review I.09a precedes I.07; final component/client review I.09b follows I.08. Dormant native code is not the user-facing milestone outcome.",
+    "II.01-.03 complete the entire original safety/control/seam bundle. II.05a independent native/source-safety PASS precedes II.04 actual installed literal invocation. II.05b evidence closure precedes II.06 clients. Material code findings repeat source review and affected proof.",
+    "Before every actual invocation: trusted pinned native codex.exe provenance/identity/hash rechecked; frozen literal argv, closed stdin, private working directory and necessary environment. No caller command/path/argv/environment or shell wrapper.",
+    "Preserve suspended-root nonbreakaway job/kill-on-close,16 processes including root,64KiB combined capture,10s command deadline plus2s foreground drain reporting, one probe per physical board, zero automatic queue. Retain exclusion/ownership until actual root/descendant/pipe/handle join; incomplete never means success or release.",
+    "Preserve current authority/generations, safe finite outcomes, denied-late redaction, fixed recipient configuration, local notice originals/targets/cuts/receipts, archive/restore lineage and UNKNOWN/no replay. No M18 capability, Send/Enable/Start, new transport/nudge, retarget, shared-host action or watcher revival.",
+    "Only actual qualified literal identity output with complete parse/zero exit/actual joined closure yields positive version; controlled fixtures cannot certify the installed tool. Missing/unsupported actual interface remains a concrete readiness issue.",
+    "Future implementation needs owner approval, fresh scoped estimates/preflight and In Progress entry. This plan authorizes no execution. Terry alone controls Completed."
+  ],
+  "numberingAndBoard": "M17A/M17B are provisional labels only. Original stories309-313 remain archived with history and links. Epic296 remains In Progress for planning. No new execution cards, downstream renumbering or owner-Completed changes are made by this proposal; materialize accepted numbering/dependencies after approval.",
+  "sources": [
+    "docs/spike02/m17-kickoff-breakdown-2026-11-08.json at e3217ffec39d320348179991f8bc776d599cf1d2",
+    "docs/spike02/m16-six-milestone-split-2026-11-07.json at 150a4c7e39d96ebbfe371d723528fa8362e2c5e5 (current M17/S02 and full standards)",
+    "localswim/localswim docs/decisions/m16-recipient-policy-contract-2026-11-07.txt M16-RECIPIENT-R2",
+    "localswim/localswim qualification/m16/joined-r1.json and HANDOFF.json (historical source-bound evidence, not future qualification)"
+  ],
+  "review": "Both original independent plans, with disclosed historical-source exposure, and their independent reviews are preserved separately. This jointly reconciled proposal receives a further fresh nonauthor Sol / High review before handoff."
+}

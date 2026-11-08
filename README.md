@@ -25,12 +25,21 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
-The [reviewed M17 kickoff breakdown](docs/spike02/m17-kickoff-breakdown-2026-11-08.txt)
+The [four-hour M17 split proposal](docs/spike02/m17-four-hour-split-2026-11-08.txt)
+and [structured plan](docs/spike02/m17-four-hour-split-2026-11-08.json)
+propose two 240-minute development bases: noninvoking installation inspection,
+then the complete safe actual identity probe. Each retains its own full preflight,
+qualification and new extracted browser/CLI demonstration. The additional
+inspection feature and result policy require owner approval; no execution is
+authorized by the proposal. The original five story cards are archived.
+
+The earlier [reviewed M17 kickoff breakdown](docs/spike02/m17-kickoff-breakdown-2026-11-08.txt)
 and [structured stories](docs/spike02/m17-kickoff-breakdown-2026-11-08.json)
-define a separate current preflight and four development stories for the first
-safe installed-tool identity probe. Fresh independent estimates govern the
-current kickoff: either development base at or above four hours stops the turn.
-The historical higher-base approval below does not waive this new gate.
+defined a separate preflight and four development stories for the first safe
+installed-tool identity probe. Both fresh estimates exceeded that kickoff's
+four-hour stop gate; no implementation began. The later four-hour split request
+and proposal above supersede that story breakdown, while preserving its scope
+and estimate history.
 
 The [M16 six-milestone planning consensus](docs/spike02/m16-six-milestone-split-2026-11-07.txt)
 and [structured scope/estimates](docs/spike02/m16-six-milestone-split-2026-11-07.json)

@@ -1,0 +1,79 @@
+M17 FOUR-HOUR MILESTONE SPLIT — CONSENSUS PROPOSAL R1
+November 8, 2026 | OWNER APPROVAL REQUIRED | NO EXECUTION STARTED
+
+Proposed outcome
+Split the original identity-probe delivery into two equally sized development milestones. Both retain full preflight, current qualification, independent review and exact extracted browser/CLI demonstration.
+Approval explicitly adds a bounded noninvoking installation inspector; this is the first milestone's real user feature. Dormant native preparation alone is not a feature. The second milestone delivers every original actual identity-probe requirement.
+
+Development minutes (P80 is a judgmental planning target; reserves are additional)
+Milestone | Base | Reserve | Cap | Separate preflight base/reserve/cap
+M17A Inspect installation without running it | 240 | 98 | 338 | 60/25/85
+M17B Run and control the actual identity probe | 240 | 99 | 339 | 60/25/85
+Development total:480+197=677. Preflight total:120+50=170. All-in:600+247=847 minutes.
+These are inclusive four-hour development bases, not four-hour total-turn or cap claims. Both milestones have their own preflight. Splitting adds repeated delivery overhead and the new inspector, so it costs more overall than one large milestone.
+
+What Terry can newly demonstrate
+- After M17A: in the ordinary browser and actual readable/JSON CLI, deliberately inspect whether a server-qualified native candidate is currently present, missing or unqualified, on default/configured synthetic boards. No process is started. M16 could only save/read the fixed recipient policy.
+- After M17B: from the newly extracted kit, deliberately obtain the actual qualified installed version and use safe controls. Only complete output, zero exit and actual joined native closure establish positive identity. Show genuine missing/unsupported and separately controlled stall/descendant/incomplete cases; preserve current authority, drafts/focus and original data.
+
+Priced work and mandatory ordering
+
+M17A — Inspect installation candidate without running it
+- I.01 Complete common native model and fresh independent design review: 20+7=27 minutes.
+- I.02 Trusted installation resolver: 20+8=28 minutes.
+- I.03 Dormant owned native custody components: 35+15=50 minutes.
+- I.04 Owned controlled component evidence: 10+5=15 minutes.
+- I.05 Added inspector policy and model: 5+3=8 minutes.
+- I.06 Added inspector Go/HTTP/generated/production TS seam: 12+5=17 minutes.
+- I.07 Added simple CLI and ordinary browser inspector: 18+5=23 minutes.
+- I.08 Focused inspector client and authority cases: 8+4=12 minutes.
+- I.09a Fresh complete inspector seam review BEFORE clients: 5+3=8 minutes.
+- I.09b Fresh final component/client review AFTER focused cases: 7+3=10 minutes.
+- I.10 Full current candidate qualification: 65+25=90 minutes.
+- I.11 Exact extracted NEW inspector kit/demo/publication: 35+15=50 minutes.
+Entry/order: explicit new-feature/result-policy owner approval; accepted M16; own current estimate/.00/IP; I.01 full-model review PASS before dependent native implementation; I.02/I.05/I.06 plus I.03/I.04 -> I.09a complete inspector seam review PASS -> I.07 clients -> I.08 focused cases -> I.09b final review -> I.10 complete qualification -> I.11 kit
+
+M17B — Inspect actual installed identity with complete safe controls
+- II.01 Join remaining native custody into complete production runtime: 10+6=16 minutes.
+- II.02 Complete generation/authority/admission/Stop/Close: 25+10=35 minutes.
+- II.03 Complete identity parser and all-layer probe/control seam: 20+8=28 minutes.
+- II.04 Actual installed support plus complete integrated controlled fault evidence: 25+12=37 minutes.
+- II.05a Fresh complete native/seam source safety review BEFORE actual launch: 12+4=16 minutes.
+- II.05b Fresh complete native/seam evidence closure BEFORE clients: 8+4=12 minutes.
+- II.06 Both identity and control clients plus focused review/cases: 40+15=55 minutes.
+- II.07 Full current candidate qualification: 65+25=90 minutes.
+- II.08 Exact extracted NEW actual identity/control kit/demo/publication: 35+15=50 minutes.
+Entry/order: accepted I; own current estimate/.00/IP; II.01-.03 fully integrated source -> II.05a complete native/seam safety-source review PASS -> II.04 actual installed proof and integrated fault matrix -> II.05b complete evidence closure PASS -> II.06 clients -> II.07 full qualification -> II.08 extracted kit
+
+Exact boundaries and conserved scope
+- Inspector is a deliberate, fresh, uncached selected-board observation of eligible native candidate / missing / unqualified. No process is invoked. No version, supported/OK, policy-ready, capability, raw path/hash/account/target/error, persistence, history, polling, Copy or new selector surface.
+- Current physical identity and authority are checked around native metadata work and again before disclosure. No native I/O under the short memory gate. Inspector observations never confer future invocation authority.
+- I.01 reviewed full model precedes native preparation. Complete independent inspector seam review I.09a precedes I.07; final component/client review I.09b follows I.08. Dormant native code is not the user-facing milestone outcome.
+- II.01-.03 complete the entire original safety/control/seam bundle. II.05a independent native/source-safety PASS precedes II.04 actual installed literal invocation. II.05b evidence closure precedes II.06 clients. Material code findings repeat source review and affected proof.
+- Before every actual invocation: trusted pinned native codex.exe provenance/identity/hash rechecked; frozen literal argv, closed stdin, private working directory and necessary environment. No caller command/path/argv/environment or shell wrapper.
+- Preserve suspended-root nonbreakaway job/kill-on-close,16 processes including root,64KiB combined capture,10s command deadline plus2s foreground drain reporting, one probe per physical board, zero automatic queue. Retain exclusion/ownership until actual root/descendant/pipe/handle join; incomplete never means success or release.
+- Preserve current authority/generations, safe finite outcomes, denied-late redaction, fixed recipient configuration, local notice originals/targets/cuts/receipts, archive/restore lineage and UNKNOWN/no replay. No M18 capability, Send/Enable/Start, new transport/nudge, retarget, shared-host action or watcher revival.
+- Only actual qualified literal identity output with complete parse/zero exit/actual joined closure yields positive version; controlled fixtures cannot certify the installed tool. Missing/unsupported actual interface remains a concrete readiness issue.
+- Future implementation needs owner approval, fresh scoped estimates/preflight and In Progress entry. This plan authorizes no execution. Terry alone controls Completed.
+- Preflight applicability: M17A performs no actual product probe and makes no installed-version support claim. M17B preflight checks its already-shipped baseline; its new literal identity proof is II.04 after II.05a source-safety PASS. Capability probing remains a later milestone. Neither applicability rule excludes any already-shipped baseline case.
+
+Why65 minutes of full qualification per milestone is defensible
+- 5 source/inventory binding;17 two complete isolated builds and ALL outputs;15 full current native/provider/compiler/driver/CLI/lifecycle/new reruns;10 mandatory browser/archive/conservation/privacy/owned resources;10 independent integrated source/evidence review;8 ordinary fixes/reruns/material re-review. Each also has25 extra qualification reserve.
+- Corrected M16 receipts support about15.31 minutes for the clean build pair and10.8536 minutes of timed native/CLI/lifecycle work. Its71.17-minute whole qualification story also contained a repeated failed clean pair and defects now corrected. Source hashes and original failed attempts are preserved in private evidence.
+- No current test, case, output, source review or ordinary correction is removed. New native proof25 and whole native source/evidence reviews20 in M17B remain separate; early controlled component proof10 and component/inspector reviews12 in M17A remain separate. A prior PASS is never substituted for a new candidate run.
+- Browser/archive and review durations are still judgmental. A fresh scope/tool/source change that pushes the base beyond240 needs re-estimation; reserve cannot conceal known development scope.
+
+Complete coverage
+- Original .00 repeats for each milestone. Original .01 maps to M17A common model/resolver/dormant components plus M17B complete production integration, controls, actual/fault evidence and reviews. All original .02 clients complete in M17B; M17A inspector clients are additional.
+- Original .03 and .04 obligations repeat for both changed candidates. First-stage demo is explicitly the proposed inspector; final stage retains the original installed-probe demonstration. Structured companion maps every original work package and preserves full standards.
+
+Approval and numbering
+M17A/M17B are provisional labels only. Original stories309-313 remain archived with history and links. Epic296 remains In Progress for planning. No new execution cards, downstream renumbering or owner-Completed changes are made by this proposal; materialize accepted numbering/dependencies after approval.
+Accepting this proposal approves its new noninvoking feature/result-policy direction only as a plan. Exact model/contract review and each implementation entry gate remain. No actual installed-tool support, delivery, runtime qualification, budget spend or milestone completion is claimed.
+The two sealed original proposals and reviews remain history. Parent and both original authors reconciled this proposal; fresh nonauthor final review is recorded on epic296 before handoff.
+
+Sources
+- docs/spike02/m17-kickoff-breakdown-2026-11-08.json at e3217ffec39d320348179991f8bc776d599cf1d2
+- docs/spike02/m16-six-milestone-split-2026-11-07.json at 150a4c7e39d96ebbfe371d723528fa8362e2c5e5 (current M17/S02 and full standards)
+- localswim/localswim docs/decisions/m16-recipient-policy-contract-2026-11-07.txt M16-RECIPIENT-R2
+- localswim/localswim qualification/m16/joined-r1.json and HANDOFF.json (historical source-bound evidence, not future qualification)
