@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "revision": "V1-WRITE-RECOVERY-BACKUP-INTAKE-R1",
+  "date": "2026-11-08",
+  "planningTicket": 307,
+  "authority": "Terry-authorized V1 Dev findings into V2 planning only. No implementation, Completed reopening, new numerical/status/transport decision or runtime mechanism is authorized.",
+  "source": {
+    "kind": "V1 Dev handoff about V1 #0223/#0224",
+    "reportedOnly": true,
+    "browserFocusedPasses": 90,
+    "publisherAuthorPasses": 161,
+    "independentReviewsReported": true,
+    "combinedFullGate": "running at handoff; unverified here",
+    "deployedAtHandoff": false,
+    "immutableCommitBuild": "pending follow-up; do not substitute old R3 report commit",
+    "observation": {
+      "attachments": 1698,
+      "approxBytes": "22 MB",
+      "verificationSeconds": "7\u20139",
+      "gitStatusSeconds": "about 1.3",
+      "gatewayWaitSeconds": 5
+    },
+    "observationsAreNewLimits": false,
+    "historicalCheckpointCause": "Consistent with reported mechanism, not traced or proved."
+  },
+  "existingIntake": {
+    "ticket": 267,
+    "state": "Completed; unchanged",
+    "report": "docs/spike02/v1-scale-recovery-intake-2026-11-07.txt",
+    "newFindingRelationship": "Additive follow-up, not a rewrite or requalification of historical evidence."
+  },
+  "currentOwnership": {
+    "M22": {
+      "epic": 243,
+      "cards": [
+        272,
+        276
+      ],
+      "scope": "First applicable browser recovery/draft correctness and new qualification vectors."
+    },
+    "M23": {
+      "epic": 244,
+      "cards": [
+        278
+      ],
+      "scope": "Existing first-attempt/refusal/native and later-effect extension; no effect before prerequisites."
+    },
+    "M25": {
+      "epic": 246,
+      "cards": [
+        280
+      ],
+      "scope": "Existing clean restart/original-conservation extension; no new historical recovery authority."
+    },
+    "M27": {
+      "epic": 248,
+      "scope": "First coherent local snapshot/Git publication and blocked-backup cross-feature tests.",
+      "crossFeatureReferences": [
+        277,
+        279,
+        280
+      ]
+    },
+    "M28": {
+      "epic": 249,
+      "scope": "Queued remote publication/recovery extension with independent mutation admission.",
+      "crossFeatureReferences": [
+        279,
+        280
+      ]
+    },
+    "M34": {
+      "epic": 255,
+      "scope": "Later UI presentation integration; correctness not deferred here.",
+      "crossFeatureReferences": [
+        276
+      ]
+    },
+    "M44": {
+      "epic": 265,
+      "scope": "Exact source-to-claim ledger; gaps or explicit owner disposition."
+    },
+    "M45": {
+      "epic": 266,
+      "scope": "Final exact-candidate aggregate regression, not first testing."
+    },
+    "M24": {
+      "epic": 245,
+      "cards": [
+        279
+      ],
+      "scope": "Existing producer/slow-sink Go-notice ownership; backup-specific extension first runs in M27/M28."
+    },
+    "M38": {
+      "epic": 259,
+      "cards": [
+        277
+      ],
+      "scope": "Existing attachment import/restore ownership; snapshot-inventory extension first runs in M27/M28."
+    }
+  },
+  "existingInvariantBoundary": [
+    "Preserve Completed records and historical milestone labels; use current parent metadata",
+    "Earliest available current-surface regression at next separately authorized qualification; do not defer to M34/M44/M45",
+    "No new epic, budget, timeout, storage/transport mechanism or automatic V1 fresh-read/local-ack adoption",
+    "Separate kickoff, prerequisite acceptance, latest-stable preflight, full estimates and In Progress entry gates remain",
+    "Qualify with isolated synthetic boards and supported browser/shared diagnostic queue workflow; native assertions authoritative",
+    "Separate ordinary, controlled, component and exact-bound reused evidence"
+  ],
+  "rows": [
+    {
+      "id": "BR01",
+      "outcome": "No definitive acknowledgement means UNKNOWN until exact terminal proof",
+      "existingContract": "Exact immutable original matching and validated terminal classification; HTTP failure alone cannot settle",
+      "newCoverage": "Drop/malformed/truncated real native reply; contrast genuine predispatch failure, mismatched receipt and nonterminal refusal",
+      "surfaces": [
+        "real browser",
+        "controlled native response boundary",
+        "actual CLI state/history"
+      ],
+      "oracle": "one dispatch; native effect count; exact original proof; current text never terminal proof",
+      "primary": 276,
+      "crossChecks": [
+        278
+      ]
+    },
+    {
+      "id": "BR02",
+      "outcome": "Definite refusal remains refused after failed follow-up GET",
+      "existingContract": "Validated not_committed terminal class survives absent details; ordinary HTTP refused is not that proof",
+      "newCoverage": "Real stale-revision terminal then failed card/history/original read; separate nonterminal HTTP refusal stays UNKNOWN",
+      "surfaces": [
+        "real browser",
+        "controlled failed GET",
+        "actual CLI refusal and state"
+      ],
+      "oracle": "terminal class invariant; independent unavailable read label; no replay",
+      "primary": 276,
+      "crossChecks": [
+        278
+      ]
+    },
+    {
+      "id": "BR03",
+      "outcome": "Late commit does not create blind additive replay",
+      "existingContract": "No automatic resend/new ID; old-state read cannot establish failure",
+      "newCoverage": "Hold admitted write before commit; stop waiting and read old state; release commit; repeat lost reply for supported comment/upload/compound",
+      "surfaces": [
+        "real browser",
+        "controlled native commit hold/response loss",
+        "actual CLI read/history/original lookup"
+      ],
+      "oracle": "one original dispatch and effect; exact original-only settlement",
+      "primary": 276,
+      "crossChecks": [
+        278,
+        280
+      ]
+    },
+    {
+      "id": "BR04",
+      "outcome": "Compound pending original remains recoverable across reload",
+      "existingContract": "Immutable original retention separate from editable drafts; atomic compound effects",
+      "newCoverage": "Supported multi-effect approval with lost committed reply and held precommit variant; navigation/reload/reauth; unavailable evidence variant",
+      "surfaces": [
+        "real browser",
+        "controlled native compound boundary",
+        "actual CLI atomic state/history"
+      ],
+      "oracle": "same identity/bases/bytes; guarded replacement; original lookup only; unavailable remains UNKNOWN",
+      "primary": 276,
+      "crossChecks": [
+        272,
+        280
+      ]
+    },
+    {
+      "id": "BR05",
+      "outcome": "Closing drawer or navigating does not abort admitted POST",
+      "existingContract": "Close cannot cancel/unlock pending originals; late response respects selection/window/focus",
+      "newCoverage": "Close/navigate after admission; release real POST; reopen and inspect original",
+      "surfaces": [
+        "real browser",
+        "controlled native delayed POST",
+        "actual CLI state/history"
+      ],
+      "oracle": "no cancellation/rollback claim or replay; late result cannot paint wrong card or steal focus",
+      "primary": 276,
+      "crossChecks": [
+        278,
+        255
+      ]
+    },
+    {
+      "id": "BR06",
+      "outcome": "Submitted prose A and newer draft B retain distinct exact bytes",
+      "existingContract": "Immutable submission is separate from newer editable draft; late matching result preserves draft/focus",
+      "newCoverage": "A submitted, completion held, B edited through supported control, late receipt; repeat reload/window/storage refusal boundaries",
+      "surfaces": [
+        "real browser",
+        "controlled completion/storage boundary",
+        "actual CLI state/history"
+      ],
+      "oracle": "original A/base exact, draft B/focus/selection exact; no inferred outcome from prose",
+      "primary": 272,
+      "crossChecks": [
+        276
+      ]
+    },
+    {
+      "id": "BR07",
+      "outcome": "Local dismissal is neither success nor cancellation/rollback",
+      "existingContract": "Local controls do not settle server originals; private deletion is separately warned and may lose knowledge",
+      "newCoverage": "Stop-waiting/editor close/supported warning dismissal versus explicit private-evidence deletion; subsequent inspection",
+      "surfaces": [
+        "real browser",
+        "controlled pending result",
+        "actual CLI read/history/original lookup"
+      ],
+      "oracle": "server outcome unchanged; no UNKNOWN replay unlocked; retained inspection available or evidence loss disclosed",
+      "primary": 276,
+      "crossChecks": [
+        280,
+        255
+      ]
+    },
+    {
+      "id": "BR08",
+      "outcome": "Saved-state/history inspection remains separate from original settlement",
+      "existingContract": "Current read/history/immutable-original lookup have distinct meaning and exact identity binding",
+      "newCoverage": "Confirmed/refused/pending/UNKNOWN/read-unavailable browser and CLI inspections; status separation",
+      "surfaces": [
+        "real browser",
+        "actual CLI"
+      ],
+      "oracle": "compare selected board/incarnation/revision/coverage; unavailable distinct; reads cannot rebase/settle/replay",
+      "primary": 276,
+      "crossChecks": [
+        255,
+        265,
+        266
+      ],
+      "v1CommandMapping": "inspectsavedstate outcome, not an invented V2 command",
+      "inspectionBoundary": "Use current documented CLI card/history and exact-original evidence operations with required selection/ownership arguments; no new CLI command is introduced."
+    },
+    {
+      "id": "B01",
+      "owner_tickets": [
+        248,
+        249
+      ],
+      "milestones": [
+        "M27",
+        "M28"
+      ],
+      "acceptance": "Coherent immutable capture; expensive preparation, attachment verification, Git status, stage, commit and push outside primary writer/transaction admission; mechanism open",
+      "qualification": "Stall each expensive stage independently; a real mutation commits and is acknowledged before stage release; record operation/revision ordering",
+      "classification": "planned"
+    },
+    {
+      "id": "B02",
+      "owner_tickets": [
+        248,
+        249
+      ],
+      "milestones": [
+        "M27",
+        "M28"
+      ],
+      "acceptance": "Exact captured record/reference/inventory/verified-byte coherence across concurrent uploads and removals; later changes remain eligible",
+      "qualification": "Interleave capture, upload and removal; restore and compare full records, membership and bytes for captured and later cuts; no partial-success artifact",
+      "classification": "planned",
+      "crossChecks": [
+        277
+      ]
+    },
+    {
+      "id": "B03",
+      "owner_tickets": [
+        248,
+        249
+      ],
+      "milestones": [
+        "M27",
+        "M28"
+      ],
+      "acceptance": "Real writes during blocked stages; no duplicate logical mutation, no lost later-edit backup eligibility; reconcile unknown publication effect before retry",
+      "qualification": "Correlate admitted operation and audit result during every blocked stage; prove one effect and later revision coverage; fail/interrupt stage and exercise existing safe recovery",
+      "classification": "planned"
+    },
+    {
+      "id": "B04",
+      "owner_tickets": [
+        248,
+        249
+      ],
+      "milestones": [
+        "M27",
+        "M28"
+      ],
+      "acceptance": "Separate mutation acknowledgement, backup freshness/local commit/push, and browser transport health under accepted V2 status semantics",
+      "qualification": "Cross confirmed/unknown mutation, fresh/stale/failed backup and healthy/lost transport; assert distinct truthful state and revision/commit attribution",
+      "status_owner": "Cross-reference the existing status owner through parent #0307; do not move ownership",
+      "classification": "planned"
+    },
+    {
+      "id": "B05",
+      "owner_tickets": [
+        248,
+        249
+      ],
+      "milestones": [
+        "M27",
+        "M28"
+      ],
+      "acceptance": "Analyze chosen architecture for arbitrary hooks, fsmonitor, external filters and omitted-file dependencies; compatible operation or explicit safe refusal; preserve safeguards and unrelated state",
+      "qualification": "Controlled omitted-file-dependent configurations and unrelated staged content; prove compatible exact success or pre-destructive safe refusal, no unrelated deletion/staging",
+      "v1_mechanism_required": false,
+      "classification": "planned"
+    },
+    {
+      "id": "B06",
+      "owner_tickets": [
+        279,
+        280
+      ],
+      "current_parent_milestones": [
+        "M24",
+        "M25"
+      ],
+      "feature_execution_tickets": [
+        248,
+        249
+      ],
+      "feature_execution_milestones": [
+        "M27",
+        "M28"
+      ],
+      "acceptance": "Add cross-feature blocked-backup tests while retaining Q05 producer/slow-sink and Q06 restart/retention/quiescence ownership and existing Go guarantees",
+      "qualification": "At first feature-capable M27/M28 slot combine blocked backup, supported notices, writes, other boards and stop/reopen; verify progress, cleanup and independent states; link results back",
+      "preserve": [
+        "original target",
+        "effect fence",
+        "UNKNOWN/no replay",
+        "existing recovery boundaries",
+        "earlier evidence feature limits"
+      ],
+      "classification": "planned"
+    },
+    {
+      "id": "B07",
+      "owner_tickets": [
+        265,
+        266
+      ],
+      "milestones": [
+        "M44",
+        "M45"
+      ],
+      "acceptance": "Aggregate exact early B01-B06 evidence or explicit owner disposition in parity and final release claims; source binding required, no final-only testing",
+      "qualification": "Review source/tool/fixture/build bindings, extracted-kit integration checks and outstanding gaps; import immutable V1 handoff only as provenance",
+      "classification": "planned"
+    }
+  ],
+  "implementationChoiceBoundary": [
+    "Require bounded coherent capture and expensive work outside primary writer/transaction admission; choose and review the V2 mechanism before implementation.",
+    "Do not infer that an unchanged GET settles an unknown original. A validated exact terminal refusal remains refused even if inspection fails; ordinary HTTP refusal alone may be nonterminal.",
+    "Local acknowledgement/dismissal cannot reclassify or erase a server-side effect fence. Preserve exact immutable originals and separately retain newer drafts.",
+    "Git hooks/fsmonitor/filters require compatibility analysis or safe refusal for the chosen architecture; do not import V1 partial-tree staging or disable safeguards.",
+    "Reported inventory/latency are regression scenario inputs, not adopted support limits or SLOs.",
+    "Apply each original-retention test to supported operation kinds and their exact current contracts; do not silently broaden M16 recipient retention or reopen its Completed scope. A new retention mechanism needs separate design and scope authority."
+  ],
+  "executionAndEvidenceGates": [
+    "Preserve stable card identities, all existing dependencies, historical text/comments and Completed cards.",
+    "Next independently authorized current-surface qualification must include applicable no-effect regressions; do not defer existing-contract correctness to M34/M44/M45.",
+    "Each feature extends the matrix at its own first feature-capable milestone. Do not declare blocked-stage snapshot/push tests passed before the feature exists.",
+    "Normal separate kickoff, current latest-stable preflight, full estimate/re-cut, In Progress entry, supported-operation authority, independent review and exact candidate binding remain.",
+    "Keep real browser/actual CLI and controlled fault cases distinct; use shared diagnostic queue and synthetic owned fixtures under current project rules.",
+    "At V1 publication, bind exact commit/build, final gate results and regression files; revise status then. Until then no V1 deployed/final-qualified claim.",
+    "Planning adds qualification detail; price incremental work at kickoff, deduplicated against existing acceptance. The 60-second low-confidence project forecast is not an execution allowance."
+  ]
+}

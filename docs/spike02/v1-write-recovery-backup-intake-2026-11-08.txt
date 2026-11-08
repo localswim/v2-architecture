@@ -1,0 +1,98 @@
+V1 WRITE RECOVERY AND BACKUP ADMISSION — V2 PLANNING ADDENDUM
+November 8, 2026 | V1-WRITE-RECOVERY-BACKUP-INTAKE-R1 | V2 planning #0307
+
+Purpose
+- Add the V1 #0223/#0224 findings to existing V2 recovery, qualification and publication scope. Completed intake #0267 and its pinned R3 report remain historical; this is an additive follow-up.
+- Planning only. No product code, runtime mechanism, new support/latency budget, transport decision, external effect or future milestone start is approved.
+
+Source status
+- V1 Dev reports independent reviews, 90 focused browser passes plus actual Chrome recovery checks, and 161 publisher-author passes plus independent regressions. The combined full gate was still running; the fixes were not deployed. Exact immutable source/build binding is pending.
+- Reported inventory: 1,698 attachments, about 22 MB; verification 7–9 seconds plus about 1.3 seconds Git status against a five-second gateway wait. These are reported observations, not new V2 limits.
+- The delayed checkpoint observation is consistent with that mechanism. Its specific historical request was not traced; causality is not established.
+
+Owning milestones and timing
+- M22 #0243 / W02 #0272 / Q02 #0276: first applicable browser recovery, immutable-original/newer-draft separation and qualification.
+- M23 #0244 / Q04 #0278 and M25 #0246 / Q06 #0280: extend existing first-attempt/refusal and clean-reopen guarantees at their own feature-capable entries.
+- M27 #0248: coherent local snapshot/attachment inventory and Git publication. Q03 #0277 adds exact-byte inventory coverage; Q05 #0279 and Q06 #0280 retain their original notice/restart owners and add cross-feature checks here.
+- M28 #0249: queued push/recovery, independent mutation admission and later-edit eligibility.
+- M34 #0255 integrates presentation; it does not own the first correctness fix. M44 #0265 maintains the exact ledger; M45 #0266 runs final aggregate regression, not first qualification.
+
+Acceptance and observable qualification
+BR01 — No definitive acknowledgement means UNKNOWN until exact terminal proof
+- Preserve: Exact immutable original matching and validated terminal classification; HTTP failure alone cannot settle.
+- Exercise: Drop/malformed/truncated real native reply; contrast genuine predispatch failure, mismatched receipt and nonterminal refusal.
+- Observe: one dispatch; native effect count; exact original proof; current text never terminal proof.
+
+BR02 — Definite refusal remains refused after failed follow-up GET
+- Preserve: Validated not_committed terminal class survives absent details; ordinary HTTP refused is not that proof.
+- Exercise: Real stale-revision terminal then failed card/history/original read; separate nonterminal HTTP refusal stays UNKNOWN.
+- Observe: terminal class invariant; independent unavailable read label; no replay.
+
+BR03 — Late commit does not create blind additive replay
+- Preserve: No automatic resend/new ID; old-state read cannot establish failure.
+- Exercise: Hold admitted write before commit; stop waiting and read old state; release commit; repeat lost reply for supported comment/upload/compound.
+- Observe: one original dispatch and effect; exact original-only settlement.
+
+BR04 — Compound pending original remains recoverable across reload
+- Preserve: Immutable original retention separate from editable drafts; atomic compound effects.
+- Exercise: Supported multi-effect approval with lost committed reply and held precommit variant; navigation/reload/reauth; unavailable evidence variant.
+- Observe: same identity/bases/bytes; guarded replacement; original lookup only; unavailable remains UNKNOWN.
+
+BR05 — Closing drawer or navigating does not abort admitted POST
+- Preserve: Close cannot cancel/unlock pending originals; late response respects selection/window/focus.
+- Exercise: Close/navigate after admission; release real POST; reopen and inspect original.
+- Observe: no cancellation/rollback claim or replay; late result cannot paint wrong card or steal focus.
+
+BR06 — Submitted prose A and newer draft B retain distinct exact bytes
+- Preserve: Immutable submission is separate from newer editable draft; late matching result preserves draft/focus.
+- Exercise: A submitted, completion held, B edited through supported control, late receipt; repeat reload/window/storage refusal boundaries.
+- Observe: original A/base exact, draft B/focus/selection exact; no inferred outcome from prose.
+
+BR07 — Local dismissal is neither success nor cancellation/rollback
+- Preserve: Local controls do not settle server originals; private deletion is separately warned and may lose knowledge.
+- Exercise: Stop-waiting/editor close/supported warning dismissal versus explicit private-evidence deletion; subsequent inspection.
+- Observe: server outcome unchanged; no UNKNOWN replay unlocked; retained inspection available or evidence loss disclosed.
+
+BR08 — Saved-state/history inspection remains separate from original settlement
+- Preserve: Current read/history/immutable-original lookup have distinct meaning and exact identity binding.
+- Exercise: Confirmed/refused/pending/UNKNOWN/read-unavailable browser and CLI inspections; status separation.
+- Observe: compare selected board/incarnation/revision/coverage; unavailable distinct; reads cannot rebase/settle/replay.
+
+B01 — Coherent immutable capture; expensive preparation, attachment verification, Git status, stage, commit and push outside primary writer/transaction admission; mechanism open
+- Exercise/observe: Stall each expensive stage independently; a real mutation commits and is acknowledged before stage release; record operation/revision ordering.
+
+B02 — Exact captured record/reference/inventory/verified-byte coherence across concurrent uploads and removals; later changes remain eligible
+- Exercise/observe: Interleave capture, upload and removal; restore and compare full records, membership and bytes for captured and later cuts; no partial-success artifact.
+
+B03 — Real writes during blocked stages; no duplicate logical mutation, no lost later-edit backup eligibility; reconcile unknown publication effect before retry
+- Exercise/observe: Correlate admitted operation and audit result during every blocked stage; prove one effect and later revision coverage; fail/interrupt stage and exercise existing safe recovery.
+
+B04 — Separate mutation acknowledgement, backup freshness/local commit/push, and browser transport health under accepted V2 status semantics
+- Exercise/observe: Cross confirmed/unknown mutation, fresh/stale/failed backup and healthy/lost transport; assert distinct truthful state and revision/commit attribution.
+
+B05 — Analyze chosen architecture for arbitrary hooks, fsmonitor, external filters and omitted-file dependencies; compatible operation or explicit safe refusal; preserve safeguards and unrelated state
+- Exercise/observe: Controlled omitted-file-dependent configurations and unrelated staged content; prove compatible exact success or pre-destructive safe refusal, no unrelated deletion/staging.
+
+B06 — Add cross-feature blocked-backup tests while retaining Q05 producer/slow-sink and Q06 restart/retention/quiescence ownership and existing Go guarantees
+- Exercise/observe: At first feature-capable M27/M28 slot combine blocked backup, supported notices, writes, other boards and stop/reopen; verify progress, cleanup and independent states; link results back.
+
+B07 — Aggregate exact early B01-B06 evidence or explicit owner disposition in parity and final release claims; source binding required, no final-only testing
+- Exercise/observe: Review source/tool/fixture/build bindings, extracted-kit integration checks and outstanding gaps; import immutable V1 handoff only as provenance.
+
+Design boundaries
+- A validated exact terminal refusal remains refused even when a later read fails. Ordinary HTTP failure/refusal is not automatically a terminal proof. Current state/history and exact-original outcome inspection are distinct.
+- Original-retention tests apply to supported operation kinds and their exact contracts. They do not silently broaden M16 recipient retention or reopen Completed scope; any new retention mechanism needs separate design and scope authority.
+- A drawer close, navigation, stopping the wait or local warning dismissal does not abort the admitted POST, settle UNKNOWN, cancel/roll back a write or authorize a blind replacement. Private evidence deletion, if supported, separately discloses lost knowledge.
+- Preserve submitted prose A exactly while newer editable draft B remains separate. Prove identity, authority, generation, bases, bytes, selection and focus at the applicable surface.
+- Require a brief coherent capture and perform expensive verification/status/staging/commit/push outside primary writer/transaction admission. Test real write completion while each expensive stage is deliberately held. No specific queue, filesystem layout, snapshot strategy or timing constant is selected.
+- Captured reference/inventory membership and verified bytes must remain coherent during concurrent uploads/removals. Later committed edits remain eligible for a later backup, and a partial artifact cannot be reported as valid.
+- Analyze arbitrary Git hooks, fsmonitor and external filters against the chosen approach, including dependencies on omitted files. Support compatible operation or safe refusal before destructive/staging actions; preserve safeguards and unrelated worktree/index state.
+
+Qualification and disposition
+- Use real browser and actual CLI paths with native effect/audit assertions. Clearly label controlled response/commit/storage/Git barriers and retain exact candidate/tool/fixture/source bindings. Follow the shared queue, synthetic ownership and cleanup workflow.
+- Distinguish mutation acknowledgement, current saved state, backup freshness/local commit/push status and browser transport health. One must not stand in for another.
+- Existing contracts remain gates for the next separately authorized applicable regression. Feature-specific snapshot/push cases first run in M27/M28. Original-target effects, UNKNOWN, native joins and current-authority fences remain intact.
+- Full incremental work must be deduplicated, estimated and re-cut at each kickoff. This adds no funded start or approved latency/support number. The quick low-confidence forecast remains a planning aid.
+- On the promised V1 follow-up, bind immutable source/build and final combined-gate results to the ledger. Pending source publication does not block completing this planning map, but cannot support a deployed/final-qualified claim.
+
+The matching JSON contains the row identifiers, ownership and exact evidence boundaries.
