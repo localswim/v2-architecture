@@ -1,0 +1,69 @@
+{
+  "authority": "Fresh user kickoff authorizes single-turn delivery, independent review proxy for downstream prerequisites, no estimate-stop gate",
+  "stories": [
+    {
+      "ticket": 315,
+      "number": "M17.00",
+      "prerequisites": [],
+      "title": "Verify latest-stable buildchains and complete baseline",
+      "detail": "M17.00 Verify latest-stable buildchains and complete baseline\nEntry: M16 Completed. Preflight is separate from development accounting.\n- Inventory EVERY direct runtime/build/test dependency and tool: Go, Node, npm,\n  TypeScript, Python, uv, Git, PowerShell, native adapter metadata, browsers and\n  all direct Go/web/harness packages. Check dated official stable metadata;\n  qualify stale pins, preserve historical evidence and record exact hashes.\n- Review current lint/type rules against upstream guidance, trial valuable\n  curated changes; evaluate stable TS compiler API and parser/linter together.\n- Re-enumerate ALL current provider/compiler/driver/native transaction,\n  continuation/archive/interruption/actual CLI/ordinary browser cases. Run\n  complete baseline gates and two isolated clean builds, comparing ALL\n  generated/staged/web/embedded/executable/applicable post-test outputs.\n- Metadata inspection only: never invoke installed codex.exe for a product\n  probe. New-feature implementation and tests belong to .01 onward.\n- Fresh Sol/High review of source-bound proof and owned cleanup before RFR.\n\n"
+    },
+    {
+      "number": "M17.01",
+      "ticket": 316,
+      "title": "Freeze the complete native model and separate inspector contract",
+      "detail": "M17.01 Freeze the complete native model and separate inspector contract\nEntry: .00 independently passed. Maps I.01 and I.05.\n- Design the whole original native identity lifecycle before preparation:\n  trusted canonical regular non-reparse codex.exe provenance/identity/hash,\n  frozen literal argv, necessary server-owned environment/private cwd/closed\n  stdin, suspended Windows root, nonbreakaway kill-on-close job, 16-process\n  ceiling, explicit inherited handles, concurrent 64KiB combined capture,\n  10s deadline plus 2s foreground drain, exact root/descendant/pipe/handle join.\n- One current probe per physical board, zero automatic queue, short nonblocking\n  admission/control gate with no native or SQL I/O held; exact installation,\n  board/incarnation/runtime/configuration/probe generations; current permission\n  rechecks, Stop/Close, incomplete exclusion, late denied-result redaction.\n- Freeze separate deliberate uncached inspector result: candidate present,\n  missing or unqualified; exact bounded result/HTTP/CLI/TS contract. No process,\n  version/support/readiness/capability, raw path/hash/account/target/error,\n  history/persistence/polling/Copy/new selectors or future launch entitlement.\n- Define actual provenance qualification for installed candidate; metadata I/O\n  outside the short memory gate; physical identity and authority checks around\n  work and before disclosure. Explicit unknown/refusal for uncertain evidence.\n- Fresh independent Sol/High complete model review, correction and consensus\n  before .02. Future M18 implementation remains outside M17.\n\n",
+      "prerequisites": [
+        315
+      ]
+    },
+    {
+      "number": "M17.02",
+      "ticket": 317,
+      "title": "Implement trusted inspection, dormant custody and complete service seam",
+      "detail": "M17.02 Implement trusted inspection, dormant custody and complete service seam\nEntry: .01 design review passed. Maps I.02/I.03/I.04/I.06/I.09a.\n- Implement the resolver and deliberate fresh inspector through selected-board\n  Go authority, HTTP, generated schema and production TypeScript validation.\n  Strict query/result/no-store/code/null rules; current authority and physical\n  identity rechecks, no native I/O under short gate, no cache or mutation.\n- Implement dormant suspended-root/job/process-ceiling/inherited-handle,\n  bounded concurrent-drain and retained-handle custody components. No product\n  launch entry point and no actual installed command invocation.\n- Owned controlled helper tests prove assignment, pre-resume failure cleanup,\n  custody and actual teardown. Explicitly label controlled component evidence;\n  it does not qualify installed-tool support or a complete production runner.\n- Shared vectors and focused unsafe/replaced/missing/denied/stale/foreign/busy/\n  concurrent cases prove exact result privacy and unchanged domain state.\n- Fresh nonauthor Sol/High complete resolver/native-component/authority/Go/\n  HTTP/generated/production-TS seam review PASS before .03 clients begin.\n\n",
+      "prerequisites": [
+        316
+      ]
+    },
+    {
+      "number": "M17.03",
+      "ticket": 318,
+      "title": "Deliver deliberate inspector in actual CLI and ordinary browser",
+      "detail": "M17.03 Deliver deliberate inspector in actual CLI and ordinary browser\nEntry: .02 whole-seam review passed. Maps I.07/I.08/I.09b.\n- Actual readable/strict JSON CLI and ordinary selected-board browser use only\n  the reviewed service seam. No command input, auto-request or process action.\n- Default and genuinely configured synthetic boards: candidate/missing/\n  unqualified, current/stale/denied/foreign/busy, changed installation, late\n  A-B-A replies, authority loss, focus/private draft/window preservation.\n- Prove no child invocation from inspection/open/reconnect/navigation. Fresh\n  shared-queue mailbox and supported real-browser bounded action/release/read/\n  validated export/delete feedback, with no secrets or card prose.\n- Fresh Sol/High final component/client/privacy/authority review; material seam\n  findings return to .02 for correction and seam re-review before proceeding.\n\n",
+      "prerequisites": [
+        317
+      ]
+    },
+    {
+      "number": "M17.04",
+      "ticket": 319,
+      "title": "Qualify the full current inspector candidate",
+      "detail": "M17.04 Qualify the full current inspector candidate\nEntry: .02 and .03 independently passed. Maps I.10.\n- Exact source/tool/lock/fixture binding, ALL current baseline and new cases,\n  full pinned Go/TS/lint/contracts/assets/scripts/provider/compiler/driver/\n  native transaction/continuation/archive/interruption/CLI/browser gates.\n- Two isolated clean builds; equality of ALL generated/staged/web/embedded/\n  executable/applicable post-test outputs. Preserve failures and rerun affected\n  paths after correction; no filtered/skipped/zero-case unexplained PASS.\n- Preserve immutable fixed policy, notices/targets/cuts/receipts, archive and\n  restored lineage, original UNKNOWN/no replay, authority, private windows,\n  no child invocation and owned resource cleanup.\n- Fresh integrated nonauthor Sol/High source/evidence/authority/storage review,\n  corrections/material re-review. Separate ordinary, controlled and justified\n  unchanged reused evidence; no new native identity-support claim.\n\n",
+      "prerequisites": [
+        317,
+        318
+      ]
+    },
+    {
+      "number": "M17.05",
+      "ticket": 320,
+      "title": "Demonstrate and publish the exact extracted inspector review kit",
+      "detail": "M17.05 Demonstrate and publish the exact extracted inspector review kit\nEntry: .04 independently passed. Maps I.11.\n- Complete allowlisted Windows ZIP: exact qualified executable, licenses,\n  notices, schemas/references and concise start/use/recovery guides. No private\n  data/credentials/rosters/diagnostics. Verify every member/CRC/size/hash and\n  freshly extract the complete kit.\n- From that extraction, NEW deliberate inspector in ordinary browser and\n  actual readable/JSON CLI on default/configured synthetic boards. Demonstrate\n  candidate/missing/unqualified honestly with no invocation and current-scope\n  privacy. Controlled evidence stays explicitly labeled.\n- Fresh nonauthor package/evidence review, fixes/material re-review; prove\n  owned process/listener/mailbox cleanup; standing-authorized commit/push and\n  verify publication. No installed-version, delivery or general-release claim.\n- All stories and epic RFR; owner alone controls Completed. Refresh #0180\n  Post M17 actuals and remaining time as requested, explicitly acceptance-\n  assumed while M17 awaits Terry. Preserve accepted Post M16 history.\n- Reconcile actual story intervals and current remaining turns 1-3 private\n  worker plan; planned assignments never authorize later milestone execution.\n\nAll stories are fresh P3 cards under #0243, initially Ready for Work. Execution\nrequires In Progress before work/review. .00 -> .01 -> .02 -> .03 -> .04 -> .05;\n.04 also explicitly depends on .02. Passed independent review proxies owner\napproval for downstream stories in this authorized one-turn run only.\n",
+      "prerequisites": [
+        319
+      ]
+    }
+  ],
+  "limits": {
+    "maxDepth": 2,
+    "totalSubagents": 6
+  },
+  "status": "BREAKDOWN_REVIEW_PASS",
+  "scope": "Current approved noninvoking installation inspector; split I",
+  "date": "2026-11-08",
+  "review": "Fresh independent Sol / High PASS; parent consensus, no required corrections",
+  "source": "m17-four-hour-split-2026-11-08.json and m17-m46-backlog-order-2026-11-08.json",
+  "epic": 243,
+  "revision": "M17-INSPECTOR-EXECUTION-R1"
+}

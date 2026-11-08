@@ -25,6 +25,14 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
+The [M17 inspector execution breakdown](docs/spike02/m17-inspector-execution-2026-11-08.txt)
+and [structured stories](docs/spike02/m17-inspector-execution-2026-11-08.json)
+record the fresh authorized kickoff for epic #0243. Six new stories preserve
+the separate preflight, full native-model review, dormant components and
+complete inspector-seam review before clients, full qualification, and exact
+extracted-kit demonstration. Independent Sol / High breakdown review passed;
+this planning record does not claim implementation or qualification completion.
+
 The [ordered M17-M46 Backlog crosswalk](docs/spike02/m17-m46-backlog-order-2026-11-08.txt)
 and [structured locations](docs/spike02/m17-m46-backlog-order-2026-11-08.json)
 record the November 8 insertion. The reviewed split is now M17 installation
