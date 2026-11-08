@@ -1,0 +1,110 @@
+{
+  "revision": "M16-SIX-OWNER-APPROVAL-R4",
+  "date": "2026-11-07",
+  "approvedPlan": "M16-SIX-CONSENSUS-R3",
+  "approvedSourceCommit": "150a4c7e39d96ebbfe371d723528fa8362e2c5e5",
+  "ownerInstruction": "Plan approved. Lay all milestone cards into backlog. Explicitly approving some milestones with base > 4 hours",
+  "scope": "Owner approval of the reviewed M16-M21 split and its complete scope/price/demo plan; explicit exception to the inherited four-hour development-base gate for the approved higher-base milestones.",
+  "approvedMilestones": [
+    {
+      "milestone": "M16",
+      "title": "Bind and reopen one fixed private recipient policy",
+      "baseMinutes": 235,
+      "reserveMinutes": 92,
+      "capMinutes": 327,
+      "separatePreflight": {
+        "id": "M16.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "aboveFourHours": false
+    },
+    {
+      "milestone": "M17",
+      "title": "Inspect the actual installed tool through a completely safe identity probe",
+      "baseMinutes": 270,
+      "reserveMinutes": 100,
+      "capMinutes": 370,
+      "separatePreflight": {
+        "id": "M17.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "aboveFourHours": true
+    },
+    {
+      "milestone": "M18",
+      "title": "Answer whether the fixed policy is supported by actual capabilities",
+      "baseMinutes": 255,
+      "reserveMinutes": 107,
+      "capMinutes": 362,
+      "separatePreflight": {
+        "id": "M18.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "aboveFourHours": true
+    },
+    {
+      "milestone": "M19",
+      "title": "Inspect current card content under unrelated payload growth",
+      "baseMinutes": 275,
+      "reserveMinutes": 118,
+      "capMinutes": 393,
+      "separatePreflight": {
+        "id": "M19.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "aboveFourHours": true
+    },
+    {
+      "milestone": "M20",
+      "title": "Inspect focused history/related facts under unrelated entity growth",
+      "baseMinutes": 245,
+      "reserveMinutes": 108,
+      "capMinutes": 353,
+      "separatePreflight": {
+        "id": "M20.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "aboveFourHours": true
+    },
+    {
+      "milestone": "M21",
+      "title": "Commit a deliberate edit within a proved integrity-work bound",
+      "baseMinutes": 305,
+      "reserveMinutes": 129,
+      "capMinutes": 434,
+      "separatePreflight": {
+        "id": "M21.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "aboveFourHours": true
+    }
+  ],
+  "overFourHourBasesApproved": [
+    "M17",
+    "M18",
+    "M19",
+    "M20",
+    "M21"
+  ],
+  "boardDisposition": "All30 unfinished visible milestone epics M16-M45 Backlog; preserve owner-Completed milestones, progress180 InProgress and archived OBE stories.",
+  "executionStarted": false,
+  "remainingGates": [
+    "Separate future kickoff/start, own current preflight, InProgress before work and applicable accepted prerequisites remain. No spent clock/allowance is resumed.",
+    "The approved higher bases are not rejected solely for exceeding240 minutes. Material scope/tool/evidence changes require fresh estimation and reconciliation with this approved bounded plan; this is not an unlimited or unrelated future budget waiver.",
+    "Actual supported probes and required new before/after feature demonstrations remain to be qualified; approval does not claim those tests have passed.",
+    "D01 new operating/support numbers, changed D02 behavior and any added D03 capability retain their explicit owner decisions; this approval accepts the plan that contains those gates.",
+    "No new external effect, transport/nudge, reconfiguration, shared-host operation or legacy watcher activation is authorized. Terry retains Completed."
+  ]
+}

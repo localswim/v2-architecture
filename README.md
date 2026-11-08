@@ -31,9 +31,12 @@ replace the former combined M16 with M16-M21: private fixed policy, safe install
 identity probe, capability readiness, bounded current-card reads, distinct
 related/history reads and invariant-preserving writes. Each has its own complete
 preflight, qualification and new extracted browser/CLI demonstration. Former
-M17-M40 become M22-M45. This is conditional planning consensus: five forecasts
-still fail the inherited four-hour development gate, and actual probe and useful
-before/after feature evidence remain unproven. It grants no execution exception.
+M17-M40 become M22-M45. Terry subsequently [approved this plan and its higher-base
+milestones](docs/spike02/m16-six-milestone-approval-2026-11-07.txt), explicitly
+accepting the M17-M21 bases above four hours and directing all unfinished
+milestone epics to Backlog. Separate kickoff, current preflight, prerequisite
+and feature-evidence gates remain; no development has started. The original
+proposal's gate-failure statements are preserved as historical evidence.
 The earlier split and kickoff records below remain historical evidence.
 
 The earlier [fixed-notice six-milestone plan](docs/spike02/m15-fixed-delivery-six-split-2026-11-07.txt)
