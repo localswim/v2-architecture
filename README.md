@@ -52,6 +52,13 @@ only the older V1 imitation premise, pending a V2 transport/status decision.
 Approved Go notice/receipt/recovery guarantees remain separate from Python
 administrative nudges. This planning receipt starts no implementation.
 
+The fresh [M16 kickoff breakdown](docs/spike02/m16-readiness-breakdown-2026-11-07.txt)
+integrates private recipient/read-only adapter readiness with the intake's early
+decisions, scale baselines and query/integrity work. Its separate preflight and
+fourteen development stories require fresh independent estimates; the earlier
+M16 price excludes these additions. New support budgets and behavioral changes
+retain their explicit owner-decision gates.
+
 The historical [activity and alert roadmap](docs/spike02/activity-alert-roadmap-r1.txt)
 and [structured roadmap](docs/spike02/activity-alert-roadmap-r1.json) preserve
 the earlier M11–M21 scope and gate statements. The latest planning overlay above
