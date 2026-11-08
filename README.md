@@ -25,7 +25,18 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
-The current [fixed-notice six-milestone plan](docs/spike02/m15-fixed-delivery-six-split-2026-11-07.txt)
+The [M16 six-milestone planning consensus](docs/spike02/m16-six-milestone-split-2026-11-07.txt)
+and [structured scope/estimates](docs/spike02/m16-six-milestone-split-2026-11-07.json)
+replace the former combined M16 with M16-M21: private fixed policy, safe installed
+identity probe, capability readiness, bounded current-card reads, distinct
+related/history reads and invariant-preserving writes. Each has its own complete
+preflight, qualification and new extracted browser/CLI demonstration. Former
+M17-M40 become M22-M45. This is conditional planning consensus: five forecasts
+still fail the inherited four-hour development gate, and actual probe and useful
+before/after feature evidence remain unproven. It grants no execution exception.
+The earlier split and kickoff records below remain historical evidence.
+
+The earlier [fixed-notice six-milestone plan](docs/spike02/m15-fixed-delivery-six-split-2026-11-07.txt)
 and [structured plan](docs/spike02/m15-fixed-delivery-six-split-2026-11-07.json) split
 fixed conversation delivery into M15–M20: readable local notices, configuration
 and readiness, saved briefings, deliberate Send, live-session monitoring, and

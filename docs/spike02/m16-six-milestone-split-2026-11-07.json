@@ -1,0 +1,1883 @@
+{
+  "revision": "M16-SIX-CONSENSUS-R3",
+  "status": "PLANNING_ONLY_NOT_EXECUTION_APPROVAL",
+  "authority": "Terry November7 request: two clean-room Sol/High splits, at least five roughly time-equivalent smaller milestones ending in new feature demos, each independently reviewed, then parent+both authors consensus. Existing RFW281-295 separately owner-archived OBE. No budget exception, implementation, new support bounds or external effects authorized.",
+  "source": {
+    "scopeRevision": "M16-KICKOFF-R3",
+    "scopePublicCommit": "e307ba0",
+    "implementationHEAD": "3c7f92a9c71005f74d4e8016347dfbb8e6eaa6a0",
+    "sourceScopeSHA256": "97db8281e13e370da5b48f67b8a935d8d701b26684328ad81d0a8dd223305713",
+    "historicalActualsSHA256": "e4e450b0ed649768f0882ec5355063b567503b734a97539ea896d7ad8bee0124"
+  },
+  "interpretation": "M16-M21 replace ONLY former combined M16. Original wording in exact preserved acceptance ledger uses historical milestone labels; current downstream crosswalk controls numbering. Requirements define future demo acceptance, not already executed or guaranteed new runtime capabilities.",
+  "sourceEraSliceMap": {
+    "S01": "M16",
+    "S02": "M17",
+    "S03": "M18",
+    "S04": "M19",
+    "S05": "M20",
+    "S06": "M21"
+  },
+  "sourceDefinitionAliases": {
+    "commonDeliveryStandards.Q": "fullDeliveryStandards.qualification",
+    "commonDeliveryStandards.K": "fullDeliveryStandards.kitAndDemo",
+    "commonDeliveryStandards.PF": "fullPreflight"
+  },
+  "authoritativeInterpretation": "Current developmentRows/prices, admissionDependencies and clarifications control. DetailedAcceptanceScope and originalFullScope preserve source-era scope, not superseded prices or blanket future-probe dependencies. SourceEraSliceMap resolves Snn references; original M16.xx acceptance IDs always mean M16-KICKOFF-R3 source stories, not the new first milestone.",
+  "milestones": [
+    {
+      "id": "M16",
+      "candidateId": "C01",
+      "title": "Bind and reopen one fixed private recipient policy",
+      "newDelta": "No private profile -> deliberate configure-once save/reopen and exact authorized status. Saving does not activate or replace any original target.",
+      "developmentRows": [
+        {
+          "id": "M16.01",
+          "work": "ALL original M16.01 model freeze, fresh model review/fixes BEFORE dependent implementation; private storage/refusal tests and complete config seam review before clients",
+          "baseMinutes": 75,
+          "reserveMinutes": 30,
+          "capMinutes": 105
+        },
+        {
+          "id": "M16.02",
+          "work": "Actual CLI and ordinary browser configure/status, full privacy/current-scope/draft/focus/late-response cases",
+          "baseMinutes": 35,
+          "reserveMinutes": 12,
+          "capMinutes": 47
+        },
+        {
+          "id": "M16.03",
+          "work": "D01/D02/D03 complete proposals, independent review/fixes/re-review BEFORE ANY Q01 collection; owner numerical decisions separate",
+          "baseMinutes": 50,
+          "reserveMinutes": 22,
+          "capMinutes": 72
+        },
+        {
+          "id": "M16.04",
+          "work": "Full current qualification/build/output/inventory and integrated nonauthor closure",
+          "baseMinutes": 45,
+          "reserveMinutes": 18,
+          "capMinutes": 63
+        },
+        {
+          "id": "M16.05",
+          "work": "Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication",
+          "baseMinutes": 30,
+          "reserveMinutes": 10,
+          "capMinutes": 40
+        }
+      ],
+      "development": {
+        "baseMinutes": 235,
+        "reserveMinutes": 92,
+        "capMinutes": 327
+      },
+      "preflight": {
+        "id": "M16.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "newDemo": "From the exact extraction, browser saves one synthetic fixed policy, closes/reopens and reads the same bound state; actual CLI configure/status does the same on default/configured boards. Both deliberately refuse a fresh replacement request, including an equivalent new request. No future probe operation is exposed.",
+      "browserDemo": [
+        "Freshly extract kit; start its executable with a new owned synthetic workspace. Select default board; open Recipient policy. Enter the documented synthetic fixed reference and approved policy fields; Save once.",
+        "Observe saved-but-not-activated state. Close/reopen the ordinary browser and read the exact saved policy under the same selected board. Deliberately try replacing it with a new request: refusal retains the bound policy and draft.",
+        "Repeat on configured board. Switch A-B-A while a controlled save/read is delayed; no other-scope repaint or draft clearing. Private denial/failure is separately labeled controlled evidence."
+      ],
+      "actualCliDemo": [
+        "Using extracted localswim.exe, run --workspace DEMO --project demo --board default recipient configure --input PRIVATE-SYNTHETIC.json; then --json recipient status. Proposed new grammar is frozen in S01.01 and its guide; never use invented syntax as current availability.",
+        "Close/reopen ONLY this owned application; recipient status returns the same revision/generation and exact authorized policy facts. A second configure request refuses without replacement or blind retry.",
+        "Repeat both readable/JSON cases on configured board; inspect a deliberately uncertain save before deciding whether any fresh action is allowed. No private reference appears in public logs."
+      ],
+      "featureGate": "Firm source-supported new function, subject to implementation/qualification. Full original model review passes before storage implementation; complete current config seam passes before either client.",
+      "clarifications": [
+        "Freeze and independently review ALL original model/acceptance requirements before dependent storage implementation. Complete current config Go/HTTP/generated/production-TS seam review passes before either client.",
+        "Only configuration operations ship; absent future adapter/probe support cannot block configuration-only preflight or invent probe qualification."
+      ],
+      "scopeAcceptanceRefs": [
+        "M16.01 ALL full-model review",
+        "M16.02",
+        "M16.04 configuration partition",
+        "M16.05/.06 configuration partition",
+        "D01/M16.07",
+        "D02/M16.08",
+        "D03/M16.09",
+        "M16.13/.14 repeated"
+      ],
+      "detailedAcceptanceScope": [
+        {
+          "id": "S01.01",
+          "title": "Freeze full model and ship private configure-once storage/seam",
+          "work": [
+            "INTERNAL GATE BEFORE STORAGE IMPLEMENTATION: freeze ALL original .01 representation/limits/bindings/migration-or-refusal/probe/schema/native-lifecycle/acceptance-matrix rules, obtain fresh independent Sol / High model review, fix findings and materially re-review to PASS. Only then begin dependent configuration implementation. This is distinct from the later complete-current-slice seam review before either client.",
+            "Implement bounded versioned private physical installation/account ACL storage with board/incarnation/config revision/generation/current-authority binding, exact policy/reference, flush and atomic publication.",
+            "Inspect uncertain writes without replay; refuse malformed/legacy/missing/corrupt/foreign account/incarnation, loss of authority, capacity/storage faults and all reconfiguration. No repair-on-read or revived permission.",
+            "Complete and independently review Go/HTTP/generated declarations/schema/production-TypeScript CONFIG seam before either client begins. Future probe operations are not exposed."
+          ],
+          "acceptance": [
+            "Focused native storage/authority faults and safe redaction; saving leaves originals and local inbox unchanged."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S01.02",
+          "title": "Expose saved policy in ordinary browser and actual CLI",
+          "work": [
+            "Selected-board configure/status commands with strict readable/JSON outputs, safe help and bounded result/exit codes.",
+            "Private browser form/view preserves draft/focus/window/selection and generation; failed/late/denied saves cannot clear input or repaint another scope."
+          ],
+          "acceptance": [
+            "Positive save/reopen and refused replacement on default/configured boards; no Enable/Start/Send or new briefing."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S01.03",
+          "title": "Independently review D01/D02/D03 proposals before ANY Q01 observation",
+          "work": [
+            "Produce reviewed D01 operating/measurement proposal with all specified shapes/units/counts/resource/work distributions and current-limit refusals; no invented supported limits.",
+            "Record D03 Human-only Python current-target nudges versus all-actor browser propagation and durable original-target Go notices; (from,through] translation, UNKNOWN/no replay, retired watcher files and separately priced any proposed new scope.",
+            "Evaluate current five-second visible polling vs producer metadata/SSE; cover bootstrap/snapshot/subscription, identities/epochs/revision floors, same-revision changed content and late-authority/navigation fences.",
+            "Cover reconnect/snapshot/preference failures, slow consumer bounds, storage-free heartbeat, consumer-only quiescence/joined shutdown; separate transport/storage observation/edit age/pending/error/render/backup/delivery.",
+            "Propose grace/geometry independently of V1 ten seconds and unchanged-data alarm. Existing transport/status/independent Go monitors remain unchanged until Terry explicitly accepts behavior. M17/M29 stay later.",
+            "GATE: independent proposal-quality review, fixes and material re-review of ALL D01/D02/D03 PASS before ANY Q01 observation starts. Numeric/support acceptance remains Terry only."
+          ],
+          "acceptance": [
+            "RFR decision-quality proposals; Terry explicitly disposes of new D01 numeric budgets/support limits. Reviewer PASS is not owner acceptance.",
+            "Independent design review approves proposal quality only. No propagation transport/status implementation."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S01.04",
+          "title": "Complete current joined qualification and independent closure",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.qualification to THIS slice current candidate, all current inventories/outputs and every new slice case. This is a separately priced full execution/review, not a final-only or reused PASS."
+          ],
+          "acceptance": [
+            "No first-probe operation shipped; all currently affected paths and inherited guarantees pass."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S01.05",
+          "title": "Exact extracted configuration review kit and publication",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.kitAndDemo to THIS slice exact independently qualified candidate, archive and fresh extraction; NEW both-client demo, cleanup and durable publication are separately executed and priced."
+          ],
+          "acceptance": [
+            "New config browser AND CLI journey succeeds from the same exact extracted kit."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        }
+      ],
+      "currentForecastPassesStrictDevelopmentGate": true,
+      "pricingBasis": "Complete aligned A comparison rowset, including known conditional correction and repeated full delivery. No low-component row picking. Full preflight50+25 uses complete B-aligned conservative allowance.",
+      "admissionDependencies": {
+        "feature": [
+          "accepted M15",
+          "new owner kickoff",
+          "own full fresh estimate/preflight/IP gates"
+        ],
+        "early": []
+      }
+    },
+    {
+      "id": "M17",
+      "candidateId": "C02",
+      "title": "Inspect the actual installed tool through a completely safe identity probe",
+      "newDelta": "Saved policy only -> actual installed allowlisted literal version/help identity inspection with truthful native Stop/Close/incomplete/actual-join status.",
+      "developmentRows": [
+        {
+          "id": "M17.01",
+          "work": "Entire first-native bundle: detailed executable/ownership design20; Windows launch/descendant/handle/actual-join35; output/parser/queue/admission/authority/control25; all-layer seam15; actual supported plus controlled lifecycle/fault fixtures30; fresh High review/fixes/re-review25; native resource teardown integration5",
+          "baseMinutes": 155,
+          "reserveMinutes": 55,
+          "capMinutes": 210
+        },
+        {
+          "id": "M17.02",
+          "work": "BOTH ordinary browser and actual CLI identity/probe/Stop, safe readable/JSON results, scope/draft/focus/control-generation cases",
+          "baseMinutes": 35,
+          "reserveMinutes": 15,
+          "capMinutes": 50
+        },
+        {
+          "id": "M17.03",
+          "work": "Full current qualification/build/output/inventory and integrated nonauthor closure",
+          "baseMinutes": 50,
+          "reserveMinutes": 20,
+          "capMinutes": 70
+        },
+        {
+          "id": "M17.04",
+          "work": "Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication",
+          "baseMinutes": 30,
+          "reserveMinutes": 10,
+          "capMinutes": 40
+        }
+      ],
+      "development": {
+        "baseMinutes": 270,
+        "reserveMinutes": 100,
+        "capMinutes": 370
+      },
+      "preflight": {
+        "id": "M17.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "newDemo": "Extracted browser Inspect installed tool and actual CLI identity/version probe return actual qualified safe installed facts on both boards. Stop/Close and genuine missing/unsupported facts are truthful. Controlled stuck-child/incomplete drain evidence is separately labeled; a root exit, timer, AbortController or substitute binary never proves physical join or real-adapter support.",
+      "browserDemo": [
+        "Extract S02 kit into a fresh owned location; start synthetic default board and open saved Recipient policy. Choose Inspect installed tool. Observe the actual qualified tool/version identity and safe qualification code; no capability-ready claim.",
+        "Repeat for configured board. Close the view/owned host while a separately labeled controlled stall/descendant case runs; the UI may say incomplete until actual join. Prove native join authoritatively; no timed spinner proves it.",
+        "Use a dedicated owned missing/unsupported fixture for honest unavailable state; do not replace the real executable with a fake to claim actual support."
+      ],
+      "actualCliDemo": [
+        "From the extracted binary run selected-board recipient tool inspect (and --json form), then recipient probe version. Exact proposed grammar is frozen/reviewed before clients.",
+        "Observe safe actual installed identity/version and exact bounded exit/result codes. Run recipient probe stop using current returned control generation; distinguish incomplete from physically joined.",
+        "Repeat on configured board and dedicated unsupported/missing fixture. A stale/foreign/denied control refuses; no Send/Enable/Start exists."
+      ],
+      "featureGate": "Complete root/descendant/output/parser/time/admission/control/current-authority/Stop/Close/actual-join safety exists from FIRST actual product probe. Missing real supported probe is concrete readiness failure. No safety may move later.",
+      "clarifications": [
+        "The FIRST actual installed literal version/identity probe ships the ENTIRE native root/descendant/output/parser/time/queue/admission/current-authority/Stop/Close/actual-join/incomplete-drain/competing-owner safety bundle.",
+        "Real supported read-only evidence and separately labeled controlled faults are both mandatory; no substitute executable proves installed support."
+      ],
+      "scopeAcceptanceRefs": [
+        "M16.03 ALL first-native safety",
+        "M16.04 identity/probe/Stop partition",
+        "M16.05/.06 identity partition",
+        "M16.13/.14 repeated"
+      ],
+      "detailedAcceptanceScope": [
+        {
+          "id": "S02.01",
+          "title": "Implement complete native safety and tool-identity seam",
+          "work": [
+            "Implement the ENTIRE original .03 native runner safety bundle at the FIRST actual probe: exact installed allowlisted executable and qualified literal read-only version/help probes; no supplied path/argument/endpoint, shells or browser command construction.",
+            "Bound concurrent/queued jobs, stdout/stderr/parser work, startup/runtime/deadline/output and native descendant ownership. Safe launcher sinks precede process execution.",
+            "Serialize admission/control/authority; Stop/Close/deadline owns root AND descendants until actual native join, including stalled/incomplete drain, late completion and attempted competing ownership. Deadline alone never means quiescent.",
+            "Never renew Human authority in background. Denied late responses are redacted. Freeze safe codes for malformed/truncated/oversized/stalled/missing/unsupported/unknown/startup failure.",
+            "Complete Go/HTTP/generated/production-TS identity/probe/Stop seam with fresh independent Sol / High native/authority/concurrency review BEFORE either client starts.",
+            "Source basis: no production native child-tree runner exists; Monitor.Close is a Go-worker join only (noticemonitor/monitor.go:552). Runtime.Close retains native/storage ownership through join (transport/local/runtime.go:262). The new Windows custody/actual-join implementation is not routine CLI plumbing."
+          ],
+          "acceptance": [
+            "Actual supported installed read-only probe proof plus separate controlled lifecycle/fault matrix. No stub proves real-adapter readiness."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S02.02",
+          "title": "Expose installed identity and control in BOTH clients",
+          "work": [
+            "Actual CLI tool inspect/probe/Stop grammar and browser Inspect installed tool/Stop view; safe help, readable/strict JSON and current scoped control generation.",
+            "Preserve drafts/window/selection through delay, A-B-A, authority loss and conflicting controls; display stopped/incomplete separately from joined."
+          ],
+          "acceptance": [
+            "Real installed version/help, genuine unsupported/missing and native Stop/Close join on default/configured boards; ordinary vs controlled evidence distinct."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S02.03",
+          "title": "Complete current joined qualification and independent closure",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.qualification to THIS slice current candidate, all current inventories/outputs and every new slice case. This is a separately priced full execution/review, not a final-only or reused PASS."
+          ],
+          "acceptance": [
+            "All current inventories, full native ownership matrix and new identity cases pass; missing actual probe prevents positive readiness handoff."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S02.04",
+          "title": "Exact extracted installed-tool review kit and publication",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.kitAndDemo to THIS slice exact independently qualified candidate, archive and fresh extraction; NEW both-client demo, cleanup and durable publication are separately executed and priced."
+          ],
+          "acceptance": [
+            "New installed-tool inspection and control journey from same extracted binary/browser assets."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        }
+      ],
+      "currentForecastPassesStrictDevelopmentGate": false,
+      "pricingBasis": "Complete aligned A comparison rowset, including known conditional correction and repeated full delivery. No low-component row picking. Full preflight50+25 uses complete B-aligned conservative allowance.",
+      "admissionDependencies": {
+        "feature": [
+          "accepted M16",
+          "actual supported literal identity/version probe",
+          "own full fresh estimate/preflight/IP gates"
+        ],
+        "early": []
+      }
+    },
+    {
+      "id": "M18",
+      "candidateId": "C03",
+      "title": "Answer whether the fixed policy is supported by actual capabilities",
+      "newDelta": "Installed identity/version known -> distinct real literal capability evidence answers fixed-policy support; unknown/unsupported/unavailable remain separate safe facts.",
+      "developmentRows": [
+        {
+          "id": "M18.01",
+          "work": "Actual literal capability evidence/parser/policy mapping and complete reviewed Go/HTTP/generated/production-TS seam",
+          "baseMinutes": 55,
+          "reserveMinutes": 25,
+          "capMinutes": 80
+        },
+        {
+          "id": "M18.02",
+          "work": "Actual CLI and ordinary browser readiness/check/Stop cases, both board contexts",
+          "baseMinutes": 30,
+          "reserveMinutes": 12,
+          "capMinutes": 42
+        },
+        {
+          "id": "M18.03",
+          "work": "EARLY independently admitted ALL-current-surface Q01 fixtures/instrumentation/observations/evidence review, charged once",
+          "baseMinutes": 95,
+          "reserveMinutes": 40,
+          "capMinutes": 135
+        },
+        {
+          "id": "M18.04",
+          "work": "Full current qualification/build/output/inventory/integrated closure AND explicit feature-phase source/tool/lock/stable-metadata rebind",
+          "baseMinutes": 45,
+          "reserveMinutes": 20,
+          "capMinutes": 65
+        },
+        {
+          "id": "M18.05",
+          "work": "Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication",
+          "baseMinutes": 30,
+          "reserveMinutes": 10,
+          "capMinutes": 40
+        }
+      ],
+      "development": {
+        "baseMinutes": 255,
+        "reserveMinutes": 107,
+        "capMinutes": 362
+      },
+      "preflight": {
+        "id": "M18.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "newDemo": "Extracted browser Check policy readiness and actual CLI readiness check answer support for the exact fixed policy revision/generation using a genuinely distinct qualified literal capability probe. Compare with previous identity-only facts. Version alone, generic diagnostics or a controlled provider cannot supply this delta.",
+      "browserDemo": [
+        "Extract S03 kit; select default synthetic board with S01 fixed policy. Open Recipient policy and choose Check readiness. Read actual capability-derived support for that exact policy.",
+        "Compare with Inspect installed tool: version/identity alone remains distinct. Observe genuine unsupported/unavailable/unknown results where appropriate; never turn unknown into ready.",
+        "Repeat configured board; Stop/Close a separately labeled controlled delayed capability run and observe incomplete until actual join. Switch/revoke midflight; no denied late response repaints another scope."
+      ],
+      "actualCliDemo": [
+        "Run extracted selected-board recipient status, recipient tool inspect, then recipient readiness (and --json). The readiness result names safe policy revision/generation and actual capability disposition without exposing raw output.",
+        "Use recipient probe capability and Stop with exact current control generation; repeat default/configured contexts and genuine unsupported/unavailable fixture.",
+        "Compare prior S02 kit on the same synthetic premise: it cannot answer fixed-policy capability support. No supplied command paths/args/endpoints or automatic retries."
+      ],
+      "featureGate": "Distinct actual capability probe must exist and qualify. Feature implementation/final handoff depends on C02; EARLY Q01 and its own .00 do not.",
+      "clarifications": [
+        "Early Q01 and its own applicable current-source preflight are independent of new-probe implementation/availability and capability feature handoff. ALL current surfaces are observed before any W01/W04 correction.",
+        "Feature implementation and final capability handoff require accepted identity-probe operation and distinct real supported literal capability evidence. Rebind current source/tools/locks/stable metadata/inventories before feature admission; refresh qualification is charged in the closure.",
+        "The failed whole estimate gate is not waived by early logical eligibility. Any separately admitted baseline packet requires a complete honest fresh estimate, authorization, own preflight and IP entry; no free support work."
+      ],
+      "scopeAcceptanceRefs": [
+        "M16.03 capability evidence",
+        "M16.04 readiness remainder",
+        "M16.05/.06 readiness remainder",
+        "Q01/M16.10 ALL early current baseline",
+        "M16.13/.14 repeated"
+      ],
+      "detailedAcceptanceScope": [
+        {
+          "id": "S03.01",
+          "title": "Map actual literal capability evidence to fixed-policy readiness",
+          "work": [
+            "Add only qualified literal capability probes using the complete S02 runner; bounded strict parser maps evidence to safe readiness codes against the exact fixed policy/revision/generation.",
+            "Distinguish config saved, identity known, probe running, stopped/incomplete, unsupported, unavailable, unknown and actually ready facts. No send/receiver permission/non-effect claim.",
+            "Complete and independently review current Go/HTTP/generated/production-TS readiness seam BEFORE either client starts; client material findings return for correction/re-review."
+          ],
+          "acceptance": [
+            "Actual supported capability probe plus distinct malformed/oversized/missing/unsupported/late/authority/control lifecycle faults."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base.",
+          "storyEntryDependencies": [
+            "Accepted S02; qualified actual distinct supported literal capability probe; feature-phase S03.00 rebind current; fresh estimate/IP and ordinary per-story gates."
+          ]
+        },
+        {
+          "id": "S03.02",
+          "title": "Expose policy support in BOTH clients",
+          "work": [
+            "CLI recipient readiness/probe capability/Stop and browser Check readiness view, preserving private fields and current scope/control generation.",
+            "No activation, reconfiguration, replacement, original-target change or new briefing; private/raw adapter output excluded from inappropriate public output."
+          ],
+          "acceptance": [
+            "NEW policy-support answer in actual CLI and ordinary extracted browser on default/configured boards; failed saves/denied late results retain input."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base.",
+          "storyEntryDependencies": [
+            "Accepted S02; qualified actual distinct supported literal capability probe; feature-phase S03.00 rebind current; fresh estimate/IP and ordinary per-story gates."
+          ]
+        },
+        {
+          "id": "S03.03",
+          "title": "EARLY independent ALL-current-surface Q01 baseline before W corrections",
+          "work": [
+            "Prepare exact count-only 41/412/4,120, >=2,978,150-byte heavy aggregate card, >20 MiB-equivalent combined and 19/24 registered-board fixtures subject to current limits.",
+            "Measure browser download/validation/graph/DOM/preview/keystrokes/drafts, dense history/hierarchy/links, current local notices, idle/quiet/navigation and Human/Bot same/unrelated-card compound overlap.",
+            "Record cold/warm setup/cache/machine, p50/p95/p99/max and counts. Separate construction from timed measurement; retain failed/inadmissible shapes without shrinking or silently enlarging limits.",
+            "Observe first-attempt delayed/partial/refused input; blocked/captured/full output; native child/drain ownership; HTTP refusal/output; before/after-commit storage faults and concurrent optional backup.",
+            "Measure attachment reference/history metadata, concurrent visible previews and actual 10 MiB blob exact-hash/download; missing/corrupt/unauthorized cases, concurrent change/detach/cover/retention preserve admitted references/bytes.",
+            "Count SQL/materialization/writer/control latency during downloads separately from decoding/render/copy; current-host restart/idle and owned-work joins are included.",
+            "Complete cross-product count/content/combined and 19/24-board shapes: slow/unavailable members, navigation churn/quiet, authority late joins, Human/Bot same/unrelated-card intent and compound effects.",
+            "Include delayed Add, dropped success reply and source-bound readback without helper replay; explicit completed/archive overlap and SQLite/wire/export/resident units.",
+            "Join the separately bound CURRENT baseline families with rows/SQL/jobs/audits/copy/allocation/retained memory/idle work/queue age/control/drain and full distributions/overhead; no S02/new-probe dependency is implied. Preserve every failed run and source/tool/fixture binding.",
+            "Independently review baseline completeness against EVERY currently available Q02-Q06 surface. Q03 future M33 import/restore extension is not simulated or added.",
+            "Observe only supported CURRENT surfaces when new readiness probes are absent. Missing future probe support/native runner feasibility NEVER delays current browser/draft/attachment/HTTP/storage/local-notice/restart/idle baseline collection.",
+            "Bind each baseline run to exact accepted current source/tools/locks/fixtures and retained failures. No feature-readiness PASS is inferred from the baseline preflight."
+          ],
+          "acceptance": [
+            "All available current-surface baseline complete BEFORE S04/S05/S06 corrections. New budgets unaccepted -> useful baseline only, never scale readiness/no-change PASS."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base.",
+          "storyEntryDependencies": [
+            "Fresh full S03 development estimate gate and IP admission for S03.00 and this Q01 story",
+            "D01/D02/D03 independent proposal-quality PASS in S01.03; no new numeric budget acceptance needed for unchanged-contract observations",
+            "Accepted S03.00 CURRENT-SURFACE baseline preflight bound to the actual available current source/tools/locks/fixtures",
+            "NO dependency on S02 feature acceptance, new runner/probe implementation, actual capability-probe availability, S03 feature handoff, or new support/budget approval"
+          ],
+          "executionWave": "First eligible early wave after all proposals review PASS, overlapping native feature implementation if authorized; must finish before ANY W01/W04 correction."
+        },
+        {
+          "id": "S03.04",
+          "title": "Complete current joined qualification and independent closure",
+          "work": [
+            "APPLY complete current qualification standards, PLUS explicit feature-phase current source/tool/lock/stable metadata/inventory rebind after the independent early baseline. Any changed tool/dependency pins are qualified before feature handoff."
+          ],
+          "acceptance": [
+            "Whole configuration/readiness seam complete; Q01 rechecks retained without substituting probe success for scale work."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S03.05",
+          "title": "Exact extracted policy-readiness kit and publication",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.kitAndDemo to THIS slice exact independently qualified candidate, archive and fresh extraction; NEW both-client demo, cleanup and durable publication are separately executed and priced."
+          ],
+          "acceptance": [
+            "NEW fixed-policy readiness journey on both clients/default/configured synthetic boards; no external effect."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        }
+      ],
+      "currentForecastPassesStrictDevelopmentGate": false,
+      "pricingBasis": "Complete aligned A comparison rowset, including known conditional correction and repeated full delivery. No low-component row picking. Full preflight50+25 uses complete B-aligned conservative allowance.",
+      "admissionDependencies": {
+        "feature": [
+          "accepted M17",
+          "distinct actual supported literal capability probe",
+          "current feature-phase source/tool/stable-metadata rebind",
+          "own full fresh estimate/preflight/IP gates"
+        ],
+        "early": [
+          "reviewed M16 D01/D02/D03 proposals",
+          "complete honest accepted applicable current-source estimate and own preflight/IP/ownership/queue gates",
+          "NO new-probe or M17 feature prerequisite for existing current-surface Q01 observations"
+        ]
+      }
+    },
+    {
+      "id": "M19",
+      "candidateId": "C04",
+      "title": "Inspect current card content under unrelated payload growth",
+      "newDelta": "At fixed explicitly disclosed card/entity/board counts, old complete browser/CLI current-card operation fails an accepted useful payload-growth premise; corrected operation passes while unrelated descriptions/payload grow. No whole-operation constant-work-in-every-axis claim.",
+      "developmentRows": [
+        {
+          "id": "M19.01",
+          "work": "Measured failing current-card work regression, scoped payload projection/correction and local source/authority review",
+          "baseMinutes": 60,
+          "reserveMinutes": 25,
+          "capMinutes": 85
+        },
+        {
+          "id": "M19.02",
+          "work": "Independent list/reference/catalog work measurement before any related correction",
+          "baseMinutes": 20,
+          "reserveMinutes": 10,
+          "capMinutes": 30
+        },
+        {
+          "id": "M19.03",
+          "work": "Full caller-path policy.ValidateCurrent measurement/invariant inventory plus conditional bounded upstream design/correction/differential refusal proof/fresh High review; retain unchanged check if accepted whole-operation bounds already hold",
+          "baseMinutes": 50,
+          "reserveMinutes": 25,
+          "capMinutes": 75
+        },
+        {
+          "id": "M19.04",
+          "work": "Source-bound cold/warm old/new complete-operation proof, exact selected facts and concurrent activity/control",
+          "baseMinutes": 35,
+          "reserveMinutes": 15,
+          "capMinutes": 50
+        },
+        {
+          "id": "M19.05",
+          "work": "Actual current-card browser AND CLI useful-premise demo and guide",
+          "baseMinutes": 25,
+          "reserveMinutes": 10,
+          "capMinutes": 35
+        },
+        {
+          "id": "M19.06",
+          "work": "Full current qualification/build/output/inventory and integrated nonauthor closure including all upstream refusal regressions",
+          "baseMinutes": 55,
+          "reserveMinutes": 23,
+          "capMinutes": 78
+        },
+        {
+          "id": "M19.07",
+          "work": "Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication",
+          "baseMinutes": 30,
+          "reserveMinutes": 10,
+          "capMinutes": 40
+        }
+      ],
+      "development": {
+        "baseMinutes": 275,
+        "reserveMinutes": 118,
+        "capMinutes": 393
+      },
+      "preflight": {
+        "id": "M19.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "newDemo": "On identical old/new exact extracted kits and fixture copies, open the named current card in ordinary browser and actual CLI card read. Hold disclosed counts fixed and vary unrelated descriptions/payload. Measure the ENTIRE caller path including policy.ValidateCurrent; exact current DTO/refusals remain equal. Require old failure/new success under Terry-accepted useful premise, not only an inner loader counter.",
+      "browserDemo": [
+        "Use supplied exact admissible large fixture and immediately preceding qualified accepted CURRENT read-surface kit; open named card details. Preserve the measured failure of the accepted bounded-use premise without changing data.",
+        "Extract S04 and start a fresh copy of the same fixture. Open the same card in the ordinary browser; exact content/refusals remain, now satisfying the accepted bound while unrelated-card payload growth does not expand selected projection work.",
+        "Repeat default/configured contexts, concurrent unrelated Human/Bot edit, navigation and denied late results. If old kit already meets the same premise, no NEW-feature certification is allowed."
+      ],
+      "actualCliDemo": [
+        "Against old/new extracted kits and identical fresh fixture copies run --workspace DEMO --project demo --board default --json card read CARD-UUID, then readable card read CARD-UUID.",
+        "Use public CLI output for exact card facts and separately bound instrumentation for rows/queries/copies/work; compare under accepted D01 bounded-use premise.",
+        "Repeat configured board with current exact selection and authority loss/refusals. Existing command syntax is unchanged; new bounded operation must be measured, not asserted."
+      ],
+      "featureGate": "Conditional NEW bounded-use capability. If old kit already meets the same accepted whole-operation premise, this is useful optimization evidence but cannot count as a new-feature milestone. Preserve all global policy/refusal invariants in the SAME authorized snapshot; no automatic validation rewrite.",
+      "clarifications": [
+        "Use a useful unrelated DESCRIPTION/PAYLOAD growth premise at fixed explicitly disclosed card/entity/board counts. Measure the ENTIRE ordinary browser/CLI operation, including policy.ValidateCurrent and all related paths.",
+        "Preserve existing global policy validation if accepted whole-operation bounds already hold. Any required upstream correction is conditional substantive BASE work and must preserve every current-policy/refusal invariant in the same authorized snapshot. No automatic new validation architecture.",
+        "This is not a claim of constant whole-operation work across all growth axes. Old-fails/new-passes must concern the useful complete operation, not merely an inner WHERE/DTO/loader counter.",
+        "Compare the immediately preceding qualified accepted CURRENT read-surface source/kit with the new one on identical admitted fixture/premise and exact source/tool bindings. An unavailable future M18 capability kit is NOT a read feature prerequisite. Run ALL cases inherited by the actual current source; unshipped probes are neither required nor claimed passed."
+      ],
+      "scopeAcceptanceRefs": [
+        "W01/M16.11 focused-card projection partition",
+        "Q01 before/after",
+        "M16.13/.14 repeated"
+      ],
+      "detailedAcceptanceScope": [
+        {
+          "id": "S04.01",
+          "title": "Measured failing focused-card projection and bounded SQL",
+          "work": [
+            "First add measured failing work-count regression for focused selection after all-card/description projection.",
+            "Implement authorized selected-card current projection scoped to request; preserve one current-authority snapshot, exact identity/incarnation/epoch/refusals/DTO/history/archive/reference truth and transactional effects.",
+            "Do not claim whole W01 finished: related/reference/history/list/catalog scans stay visible for S05. Fresh Sol / High SQL/concurrency review and correction included."
+          ],
+          "acceptance": [
+            "Same DTO/authority snapshot; unrelated count/content/board growth no longer expands the scoped card projection; no weakening or alternate read snapshot."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S04.02",
+          "title": "Measure list/reference/catalog work independently",
+          "work": [
+            "Measure per-card current_reference query work and catalog aggregates separately, after complete Q01 baseline and before correction. Establish a source-bound failing work-count regression if a correction is required.",
+            "Inspect complete list/search/catalog semantics; a bounded DTO does not establish bounded SQL. Do not presume every path needs correction."
+          ],
+          "acceptance": [
+            "Evidence/accepted scope enters S05 correction; full known conditional correction is priced there."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S04.03",
+          "title": "Source-bound before/after proof of useful selected-card behavior",
+          "work": [
+            "Re-run relevant Q01 cold/warm scale cases on exact unchanged fixture with old/new source, query/row/copy/allocation and latency facts.",
+            "Retain ALL failures; D01 bounds determine readiness. Measure concurrent writes/downloads/late authority, selected archived/Completed and refused/unknown states."
+          ],
+          "acceptance": [
+            "Before fails the approved bounded-use premise and after meets it, or declare this NOT a NEW feature and return split for owner scope/count resolution."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S04.04",
+          "title": "Demonstrate the new bound through BOTH existing clients",
+          "work": [
+            "Use ordinary browser card details and actual card read CLI on identical accepted large fixture; validate exact card/revision/identity/description.",
+            "No new generic diagnostics panel or invented command is added. Publish compact bounded-behavior evidence with guide references, not private runtime data."
+          ],
+          "acceptance": [
+            "Terry repeats a formerly out-of-bound inspection in browser AND CLI with ordinary product controls. Existing successful small-board demo alone cannot count."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S04.05",
+          "title": "Complete current joined qualification and independent closure",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.qualification to THIS slice current candidate, all current inventories/outputs and every new slice case. This is a separately priced full execution/review, not a final-only or reused PASS."
+          ],
+          "acceptance": [
+            "All current inventories and affected Q01 paths rechecked; one-snapshot preservation reviewed independently."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S04.06",
+          "title": "Exact extracted bounded-card kit and publication",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.kitAndDemo to THIS slice exact independently qualified candidate, archive and fresh extraction; NEW both-client demo, cleanup and durable publication are separately executed and priced."
+          ],
+          "acceptance": [
+            "New measured selected-card capability demonstrated from exact extraction, plus previous features retained."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        }
+      ],
+      "currentForecastPassesStrictDevelopmentGate": false,
+      "pricingBasis": "Complete aligned A comparison rowset, including known conditional correction and repeated full delivery. No low-component row picking. Full preflight50+25 uses complete B-aligned conservative allowance.",
+      "admissionDependencies": {
+        "feature": [
+          "complete ALL currently available early Q01 baseline",
+          "Terry accepted D01 useful-work bounds",
+          "actual useful payload-growth old-fails/new-passes premise",
+          "own accepted current-source fresh estimate/preflight/IP gates"
+        ],
+        "early": [
+          "No new-probe prerequisite for current-source measurements/correction that do not ship probe features. Current source/tool/lock and inherited-inventory rebinding always applies."
+        ]
+      }
+    },
+    {
+      "id": "M20",
+      "candidateId": "C05",
+      "title": "Inspect focused history/related facts under unrelated entity growth",
+      "newDelta": "After C04 current-payload bound, a DISTINCT old C04 whole focused-history/detail operation fails an accepted premise while unrelated related/history entities grow; C05 correction passes. Fixed disclosed current-card counts keep upstream policy cost explicit.",
+      "developmentRows": [
+        {
+          "id": "M20.01",
+          "work": "Measured related/reference/history regression and exact scoped loader correction with one authorized snapshot and fresh source review",
+          "baseMinutes": 55,
+          "reserveMinutes": 25,
+          "capMinutes": 80
+        },
+        {
+          "id": "M20.02",
+          "work": "Full bounded conditional list-reference/catalog correction and differential truth/fresh High review; broader scope stays unfinished pending resolution",
+          "baseMinutes": 40,
+          "reserveMinutes": 20,
+          "capMinutes": 60
+        },
+        {
+          "id": "M20.03",
+          "work": "Explicit full caller-path/global current-policy validation regression and measurement for the distinct entity-growth premise",
+          "baseMinutes": 10,
+          "reserveMinutes": 5,
+          "capMinutes": 15
+        },
+        {
+          "id": "M20.04",
+          "work": "Source-bound old/new entity-growth proof/rechecks across current/retained/archive/refusal states",
+          "baseMinutes": 30,
+          "reserveMinutes": 15,
+          "capMinutes": 45
+        },
+        {
+          "id": "M20.05",
+          "work": "Actual corrected focused history/detail browser AND CLI path demo and guide",
+          "baseMinutes": 25,
+          "reserveMinutes": 10,
+          "capMinutes": 35
+        },
+        {
+          "id": "M20.06",
+          "work": "Full current qualification/build/output/inventory and integrated nonauthor closure",
+          "baseMinutes": 55,
+          "reserveMinutes": 23,
+          "capMinutes": 78
+        },
+        {
+          "id": "M20.07",
+          "work": "Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication",
+          "baseMinutes": 30,
+          "reserveMinutes": 10,
+          "capMinutes": 40
+        }
+      ],
+      "development": {
+        "baseMinutes": 245,
+        "reserveMinutes": 108,
+        "capMinutes": 353
+      },
+      "preflight": {
+        "id": "M20.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "newDemo": "Use old C04/new C05 exact extracted kits and identical fixtures; vary unrelated related/history entities, hold disclosed current-card counts/payload premise fixed. Ordinary focused Details/History and actual card read/card history must invoke corrected loaders. Prove complete operation old-fails/new-passes with equal facts/refusals. Full BoardRead relationships and separately owned Files paths are regressions unless independently corrected/measured; no borrowed win.",
+      "browserDemo": [
+        "Use exact old S04/new S05 extracted kits with identical fresh admissible fixtures. Select the named card and open its HISTORY / focused CARD DETAILS request whose source path invokes the corrected selected related/reference/history loader.",
+        "Record the actual HTTP/DOM/CLI request-to-SQL source map. A relationships command using complete BoardRead or Files using a separately owned attachment path does NOT inherit a win from a focused loader correction.",
+        "Demonstrate the distinct accepted formerly out-of-bound history/detail inspection, exact facts/revisions/current-authority/refusals retained. Repeat default/configured, archive/Completed, stale/navigation/denied-late cases. Other related/Files paths remain full regressions; no borrowed demo evidence."
+      ],
+      "actualCliDemo": [
+        "Use old S04/new S05 exact extracted binaries on identical fixture copies: --workspace DEMO --project demo --board default --json card history CARD-UUID and card read CARD-UUID; prove each actual request reaches the corrected focused source.",
+        "Compare exact identity/revisions/history/reference facts and source-bound rows/queries/copies/work under the distinct accepted related-use premise. A card relationships BoardRead or attachment list command is a regression unless independently corrected/measured.",
+        "Repeat configured board and current/retained/archive/refusal states. No NEW-feature PASS if these actual history/detail paths do not show old-fails/new-passes behavior."
+      ],
+      "featureGate": "Conditional DISTINCT NEW bounded-use capability. Must not duplicate C04 payload-growth proof, claim the same previously inherited operation as new without a distinct accepted failing premise, or certify broad search/catalog behavior from bounded DTOs.",
+      "clarifications": [
+        "Use a DISTINCT useful unrelated RELATED/HISTORY entity-growth premise, with current-card counts and payload conditions disclosed. Complete current-card/detail/history operations must be measured, including upstream current-policy work.",
+        "Only actual focused Details/History and CLI read/history paths that invoke corrected loaders may claim the benefit. Full BoardRead relationships and separately owned Files paths are regressions unless independently corrected and measured.",
+        "Full bounded list/current-reference/catalog correction or measured justified disposition remains owned here; required broader work stays visibly unfinished, never hidden in reserve."
+      ],
+      "scopeAcceptanceRefs": [
+        "W01/M16.11 related/history/reference/list/catalog remainder",
+        "Q01 before/after",
+        "M16.13/.14 repeated"
+      ],
+      "detailedAcceptanceScope": [
+        {
+          "id": "S05.01",
+          "title": "Bound exact related/reference/history work in one snapshot",
+          "work": [
+            "Measured failing regression precedes corrections to comment/link/attachment/approval/history/current-reference loads; scope requested card and existing page rules.",
+            "Preserve one authorized snapshot and exact DTO/refusal/history/archive/reference facts. Do not resolve related facts from a second authority/storage snapshot.",
+            "Fresh Sol / High SQL/concurrency review covers late current authority, page staleness and exact current vs retained references."
+          ],
+          "acceptance": [
+            "Independent unrelated entity growth no longer expands the specifically corrected requested-scope/page work; exact contracts retained."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S05.02",
+          "title": "Conditional bounded list-reference/catalog correction and disposition",
+          "work": [
+            "After separately measured failure and accepted D01 premise, perform bounded list per-card reference/catalog aggregate correction if required; otherwise retain source-bound justified no-change. This BASE includes the substantive bounded correction, not just an investigation.",
+            "Preserve exact completeness/authority/transactional semantics. No arbitrary substring-search constant-work promise or unrelated new catalog/search feature is included.",
+            "If measurements require correction beyond this explicitly bounded branch, keep it visibly unfinished and seek owner scope/design decision with honest fresh pricing; no reserve-only expansion."
+          ],
+          "acceptance": [
+            "W01 complete acceptance owned here; pending required correction remains unfinished visibly, not moved into reserve or final qualification."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S05.03",
+          "title": "Recheck source-bound distinct related-read capability",
+          "work": [
+            "Cold/warm before/after count/content/board fixtures and exact query/row/copy facts; check concurrent downloads/writes and all current-reference/retained/history/archive states.",
+            "Separate old/current selected-card behavior from the new related-page/inspection bound."
+          ],
+          "acceptance": [
+            "Old S04 kit fails the distinct accepted related-work premise, S05 passes; otherwise no NEW-feature claim and owner split resolution required."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S05.04",
+          "title": "Demonstrate corrected focused history/detail inspection through BOTH clients",
+          "work": [
+            "Use ordinary browser focused card DETAILS/HISTORY and actual card read/card history whose source map invokes corrected loaders. Relationships via complete BoardRead and Files/attachment list are REGRESSIONS unless independently corrected/measured; never borrow a focused-path win.",
+            "Prove same exact facts/revisions and unchanged permission/refusal/continuation rules on default/configured boards."
+          ],
+          "acceptance": [
+            "At least one distinct formerly out-of-bound selected related inspection now supported under accepted bounds in both clients."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S05.05",
+          "title": "Complete current joined qualification and independent closure",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.qualification to THIS slice current candidate, all current inventories/outputs and every new slice case. This is a separately priced full execution/review, not a final-only or reused PASS."
+          ],
+          "acceptance": [
+            "Full CURRENT gates and affected Q01 rechecks; W01 correction complete with all guarantees."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S05.06",
+          "title": "Exact extracted related-read kit and publication",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.kitAndDemo to THIS slice exact independently qualified candidate, archive and fresh extraction; NEW both-client demo, cleanup and durable publication are separately executed and priced."
+          ],
+          "acceptance": [
+            "Distinct NEW bounded related inspection from exact extraction; previous capability regression passes."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        }
+      ],
+      "currentForecastPassesStrictDevelopmentGate": false,
+      "pricingBasis": "Complete aligned A comparison rowset, including known conditional correction and repeated full delivery. No low-component row picking. Full preflight50+25 uses complete B-aligned conservative allowance.",
+      "admissionDependencies": {
+        "feature": [
+          "accepted M19 current-payload outcome",
+          "complete ALL current-surface early baseline",
+          "Terry accepted distinct related/history useful-work bounds",
+          "distinct actual old-fails/new-passes premise",
+          "own full fresh estimate/preflight/IP gates"
+        ],
+        "early": []
+      }
+    },
+    {
+      "id": "M21",
+      "candidateId": "C06",
+      "title": "Commit a deliberate edit within a proved integrity-work bound",
+      "newDelta": "Only if accepted D01 measurement requires correction: old C05 edit fails accepted useful integrity/control premise, corrected complete browser/CLI edit passes with EVERY invariant and original-outcome guarantee retained.",
+      "developmentRows": [
+        {
+          "id": "M21.01",
+          "work": "Full conditional integrity BASE: invariant inventory25; transaction-safe strategy30; all mutation/refusal/retention/restore integration40; component work-count/invariant-equivalence/fault regression development35; fresh High review/fixes/material re-review30",
+          "baseMinutes": 160,
+          "reserveMinutes": 60,
+          "capMinutes": 220
+        },
+        {
+          "id": "M21.02",
+          "work": "Integrated actual native transaction/CAS/history/receipt/commit-fault/restore/lost-response proof and scale recheck",
+          "baseMinutes": 35,
+          "reserveMinutes": 20,
+          "capMinutes": 55
+        },
+        {
+          "id": "M21.03",
+          "work": "NEW deliberate browser AND actual CLI bounded-edit demo, exact revisions/opId/original evidence, guide",
+          "baseMinutes": 25,
+          "reserveMinutes": 12,
+          "capMinutes": 37
+        },
+        {
+          "id": "M21.04",
+          "work": "Full current qualification/build/output/inventory and integrated nonauthor closure",
+          "baseMinutes": 55,
+          "reserveMinutes": 25,
+          "capMinutes": 80
+        },
+        {
+          "id": "M21.05",
+          "work": "Exact extracted complete kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication/final timing checkpoint conditions",
+          "baseMinutes": 30,
+          "reserveMinutes": 12,
+          "capMinutes": 42
+        }
+      ],
+      "development": {
+        "baseMinutes": 305,
+        "reserveMinutes": 129,
+        "capMinutes": 434
+      },
+      "preflight": {
+        "id": "M21.00",
+        "baseMinutes": 50,
+        "reserveMinutes": 25,
+        "capMinutes": 75
+      },
+      "newDemo": "Identical old/new extracted fixtures; actual ordinary browser edit and typed actual CLI card edit under disclosed heavy concurrent intent. Require whole-operation old-fails/new-passes while exact CAS/compound history/receipts/refusals/original identities/UNKNOWN survive. Lost reply uses source-bound original lookup, never replay.",
+      "browserDemo": [
+        "Use old S05/new S06 exact extracted kits and identical fresh synthetic large fixture copies. Deliberately rename/edit the named card in ordinary browser with current base revisions.",
+        "Preserve prior measured failing accepted integrity-work premise; corrected S06 must meet it while exact history, compound effects, receipts/refusals and all invariants remain identical.",
+        "Repeat configured board, concurrent Human/Bot intent, before/post-commit faults and dropped success reply. Inspect original outcome, never replay. No positive NEW-feature demo if correction is unnecessary or not yet authorized."
+      ],
+      "actualCliDemo": [
+        "On old/new extracted kit read exact selected card, build one reviewed typed input with fresh opId/current incarnation/expected board+card revisions; run --workspace DEMO --project demo --board default --json card edit CARD-UUID --input PRIVATE-INTENT.json.",
+        "Use the returned exact outcome and deliberate card/history readback. On lost reply use operation read OP-UUID --evidence PRIVATE-ORIGINAL.json, never resend the intent.",
+        "Repeat configured board and compare accepted work bound/source-bound audit facts across old/new candidates. Any invariant or authority difference fails qualification."
+      ],
+      "featureGate": "D01 explicit accepted numerical/support disposition and measured correction need. No-change/baseline-only is not NEW functionality or completed required correction. All layout/PRAGMA integrity/FK/relational/blob-hash/hierarchy/workflow invariants stay; no hidden guarantee or unbounded architecture change.",
+      "clarifications": [
+        "Retain ALL structural/relational/blob-hash/layout/integrity/FK/hierarchy/workflow/current-and-retained invariants, transaction/CAS/compound history/receipt/refusal/original-identity/current-authority/UNKNOWN/no-replay and native ownership guarantees.",
+        "If accepted bounds already hold unchanged, no-change evidence is useful but is NOT a new feature. If budgets remain unaccepted or correction is incomplete, preserve checks and identify the exact missing decision/work; do not hand the whole milestone off as finished."
+      ],
+      "scopeAcceptanceRefs": [
+        "W04/M16.12 ALL conditional design/correction",
+        "Q01 before/after",
+        "M16.13 integrated closure",
+        "M16.14 final accounting/provisional checkpoint"
+      ],
+      "detailedAcceptanceScope": [
+        {
+          "id": "S06.01",
+          "title": "Measure and design/correct bounded integrity work",
+          "work": [
+            "Measure schema.Validate-before-COMMIT across independent count/content/combined shapes. Source inspection is not a measured latency failure.",
+            "Conditional design/implementation of proved bounded/incremental strategy is fully in BASE, including structural/relational/blob/hash/hierarchy/workflow invariants, not reserve. Never remove checks for speed.",
+            "If unchanged work meets accepted bounds, publish measured no-change disposition; this does not count as new functionality. If budgets unaccepted, retain all checks, publish useful baseline and exact missing Terry decision; correction stays unfinished.",
+            "Any changed guarantee or unbounded correction scope requires owner scope resolution. No automatic architectural expansion hidden in reserve. Fresh independent Sol / High SQL/concurrency/recovery review.",
+            "Source basis: writer.go:336 validates before COMMIT; schema/schema.go:170 and :204-315 include layout, integrity_check, foreign_key_check, relational checks, every blob hash, hierarchy/workflow; hierarchy.go:25 traverses current/retained state. Full invariant equivalence across mutation/retention/restore is substantive conditional BASE work."
+          ],
+          "acceptance": [
+            "Full invariant equivalence and substantive correction only if justified; no unsupported scale-readiness/no-change PASS while required decisions or correction remain."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S06.02",
+          "title": "Prove transaction/outcome/fault integrity and recheck scale",
+          "work": [
+            "Preserve transaction/CAS/compound history/receipt/refusal/original identities, before/after-commit errors, concurrent Human/Bot intent and dropped-success readback without replay.",
+            "Record audit/SQL/row/copy/allocation/timing and compare source-bound corrected candidate with all early baseline paths. Include current notice/archive/restore conservation and independent lineage.",
+            "This story is integrated actual native transaction/CAS/restore/commit-error proof; S06.01 component regression development is distinct. No duplicate baseline collection is charged."
+          ],
+          "acceptance": [
+            "EVERY structural/relational invariant survives, no two-snapshot shortcut or lost original authority; all required corrections complete."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S06.03",
+          "title": "Demonstrate a newly bounded edit in BOTH clients",
+          "work": [
+            "Ordinary selected-card browser edit and actual typed card edit on identical synthetic large premise; preserve exact input/CAS/opId/source-bound original lookup without replay.",
+            "Show old/new measured bounded-write behavior as distinct from S05 read improvements."
+          ],
+          "acceptance": [
+            "NEW bounded write behavior requires old S05 fails accepted premise and S06 correction passes. No-change or baseline-only branch cannot certify feature count."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S06.04",
+          "title": "Complete current joined qualification and independent closure",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.qualification to THIS slice current candidate, all current inventories/outputs and every new slice case. This is a separately priced full execution/review, not a final-only or reused PASS."
+          ],
+          "acceptance": [
+            "Original M16 joined readiness+scale candidate closes only with accepted D01 and every required correction complete."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        },
+        {
+          "id": "S06.05",
+          "title": "Exact extracted complete split kit and publication",
+          "work": [
+            "APPLY ALL fullDeliveryStandards.kitAndDemo to THIS slice exact independently qualified candidate, archive and fresh extraction; NEW both-client demo, cleanup and durable publication are separately executed and priced."
+          ],
+          "acceptance": [
+            "Distinct new edit capability plus complete original readiness/scale acceptance; final timing/dependency/provisional-checkpoint reconciliation."
+          ],
+          "review": "Fresh nonauthor Sol / High review; ordinary fixes and material re-review are inside this base."
+        }
+      ],
+      "currentForecastPassesStrictDevelopmentGate": false,
+      "pricingBasis": "Complete aligned A comparison rowset, including known conditional correction and repeated full delivery. No low-component row picking. Full preflight50+25 uses complete B-aligned conservative allowance.",
+      "admissionDependencies": {
+        "feature": [
+          "accepted M20 related-read outcome",
+          "complete ALL current-surface early baseline",
+          "Terry accepted D01 write bounds and measured correction need",
+          "own full fresh estimate/preflight/IP gates"
+        ],
+        "early": [
+          "Full original M16 closure additionally requires M16-M18 configuration/probe capabilities complete, and every required M19-M21 correction complete. No successful partial feature conceals remaining original scope."
+        ]
+      }
+    }
+  ],
+  "totals": {
+    "milestones": 6,
+    "developmentBaseMinutes": 1585,
+    "developmentReserveMinutes": 654,
+    "developmentCapMinutes": 2239,
+    "preflightBaseMinutes": 300,
+    "preflightReserveMinutes": 150,
+    "preflightCapMinutes": 450,
+    "currentStrictGateFailures": [
+      "M17",
+      "M18",
+      "M19",
+      "M20",
+      "M21"
+    ],
+    "combinedBaseMinutes": 1885,
+    "combinedCapMinutes": 2689
+  },
+  "fullPreflight": {
+    "baseMinutes": 50,
+    "reserveMinutes": 25,
+    "capMinutes": 75,
+    "scope": "EVERY milestone owns latest-stable ALL directly used tools/runtime/build/test dependencies plus strict curated lint/type review, dated primary sources, qualification of stale pins/locks, complete current inventories, two isolated clean all-output-equal builds, independent review/fixes/material re-review, synthetic ownership/shared-queue health and owned cleanup/publication. New development is not preflight.",
+    "applicableProbeRule": "Actual executable/probe qualification is APPLICABLE TO THE SHIPPED FEATURE. Config-only C01/current-surface baseline .00 is not blocked by an unavailable future identity/capability probe and never claims it passed. C02/C03 positive feature handoff does require the exact real supported probe. No existing CURRENT native/provider/compiler/driver/archive/CLI/browser case is excluded because a future feature is absent.",
+    "originalFullScope": [
+      "After accepted predecessor and fresh current-turn development estimate gate, move this .00 In Progress. No prior allowance resumes.",
+      "Check dated primary latest-stable metadata for Go, Node, npm, TypeScript, Python, uv, Git, PowerShell, actual native adapter/runtime, browser qualification tools and EVERY direct Go/web/harness runtime/build/test dependency. Exclude prereleases. Record exact verified versions, locks, sources, date and hashes.",
+      "Qualify every stale tool/lock refresh before handoff; inability to qualify any stable release is a concrete readiness issue, not a silently retained pin. Preserve old source/tool evidence.",
+      "Review strict curated lint/type rules using current official guidance; trial valuable changes, narrow justified exceptions, and assess stable TypeScript compiler API with stable parser/linter support. No blanket enablement.",
+      "Re-enumerate COMPLETE CURRENT provider/compiler/driver/native transaction/continuation/archive/interruption/actual-CLI/mandatory-browser inventories and ALL generated/staged/web/embedded/executable/applicable post-test outputs. Run full current pinned gates and two isolated clean builds; compare all outputs.",
+      "Qualify the actual installed executable and supported frozen literal version/help/capability probes without sending. Missing supported probes remain explicit readiness issues; no substitute executable certifies the production adapter.",
+      "Fresh nonauthor review, normal fixes/material re-review, owned synthetic fixture/account proof, source binding, shared diagnostic queue health and owned cleanup/publication. Never start/restart shared services, activate watchers or send notices."
+    ]
+  },
+  "fullDeliveryStandards": {
+    "qualification": [
+      "Freeze current source/tools/locks/fixtures and enumerate all CURRENT cases, including additions since M15. The historical inventory is not a fixed ceiling.",
+      "Run full pinned Go/TypeScript/lint/contract/asset/script/provider/compiler/driver gates; two independent clean builds with separate roots and equality of ALL generated, staged, web, embedded, executable and applicable post-test outputs.",
+      "Run every current native transaction, continuation, archive/interruption, actual-CLI and mandatory ordinary-browser case, plus new slice cases. No filtered, skipped, zero-case, failed or unexplained mismatch run passes. Keep failures and corrections source-bound.",
+      "Preserve local notices, archive/restore conservation and independent restored lineage; immutable original target/cuts/receipts, UNKNOWN/no replay, current authority, exact selected identity/incarnation/epoch/revisions and native actual joins.",
+      "Separate ordinary positive actual application/probe proof, controlled adapters/lifecycle faults, native component evidence and justified unchanged reused evidence. Controlled processes never establish actual installed adapter readiness.",
+      "Run ordinary extracted browser and actual built CLI NEW capability demos on both default and configured synthetic boards. Preserve drafts/focus/private window context through stale/delayed/A-B-A/revoked/conflicting replies; denied late data is redacted.",
+      "Browser work uses supported control plus fresh shared-queue health/register, bounded action, release control, bounded schema-validated reads/export and owned mailbox deletion. Application/native/transaction assertions remain authoritative; no secrets/prose/raw errors enter diagnostics.",
+      "Fresh integrated nonauthor Sol / High source/authority/concurrency/storage/evidence review, normal fixes and material re-review; recheck all previously affected baseline paths after changes."
+    ],
+    "kitAndDemo": [
+      "Build the exact independently qualified candidate review kit: allowlisted executable, license/notices, schema/reference/guide closure, manifest and checksums; no private worker roster, credentials, operational data or diagnostic exports.",
+      "Verify every archive member, CRC, size and digest; freshly extract the complete archive. Bind source, tool, lock, fixture and extracted executable hashes. Demonstrate from that extraction, not from a workspace build.",
+      "Include concise start/use/recovery guide, exact CLI examples, ordinary browser journey, decision dispositions and explicit unsupported/unavailable/unknown outcomes. Fresh independent package/evidence review plus fixes/material re-review included.",
+      "Preserve/export needed evidence; clean only verified owned roots/processes/listeners/mailboxes and prove closure. No remembered PID or shared service cleanup. Commit/push bounded durable evidence after verification under standing authority.",
+      "Reconcile genuine In Progress-to-RFR story times, dependencies and current remaining-turns 1-3 private plan/JSON. Terry alone controls Completed. Refresh #0180 only after Terry completes the milestone; preserve accepted Post M15. Any provisional final split checkpoint is explicitly acceptance-assumed and follows all stories/epics reaching RFR."
+    ]
+  },
+  "earlyBaselineRules": [
+    "ALL D01/D02/D03 model/protocol proposals independently reviewed with fixes/material re-review BEFORE any Q01 observation. D01 numeric/support acceptance remains Terry-owned; unchanged-contract baseline may proceed without invented acceptance.",
+    "C03 early Q01 story and its own current-source .00 have explicit entry after reviewed proposals, complete fresh applicable estimate, own accepted .00, IP and ownership/queue gates. No dependency on C02 handoff, new runner, supported future probe, capability client or new D01 budget acceptance.",
+    "Q01 covers ALL currently available browser/drafts/attachments/HTTP/refusal/output/existing-native/lifecycle/local-notice/restart/idle/storage/backup surfaces with exact count/content/combined/19-24-board fixtures, distributions/work counts, original failed evidence and source/tool/fixture bindings. Charge setup outside measurement once; Q03 future M33 extension stays later.",
+    "Complete ALL available early baseline before ANY W01/W04 correction. New actual probe surfaces append separately when available; no future feature is simulated passed. Before final C03 feature admission, explicitly rebind latest-stable/source/tools/locks/inventories and qualify changed inputs; cost stays in C03 closure.",
+    "C03 currently fails the common full estimate gate. Independent early entry removes an irrelevant probe dependency; it does NOT authorize baseline execution under a failed estimate. A legitimately re-priced/admitted original-scope phase needs concrete complete priced scope, own .00 and review, not free support work."
+  ],
+  "featureEvidenceRule": "Each C handoff requires Terry-repeatable exact extracted ordinary-browser AND actualCLI default/configured demo of a distinct NEW operation or useful accepted old-fails/new-passes capability. Inner counters, baseline reports, no-change dispositions, invented unsupported paths and generic dashboards cannot count. Functional/DOM/native/transaction assertions authoritative; shared queue best-effort safe evidence only.",
+  "exactOriginalAcceptanceCoverage": [
+    {
+      "id": "M16.01.A01",
+      "sourceTicket": 282,
+      "exactAcceptance": "Freeze private fixed reference/policy representation, version/capacity/size limits, installation/physical-board/incarnation/config revision/generation bindings, current authority and migration-or-refusal rules.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.01.A02",
+      "sourceTicket": 282,
+      "exactAcceptance": "Configuration is configure-once: after binding, replacing the recipient/policy is refused. Future reconfiguration/retargeting remains M21; save/reopen does not grant that capability or change any original target.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.01.A03",
+      "sourceTicket": 282,
+      "exactAcceptance": "Specify exact qualified executable/probe allowlist, safe readiness result schema/codes and unsupported/missing/unknown dispositions. No supplied command paths/arguments/endpoints, shell wrappers, credentials or raw output exposure.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.01.A04",
+      "sourceTicket": 282,
+      "exactAcceptance": "Define native process/descendant/output/time/control ownership, actual join, denied late-result redaction and Stop/Close behavior from admission onward.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.01.A05",
+      "sourceTicket": 282,
+      "exactAcceptance": "Freeze ordinary/controlled/fault/default/configured-board acceptance matrix. Saved policy never activates delivery; external Enable/Start/Send and new briefings are unavailable. Preserve all accepted local-inbox guarantees.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.01.A06",
+      "sourceTicket": 282,
+      "exactAcceptance": "Review independently before dependent implementation; include fixes/re-review.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.02.A01",
+      "sourceTicket": 283,
+      "exactAcceptance": "Implement versioned bounded private configuration under the native physical installation/account ACL, current authority and board/incarnation bindings.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.02.A02",
+      "sourceTicket": 283,
+      "exactAcceptance": "Save/reopen exact reference/policy with explicit revision/generation semantics, flush/atomic publication, uncertain-write inspection and no blind replay.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.02.A03",
+      "sourceTicket": 283,
+      "exactAcceptance": "Refuse reconfiguration after the fixed profile is bound, including equivalent new-request attempts to replace it. Do not add a hidden live-retarget path.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.02.A04",
+      "sourceTicket": 283,
+      "exactAcceptance": "Prove capacity, malformed/legacy/missing/corrupt/foreign-account/incarnation, authorization loss and storage fault refusal without repair-on-read or revived permissions. Saving does not Enable/Start/Send or alter local originals.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.02.A05",
+      "sourceTicket": 283,
+      "exactAcceptance": "Focused native tests and fresh Sol / High storage/authority review; correct material findings and re-review before shared-seam closure.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.03.A01",
+      "sourceTicket": 284,
+      "exactAcceptance": "Invoke only the exact installed executable and qualified literal read-only probes; no shell or browser-provided command construction. Version/capability evidence is bounded, validated and mapped to safe codes.",
+      "primaryClosureOwner": "S02",
+      "implementationAndRepeatedRegressionSlices": [
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.03.A02",
+      "sourceTicket": 284,
+      "exactAcceptance": "Bound simultaneous/queued jobs, stdout/stderr capture and parser work; handle malformed/truncated/oversized output, missing/unsupported executable, stalled output and startup failure truthfully. Safe launcher sinks precede runtime.",
+      "primaryClosureOwner": "S02",
+      "implementationAndRepeatedRegressionSlices": [
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.03.A03",
+      "sourceTicket": 284,
+      "exactAcceptance": "Serialize admission/control/authority. Stop/Close/deadline retains root and descendant ownership through actual native join, including incomplete drain, late completion and attempted competing ownership. A deadline is not proof of physical quiescence. Never renew human authority by background work.",
+      "primaryClosureOwner": "S02",
+      "implementationAndRepeatedRegressionSlices": [
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.03.A04",
+      "sourceTicket": 284,
+      "exactAcceptance": "Actual supported read-only probe proof and separate controlled lifecycle/fault matrix; stubs cannot stand in for real-adapter readiness. Fresh Sol / High authority/concurrency/native review, fixes and material re-review included.",
+      "primaryClosureOwner": "S02",
+      "implementationAndRepeatedRegressionSlices": [
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.04.A01",
+      "sourceTicket": 285,
+      "exactAcceptance": "Join Go service/HTTP, generated schema/declaration and production TypeScript validators for exact config/status/probe/Stop operations and strict refusals.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.04.A02",
+      "sourceTicket": 285,
+      "exactAcceptance": "Preserve loopback origin/CSP/auth boundaries, immutable originals, exact selection/revision/generation and redacted denied late responses. Distinguish config saved, probe running, stopped/incomplete, unsupported and ready facts.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.04.A03",
+      "sourceTicket": 285,
+      "exactAcceptance": "Fresh nonauthor Sol / High review must pass on the complete seam BEFORE either client story starts. Client-discovered material changes return here for correction and re-review. No external effect endpoints or generic exec.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.05.A01",
+      "sourceTicket": 286,
+      "exactAcceptance": "Add explicit selected-board configuration/status/read-only-probe/Stop commands, readable and strict JSON output, safe help and bounded exit/result codes.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.05.A02",
+      "sourceTicket": 286,
+      "exactAcceptance": "Exercise the actual built CLI on default/configured boards: save/reopen exact private policy, real supported probe, genuine unsupported/missing outcomes, stale/foreign/denied/storage/uncertain-control and incomplete-drain behavior.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.05.A03",
+      "sourceTicket": 286,
+      "exactAcceptance": "Exclude private reference/raw adapter output from inappropriate public output; no automatic mutation replay or Send/Start/Enable. Preserve local notice CLI.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.05.A04",
+      "sourceTicket": 286,
+      "exactAcceptance": "Include focused executable tests, concise guide and fresh nonauthor review.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.06.A01",
+      "sourceTicket": 287,
+      "exactAcceptance": "Add the private fixed configuration/policy and truthful readiness/probe/Stop view using production validators and current scoped authority.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.06.A02",
+      "sourceTicket": 287,
+      "exactAcceptance": "Preserve drafts, focus, selected window/board and control generation; stale, delayed, A-B-A, revoked and conflicting replies cannot repaint another scope or clear input. Saving policy does not activate delivery.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.06.A03",
+      "sourceTicket": 287,
+      "exactAcceptance": "Real browser proof on default/configured boards includes real supported probe and truthful unavailable/unsupported/unknown, Stop/incomplete drain, failed private save and denied late results. Keep controlled cases separately labeled.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.06.A04",
+      "sourceTicket": 287,
+      "exactAcceptance": "Use supported browser control and shared Valkey/Webdis diagnostics: fresh health/register, bounded action, release UI, validated bounded read/export and owned delete. Preserve CSP and privacy. Include fresh nonauthor review.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.07.A01",
+      "sourceTicket": 288,
+      "exactAcceptance": "Deliver the D01 decision proposal for one Human/browser/tab on localhost with concurrent Human/Bot intent; extra-client stress is explicit headroom.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.07.A02",
+      "sourceTicket": 288,
+      "exactAcceptance": "Define count-only 41/412/4,120, heavy aggregate card at least 2,978,150 bytes, combined over 20 MiB-equivalent logical data and 19/24 registered-board shapes. Completed/archive overlap and SQLite/wire/export/resident units stay explicit.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.07.A03",
+      "sourceTicket": 288,
+      "exactAcceptance": "Respect description/history/entity/page/draft/blob limits. Prove honest bounded refusal when a shape is inadmissible and propose adaptation; never silently enlarge limits or shrink the premise.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.07.A04",
+      "sourceTicket": 288,
+      "exactAcceptance": "Set a reproducible measurement/decision protocol and proposed work/resource budgets for rows/SQL/jobs/copies/queue age/control/drain, CPU/memory, and browser download/validation/graph/DOM/preview/keystrokes; record cache/setup/machine and p50/p95/p99/max/sample counts. Fixture construction is outside measurement.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.07.A05",
+      "sourceTicket": 288,
+      "exactAcceptance": "Distinguish absent browser consumers from explicitly running Go owned work. Independent proposal review can unblock unchanged-contract baseline collection; readiness against NEW support limits/budgets requires their explicit accepted disposition. Existing guarantees remain. No invented SLA or power-loss claim.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.07.A06",
+      "sourceTicket": 288,
+      "exactAcceptance": "Terry's explicit disposition is required for new numeric budgets or support limits. A fresh reviewer approves proposal quality, not that owner decision. An approval-ready proposal belongs RFR; dependent unfinished work names the concrete missing decision and cannot fabricate acceptance from a review PASS.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.08.A01",
+      "sourceTicket": 289,
+      "exactAcceptance": "Evaluate current five-second visible polling versus producer metadata/SSE; specify bootstrap/snapshot/subscription order, identities/epochs/revision floors, same-revision changed content, late/current-authority and navigation fences.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.08.A02",
+      "sourceTicket": 289,
+      "exactAcceptance": "Cover reconnect/snapshot failure, preference retry, bounded slow consumers, storage-free heartbeat and consumer-only quiescence/joined shutdown.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.08.A03",
+      "sourceTicket": 289,
+      "exactAcceptance": "Separate transport, accepted storage observation, edit age, pending/error, render completion and backup/delivery. Propose grace/geometry without inheriting V1's ten seconds or displaying alarming unchanged-data age.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.08.A04",
+      "sourceTicket": 289,
+      "exactAcceptance": "Fresh independent design review. Keep current transport/status and independent Go monitors unchanged until Terry explicitly accepts a behavioral change. M17 and M29 extensions remain later; the proposal is development, not .00 work.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.09.A01",
+      "sourceTicket": 290,
+      "exactAcceptance": "Record Human-only current-target best-effort Python administrative nudges as separate from all-actor browser propagation and durable original-target Go product notices. Preserve Go targets/cuts/identities/receipts/current authority, UNKNOWN/no replay and clean/dirty restart/recovery contracts.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.09.A02",
+      "sourceTicket": 290,
+      "exactAcceptance": "Assess any additional V2 nudge need; recommend retaining approved Go guarantees and price any new capability separately. Copy/probes/queue acceptance never prove external delivery, non-effect or receiver permission.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.09.A03",
+      "sourceTicket": 290,
+      "exactAcceptance": "Record intentional (from,through] versus V1 inclusive interval translation; keep legacy Python watcher/pool interfaces retired and historical files intact.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.09.A04",
+      "sourceTicket": 290,
+      "exactAcceptance": "Fresh independent review of the disposition; no new nudge implementation, activation, send or contract weakening is part of this story.",
+      "primaryClosureOwner": "S01",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01"
+      ]
+    },
+    {
+      "id": "M16.10.A01",
+      "sourceTicket": 291,
+      "exactAcceptance": "Own ALL early current-surface observations needed by later Q02-Q06, including browser/drafts, attachment paths, HTTP refusals/output/native lifecycle, existing local notices and current-host restart/idle. No late-card dependency may strand available measurement; no new future feature is simulated as passed.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.10.A02",
+      "sourceTicket": 291,
+      "exactAcceptance": "Run separate count/content/combined and 19/24-board fixtures with exact measures, dense history/hierarchy/links, current-authority late joins, slow/unavailable members, navigation churn/quiet, same/unrelated-card Human/Bot overlap, compound effects, delayed Add/dropped success reply/readback without helper replay.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.10.A03",
+      "sourceTicket": 291,
+      "exactAcceptance": "Include reference/history metadata, simultaneous visible previews and actual 10 MiB blob hash/download, missing/corrupt/unauthorized refusals. Concurrent card changes, detach/cover/retention preserve admitted references and exact bytes. Measure SQL/materialization and writer/control latency during downloads, separately from decode/render/copy. Capture per-keystroke draft work.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.10.A04",
+      "sourceTicket": 291,
+      "exactAcceptance": "Exercise first-attempt delayed/partial/refused input, blocked/captured/full output, native child/drain ownership, pre/post-commit storage errors and concurrent optional backup under current supported interfaces.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.10.A05",
+      "sourceTicket": 291,
+      "exactAcceptance": "Count SQL/rows/jobs/audits/copy/allocation/retained memory, idle work, queue age, control/drain and timing distributions with overhead disclosed. Browser evidence uses owned shared-queue lifecycle; product/DOM/native/transaction assertions remain authoritative. Preserve every failed run and source/tool/fixture binding.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.10.A06",
+      "sourceTicket": 291,
+      "exactAcceptance": "Observe current behavior even while decision approval is pending; claims against new budgets wait for accepted disposition. Q03's later import/restore extension remains future scope. Fresh independent Sol / High evidence/authority review.",
+      "primaryClosureOwner": "S03",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "M16.11.A01",
+      "sourceTicket": 292,
+      "exactAcceptance": "First add a measured failing work-count regression for focused card selection after all-card/description projection and whole-board related-entity scans.",
+      "primaryClosureOwner": "S04",
+      "implementationAndRepeatedRegressionSlices": [
+        "S04",
+        "S05"
+      ]
+    },
+    {
+      "id": "M16.11.A02",
+      "sourceTicket": 292,
+      "exactAcceptance": "Bound authorized selected-card/current-reference/comment/link/attachment/ approval/history work to requested scope and page rules. Evaluate list per-card reference queries/catalog aggregates separately; bounded DTO is not bounded SQL.",
+      "primaryClosureOwner": "S05",
+      "implementationAndRepeatedRegressionSlices": [
+        "S04",
+        "S05"
+      ]
+    },
+    {
+      "id": "M16.11.A03",
+      "sourceTicket": 292,
+      "exactAcceptance": "Preserve one current-authority snapshot, identity/incarnation/epoch, exact DTO/refusals/history/archive/reference truth and unchanged transactional effects.",
+      "primaryClosureOwner": "S05",
+      "implementationAndRepeatedRegressionSlices": [
+        "S04",
+        "S05"
+      ]
+    },
+    {
+      "id": "M16.11.A04",
+      "sourceTicket": 292,
+      "exactAcceptance": "Compare unrelated count/content/board growth under cold/warm cases; record rows/queries/copies and new source-bound rechecks. Fresh nonauthor Sol / High SQL/concurrency review, fixes and material re-review included.",
+      "primaryClosureOwner": "S05",
+      "implementationAndRepeatedRegressionSlices": [
+        "S04",
+        "S05"
+      ]
+    },
+    {
+      "id": "M16.12.A01",
+      "sourceTicket": 293,
+      "exactAcceptance": "Measure schema.Validate-before-COMMIT work across independent count/content/ combined shapes; source inspection alone is not a measured latency failure.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.12.A02",
+      "sourceTicket": 293,
+      "exactAcceptance": "If accepted D01 budgets are exceeded, design/implement a proved bounded or incremental strategy while preserving EVERY structural/relational invariant. Include substantive design/correction/qualification in this story's base with explicit conditional uncertainty; never remove checks for speed. If unchanged current work satisfies accepted bounds, publish measured no-change disposition.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.12.A03",
+      "sourceTicket": 293,
+      "exactAcceptance": "If D01 budgets remain unaccepted, retain current integrity checks, publish the useful measured baseline and identify Terry's exact missing budget disposition. Do not declare no-change PASS, scale readiness or a completed correction. Required correction work remains unfinished and visible; this cannot justify handing off the whole milestone while substantive work remains.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.12.A04",
+      "sourceTicket": 293,
+      "exactAcceptance": "Preserve transaction/CAS/compound history/receipt/refusal/original identities, before/after-commit faults, concurrent Human/Bot intent and lost-response readback without replay. Record audit/SQL/row/copy/allocation/timing facts.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.12.A05",
+      "sourceTicket": 293,
+      "exactAcceptance": "Fresh independent Sol / High SQL/concurrency/recovery review; ordinary fixes and material re-review. Changed guarantees or unbounded scope require owner scope resolution, not automatic implementation hidden in reserve.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.13.A01",
+      "sourceTicket": 294,
+      "exactAcceptance": "Recheck all affected baseline paths after corrections. Avoid duplicated effort between Q01/Q03/W01/W04; retain exact before/after source and fixture evidence.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.13.A02",
+      "sourceTicket": 294,
+      "exactAcceptance": "Run full current pinned gates, TWO isolated clean builds and equality of ALL generated/staged/web/embedded/executable/applicable post-test outputs. Enumerate complete CURRENT provider/compiler/driver/native transaction/continuation/ archive/interruption/actual CLI/mandatory browser inventories and all new cases.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.13.A03",
+      "sourceTicket": 294,
+      "exactAcceptance": "Prove local notice/archive/restore conservation, independent restored lineage, original UNKNOWN/no replay/current authority, native joins and privacy. Exercise config/readiness/control faults in both default/configured contexts and carry ordinary, controlled, fault and justified reused evidence separately.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.13.A04",
+      "sourceTicket": 294,
+      "exactAcceptance": "Scale-readiness claims require accepted D01 bounds and completed required corrections. Pending owner scope decisions are reported precisely; passing configuration/probe proof cannot substitute for unfinished scale work.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.13.A05",
+      "sourceTicket": 294,
+      "exactAcceptance": "Fresh integrated nonauthor Sol / High source/authority/concurrency/storage/ evidence review; ordinary corrections and material re-review included in base. No external send/receiver acceptance, new transport or physical power-loss claim.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.14.A01",
+      "sourceTicket": 295,
+      "exactAcceptance": "Ship an exact allowlisted qualified executable/license/notices/schema/reference/ guide closure/manifest/checksums. Verify every archive member/CRC/size/digest, full fresh extraction and source/tools/locks/fixture/executable hashes.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.14.A02",
+      "sourceTicket": 295,
+      "exactAcceptance": "NEW ordinary shipped browser AND actual CLI demo on default/configured boards: save/reopen fixed private config, inspect actual supported literal read-only readiness, genuine unsupported/unavailable result and native Stop/Close/join. No substitute executable or probe-as-delivery claim. Missing supported probe remains a concrete readiness disposition, never certification of untested code.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.14.A03",
+      "sourceTicket": 295,
+      "exactAcceptance": "Include usable start/use/recovery guides and explicit scope/scale decision dispositions. Fresh independent package/evidence review, fixes and material re-review included. Preserve/export evidence, clean only owned roots/processes/ listeners/mailboxes, verify closure and publish/push bounded durable evidence.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "M16.14.A04",
+      "sourceTicket": 295,
+      "exactAcceptance": "Reconcile genuine story timing, dependencies and rolling remaining turns 1-3. Only after all stories and epic RFR, update the provisional Post M16 checkpoint requested for this kickoff, explicitly assuming Terry acceptance and preserving the accepted Post M15 record. Terry alone controls Completed.",
+      "primaryClosureOwner": "S06",
+      "implementationAndRepeatedRegressionSlices": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    }
+  ],
+  "coverageNotes": [
+    "Use A's exact64 original acceptance bullets as the common coverage ledger, with ONE primary closure owner per bullet and explicit implementation/repeated-regression references; B's verbatim14-story ledger confirms scope agreement. No original .01-.14 or original .00 acceptance is dropped.",
+    "ALL original .01 full model/acceptance freeze gets fresh independent review before dependent configuration implementation in C01. Complete CURRENT-SLICE service/HTTP/generated/production-TS seam PASS precedes either client for C01/C02/C03; client material findings return for seam correction/re-review.",
+    "C01 owns .02 configuration and D01-D03; C02 owns COMPLETE first native safety; C03 owns extra capability and independent early Q01; C04/C05 partition ALL W01 including separate list/catalog disposition and upstream policy/refusal truth; C06 owns ALL W04 conditional correction. Original .05/.06 are partitioned across the new features, never CLI-only then browser later.",
+    "EVERY slice owns full CURRENT gates/two clean builds/ALL outputs/provider/compiler/driver/native transaction+continuation/archive+interruption/actualCLI/mandatory browser inventories, all new cases, fresh integrated nonauthor review/fixes/material re-review, exact allowlisted archive/member CRC/size/digest/fresh extraction/hash closure, NEW ordinary browser AND actualCLI default/configured demos, guides, owned cleanup and durable publication. No final-only dumping or inherited generic demo.",
+    "Configure once remains fixed after save/reopen; replacement/retarget stays M26. Preserve local notices/original targets/cuts/receipts, current authority/one snapshot/exact scope/revisions, denied late-response redaction, UNKNOWN/no replay, archive/restore conservation and independent lineage. D02 changes no polling/status/transport or independent Go monitors absent Terry disposition; M22/M34 later. D03 implements/activates no nudge; legacy watcher files stay intact. No send/Start/Enable/new transport/shared-host operation or physical power-loss claim.",
+    "Preserve Terry-controlled Completed and actual IP-before-work gates. Only authorized current fresh estimates/preflights/dependencies permit future work. Preserve genuine timing and rolling remaining-turns1-3 plans; final provisional checkpoint conditions stay explicit and accepted Post M15 unchanged."
+  ],
+  "unresolvedConditions": [
+    "Five current full development forecasts fail strict<240. A legitimate fresh passing estimate, accepted scope/design/decomposition change or explicit owner exception is needed before affected execution; none is granted here.",
+    "Actual supported literal identity and distinct capability probes remain unqualified. Controlled binaries cannot certify the real installed adapter.",
+    "Read/write new-feature candidates require useful complete-operation old-fails/new-passes evidence under explicit accepted bounds. No-change/baseline-only results do not satisfy the required new-feature count; preserve scope and return for a concrete owner decision if that branch occurs.",
+    "Terry accepts new D01 numerical/support budgets and any changed D02 behavior or new D03 nudge scope. Proposal-quality review never accepts these decisions. Existing polling/Go original-target notice guarantees remain."
+  ],
+  "roughEquality": {
+    "developmentBaseRangeMinutes": [
+      235,
+      305
+    ],
+    "meanDevelopmentBaseMinutes": 264.1666666666667,
+    "meaning": "Natural full deliveries, roughly comparable; not exact equal timing or a kickoff guarantee."
+  },
+  "downstreamCrosswalk": [
+    {
+      "formerMilestone": "M17",
+      "newMilestone": "M22"
+    },
+    {
+      "formerMilestone": "M18",
+      "newMilestone": "M23"
+    },
+    {
+      "formerMilestone": "M19",
+      "newMilestone": "M24"
+    },
+    {
+      "formerMilestone": "M20",
+      "newMilestone": "M25"
+    },
+    {
+      "formerMilestone": "M21",
+      "newMilestone": "M26"
+    },
+    {
+      "formerMilestone": "M22",
+      "newMilestone": "M27"
+    },
+    {
+      "formerMilestone": "M23",
+      "newMilestone": "M28"
+    },
+    {
+      "formerMilestone": "M24",
+      "newMilestone": "M29"
+    },
+    {
+      "formerMilestone": "M25",
+      "newMilestone": "M30"
+    },
+    {
+      "formerMilestone": "M26",
+      "newMilestone": "M31"
+    },
+    {
+      "formerMilestone": "M27",
+      "newMilestone": "M32"
+    },
+    {
+      "formerMilestone": "M28",
+      "newMilestone": "M33"
+    },
+    {
+      "formerMilestone": "M29",
+      "newMilestone": "M34"
+    },
+    {
+      "formerMilestone": "M30",
+      "newMilestone": "M35"
+    },
+    {
+      "formerMilestone": "M31",
+      "newMilestone": "M36"
+    },
+    {
+      "formerMilestone": "M32",
+      "newMilestone": "M37"
+    },
+    {
+      "formerMilestone": "M33",
+      "newMilestone": "M38"
+    },
+    {
+      "formerMilestone": "M34",
+      "newMilestone": "M39"
+    },
+    {
+      "formerMilestone": "M35",
+      "newMilestone": "M40"
+    },
+    {
+      "formerMilestone": "M36",
+      "newMilestone": "M41"
+    },
+    {
+      "formerMilestone": "M37",
+      "newMilestone": "M42"
+    },
+    {
+      "formerMilestone": "M38",
+      "newMilestone": "M43"
+    },
+    {
+      "formerMilestone": "M39",
+      "newMilestone": "M44"
+    },
+    {
+      "formerMilestone": "M40",
+      "newMilestone": "M45"
+    }
+  ],
+  "preservation": "Preserve sealed originals, old reviews/forecasts, archived cards and all histories. Future new epics/stories have separate kickoff/preflight/estimate/IP/prerequisite gates. Terry alone controls Completed; accepted Post M15 checkpoint stays unchanged. Shared built-in notifications remain separate from Go product notices. No shared-host operation, watcher revival or new effect authorized."
+}

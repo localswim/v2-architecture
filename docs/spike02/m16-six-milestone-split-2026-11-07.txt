@@ -1,0 +1,212 @@
+M16 SIX-MILESTONE COMMON PROPOSAL
+M16-SIX-CONSENSUS-R3 | November7,2026
+
+PLANNING_ONLY_NOT_EXECUTION_APPROVAL
+Terry November7 request: two clean-room Sol/High splits, at least five roughly time-equivalent smaller milestones ending in new feature demos, each independently reviewed, then parent+both authors consensus. Existing RFW281-295 separately owner-archived OBE. No budget exception, implementation, new support bounds or external effects authorized.
+
+M16-M21 replace ONLY former combined M16. Original wording in exact preserved acceptance ledger uses historical milestone labels; current downstream crosswalk controls numbering. Requirements define future demo acceptance, not already executed or guaranteed new runtime capabilities.
+Current developmentRows/prices, admissionDependencies and clarifications control. DetailedAcceptanceScope and originalFullScope preserve source-era scope, not superseded prices or blanket future-probe dependencies. SourceEraSliceMap resolves Snn references; original M16.xx acceptance IDs always mean M16-KICKOFF-R3 source stories, not the new first milestone.
+Source-era slice names: S01 = M16, S02 = M17, S03 = M18, S04 = M19, S05 = M20, S06 = M21
+Source-era Q/K/PF references resolve to current fullDeliveryStandards.qualification / kitAndDemo / fullPreflight.
+
+Development minutes; .00 separately50base+25reserve=75cap EACH.
+Milestone | base | reserve | cap | future strict<240
+M16 Bind and reopen one fixed private recipient policy | 235 | 92 | 327 | forecast below only
+M17 Inspect the actual installed tool through a completely safe identity probe | 270 | 100 | 370 | NO FIT; no exception
+M18 Answer whether the fixed policy is supported by actual capabilities | 255 | 107 | 362 | NO FIT; no exception
+M19 Inspect current card content under unrelated payload growth | 275 | 118 | 393 | NO FIT; no exception
+M20 Inspect focused history/related facts under unrelated entity growth | 245 | 108 | 353 | NO FIT; no exception
+M21 Commit a deliberate edit within a proved integrity-work bound | 305 | 129 | 434 | NO FIT; no exception
+
+{"milestones": 6, "developmentBaseMinutes": 1585, "developmentReserveMinutes": 654, "developmentCapMinutes": 2239, "preflightBaseMinutes": 300, "preflightReserveMinutes": 150, "preflightCapMinutes": 450, "currentStrictGateFailures": ["M17", "M18", "M19", "M20", "M21"], "combinedBaseMinutes": 1885, "combinedCapMinutes": 2689}
+
+Common full preflight
+{"baseMinutes": 50, "reserveMinutes": 25, "capMinutes": 75, "scope": "EVERY milestone owns latest-stable ALL directly used tools/runtime/build/test dependencies plus strict curated lint/type review, dated primary sources, qualification of stale pins/locks, complete current inventories, two isolated clean all-output-equal builds, independent review/fixes/material re-review, synthetic ownership/shared-queue health and owned cleanup/publication. New development is not preflight.", "applicableProbeRule": "Actual executable/probe qualification is APPLICABLE TO THE SHIPPED FEATURE. Config-only C01/current-surface baseline .00 is not blocked by an unavailable future identity/capability probe and never claims it passed. C02/C03 positive feature handoff does require the exact real supported probe. No existing CURRENT native/provider/compiler/driver/archive/CLI/browser case is excluded because a future feature is absent.", "originalFullScope": ["After accepted predecessor and fresh current-turn development estimate gate, move this .00 In Progress. No prior allowance resumes.", "Check dated primary latest-stable metadata for Go, Node, npm, TypeScript, Python, uv, Git, PowerShell, actual native adapter/runtime, browser qualification tools and EVERY direct Go/web/harness runtime/build/test dependency. Exclude prereleases. Record exact verified versions, locks, sources, date and hashes.", "Qualify every stale tool/lock refresh before handoff; inability to qualify any stable release is a concrete readiness issue, not a silently retained pin. Preserve old source/tool evidence.", "Review strict curated lint/type rules using current official guidance; trial valuable changes, narrow justified exceptions, and assess stable TypeScript compiler API with stable parser/linter support. No blanket enablement.", "Re-enumerate COMPLETE CURRENT provider/compiler/driver/native transaction/continuation/archive/interruption/actual-CLI/mandatory-browser inventories and ALL generated/staged/web/embedded/executable/applicable post-test outputs. Run full current pinned gates and two isolated clean builds; compare all outputs.", "Qualify the actual installed executable and supported frozen literal version/help/capability probes without sending. Missing supported probes remain explicit readiness issues; no substitute executable certifies the production adapter.", "Fresh nonauthor review, normal fixes/material re-review, owned synthetic fixture/account proof, source binding, shared diagnostic queue health and owned cleanup/publication. Never start/restart shared services, activate watchers or send notices."]}
+
+Every milestone complete delivery
+qualification
+["Freeze current source/tools/locks/fixtures and enumerate all CURRENT cases, including additions since M15. The historical inventory is not a fixed ceiling.", "Run full pinned Go/TypeScript/lint/contract/asset/script/provider/compiler/driver gates; two independent clean builds with separate roots and equality of ALL generated, staged, web, embedded, executable and applicable post-test outputs.", "Run every current native transaction, continuation, archive/interruption, actual-CLI and mandatory ordinary-browser case, plus new slice cases. No filtered, skipped, zero-case, failed or unexplained mismatch run passes. Keep failures and corrections source-bound.", "Preserve local notices, archive/restore conservation and independent restored lineage; immutable original target/cuts/receipts, UNKNOWN/no replay, current authority, exact selected identity/incarnation/epoch/revisions and native actual joins.", "Separate ordinary positive actual application/probe proof, controlled adapters/lifecycle faults, native component evidence and justified unchanged reused evidence. Controlled processes never establish actual installed adapter readiness.", "Run ordinary extracted browser and actual built CLI NEW capability demos on both default and configured synthetic boards. Preserve drafts/focus/private window context through stale/delayed/A-B-A/revoked/conflicting replies; denied late data is redacted.", "Browser work uses supported control plus fresh shared-queue health/register, bounded action, release control, bounded schema-validated reads/export and owned mailbox deletion. Application/native/transaction assertions remain authoritative; no secrets/prose/raw errors enter diagnostics.", "Fresh integrated nonauthor Sol / High source/authority/concurrency/storage/evidence review, normal fixes and material re-review; recheck all previously affected baseline paths after changes."]
+kitAndDemo
+["Build the exact independently qualified candidate review kit: allowlisted executable, license/notices, schema/reference/guide closure, manifest and checksums; no private worker roster, credentials, operational data or diagnostic exports.", "Verify every archive member, CRC, size and digest; freshly extract the complete archive. Bind source, tool, lock, fixture and extracted executable hashes. Demonstrate from that extraction, not from a workspace build.", "Include concise start/use/recovery guide, exact CLI examples, ordinary browser journey, decision dispositions and explicit unsupported/unavailable/unknown outcomes. Fresh independent package/evidence review plus fixes/material re-review included.", "Preserve/export needed evidence; clean only verified owned roots/processes/listeners/mailboxes and prove closure. No remembered PID or shared service cleanup. Commit/push bounded durable evidence after verification under standing authority.", "Reconcile genuine In Progress-to-RFR story times, dependencies and current remaining-turns 1-3 private plan/JSON. Terry alone controls Completed. Refresh #0180 only after Terry completes the milestone; preserve accepted Post M15. Any provisional final split checkpoint is explicitly acceptance-assumed and follows all stories/epics reaching RFR."]
+
+Early baseline and source-entry rules
+ALL D01/D02/D03 model/protocol proposals independently reviewed with fixes/material re-review BEFORE any Q01 observation. D01 numeric/support acceptance remains Terry-owned; unchanged-contract baseline may proceed without invented acceptance.
+C03 early Q01 story and its own current-source .00 have explicit entry after reviewed proposals, complete fresh applicable estimate, own accepted .00, IP and ownership/queue gates. No dependency on C02 handoff, new runner, supported future probe, capability client or new D01 budget acceptance.
+Q01 covers ALL currently available browser/drafts/attachments/HTTP/refusal/output/existing-native/lifecycle/local-notice/restart/idle/storage/backup surfaces with exact count/content/combined/19-24-board fixtures, distributions/work counts, original failed evidence and source/tool/fixture bindings. Charge setup outside measurement once; Q03 future M33 extension stays later.
+Complete ALL available early baseline before ANY W01/W04 correction. New actual probe surfaces append separately when available; no future feature is simulated passed. Before final C03 feature admission, explicitly rebind latest-stable/source/tools/locks/inventories and qualify changed inputs; cost stays in C03 closure.
+C03 currently fails the common full estimate gate. Independent early entry removes an irrelevant probe dependency; it does NOT authorize baseline execution under a failed estimate. A legitimately re-priced/admitted original-scope phase needs concrete complete priced scope, own .00 and review, not free support work.
+
+M16 Bind and reopen one fixed private recipient policy
+New delta: No private profile -> deliberate configure-once save/reopen and exact authorized status. Saving does not activate or replace any original target.
+Feature admission: Firm source-supported new function, subject to implementation/qualification. Full original model review passes before storage implementation; complete current config seam passes before either client.
+Dependencies: {"feature": ["accepted M15", "new owner kickoff", "own full fresh estimate/preflight/IP gates"], "early": []}
+Current authoritative full rowset:
+- M16.01 ALL original M16.01 model freeze, fresh model review/fixes BEFORE dependent implementation; private storage/refusal tests and complete config seam review before clients: 75+30=105 minutes
+- M16.02 Actual CLI and ordinary browser configure/status, full privacy/current-scope/draft/focus/late-response cases: 35+12=47 minutes
+- M16.03 D01/D02/D03 complete proposals, independent review/fixes/re-review BEFORE ANY Q01 collection; owner numerical decisions separate: 50+22=72 minutes
+- M16.04 Full current qualification/build/output/inventory and integrated nonauthor closure: 45+18=63 minutes
+- M16.05 Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication: 30+10=40 minutes
+Browser demo:
+- Freshly extract kit; start its executable with a new owned synthetic workspace. Select default board; open Recipient policy. Enter the documented synthetic fixed reference and approved policy fields; Save once.
+- Observe saved-but-not-activated state. Close/reopen the ordinary browser and read the exact saved policy under the same selected board. Deliberately try replacing it with a new request: refusal retains the bound policy and draft.
+- Repeat on configured board. Switch A-B-A while a controlled save/read is delayed; no other-scope repaint or draft clearing. Private denial/failure is separately labeled controlled evidence.
+Actual extracted CLI demo:
+- Using extracted localswim.exe, run --workspace DEMO --project demo --board default recipient configure --input PRIVATE-SYNTHETIC.json; then --json recipient status. Proposed new grammar is frozen in S01.01 and its guide; never use invented syntax as current availability.
+- Close/reopen ONLY this owned application; recipient status returns the same revision/generation and exact authorized policy facts. A second configure request refuses without replacement or blind retry.
+- Repeat both readable/JSON cases on configured board; inspect a deliberately uncertain save before deciding whether any fresh action is allowed. No private reference appears in public logs.
+Current clarification (controls source-era wording):
+- Freeze and independently review ALL original model/acceptance requirements before dependent storage implementation. Complete current config Go/HTTP/generated/production-TS seam review passes before either client.
+- Only configuration operations ship; absent future adapter/probe support cannot block configuration-only preflight or invent probe qualification.
+
+M17 Inspect the actual installed tool through a completely safe identity probe
+New delta: Saved policy only -> actual installed allowlisted literal version/help identity inspection with truthful native Stop/Close/incomplete/actual-join status.
+Feature admission: Complete root/descendant/output/parser/time/admission/control/current-authority/Stop/Close/actual-join safety exists from FIRST actual product probe. Missing real supported probe is concrete readiness failure. No safety may move later.
+Dependencies: {"feature": ["accepted M16", "actual supported literal identity/version probe", "own full fresh estimate/preflight/IP gates"], "early": []}
+Current authoritative full rowset:
+- M17.01 Entire first-native bundle: detailed executable/ownership design20; Windows launch/descendant/handle/actual-join35; output/parser/queue/admission/authority/control25; all-layer seam15; actual supported plus controlled lifecycle/fault fixtures30; fresh High review/fixes/re-review25; native resource teardown integration5: 155+55=210 minutes
+- M17.02 BOTH ordinary browser and actual CLI identity/probe/Stop, safe readable/JSON results, scope/draft/focus/control-generation cases: 35+15=50 minutes
+- M17.03 Full current qualification/build/output/inventory and integrated nonauthor closure: 50+20=70 minutes
+- M17.04 Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication: 30+10=40 minutes
+Browser demo:
+- Extract S02 kit into a fresh owned location; start synthetic default board and open saved Recipient policy. Choose Inspect installed tool. Observe the actual qualified tool/version identity and safe qualification code; no capability-ready claim.
+- Repeat for configured board. Close the view/owned host while a separately labeled controlled stall/descendant case runs; the UI may say incomplete until actual join. Prove native join authoritatively; no timed spinner proves it.
+- Use a dedicated owned missing/unsupported fixture for honest unavailable state; do not replace the real executable with a fake to claim actual support.
+Actual extracted CLI demo:
+- From the extracted binary run selected-board recipient tool inspect (and --json form), then recipient probe version. Exact proposed grammar is frozen/reviewed before clients.
+- Observe safe actual installed identity/version and exact bounded exit/result codes. Run recipient probe stop using current returned control generation; distinguish incomplete from physically joined.
+- Repeat on configured board and dedicated unsupported/missing fixture. A stale/foreign/denied control refuses; no Send/Enable/Start exists.
+Current clarification (controls source-era wording):
+- The FIRST actual installed literal version/identity probe ships the ENTIRE native root/descendant/output/parser/time/queue/admission/current-authority/Stop/Close/actual-join/incomplete-drain/competing-owner safety bundle.
+- Real supported read-only evidence and separately labeled controlled faults are both mandatory; no substitute executable proves installed support.
+
+M18 Answer whether the fixed policy is supported by actual capabilities
+New delta: Installed identity/version known -> distinct real literal capability evidence answers fixed-policy support; unknown/unsupported/unavailable remain separate safe facts.
+Feature admission: Distinct actual capability probe must exist and qualify. Feature implementation/final handoff depends on C02; EARLY Q01 and its own .00 do not.
+Dependencies: {"feature": ["accepted M17", "distinct actual supported literal capability probe", "current feature-phase source/tool/stable-metadata rebind", "own full fresh estimate/preflight/IP gates"], "early": ["reviewed M16 D01/D02/D03 proposals", "complete honest accepted applicable current-source estimate and own preflight/IP/ownership/queue gates", "NO new-probe or M17 feature prerequisite for existing current-surface Q01 observations"]}
+Current authoritative full rowset:
+- M18.01 Actual literal capability evidence/parser/policy mapping and complete reviewed Go/HTTP/generated/production-TS seam: 55+25=80 minutes
+- M18.02 Actual CLI and ordinary browser readiness/check/Stop cases, both board contexts: 30+12=42 minutes
+- M18.03 EARLY independently admitted ALL-current-surface Q01 fixtures/instrumentation/observations/evidence review, charged once: 95+40=135 minutes
+- M18.04 Full current qualification/build/output/inventory/integrated closure AND explicit feature-phase source/tool/lock/stable-metadata rebind: 45+20=65 minutes
+- M18.05 Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication: 30+10=40 minutes
+Browser demo:
+- Extract S03 kit; select default synthetic board with S01 fixed policy. Open Recipient policy and choose Check readiness. Read actual capability-derived support for that exact policy.
+- Compare with Inspect installed tool: version/identity alone remains distinct. Observe genuine unsupported/unavailable/unknown results where appropriate; never turn unknown into ready.
+- Repeat configured board; Stop/Close a separately labeled controlled delayed capability run and observe incomplete until actual join. Switch/revoke midflight; no denied late response repaints another scope.
+Actual extracted CLI demo:
+- Run extracted selected-board recipient status, recipient tool inspect, then recipient readiness (and --json). The readiness result names safe policy revision/generation and actual capability disposition without exposing raw output.
+- Use recipient probe capability and Stop with exact current control generation; repeat default/configured contexts and genuine unsupported/unavailable fixture.
+- Compare prior S02 kit on the same synthetic premise: it cannot answer fixed-policy capability support. No supplied command paths/args/endpoints or automatic retries.
+Current clarification (controls source-era wording):
+- Early Q01 and its own applicable current-source preflight are independent of new-probe implementation/availability and capability feature handoff. ALL current surfaces are observed before any W01/W04 correction.
+- Feature implementation and final capability handoff require accepted identity-probe operation and distinct real supported literal capability evidence. Rebind current source/tools/locks/stable metadata/inventories before feature admission; refresh qualification is charged in the closure.
+- The failed whole estimate gate is not waived by early logical eligibility. Any separately admitted baseline packet requires a complete honest fresh estimate, authorization, own preflight and IP entry; no free support work.
+
+M19 Inspect current card content under unrelated payload growth
+New delta: At fixed explicitly disclosed card/entity/board counts, old complete browser/CLI current-card operation fails an accepted useful payload-growth premise; corrected operation passes while unrelated descriptions/payload grow. No whole-operation constant-work-in-every-axis claim.
+Feature admission: Conditional NEW bounded-use capability. If old kit already meets the same accepted whole-operation premise, this is useful optimization evidence but cannot count as a new-feature milestone. Preserve all global policy/refusal invariants in the SAME authorized snapshot; no automatic validation rewrite.
+Dependencies: {"feature": ["complete ALL currently available early Q01 baseline", "Terry accepted D01 useful-work bounds", "actual useful payload-growth old-fails/new-passes premise", "own accepted current-source fresh estimate/preflight/IP gates"], "early": ["No new-probe prerequisite for current-source measurements/correction that do not ship probe features. Current source/tool/lock and inherited-inventory rebinding always applies."]}
+Current authoritative full rowset:
+- M19.01 Measured failing current-card work regression, scoped payload projection/correction and local source/authority review: 60+25=85 minutes
+- M19.02 Independent list/reference/catalog work measurement before any related correction: 20+10=30 minutes
+- M19.03 Full caller-path policy.ValidateCurrent measurement/invariant inventory plus conditional bounded upstream design/correction/differential refusal proof/fresh High review; retain unchanged check if accepted whole-operation bounds already hold: 50+25=75 minutes
+- M19.04 Source-bound cold/warm old/new complete-operation proof, exact selected facts and concurrent activity/control: 35+15=50 minutes
+- M19.05 Actual current-card browser AND CLI useful-premise demo and guide: 25+10=35 minutes
+- M19.06 Full current qualification/build/output/inventory and integrated nonauthor closure including all upstream refusal regressions: 55+23=78 minutes
+- M19.07 Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication: 30+10=40 minutes
+Browser demo:
+- Use supplied exact admissible large fixture and immediately preceding qualified accepted CURRENT read-surface kit; open named card details. Preserve the measured failure of the accepted bounded-use premise without changing data.
+- Extract S04 and start a fresh copy of the same fixture. Open the same card in the ordinary browser; exact content/refusals remain, now satisfying the accepted bound while unrelated-card payload growth does not expand selected projection work.
+- Repeat default/configured contexts, concurrent unrelated Human/Bot edit, navigation and denied late results. If old kit already meets the same premise, no NEW-feature certification is allowed.
+Actual extracted CLI demo:
+- Against old/new extracted kits and identical fresh fixture copies run --workspace DEMO --project demo --board default --json card read CARD-UUID, then readable card read CARD-UUID.
+- Use public CLI output for exact card facts and separately bound instrumentation for rows/queries/copies/work; compare under accepted D01 bounded-use premise.
+- Repeat configured board with current exact selection and authority loss/refusals. Existing command syntax is unchanged; new bounded operation must be measured, not asserted.
+Current clarification (controls source-era wording):
+- Use a useful unrelated DESCRIPTION/PAYLOAD growth premise at fixed explicitly disclosed card/entity/board counts. Measure the ENTIRE ordinary browser/CLI operation, including policy.ValidateCurrent and all related paths.
+- Preserve existing global policy validation if accepted whole-operation bounds already hold. Any required upstream correction is conditional substantive BASE work and must preserve every current-policy/refusal invariant in the same authorized snapshot. No automatic new validation architecture.
+- This is not a claim of constant whole-operation work across all growth axes. Old-fails/new-passes must concern the useful complete operation, not merely an inner WHERE/DTO/loader counter.
+- Compare the immediately preceding qualified accepted CURRENT read-surface source/kit with the new one on identical admitted fixture/premise and exact source/tool bindings. An unavailable future M18 capability kit is NOT a read feature prerequisite. Run ALL cases inherited by the actual current source; unshipped probes are neither required nor claimed passed.
+
+M20 Inspect focused history/related facts under unrelated entity growth
+New delta: After C04 current-payload bound, a DISTINCT old C04 whole focused-history/detail operation fails an accepted premise while unrelated related/history entities grow; C05 correction passes. Fixed disclosed current-card counts keep upstream policy cost explicit.
+Feature admission: Conditional DISTINCT NEW bounded-use capability. Must not duplicate C04 payload-growth proof, claim the same previously inherited operation as new without a distinct accepted failing premise, or certify broad search/catalog behavior from bounded DTOs.
+Dependencies: {"feature": ["accepted M19 current-payload outcome", "complete ALL current-surface early baseline", "Terry accepted distinct related/history useful-work bounds", "distinct actual old-fails/new-passes premise", "own full fresh estimate/preflight/IP gates"], "early": []}
+Current authoritative full rowset:
+- M20.01 Measured related/reference/history regression and exact scoped loader correction with one authorized snapshot and fresh source review: 55+25=80 minutes
+- M20.02 Full bounded conditional list-reference/catalog correction and differential truth/fresh High review; broader scope stays unfinished pending resolution: 40+20=60 minutes
+- M20.03 Explicit full caller-path/global current-policy validation regression and measurement for the distinct entity-growth premise: 10+5=15 minutes
+- M20.04 Source-bound old/new entity-growth proof/rechecks across current/retained/archive/refusal states: 30+15=45 minutes
+- M20.05 Actual corrected focused history/detail browser AND CLI path demo and guide: 25+10=35 minutes
+- M20.06 Full current qualification/build/output/inventory and integrated nonauthor closure: 55+23=78 minutes
+- M20.07 Exact extracted kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication: 30+10=40 minutes
+Browser demo:
+- Use exact old S04/new S05 extracted kits with identical fresh admissible fixtures. Select the named card and open its HISTORY / focused CARD DETAILS request whose source path invokes the corrected selected related/reference/history loader.
+- Record the actual HTTP/DOM/CLI request-to-SQL source map. A relationships command using complete BoardRead or Files using a separately owned attachment path does NOT inherit a win from a focused loader correction.
+- Demonstrate the distinct accepted formerly out-of-bound history/detail inspection, exact facts/revisions/current-authority/refusals retained. Repeat default/configured, archive/Completed, stale/navigation/denied-late cases. Other related/Files paths remain full regressions; no borrowed demo evidence.
+Actual extracted CLI demo:
+- Use old S04/new S05 exact extracted binaries on identical fixture copies: --workspace DEMO --project demo --board default --json card history CARD-UUID and card read CARD-UUID; prove each actual request reaches the corrected focused source.
+- Compare exact identity/revisions/history/reference facts and source-bound rows/queries/copies/work under the distinct accepted related-use premise. A card relationships BoardRead or attachment list command is a regression unless independently corrected/measured.
+- Repeat configured board and current/retained/archive/refusal states. No NEW-feature PASS if these actual history/detail paths do not show old-fails/new-passes behavior.
+Current clarification (controls source-era wording):
+- Use a DISTINCT useful unrelated RELATED/HISTORY entity-growth premise, with current-card counts and payload conditions disclosed. Complete current-card/detail/history operations must be measured, including upstream current-policy work.
+- Only actual focused Details/History and CLI read/history paths that invoke corrected loaders may claim the benefit. Full BoardRead relationships and separately owned Files paths are regressions unless independently corrected and measured.
+- Full bounded list/current-reference/catalog correction or measured justified disposition remains owned here; required broader work stays visibly unfinished, never hidden in reserve.
+
+M21 Commit a deliberate edit within a proved integrity-work bound
+New delta: Only if accepted D01 measurement requires correction: old C05 edit fails accepted useful integrity/control premise, corrected complete browser/CLI edit passes with EVERY invariant and original-outcome guarantee retained.
+Feature admission: D01 explicit accepted numerical/support disposition and measured correction need. No-change/baseline-only is not NEW functionality or completed required correction. All layout/PRAGMA integrity/FK/relational/blob-hash/hierarchy/workflow invariants stay; no hidden guarantee or unbounded architecture change.
+Dependencies: {"feature": ["accepted M20 related-read outcome", "complete ALL current-surface early baseline", "Terry accepted D01 write bounds and measured correction need", "own full fresh estimate/preflight/IP gates"], "early": ["Full original M16 closure additionally requires M16-M18 configuration/probe capabilities complete, and every required M19-M21 correction complete. No successful partial feature conceals remaining original scope."]}
+Current authoritative full rowset:
+- M21.01 Full conditional integrity BASE: invariant inventory25; transaction-safe strategy30; all mutation/refusal/retention/restore integration40; component work-count/invariant-equivalence/fault regression development35; fresh High review/fixes/material re-review30: 160+60=220 minutes
+- M21.02 Integrated actual native transaction/CAS/history/receipt/commit-fault/restore/lost-response proof and scale recheck: 35+20=55 minutes
+- M21.03 NEW deliberate browser AND actual CLI bounded-edit demo, exact revisions/opId/original evidence, guide: 25+12=37 minutes
+- M21.04 Full current qualification/build/output/inventory and integrated nonauthor closure: 55+25=80 minutes
+- M21.05 Exact extracted complete kit, NEW both-client default/configured demo, guides/archive verification/cleanup/publication/final timing checkpoint conditions: 30+12=42 minutes
+Browser demo:
+- Use old S05/new S06 exact extracted kits and identical fresh synthetic large fixture copies. Deliberately rename/edit the named card in ordinary browser with current base revisions.
+- Preserve prior measured failing accepted integrity-work premise; corrected S06 must meet it while exact history, compound effects, receipts/refusals and all invariants remain identical.
+- Repeat configured board, concurrent Human/Bot intent, before/post-commit faults and dropped success reply. Inspect original outcome, never replay. No positive NEW-feature demo if correction is unnecessary or not yet authorized.
+Actual extracted CLI demo:
+- On old/new extracted kit read exact selected card, build one reviewed typed input with fresh opId/current incarnation/expected board+card revisions; run --workspace DEMO --project demo --board default --json card edit CARD-UUID --input PRIVATE-INTENT.json.
+- Use the returned exact outcome and deliberate card/history readback. On lost reply use operation read OP-UUID --evidence PRIVATE-ORIGINAL.json, never resend the intent.
+- Repeat configured board and compare accepted work bound/source-bound audit facts across old/new candidates. Any invariant or authority difference fails qualification.
+Current clarification (controls source-era wording):
+- Retain ALL structural/relational/blob-hash/layout/integrity/FK/hierarchy/workflow/current-and-retained invariants, transaction/CAS/compound history/receipt/refusal/original-identity/current-authority/UNKNOWN/no-replay and native ownership guarantees.
+- If accepted bounds already hold unchanged, no-change evidence is useful but is NOT a new feature. If budgets remain unaccepted or correction is incomplete, preserve checks and identify the exact missing decision/work; do not hand the whole milestone off as finished.
+
+Unresolved conditions
+- Five current full development forecasts fail strict<240. A legitimate fresh passing estimate, accepted scope/design/decomposition change or explicit owner exception is needed before affected execution; none is granted here.
+- Actual supported literal identity and distinct capability probes remain unqualified. Controlled binaries cannot certify the real installed adapter.
+- Read/write new-feature candidates require useful complete-operation old-fails/new-passes evidence under explicit accepted bounds. No-change/baseline-only results do not satisfy the required new-feature count; preserve scope and return for a concrete owner decision if that branch occurs.
+- Terry accepts new D01 numerical/support budgets and any changed D02 behavior or new D03 nudge scope. Proposal-quality review never accepts these decisions. Existing polling/Go original-target notice guarantees remain.
+
+Current downstream numbering
+M17 -> M22
+M18 -> M23
+M19 -> M24
+M20 -> M25
+M21 -> M26
+M22 -> M27
+M23 -> M28
+M24 -> M29
+M25 -> M30
+M26 -> M31
+M27 -> M32
+M28 -> M33
+M29 -> M34
+M30 -> M35
+M31 -> M36
+M32 -> M37
+M33 -> M38
+M34 -> M39
+M35 -> M40
+M36 -> M41
+M37 -> M42
+M38 -> M43
+M39 -> M44
+M40 -> M45
+
+Preserve sealed originals, old reviews/forecasts, archived cards and all histories. Future new epics/stories have separate kickoff/preflight/estimate/IP/prerequisite gates. Terry alone controls Completed; accepted Post M15 checkpoint stays unchanged. Shared built-in notifications remain separate from Go product notices. No shared-host operation, watcher revival or new effect authorized.
+
+Exact original acceptance clauses and detailed scope are retained in the sibling structured plan: m16-six-milestone-split-2026-11-07.json. Source-era numbering in quoted clauses is historical; above crosswalk controls.
