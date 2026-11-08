@@ -1,0 +1,131 @@
+M17 KICKOFF BREAKDOWN R1 — REVIEWED CONSENSUS
+
+M17 kickoff 2026-11-08; epic #0296; M16-SIX-CONSENSUS-R3 S02/current M17 rows; M16-RECIPIENT-R2 section 7. Current kickoff strict fresh-estimate gate supersedes the older budget exception for this turn.
+
+EXECUTION GATE
+- Two independent Sol / High agents; no direct contact or shared estimate inputs/results between them; up to four helper agents each. Derive fresh per-story base/reserve/cap from all prior milestone actuals. Report separate summed .01+ totals only to parent.
+- If EITHER fresh summed development BASE is >=240 minutes, end this turn immediately. Preflight is excluded. Historical R4 over-four-hour approval does not waive the current user gate. No preflight, implementation, product probe, or qualification execution before this gate passes.
+- Only if BOTH bases are <240 minutes: choose max(baseA,baseB) and separately max(reserveA,reserveB); hard turn cap is their sum and abort immediately at expiry. Work all stories to RFR in one turn, maximum six subagents total in the execution phase, depth two. Fresh independent review can unblock later stories. Only Terry moves Completed.
+- Only after ALL stories and epic are RFR, current kickoff explicitly requests an approval-assumed Post M17 checkpoint on #0180. Label it provisional until Terry acceptance; preserve the accepted Post M16 evidence.
+
+M17.00: Verify latest-stable buildchains and the complete current baseline
+
+Scope authority
+M17 kickoff 2026-11-08; epic #0296; M16-SIX-CONSENSUS-R3 S02/current M17 rows; M16-RECIPIENT-R2 section 7. Current kickoff strict fresh-estimate gate supersedes the older budget exception for this turn.
+
+Entry
+- Accepted M16; fresh current kickoff estimate gate.
+- Prerequisites: none after admitted kickoff.
+- In Progress before work; fresh independent review before handoff.
+
+Acceptance
+- Check dated official upstream stable releases for every directly used runtime/build/test tool and direct dependency: Go, Node, npm, TypeScript, Python, uv, Git, PowerShell, native Codex adapter, browser and qualification tooling, all Go/web/harness direct dependencies. Inventory exact pins/locks; exclude prereleases; qualify every stale pin before handoff.
+- Review strict curated lint/type rules against current stable guidance, trial valuable changes, justify narrow exceptions; evaluate stable compiler API and parser/linter support together (tracking #0046).
+- Re-enumerate complete current provider/compiler/driver/native transaction/continuation/archive/interruption/actual CLI/mandatory ordinary-browser inventories. Run all applicable baseline gates and two isolated clean builds with equality of ALL generated/staged/web/embedded/executable/applicable post-test outputs.
+- Inventory installed tool metadata/provenance and document the safe qualification approach for literal --version. Do not invoke an ad hoc actual --version or any product probe in .00 before the complete reviewed safe runner exists. Actual invocation and complete new production-runner evidence belong to .01; missing supported actual interface remains a concrete readiness issue, never fake positive evidence. Preflight does not certify the absent new feature.
+- Use owned synthetic fixtures, fresh shared queue health/mailbox for browser work, exact source/tool/lock hashes, bounded sanitized evidence, full owned cleanup and fresh independent Sol / High review. Preflight has its own separate accounting; exclude it from the four-hour development estimate test.
+
+Common constraints
+- Keep the first actual probe inseparable from complete native root/descendant/pipe/handle ownership, bounded admission/output/parser/deadline, current authority, Stop/Close and actual joined closure. No safety deferred to M18.
+- Preserve fixed configure-once policy, original notice targets/cuts/receipts, archive/restore lineage, current authority, private drafts and UNKNOWN/no-replay. No Send/Enable/Start, capability-readiness claim, arbitrary command, shared-host change or legacy watcher.
+- Fresh nonauthor Sol / High review, normal corrections and material re-review are included in each development story; parent owns integration, verification, board and publication.
+- Move eligible story In Progress before any work/review. RFW retains prerequisites. This kickoff permits a passed independent story review to unblock later stories in an admitted single-turn run. Terry alone controls Completed.
+
+
+M17.01: Implement and qualify the complete safe native identity-probe seam
+
+Scope authority
+M17 kickoff 2026-11-08; epic #0296; M16-SIX-CONSENSUS-R3 S02/current M17 rows; M16-RECIPIENT-R2 section 7. Current kickoff strict fresh-estimate gate supersedes the older budget exception for this turn.
+
+Entry
+- Accepted M16; fresh current kickoff estimate gate.
+- Prerequisites: M17.00.
+- In Progress before work; fresh independent review before handoff.
+
+Acceptance
+- Freeze executable provenance/resolution, literal identity argv [--version], necessary server-owned environment/private cwd/closed stdin, strict complete publisher-version parser, finite outcomes, CLI grammar and Go/HTTP/generated/production-TypeScript result/control contract. Independent Sol / High design review and corrections precede implementation.
+- Server-qualified native codex.exe only: canonical trusted regular non-reparse installation, pinned file identity/hash rechecked immediately before launch. No caller path/argv/env/shell/wrapper/endpoint/token or recipient/payload input. PATH discovery alone grants no execution authority.
+- Implement suspended Windows root, non-breakaway kill-on-close job and process ceiling, explicit inherited handle ownership before resume, concurrent bounded pipe drains and exact root/descendant/pipe/handle join. One current probe per physical board, zero queued automatic probes, 16 processes including root, 64KiB combined capture, 10s deadline plus 2s foreground drain reporting; incomplete drain retains ownership/exclusion until actual join.
+- Short nonblocking admission/control gate, no mutex across native/SQL I/O, exact installation/board/incarnation/runtime/configuration/probe generations, current permission rechecks and denied late-result redaction. Implement safe Stop/Close, pre-resume failure cleanup, timeout/overflow/parser/cancel/parent-exit/competing-owner/unsafe replacement and cleanup-failure handling.
+- Freeze and validate bounded result <=2048 bytes; positive version only for complete qualified zero-exit evidence with joined=true, capability=null. Unsupported/unavailable/unknown/incomplete are distinct; no raw output/errors/private target disclosure.
+- Qualify the actual installed literal identity interface plus separately labeled controlled lifecycle/fault/native resource tests, including descendant survival, actual join and all-layer vectors. Complete fresh nonauthor Sol / High native/authority/concurrency/seam review, corrections and re-review PASS before either client.
+
+Common constraints
+- Keep the first actual probe inseparable from complete native root/descendant/pipe/handle ownership, bounded admission/output/parser/deadline, current authority, Stop/Close and actual joined closure. No safety deferred to M18.
+- Preserve fixed configure-once policy, original notice targets/cuts/receipts, archive/restore lineage, current authority, private drafts and UNKNOWN/no-replay. No Send/Enable/Start, capability-readiness claim, arbitrary command, shared-host change or legacy watcher.
+- Fresh nonauthor Sol / High review, normal corrections and material re-review are included in each development story; parent owns integration, verification, board and publication.
+- Move eligible story In Progress before any work/review. RFW retains prerequisites. This kickoff permits a passed independent story review to unblock later stories in an admitted single-turn run. Terry alone controls Completed.
+
+
+M17.02: Expose deliberate identity inspection and Stop in CLI and browser
+
+Scope authority
+M17 kickoff 2026-11-08; epic #0296; M16-SIX-CONSENSUS-R3 S02/current M17 rows; M16-RECIPIENT-R2 section 7. Current kickoff strict fresh-estimate gate supersedes the older budget exception for this turn.
+
+Entry
+- Accepted M16; fresh current kickoff estimate gate.
+- Prerequisites: M17.01.
+- In Progress before work; fresh independent review before handoff.
+
+Acceptance
+- Implement both real CLI readable/JSON and ordinary browser identity inspection/probe/Stop using only reviewed .01 seam and grammar. Show safe finite outcomes and actual join/incomplete status without capability-readiness or delivery claims.
+- Test default and genuinely configured synthetic boards, exact control generations, stale/foreign/denied/busy controls, late replies, navigation A-B-A, authority loss, draft/focus preservation and private window separation. Opening/reconnect/navigation never starts a probe or external effect.
+- Use actual installed --version for positive proof; separately label missing/unsupported and controlled stall/descendant cases. Browser feedback uses fresh shared queue and supported real browser control with bounded action/release/read/cleanup.
+- Fresh independent review of both clients and exact source-bound integration; send material seam findings back to .01 for correction/re-review before continuing.
+
+Common constraints
+- Keep the first actual probe inseparable from complete native root/descendant/pipe/handle ownership, bounded admission/output/parser/deadline, current authority, Stop/Close and actual joined closure. No safety deferred to M18.
+- Preserve fixed configure-once policy, original notice targets/cuts/receipts, archive/restore lineage, current authority, private drafts and UNKNOWN/no-replay. No Send/Enable/Start, capability-readiness claim, arbitrary command, shared-host change or legacy watcher.
+- Fresh nonauthor Sol / High review, normal corrections and material re-review are included in each development story; parent owns integration, verification, board and publication.
+- Move eligible story In Progress before any work/review. RFW retains prerequisites. This kickoff permits a passed independent story review to unblock later stories in an admitted single-turn run. Terry alone controls Completed.
+
+
+M17.03: Qualify the full current candidate and native lifecycle integration
+
+Scope authority
+M17 kickoff 2026-11-08; epic #0296; M16-SIX-CONSENSUS-R3 S02/current M17 rows; M16-RECIPIENT-R2 section 7. Current kickoff strict fresh-estimate gate supersedes the older budget exception for this turn.
+
+Entry
+- Accepted M16; fresh current kickoff estimate gate.
+- Prerequisites: M17.01, M17.02.
+- In Progress before work; fresh independent review before handoff.
+
+Acceptance
+- Rebind exact source/tools/locks/fixtures and enumerate ALL current provider/compiler/driver/native transaction/continuation/archive/interruption/CLI/browser cases, including new .01/.02 cases. Full pinned Go/TypeScript/lint/contracts/assets/scripts/native gates; no filtered/skipped/zero-case/failed unexplained run counts as PASS.
+- Two independent isolated clean builds and compare ALL generated/staged/web/embedded/executable/applicable post-test outputs. Preserve failed evidence and exact ordinary versus controlled versus justified unchanged reused bindings.
+- Verify fixed configuration/private-authority/original UNKNOWN/no-replay/archive/restore/notice conservation, actual physical join/ownership, full stale/cancel/denied/busy paths and privacy across default/configured boards. Use shared diagnostic queue and prove owned cleanup.
+- Fresh integrated nonauthor Sol / High source/authority/concurrency/storage/evidence review; fix findings, re-review material changes and rerun affected baseline/new paths.
+
+Common constraints
+- Keep the first actual probe inseparable from complete native root/descendant/pipe/handle ownership, bounded admission/output/parser/deadline, current authority, Stop/Close and actual joined closure. No safety deferred to M18.
+- Preserve fixed configure-once policy, original notice targets/cuts/receipts, archive/restore lineage, current authority, private drafts and UNKNOWN/no-replay. No Send/Enable/Start, capability-readiness claim, arbitrary command, shared-host change or legacy watcher.
+- Fresh nonauthor Sol / High review, normal corrections and material re-review are included in each development story; parent owns integration, verification, board and publication.
+- Move eligible story In Progress before any work/review. RFW retains prerequisites. This kickoff permits a passed independent story review to unblock later stories in an admitted single-turn run. Terry alone controls Completed.
+
+
+M17.04: Demonstrate and publish the exact extracted identity-probe review kit
+
+Scope authority
+M17 kickoff 2026-11-08; epic #0296; M16-SIX-CONSENSUS-R3 S02/current M17 rows; M16-RECIPIENT-R2 section 7. Current kickoff strict fresh-estimate gate supersedes the older budget exception for this turn.
+
+Entry
+- Accepted M16; fresh current kickoff estimate gate.
+- Prerequisites: M17.03.
+- In Progress before work; fresh independent review before handoff.
+
+Acceptance
+- Build complete allowlisted Windows review ZIP with verified executable, license/notices, schemas/references, concise start/use/recovery guide and exact CLI grammar. Exclude credentials, real board data, private rosters and diagnostic exports. Verify every member/CRC/size/digest and fresh full extraction.
+- From the exact extracted executable demonstrate NEW actual installed identity inspection in ordinary browser AND real readable/JSON CLI on default/configured synthetic boards. Demonstrate honest missing/unsupported and separately labeled controlled Stop/Close/incomplete/actual-join, stale/foreign/denied control cases; preserve drafts/focus/current scope. Bind actual EXE/source/tool/fixture hashes.
+- Fresh nonauthor package/evidence review, fixes/material re-review, complete owned process/listener/mailbox cleanup, standing-authorized commits/pushes and verified publication. No fake actual-interface support, no general release or physical power-loss claim.
+- Move story and epic to RFR only when all work/reviews finish. Reconcile genuine numbered-story InProgress-to-RFR actuals and current remaining worker plan. Per current kickoff, after all stories/epic RFR refresh #0180 with an explicitly approval-assumed Post M17 checkpoint; Terry retains Completed.
+
+Common constraints
+- Keep the first actual probe inseparable from complete native root/descendant/pipe/handle ownership, bounded admission/output/parser/deadline, current authority, Stop/Close and actual joined closure. No safety deferred to M18.
+- Preserve fixed configure-once policy, original notice targets/cuts/receipts, archive/restore lineage, current authority, private drafts and UNKNOWN/no-replay. No Send/Enable/Start, capability-readiness claim, arbitrary command, shared-host change or legacy watcher.
+- Fresh nonauthor Sol / High review, normal corrections and material re-review are included in each development story; parent owns integration, verification, board and publication.
+- Move eligible story In Progress before any work/review. RFW retains prerequisites. This kickoff permits a passed independent story review to unblock later stories in an admitted single-turn run. Terry alone controls Completed.
+
+REVIEW AND MATERIALIZATION
+Fresh nonauthor Sol / High review and parent consensus PASS after explicit estimate-gate, preflight invocation and review-role clarifications.
+Stories #0309-#0313 are new P3 Ready for Work children of In Progress epic #0296; dependencies are .00 -> .01 -> .02 -> .03 -> .04, with .03 also depending explicitly on .01.
+No execution or preflight has started. Two fresh independent estimates are pending.

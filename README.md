@@ -25,6 +25,13 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
+The [reviewed M17 kickoff breakdown](docs/spike02/m17-kickoff-breakdown-2026-11-08.txt)
+and [structured stories](docs/spike02/m17-kickoff-breakdown-2026-11-08.json)
+define a separate current preflight and four development stories for the first
+safe installed-tool identity probe. Fresh independent estimates govern the
+current kickoff: either development base at or above four hours stops the turn.
+The historical higher-base approval below does not waive this new gate.
+
 The [M16 six-milestone planning consensus](docs/spike02/m16-six-milestone-split-2026-11-07.txt)
 and [structured scope/estimates](docs/spike02/m16-six-milestone-split-2026-11-07.json)
 replace the former combined M16 with M16-M21: private fixed policy, safe installed
