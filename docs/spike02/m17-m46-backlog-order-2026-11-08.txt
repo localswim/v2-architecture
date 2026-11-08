@@ -1,0 +1,45 @@
+M17-M46 ORDERED BACKLOG — NOVEMBER 8, 2026
+MATERIALIZED ORGANIZATION ONLY; NO IMPLEMENTATION STARTED
+
+Terry directed M17 Backlog, one new placeholder, insertion of the split M18 and transfer of epic contents so M17-M46 have increasing ticket numbers.
+
+- M17 is the reviewed noninvoking installation inspector; M18 is the complete safe actual identity probe. Old M18-M45 scope now has labels M19-M46.
+- Stable physical IDs/ticket numbers are unchanged. Current subjects and this crosswalk define the new logical epic locations.
+- Original physical audit/comments remain untouched. Each moved epic has a complete stored-item/focused-board-history source bundle, readable original scope/comments and verified original active attachment bytes.
+- Dependencies, references and archived children follow logical epic scope. Owner-Completed contents/state remain unchanged.
+- All thirty epics are Backlog. No implementation, preflight, estimate spending or execution gate is opened. History and the prior proposal remain preserved.
+
+Current milestone | Current ticket | Previous milestone/ticket | Outcome
+M17 | #0243 | M17 #0296 | Inspect installation candidate without running it
+M18 | #0244 | M17 #0296 | Inspect actual installed identity with complete safe controls
+M19 | #0245 | M18 #0297 | Answer whether the fixed policy is supported by actual capabilities
+M20 | #0246 | M19 #0298 | Inspect current card content under unrelated payload growth
+M21 | #0247 | M20 #0299 | Inspect focused history/related facts under unrelated entity growth
+M22 | #0248 | M21 #0300 | Commit a deliberate edit within a proved integrity-work bound
+M23 | #0249 | M22 #0243 | Prepare and copy immutable conversation briefings
+M24 | #0250 | M23 #0244 | Deliberately send one fresh briefing once
+M25 | #0251 | M24 #0245 | Run fixed notices within a live host session
+M26 | #0252 | M25 #0246 | Resume fixed notices after a clean restart
+M27 | #0253 | M26 #0247 | Retarget and recover conversation notices
+M28 | #0254 | M27 #0248 | Automatically commit exact board and workspace snapshots to local Git
+M29 | #0255 | M28 #0249 | Push queued Git snapshots and recover delivery
+M30 | #0256 | M29 #0250 | Apply a guarded live build update and resume open clients
+M31 | #0257 | M30 #0251 | Open a legacy-shaped workspace through the routed host
+M32 | #0258 | M31 #0252 | Preserve V1 blocker urgency and priority audit
+M33 | #0259 | M32 #0253 | Normalize selected priorities as one audited change
+M34 | #0260 | M33 #0254 | Find and order work with the familiar V1 triage rules
+M35 | #0261 | M34 #0255 | Use familiar daily browser controls, status and Attention notices
+M36 | #0262 | M35 #0256 | Maintain configured workflows and lane identities
+M37 | #0263 | M36 #0257 | Preview an accountable V1 import
+M38 | #0264 | M37 #0258 | Construct and reconcile isolated logical board data
+M39 | #0265 | M38 #0259 | Complete imported files and prove a restorable copy
+M40 | #0266 | M39 #0260 | Read adopted boards through supported legacy entry points
+M41 | #0296 | M40 #0261 | Keep established daily write integrations usable
+M42 | #0297 | M41 #0262 | Use supported legacy operator and admin entry points
+M43 | #0298 | M42 #0263 | Admit validated external snapshot replacements
+M44 | #0299 | M43 #0264 | Rehearse one-writer adoption and rollback
+M45 | #0300 | M44 #0265 | Close the V1 behavior and integration evidence ledger
+M46 | #0314 | M45 #0266 | Qualify and deliver the everyday drop-in release candidate
+
+M17 and M18 each retain a240-minute development base,98/99 reserve and separate60+25 preflight. The complete accepted-for-Backlog scope is in m17-four-hour-split-2026-11-08.txt/json. Current execution and exact-contract review gates still apply.
+Historical numbers inside original descriptions, comments and attached evidence are source-era references, not silently rewritten history. Use this crosswalk for current board locations.

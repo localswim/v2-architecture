@@ -1,0 +1,316 @@
+{
+  "revision": "M17-M46-BACKLOG-ORDER-R1",
+  "date": "2026-11-08",
+  "status": "MATERIALIZED_BACKLOG_ONLY_NO_EXECUTION",
+  "authority": "Terry directed M17 Backlog, one new placeholder, insertion of the split M18 and transfer of epic contents so M17-M46 have increasing ticket numbers.",
+  "rows": [
+    {
+      "milestone": 17,
+      "ticket": 243,
+      "destination": "v2-ordered-m17-20261107",
+      "subject": "M17: Inspect installation candidate without running it",
+      "sourceMilestone": 17,
+      "sourceTicket": 296,
+      "source": "m16-six-split-20261107-02",
+      "splitPart": "I"
+    },
+    {
+      "milestone": 18,
+      "ticket": 244,
+      "destination": "v2-ordered-m18-20261107",
+      "subject": "M18: Inspect actual installed identity with complete safe controls",
+      "sourceMilestone": 17,
+      "sourceTicket": 296,
+      "source": "m16-six-split-20261107-02",
+      "splitPart": "II"
+    },
+    {
+      "milestone": 19,
+      "ticket": 245,
+      "destination": "v2-ordered-m19-20261107",
+      "subject": "M19: Answer whether the fixed policy is supported by actual capabilities",
+      "sourceMilestone": 18,
+      "sourceTicket": 297,
+      "source": "m16-six-split-20261107-03",
+      "splitPart": null
+    },
+    {
+      "milestone": 20,
+      "ticket": 246,
+      "destination": "v2-ordered-m20-20261107",
+      "subject": "M20: Inspect current card content under unrelated payload growth",
+      "sourceMilestone": 19,
+      "sourceTicket": 298,
+      "source": "m16-six-split-20261107-04",
+      "splitPart": null
+    },
+    {
+      "milestone": 21,
+      "ticket": 247,
+      "destination": "v2-ordered-m21-20261107",
+      "subject": "M21: Inspect focused history/related facts under unrelated entity growth",
+      "sourceMilestone": 20,
+      "sourceTicket": 299,
+      "source": "m16-six-split-20261107-05",
+      "splitPart": null
+    },
+    {
+      "milestone": 22,
+      "ticket": 248,
+      "destination": "v2-ordered-m22-20261107",
+      "subject": "M22: Commit a deliberate edit within a proved integrity-work bound",
+      "sourceMilestone": 21,
+      "sourceTicket": 300,
+      "source": "m16-six-split-20261107-06",
+      "splitPart": null
+    },
+    {
+      "milestone": 23,
+      "ticket": 249,
+      "destination": "v2-ordered-m23-20261107",
+      "subject": "M23: Prepare and copy immutable conversation briefings",
+      "sourceMilestone": 22,
+      "sourceTicket": 243,
+      "source": "v2-ordered-m17-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 24,
+      "ticket": 250,
+      "destination": "v2-ordered-m24-20261107",
+      "subject": "M24: Deliberately send one fresh briefing once",
+      "sourceMilestone": 23,
+      "sourceTicket": 244,
+      "source": "v2-ordered-m18-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 25,
+      "ticket": 251,
+      "destination": "v2-ordered-m25-20261107",
+      "subject": "M25: Run fixed notices within a live host session",
+      "sourceMilestone": 24,
+      "sourceTicket": 245,
+      "source": "v2-ordered-m19-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 26,
+      "ticket": 252,
+      "destination": "v2-ordered-m26-20261107",
+      "subject": "M26: Resume fixed notices after a clean restart",
+      "sourceMilestone": 25,
+      "sourceTicket": 246,
+      "source": "v2-ordered-m20-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 27,
+      "ticket": 253,
+      "destination": "v2-ordered-m27-20261107",
+      "subject": "M27: Retarget and recover conversation notices",
+      "sourceMilestone": 26,
+      "sourceTicket": 247,
+      "source": "v2-ordered-m21-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 28,
+      "ticket": 254,
+      "destination": "v2-ordered-m28-20261107",
+      "subject": "M28: Automatically commit exact board and workspace snapshots to local Git",
+      "sourceMilestone": 27,
+      "sourceTicket": 248,
+      "source": "v2-ordered-m22-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 29,
+      "ticket": 255,
+      "destination": "v2-ordered-m29-20261107",
+      "subject": "M29: Push queued Git snapshots and recover delivery",
+      "sourceMilestone": 28,
+      "sourceTicket": 249,
+      "source": "v2-ordered-m23-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 30,
+      "ticket": 256,
+      "destination": "v2-ordered-m30-20261107",
+      "subject": "M30: Apply a guarded live build update and resume open clients",
+      "sourceMilestone": 29,
+      "sourceTicket": 250,
+      "source": "v2-ordered-m24-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 31,
+      "ticket": 257,
+      "destination": "v2-ordered-m31-20261107",
+      "subject": "M31: Open a legacy-shaped workspace through the routed host",
+      "sourceMilestone": 30,
+      "sourceTicket": 251,
+      "source": "v2-ordered-m25-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 32,
+      "ticket": 258,
+      "destination": "v2-ordered-m32-20261107",
+      "subject": "M32: Preserve V1 blocker urgency and priority audit",
+      "sourceMilestone": 31,
+      "sourceTicket": 252,
+      "source": "v2-ordered-m26-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 33,
+      "ticket": 259,
+      "destination": "v2-ordered-m33-20261107",
+      "subject": "M33: Normalize selected priorities as one audited change",
+      "sourceMilestone": 32,
+      "sourceTicket": 253,
+      "source": "v2-ordered-m27-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 34,
+      "ticket": 260,
+      "destination": "v2-ordered-m34-20261107",
+      "subject": "M34: Find and order work with the familiar V1 triage rules",
+      "sourceMilestone": 33,
+      "sourceTicket": 254,
+      "source": "v2-ordered-m28-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 35,
+      "ticket": 261,
+      "destination": "v2-ordered-m35-20261107",
+      "subject": "M35: Use familiar daily browser controls, status and Attention notices",
+      "sourceMilestone": 34,
+      "sourceTicket": 255,
+      "source": "v2-ordered-m29-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 36,
+      "ticket": 262,
+      "destination": "v2-ordered-m36-20261107",
+      "subject": "M36: Maintain configured workflows and lane identities",
+      "sourceMilestone": 35,
+      "sourceTicket": 256,
+      "source": "v2-ordered-m30-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 37,
+      "ticket": 263,
+      "destination": "v2-ordered-m37-20261107",
+      "subject": "M37: Preview an accountable V1 import",
+      "sourceMilestone": 36,
+      "sourceTicket": 257,
+      "source": "v2-ordered-m31-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 38,
+      "ticket": 264,
+      "destination": "v2-ordered-m38-20261107",
+      "subject": "M38: Construct and reconcile isolated logical board data",
+      "sourceMilestone": 37,
+      "sourceTicket": 258,
+      "source": "v2-ordered-m32-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 39,
+      "ticket": 265,
+      "destination": "v2-ordered-m39-20261107",
+      "subject": "M39: Complete imported files and prove a restorable copy",
+      "sourceMilestone": 38,
+      "sourceTicket": 259,
+      "source": "v2-ordered-m33-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 40,
+      "ticket": 266,
+      "destination": "v2-ordered-m40-20261107",
+      "subject": "M40: Read adopted boards through supported legacy entry points",
+      "sourceMilestone": 39,
+      "sourceTicket": 260,
+      "source": "v2-ordered-m34-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 41,
+      "ticket": 296,
+      "destination": "m16-six-split-20261107-02",
+      "subject": "M41: Keep established daily write integrations usable",
+      "sourceMilestone": 40,
+      "sourceTicket": 261,
+      "source": "v2-ordered-m35-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 42,
+      "ticket": 297,
+      "destination": "m16-six-split-20261107-03",
+      "subject": "M42: Use supported legacy operator and admin entry points",
+      "sourceMilestone": 41,
+      "sourceTicket": 262,
+      "source": "v2-ordered-m36-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 43,
+      "ticket": 298,
+      "destination": "m16-six-split-20261107-04",
+      "subject": "M43: Admit validated external snapshot replacements",
+      "sourceMilestone": 42,
+      "sourceTicket": 263,
+      "source": "v2-ordered-m37-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 44,
+      "ticket": 299,
+      "destination": "m16-six-split-20261107-05",
+      "subject": "M44: Rehearse one-writer adoption and rollback",
+      "sourceMilestone": 43,
+      "sourceTicket": 264,
+      "source": "v2-ordered-m38-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 45,
+      "ticket": 300,
+      "destination": "m16-six-split-20261107-06",
+      "subject": "M45: Close the V1 behavior and integration evidence ledger",
+      "sourceMilestone": 44,
+      "sourceTicket": 265,
+      "source": "v2-ordered-m39-20261107",
+      "splitPart": null
+    },
+    {
+      "milestone": 46,
+      "ticket": 314,
+      "destination": "m17-insertion-placeholder-20261108",
+      "subject": "M46: Qualify and deliver the everyday drop-in release candidate",
+      "sourceMilestone": 45,
+      "sourceTicket": 266,
+      "source": "v2-ordered-m40-20261107",
+      "splitPart": null
+    }
+  ],
+  "sourcePlan": "m17-four-hour-split-2026-11-08.json",
+  "semantics": [
+    "M17 is the reviewed noninvoking installation inspector; M18 is the complete safe actual identity probe. Old M18-M45 scope now has labels M19-M46.",
+    "Stable physical IDs/ticket numbers are unchanged. Current subjects and this crosswalk define the new logical epic locations.",
+    "Original physical audit/comments remain untouched. Each moved epic has a complete stored-item/focused-board-history source bundle, readable original scope/comments and verified original active attachment bytes.",
+    "Dependencies, references and archived children follow logical epic scope. Owner-Completed contents/state remain unchanged.",
+    "All thirty epics are Backlog. No implementation, preflight, estimate spending or execution gate is opened. History and the prior proposal remain preserved."
+  ]
+}

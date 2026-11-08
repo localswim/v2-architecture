@@ -25,13 +25,22 @@ evidence. Their documentary consistency does not settle the best fresh design.
 
 ## Spike 02 milestones toward V1 parity
 
-The [four-hour M17 split proposal](docs/spike02/m17-four-hour-split-2026-11-08.txt)
+The [ordered M17-M46 Backlog crosswalk](docs/spike02/m17-m46-backlog-order-2026-11-08.txt)
+and [structured locations](docs/spike02/m17-m46-backlog-order-2026-11-08.json)
+record the November 8 insertion. The reviewed split is now M17 installation
+inspection and M18 safe actual identity probing; former M18-M45 become M19-M46.
+All thirty epics are in Backlog with increasing ticket numbers. Original scopes,
+history evidence, attachments and semantic relationships are preserved. This
+board organization does not start implementation or bypass contract/entry gates.
+
+The earlier [four-hour M17 split proposal](docs/spike02/m17-four-hour-split-2026-11-08.txt)
 and [structured plan](docs/spike02/m17-four-hour-split-2026-11-08.json)
-propose two 240-minute development bases: noninvoking installation inspection,
+record two 240-minute development bases: noninvoking installation inspection,
 then the complete safe actual identity probe. Each retains its own full preflight,
-qualification and new extracted browser/CLI demonstration. The additional
-inspection feature and result policy require owner approval; no execution is
-authorized by the proposal. The original five story cards are archived.
+qualification and new extracted browser/CLI demonstration. Its provisional
+M17A/M17B labels resolve to current M17/M18 in the crosswalk above. Exact inspection
+result-policy review and execution gates remain; the original five story cards
+stay archived.
 
 The earlier [reviewed M17 kickoff breakdown](docs/spike02/m17-kickoff-breakdown-2026-11-08.txt)
 and [structured stories](docs/spike02/m17-kickoff-breakdown-2026-11-08.json)
