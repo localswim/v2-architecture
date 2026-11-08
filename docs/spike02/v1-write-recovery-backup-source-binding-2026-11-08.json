@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "revision": "V1-WRITE-RECOVERY-SOURCE-BINDING-R1",
+  "date": "2026-11-08",
+  "planningTicket": 308,
+  "completedIntake": {
+    "ticket": 307,
+    "preserved": true,
+    "publicationCommit": "08d3e2549a26507baeb9d10f74fbaf377fe260a2",
+    "scope": "The 15 accepted planning rows remain unchanged; this addendum replaces only the pending immutable-source status."
+  },
+  "observedAtUTC": "2026-11-08T13:38:01.129401+00:00",
+  "source": {
+    "sha": "cc4d3151a5f4b4956f5f524a2e88077284ceae23",
+    "title": "Keep backups off edit admission and recover unconfirmed browser saves",
+    "url": "https://github.com/TerryOtt/localswim/commit/cc4d3151a5f4b4956f5f524a2e88077284ceae23",
+    "treeSHA": "aca027383ee84531722512222fc71e8d94fdab1f"
+  },
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4146eda5230d84ddbcb10c9bf6190beac9fee56e",
+      "size": 55575,
+      "url": "https://github.com/TerryOtt/localswim/blob/cc4d3151a5f4b4956f5f524a2e88077284ceae23/AGENTS.md"
+    },
+    {
+      "path": "docs/ORIENTATION.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "737790b1c508842b14694a433f87270c98084743",
+      "size": 93152,
+      "url": "https://github.com/TerryOtt/localswim/blob/cc4d3151a5f4b4956f5f524a2e88077284ceae23/docs/ORIENTATION.md"
+    },
+    {
+      "path": "src/localswim/api_endpoint.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fee209eb3acd9722f6033982d0ed0f5bcb997c48",
+      "size": 319647,
+      "url": "https://github.com/TerryOtt/localswim/blob/cc4d3151a5f4b4956f5f524a2e88077284ceae23/src/localswim/api_endpoint.py"
+    },
+    {
+      "path": "tests/test_browser_save_recovery.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a9e7b9c6377f7b23d9b49526ed3d0916f906849",
+      "size": 10781,
+      "url": "https://github.com/TerryOtt/localswim/blob/cc4d3151a5f4b4956f5f524a2e88077284ceae23/tests/test_browser_save_recovery.py"
+    },
+    {
+      "path": "tests/test_snapshot_publish.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9acd374ac869b02c299c93ccc2673b550eddfc43",
+      "size": 26140,
+      "url": "https://github.com/TerryOtt/localswim/blob/cc4d3151a5f4b4956f5f524a2e88077284ceae23/tests/test_snapshot_publish.py"
+    }
+  ],
+  "localQualification": {
+    "attribution": "Reported by the V1 owning chat, not rerun by V2",
+    "platform": "Windows/local",
+    "passedTests": 2331,
+    "skippedTests": 1,
+    "lintFormatTypeWorkflow": "passed as reported",
+    "wheelAndSdist": "built as reported; artifact hashes not supplied",
+    "independentReviews": "both fixes passed Sol/High review as reported",
+    "realChrome": "One approval and one comment per test; clearing warnings sent no extra POST; newer input and submitted draft survived the stated recovery/reload cases.",
+    "realHTTP": "Accepted an edit while attachment verification remained held beyond the V1 gateway five-second budget."
+  },
+  "deployment": {
+    "attribution": "Reported by V1 owning chat; not independently attested by this intake",
+    "sourceLabel": "cc4d315",
+    "scope": "Shared gateway and existing V1/V2/FGA/Drive board services on unchanged ports",
+    "status": "reported active, healthy and successfully publishing backups",
+    "notifications": "reported enabled with targets retained; LrC stayed off",
+    "runtimeBinaryOrWheelHash": null,
+    "startupLock": "A repository publication-lock collision reportedly recovered through normal retry. This is distinct from primary edit admission."
+  },
+  "remoteCI": {
+    "url": "https://github.com/TerryOtt/localswim/actions/runs/42485286778",
+    "runId": 42485286778,
+    "headSHA": "cc4d3151a5f4b4956f5f524a2e88077284ceae23",
+    "status": "completed",
+    "conclusion": "failure",
+    "updatedAt": "2026-11-08T13:35:48Z",
+    "attempt": 1,
+    "jobs": [
+      {
+        "id": 128745710042,
+        "name": "gate",
+        "status": "completed",
+        "conclusion": "failure",
+        "failedSteps": [
+          "Run the gate"
+        ]
+      }
+    ]
+  },
+  "limits": [
+    "Remote CI status is a timestamped GitHub observation, separate from the reported local Windows pass. No repository-wide green claim.",
+    "V1 source and local evidence do not qualify the Go/TypeScript V2 implementation, portability or any new runtime design.",
+    "Expensive backup work still incurs I/O cost; moving it outside primary edit admission is not zero-cost publication.",
+    "AGENTS.md is referenced as V1 source evidence, not adopted as V2 instructions.",
+    "Completed #0307, archived story records and all existing scope, dependencies, budget/decision and kickoff gates remain unchanged."
+  ],
+  "activeEpicOwners": {
+    "M22": 243,
+    "M23": 244,
+    "M24": 245,
+    "M25": 246,
+    "M27": 248,
+    "M28": 249,
+    "M34": 255,
+    "M38": 259,
+    "M44": 265,
+    "M45": 266
+  },
+  "nextEvidence": "If V1 publishes a later CI attempt or corrected source/build, append a separately bound result; never relabel this run or silently replace this snapshot."
+}

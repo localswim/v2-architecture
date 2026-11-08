@@ -1,0 +1,41 @@
+V1 WRITE RECOVERY / BACKUP — IMMUTABLE SOURCE ADDENDUM
+November 8, 2026 | V1-WRITE-RECOVERY-SOURCE-BINDING-R1 | planning #0308
+
+Relationship to accepted planning
+- Terry completed #0307. Its 15 acceptance rows and published mapping at 08d3e2549a26507baeb9d10f74fbaf377fe260a2 remain unchanged. This additive receipt resolves the pending source reference; it does not reopen the Completed intake.
+- Active future ownership remains M22/W02/Q02 scope in #0243, M23 #0244, M24 #0245, M25 #0246, M27 #0248, M28 #0249, M34 #0255, M38 #0259, M44 #0265 and M45 #0266. Archived story IDs remain provenance only.
+
+Verified immutable source
+- Repository: https://github.com/TerryOtt/localswim
+- Commit: cc4d3151a5f4b4956f5f524a2e88077284ceae23
+- Commit URL: https://github.com/TerryOtt/localswim/commit/cc4d3151a5f4b4956f5f524a2e88077284ceae23
+- Tree: aca027383ee84531722512222fc71e8d94fdab1f. GitHub commit/tree metadata confirms the five file objects below.
+
+- AGENTS.md: Git blob 4146eda5230d84ddbcb10c9bf6190beac9fee56e, 55575 bytes.
+- docs/ORIENTATION.md: Git blob 737790b1c508842b14694a433f87270c98084743, 93152 bytes.
+- src/localswim/api_endpoint.py: Git blob fee209eb3acd9722f6033982d0ed0f5bcb997c48, 319647 bytes.
+- tests/test_browser_save_recovery.py: Git blob 0a9e7b9c6377f7b23d9b49526ed3d0916f906849, 10781 bytes.
+- tests/test_snapshot_publish.py: Git blob 9acd374ac869b02c299c93ccc2673b550eddfc43, 26140 bytes.
+
+Reported Windows/local qualification
+- V1 owning chat reports 2,331 passed tests / 1 skip, with all lint/format/type/workflow checks passing. Wheel and sdist were built. Both fixes passed independent Sol/High review. These tests were not rerun by this V2 intake.
+- Reported real Chrome response-loss checks submitted one approval and one comment each; warning clearance sent no extra POST. Newer input was preserved and the submitted draft survived reload.
+- Reported real HTTP regression accepted an edit while verification stayed held beyond the V1 gateway five-second wait. This is local V1 evidence, not a new V2 latency budget.
+
+Reported shared deployment
+- V1 reports build cc4d315 active in the shared gateway and existing V1/V2/FGA/Drive services on unchanged ports, healthy with successful backup publishing. Notifications remained enabled with current targets; LrC stayed off.
+- Runtime/wheel hashes and independent service attestation were not supplied. The short deployed source label must not be overstated as a verified binary hash.
+- A startup repository publication-lock collision recovered by normal retry. A publication lock is distinct from edit admission. Expensive verification and publication still cost I/O outside the edit critical section.
+
+Remote GitHub gate — independently observed, separate result
+- Run: https://github.com/TerryOtt/localswim/actions/runs/42485286778
+- Head: cc4d3151a5f4b4956f5f524a2e88077284ceae23; attempt 1.
+- GitHub status: completed / failure; the gate job failed at Run the gate. Last update: 2026-11-08T13:35:48Z.
+- Observation recorded at 2026-11-08T13:38:01.129401+00:00. It was reported running in the incoming handoff, but the later direct read shows failure. No cause, correction or cross-platform result is inferred.
+
+Claim limits and follow-up
+- Do not describe this source as repository-wide green, Go/TypeScript V2-qualified, portable or a selected V2 runtime design. Retain the accepted capture/admission, original-outcome, draft, Git compatibility and source-ledger requirements.
+- V1 AGENTS.md is source evidence only; it is not imported as this project's instruction set.
+- A later corrected commit/build or CI attempt requires a new exact binding. Preserve this run and the previously reported local facts separately. No rerun, service operation, future implementation or additional numerical/behavior decision is authorized here.
+
+The matching JSON records canonical file URLs, blob identifiers, attribution and exact CI observation.
