@@ -1,0 +1,1268 @@
+{
+  "schemaVersion": 1,
+  "revision": "V1-R3-TO-V2-INTAKE-R1",
+  "date": "2026-11-07",
+  "ownership": {
+    "v2Intake": 267,
+    "owner": "V2 Bot; Terry controls acceptance and future execution",
+    "v1Closeout": 215,
+    "v1AndV2TicketNamespacesSeparate": true
+  },
+  "source": {
+    "url": "https://github.com/TerryOtt/localswim/blob/67016315e92987139ab07259a1abf192bc50c3bd/docs/reports/2026-11-07-v1-scale-recovery-draft.md",
+    "commit": "67016315e92987139ab07259a1abf192bc50c3bd",
+    "sha256": "87d83b04e78670854b5743b7b6c092013bc797c576ca8b89f85f58d41c943fbe"
+  },
+  "v2Binding": {
+    "qualifiedProductSource": "ae2b4d6c65a10bc3cd424ee44e5d16a57a67e6b0",
+    "inspectedPublication": "3c7f92a9c71005f74d4e8016347dfbb8e6eaa6a0",
+    "acceptedMilestones": "M01-M15",
+    "publishedReceiptsRetainOriginalBindings": true,
+    "newProductTestsRunForIntake": false
+  },
+  "authority": "Planning receipt only. No new funded milestone, implementation, guarantee relaxation, legacy monitor activation or V1 checkout write. New work is unpriced and requires kickoff/decomposition/full estimates/re-cut under the applicable start gate.",
+  "budgetStatus": "The existing priced M16-M40 forecast (5435 base +1965 reserve =7400 cap minutes) is historical priced scope only; it excludes these newly identified unpriced extensions and must not be presented as a complete new estimate. #0180 accepted checkpoint stays frozen until next owner-Completed milestone.",
+  "activeDefinition": "Unselected does not mean inactive: explicitly running Go product monitors/owned operations remain active. Browser unsubscribe/visibility cannot silently Stop them. Quiescence requirements apply to defined consumer-owned sampling unless separately approved.",
+  "evidence": {
+    "E01": {
+      "scope": "Accepted catalog authority/coalescing/slow-member correctness; not large-workload SQL cost.",
+      "sourceRefs": [
+        "internal/workspace/catalog_authority_windows_test.go — TestCatalogLateJoinRevalidatesChangedNativeAuthority; TestCatalogPendingJoinSharesOneAuthorizedSnapshot",
+        "internal/workspace/catalog_test.go — TestCatalogCoalescesSlowMemberAndCompletesFairQueue",
+        "internal/workspace/catalog_windows_test.go — TestCatalogHTTPHungProbeDoesNotDelayHealthyMembersOrDuplicate",
+        "web/src/workspace-ui/refresh.test.ts — runCatalogRefreshTests; runPreferencesPipelineTests"
+      ],
+      "receiptRefs": [
+        "qualification/workspace/README.txt",
+        "qualification/m08/catalog-slice-r1.txt",
+        "qualification/m15/joined-r1.txt"
+      ]
+    },
+    "E02": {
+      "scope": "Accepted board transaction/CAS/atomic effect and retained UNKNOWN/no-replay behavior.",
+      "sourceRefs": [
+        "internal/store/writer/writer_windows_test.go — TestTerminalIdentityAndCurrentAuthority; TestDurableRefusalFencesDelayedSameID; TestApplicationAndCommitFaults; TestAtomicHistoryBytesAndOperationPins; TestSourceOnlyAndCorruptRetainedEvidenceStayUnknown",
+        "internal/transport/local/integration_windows_test.go — TestLocalAttachmentExportLookupAndCAS"
+      ],
+      "receiptRefs": [
+        "qualification/native/transaction/CONTINUATION.txt",
+        "qualification/native/transaction/results.json",
+        "qualification/m15/joined-r1.txt"
+      ]
+    },
+    "E03": {
+      "scope": "Accepted browser input/original-identity retention, deliberate readback and supported recovery limits.",
+      "sourceRefs": [
+        "web/src/recovery/store.test.ts — draft CAS, submitted bytes, limits and transaction-abort cases",
+        "web/src/board/edit.test.ts — runCardEditProbe",
+        "web/src/archive-ui/upload.test.ts — runAttachmentUploadProbe"
+      ],
+      "receiptRefs": [
+        "qualification/m02/README.txt",
+        "qualification/m02/HANDOFF.txt",
+        "qualification/m03/joined-qualification-r1.txt",
+        "qualification/m09/upload-slice-r1.txt",
+        "qualification/m10/joined-r1.txt"
+      ]
+    },
+    "E04": {
+      "scope": "Scoped receipt/hierarchy/details revision floors and current identity/navigation fences; no universal whole-board-floor claim.",
+      "sourceRefs": [
+        "web/src/board/hierarchy.test.ts — hierarchy receipt/card floors and stale follow-up reads",
+        "web/src/board/details.test.ts — runCardDetailsProbe",
+        "web/src/api/workspace-session.test.ts — runWorkspaceSessionSmoke; runWorkspaceConnectionObserverProbe",
+        "web/src/session-ui/window-controller.test.ts — runExpectedBoardNavigationProbe; runPrivateWindowProbe; runPendingReloadProbe; runWorkspaceNavigationProbe"
+      ],
+      "receiptRefs": [
+        "qualification/workspace/README.txt",
+        "qualification/m02/README.txt",
+        "qualification/m04/joined-qualification-r1.txt"
+      ]
+    },
+    "E05": {
+      "scope": "Accepted attachment metadata pagination, authorized exact bytes/10 MiB boundary, loss and cover scheduling; distinct evidence shapes.",
+      "sourceRefs": [
+        "internal/board/attachments/attachments_windows_test.go — TestIntegrityCollisionAndDownloadFence; TestConcurrentSameRevisionAndExportPins; TestProtectedQuotaInclusiveAndDedup; TestDownloadAuthorizationAndBytesShareRevokeSnapshot",
+        "internal/board/attachments/file_limits_windows_test.go — TestCardFilesLegacyLabelBytePaging; TestCardFilesNearArchiveLabel",
+        "web/src/board/files.test.ts — runCardFilesProbe",
+        "web/src/board/cover-preview.test.ts — runCoverPreviewProbe"
+      ],
+      "receiptRefs": [
+        "qualification/m09/joined-r1.txt",
+        "qualification/m09/joined-r1.json",
+        "qualification/m10/joined-r1.txt"
+      ]
+    },
+    "E06": {
+      "scope": "Accepted admitted-work/close/drain ownership and cross-board control isolation, not output-backpressure readiness.",
+      "sourceRefs": [
+        "internal/transport/local/runtime_windows_test.go — TestLocalCloseGatesLateEntryAndDrainsAdmittedRequest",
+        "internal/workspace/runtime_windows_test.go — TestWorkspaceCloseDistinguishesDiagnosticFromOwnedCleanup; TestWorkspaceSlowControlDoesNotSerializeHealthyWork",
+        "internal/transport/local/notice_runtime_windows_test.go — TestNativeNoticeWorkspaceDetachRetainsExclusionDuringDrain"
+      ],
+      "receiptRefs": [
+        "qualification/m14/joined-r1.txt",
+        "qualification/m15/joined-r1.txt",
+        "qualification/m15/HANDOFF.txt"
+      ]
+    },
+    "E07": {
+      "scope": "Accepted Go local notice cuts, suppression, durable originals, guarded recovery/control and local text/Copy; no external delivery.",
+      "sourceRefs": [
+        "internal/transport/boardapi/notice_interval_test.go — TestNoticeIntervalPinnedPages; TestNoticeIntervalCoverage; TestNoticeEqualCutsCoverage; TestNoticeIntervalActorClasses",
+        "internal/board/noticemonitor/monitor_test.go — TestIdleDebounceMaxAgeAndCatchUp; TestStopKeepsOwnerThroughStalledPublication; TestStopFencesUndiscoveredWakeAndBindsResult; TestActivePollYieldsToFinalCapture",
+        "internal/board/noticemonitor/lifecycle_test.go — TestLiveRetargetGuardedOriginalWork; TestLiveControlsReserveAcrossEveryWorkerPublication; TestReplacementCallerCannotLendAuthorityToOldWork",
+        "web/src/board/notices.test.ts — runNoticesProbe and Copy fences"
+      ],
+      "receiptRefs": [
+        "qualification/m12/joined-r1.txt",
+        "qualification/m13/joined-r1.txt",
+        "qualification/m14/joined-r1.txt",
+        "qualification/m15/joined-r1.txt",
+        "qualification/m15/HANDOFF.txt"
+      ]
+    },
+    "E08": {
+      "scope": "Accepted CLI/activity/redaction/raw-text correctness, not full or blocked-output isolation.",
+      "sourceRefs": [
+        "cmd/localswim/notices_native_windows_test.go — TestNoticesActualBuiltCLI; checkNoticeRedaction",
+        "cmd/localswim/notice_text_native_windows_test.go — TestNoticeTextActualBuiltCLIBoundaries"
+      ],
+      "receiptRefs": [
+        "qualification/m11/joined-r1.txt",
+        "qualification/m15/joined-r1.txt",
+        "qualification/m15/HANDOFF.txt"
+      ]
+    },
+    "E09": {
+      "scope": "Inspected source-derived amplification/representation risks, NOT executed failure or scale qualification.",
+      "sourceRefs": [
+        "internal/transport/boardapi/projection.go:96 — all cards/descriptions before q.card filtering; :138 per-card references; :223 history; :297/:311/:324/:337 entity scans",
+        "internal/transport/boardapi/search.go:252 — description/comment candidate work",
+        "internal/store/writer/writer.go:336 — schema.Validate before COMMIT",
+        "web/src/board/view.ts:729 — complete BoardRead serialization on draft change",
+        "web/src/recovery/store.ts:9 — aggregate 2 MiB draft/profile bound",
+        "web/src/board/view.ts:264 — authoritative refresh; general stale whole-board floor unproved",
+        "internal/board/noticemonitor/monitor.go:531 — per-board worker; worker.go:180 authorized Observe on unchanged polling",
+        "internal/board/attachments/download.go:46 — authorized snapshot; internal/store/attachmentblob/read.go:23 BLOB read/hash"
+      ],
+      "receiptRefs": []
+    },
+    "E10": {
+      "scope": "Accepted large-label/hierarchy proofs are useful distinct shapes, not requested combined-board readiness.",
+      "sourceRefs": [
+        "web/src/board/details.ts:277 — local array paging is not a server SQL bound",
+        "web/src/board/view.ts — renderCards covers the validated board archive projection"
+      ],
+      "receiptRefs": [
+        "qualification/m04/joined-qualification-r1.txt",
+        "qualification/m09/joined-r1.txt",
+        "qualification/m10/joined-r1.txt"
+      ]
+    }
+  },
+  "areas": [
+    {
+      "id": "A01",
+      "area": "Catalog/query amplification and cache authority",
+      "covered": {
+        "scope": "Current-authority SQL catalog facts, bounded coalesced jobs and late-join revalidation.",
+        "evidenceIds": [
+          "E01"
+        ]
+      },
+      "planned": {
+        "scope": "Measure actual SQL/rows/copies/queue work while unrelated boards/payloads grow; correct focused-card/entity and list-reference amplification.",
+        "cardKeys": [
+          "D01",
+          "W01",
+          "Q01"
+        ],
+        "existingMilestones": [
+          "M16 #0242"
+        ],
+        "firstUsefulSlot": "M16 Q01 baseline before any external effects; W01 correction then recheck."
+      },
+      "intentionalDifferenceIds": [
+        "I06"
+      ]
+    },
+    {
+      "id": "A02",
+      "area": "Actual local operating model",
+      "covered": null,
+      "planned": {
+        "scope": "Set one-Human/one-browser/one-tab budgets while retaining Human/Bot overlap and existing authority/window guards.",
+        "cardKeys": [
+          "D01",
+          "Q01",
+          "Q02"
+        ],
+        "existingMilestones": [
+          "M16 #0242"
+        ],
+        "firstUsefulSlot": "D01/M16 before scale-readiness claims."
+      },
+      "intentionalDifferenceIds": [
+        "I01"
+      ]
+    },
+    {
+      "id": "A03",
+      "area": "Board reads and repeated write integrity work",
+      "covered": {
+        "scope": "Atomic admitted CAS, integrity/history/outcome pins and retained refusal proof.",
+        "evidenceIds": [
+          "E02"
+        ]
+      },
+      "planned": {
+        "scope": "Narrow selected-card/history/search/related-entity work and measure precommit schema audit amplification without removing accepted checks.",
+        "cardKeys": [
+          "W01",
+          "W04",
+          "Q01",
+          "Q02"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M17 #0243"
+        ],
+        "firstUsefulSlot": "M16 work-count baseline, separately authorized correction, recheck."
+      },
+      "intentionalDifferenceIds": []
+    },
+    {
+      "id": "A04",
+      "area": "Idle/inactive work and scheduling",
+      "covered": {
+        "scope": "Hidden-window catalog quiescence, one coalesced client poll, four catalog slots and slow-member isolation.",
+        "evidenceIds": [
+          "E01",
+          "E04"
+        ]
+      },
+      "planned": {
+        "scope": "Count consumer/SQL/native work and retained memory under navigation and quiet periods; qualify last-subscriber behavior only for the chosen consumer. Bound explicitly active notice fleet separately.",
+        "cardKeys": [
+          "D01",
+          "D02",
+          "Q01",
+          "W03",
+          "Q05"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M19 #0245"
+        ],
+        "firstUsefulSlot": "M16 Q01 current-path baseline; M19 fleet extension."
+      },
+      "intentionalDifferenceIds": [
+        "I02",
+        "I10"
+      ]
+    },
+    {
+      "id": "A05",
+      "area": "Bootstrap, reconnect, identity and authority",
+      "covered": {
+        "scope": "Selected identity/incarnation/grants, stale navigation callbacks and deliberate reconnect preserve original submissions.",
+        "evidenceIds": [
+          "E04"
+        ]
+      },
+      "planned": {
+        "scope": "Qualify bootstrap/subscription gaps, same-revision changed-content semantics, snapshot failure then healthy metadata, pending preference retry and general stale whole-board floors. No contentVersion/SSE proof is inferred.",
+        "cardKeys": [
+          "D02",
+          "Q01",
+          "Q02"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M17 #0243"
+        ],
+        "firstUsefulSlot": "M16 current protocol baseline; D02 before a changed protocol; M17 extension."
+      },
+      "intentionalDifferenceIds": [
+        "I02"
+      ]
+    },
+    {
+      "id": "A06",
+      "area": "Board-atomic writes and card CAS",
+      "covered": {
+        "scope": "Serialized board transactions and stale-card rejection; multi-entity/history/receipt effects commit together.",
+        "evidenceIds": [
+          "E02"
+        ]
+      },
+      "planned": {
+        "scope": "Repeat same-card/unrelated-card Human/Bot overlap and compound writes on count/content/combined fixtures; measure audit and control costs.",
+        "cardKeys": [
+          "W04",
+          "Q01",
+          "Q02"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M17 #0243"
+        ],
+        "firstUsefulSlot": "M16 existing-write baseline, then M17 browser extension."
+      },
+      "intentionalDifferenceIds": []
+    },
+    {
+      "id": "A07",
+      "area": "Pending projections, drafts and revision floors",
+      "covered": {
+        "scope": "Input/original operation retention, scoped hierarchy/receipt floors and honest pending/conflict/UNKNOWN states.",
+        "evidenceIds": [
+          "E03",
+          "E04"
+        ]
+      },
+      "planned": {
+        "scope": "Address full BoardRead-per-draft serialization versus profile limits; qualify per-keystroke storage/render work, reload/navigation and a general stale whole-board read after known commit.",
+        "cardKeys": [
+          "W02",
+          "Q01",
+          "Q02"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M17 #0243"
+        ],
+        "firstUsefulSlot": "Q01 owns M16 observations; W02/M17 correction and Q02 recheck."
+      },
+      "intentionalDifferenceIds": [
+        "I05"
+      ]
+    },
+    {
+      "id": "A08",
+      "area": "Lost responses and no blind replay",
+      "covered": {
+        "scope": "Retained exact operation identity, genuine response-loss readback and no automatic additive/upload retry.",
+        "evidenceIds": [
+          "E02",
+          "E03"
+        ]
+      },
+      "planned": {
+        "scope": "Repeat delayed Add, dropped successful reply, comment/upload/approval/compound uncertainty under large data and reconnect; test evidence before any deliberate recovery.",
+        "cardKeys": [
+          "Q01",
+          "Q02",
+          "Q04",
+          "Q06"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M17 #0243",
+          "M18 #0244",
+          "M20 #0246"
+        ],
+        "firstUsefulSlot": "M16 available-surface baseline; later effect/restart extensions."
+      },
+      "intentionalDifferenceIds": [
+        "I03"
+      ]
+    },
+    {
+      "id": "A09",
+      "area": "Attachment request-path and preview costs",
+      "covered": {
+        "scope": "Bounded metadata request/pages, exact max blob/authorization/hash, committed-loss guards and two-job lazy preview scheduling.",
+        "evidenceIds": [
+          "E05"
+        ]
+      },
+      "planned": {
+        "scope": "Measure metadata/history cardinality, candidate/visible previews, decode/download, SQL/copy/heap and writer delay during concurrent changes; extend later import/restore conservation.",
+        "cardKeys": [
+          "D01",
+          "W01",
+          "Q01",
+          "Q03"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M33 #0259"
+        ],
+        "firstUsefulSlot": "M16 ordinary attachment baseline; M33 import/restore extension."
+      },
+      "intentionalDifferenceIds": [
+        "I05",
+        "I08"
+      ]
+    },
+    {
+      "id": "A10",
+      "area": "Truthful connection/pending/error UX and layout",
+      "covered": {
+        "scope": "Current pending/conflict/stale/unknown states, authority observer, truthful failed catalog facts and redacted activity.",
+        "evidenceIds": [
+          "E01",
+          "E03",
+          "E04",
+          "E08"
+        ]
+      },
+      "planned": {
+        "scope": "D02 settles transport versus observation/edit/render/backup meanings; test silent/disconnected/failing states, retained errors, no misleading sync age, no empty removed-field track and stable clock/narrow layouts.",
+        "cardKeys": [
+          "D02",
+          "Q01",
+          "Q02"
+        ],
+        "existingMilestones": [
+          "M17 #0243",
+          "M29 #0255"
+        ],
+        "firstUsefulSlot": "M16 observation baseline; M17 behavioral cases; M29 final geometry."
+      },
+      "intentionalDifferenceIds": [
+        "I02"
+      ]
+    },
+    {
+      "id": "A11",
+      "area": "Diagnostic output and process lifetime",
+      "covered": {
+        "scope": "Admitted work drains before ownership release; slow board controls do not serialize healthy engines.",
+        "evidenceIds": [
+          "E06",
+          "E08"
+        ]
+      },
+      "planned": {
+        "scope": "Qualify captured/full/blocked output, pre-runtime safe launcher destinations, response/startup/drain isolation and real child joins; do not infer this from redaction.",
+        "cardKeys": [
+          "D01",
+          "Q01",
+          "Q04",
+          "Q06"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M18 #0244",
+          "M20 #0246",
+          "M24 #0250"
+        ],
+        "firstUsefulSlot": "M16 current-host baseline; M18 first-effect and M24 update extensions."
+      },
+      "intentionalDifferenceIds": []
+    },
+    {
+      "id": "A12",
+      "area": "Early HTTP refusal and delayed-body isolation",
+      "covered": null,
+      "planned": {
+        "scope": "Run first-attempt delayed/partial/oversize/refusal cases with bounded native cleanup, no hidden helper replay and exact uncertainty classification.",
+        "cardKeys": [
+          "Q01",
+          "Q04"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M18 #0244"
+        ],
+        "firstUsefulSlot": "M16 native baseline; before M18 supported first external effect."
+      },
+      "intentionalDifferenceIds": [
+        "I09"
+      ]
+    },
+    {
+      "id": "A13",
+      "area": "Producer-driven Human-only administrative owner nudges",
+      "covered": null,
+      "planned": {
+        "scope": "D03 explicitly disposes of a separate V2 operator-nudge need versus keeping the accepted Python bridge. If adopted, scope it separately; Q05 adds its own current-target/one-attempt producer tests without changing Go receipts.",
+        "cardKeys": [
+          "D03",
+          "Q01",
+          "Q05"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M19 #0245",
+          "M39 #0265"
+        ],
+        "firstUsefulSlot": "M16 scope decision/no-effect baseline; M19 adopted capability only."
+      },
+      "intentionalDifferenceIds": [
+        "I03",
+        "I07"
+      ]
+    },
+    {
+      "id": "A14",
+      "area": "All-actor browser propagation",
+      "covered": {
+        "scope": "Current catalog/selected-state reads and navigation/refresh fences are accepted; no actor-based browser suppression is introduced.",
+        "evidenceIds": [
+          "E01",
+          "E04"
+        ]
+      },
+      "planned": {
+        "scope": "Explicitly test genuine Human and Bot commits, consumer backpressure, bootstrap/reconnect and no mutation before commit. Producer-driven metadata requires accepted D02; current polling remains.",
+        "cardKeys": [
+          "D02",
+          "Q01",
+          "Q02",
+          "Q05"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M17 #0243",
+          "M19 #0245"
+        ],
+        "firstUsefulSlot": "M16 baseline; M17 accepted transport extension."
+      },
+      "intentionalDifferenceIds": [
+        "I02",
+        "I03"
+      ]
+    },
+    {
+      "id": "A15",
+      "area": "Go product notices, cuts, originals and recovery",
+      "covered": {
+        "scope": "M12-M15 local notice capture/suppression, exact original targets/cuts/payloads and guarded recovery/retarget controls. Copy/local acceptance is not external delivery.",
+        "evidenceIds": [
+          "E07",
+          "E08"
+        ]
+      },
+      "planned": {
+        "scope": "Bound fleet/slow-sink fairness and prove fresh once/live-host/clean-resume/retarget stages under approved original-effect guarantees; distinguish retention gaps and unknown outcomes.",
+        "cardKeys": [
+          "D03",
+          "W03",
+          "Q01",
+          "Q05",
+          "Q06"
+        ],
+        "existingMilestones": [
+          "M18 #0244",
+          "M19 #0245",
+          "M20 #0246",
+          "M21 #0247"
+        ],
+        "firstUsefulSlot": "M16 existing local baseline; M18 first-effect; M19 fleet; M20 clean resume; M21 interrupted originals."
+      },
+      "intentionalDifferenceIds": [
+        "I03",
+        "I04",
+        "I10"
+      ]
+    },
+    {
+      "id": "A16",
+      "area": "Retired Python watcher/pool compatibility",
+      "covered": null,
+      "planned": {
+        "scope": "Record retired start/reload/stop and dependency disposition in supported-interface/parity inventory; retain historical runtime files and sanitized inspection, preserve independent Go controls.",
+        "cardKeys": [
+          "D03"
+        ],
+        "existingMilestones": [
+          "M34 #0260",
+          "M39 #0265"
+        ],
+        "firstUsefulSlot": "Disposition recorded now; check again at M34 compatibility and M39 parity."
+      },
+      "intentionalDifferenceIds": [
+        "I07"
+      ]
+    },
+    {
+      "id": "A17",
+      "area": "Accepted V1 residual subscribed hash sweep",
+      "covered": null,
+      "planned": {
+        "scope": "Keep this bridge acceptance closed. V2 measures its own catalog/query/idle work and proposes bounded changes through W01/W04/D01, without issuing V1 repair work.",
+        "cardKeys": [
+          "D01",
+          "W01",
+          "W04",
+          "Q01"
+        ],
+        "existingMilestones": [
+          "M16 #0242"
+        ],
+        "firstUsefulSlot": "M16 own-architecture measurement."
+      },
+      "intentionalDifferenceIds": [
+        "I06"
+      ]
+    },
+    {
+      "id": "A18",
+      "area": "Large-card/count/combined stress and measurement validity",
+      "covered": {
+        "scope": "M04 999-descendant/50-page DOM and M09 33,550,434-byte actor-label proofs are accepted distinct shapes; M10 exact 10 MiB blob proof remains.",
+        "evidenceIds": [
+          "E05",
+          "E10"
+        ]
+      },
+      "planned": {
+        "scope": "Separately qualify 4,120 total cards, >=2,978,150-byte aggregate heavy card, combined >20 MiB-equivalent data, history/archive/completed overlap, relationship density and 19/24-board navigation. Separate request, SQL, decode/graph/DOM, draft and preview costs.",
+        "cardKeys": [
+          "D01",
+          "Q01",
+          "Q02",
+          "Q03",
+          "Q04",
+          "Q05",
+          "Q06"
+        ],
+        "existingMilestones": [
+          "M16 #0242",
+          "M17 #0243",
+          "M19 #0245",
+          "M20 #0246",
+          "M40 #0266"
+        ],
+        "firstUsefulSlot": "M16 first baseline; each feature extends it; M40 final regression only."
+      },
+      "intentionalDifferenceIds": [
+        "I01",
+        "I05",
+        "I09"
+      ]
+    },
+    {
+      "id": "A19",
+      "area": "Host update/backup, independent boards and recovery",
+      "covered": {
+        "scope": "Current close/drain and independent-board control guards; accepted local recovery facts remain.",
+        "evidenceIds": [
+          "E02",
+          "E06",
+          "E07"
+        ]
+      },
+      "planned": {
+        "scope": "Add slow output/storage-before/after-commit and concurrent optional backup cases, same-port build replacement/fresh authority, retained drafts/original effects and bounded adopted-transport shutdown.",
+        "cardKeys": [
+          "Q01",
+          "Q04",
+          "Q06"
+        ],
+        "existingMilestones": [
+          "M20 #0246",
+          "M21 #0247",
+          "M24 #0250",
+          "M38 #0264"
+        ],
+        "firstUsefulSlot": "M16 current-host baseline; before M18 first effect; M20/M21/M24 specific gates."
+      },
+      "intentionalDifferenceIds": []
+    },
+    {
+      "id": "A20",
+      "area": "Evidence, claims and source boundaries",
+      "covered": {
+        "scope": "Existing published receipts retain original source/tool/fixture and controlled/ordinary boundaries. Current M15 joined/HANDOFF binds the approved code without claiming new scale execution.",
+        "evidenceIds": [
+          "E02",
+          "E07",
+          "E10"
+        ]
+      },
+      "planned": {
+        "scope": "Carry source-bound early evidence through M38 adoption, M39 parity/difference disposition and M40 exact kit qualification. No formal throughput/SLA/power-loss, SQLite inapplicability, copied V1 mechanism or fixture-generation timing claim.",
+        "cardKeys": [
+          "D01",
+          "Q01",
+          "Q02",
+          "Q03",
+          "Q04",
+          "Q05",
+          "Q06"
+        ],
+        "existingMilestones": [
+          "M38 #0264",
+          "M39 #0265",
+          "M40 #0266"
+        ],
+        "firstUsefulSlot": "Evidence rules apply at the first M16 baseline, not only release."
+      },
+      "intentionalDifferenceIds": []
+    }
+  ],
+  "intentionalDifferences": [
+    {
+      "id": "I01",
+      "difference": "One Human/browser/tab is the primary operating envelope. Keep accepted window/authority isolation; extra-client stress is headroom, not a new many-user requirement.",
+      "decisionCardKey": "D01",
+      "approvalGate": "Terry must accept explicit operating/resource budgets; existing guarantees stay in force."
+    },
+    {
+      "id": "I02",
+      "difference": "V2 currently uses approved five-second visible polling, identity/incarnation/authority generations and SQL snapshots. V1 SSE/contentVersion/ten-second green grace is not an approved V2 transport/status contract.",
+      "decisionCardKey": "D02",
+      "approvalGate": "Terry approval required before any transport/status change; preserve current polling and labels until then."
+    },
+    {
+      "id": "I03",
+      "difference": "Python administrative nudges resolve the current target and attempt once after quiet. Go product notices retain original targets/cuts/receipts and guarded recovery. These are different capabilities.",
+      "decisionCardKey": "D03",
+      "approvalGate": "RECOMMENDED: preserve approved Go guarantees. Any additional operator-nudge feature or weakening needs an explicit separately priced/approved decision."
+    },
+    {
+      "id": "I04",
+      "difference": "V1 report windows are inclusive at both ends. V2 product activity/notices use exclusive lower and inclusive upper cuts.",
+      "decisionCardKey": "D03",
+      "approvalGate": "Existing accepted V2 boundary remains; translating scenarios is required, not a new timestamp contract."
+    },
+    {
+      "id": "I05",
+      "difference": "V1 JSON/aggregate-card size is not one V2 description. Current description limit is 65,536 UTF-8 bytes, drafts have a 2 MiB/profile aggregate bound and individual blobs 10 MiB. Test equivalent logical shapes or explicit bounded refusal; never silently raise limits.",
+      "decisionCardKey": "D01",
+      "approvalGate": "Owner approval required for changed operating limits or an adaptation; W02 must preserve original evidence and honest draft refusal."
+    },
+    {
+      "id": "I06",
+      "difference": "The subscribed V1 catalog byte-hash sweep is an explicitly accepted bridge tradeoff. It is not a new V1 repair or a requirement to poll/hash V2 database files.",
+      "decisionCardKey": "D01",
+      "approvalGate": "No change to the accepted V1 bridge; measure V2 work on its own architecture."
+    },
+    {
+      "id": "I07",
+      "difference": "Old Python watcher/pool start/reload/stop commands and optional native-watcher extra are retired. Preserve old runtime files; do not port compatibility that revives them. Go product notice controls remain separately approved.",
+      "decisionCardKey": "D03",
+      "approvalGate": "No legacy activation or revival authorized; M34/M39 retain this intentional supported-interface disposition."
+    },
+    {
+      "id": "I08",
+      "difference": "V2 currently reads/hashes a maximum BLOB inside the authorized SQL read snapshot. V1 outside-board-lock blob reading is not an existing V2 guarantee or an automatically safe patch.",
+      "decisionCardKey": "D01",
+      "approvalGate": "Q03 measures authority-preserving cost/isolation. Any redesign must preserve current authorization and independently qualify races."
+    },
+    {
+      "id": "I09",
+      "difference": "V1 64 KiB/200 ms refusal cleanup and 600/600 delayed-body observations are V1 evidence, not V2 cleanup settings or universal transport delivery.",
+      "decisionCardKey": "D01",
+      "approvalGate": "Q04 must qualify V2 first attempts under its accepted protocol/ownership rules; lost responses remain uncertain without proof."
+    },
+    {
+      "id": "I10",
+      "difference": "An unselected board with an explicitly running Go monitor/operation is active. Browser subscriber quiescence must not silently Stop approved product work. One-second contexts and caps do not promise native deadlines or fairness.",
+      "decisionCardKey": "D01",
+      "approvalGate": "Define active/inactive work classes and approved bounds before readiness. D02 changes only its approved consumer work; W03 preserves product semantics."
+    }
+  ],
+  "qualificationDimensions": [
+    {
+      "id": "QD01",
+      "dimension": "Data shape",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A03",
+        "A07",
+        "A18"
+      ],
+      "cardKeys": [
+        "D01",
+        "W01",
+        "W02",
+        "W04",
+        "Q01"
+      ],
+      "acceptance": "Count-only/heavy-only/combined; completed+archive overlap; dense relationships/hierarchy/history; equivalent logical SQL/wire/export units or approved bounded refusal.",
+      "firstUsefulSlot": "M16 #0242 Q01; M17 draft extension"
+    },
+    {
+      "id": "QD02",
+      "dimension": "Workspace",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A01",
+        "A02",
+        "A04",
+        "A19"
+      ],
+      "cardKeys": [
+        "D01",
+        "Q01",
+        "Q05",
+        "Q06"
+      ],
+      "acceptance": "19/24 registered boards; one active tab; other-board growth/navigation; one slow or unavailable member. Extra-client stress remains headroom.",
+      "firstUsefulSlot": "M16 #0242 Q01"
+    },
+    {
+      "id": "QD03",
+      "dimension": "Idle",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A04",
+        "A14",
+        "A15"
+      ],
+      "cardKeys": [
+        "D01",
+        "D02",
+        "W03",
+        "Q01",
+        "Q05"
+      ],
+      "acceptance": "Extended quiet request/SQL/jobs/allocation/queue counts; define inactive separately from explicitly running Go work; current five-second polling is not a failed SSE test.",
+      "firstUsefulSlot": "M16 #0242 Q01; M19 fleet extension"
+    },
+    {
+      "id": "QD04",
+      "dimension": "Writes",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A03",
+        "A06",
+        "A07",
+        "A08"
+      ],
+      "cardKeys": [
+        "W04",
+        "Q01",
+        "Q02",
+        "Q04"
+      ],
+      "acceptance": "Human/Bot same-card conflict vs unrelated update, multi-card atomicity, four-second Add, commit+reply loss, exact identity/readback and no blind additive/compound retry.",
+      "firstUsefulSlot": "M16 #0242 Q01; M17 browser extension"
+    },
+    {
+      "id": "QD05",
+      "dimension": "Browser",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A05",
+        "A07",
+        "A10",
+        "A14",
+        "A18"
+      ],
+      "cardKeys": [
+        "D02",
+        "W02",
+        "Q01",
+        "Q02"
+      ],
+      "acceptance": "Initial view/history/search/drawer/drafts/navigation/reconnect/snapshot failure/preferences; separate download/decode/graph/DOM/main-thread/keystroke work and honest status/geometry.",
+      "firstUsefulSlot": "M16 #0242 Q01; M17 consistency; M29 #0255 final UX"
+    },
+    {
+      "id": "QD06",
+      "dimension": "Attachments",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A09",
+        "A18"
+      ],
+      "cardKeys": [
+        "D01",
+        "W01",
+        "Q01",
+        "Q03"
+      ],
+      "acceptance": "References/history/visible previews, decode/download, accepted 10 MiB blob, corrupt/missing/unauthorized refusal and concurrent change; snapshot authority and resource work stay explicit.",
+      "firstUsefulSlot": "M16 #0242 Q03; M33 #0259 import/restore"
+    },
+    {
+      "id": "QD07",
+      "dimension": "Notices",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A13",
+        "A14",
+        "A15",
+        "A16"
+      ],
+      "cardKeys": [
+        "D03",
+        "W03",
+        "Q01",
+        "Q05",
+        "Q06"
+      ],
+      "acceptance": "Human-only administrative nudge vs all-actor browser vs Go product semantics; explicit activation/target, slow sink/writer separation, burst fairness, missed signals/restart/retention/drain.",
+      "firstUsefulSlot": "M16 no-effect/local baseline; M18-M21 approved stages"
+    },
+    {
+      "id": "QD08",
+      "dimension": "Host",
+      "disposition": "Planned",
+      "coveredAreaIds": [
+        "A11",
+        "A12",
+        "A19"
+      ],
+      "cardKeys": [
+        "D01",
+        "Q01",
+        "Q04",
+        "Q06"
+      ],
+      "acceptance": "Safe detached pre-runtime output, refusal/delayed input, backpressure, real native joins/reload, pre/post-commit storage error and optional backup work; no power-loss certification.",
+      "firstUsefulSlot": "M16 #0242 Q01; M18 #0244 Q04; M20/M24 extensions"
+    }
+  ],
+  "sourceWorkloads": [
+    {
+      "label": "V1 automated combined",
+      "cards": 4120,
+      "largestStoredCardBytes": 3475740,
+      "boardBytes": 9868020,
+      "note": "Distinct from the >20 MiB fixture; 1373 archived and 2746 completed overlap."
+    },
+    {
+      "label": "V1 browser content",
+      "cards": 412,
+      "largestStoredCardBytes": 3029238,
+      "boardBytes": 5117192
+    },
+    {
+      "label": "V1 browser count",
+      "cards": 4120,
+      "largestStoredCardBytes": 4660,
+      "boardBytes": 20636670
+    },
+    {
+      "label": "V1 browser combined",
+      "cards": 4120,
+      "largestStoredCardBytes": 3029238,
+      "boardBytes": 23680086,
+      "visibleNonArchived": 2747
+    },
+    {
+      "label": "V1 later SSE combined",
+      "cards": 4120,
+      "boardBytes": 23680236,
+      "visibleNonArchived": 2747,
+      "note": "Separate later fixture/run; do not silently replace earlier binding."
+    },
+    {
+      "label": "V1 dense browser workspace",
+      "boards": 24,
+      "initialBytesPerBoard": 22116128,
+      "cardsPerBoard": 401,
+      "commentsPerBoard": 4800
+    }
+  ],
+  "plannedCards": [
+    {
+      "key": "D01",
+      "id": "v2-v1r3-d01-20261107",
+      "subject": "Decide the V2 operating envelope and measurable scale budgets",
+      "parentTicket": 267,
+      "milestone": "M16 before scale-readiness claims",
+      "acceptance": [
+        "Propose and obtain Terry disposition of one-Human/one-browser/one-tab localhost operation with concurrent Human/Bot intent; extra-client stress is labeled headroom, not a new product requirement.",
+        "Classify 4,120 total cards (completed/archived overlap disclosed), one >=2,978,150-byte aggregate history/comment-heavy card, count-only, content-only and combined >20 MiB-equivalent logical data; include 19/24 registered-board shapes. State units separately for SQLite logical data, wire payload, export bytes and resident memory.",
+        "Respect existing input/entity/history/page/blob limits. If a V1-shaped input is inadmissible, prove bounded honest refusal and propose an approved adaptation/limit; do not raise limits or silently shrink the premise.",
+        "Record explicit accepted bounds for queued/running jobs, rows examined/returned, SQL/query counts, payload/copy bytes, idle/inactive work, CPU/memory, queue age/control latency and p50/p95/p99/max observations. Define fixture/cache/tool/machine protocol and failure disposition; do not invent an SLA from V1 observations.",
+        "Budget browser download, decode/validation, graph construction, main-thread/DOM render, preview decode and per-keystroke draft work explicitly, separate from network/service latency. Keep fixture construction/measurement overhead out of the timed premise and disclose cache/setup costs."
+      ],
+      "gates": [
+        "Proposal/owner decision only when separately started; no numeric budget or expanded support model is approved by intake. Existing native ownership and authority guarantees remain."
+      ],
+      "references": [],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 268
+    },
+    {
+      "key": "D02",
+      "id": "v2-v1r3-d02-20261107",
+      "subject": "Decide V2 browser update, reconnect and truthful status semantics",
+      "parentTicket": 267,
+      "milestone": "M16 baseline decision; M17 consistency; M29 final UX",
+      "acceptance": [
+        "Evaluate current five-second visible polling against producer-driven metadata/SSE for the one-tab model. Keep the accepted polling contract until Terry accepts an explicit change.",
+        "For any candidate define snapshot/bootstrap/subscription ordering, content/identity/epoch markers, same-revision changed-content handling, late joins, current-authority checks, stale navigation fences and acknowledged revision floors.",
+        "Specify reconnect/snapshot failure recovery, pending preference retry without an unrelated catalog change, slow-consumer/coalescing bounds, last-subscriber quiescence and bounded joined shutdown. Heartbeat work cannot read storage or imply accepted data.",
+        "Separate connection transport, accepted storage observation, last committed edit, pending/error state, render completion and backup/delivery status. Decide indicator grace behavior; do not mechanically adopt V1 ten seconds. Avoid an alarming unchanged-data sync age or vacated layout track; retain stable clock/status geometry and independent storage errors."
+      ],
+      "gates": [
+        "Owner acceptance required before transport or user-visible freshness semantics change. No V2 contentVersion surface or SSE coverage is presumed."
+      ],
+      "references": [
+        "D01"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 269
+    },
+    {
+      "key": "D03",
+      "id": "v2-v1r3-d03-20261107",
+      "subject": "Decide separate operator-nudge scope while preserving Go notice guarantees",
+      "parentTicket": 267,
+      "milestone": "M16 before adapter scope changes; M19/M21; M39 parity",
+      "acceptance": [
+        "Record Python administrative owner nudges as a separate accepted bridge capability: committed Human only, current target at delivery, 15-second quiet coalescing, one best-effort attempt, no durable cursor/replay/catch-up; all-actor browser updates are separate.",
+        "Inventory whether V2 needs a separate best-effort operator-nudge feature in addition to the already approved Go product notices. Recommend preserving current Go contracts and treating a separate nudge as explicit additional scope if wanted.",
+        "Retain original targets/cuts/identities, durable receipts, current authority, UNKNOWN/no replay, clean/dirty restart distinctions and deliberate recovery for Go M12-M21 unless Terry explicitly approves a separately scoped contract change.",
+        "Never treat Copy/print, probe success or administrative queue acceptance as external product delivery or negative acceptance. Preserve explicit activation and handoff retarget authority.",
+        "Confirm legacy Python watcher/pool launch/reload/stop interfaces remain retired; no compatibility port or runtime-file rewrite. The accepted V1 subscribed hash sweep is a bridge tradeoff, not another V1 repair."
+      ],
+      "gates": [
+        "No owner-nudge simplification downgrades Go guarantees. Changes require an explicit contract decision and fresh scope/pricing before implementation."
+      ],
+      "references": [
+        "D02"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 270
+    },
+    {
+      "key": "W01",
+      "id": "v2-v1r3-w01-20261107",
+      "subject": "Bound focused-card SQL and related-row materialization",
+      "parentTicket": 242,
+      "milestone": "M16 earliest authorized implementation/qualification",
+      "acceptance": [
+        "Use the accepted source projection.go findings to add a failing work-count regression before qualifying a correction: q.card currently filters after selecting all cards/descriptions; related entity queries scan the board then filter.",
+        "Bound selected-card/current-reference/comment/link/attachment/approval/history work to the requested authorized scope and accepted page rules. Evaluate board-list per-card current_reference queries and catalog aggregates separately; do not equate bounded DTOs with bounded SQL.",
+        "Preserve one admitted current-authority SQL snapshot, identity/incarnation/epoch, archive/history/reference truth, atomic writes and exact DTO/refusal behavior. Fresh Sol / High SQL/concurrency review is required.",
+        "Compare unchanged selected-card operations while unrelated count/content/boards grow at 41/412/4,120 and accepted heavy/combined shapes; record rows/query/copy counts and cold/warm costs. No existing behavior is reopened or requalified by this planning card."
+      ],
+      "gates": [
+        "Requires separate M16 kickoff, own .00 and complete re-estimation/re-cut; unfunded scope. D01 must settle operating limits before a scale-readiness claim."
+      ],
+      "references": [
+        "D01",
+        "Q01"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 271
+    },
+    {
+      "key": "W02",
+      "id": "v2-v1r3-w02-20261107",
+      "subject": "Bound draft recovery storage without losing edits or authority",
+      "parentTicket": 243,
+      "milestone": "M17; current-path baseline during M16",
+      "acceptance": [
+        "Address the source-derived representation risk: BoardView.persist serializes the full BoardRead base on each draft change while RecoveryStore has an aggregate 2 MiB/profile draft cap. A serialized base above that cap cannot persist one draft under the current representation; do not claim every specific V1-shaped fixture necessarily produces that representation.",
+        "Propose and qualify a bounded draft/base representation with exact board/card/identity/authority/revision binding, stable Add identity and acknowledged floors. Preserve edits, conflicts, late-response fences and honest storage-unavailable/refusal disclosure.",
+        "Use count-only, accepted heavy-card and combined fixtures, multiple retained drafts and navigation/reload. Measure per-keystroke serialization/copy/storage work separately from network/render time.",
+        "Keep real product storage/input limits unless D01 explicitly approves an adaptation. No silent truncation, draft disappearance, fresh operation identity, duplicate Add or mutation replay is allowed."
+      ],
+      "gates": [
+        "Separate M17 kickoff/.00 and complete re-estimation/re-cut. D01 owns the envelope and any limit change; D02 owns transport changes."
+      ],
+      "references": [
+        "D01",
+        "D02",
+        "Q02"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 272
+    },
+    {
+      "key": "W03",
+      "id": "v2-v1r3-w03-20261107",
+      "subject": "Bound Go notice fleet scheduling and inactive work",
+      "parentTicket": 245,
+      "milestone": "M19; first workload observations in M16",
+      "acceptance": [
+        "Qualify and bound aggregate jobs/queue/retained memory across explicit running boards; the catalog four-slot cap does not bound product monitors, whose current Start creates a per-board goroutine.",
+        "Evaluate producer commit wakes/coalescing and required reconciliation against current authorized one-second SQL polling. Raw database-file events are hints, not commit/cut proof. Preserve durable checkpoints and missed-signal recovery.",
+        "Prevent a slow sink or hung board from starving healthy boards or controls. Measure queue age, fairness and Stop/Close latency separately from resource caps; retain actual native ownership until join.",
+        "Keep current original targets, event boundaries, acceptance/UNKNOWN/no-replay and M19 live-host-only rules. Any separate best-effort operator nudge or guarantee change requires D03 approval."
+      ],
+      "gates": [
+        "Separate M19 authorization/preflight/full re-estimation and supported adapter/owned receiver authority before effects; D01 sets accepted resource/control budgets."
+      ],
+      "references": [
+        "D01",
+        "D03",
+        "Q05"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 273
+    },
+    {
+      "key": "W04",
+      "id": "v2-v1r3-w04-20261107",
+      "subject": "Bound repeated write-integrity audit work while preserving atomic guarantees",
+      "parentTicket": 242,
+      "milestone": "M16 first work-count baseline and separately scoped correction",
+      "acceptance": [
+        "Measure current writer schema.Validate work before COMMIT as card/entity/history counts and unrelated payloads grow. Distinguish required integrity proof from repeated whole-database work; source presence alone is not a measured latency failure.",
+        "If the accepted D01 work budget is exceeded, design a proved bounded or incremental verification strategy under fresh Sol / High SQL/concurrency/recovery review. Preserve all current structural/relational invariants; do not remove accepted checks for speed.",
+        "Retain board transaction boundaries, per-card CAS, multi-card atomic effects/history/receipt pins, durable refusals and original operation identity. Exercise before/after-commit faults, same/unrelated-card Human/Bot overlap, delayed responses and readback without replay.",
+        "Record SQL/row/audit/copy/allocation work and p50/p95/p99/max observations on the separate count/content/combined fixtures, under exact source/tool/storage pins."
+      ],
+      "gates": [
+        "Unfunded investigation/correction scope; separate M16 kickoff and complete fresh estimates. D01 budget acceptance precedes a scale-readiness claim; existing guarantees cannot be weakened."
+      ],
+      "references": [
+        "D01",
+        "Q01"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 274
+    },
+    {
+      "key": "Q01",
+      "id": "v2-v1r3-q01-20261107",
+      "subject": "Qualify early catalog, idle and combined scale work",
+      "parentTicket": 242,
+      "milestone": "M16 first useful baseline, before external effects",
+      "acceptance": [
+        "Run count-only, heavy-card-only and combined shapes separately, including completed/archived cards, relationship/hierarchy density and history. Preserve exact fixture measures; do not call a <20 MiB fixture proof of the >20 MiB-equivalent scenario.",
+        "Exercise one active selected board while 19/24 registered boards grow, navigation, one unavailable/slow member, fair bounded catalog scheduling and current-authority late joins. Count jobs, rows, SQL, payload/copies, queue age and retained memory.",
+        "Measure extended quiet behavior and navigation churn: selected vs inactive work, no accumulating background readers, pending retries independent of unrelated changes, and (if adopted) storage-free heartbeats/last-subscriber quiescence.",
+        "Use authoritative product assertions plus real browser diagnostics through the shared Valkey/Webdis queue. Register/export/delete an owned bounded mailbox; request counters alone do not prove HTTP or product success.",
+        "Produce an observation baseline under existing limits, then evaluate readiness only against accepted D01 budgets. Reuse this exact source-bound baseline as an input to later extensions; M40 is final regression, not first discovery.",
+        "M16 Q01 owns the shared early baseline for every already-available current surface: Q02 browser/drafts, Q03 attachment paths, Q04 refusals/output/host lifecycle, Q05 existing local notices and Q06 current-host restart/inactive work. Future external sends, new push transport and new recovery semantics are not simulated as passed; their later cards extend/recheck this recorded baseline.",
+        "Measure download separately from validation/graph/DOM rendering and per-keystroke private draft work. Exclude/disclose fixture construction overhead. Sequence baseline -> separately authorized W01/W02/W03/W04 correction -> affected qualification recheck; do not make mutual reference links execution dependencies."
+      ],
+      "gates": [
+        "Separate authorized M16 kickoff/preflight/estimates required; no execution authorized now. D01 controls readiness budgets; D02 controls any transport change."
+      ],
+      "references": [
+        "D01",
+        "D02",
+        "W01"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "ticket": 275
+    },
+    {
+      "key": "Q02",
+      "id": "v2-v1r3-q02-20261107",
+      "subject": "Qualify browser drafts, pending outcomes, bootstrap and status at scale",
+      "parentTicket": 243,
+      "milestone": "M16 current-path baseline; M17 first consistency extension; M29 UX",
+      "acceptance": [
+        "Exercise genuine Human/Bot overlap, same-card conflict vs unrelated-card update, atomic multi-card changes, four-second delayed Add, committed response loss, stable Add identity/readback and preserved drafts/focus across navigation.",
+        "Prove acknowledged board/card floors cannot regress in applicable surfaces; qualify the general same-identity stale-readback case explicitly. Current scoped floors are not blanket universal coverage.",
+        "Test large initial reads, bounded history/search/drawer pages, bootstrap/reconnect gaps, same-revision changed-content/identity replacement, old callbacks, snapshot failure followed by healthy metadata and pending preference retry without catalog change.",
+        "Use accepted D02 transport/status semantics; preserve current polling until changed. Test silent-open and repeated reconnect failure semantics where applicable, independent board errors, narrow/desktop geometry, removed fields/empty tracks and anchored clock widths.",
+        "Additive comments/uploads/approvals and CLI/proxy outcomes cannot be blindly retried. Preserve approved V2 receipt/UNKNOWN and current-authority rules, rather than copying V1 retry policy.",
+        "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only."
+      ],
+      "gates": [
+        "Separate authorized kickoff and own source/tool qualification. D02 approval precedes transport/status changes; current-contract regression is still useful before that decision."
+      ],
+      "references": [
+        "D01",
+        "D02",
+        "Q01"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "earlyBaselineOwner": "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.",
+      "ticket": 276
+    },
+    {
+      "key": "Q03",
+      "id": "v2-v1r3-q03-20261107",
+      "subject": "Qualify attachment metadata, history and blob-path costs",
+      "parentTicket": 242,
+      "milestone": "M16 early ordinary path; M33 import/restore extension",
+      "acceptance": [
+        "Vary reference/history counts and simultaneous visible previews on heavy/count/combined boards; distinguish metadata selection, decode/render, integrity reads and download work.",
+        "Use the accepted 10 MiB individual-blob limit, exact hashes and max-size/corrupt/missing/unauthorized refusals. Concurrent card changes and detach/cover/retention must preserve admitted references and byte identity.",
+        "Measure unrelated-card SQL/materialization and writer/control latency during downloads. Do not presume out-of-database blobs eliminate lock/copy costs or claim a no-full-copy bound without work-count evidence.",
+        "Extend the accepted baseline in M33 to archived/retired-lane import and restore inventories; prove exact source/protected bytes and separate destination authority. No import work starts with intake.",
+        "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only."
+      ],
+      "gates": [
+        "Separate authorized M16/M33 execution and own .00/estimates. Preserve existing limits and attachment authority; D01 owns any requested envelope adaptation."
+      ],
+      "references": [
+        "D01",
+        "Q01",
+        "W01"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "earlyBaselineOwner": "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.",
+      "ticket": 277
+    },
+    {
+      "key": "Q04",
+      "id": "v2-v1r3-q04-20261107",
+      "subject": "Qualify refusal, output and native lifecycle isolation",
+      "parentTicket": 244,
+      "milestone": "M16 native baseline; M18 before first supported external effect; M24 update extension",
+      "acceptance": [
+        "Exercise delayed POST bodies and early auth/size/protocol refusals, malformed/partial input and clients that stop reading; count first-attempt results without test-helper mutation replay.",
+        "Choose bounded transport cleanup through V2 ownership/admission contracts; V1 600/600 probes and 64 KiB/200 ms cleanup are evidence ideas, not imported Go limits or a universal delivery guarantee.",
+        "Block/capture/full stdout/stderr and diagnostic sinks. Transactions, responses, startup gates, control latency and drain must remain isolated. Establish safe launcher destinations before Go/runtime entry; application logging cannot protect pre-entry output.",
+        "Prove actual native host/child/descendant ownership and join for Stop/Close/timeout/shutdown, including one failing board while another proceeds. Retain original effects and UNKNOWN evidence without replay.",
+        "M24 extends through staged update/rollback, same-port ownership, fresh authority, preserved drafts and original pending effects; keep backup/build/board/connection status distinct.",
+        "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only."
+      ],
+      "gates": [
+        "Separate authorized kickoff/preflight and exact adapter/owned receiver authority before effects. D01 supplies work/control budgets. No physical power-loss or universal HTTP-delivery claim."
+      ],
+      "references": [
+        "D01",
+        "Q01"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "earlyBaselineOwner": "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.",
+      "ticket": 278
+    },
+    {
+      "key": "Q05",
+      "id": "v2-v1r3-q05-20261107",
+      "subject": "Qualify producer signals, attribution and slow-sink fairness",
+      "parentTicket": 245,
+      "milestone": "M16 no-effect baseline; M18 first effect; M19 live-host extension",
+      "acceptance": [
+        "Prove only committed application cuts trigger product work; rollback/no-op/failed transactions and raw database filesystem hints cannot impersonate commits. Preserve V2 (from,through] and exact original target/identity.",
+        "Separate Human-only operator nudges (only if D03 explicitly adopts that feature) from all-actor browser propagation and Go product Human/mixed/fallback/suppression semantics.",
+        "Exercise simultaneous multi-board bursts, queue/coalescing limits, one slow/blocked sink, one failing member, missed signals, busy controls and writes during drain. Measure fairness/control latency and queue age separately from memory/concurrency caps.",
+        "A slow notice/diagnostic consumer cannot hold the writer or strand another board. Current target-at-delivery applies only to the separate administrative nudge; Go pending work keeps its original target.",
+        "Preserve supported adapter/positive boundary, one fresh same-session send, durable effect fence, UNKNOWN/no replay and live-host-only M19 start. No accidental clean-restart or historical recovery support is introduced.",
+        "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only."
+      ],
+      "gates": [
+        "Separate M19 kickoff and own re-estimation; exact supported runner/owned receiver qualification before live effects. D03 acceptance required for an additional administrative nudge or guarantee change."
+      ],
+      "references": [
+        "D01",
+        "D03",
+        "Q01",
+        "Q04"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "earlyBaselineOwner": "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.",
+      "ticket": 279
+    },
+    {
+      "key": "Q06",
+      "id": "v2-v1r3-q06-20261107",
+      "subject": "Qualify restart, retention gaps and resource quiescence",
+      "parentTicket": 246,
+      "milestone": "M16 current-host baseline; M20 clean resume; M21 interrupted recovery",
+      "acceptance": [
+        "Under accepted heavy/count/combined and multi-board shapes, prove last-user/last-run cleanup, no inactive background-work accumulation, slow-consumer drain and native joins before owner release.",
+        "M20 only: positively clean Stop with no unresolved original effect, fresh authority after reopen and deliberate NEW catch-up intervals. Preserve exact checkpoint and refuse dirty/prepared/UNKNOWN historical work without reset/resend.",
+        "M21 extension remains on existing M21 epic: interrupted originals, retention/coverage gaps, future-only retarget/reload and deliberate proved-safe original recovery under current authority. Never substitute administrative best-effort semantics.",
+        "Include before/after-commit storage errors, output backpressure and concurrent optional backup work; distinguish connection reachability, accepted storage, actual observation, rendered state and delivery.",
+        "M38/M39/M40 aggregate current source-bound early results into adoption/parity/release gates; no final-only deferral or power-loss certification is inferred.",
+        "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only."
+      ],
+      "gates": [
+        "Separate M20/M21 kickoff/preflight/estimates and accepted predecessors; original-target/recovery gates remain. No historical settlement authority from a clean-resume test."
+      ],
+      "references": [
+        "D01",
+        "D03",
+        "Q01",
+        "Q04",
+        "Q05"
+      ],
+      "linkSemantics": "References are related planning/evidence links only, never blocking dependencies or permission to execute.",
+      "earlyBaselineOwner": "Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.",
+      "ticket": 280
+    }
+  ]
+}

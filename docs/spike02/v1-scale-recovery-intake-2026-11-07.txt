@@ -1,0 +1,474 @@
+V1 REVISION 3 -> V2 COVERAGE-TO-PLAN RECEIPT
+V1-R3-TO-V2-INTAKE-R1 | November 7, 2026 | V2 intake #0267
+Owner: V2 Bot; Terry retains approval/Completed/future-start authority. V1 closeout #0215 is on a separate board.
+
+SOURCE AND AUTHORITY
+https://github.com/TerryOtt/localswim/blob/67016315e92987139ab07259a1abf192bc50c3bd/docs/reports/2026-11-07-v1-scale-recovery-draft.md
+Report commit 67016315e92987139ab07259a1abf192bc50c3bd; SHA256 87d83b04e78670854b5743b7b6c092013bc797c576ca8b89f85f58d41c943fbe
+Qualified V2 Go/TS source ae2b4d6c65a10bc3cd424ee44e5d16a57a67e6b0; inspected docs/publication 3c7f92a9c71005f74d4e8016347dfbb8e6eaa6a0.
+Accepted implementation through M15 is credited only within each cited receipt. Historic fixtures/tool pins and ordinary/controlled boundaries remain; this intake ran no new product tests.
+Planning receipt only. No new funded milestone, implementation, guarantee relaxation, legacy monitor activation or V1 checkout write. New work is unpriced and requires kickoff/decomposition/full estimates/re-cut under the applicable start gate.
+The existing priced M16-M40 forecast (5435 base +1965 reserve =7400 cap minutes) is historical priced scope only; it excludes these newly identified unpriced extensions and must not be presented as a complete new estimate. #0180 accepted checkpoint stays frozen until next owner-Completed milestone.
+
+OPERATING AND GUARANTEE BOUNDARIES
+Unselected does not mean inactive: explicitly running Go product monitors/owned operations remain active. Browser unsubscribe/visibility cannot silently Stop them. Quiescence requirements apply to defined consumer-owned sampling unless separately approved.
+One Human/browser/tab on localhost is the proposed primary budget envelope, with concurrent Human/Bot intent. Preserve existing independent-window guards; extra-client stress is explicitly headroom.
+Python administrative nudges and Go product notices are distinct. D03 preserves approved Go originals/receipts/authority/recovery by default. Current V2 polling stays until D02 is approved.
+The V1 residual subscribed byte-hash sweep is accepted bridge scope, not another repair. Old Python watcher/pool commands remain retired. No V1 source/tests/internal design was copied; prior exposure/report use is disclosed, with no isolated clean-room claim.
+
+DISPOSITION LEGEND
+Covered = accepted narrow behavior with exact source/test/receipt references below; never a blanket large-workload claim.
+Planned = concrete Backlog acceptance plus milestone, entry/decision gates and earliest useful slot. New cards are unpriced, not implementation authority.
+Intentional difference = explicit current contract/limit or pending owner choice; existing guarantees remain until approval.
+
+COVERAGE BY REPORT AREA
+
+A01 Catalog/query amplification and cache authority
+Covered: Current-authority SQL catalog facts, bounded coalesced jobs and late-join revalidation.
+Evidence: E01.
+Planned: Measure actual SQL/rows/copies/queue work while unrelated boards/payloads grow; correct focused-card/entity and list-reference amplification.
+Cards: D01 #0268, W01 #0271, Q01 #0275. Existing milestone links: M16 #0242.
+First useful slot: M16 Q01 baseline before any external effects; W01 correction then recheck.
+Intentional difference: I06 (decisions below).
+
+A02 Actual local operating model
+Planned: Set one-Human/one-browser/one-tab budgets while retaining Human/Bot overlap and existing authority/window guards.
+Cards: D01 #0268, Q01 #0275, Q02 #0276. Existing milestone links: M16 #0242.
+First useful slot: D01/M16 before scale-readiness claims.
+Intentional difference: I01 (decisions below).
+
+A03 Board reads and repeated write integrity work
+Covered: Atomic admitted CAS, integrity/history/outcome pins and retained refusal proof.
+Evidence: E02.
+Planned: Narrow selected-card/history/search/related-entity work and measure precommit schema audit amplification without removing accepted checks.
+Cards: W01 #0271, W04 #0274, Q01 #0275, Q02 #0276. Existing milestone links: M16 #0242, M17 #0243.
+First useful slot: M16 work-count baseline, separately authorized correction, recheck.
+
+A04 Idle/inactive work and scheduling
+Covered: Hidden-window catalog quiescence, one coalesced client poll, four catalog slots and slow-member isolation.
+Evidence: E01, E04.
+Planned: Count consumer/SQL/native work and retained memory under navigation and quiet periods; qualify last-subscriber behavior only for the chosen consumer. Bound explicitly active notice fleet separately.
+Cards: D01 #0268, D02 #0269, Q01 #0275, W03 #0273, Q05 #0279. Existing milestone links: M16 #0242, M19 #0245.
+First useful slot: M16 Q01 current-path baseline; M19 fleet extension.
+Intentional difference: I02, I10 (decisions below).
+
+A05 Bootstrap, reconnect, identity and authority
+Covered: Selected identity/incarnation/grants, stale navigation callbacks and deliberate reconnect preserve original submissions.
+Evidence: E04.
+Planned: Qualify bootstrap/subscription gaps, same-revision changed-content semantics, snapshot failure then healthy metadata, pending preference retry and general stale whole-board floors. No contentVersion/SSE proof is inferred.
+Cards: D02 #0269, Q01 #0275, Q02 #0276. Existing milestone links: M16 #0242, M17 #0243.
+First useful slot: M16 current protocol baseline; D02 before a changed protocol; M17 extension.
+Intentional difference: I02 (decisions below).
+
+A06 Board-atomic writes and card CAS
+Covered: Serialized board transactions and stale-card rejection; multi-entity/history/receipt effects commit together.
+Evidence: E02.
+Planned: Repeat same-card/unrelated-card Human/Bot overlap and compound writes on count/content/combined fixtures; measure audit and control costs.
+Cards: W04 #0274, Q01 #0275, Q02 #0276. Existing milestone links: M16 #0242, M17 #0243.
+First useful slot: M16 existing-write baseline, then M17 browser extension.
+
+A07 Pending projections, drafts and revision floors
+Covered: Input/original operation retention, scoped hierarchy/receipt floors and honest pending/conflict/UNKNOWN states.
+Evidence: E03, E04.
+Planned: Address full BoardRead-per-draft serialization versus profile limits; qualify per-keystroke storage/render work, reload/navigation and a general stale whole-board read after known commit.
+Cards: W02 #0272, Q01 #0275, Q02 #0276. Existing milestone links: M16 #0242, M17 #0243.
+First useful slot: Q01 owns M16 observations; W02/M17 correction and Q02 recheck.
+Intentional difference: I05 (decisions below).
+
+A08 Lost responses and no blind replay
+Covered: Retained exact operation identity, genuine response-loss readback and no automatic additive/upload retry.
+Evidence: E02, E03.
+Planned: Repeat delayed Add, dropped successful reply, comment/upload/approval/compound uncertainty under large data and reconnect; test evidence before any deliberate recovery.
+Cards: Q01 #0275, Q02 #0276, Q04 #0278, Q06 #0280. Existing milestone links: M16 #0242, M17 #0243, M18 #0244, M20 #0246.
+First useful slot: M16 available-surface baseline; later effect/restart extensions.
+Intentional difference: I03 (decisions below).
+
+A09 Attachment request-path and preview costs
+Covered: Bounded metadata request/pages, exact max blob/authorization/hash, committed-loss guards and two-job lazy preview scheduling.
+Evidence: E05.
+Planned: Measure metadata/history cardinality, candidate/visible previews, decode/download, SQL/copy/heap and writer delay during concurrent changes; extend later import/restore conservation.
+Cards: D01 #0268, W01 #0271, Q01 #0275, Q03 #0277. Existing milestone links: M16 #0242, M33 #0259.
+First useful slot: M16 ordinary attachment baseline; M33 import/restore extension.
+Intentional difference: I05, I08 (decisions below).
+
+A10 Truthful connection/pending/error UX and layout
+Covered: Current pending/conflict/stale/unknown states, authority observer, truthful failed catalog facts and redacted activity.
+Evidence: E01, E03, E04, E08.
+Planned: D02 settles transport versus observation/edit/render/backup meanings; test silent/disconnected/failing states, retained errors, no misleading sync age, no empty removed-field track and stable clock/narrow layouts.
+Cards: D02 #0269, Q01 #0275, Q02 #0276. Existing milestone links: M17 #0243, M29 #0255.
+First useful slot: M16 observation baseline; M17 behavioral cases; M29 final geometry.
+Intentional difference: I02 (decisions below).
+
+A11 Diagnostic output and process lifetime
+Covered: Admitted work drains before ownership release; slow board controls do not serialize healthy engines.
+Evidence: E06, E08.
+Planned: Qualify captured/full/blocked output, pre-runtime safe launcher destinations, response/startup/drain isolation and real child joins; do not infer this from redaction.
+Cards: D01 #0268, Q01 #0275, Q04 #0278, Q06 #0280. Existing milestone links: M16 #0242, M18 #0244, M20 #0246, M24 #0250.
+First useful slot: M16 current-host baseline; M18 first-effect and M24 update extensions.
+
+A12 Early HTTP refusal and delayed-body isolation
+Planned: Run first-attempt delayed/partial/oversize/refusal cases with bounded native cleanup, no hidden helper replay and exact uncertainty classification.
+Cards: Q01 #0275, Q04 #0278. Existing milestone links: M16 #0242, M18 #0244.
+First useful slot: M16 native baseline; before M18 supported first external effect.
+Intentional difference: I09 (decisions below).
+
+A13 Producer-driven Human-only administrative owner nudges
+Planned: D03 explicitly disposes of a separate V2 operator-nudge need versus keeping the accepted Python bridge. If adopted, scope it separately; Q05 adds its own current-target/one-attempt producer tests without changing Go receipts.
+Cards: D03 #0270, Q01 #0275, Q05 #0279. Existing milestone links: M16 #0242, M19 #0245, M39 #0265.
+First useful slot: M16 scope decision/no-effect baseline; M19 adopted capability only.
+Intentional difference: I03, I07 (decisions below).
+
+A14 All-actor browser propagation
+Covered: Current catalog/selected-state reads and navigation/refresh fences are accepted; no actor-based browser suppression is introduced.
+Evidence: E01, E04.
+Planned: Explicitly test genuine Human and Bot commits, consumer backpressure, bootstrap/reconnect and no mutation before commit. Producer-driven metadata requires accepted D02; current polling remains.
+Cards: D02 #0269, Q01 #0275, Q02 #0276, Q05 #0279. Existing milestone links: M16 #0242, M17 #0243, M19 #0245.
+First useful slot: M16 baseline; M17 accepted transport extension.
+Intentional difference: I02, I03 (decisions below).
+
+A15 Go product notices, cuts, originals and recovery
+Covered: M12-M15 local notice capture/suppression, exact original targets/cuts/payloads and guarded recovery/retarget controls. Copy/local acceptance is not external delivery.
+Evidence: E07, E08.
+Planned: Bound fleet/slow-sink fairness and prove fresh once/live-host/clean-resume/retarget stages under approved original-effect guarantees; distinguish retention gaps and unknown outcomes.
+Cards: D03 #0270, W03 #0273, Q01 #0275, Q05 #0279, Q06 #0280. Existing milestone links: M18 #0244, M19 #0245, M20 #0246, M21 #0247.
+First useful slot: M16 existing local baseline; M18 first-effect; M19 fleet; M20 clean resume; M21 interrupted originals.
+Intentional difference: I03, I04, I10 (decisions below).
+
+A16 Retired Python watcher/pool compatibility
+Planned: Record retired start/reload/stop and dependency disposition in supported-interface/parity inventory; retain historical runtime files and sanitized inspection, preserve independent Go controls.
+Cards: D03 #0270. Existing milestone links: M34 #0260, M39 #0265.
+First useful slot: Disposition recorded now; check again at M34 compatibility and M39 parity.
+Intentional difference: I07 (decisions below).
+
+A17 Accepted V1 residual subscribed hash sweep
+Planned: Keep this bridge acceptance closed. V2 measures its own catalog/query/idle work and proposes bounded changes through W01/W04/D01, without issuing V1 repair work.
+Cards: D01 #0268, W01 #0271, W04 #0274, Q01 #0275. Existing milestone links: M16 #0242.
+First useful slot: M16 own-architecture measurement.
+Intentional difference: I06 (decisions below).
+
+A18 Large-card/count/combined stress and measurement validity
+Covered: M04 999-descendant/50-page DOM and M09 33,550,434-byte actor-label proofs are accepted distinct shapes; M10 exact 10 MiB blob proof remains.
+Evidence: E05, E10.
+Planned: Separately qualify 4,120 total cards, >=2,978,150-byte aggregate heavy card, combined >20 MiB-equivalent data, history/archive/completed overlap, relationship density and 19/24-board navigation. Separate request, SQL, decode/graph/DOM, draft and preview costs.
+Cards: D01 #0268, Q01 #0275, Q02 #0276, Q03 #0277, Q04 #0278, Q05 #0279, Q06 #0280. Existing milestone links: M16 #0242, M17 #0243, M19 #0245, M20 #0246, M40 #0266.
+First useful slot: M16 first baseline; each feature extends it; M40 final regression only.
+Intentional difference: I01, I05, I09 (decisions below).
+
+A19 Host update/backup, independent boards and recovery
+Covered: Current close/drain and independent-board control guards; accepted local recovery facts remain.
+Evidence: E02, E06, E07.
+Planned: Add slow output/storage-before/after-commit and concurrent optional backup cases, same-port build replacement/fresh authority, retained drafts/original effects and bounded adopted-transport shutdown.
+Cards: Q01 #0275, Q04 #0278, Q06 #0280. Existing milestone links: M20 #0246, M21 #0247, M24 #0250, M38 #0264.
+First useful slot: M16 current-host baseline; before M18 first effect; M20/M21/M24 specific gates.
+
+A20 Evidence, claims and source boundaries
+Covered: Existing published receipts retain original source/tool/fixture and controlled/ordinary boundaries. Current M15 joined/HANDOFF binds the approved code without claiming new scale execution.
+Evidence: E02, E07, E10.
+Planned: Carry source-bound early evidence through M38 adoption, M39 parity/difference disposition and M40 exact kit qualification. No formal throughput/SLA/power-loss, SQLite inapplicability, copied V1 mechanism or fixture-generation timing claim.
+Cards: D01 #0268, Q01 #0275, Q02 #0276, Q03 #0277, Q04 #0278, Q05 #0279, Q06 #0280. Existing milestone links: M38 #0264, M39 #0265, M40 #0266.
+First useful slot: Evidence rules apply at the first M16 baseline, not only release.
+
+INTENTIONAL DIFFERENCES AND OWNER DECISIONS
+
+I01 One Human/browser/tab is the primary operating envelope. Keep accepted window/authority isolation; extra-client stress is headroom, not a new many-user requirement.
+Decision: D01 #0268. Terry must accept explicit operating/resource budgets; existing guarantees stay in force.
+
+I02 V2 currently uses approved five-second visible polling, identity/incarnation/authority generations and SQL snapshots. V1 SSE/contentVersion/ten-second green grace is not an approved V2 transport/status contract.
+Decision: D02 #0269. Terry approval required before any transport/status change; preserve current polling and labels until then.
+
+I03 Python administrative nudges resolve the current target and attempt once after quiet. Go product notices retain original targets/cuts/receipts and guarded recovery. These are different capabilities.
+Decision: D03 #0270. RECOMMENDED: preserve approved Go guarantees. Any additional operator-nudge feature or weakening needs an explicit separately priced/approved decision.
+
+I04 V1 report windows are inclusive at both ends. V2 product activity/notices use exclusive lower and inclusive upper cuts.
+Decision: D03 #0270. Existing accepted V2 boundary remains; translating scenarios is required, not a new timestamp contract.
+
+I05 V1 JSON/aggregate-card size is not one V2 description. Current description limit is 65,536 UTF-8 bytes, drafts have a 2 MiB/profile aggregate bound and individual blobs 10 MiB. Test equivalent logical shapes or explicit bounded refusal; never silently raise limits.
+Decision: D01 #0268. Owner approval required for changed operating limits or an adaptation; W02 must preserve original evidence and honest draft refusal.
+
+I06 The subscribed V1 catalog byte-hash sweep is an explicitly accepted bridge tradeoff. It is not a new V1 repair or a requirement to poll/hash V2 database files.
+Decision: D01 #0268. No change to the accepted V1 bridge; measure V2 work on its own architecture.
+
+I07 Old Python watcher/pool start/reload/stop commands and optional native-watcher extra are retired. Preserve old runtime files; do not port compatibility that revives them. Go product notice controls remain separately approved.
+Decision: D03 #0270. No legacy activation or revival authorized; M34/M39 retain this intentional supported-interface disposition.
+
+I08 V2 currently reads/hashes a maximum BLOB inside the authorized SQL read snapshot. V1 outside-board-lock blob reading is not an existing V2 guarantee or an automatically safe patch.
+Decision: D01 #0268. Q03 measures authority-preserving cost/isolation. Any redesign must preserve current authorization and independently qualify races.
+
+I09 V1 64 KiB/200 ms refusal cleanup and 600/600 delayed-body observations are V1 evidence, not V2 cleanup settings or universal transport delivery.
+Decision: D01 #0268. Q04 must qualify V2 first attempts under its accepted protocol/ownership rules; lost responses remain uncertain without proof.
+
+I10 An unselected board with an explicitly running Go monitor/operation is active. Browser subscriber quiescence must not silently Stop approved product work. One-second contexts and caps do not promise native deadlines or fairness.
+Decision: D01 #0268. Define active/inactive work classes and approved bounds before readiness. D02 changes only its approved consumer work; W03 preserves product semantics.
+
+CONCRETE PLANNED CARDS / ACCEPTANCE / GATES
+All new cards are P3 / Backlog. Parent milestones stay Backlog. Cross-card references are related evidence links, not blocking cycles.
+Sequence: Q01 M16 current-surface baseline -> separately authorized W correction where needed -> affected Q extension/recheck. Q01 owns all M16 baseline collection so later-parented Q cards cannot strand early work.
+
+D01 #0268 Decide the V2 operating envelope and measurable scale budgets
+Milestone/slot: M16 before scale-readiness claims; parent #0267.
+- Propose and obtain Terry disposition of one-Human/one-browser/one-tab localhost operation with concurrent Human/Bot intent; extra-client stress is labeled headroom, not a new product requirement.
+- Classify 4,120 total cards (completed/archived overlap disclosed), one >=2,978,150-byte aggregate history/comment-heavy card, count-only, content-only and combined >20 MiB-equivalent logical data; include 19/24 registered-board shapes. State units separately for SQLite logical data, wire payload, export bytes and resident memory.
+- Respect existing input/entity/history/page/blob limits. If a V1-shaped input is inadmissible, prove bounded honest refusal and propose an approved adaptation/limit; do not raise limits or silently shrink the premise.
+- Record explicit accepted bounds for queued/running jobs, rows examined/returned, SQL/query counts, payload/copy bytes, idle/inactive work, CPU/memory, queue age/control latency and p50/p95/p99/max observations. Define fixture/cache/tool/machine protocol and failure disposition; do not invent an SLA from V1 observations.
+- Budget browser download, decode/validation, graph construction, main-thread/DOM render, preview decode and per-keystroke draft work explicitly, separate from network/service latency. Keep fixture construction/measurement overhead out of the timed premise and disclose cache/setup costs.
+Gate: Proposal/owner decision only when separately started; no numeric budget or expanded support model is approved by intake. Existing native ownership and authority guarantees remain.
+
+D02 #0269 Decide V2 browser update, reconnect and truthful status semantics
+Milestone/slot: M16 baseline decision; M17 consistency; M29 final UX; parent #0267.
+- Evaluate current five-second visible polling against producer-driven metadata/SSE for the one-tab model. Keep the accepted polling contract until Terry accepts an explicit change.
+- For any candidate define snapshot/bootstrap/subscription ordering, content/identity/epoch markers, same-revision changed-content handling, late joins, current-authority checks, stale navigation fences and acknowledged revision floors.
+- Specify reconnect/snapshot failure recovery, pending preference retry without an unrelated catalog change, slow-consumer/coalescing bounds, last-subscriber quiescence and bounded joined shutdown. Heartbeat work cannot read storage or imply accepted data.
+- Separate connection transport, accepted storage observation, last committed edit, pending/error state, render completion and backup/delivery status. Decide indicator grace behavior; do not mechanically adopt V1 ten seconds. Avoid an alarming unchanged-data sync age or vacated layout track; retain stable clock/status geometry and independent storage errors.
+Gate: Owner acceptance required before transport or user-visible freshness semantics change. No V2 contentVersion surface or SSE coverage is presumed.
+
+D03 #0270 Decide separate operator-nudge scope while preserving Go notice guarantees
+Milestone/slot: M16 before adapter scope changes; M19/M21; M39 parity; parent #0267.
+- Record Python administrative owner nudges as a separate accepted bridge capability: committed Human only, current target at delivery, 15-second quiet coalescing, one best-effort attempt, no durable cursor/replay/catch-up; all-actor browser updates are separate.
+- Inventory whether V2 needs a separate best-effort operator-nudge feature in addition to the already approved Go product notices. Recommend preserving current Go contracts and treating a separate nudge as explicit additional scope if wanted.
+- Retain original targets/cuts/identities, durable receipts, current authority, UNKNOWN/no replay, clean/dirty restart distinctions and deliberate recovery for Go M12-M21 unless Terry explicitly approves a separately scoped contract change.
+- Never treat Copy/print, probe success or administrative queue acceptance as external product delivery or negative acceptance. Preserve explicit activation and handoff retarget authority.
+- Confirm legacy Python watcher/pool launch/reload/stop interfaces remain retired; no compatibility port or runtime-file rewrite. The accepted V1 subscribed hash sweep is a bridge tradeoff, not another V1 repair.
+Gate: No owner-nudge simplification downgrades Go guarantees. Changes require an explicit contract decision and fresh scope/pricing before implementation.
+
+W01 #0271 Bound focused-card SQL and related-row materialization
+Milestone/slot: M16 earliest authorized implementation/qualification; parent #0242.
+- Use the accepted source projection.go findings to add a failing work-count regression before qualifying a correction: q.card currently filters after selecting all cards/descriptions; related entity queries scan the board then filter.
+- Bound selected-card/current-reference/comment/link/attachment/approval/history work to the requested authorized scope and accepted page rules. Evaluate board-list per-card current_reference queries and catalog aggregates separately; do not equate bounded DTOs with bounded SQL.
+- Preserve one admitted current-authority SQL snapshot, identity/incarnation/epoch, archive/history/reference truth, atomic writes and exact DTO/refusal behavior. Fresh Sol / High SQL/concurrency review is required.
+- Compare unchanged selected-card operations while unrelated count/content/boards grow at 41/412/4,120 and accepted heavy/combined shapes; record rows/query/copy counts and cold/warm costs. No existing behavior is reopened or requalified by this planning card.
+Gate: Requires separate M16 kickoff, own .00 and complete re-estimation/re-cut; unfunded scope. D01 must settle operating limits before a scale-readiness claim.
+
+W02 #0272 Bound draft recovery storage without losing edits or authority
+Milestone/slot: M17; current-path baseline during M16; parent #0243.
+- Address the source-derived representation risk: BoardView.persist serializes the full BoardRead base on each draft change while RecoveryStore has an aggregate 2 MiB/profile draft cap. A serialized base above that cap cannot persist one draft under the current representation; do not claim every specific V1-shaped fixture necessarily produces that representation.
+- Propose and qualify a bounded draft/base representation with exact board/card/identity/authority/revision binding, stable Add identity and acknowledged floors. Preserve edits, conflicts, late-response fences and honest storage-unavailable/refusal disclosure.
+- Use count-only, accepted heavy-card and combined fixtures, multiple retained drafts and navigation/reload. Measure per-keystroke serialization/copy/storage work separately from network/render time.
+- Keep real product storage/input limits unless D01 explicitly approves an adaptation. No silent truncation, draft disappearance, fresh operation identity, duplicate Add or mutation replay is allowed.
+Gate: Separate M17 kickoff/.00 and complete re-estimation/re-cut. D01 owns the envelope and any limit change; D02 owns transport changes.
+
+W03 #0273 Bound Go notice fleet scheduling and inactive work
+Milestone/slot: M19; first workload observations in M16; parent #0245.
+- Qualify and bound aggregate jobs/queue/retained memory across explicit running boards; the catalog four-slot cap does not bound product monitors, whose current Start creates a per-board goroutine.
+- Evaluate producer commit wakes/coalescing and required reconciliation against current authorized one-second SQL polling. Raw database-file events are hints, not commit/cut proof. Preserve durable checkpoints and missed-signal recovery.
+- Prevent a slow sink or hung board from starving healthy boards or controls. Measure queue age, fairness and Stop/Close latency separately from resource caps; retain actual native ownership until join.
+- Keep current original targets, event boundaries, acceptance/UNKNOWN/no-replay and M19 live-host-only rules. Any separate best-effort operator nudge or guarantee change requires D03 approval.
+Gate: Separate M19 authorization/preflight/full re-estimation and supported adapter/owned receiver authority before effects; D01 sets accepted resource/control budgets.
+
+W04 #0274 Bound repeated write-integrity audit work while preserving atomic guarantees
+Milestone/slot: M16 first work-count baseline and separately scoped correction; parent #0242.
+- Measure current writer schema.Validate work before COMMIT as card/entity/history counts and unrelated payloads grow. Distinguish required integrity proof from repeated whole-database work; source presence alone is not a measured latency failure.
+- If the accepted D01 work budget is exceeded, design a proved bounded or incremental verification strategy under fresh Sol / High SQL/concurrency/recovery review. Preserve all current structural/relational invariants; do not remove accepted checks for speed.
+- Retain board transaction boundaries, per-card CAS, multi-card atomic effects/history/receipt pins, durable refusals and original operation identity. Exercise before/after-commit faults, same/unrelated-card Human/Bot overlap, delayed responses and readback without replay.
+- Record SQL/row/audit/copy/allocation work and p50/p95/p99/max observations on the separate count/content/combined fixtures, under exact source/tool/storage pins.
+Gate: Unfunded investigation/correction scope; separate M16 kickoff and complete fresh estimates. D01 budget acceptance precedes a scale-readiness claim; existing guarantees cannot be weakened.
+
+Q01 #0275 Qualify early catalog, idle and combined scale work
+Milestone/slot: M16 first useful baseline, before external effects; parent #0242.
+- Run count-only, heavy-card-only and combined shapes separately, including completed/archived cards, relationship/hierarchy density and history. Preserve exact fixture measures; do not call a <20 MiB fixture proof of the >20 MiB-equivalent scenario.
+- Exercise one active selected board while 19/24 registered boards grow, navigation, one unavailable/slow member, fair bounded catalog scheduling and current-authority late joins. Count jobs, rows, SQL, payload/copies, queue age and retained memory.
+- Measure extended quiet behavior and navigation churn: selected vs inactive work, no accumulating background readers, pending retries independent of unrelated changes, and (if adopted) storage-free heartbeats/last-subscriber quiescence.
+- Use authoritative product assertions plus real browser diagnostics through the shared Valkey/Webdis queue. Register/export/delete an owned bounded mailbox; request counters alone do not prove HTTP or product success.
+- Produce an observation baseline under existing limits, then evaluate readiness only against accepted D01 budgets. Reuse this exact source-bound baseline as an input to later extensions; M40 is final regression, not first discovery.
+- M16 Q01 owns the shared early baseline for every already-available current surface: Q02 browser/drafts, Q03 attachment paths, Q04 refusals/output/host lifecycle, Q05 existing local notices and Q06 current-host restart/inactive work. Future external sends, new push transport and new recovery semantics are not simulated as passed; their later cards extend/recheck this recorded baseline.
+- Measure download separately from validation/graph/DOM rendering and per-keystroke private draft work. Exclude/disclose fixture construction overhead. Sequence baseline -> separately authorized W01/W02/W03/W04 correction -> affected qualification recheck; do not make mutual reference links execution dependencies.
+Gate: Separate authorized M16 kickoff/preflight/estimates required; no execution authorized now. D01 controls readiness budgets; D02 controls any transport change.
+
+Q02 #0276 Qualify browser drafts, pending outcomes, bootstrap and status at scale
+Milestone/slot: M16 current-path baseline; M17 first consistency extension; M29 UX; parent #0243.
+- Exercise genuine Human/Bot overlap, same-card conflict vs unrelated-card update, atomic multi-card changes, four-second delayed Add, committed response loss, stable Add identity/readback and preserved drafts/focus across navigation.
+- Prove acknowledged board/card floors cannot regress in applicable surfaces; qualify the general same-identity stale-readback case explicitly. Current scoped floors are not blanket universal coverage.
+- Test large initial reads, bounded history/search/drawer pages, bootstrap/reconnect gaps, same-revision changed-content/identity replacement, old callbacks, snapshot failure followed by healthy metadata and pending preference retry without catalog change.
+- Use accepted D02 transport/status semantics; preserve current polling until changed. Test silent-open and repeated reconnect failure semantics where applicable, independent board errors, narrow/desktop geometry, removed fields/empty tracks and anchored clock widths.
+- Additive comments/uploads/approvals and CLI/proxy outcomes cannot be blindly retried. Preserve approved V2 receipt/UNKNOWN and current-authority rules, rather than copying V1 retry policy.
+- Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.
+Gate: Separate authorized kickoff and own source/tool qualification. D02 approval precedes transport/status changes; current-contract regression is still useful before that decision.
+
+Q03 #0277 Qualify attachment metadata, history and blob-path costs
+Milestone/slot: M16 early ordinary path; M33 import/restore extension; parent #0242.
+- Vary reference/history counts and simultaneous visible previews on heavy/count/combined boards; distinguish metadata selection, decode/render, integrity reads and download work.
+- Use the accepted 10 MiB individual-blob limit, exact hashes and max-size/corrupt/missing/unauthorized refusals. Concurrent card changes and detach/cover/retention must preserve admitted references and byte identity.
+- Measure unrelated-card SQL/materialization and writer/control latency during downloads. Do not presume out-of-database blobs eliminate lock/copy costs or claim a no-full-copy bound without work-count evidence.
+- Extend the accepted baseline in M33 to archived/retired-lane import and restore inventories; prove exact source/protected bytes and separate destination authority. No import work starts with intake.
+- Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.
+Gate: Separate authorized M16/M33 execution and own .00/estimates. Preserve existing limits and attachment authority; D01 owns any requested envelope adaptation.
+
+Q04 #0278 Qualify refusal, output and native lifecycle isolation
+Milestone/slot: M16 native baseline; M18 before first supported external effect; M24 update extension; parent #0244.
+- Exercise delayed POST bodies and early auth/size/protocol refusals, malformed/partial input and clients that stop reading; count first-attempt results without test-helper mutation replay.
+- Choose bounded transport cleanup through V2 ownership/admission contracts; V1 600/600 probes and 64 KiB/200 ms cleanup are evidence ideas, not imported Go limits or a universal delivery guarantee.
+- Block/capture/full stdout/stderr and diagnostic sinks. Transactions, responses, startup gates, control latency and drain must remain isolated. Establish safe launcher destinations before Go/runtime entry; application logging cannot protect pre-entry output.
+- Prove actual native host/child/descendant ownership and join for Stop/Close/timeout/shutdown, including one failing board while another proceeds. Retain original effects and UNKNOWN evidence without replay.
+- M24 extends through staged update/rollback, same-port ownership, fresh authority, preserved drafts and original pending effects; keep backup/build/board/connection status distinct.
+- Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.
+Gate: Separate authorized kickoff/preflight and exact adapter/owned receiver authority before effects. D01 supplies work/control budgets. No physical power-loss or universal HTTP-delivery claim.
+
+Q05 #0279 Qualify producer signals, attribution and slow-sink fairness
+Milestone/slot: M16 no-effect baseline; M18 first effect; M19 live-host extension; parent #0245.
+- Prove only committed application cuts trigger product work; rollback/no-op/failed transactions and raw database filesystem hints cannot impersonate commits. Preserve V2 (from,through] and exact original target/identity.
+- Separate Human-only operator nudges (only if D03 explicitly adopts that feature) from all-actor browser propagation and Go product Human/mixed/fallback/suppression semantics.
+- Exercise simultaneous multi-board bursts, queue/coalescing limits, one slow/blocked sink, one failing member, missed signals, busy controls and writes during drain. Measure fairness/control latency and queue age separately from memory/concurrency caps.
+- A slow notice/diagnostic consumer cannot hold the writer or strand another board. Current target-at-delivery applies only to the separate administrative nudge; Go pending work keeps its original target.
+- Preserve supported adapter/positive boundary, one fresh same-session send, durable effect fence, UNKNOWN/no replay and live-host-only M19 start. No accidental clean-restart or historical recovery support is introduced.
+- Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.
+Gate: Separate M19 kickoff and own re-estimation; exact supported runner/owned receiver qualification before live effects. D03 acceptance required for an additional administrative nudge or guarantee change.
+
+Q06 #0280 Qualify restart, retention gaps and resource quiescence
+Milestone/slot: M16 current-host baseline; M20 clean resume; M21 interrupted recovery; parent #0246.
+- Under accepted heavy/count/combined and multi-board shapes, prove last-user/last-run cleanup, no inactive background-work accumulation, slow-consumer drain and native joins before owner release.
+- M20 only: positively clean Stop with no unresolved original effect, fresh authority after reopen and deliberate NEW catch-up intervals. Preserve exact checkpoint and refuse dirty/prepared/UNKNOWN historical work without reset/resend.
+- M21 extension remains on existing M21 epic: interrupted originals, retention/coverage gaps, future-only retarget/reload and deliberate proved-safe original recovery under current authority. Never substitute administrative best-effort semantics.
+- Include before/after-commit storage errors, output backpressure and concurrent optional backup work; distinguish connection reachability, accepted storage, actual observation, rendered state and delivery.
+- M38/M39/M40 aggregate current source-bound early results into adoption/parity/release gates; no final-only deferral or power-loss certification is inferred.
+- Q01 under M16 #0242 owns current-surface baseline; this card owns its later milestone extension/recheck only.
+Gate: Separate M20/M21 kickoff/preflight/estimates and accepted predecessors; original-target/recovery gates remain. No historical settlement authority from a clean-resume test.
+
+APPLICABLE QUALIFICATION DIMENSIONS
+
+QD01 Data shape — Planned
+Count-only/heavy-only/combined; completed+archive overlap; dense relationships/hierarchy/history; equivalent logical SQL/wire/export units or approved bounded refusal.
+Existing covered scope: A03, A07, A18; cards D01 #0268, W01 #0271, W02 #0272, W04 #0274, Q01 #0275.
+First useful slot: M16 #0242 Q01; M17 draft extension. Decisions/gates are those on the referenced cards.
+
+QD02 Workspace — Planned
+19/24 registered boards; one active tab; other-board growth/navigation; one slow or unavailable member. Extra-client stress remains headroom.
+Existing covered scope: A01, A02, A04, A19; cards D01 #0268, Q01 #0275, Q05 #0279, Q06 #0280.
+First useful slot: M16 #0242 Q01. Decisions/gates are those on the referenced cards.
+
+QD03 Idle — Planned
+Extended quiet request/SQL/jobs/allocation/queue counts; define inactive separately from explicitly running Go work; current five-second polling is not a failed SSE test.
+Existing covered scope: A04, A14, A15; cards D01 #0268, D02 #0269, W03 #0273, Q01 #0275, Q05 #0279.
+First useful slot: M16 #0242 Q01; M19 fleet extension. Decisions/gates are those on the referenced cards.
+
+QD04 Writes — Planned
+Human/Bot same-card conflict vs unrelated update, multi-card atomicity, four-second Add, commit+reply loss, exact identity/readback and no blind additive/compound retry.
+Existing covered scope: A03, A06, A07, A08; cards W04 #0274, Q01 #0275, Q02 #0276, Q04 #0278.
+First useful slot: M16 #0242 Q01; M17 browser extension. Decisions/gates are those on the referenced cards.
+
+QD05 Browser — Planned
+Initial view/history/search/drawer/drafts/navigation/reconnect/snapshot failure/preferences; separate download/decode/graph/DOM/main-thread/keystroke work and honest status/geometry.
+Existing covered scope: A05, A07, A10, A14, A18; cards D02 #0269, W02 #0272, Q01 #0275, Q02 #0276.
+First useful slot: M16 #0242 Q01; M17 consistency; M29 #0255 final UX. Decisions/gates are those on the referenced cards.
+
+QD06 Attachments — Planned
+References/history/visible previews, decode/download, accepted 10 MiB blob, corrupt/missing/unauthorized refusal and concurrent change; snapshot authority and resource work stay explicit.
+Existing covered scope: A09, A18; cards D01 #0268, W01 #0271, Q01 #0275, Q03 #0277.
+First useful slot: M16 #0242 Q03; M33 #0259 import/restore. Decisions/gates are those on the referenced cards.
+
+QD07 Notices — Planned
+Human-only administrative nudge vs all-actor browser vs Go product semantics; explicit activation/target, slow sink/writer separation, burst fairness, missed signals/restart/retention/drain.
+Existing covered scope: A13, A14, A15, A16; cards D03 #0270, W03 #0273, Q01 #0275, Q05 #0279, Q06 #0280.
+First useful slot: M16 no-effect/local baseline; M18-M21 approved stages. Decisions/gates are those on the referenced cards.
+
+QD08 Host — Planned
+Safe detached pre-runtime output, refusal/delayed input, backpressure, real native joins/reload, pre/post-commit storage error and optional backup work; no power-loss certification.
+Existing covered scope: A11, A12, A19; cards D01 #0268, Q01 #0275, Q04 #0278, Q06 #0280.
+First useful slot: M16 #0242 Q01; M18 #0244 Q04; M20/M24 extensions. Decisions/gates are those on the referenced cards.
+
+V1 SOURCE SHAPES (SCENARIOS, NOT V2 PASS RESULTS)
+Inventory anchor: 19 boards; 412 total cards; 297,815-byte largest canonical stored card. Tenfold aggregate-heavy-card target is >=2,978,150 bytes, not one oversized description.
+Counts of archived and completed records overlap; do not add them as disjoint sets. V2 logical data, wire/export and resident bytes must be reported separately.
+- {"label": "V1 automated combined", "cards": 4120, "largestStoredCardBytes": 3475740, "boardBytes": 9868020, "note": "Distinct from the >20 MiB fixture; 1373 archived and 2746 completed overlap."}
+- {"label": "V1 browser content", "cards": 412, "largestStoredCardBytes": 3029238, "boardBytes": 5117192}
+- {"label": "V1 browser count", "cards": 4120, "largestStoredCardBytes": 4660, "boardBytes": 20636670}
+- {"label": "V1 browser combined", "cards": 4120, "largestStoredCardBytes": 3029238, "boardBytes": 23680086, "visibleNonArchived": 2747}
+- {"label": "V1 later SSE combined", "cards": 4120, "boardBytes": 23680236, "visibleNonArchived": 2747, "note": "Separate later fixture/run; do not silently replace earlier binding."}
+- {"label": "V1 dense browser workspace", "boards": 24, "initialBytesPerBoard": 22116128, "cardsPerBoard": 401, "commentsPerBoard": 4800}
+The earlier three-view polling-era timings/93 diagnostics are observations, not SSE performance, an SLA, or a multi-window requirement. Fixture construction must not dominate measured work.
+Record work counts plus p50/p95/p99/max, samples/cache/machine/tools: CPU/memory, rows examined/returned, SQL/jobs/queue age, bytes/copying, download/decode/graph/render/keystrokes and control/drain latency.
+Shared Valkey/Webdis diagnostics are bounded evidence only; authoritative DOM/state/transaction/native assertions determine correctness. Preserve CSP, ownership and owned mailbox cleanup.
+
+EVIDENCE INDEX (IMPLEMENTATION-RELATIVE PATHS)
+
+E01 Accepted catalog authority/coalescing/slow-member correctness; not large-workload SQL cost.
+- internal/workspace/catalog_authority_windows_test.go — TestCatalogLateJoinRevalidatesChangedNativeAuthority; TestCatalogPendingJoinSharesOneAuthorizedSnapshot
+- internal/workspace/catalog_test.go — TestCatalogCoalescesSlowMemberAndCompletesFairQueue
+- internal/workspace/catalog_windows_test.go — TestCatalogHTTPHungProbeDoesNotDelayHealthyMembersOrDuplicate
+- web/src/workspace-ui/refresh.test.ts — runCatalogRefreshTests; runPreferencesPipelineTests
+- Published receipt: qualification/workspace/README.txt
+- Published receipt: qualification/m08/catalog-slice-r1.txt
+- Published receipt: qualification/m15/joined-r1.txt
+
+E02 Accepted board transaction/CAS/atomic effect and retained UNKNOWN/no-replay behavior.
+- internal/store/writer/writer_windows_test.go — TestTerminalIdentityAndCurrentAuthority; TestDurableRefusalFencesDelayedSameID; TestApplicationAndCommitFaults; TestAtomicHistoryBytesAndOperationPins; TestSourceOnlyAndCorruptRetainedEvidenceStayUnknown
+- internal/transport/local/integration_windows_test.go — TestLocalAttachmentExportLookupAndCAS
+- Published receipt: qualification/native/transaction/CONTINUATION.txt
+- Published receipt: qualification/native/transaction/results.json
+- Published receipt: qualification/m15/joined-r1.txt
+
+E03 Accepted browser input/original-identity retention, deliberate readback and supported recovery limits.
+- web/src/recovery/store.test.ts — draft CAS, submitted bytes, limits and transaction-abort cases
+- web/src/board/edit.test.ts — runCardEditProbe
+- web/src/archive-ui/upload.test.ts — runAttachmentUploadProbe
+- Published receipt: qualification/m02/README.txt
+- Published receipt: qualification/m02/HANDOFF.txt
+- Published receipt: qualification/m03/joined-qualification-r1.txt
+- Published receipt: qualification/m09/upload-slice-r1.txt
+- Published receipt: qualification/m10/joined-r1.txt
+
+E04 Scoped receipt/hierarchy/details revision floors and current identity/navigation fences; no universal whole-board-floor claim.
+- web/src/board/hierarchy.test.ts — hierarchy receipt/card floors and stale follow-up reads
+- web/src/board/details.test.ts — runCardDetailsProbe
+- web/src/api/workspace-session.test.ts — runWorkspaceSessionSmoke; runWorkspaceConnectionObserverProbe
+- web/src/session-ui/window-controller.test.ts — runExpectedBoardNavigationProbe; runPrivateWindowProbe; runPendingReloadProbe; runWorkspaceNavigationProbe
+- Published receipt: qualification/workspace/README.txt
+- Published receipt: qualification/m02/README.txt
+- Published receipt: qualification/m04/joined-qualification-r1.txt
+
+E05 Accepted attachment metadata pagination, authorized exact bytes/10 MiB boundary, loss and cover scheduling; distinct evidence shapes.
+- internal/board/attachments/attachments_windows_test.go — TestIntegrityCollisionAndDownloadFence; TestConcurrentSameRevisionAndExportPins; TestProtectedQuotaInclusiveAndDedup; TestDownloadAuthorizationAndBytesShareRevokeSnapshot
+- internal/board/attachments/file_limits_windows_test.go — TestCardFilesLegacyLabelBytePaging; TestCardFilesNearArchiveLabel
+- web/src/board/files.test.ts — runCardFilesProbe
+- web/src/board/cover-preview.test.ts — runCoverPreviewProbe
+- Published receipt: qualification/m09/joined-r1.txt
+- Published receipt: qualification/m09/joined-r1.json
+- Published receipt: qualification/m10/joined-r1.txt
+
+E06 Accepted admitted-work/close/drain ownership and cross-board control isolation, not output-backpressure readiness.
+- internal/transport/local/runtime_windows_test.go — TestLocalCloseGatesLateEntryAndDrainsAdmittedRequest
+- internal/workspace/runtime_windows_test.go — TestWorkspaceCloseDistinguishesDiagnosticFromOwnedCleanup; TestWorkspaceSlowControlDoesNotSerializeHealthyWork
+- internal/transport/local/notice_runtime_windows_test.go — TestNativeNoticeWorkspaceDetachRetainsExclusionDuringDrain
+- Published receipt: qualification/m14/joined-r1.txt
+- Published receipt: qualification/m15/joined-r1.txt
+- Published receipt: qualification/m15/HANDOFF.txt
+
+E07 Accepted Go local notice cuts, suppression, durable originals, guarded recovery/control and local text/Copy; no external delivery.
+- internal/transport/boardapi/notice_interval_test.go — TestNoticeIntervalPinnedPages; TestNoticeIntervalCoverage; TestNoticeEqualCutsCoverage; TestNoticeIntervalActorClasses
+- internal/board/noticemonitor/monitor_test.go — TestIdleDebounceMaxAgeAndCatchUp; TestStopKeepsOwnerThroughStalledPublication; TestStopFencesUndiscoveredWakeAndBindsResult; TestActivePollYieldsToFinalCapture
+- internal/board/noticemonitor/lifecycle_test.go — TestLiveRetargetGuardedOriginalWork; TestLiveControlsReserveAcrossEveryWorkerPublication; TestReplacementCallerCannotLendAuthorityToOldWork
+- web/src/board/notices.test.ts — runNoticesProbe and Copy fences
+- Published receipt: qualification/m12/joined-r1.txt
+- Published receipt: qualification/m13/joined-r1.txt
+- Published receipt: qualification/m14/joined-r1.txt
+- Published receipt: qualification/m15/joined-r1.txt
+- Published receipt: qualification/m15/HANDOFF.txt
+
+E08 Accepted CLI/activity/redaction/raw-text correctness, not full or blocked-output isolation.
+- cmd/localswim/notices_native_windows_test.go — TestNoticesActualBuiltCLI; checkNoticeRedaction
+- cmd/localswim/notice_text_native_windows_test.go — TestNoticeTextActualBuiltCLIBoundaries
+- Published receipt: qualification/m11/joined-r1.txt
+- Published receipt: qualification/m15/joined-r1.txt
+- Published receipt: qualification/m15/HANDOFF.txt
+
+E09 Inspected source-derived amplification/representation risks, NOT executed failure or scale qualification.
+- internal/transport/boardapi/projection.go:96 — all cards/descriptions before q.card filtering; :138 per-card references; :223 history; :297/:311/:324/:337 entity scans
+- internal/transport/boardapi/search.go:252 — description/comment candidate work
+- internal/store/writer/writer.go:336 — schema.Validate before COMMIT
+- web/src/board/view.ts:729 — complete BoardRead serialization on draft change
+- web/src/recovery/store.ts:9 — aggregate 2 MiB draft/profile bound
+- web/src/board/view.ts:264 — authoritative refresh; general stale whole-board floor unproved
+- internal/board/noticemonitor/monitor.go:531 — per-board worker; worker.go:180 authorized Observe on unchanged polling
+- internal/board/attachments/download.go:46 — authorized snapshot; internal/store/attachmentblob/read.go:23 BLOB read/hash
+
+E10 Accepted large-label/hierarchy proofs are useful distinct shapes, not requested combined-board readiness.
+- web/src/board/details.ts:277 — local array paging is not a server SQL bound
+- web/src/board/view.ts — renderCards covers the validated board archive projection
+- Published receipt: qualification/m04/joined-qualification-r1.txt
+- Published receipt: qualification/m09/joined-r1.txt
+- Published receipt: qualification/m10/joined-r1.txt
+
+SCHEDULE AND CLOSEOUT
+M16 #0242: D01/D02/D03 dispositions as applicable; W01/W04 and Q01/Q03 early baseline/approved corrections. No external effect is needed to observe current paths.
+M17 #0243: W02/Q02 draft, stale-readback and accepted transport extensions. M18 #0244: Q04 before first supported effect. M19 #0245: W03/Q05 fleet/live-host extension. M20 #0246: Q06 clean restart only; M21 #0247 retains interrupted original recovery.
+M24 #0250 update/output/authority continuity; M29 #0255 current truthful status/geometry after D02; M33 #0259 attachment import/restore; M34 #0260 retired-interface disposition; M38 #0264 adoption; M39 #0265 owner-disposed parity gaps; M40 #0266 final aggregate current qualification, never first discovery.
+Current private rolling assignment revision V1-R3-INTAKE-WORKERS-R5 preserves named Sol / High authors/fresh reviewers for M16/M17/M18, scope/readiness/missing inputs and rolling waves. New work is unpriced and must enter complete estimates/re-cut; no future worker or slot is reserved.
+Intake #0267 records the committed mapping, pinned report, affected cards/epics/schedule and independent review. It may reach RFR when planning receipt is complete. V1 #0215 closeout need not wait for these future V2 implementations. Terry retains Completed.

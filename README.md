@@ -43,6 +43,15 @@ geometry and archived-occupant lane retirement. It maps these accepted V1
 behaviors to the remaining V2 milestones after M13, with explicit retirement
 contract and estimate work before import.
 
+The [V1 Revision 3 recovery intake](docs/spike02/v1-scale-recovery-intake-2026-11-07.txt)
+and [coverage mapping](docs/spike02/v1-scale-recovery-intake-2026-11-07.json)
+map accepted behavior, remaining scale work and explicit decisions to the current
+M16-M40 tickets. They add unpriced planning inventory and early M16 qualification;
+fresh kickoff estimates must include it. The later status-age lessons supersede
+only the older V1 imitation premise, pending a V2 transport/status decision.
+Approved Go notice/receipt/recovery guarantees remain separate from Python
+administrative nudges. This planning receipt starts no implementation.
+
 The historical [activity and alert roadmap](docs/spike02/activity-alert-roadmap-r1.txt)
 and [structured roadmap](docs/spike02/activity-alert-roadmap-r1.json) preserve
 the earlier M11–M21 scope and gate statements. The latest planning overlay above
