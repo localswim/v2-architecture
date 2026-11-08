@@ -1,0 +1,310 @@
+M16.03 D02 — BROWSER PROPAGATION AND TRUTHFUL STATUS PROPOSAL
+M16-D02-R1 | November 7, 2026 | Proposed; current polling remains unchanged
+
+Decision requested
+
+Choose the browser observation contract before changing transport or visible
+status. This is an independently reviewable proposal, not an SSE implementation,
+an accepted grace interval or a claim that current-source race tests have run.
+Terry retains acceptance of changed behavior. D01 owns proposed measurement
+budgets; D03 distinguishes browser propagation from operator/product notices.
+
+Choices
+
+- A — keep current five-second visible polling and its existing status contract.
+  It is simple and has accepted evidence; it continues periodic catalog work and
+  only observes changes on a successful read. Measure its complete work honestly.
+- B — RECOMMENDED: qualify producer metadata invalidations plus authoritative
+  snapshots, with a bounded reconciliation read and the fences below, before
+  proposing adoption. This can reduce unchanged sampling while preserving honest
+  read authority. The benefit is a hypothesis until source-bound evidence exists.
+- C — forward V1's stream/content-version/status behavior directly. That would
+  import unreviewed storage and freshness meanings. It requires its own accepted
+  contract and does not follow from V1 being the behavior oracle.
+
+Until B is separately accepted and implemented, A remains current. This proposal
+changes no timer, label, native monitor or existing client behavior. Original
+source-era extension references resolve through the current downstream crosswalk;
+they do not authorize implementing a transport inside configuration-only M16.
+
+1. Current facts and evidence boundary
+
+The accepted workspace contract uses visible five-second catalog polling, focus/
+visibility/retry triggers, coalesced host work and independent member observations.
+Current web/src/workspace-ui/refresh.ts has one request pipeline, one follow-up,
+generation checks, stale retained display after failed refresh and authority-loss
+invalidation. Preference refresh shares triggers but its failure cannot conceal
+a successful catalog or overwrite the active editor.
+
+Accepted scoped identity/revision floors are useful inputs; the intake does not
+claim a universal whole-board floor, same-revision content token, SSE bootstrap,
+idle sweep bound or new current-source scale result. Explicit product monitors
+are separate Go-owned work. A closed browser is not authority to stop them.
+
+The proposed stream is invalidation metadata. It never carries card prose,
+private recipient references, drafts, credentials, raw storage errors, arbitrary
+paths or external destinations. A signal announces that a current authorized
+read may be needed; it is not the snapshot, a commit receipt or proof of rendering.
+
+2. Identity, marker and authority model to freeze before implementation
+
+Use the existing routed host, exact loopback Host/Origin, cookies or automation
+channel and request protections. No CORS, secret query parameter, extra listener,
+credentialless fallback or arbitrary endpoint is introduced. Browser input cannot
+select actor kind or mint an observation/ownership generation.
+
+Every subscription and snapshot binds:
+
+- installation, workspace when applicable, exact registered board and incarnation;
+- current host/member epoch, current session/authority generation and selected
+  window/navigation/request generation;
+- board revision and current policy context for board facts; independent config
+  and preference revisions for their own aggregates;
+- a producer observation sequence within one fresh stream epoch, and a content
+  observation token for the exact projection where same-revision change matters.
+
+These are distinct domains. Never compare revisions across boards/incarnations,
+use a preference revision as a board fence, or let a high sequence resurrect a
+revoked session. A cursor/token is bounded inert context, never a grant. A server
+restart or member replacement creates a new epoch and invalidates old progress.
+
+Proposed marker kinds: board-invalidated, membership-invalidated,
+preferences-invalidated, scope-invalidated and heartbeat. Board metadata contains
+only bounded identity, epoch, sequence, observed revision/token and a safe reason.
+Only committed application effects generate commit invalidations. Rollback,
+NO_CHANGE, a refused original or a raw database file event does not impersonate
+a commit. Existing storage validation may separately publish an unavailable/
+integrity invalidation; it never manufactures a successful revision.
+
+The content observation token must describe actual accepted projection content
+and observation lineage, not be an unverified client digest or a clock. It may
+be opaque. The later design must bind it to the exact authorized read and define
+its bounded generation without adding a storage-reading heartbeat. No claim is
+made that current source already exposes this token.
+
+Current authority is checked at subscription admission, metadata publication,
+snapshot admission and final private response publication. Coalesced late joiners
+cannot inherit an earlier caller's cached authorization. Revoke/disable/replace
+invalidates the scope; queued old facts are redacted or discarded before write.
+Already committed operations remain committed and separately inspectable only
+under current disclosure authority. Background work cannot renew Human authority.
+
+3. Gap-free subscribe and snapshot sequence
+
+Specify and independently review this ordering with the actual producer before
+clients. A successful TCP connection alone cannot close the gap.
+
+1. Bootstrap the ordinary local browser channel and resolve the intended exact
+   member. Capture current authority and navigation generations. Abort obsolete
+   connection work, retaining drafts/originals independently of the read cache.
+2. Admit the selected subscription under current authority. Register it in the
+   producer before sending its handshake. The handshake contains fresh stream
+   epoch and starting sequence. Producer changes after registration enter a
+   bounded coalesced pending-marker slot, including changes during bootstrap.
+3. After handshake, request one authoritative snapshot using the same selected
+   identity/current authority. Validate its complete contract, identity, revision
+   and content token before accepting it. Keep concurrent markers, not card data.
+4. Compare the accepted snapshot with all markers received or emitted since
+   registration. If any applicable marker can describe newer/different content,
+   queue one follow-up read. A commit during the read remains pending even if its
+   callback arrives after the snapshot. Producer publication and registration
+   ordering must prove that no commit can fall between these boundaries unseen.
+5. Install the snapshot only if all current navigation/identity/authority fences
+   still match and it meets every acknowledged floor. Keep the pending refresh
+   flag until a subsequent accepted snapshot covers it. Never clear it merely
+   because the stream says Open or the timer fired.
+
+The producer's sequence and snapshot token association must be defined explicitly
+and tested at each boundary. Do not attach a watermark read after a transaction
+to older snapshot data. If a coherent relation cannot be proved, report pending
+and perform an explicit fresh snapshot; never fabricate coverage or loop without
+a work bound. At most one read and one coalesced follow-up belongs to a consumer.
+
+On ordinary reconnect, discard prior stream coverage assumptions, reauthorize,
+register anew and repeat subscribe-before-snapshot. A retained event ID is a
+hint; it cannot prove complete history or current permission. Reconciliation
+never looks up or resends an original mutation automatically.
+
+4. Revision floors, same-revision changes and navigation
+
+Maintain a per-context minimum acknowledged board/card revision after a genuine
+terminal commit/read, distinct from immutable original evidence. A later read
+below that floor cannot repaint or replace its editor base. Keep the last
+confirmed authorized view labeled pending/stale and request deliberate or bounded
+coalesced reconciliation. This is proposed universal behavior to qualify, not an
+assertion that the current scoped guards already cover every surface.
+
+A same-identity/same-revision response with a changed content token is not ignored.
+Invalidate dependent projections and revalidate a coherent current snapshot.
+Where revision discipline says such a change is impossible, treat it as an
+integrity/observation inconsistency: do not authorize editing, invent a revision,
+splice old/new facts or silently accept externally altered state. A valid admitted
+replacement or changed projection context needs its own explicit identity/token
+semantics. Unknown/missing tokens remain unsupported/unavailable, never Equal.
+
+A-to-B-to-A needs a new navigation generation on every transition. Equal board
+identity on return does not revive the first A request. Verify full context after
+each await, before DOM/cache/focus publication and after snapshot validation.
+Late denied/private replies erase no newer draft and expose no old private facts.
+Cancellation is a request to stop waiting; it is not proof native work stopped.
+
+Refresh uses stable selected identities, preserves mounted dirty editors and
+separate base revisions, and marks stale facts instead of merging over input.
+Another window retains its own route, focus, draft and original. Shared pins and
+preferences never become shared active-window selection. Current card reads,
+heartbeat and equivalent visible text never settle UNKNOWN originals.
+
+5. Failure, reconnect and preferences
+
+Proposed timing values below require Terry acceptance with this behavior; they
+are not adopted defaults. Compare them against D01 before implementation:
+
+- One heartbeat every15seconds, from bounded in-memory subscription state only.
+  No SQL, filesystem read/hash, catalog activation or board enumeration occurs
+  for heartbeat. Missing heartbeat for45seconds means transport uncertain; it
+  does not mean the last accepted board observation is corrupt or uncommitted.
+- Reconcile selected/catalog observations every30seconds while visible and on
+  focus, explicit retry or relevant invalidation. This is a proposed fallback
+  for lost signals, not the current five-second timer. Report its storage work.
+- Reconnect delay1,2,4,8,15,30seconds, then capped30seconds, with bounded20% jitter
+  and one outstanding connection attempt. Visibility/session/epoch changes fence
+  old attempts. These are future transport retries for reads, never write retries.
+
+If snapshot fails but metadata remains healthy, display Connected / board read
+unavailable or retained stale facts as appropriate. Keep the snapshot retry pending
+and attempt it through the bounded read pipeline; no unrelated future change is
+required to wake it. A later successful heartbeat cannot clear a storage error,
+advance a revision floor or turn an unavailable count into zero.
+
+Preference reads/saves have independent revisions and errors. A failed read
+queues its own bounded retry on the next scheduled consumer wake or explicit
+Retry, even if catalog/config revisions did not change. A known failed save
+retains input and offers deliberate fresh intent after inspection. An uncertain
+save remains UNKNOWN until its existing exact status/inspection path is used;
+never replay a preference mutation to repair a read failure.
+
+On scope/authority loss, clear private visible facts and stop affected read/stream
+admission. Retain private drafts and immutable submissions under their existing
+recovery policy; reauthentication does not replay them. Membership removal or
+identity replacement remains an unavailable route, never a default-board fallback.
+
+6. Bounded slow consumers and transport choice
+
+Propose one subscription per active window, one pending latest marker per member
+and aggregate revision domain, maximum24 member markers plus config/preferences/
+scope markers within64KiB. Maximum event UTF-8 bytes2KiB; heartbeat<=128bytes.
+Do not buffer one event per edit or full snapshots. Sequence gaps/overflow set a
+single resync-required flag. If bounded output cannot progress, close that
+consumer and require fresh bootstrap/snapshot; healthy consumers and the writer
+continue. Do not drop an overflow and label the stream fully synchronized.
+
+The producer never holds board commit coordination, global registry locks or
+writer ownership while waiting on network output. Publish a bounded in-memory
+invalidation after commit; listener failure cannot change the commit outcome.
+The real HTTP write/cancel/body/parser paths need independent native fault proof.
+A timer returning does not prove a blocked write/child has joined.
+
+SSE framing is one candidate for B. The WHATWG EventSource constructor exposes
+URL and withCredentials rather than an arbitrary protected request-header API.
+The proposal therefore uses an authenticated fetch-stream adapter if existing
+request protections require custom headers, with a bounded reviewed parser; it
+does not weaken authentication to fit native EventSource. No token enters a URL.
+Use same-origin text/event-stream UTF-8 framing, safe event/ID vocabulary, strict
+field/byte bounds and explicit invalid-frame refusal. Last-Event-ID/retry fields
+are transport hints, not durable cursor or mutation-replay instructions.
+
+This selects no new production endpoint/schema/package today. The later accepted
+contract must freeze exact DTOs, generated declarations, production validators,
+capabilities, compatibility/refusal and concrete ownership. Browser support and
+native lifecycle must be qualified on its actual source/tools, not inferred from
+the existence of an SSE specification or a substitute test server.
+
+7. Consumer lifetime and actual joined shutdown
+
+Hidden/closed/navigation-old consumers stop admitting NEW sampling and remove
+their event/focus/timer registrations. Request cancellation and retain ownership
+of every admitted read/parser/output job until its actual return. Late callbacks
+check generations and cannot publish. The host does not release a native slot or
+member owner merely because the tab left or a timeout elapsed.
+
+The last browser subscriber may quiesce ONLY its defined sampling/stream work.
+Deliberately running Go notice monitors, publication, backup and native operations
+have separate owners, explicit stop controls and retained obligations. They remain
+active without a browser. No background job borrows a new subscriber's Human
+authority to continue an old operation. Host Close drains all admitted resources;
+incomplete drain remains visible and retains exclusion through actual join.
+
+8. Proposed status vocabulary and geometry
+
+Show independent dimensions rather than one ambiguous green synchronized age:
+
+Dimension             | Meaning and allowed evidence
+Connection            | Connecting / Connected / Reconnecting / Unavailable;
+                      | transport handshake/heartbeat only, never storage truth.
+Board observation     | Last successfully validated authorized snapshot time,
+                      | identity/revision; pending/stale/unavailable separately.
+Last committed change | Actual committed card/activity time with coverage;
+                      | a quiet old edit is normal, not a failed connection.
+Local intent          | Draft recovery pending/failed, submitting, conflict,
+                      | COMMITTED/NOT_COMMITTED/UNKNOWN under original evidence.
+Rendered view         | Loading/current projection or update pending; DOM
+                      | completion is distinct from snapshot/download success.
+Backup/delivery       | Existing separate saved/export/commit/push/local inbox/
+                      | external receipt statuses; no inference from heartbeat.
+
+Propose no time-based green grace for unchanged content. A valid connection can
+say Connected; it cannot say current storage verified merely because15seconds
+have not elapsed. Show exact successful observation time on demand and retain
+independent pending/storage errors. Never inherit V1 ten-second grace implicitly.
+
+Reserve stable layout tracks for connection, observation, committed-update age,
+build/backup warnings and clock. Reserve at least two right-aligned digit slots
+and plural-width unit space; test0/1/14seconds,1/2/14minutes/hours and larger ages.
+Keep clock colon, zero-padded minute/second and am/pm anchors stable through9/10,
+12/1,noon/midnight and no-data. Give warnings/metadata a separate narrow-layout
+row; full clipped values remain reachable. Do not preserve an empty track after
+removing a field, move typing focus on status refresh or hide an unresolved error
+behind a transient success label. These are proposed future behavior criteria.
+
+9. Acceptance matrix and entry/decision gates
+
+Before any later Q01 observation, all D01/D02/D03 proposal-quality reviews pass
+after fixes/material re-review. An independently admitted unchanged-contract
+baseline can then measure current polling without new behavior adoption. No Q01
+measurement, stream prototype or transport/status change occurs in M16.03.
+
+The later implementation/evidence packet must cover:
+
+- commit before registration, during handshake, during snapshot and after read
+  before publication; rollback/NO_CHANGE/refusal produce no false commit signal;
+- genuine Human and Bot commits both invalidate browser facts; no actor filtering;
+- same-revision different-content, stale full-board response after acknowledged
+  commit, snapshot failure plus healthy metadata, missing/foreign tokens/epochs;
+- repeated reconnect failures, lost/coalesced markers, bounded slow reader/parser,
+  output backpressure/overflow and one failing board with healthy sibling progress;
+- preference read retry without catalog change, stale/uncertain preference save,
+  config/identity replacement, authority revoke at admission and late disclosure;
+- A-B-A, two independent windows, hidden/closed consumer, dirty drafts/private
+  persistence failure, retained original UNKNOWN and zero automatic mutation replay;
+- storage-free heartbeat counters, actual consumer quiescence/join, explicit Go
+  monitor still running, host Close/incomplete drain/competing owner exclusion;
+- ordinary browser and actual CLI/API current facts on default/configured boards,
+  complete current inventories, exact source/tool/fixture bindings and owned
+  shared-queue diagnostic lifecycle. Controlled faults remain separately labeled.
+
+Terry accepts transport, reconciliation/reconnect/grace semantics and visible
+status changes explicitly. A review PASS establishes proposal quality only.
+Fresh independent Sol / High design review, normal fixes and material re-review
+precede RFR. Any unproved native or snapshot/sequence association remains an
+implementation readiness issue, not evidence of an already qualified feature.
+
+Primary technical reference checked November7,2026
+
+WHATWG HTML server-sent events defines EventSource, event-stream framing,
+reconnection/last-event-ID and close behavior. Those transport mechanisms do not
+define this product's authoritative snapshot, current permission or native join:
+https://html.spec.whatwg.org/multipage/server-sent-events.html
+
+Project evidence: approved m16-six-milestone-split/approval, V1 Revision3 intake,
+workspace contract and localhost reset; current refresh/catalog source cited
+above. No runtime test result or owner behavior acceptance is claimed here.

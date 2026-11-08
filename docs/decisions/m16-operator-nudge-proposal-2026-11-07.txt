@@ -1,0 +1,228 @@
+M16.03 D03 — OPERATOR NUDGE SCOPE AND NOTICE GUARANTEE DISPOSITION
+M16-D03-R1 | November 7, 2026 | Proposed disposition; no activation or send
+
+Decision requested
+
+Retain approved Go product notice guarantees and keep the shared administrative
+owner-notification bridge a separate capability. Configuration-only M16 needs
+no additional nudge implementation. Review of this proposal cannot activate a
+target, send a message, weaken originals or authorize future external effects.
+
+Choices
+
+- A — RECOMMENDED: retain the current administrative bridge and existing Go
+  product notices with their separate meanings. No additional V2 operator-nudge
+  feature is demonstrated as necessary. This preserves known daily wake-up
+  behavior without replacing stronger product receipt/recovery guarantees.
+- B — add an explicit V2 best-effort administrative nudge later, separately
+  authorized, priced and qualified. It remains separate from Go product notices.
+  A rough complete price and required decisions are below; no start is implied.
+- C — replace Go original-target/durable receipt semantics with current-target
+  best effort. This loses captured obligations and recovery evidence. It requires
+  an explicit new owner contract decision; neither intake nor R4 selects it.
+
+Authority and current scope
+
+Read the approved R4 six-way plan, its exact original M16.09 A01-A04 ledger and
+the V1 Revision3 intake. M16.03 owns this proposal and its independent review.
+M16.01/.02 only save and reopen a private fixed policy; saving never enables,
+starts, sends or grants later effect permission. Actual probes, briefings,
+external delivery, live monitoring and interrupted external recovery remain
+their separately authorized milestones under the current numbering crosswalk.
+
+1. Three capabilities with different evidence and owners
+
+Capability              | Trigger/target/outcome
+Python administrative   | Committed Human edits only;15seconds quiet coalescing;
+owner notification      | resolve CURRENT configured owning-chat target when
+                        | delivering; one best-effort public queue attempt.
+                        | No durable delivery cursor, catch-up or retry. Queue
+                        | acceptance does not mean Human receipt or completed work.
+Browser propagation     | Human AND Bot changes and relevant observation/errors;
+                        | exact current selected scope and current read authority.
+                        | Refresh/invalidation is not a conversation notice or a
+                        | delivery receipt. D02 retains polling until adoption.
+Go product notices      | Complete committed activity intervals, conservative
+                        | classification and ORIGINAL captured target/policy/
+                        | cuts/identity/payload; private pending and exact receipts.
+                        | UNKNOWN/no replay, current authority, native ownership
+                        | and explicit clean/dirty restart/recovery rules remain.
+
+The administrative bridge is the shared Python board service's built-in owner
+notification. It is not an old JSON watcher or pool. Only committed Human-edit
+metadata enters its background quiet worker; Bot edits create no owner notice.
+The accepted bridge sends bounded board identity/label, interval and ticket
+numbers, excluding card prose and credentials. Service shutdown may lose pending
+work. Native queue availability/acceptance proves only its stated boundary.
+
+All-actor browser refresh must not copy Human-only suppression. Conversely a
+Bot-only board edit must not wake the owner merely because a browser needed new
+facts. A product interval's actor classification comes from authoritative retained
+metadata, not filesystem writes, an actor label in a request or a UI event.
+
+2. Go guarantees preserved without qualification drift
+
+Preserve each original Intent's binding, target, observation/delivery identity,
+cuts, class/count and retained safe payload, with its exact durable acceptance
+receipt/acceptedAt and Pair projection. State/Observation separately retain their
+configuration revision, checkpoint and unresolved-gap context. The monitor's
+current runtime/control generation fences admission and late results; it is not
+an immutable Intent/Pair receipt field. Later target changes govern future work
+only under their accepted contract. An A-B-A target sequence cannot rewrite
+originalA or rewind configuration progression. Original text does not regenerate
+from a later board label or recipient policy.
+
+Suppress only a valid complete nonempty interval whose every event is verified
+as the configured automation actor. Human, mixed, unknown, observed-empty,
+incomplete, malformed, failed, expired and gapped evidence alerts conservatively
+or remains guarded under the accepted product contract. Never fetch card prose
+to prove Bot-only activity or require one event per filesystem write. An ordinary
+idle observation with unchanged upper bound is not an invented empty-work burst.
+
+Persist the accepted product's pending/attempt/receipt evidence at its specified
+boundaries. Capacity, malformed or legacy state, wrong physical/account identity,
+foreign/restored incarnation and uncertain publication refuse or retain guard;
+they never authorize repair-on-read, evidence deletion or reconstructed rights.
+The current private local notice version, legacy-unavailable projection and exact
+canonical payload/intent rules remain. Runtime destinations/credentials/private
+profiles are excluded from board exports/restores; a restored lineage does not
+inherit live delivery authority or settle a source original's UNKNOWN.
+
+Current authority applies to each new effect and private disclosure. Stop/Close/
+deadline/disable/revoke closes later admission as specified; physically admitted
+work retains its native owner/root/descendants until actual join. A timer, root
+exit, queue response or a new subscriber cannot lend authority or prove complete
+drain. An unselected board with explicit Go-owned work remains active.
+
+For future external stages, preserve the complete accepted first-effect model:
+fresh current native session/RUN eligibility and one-use reservation, durable
+pre-effect fence, exact positive acceptance boundary or UNKNOWN, no invented
+lookup/idempotency/negative proof and no historical permission reconstruction.
+Live-host-only monitoring, positively proved clean resume and deliberate eligible
+interrupted-original recovery remain distinct stages. Do not advance any stage
+because a configuration saved or a read-only probe succeeded.
+
+Copy/print is human forwarding convenience. Clipboard success, actual CLI text,
+local inbox acceptance, a readiness probe, administrative queue acceptance and
+current visible equality prove neither external product acceptance nor no effect
+at the recipient. They cannot refresh a spent ambiguous permission. A human may
+independently forward text; the product does not promise exactly-once Human
+delivery or infer that forwarding never occurred.
+
+3. Inclusive source windows versus V2 product cuts
+
+V2 uses ordered origin-bound event cuts (from,through]: exclude the lower cursor,
+include the captured upper cursor. Retain the exact source origin/epoch and both
+cuts. Gaps and unresolved origins remain evidence, not an empty interval.
+
+V1 report examples with inclusive timestamp windows [since,until] are scenario
+inputs, not a new V2 cursor contract. To translate, enumerate the authoritative
+source events meant to be included, including ALL events tied at either timestamp.
+When an exact ordered mapping exists, use the predecessor cursor of the first
+included event as V2's exclusive lower cut and the last included cursor as upper.
+An initial zero/baseline cut follows the existing explicit product contract.
+
+Do not subtract one second, guess timestamp precision, assume timestamps uniquely
+order events or reuse the first included cursor as the exclusive lower bound.
+If a predecessor/mapping/complete origin cannot be proved, report the translation
+as unavailable/gapped and use the accepted conservative inspection/fallback
+disposition. Do not skip the boundary event to force count equality. Adjacent
+V2 intervals may share the boundary cursor while including each event once;
+inclusive source windows may intentionally overlap and need explicit deduplication
+in the comparison ledger. This changes neither persisted cuts nor receipt identity.
+
+4. Need assessment and proposed additional scope
+
+Current evidence supports an administrative owner wake-up for one board/one owning
+chat and Go product notices with durable original obligations. The built-in bridge
+already serves the former. No requirement supplied to M16.03 establishes a third
+V2 feature or shows that weaker administrative semantics can replace Go notices.
+Retain both independently. This is a scope recommendation, not new observation
+of live queue delivery or proof of a receiver's current authority.
+
+If Terry selects B, first define the exact product owner: which synthetic/local
+board, authorized current target, Human attribution source, quiet/max-age/capacity,
+activation/handoff/disable semantics, safe payload and native queue executable/
+acceptance. No destination is inferred from the developer chat, inherited process
+environment, saved recipient policy or a historical example. No extra guarantee
+of catch-up/retry/receiver receipt is smuggled into best effort.
+
+Illustrative complete future development price, minutes base/reserve/cap:
+
+- Contract, scope/authority/compatibility and independent review:25/10/35.
+- Producer Human metadata/quiet worker/private configuration and one-attempt
+  native dispatch/teardown/faults with independent review:40/20/60.
+- Go/HTTP/generated/production-TypeScript seam review before clients:20/8/28.
+- Actual CLI AND ordinary browser configure/status/activation/disable/current
+  target plus input/focus/late-authority proof and reviews:35/15/50.
+- Full current qualification/two clean builds/all outputs/native/browser and
+  integrated independent closure/fixes/material re-review:45/18/63.
+- Exact kit/NEW both-client default/configured demonstration, package/evidence
+  review, owned cleanup and publication:30/10/40.
+
+Total195base+81reserve=276cap; own complete latest-stable .00 separately50+25=75.
+This is a rough complete planning price, not an independently accepted forecast,
+funded milestone or allowance. It assumes a qualified reusable native runner;
+missing supported command/acceptance/receiver authority or changed safety scope
+requires fresh decomposition and estimates. Full delivery/review is in base.
+Do not execute it as free support, reserve work or an extension of M16's clock.
+
+An added feature must use the shared implementation rather than a project-local
+watcher or private collector, preserve the one-user-facing-port architecture,
+and not reconfigure/stop shared-host infrastructure. Queue transport for browser
+diagnostics remains separate from product message delivery.
+
+5. Retired interfaces and operational authority
+
+Legacy Python watcher/pool launch, reload and stop commands and their optional
+native dependency remain retired. Do not port their startup compatibility,
+install the watcher extra, reactivate an override, or rewrite/delete saved
+target/cursor/pending/lock files. Those files are historical evidence. Never act
+on a remembered PID without current process/ownership proof.
+
+The accepted V1 subscribed byte-hash sweep is bridge scope, not a new repair or
+a requirement that V2 hash database files. V2 measures its own observation work.
+No artifact, board launch, restart, proposal approval or target configuration
+alone activates a newly disabled notification. Explicit current activation and
+authorized handoff retarget remain separate operations through their owning
+service. This proposal performs none.
+
+Already queued alerts retain metadata-first handling: only complete valid
+nonempty all-automation evidence proves suppression. Human/mixed/unknown/empty/
+incomplete/malformed/failed results do not. Preserve Terry's changes and normal
+prerequisite/IP/owner-Completed gates; a notice provides context, not authority.
+
+6. Review, acceptance and later proof
+
+Fresh independent Sol / High proposal review checks all three capability
+boundaries, exact windows, original/recovery/native/privacy conservation and
+the separately priced branch. Fix and materially re-review before M16.03 RFR.
+ALL D01/D02/D03 proposal-quality PASS is required before ANY later Q01 observation.
+That review does not accept new D01 numbers, D02 behavior or added D03 scope.
+
+The later baseline may observe existing Go notice behavior only after its own
+authorization, estimate/preflight/IP/ownership/queue gates. Preserve exact source,
+ordinary versus controlled labels and no-effect boundaries. If B is separately
+authorized later, qualify Human/Bot/unknown committed attribution, quiet bursts,
+current-target change while pending, disable/revoke before admission/late result,
+native startup/output/stall/join, unavailable queue, one attempt/UNKNOWN/no replay,
+host shutdown loss, safe privacy and healthy-board independence. Do not claim
+those tests ran from this proposal or substitute diagnostics for product state.
+
+Terry retains the decision to add any nudge or change a guarantee and controls
+Completed. A finished unchanged-guarantee proposal belongs RFR; only a concrete
+missing owner action required to finish other work justifies Needs Terry.
+
+Project evidence
+
+- ../spike02/m16-six-milestone-approval-2026-11-07.txt and matching JSON.
+- ../spike02/m16-six-milestone-split-2026-11-07.json: M16.03,
+  exactOriginalAcceptanceCoverage, coverageNotes and current downstream map.
+- ../spike02/v1-scale-recovery-intake-2026-11-07.txt: I03/I04/I07/I10,
+  D03 and accepted local-notice evidence E07/E08 under their original pins.
+- Repository AGENTS.md current built-in owner-notification/retired-interface
+  instructions, plus accepted M12-M15 product receipts in the implementation
+  repository. Historical monitor-OFF and old watcher recipes remain history.
+
+No new message, activation, external effect, transport/nudge implementation,
+shared-host operation or weakening of Go notice guarantees is performed here.

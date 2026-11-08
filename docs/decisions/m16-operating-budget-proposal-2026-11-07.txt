@@ -1,0 +1,340 @@
+M16.03 D01 — OPERATING ENVELOPE AND MEASUREMENT BUDGET PROPOSAL
+M16-D01-R1 | November 7, 2026 | Proposed; no measurements or adopted limits
+
+Decision requested
+
+Approve a named operating and measurement envelope before claiming scale readiness.
+The proposed numbers below are engineering hypotheses for Terry's disposition.
+They are neither current product limits nor observed performance, an SLA, a
+power-loss guarantee, or permission to weaken an existing invariant. M16.03
+finishes with independently reviewed proposals; it does not collect Q01 data.
+
+Choices
+
+- A — RECOMMENDED: use the envelope, separate fixture families and explicit
+  decision thresholds below; collect an unchanged-contract baseline under its
+  own authorization, then accept, revise or reject the proposed support claim.
+  This distinguishes useful work from incidental fast inner queries.
+- B — retain current functional guarantees without a new numerical scale claim.
+  Baseline observations remain useful, but no budget PASS or scale-ready label
+  follows. Future corrections still need an accepted useful-work premise.
+- C — enlarge field, draft, history, entity or byte limits to fit a source shape.
+  This requires a separately priced contract decision and qualification. This
+  proposal does not select it.
+
+Authority and sources
+
+The approved six-way R4 plan controls current M16 scope. Its R3 structured
+ledger preserves original M16.07 A01-A06. Read this proposal with the D02 and
+D03 companions, the V1 Revision 3 intake and the current localhost scope reset.
+Historical source-era M16 scale implementation is now spread over M18-M21;
+this proposal does not revive archived stories or their clocks.
+
+Current implementation inspection, not a performance result:
+
+- web/src/workspace-ui/refresh.ts has one visible-window pipeline, a five-second
+  periodic trigger and at most one queued follow-up. Preferences share its
+  triggers, while catalog failure and preference failure remain distinct.
+- internal/workspace/catalog.go coalesces jobs, revalidates late join authority
+  within the original attempt, and retains a slot until native return. The
+  existing four-slot scheduler is not a fleet-wide product-monitor bound.
+- web/src/recovery/store.ts bounds drafts to20/2MiB and unresolved submissions
+  to100/8MiB. The full stored record counts, not merely typed prose.
+- The intake's projection, integrity, draft and blob-path findings identify
+  possible amplification. They do not establish measured latency failures.
+
+1. Proposed primary envelope
+
+One local Human, one ordinary browser, one active tab and one selected board,
+with one concurrent automation intent stream through the actual CLI or API.
+Use the existing routed localhost host and independent per-board authority.
+Keep all accepted independent-window guards: a smaller performance envelope
+does not remove correctness in another window or grant automation human rights.
+
+Proposed supported measurement target: one selected board with up to4,120 total
+cards and up to32MiB of logical structured data, inside the existing entity,
+archive and input limits; up to24 registered boards. The other23 members each
+have41 small cards in the primary workspace recipe. Run the19-member version
+separately. A24-board dense-content recipe below is explicit headroom, not a
+promise that24 simultaneously large active boards meet the primary budgets.
+
+Reference class proposed for the numerical decision: Windows amd64, local NTFS
+on SSD, at least8 logical processors and16GiB RAM, ordinary pinned Chrome, AC
+power and a recorded power mode. Record the actual CPU model, cores, RAM,
+storage class/free space, OS/build, browser/profile, display size/scale and
+toolchain. A result on a different class stays valid evidence for that class;
+it cannot silently certify this reference class or revoke earlier support.
+
+Concurrent intent recipe: Human and Bot each issue one deliberate mutation per
+second for60 seconds, plus a10-intent/second combined10-second burst. Record
+offered, admitted, committed, refused and UNKNOWN separately. Use fresh original
+identities and actual base revisions; stale same-base contention is expected
+refusal, never a reason to retry automatically. Add same-card and unrelated-card
+overlap, compound effects, delayed Add and dropped success reply as distinct
+scenarios. This offered-load premise is proposed, not an existing throughput
+guarantee. Extra tabs/windows and higher rates are labeled headroom.
+
+An unselected board with a deliberately running Go monitor or owned operation
+is active. Browser visibility, unsubscribe and navigation never silently Stop
+that work. Idle consumer sampling and explicit product work have separate rows.
+
+2. Fixture families and exact units
+
+Keep each family independently runnable, with immutable recipe/seed/digests and
+exact source/tool/lock bindings. Construct and fully validate fixtures outside
+the timed measurement. Do not time thousands of CLI setup processes and call
+the result an application read or write measurement.
+
+Family | Required shape and disclosed controls
+COUNT  | Separate41,412,4,120-card boards; small descriptions/comments; fixed
+       | per-card payload and explicit current/retained entity counts.
+HEAVY  | Fixed41-card board with one aggregate card >=2,978,150 logical bytes;
+       | valid separate comments, prior snapshots and current text, not one
+       | over-limit description. Fix card/entity counts while varying payload.
+COMB   |4,120 cards plus heavy aggregates, >20MiB and <=32MiB logical structured
+       | bytes; independent from COUNT and HEAVY. Retain exact achieved bytes.
+WS19/24| One selected member using each preceding family,18/23 small siblings;
+       | one slow/unavailable sibling and navigation churn in separate runs.
+DENSE  | Headroom only:24 boards,401 cards and4,800 comments per board, aiming
+       | at the intake's >=22,116,128-byte logical per-board premise where
+       | admissible. Record actual units/limits and any bounded refusal.
+
+For HEAVY, a concrete generator can begin with48 distinct60,000-byte retained
+comments, a60,000-byte current description and two60,000-byte prior description
+states:3,060,000 prose bytes before other fields. Build complete valid records
+and account for all snapshots/references rather than treating these fragments
+as an archive. If its actual representation differs, report that difference.
+For COMB, distribute heavy aggregates over several cards until the measured
+logical data exceeds20MiB; never replace the premise with the intake's separate
+9,868,020-byte combined source fixture. Do not equate decimal MB with MiB.
+
+Disclose total, archived, Completed and archived-and-Completed counts separately.
+Use deterministic overlap, for example floor(N/3) Completed, floor(N/4) archived,
+with floor(N/8) in both, adjusting only to valid complete workflow fixtures.
+Record the actual intersection; never add overlapping counts as disjoint work.
+Include dense but valid hierarchy, typed links, retained policy/history, approvals,
+current and retained files, coverage gaps and original outcome records. Respect
+the accepted64-edge/1,000-family hierarchy and100-entry relationship batch bounds.
+Large controlled fixture construction is labeled separately from normal-client
+positive demonstrations and uses the established isolated fixture mechanisms.
+
+Report these quantities independently:
+
+- Logical structured bytes: UTF-8 bytes of a deterministic declared projection
+  containing current records and retained structured facts once each, excluding
+  raw blobs, credentials, runtime sidecars and client recovery records. Publish
+  its projection definition/hash and row counts; this is a workload unit.
+- SQLite bytes: database/journal file lengths plus logical row/text/BLOB measures
+  where available. Page overhead/free space is not structured payload. Report
+  byte lengths of text through BLOB conversion, including embedded NUL suffixes.
+- Wire bytes: actual complete encoded response/request and headers separately;
+  compressed and uncompressed counts separately if compression is present.
+- Export bytes: every exact stored ZIP member, JSON aggregate, protected blobs
+  and archive overhead; declare the selected export revision and inventory.
+- Resident/retained bytes: host private/working-set and Go heap, browser process
+  and JS heap where supported, peak per-operation allocation and post-quiescence
+  retained memory. These are not interchangeable or safely summed as one metric.
+
+3. Existing admission limits and honest refusal
+
+Keep description/comment65,536 UTF-8 bytes; title200 Unicode scalars; drafts
+20/2MiB per profile; unresolved originals100/8MiB; individual attachment10MiB;
+distinct protected blobs64MiB. Preserve current page, entity, policy/history,
+request and export limits. For example the existing archive JSON member32MiB,
+aggregate JSON64MiB, package144MiB and16,384-entry ceilings still apply. The
+file metadata route's128MiB legacy-label response cap is a correctness exception,
+not a promise of interactive performance at128MiB.
+
+Before every measured operation, state which complete input/response/recovery
+record is admissible. A3MiB aggregate card is not permission for a3MiB field.
+If storing its full base exceeds the2MiB draft cap, an edit may correctly refuse
+before dispatch with the input retained. Report that as supported safe refusal
+and an unmet large-edit usability premise, never as a successful large edit or
+a lost draft. W02 retains the separately scoped representation/adaptation work.
+
+For each inadmissible case preserve exact requested and actual sizes, the first
+refusal code/phase, bounded work, unchanged durable facts and retained input or
+original uncertainty. Do not truncate, prune history, silently reduce the fixture,
+raise a limit or invent a new operation to get a PASS. Propose an explicit smaller
+supported operation, bounded representation change or changed support limit for
+Terry's disposition. Missing evidence remains unavailable, not zero work.
+
+4. Proposed useful-operation budgets — NOT ADOPTED
+
+Measure complete ordinary browser and actual CLI operations, including selection,
+authentication/current policy, SQL, projection/encoding, transport, validation,
+graph work and visible completion. Also report components separately. The same
+premise, fixture, cache state and complete caller path must be used before/after.
+The warm p95/p99/max limits below are proposed decision thresholds in milliseconds.
+
+Operation                          | p95 | p99 | max
+Focused current-card CLI read      | 500 |1000 |2000
+Ordinary details open to usable DOM |1000 |1500 |3000
+Focused history first local20 rows |1000 |2000 |4000
+Full selected-board usable view    |2000 |3000 |5000
+Admissible deliberate edit outcome |1000 |2000 |5000
+Healthy control acknowledgement    | 500 |1000 |2000
+Known pre-admission refusal         | 100 | 250 |1000
+Verified10MiB download/offered      |1500 |3000 |5000
+
+Cold host/browser first use: propose p95<=3,000,p99<=5,000,max<=8,000ms for a
+complete view and p95<=2,000,p99<=3,500,max<=5,000ms for focused CLI read.
+Cold numbers are descriptive until sample adequacy is disclosed. HTTP response
+time is not native publication success, actual process join, or human receipt.
+For10MiB transfer, measure SQL snapshot/length/hash, body transfer, browser
+verify/decode and native publication/readback separately. Concurrent download
+must add <=500ms to healthy control p95, with no weakened authority snapshot.
+
+Proposed browser component p95 limits: response validation200ms, graph construction
+150ms, incremental local20-row DOM update100ms, one admitted visible preview decode
+150ms, and one keystroke's serialization/private-store completion25ms. Keystroke
+p99<=50ms,max<=100ms. Report main-thread task stalls over50ms, not just averages.
+At most2 preview jobs remains the current bound; selected details retain priority.
+Do not claim full-board work bounded from a20-row DOM page. Proposed maximum
+50,000 connected DOM nodes on the4,120-card view is a diagnostic threshold, not
+authority to hide cards or change presentation in M16.
+
+Proposed resource/work decision thresholds:
+
+- Host steady private memory <=512MiB and browser process <=768MiB for the primary
+  selected32MiB logical recipe; peak host <=768MiB/browser <=1GiB during transfer.
+  Post-quiescence growth <=32MiB over30minutes, with no monotonically accumulating
+  admitted jobs/listeners/preview handles. Report OS working set and Go/JS heap
+  independently. Crossing a number prompts scope/design review, not forced GC or
+  deletion of protected state to make a sample pass.
+- Host CPU p95 <=250 CPU-ms per focused read and <=500 CPU-ms per ordinary edit;
+  browser CPU p95 <=500 CPU-ms per details open. Record total CPU-seconds, per-core
+  utilization and elapsed duration separately. Sustained primary-load host mean
+  <=one logical core and browser mean <=one logical core over60seconds.
+- Focused projection <=16 SQL statements, rows materialized <=3R+64 where R is
+  the exact requested current/retained fact count. Unrelated description bytes
+  materialized by that projection <=64KiB. Global current-policy validation is
+  counted SEPARATELY and included in the whole operation, never omitted to pass.
+  Proposed global row-work allowance <=4C+4E+P+128, where C is current cards,
+  E is relevant current graph/reference entities and P retained policy records.
+  Record visits, returned rows, decoded bytes and SQL statements independently;
+  a query-plan description is not an executed row count.
+- Preserve every full write-integrity check. Proposed total structured-byte work
+  per write <=4L+2B+2I+1MiB, where L is logical structured data, B protected blob
+  bytes actually required by current integrity validation and I immutable intent
+  bytes. Count each full audit/hash and copy; proposed at most one complete audit
+  pass per commit attempt. If this cannot retain every invariant, retain checks
+  and report the unresolved correction/design decision, never remove them.
+- For focused materialization, proposed peak extra live buffers <=3 times the
+  complete returned logical bytes +8MiB; distinguish Go allocation totals, peak
+  live buffers and browser copies. Count full graph/base copies per operation and
+  keystroke; proposed zero unrelated-board full-payload copies per focused read.
+- Catalog retains current4 native slots. Proposed one job per member/channel,
+  <=48 pending/active coalesced member jobs for24members/two channels, and one
+  browser request plus one follow-up. Healthy-member queue-age p95<=2seconds,
+  max<=5seconds despite one slow member. No slot is released before actual return.
+  Proposed future product-monitor fleet target4 simultaneous jobs/24 pending
+  scopes is NOT current behavior or a new cap applied by this proposal; W03 owns
+  any required correction under separate scope.
+- Consumer-only hidden/closed state: zero NEW catalog/selected-board sampling
+  after cancellation and actual completion of already admitted reads. In current
+  visible polling, at most one periodic trigger per5seconds and one coalesced
+  follow-up; report actual SQL/member work for every trigger. Explicitly running
+  monitors retain their current polling/lifetime, counted per active scope.
+- Healthy consumer Stop reports control state within2seconds. A stalled native
+  call may remain incomplete beyond that time; retained ownership is mandatory.
+  No numeric deadline is permission to release a live owner or claim quiescence.
+  Measure actual join latency and separately count all still-owned work.
+
+The focused payload-growth premise holds C/E/P fixed and varies unrelated prose.
+The related/history premise separately holds current-card counts/payload fixed
+and grows unrelated retained entities. No constant whole-operation claim across
+all axes follows. Full BoardRead relationships, search/catalog and file paths
+retain their own costs unless independently mapped and measured. An unchanged
+candidate meeting an accepted premise is useful evidence, not a NEW feature.
+
+5. Measurement and decision protocol
+
+Before Q01, freeze candidate/executable/assets, tools/locks/dependencies/browser,
+fixture generation/validation, exact operation and authority, expected facts,
+timing markers, work-counter definitions and overhead calibration. Keep the full
+available current-surface inventory: browser/drafts, attachments, HTTP refusals,
+captured/blocked/full output, startup and native drain, local notices, restart,
+idle, pre/post-commit storage faults and concurrent optional local backup. Future
+probes, sends, transport and recovery features are absent, not simulated PASS.
+
+Proposed initial baseline protocol:3 untimed warm-ups, then3 independent runs of
+10 operations per declared operation/shape/cache/authority cell. Report each run
+and the declared30-sample aggregate; never pool unlike shapes or successful/
+refused/UNKNOWN populations. Use10 fresh-process cold starts per declared cold
+cell; label OS-cache state explicitly. The exact case matrix is priced at Q01
+entry; this is not an instruction to execute every possible Cartesian product.
+Process-cold is not storage-cold. Do not purge shared OS caches or restart shared
+services to manufacture cold tests. If true cold storage cannot be established,
+say so and omit that claim. More samples require a separately bounded evidence
+plan, not an unlimited experiment.
+
+Quantiles: sort valid durations and use nearest rank ceil(p*N), with p=.50,.95,.99;
+record N,min,p50,p95,p99,max and every failure/timeout. At N=10 or30,p99 equals the
+observed maximum and is weak descriptive tail evidence, not a calibrated
+percentile guarantee. If Terry wants a supported tail-performance claim rather
+than an observation baseline, propose a separately priced follow-up of5 runs of
+200 samples for each specific decisive cell, including repeated cold runs where
+that claim matters. No1,000-sample study is free work inside the Q01 allowance.
+For a timed-out operation, keep the censored duration/lower bound and original
+outcome classification; do not drop it from counts or call it a fast refusal.
+Record run order and random seed, fixture/reset and cache warming separately.
+
+Propose one30-minute primary COMB/WS24 idle/navigation run, sampling CPU/memory/
+jobs/queues once per second:8minutes selected,7hidden,7closed,8with explicit Go
+monitor work and no browser consumer. Also compare the other fixture families
+through separately declared bounded observation windows; do not extrapolate the
+30-minute retained-memory result to an unobserved family. Headroom runs use2 and4
+independent windows and the dense workspace shape, labeled separately; failing
+headroom does not change correctness or silently lower the primary claim. Price
+the exact observations and any longer duration before execution, retaining all
+required surfaces visibly if their complete estimate needs scope reconciliation.
+
+Use monotonic durations within each process; never subtract unrelated browser
+and native clocks. Record UTC wall time only for correlation and edit-age display.
+Count SQL statements/rows, audits/hash bytes, materialized/copy bytes and job
+admission/return at authoritative boundaries. Record instrumented and ordinary
+matched runs. Proposed overhead target <=5% median and <=10% p95 elapsed; above
+that, retain both results and use ordinary timing plus instrumented work counts
+with a disclosed limitation. Do not subtract guessed instrumentation overhead.
+
+Shared diagnostics carry bounded schema-safe operation/phase/code/correlation,
+never prose, reference values, credentials, raw errors or provider objects. Use
+fresh owned mailbox, bounded action, release UI, bounded validated read/export
+and checked owned deletion. DOM/state/native/transaction assertions remain the
+correctness evidence; diagnostic acceptance is not product success.
+
+After ALL D01/D02/D03 proposal-quality reviews pass, an independently admitted
+Q01 may observe unchanged contracts before Terry accepts new budgets. Its full
+estimate, own current preflight, IP, ownership and queue gates remain. Complete
+ALL available baseline families before W01/W04 correction. Record failing cases
+and source bindings; no baseline collection occurs in M16.03.
+
+For every proposed threshold, the later report states: adopted by Terry/rejected/
+pending; measured value/sample/limitations; correctness outcome; and exact required
+correction or adaptation. Pending budgets mean observation only, never no-change
+PASS or scale readiness. Terry can accept some rows without accepting all. Any
+weakened guarantee or broader correction needs explicit scope/design resolution.
+
+Decision record and review exit
+
+Terry-owned dispositions remain the operating/support envelope, proposed numeric
+thresholds and any changed limit/adaptation. Fresh independent Sol / High review
+checks proposal completeness and coherence, fixes and material re-review. It does
+not adopt those decisions. A finished proposal belongs RFR; dependent unfinished
+work names a concrete missing owner decision. Terry retains Completed.
+
+Primary technical references checked November7,2026
+
+- SQLite EXPLAIN QUERY PLAN is useful plan evidence whose display format may
+  change; it is not an executed row-count substitute:
+  https://www.sqlite.org/eqp.html
+- Go runtime/metrics exposes runtime-defined metrics; enumerate supported keys
+  and record their units/version rather than assuming every target has one set:
+  https://pkg.go.dev/runtime/metrics
+- Use an available monotonic browser clock with its resolution disclosed. The
+  W3C High Resolution Time3 document consulted is a Working Draft, not a new
+  qualified tool/platform guarantee: https://www.w3.org/TR/hr-time-3/
+
+No benchmark, Q01 observation, new support acceptance or product change is
+reported by this document.
